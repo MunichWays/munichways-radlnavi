@@ -8,6 +8,73 @@ Handlers = require("lib/way_handlers")
 find_access_tag = require("lib/access").find_access_tag
 limit = require("lib/maxspeed").limit
 
+local months = {
+  jan = 1, feb = 2, mar = 3, apr = 4, may = 5, jun = 6,
+  jul = 7, aug = 8, sep = 9, oct = 10, nov = 11, dec = 12
+}
+
+local function month_day(month, day)
+  local month_number = months[string.lower(month)]
+  local day_number = tonumber(day)
+
+  if not month_number or not day_number or day_number < 1 or day_number > 31 then
+    return nil
+  end
+
+  return month_number * 100 + day_number
+end
+
+local function routing_month_day()
+  -- This override makes imports reproducible and allows testing either side of
+  -- a seasonal boundary. In production it is normally left unset.
+  local routing_date = os.getenv("RADLNAVI_ROUTING_DATE")
+  if routing_date then
+    local month, day = string.match(routing_date, "^%d%d%d%d%-(%d%d)%-(%d%d)$")
+    month = tonumber(month)
+    day = tonumber(day)
+    if month and day and month >= 1 and month <= 12 and day >= 1 and day <= 31 then
+      return month * 100 + day
+    end
+  end
+
+  local now = os.date("*t")
+  return now.month * 100 + now.day
+end
+
+local function date_range_is_active(start_date, end_date, current_date)
+  if start_date <= end_date then
+    return current_date >= start_date and current_date <= end_date
+  end
+
+  -- Ranges such as "Nov 01 - Mar 31" cross the end of the year.
+  return current_date >= start_date or current_date <= end_date
+end
+
+function bicycle_conditionally_forbidden(value, current_date)
+  if not value or value == "" then
+    return false
+  end
+
+  current_date = current_date or routing_month_day()
+
+  -- Conditional clauses are separated by semicolons. Unsupported conditions
+  -- are deliberately ignored instead of accidentally closing a way.
+  for clause in string.gmatch(value, "[^;]+") do
+    local start_month, start_day, end_month, end_day =
+      string.match(clause, "^%s*no%s*@%s*%(%s*(%a%a%a)%s+(%d%d?)%s*%-%s*(%a%a%a)%s+(%d%d?)%s*%)%s*$")
+
+    if start_month then
+      local start_date = month_day(start_month, start_day)
+      local end_date = month_day(end_month, end_day)
+      if start_date and end_date and date_range_is_active(start_date, end_date, current_date) then
+        return true
+      end
+    end
+  end
+
+  return false
+end
+
 function setup()
   local default_speed = 20
   local walking_speed = 4
@@ -287,6 +354,11 @@ function handle_bicycle_tags(profile,way,result,data)
   (not data.public_transport or data.public_transport=='') and
   (not data.bridge or data.bridge=='')
   then
+    return false
+  end
+
+  data.bicycle_conditional = way:get_value_by_key("bicycle:conditional")
+  if bicycle_conditionally_forbidden(data.bicycle_conditional) then
     return false
   end
 
@@ -635,6 +707,7 @@ function process_way(profile, way, result)
     foot_forward = nil,
     foot_backward = nil,
     bicycle = nil,
+    bicycle_conditional = nil,
 
     way_type_allows_pushing = false,
     has_cycleway_forward = false,

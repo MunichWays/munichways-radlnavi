@@ -6,6 +6,9 @@ RUN wget "https://download.geofabrik.de/${REGION}-latest.osm.pbf" -O /opt/map.os
 
 FROM osrm/osrm-backend:v5.25.0 AS builder
 
+ARG RADLNAVI_ROUTING_DATE
+ENV RADLNAVI_ROUTING_DATE=$RADLNAVI_ROUTING_DATE
+
 COPY --from=map /opt/map.osm.pbf /data/map.osm.pbf
 COPY bike.lua /opt/bike.lua
 RUN osrm-extract -p /opt/bike.lua /data/map.osm.pbf

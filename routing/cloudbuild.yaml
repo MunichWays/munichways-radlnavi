@@ -4,8 +4,20 @@ substitutions:
   _ROUTING_SERVICE: munichways-radlnavi-routing
 
 steps:
+  - name: gcr.io/cloud-builders/git
+    id: checkout-source
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        git clone https://github.com/MunichWays/munichways-radlnavi.git /workspace/source
+        cd /workspace/source
+        git checkout "$COMMIT_SHA"
+
   - name: gcr.io/cloud-builders/docker
     id: build-routing
+    waitFor: [checkout-source]
+    dir: source
     args:
       - build
       - --build-arg

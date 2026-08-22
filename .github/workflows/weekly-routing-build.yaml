@@ -30,7 +30,7 @@ jobs:
 
       - name: Build and deploy routing
         run: >-
-          gcloud builds submit .
+          gcloud builds submit --no-source
           --project=munichways-radlnavi-prod
           --config=routing/cloudbuild.yaml
           --substitutions=COMMIT_SHA=${GITHUB_SHA}

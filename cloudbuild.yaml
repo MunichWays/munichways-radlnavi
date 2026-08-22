@@ -119,6 +119,7 @@ steps:
       - --region=${_REGION}
       - --service-account=radlnavi-frontend@$PROJECT_ID.iam.gserviceaccount.com
       - --allow-unauthenticated
+      - --port=80
       - --min-instances=0
       - --max-instances=2
       - --memory=256Mi

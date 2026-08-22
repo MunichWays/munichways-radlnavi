@@ -13,7 +13,9 @@ from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from geopy import distance
-from requests import request
+from google.auth.transport.requests import Request as GoogleAuthRequest
+from google.oauth2 import id_token
+from requests import get
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -51,13 +53,20 @@ def get_geo_store() -> sqlite3.Connection:
 
 geo_store: Optional[sqlite3.Connection] = None
 OSRM_BACKEND_URL = os.environ["OSRM_BACKEND_URL"]
+OSRM_AUTH_AUDIENCE = os.environ.get("OSRM_AUTH_AUDIENCE")
 
-origins = [
+default_origins = [
     "http://localhost",
     "http://localhost:8000",
     "http://localhost:3000",
     "https://www.radlnavi.de",
     "https://radlnavi.de",
+    "https://radlnavi.munichways.de",
+]
+origins = [
+    origin.strip()
+    for origin in os.environ.get("CORS_ORIGINS", ";".join(default_origins)).split(";")
+    if origin.strip()
 ]
 
 @asynccontextmanager
@@ -77,6 +86,19 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/health")
+async def health():
+    return {"ok": True}
+
+
+def routing_auth_headers() -> dict[str, str]:
+    if not OSRM_AUTH_AUDIENCE:
+        return {}
+
+    token = id_token.fetch_id_token(GoogleAuthRequest(), OSRM_AUTH_AUDIENCE)
+    return {"Authorization": f"Bearer {token}"}
 
 
 @dataclass
@@ -196,9 +218,16 @@ async def route(
     start_lat: float, start_lon: float, target_lat: float, target_lon: float
 ):
     print("request start")
-    response = request(
-        "GET",
-        f"{OSRM_BACKEND_URL}/route/v1/bike/{start_lon},{start_lat}%3b{target_lon},{target_lat}%3Foverview=full&alternatives=true&steps=true&geometries=geojson&annotations=true",
+    response = get(
+        f"{OSRM_BACKEND_URL}/route/v1/bike/{start_lon},{start_lat};{target_lon},{target_lat}",
+        params={
+            "overview": "full",
+            "alternatives": "true",
+            "steps": "true",
+            "geometries": "geojson",
+            "annotations": "true",
+        },
+        headers=routing_auth_headers(),
         timeout=30,
     )
 

@@ -1,6 +1,9 @@
 name: Routing build
 
 on:
+  schedule:
+    # Sunday 03:15 UTC (04:15 CET / 05:15 CEST)
+    - cron: "15 3 * * 0"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +20,7 @@ jobs:
     timeout-minutes: 75
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v3
@@ -30,7 +33,7 @@ jobs:
 
       - name: Build and deploy routing
         run: >-
-          gcloud builds submit .
+          gcloud builds submit --no-source
           --project=munichways-radlnavi-prod
           --config=routing/cloudbuild.yaml
           --substitutions=COMMIT_SHA=${GITHUB_SHA}

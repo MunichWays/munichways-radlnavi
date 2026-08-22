@@ -63,7 +63,7 @@ steps:
         frontend_url="$$(gcloud run services describe '${_FRONTEND_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
         gcloud run services update '${_API_SERVICE}' \
           --region='${_REGION}' \
-          --update-env-vars="CORS_ORIGINS=https://radlnavi.munichways.de;$${frontend_url}"
+          --update-env-vars="CORS_ORIGINS=https://radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app;$${frontend_url}"
 
 images:
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA

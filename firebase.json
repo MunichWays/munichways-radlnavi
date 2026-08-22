@@ -1,0 +1,40 @@
+{
+  "hosting": [
+    {
+      "site": "munichways-radlnavi-prod",
+      "public": "firebase-public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "run": {
+            "serviceId": "munichways-radlnavi-frontend",
+            "region": "europe-west3"
+          }
+        }
+      ]
+    },
+    {
+      "site": "munichways-radlnavi-api",
+      "public": "firebase-public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "run": {
+            "serviceId": "munichways-radlnavi-api",
+            "region": "europe-west3"
+          }
+        }
+      ]
+    }
+  ]
+}

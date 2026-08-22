@@ -1,44 +1,12 @@
 substitutions:
   _REGION: europe-west3
   _REPOSITORY: radlnavi
-  _ROUTING_SERVICE: munichways-radlnavi-routing
   _API_SERVICE: munichways-radlnavi-api
   _FRONTEND_SERVICE: munichways-radlnavi-frontend
 
 steps:
-  - name: gcr.io/cloud-builders/docker
-    id: build-api
-    args: [build, -t, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA', -f, backend/Dockerfile, backend]
-
-  - name: gcr.io/cloud-builders/docker
-    id: push-api
-    waitFor: [build-api]
-    args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA']
-
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
-    id: deploy-api
-    waitFor: [push-api]
-    entrypoint: bash
-    args:
-      - -ceu
-      - |
-        routing_url="$$(gcloud run services describe '${_ROUTING_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
-        gcloud run deploy '${_API_SERVICE}' \
-          --image='${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA' \
-          --region='${_REGION}' \
-          --service-account='radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' \
-          --allow-unauthenticated \
-          --min-instances=0 \
-          --max-instances=2 \
-          --memory=512Mi \
-          --cpu=1 \
-          --concurrency=20 \
-          --timeout=60 \
-          --set-env-vars="OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=https://radlnavi.munichways.de;https://api.radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app"
-
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     id: resolve-api-url
-    waitFor: [deploy-api]
     entrypoint: bash
     args:
       - -ceu
@@ -95,10 +63,9 @@ steps:
         frontend_url="$$(gcloud run services describe '${_FRONTEND_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
         gcloud run services update '${_API_SERVICE}' \
           --region='${_REGION}' \
-          --update-env-vars="CORS_ORIGINS=https://radlnavi.munichways.de;https://api.radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app;$${frontend_url}"
+          --update-env-vars="CORS_ORIGINS=https://radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app;$${frontend_url}"
 
 images:
-  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA
 
 options:

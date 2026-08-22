@@ -1,33 +1,53 @@
+substitutions:
+  _REGION: europe-west3
+  _REPOSITORY: radlnavi
+  _ROUTING_SERVICE: munichways-radlnavi-routing
+
 steps:
+  - name: gcr.io/cloud-builders/docker
+    id: build-routing
+    args:
+      - build
+      - --build-arg
+      - RADLNAVI_ROUTING_DATE=$BUILD_ID
+      - -t
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA
+      - -f
+      - routing/Dockerfile
+      - routing
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'europe-north1-docker.pkg.dev/$PROJECT_ID/images/routing:$COMMIT_SHA', '-f', 'routing/Dockerfile', 'routing']
-  waitFor: ['-']
-  id: build-routing
+  - name: gcr.io/cloud-builders/docker
+    id: push-routing
+    waitFor: [build-routing]
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA
 
-- name: 'gcr.io/cloud-builders/docker'
-  id: push-routing
-  args: ['push', 'europe-north1-docker.pkg.dev/$PROJECT_ID/images/routing:$COMMIT_SHA']
-  waitFor:
-  - build-routing
-
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  id: deploy-routing
-  waitFor:
-  - push-routing
-  args:
-  - 'run'
-  - 'deploy'
-  - 'routing'
-  - '--min-instances=0'
-  - '--max-instances=1'
-  - '--memory=2Gi'
-  - '--cpu=1'
-  - '--image'
-  - 'europe-north1-docker.pkg.dev/$PROJECT_ID/images/routing:$COMMIT_SHA'
-  - '--region'
-  - 'europe-north1'
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy-routing
+    waitFor: [push-routing]
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_ROUTING_SERVICE}
+      - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA
+      - --region=${_REGION}
+      - --service-account=radlnavi-routing@$PROJECT_ID.iam.gserviceaccount.com
+      - --no-allow-unauthenticated
+      - --min-instances=0
+      - --max-instances=1
+      - --memory=2Gi
+      - --cpu=1
+      - --concurrency=20
+      - --timeout=60
 
 images:
-- 'europe-north1-docker.pkg.dev/$PROJECT_ID/images/routing:$COMMIT_SHA'
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+serviceAccount: projects/$PROJECT_ID/serviceAccounts/radlnavi-build@$PROJECT_ID.iam.gserviceaccount.com
+
+timeout: 3600s

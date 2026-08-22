@@ -1,0 +1,75 @@
+substitutions:
+  _REGION: europe-west3
+  _REPOSITORY: radlnavi
+  _API_SERVICE: munichways-radlnavi-api
+  _FRONTEND_SERVICE: munichways-radlnavi-frontend
+
+steps:
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: resolve-api-url
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        api_url="$$(gcloud run services describe '${_API_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        printf '%s' "$${api_url}" > /workspace/api-url
+
+  - name: gcr.io/cloud-builders/docker
+    id: build-frontend
+    waitFor: [resolve-api-url]
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        api_url="$$(cat /workspace/api-url)"
+        docker build \
+          --build-arg="BACKEND_URL=$${api_url}" \
+          --build-arg="VERSION=$COMMIT_SHA" \
+          -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA' \
+          -f frontend/Dockerfile frontend
+
+  - name: gcr.io/cloud-builders/docker
+    id: push-frontend
+    waitFor: [build-frontend]
+    args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA']
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy-frontend
+    waitFor: [push-frontend]
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_FRONTEND_SERVICE}
+      - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA
+      - --region=${_REGION}
+      - --service-account=radlnavi-frontend@$PROJECT_ID.iam.gserviceaccount.com
+      - --allow-unauthenticated
+      - --min-instances=0
+      - --max-instances=2
+      - --memory=256Mi
+      - --cpu=1
+      - --concurrency=80
+      - --timeout=60
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: configure-api-cors
+    waitFor: [deploy-frontend]
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        frontend_url="$$(gcloud run services describe '${_FRONTEND_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        gcloud run services update '${_API_SERVICE}' \
+          --region='${_REGION}' \
+          --update-env-vars="CORS_ORIGINS=https://radlnavi.munichways.de;$${frontend_url}"
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+
+serviceAccount: projects/$PROJECT_ID/serviceAccounts/radlnavi-build@$PROJECT_ID.iam.gserviceaccount.com
+
+timeout: 3600s

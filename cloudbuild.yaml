@@ -78,14 +78,24 @@ steps:
           --timeout=60 \
           --set-env-vars="OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=https://radlnavi.munichways.de"
 
-  - name: gcr.io/cloud-builders/docker
-    id: build-frontend
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: resolve-api-url
     waitFor: [deploy-api]
     entrypoint: bash
     args:
       - -ceu
       - |
         api_url="$$(gcloud run services describe '${_API_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        printf '%s' "$${api_url}" > /workspace/api-url
+
+  - name: gcr.io/cloud-builders/docker
+    id: build-frontend
+    waitFor: [resolve-api-url]
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        api_url="$$(cat /workspace/api-url)"
         docker build \
           --build-arg="BACKEND_URL=$${api_url}" \
           --build-arg="VERSION=$COMMIT_SHA" \

@@ -10,7 +10,7 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from geopy import distance
 from google.auth.transport.requests import Request as GoogleAuthRequest
@@ -86,6 +86,28 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/route/v1/{profile}/{coordinates:path}")
+async def osrm_route_proxy(
+    request: Request, profile: str, coordinates: str
+) -> Response:
+    """Expose the private routing service through an OSRM-compatible API."""
+    response = get(
+        f"{OSRM_BACKEND_URL}/route/v1/{profile}/{coordinates}",
+        params=list(request.query_params.multi_items()),
+        headers=routing_auth_headers(),
+        timeout=30,
+    )
+    headers = {}
+    content_type = response.headers.get("content-type")
+    if content_type:
+        headers["content-type"] = content_type
+    return Response(
+        content=response.content,
+        status_code=response.status_code,
+        headers=headers,
+    )
 
 
 @app.get("/health")

@@ -6,6 +6,8 @@ import sys
 import unittest
 from unittest.mock import Mock, patch
 
+from starlette.requests import Request
+
 
 os.environ.setdefault("OSRM_BACKEND_URL", "http://routing:8080")
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -29,6 +31,55 @@ class RoutingAuthenticationTest(unittest.TestCase):
 
 
 class RouteTest(unittest.TestCase):
+    def test_osrm_proxy_preserves_path_query_response_and_error_status(self):
+        response = Mock()
+        response.status_code = 400
+        response.content = b'{"code":"InvalidOptions"}'
+        response.headers = {"content-type": "application/json"}
+        request = Request(
+            {
+                "type": "http",
+                "method": "GET",
+                "path": "/route/v1/bike/coordinates",
+                "query_string": (
+                    b"alternatives=false&steps=true&exclude=ferry&exclude=motorway"
+                ),
+                "headers": [],
+            }
+        )
+
+        with (
+            patch.object(app, "get", return_value=response) as get,
+            patch.object(
+                app,
+                "routing_auth_headers",
+                return_value={"Authorization": "Bearer token"},
+            ),
+        ):
+            result = asyncio.run(
+                app.osrm_route_proxy(
+                    request,
+                    "bike",
+                    "11.5,48.1;11.55,48.15;11.6,48.2",
+                )
+            )
+
+        self.assertEqual(400, result.status_code)
+        self.assertEqual(b'{"code":"InvalidOptions"}', result.body)
+        self.assertEqual("application/json", result.headers["content-type"])
+        get.assert_called_once_with(
+            "http://routing:8080/route/v1/bike/"
+            "11.5,48.1;11.55,48.15;11.6,48.2",
+            params=[
+                ("alternatives", "false"),
+                ("steps", "true"),
+                ("exclude", "ferry"),
+                ("exclude", "motorway"),
+            ],
+            headers={"Authorization": "Bearer token"},
+            timeout=30,
+        )
+
     def test_route_forwards_coordinates_and_osrm_options(self):
         response = Mock()
         response.status_code = 200

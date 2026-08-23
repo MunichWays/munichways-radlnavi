@@ -641,7 +641,7 @@ function App() {
       const item = {
         display_name: `[${position.lat.toPrecision(
           8
-        )}; ${position.lng.toPrecision(8)}]`,
+        )}, ${position.lng.toPrecision(8)}]`,
         place_id: 1,
         lat: position.lat.toString() || "0",
         lon: position.lng.toString() || "0",
@@ -657,7 +657,7 @@ function App() {
     const item = {
       display_name: `[${position.lat.toPrecision(
         8
-      )}; ${position.lng.toPrecision(8)}]`,
+      )}, ${position.lng.toPrecision(8)}]`,
       place_id: 2,
       lat: position.lat.toString() || "0",
       lon: position.lng.toString() || "0",

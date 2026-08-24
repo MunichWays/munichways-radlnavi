@@ -4,7 +4,7 @@ RUN git clone https://github.com/mapbox/tippecanoe.git
 RUN cd tippecanoe && make -j && make install && cd -
 
 ARG BACKEND_URL="https://backend.radlnavi.de"
-ARG VERSION="v1"
+ARG VERSION="local"
 ARG REGION="europe/germany/bayern/oberbayern"
 
 COPY public public
@@ -26,6 +26,9 @@ RUN ./tippecanoe/tippecanoe --maximum-zoom=19 --no-tile-compression -e ./public/
 RUN REACT_APP_BACKEND_URL="$BACKEND_URL" REACT_APP_VERSION="$VERSION" npm run build
 
 FROM ubuntu/nginx
+
+ARG VERSION="local"
+LABEL org.opencontainers.image.revision=$VERSION
 
 ENV PORT 80
 

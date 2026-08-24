@@ -80,6 +80,28 @@ interface RouteMetadata {
   duration: number;
 }
 
+interface VersionInfo {
+  backend: string;
+  routing: string;
+  osrm: string;
+}
+
+function shortVersion(version: string): string {
+  return /^[0-9a-f]{7,40}$/i.test(version) ? version.substring(0, 7) : version;
+}
+
+function VersionLink({label, version}: {label: string, version: string}) {
+  const text = `${label} ${shortVersion(version)}`;
+  if (!/^[0-9a-f]{7,40}$/i.test(version)) {
+    return <span>{text}</span>;
+  }
+  return <Link
+    href={`https://github.com/MunichWays/munichways-radlnavi/commit/${version}`}
+    target="_blank"
+    rel="noreferrer"
+  >{text}</Link>;
+}
+
 interface QueryItem {
   distance: number;
   start: number;
@@ -333,6 +355,19 @@ function App() {
   const [lineToRoute, setLineToRoute] = useState<LineGeo | null>(null);
   const [regionShape, setRegionShape] = useState<Polygon | null>(null);
   const [gpsMode, setGpsMode] = useState<"gps_off" | "gps_not_fixed" | "gps_fixed">("gps_off");
+  const [versionInfo, setVersionInfo] = useState<VersionInfo | null>(null);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/version`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Version request failed: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(setVersionInfo)
+      .catch(error => console.warn("Could not load backend versions", error));
+  }, []);
 
   const loadRegionShape = async () => {
     const regionGeoJson = await fetch("/region.json");
@@ -1080,9 +1115,13 @@ function App() {
               <Link style={{cursor: "pointer"}} onClick={() => setShowImpressum(true)}>Impressum und
                 Datenschutzerklärung</Link><br/>
               <div style={{padding: 2}}></div>
-              <Link style={{cursor: "pointer", fontWeight: 'bold'}}
-                    onClick={() => window.open(`https://github.com/MunichWays/radlnavi/releases/tag/${process.env.REACT_APP_VERSION || "v1"}`, "_blank")}>Das
-                ist neu in RadlNavi {process.env.REACT_APP_VERSION || "v1"}</Link>
+              <span style={{fontWeight: 'bold'}}>Versionen: </span>
+              <VersionLink label="FE" version={process.env.REACT_APP_VERSION || "local"}/>
+              {versionInfo == null ? <span> · BE/Routing werden geladen</span> : <>
+                <span> · </span><VersionLink label="BE" version={versionInfo.backend}/>
+                <span> · </span><VersionLink label="Routing" version={versionInfo.routing}/>
+                <span> · OSRM {versionInfo.osrm}</span>
+              </>}
             </div>
           </div>
         </Drawer>

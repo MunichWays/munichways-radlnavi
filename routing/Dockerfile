@@ -21,6 +21,9 @@ RUN osrm-customize /data/map.osm.pbf
 
 FROM ${OSRM_IMAGE}
 
+ARG VERSION="local"
+LABEL org.opencontainers.image.revision=$VERSION
+
 COPY --from=builder /data /data
 
 ENV PORT=8080

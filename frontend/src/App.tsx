@@ -1326,7 +1326,9 @@ function App() {
               target="_blank" rel="noreferrer">RadlNavi</a> entwickelt.<br /><br />
             Alle Angaben zum Datenschutz und zur verantwortlichen Stelle stehen in der <a
               href="https://www.munichways.de/datenschutzerklaerung-app/"
-              target="_blank" rel="noreferrer">Datenschutzerklärung für die MunichWays App</a>.
+              target="_blank" rel="noreferrer">Datenschutzerklärung für die MunichWays App</a>.<br /><br />
+            Ergänzend gelten die <a href="https://www.munichways.de/nutzungbedingungen-app/"
+              target="_blank" rel="noreferrer">Nutzungsbedingungen für die MunichWays App</a>.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

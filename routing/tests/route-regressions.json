@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sintpertstrasse_to_bergstrasse",
+    "description": "Sensitive start point before Setzbergstrasse keeps the established main-road corridor",
+    "coordinates": "11.588624,48.109473;11.575884,48.115258",
+    "expected_step_names": [
+      "Sintpertstraße",
+      "Perlacher Straße",
+      "Tegernseer Landstraße",
+      "Zehentbauernstraße",
+      "Bergstraße"
+    ],
+    "baseline_distance_m": 1318.8,
+    "distance_tolerance": 0.2
+  },
+  {
+    "id": "wirtstrasse_to_scharfnagelberg",
+    "description": "Short route at the signalized Martin-Luther-Strasse crossing does not take a large detour",
+    "coordinates": "11.577385,48.112370;11.574445,48.112901",
+    "expected_step_names": [
+      "Wirtstraße",
+      "Martin-Luther-Straße",
+      "Tegernseer Landstraße"
+    ],
+    "baseline_distance_m": 258.2,
+    "distance_tolerance": 0.25
+  },
+  {
+    "id": "pilgersheimer_strasse_signalized_intersection",
+    "description": "Route along Pilgersheimer Strasse through the signalized intersection stays direct",
+    "coordinates": "11.575631,48.119852;11.575040,48.119104",
+    "expected_step_names": ["Pilgersheimer Straße"],
+    "baseline_distance_m": 94.0,
+    "distance_tolerance": 0.25
+  },
+  {
+    "id": "humboldtstrasse_cycleway_signalized_intersection",
+    "description": "Route on the separated Humboldtstrasse cycleway stays direct",
+    "coordinates": "11.575903,48.119362;11.574743,48.119808",
+    "expected_step_names": ["Humboldtstraße"],
+    "baseline_distance_m": 99.6,
+    "distance_tolerance": 0.25
+  }
+]

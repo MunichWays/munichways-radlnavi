@@ -46,3 +46,24 @@ The running server can then be checked with a route request such as:
 ```text
 http://localhost:18080/route/v1/bike/7.42056,43.73114;7.42620,43.73840?overview=false&steps=true
 ```
+
+## Munich route regressions
+
+The data-driven regression suite records stable street corridors and broadly
+tolerated distances for sensitive Munich routes. Run it against a locally
+started full Oberbayern routing image with:
+
+```shell
+python routing/tests/test_route_regressions.py --endpoint http://localhost:8080
+```
+
+It can also be run against the current production baseline:
+
+```shell
+python routing/tests/test_route_regressions.py \
+  --endpoint https://api.radlnavi.munichways.de
+```
+
+Distance tolerances deliberately allow ordinary OSM data changes. A changed
+street sequence or a substantial detour fails and must be reviewed before an
+OSRM migration is deployed.

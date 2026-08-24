@@ -9,6 +9,11 @@ find_access_tag = require("lib/access").find_access_tag
 limit = require("lib/maxspeed").limit
 local conditional_access = require("conditional_access")
 
+local WAY_CLASS_BICYCLE = 1
+local WAY_CLASS_QUIET = 2
+local WAY_CLASS_TERTIARY = 3
+local WAY_CLASS_MAJOR = 4
+
 function setup()
   local default_speed = 20
   local walking_speed = 4
@@ -92,6 +97,28 @@ function setup()
     restrictions = Set {
       'bicycle'
     },
+
+    highway_turn_classification = {
+      cycleway = WAY_CLASS_BICYCLE,
+      path = WAY_CLASS_BICYCLE,
+      footway = WAY_CLASS_BICYCLE,
+      pedestrian = WAY_CLASS_BICYCLE,
+      residential = WAY_CLASS_QUIET,
+      living_street = WAY_CLASS_QUIET,
+      service = WAY_CLASS_QUIET,
+      unclassified = WAY_CLASS_QUIET,
+      road = WAY_CLASS_QUIET,
+      tertiary = WAY_CLASS_TERTIARY,
+      tertiary_link = WAY_CLASS_TERTIARY,
+      secondary = WAY_CLASS_MAJOR,
+      secondary_link = WAY_CLASS_MAJOR,
+      primary = WAY_CLASS_MAJOR,
+      primary_link = WAY_CLASS_MAJOR,
+      trunk = WAY_CLASS_MAJOR,
+      trunk_link = WAY_CLASS_MAJOR,
+    },
+
+    access_turn_classification = {},
 
     cycleway_tags = Set {
       'track',
@@ -271,15 +298,42 @@ function process_node(profile, node, result)
     end
   end
 
-  -- check if node is a traffic light
-  local tag = node:get_value_by_key("highway")
-  if tag and "traffic_signals" == tag then
-    result.traffic_lights = true
+  -- Keep carriageway signals and signalized bicycle crossings separate. The
+  -- matching obstacle is selected later from the incoming way class.
+  local direction_tag = node:get_value_by_key("traffic_signals:direction") or
+    node:get_value_by_key("direction")
+  local obstacle_direction_value = obstacle_direction.both
+  if direction_tag == "forward" then
+    obstacle_direction_value = obstacle_direction.forward
+  elseif direction_tag == "backward" then
+    obstacle_direction_value = obstacle_direction.backward
+  end
+
+  if highway == "traffic_signals" then
+    obstacle_map:add(node, Obstacle.new(
+      obstacle_type.traffic_signals,
+      obstacle_direction_value,
+      0,
+      0
+    ))
+  elseif highway == "crossing" and
+      node:get_value_by_key("crossing") == "traffic_signals" then
+    obstacle_map:add(node, Obstacle.new(
+      obstacle_type.crossing,
+      obstacle_direction_value,
+      0,
+      0
+    ))
   end
 
   local railway = node:get_value_by_key("railway")
   if railway and railway == "level_crossing" then
-    result.traffic_lights = true
+    obstacle_map:add(node, Obstacle.new(
+      obstacle_type.stop,
+      obstacle_direction.both,
+      0,
+      0
+    ))
   end
 end
 
@@ -698,7 +752,10 @@ function process_way(profile, way, result)
     WayHandlers.classes,
 
     -- set weight properties of the way
-    WayHandlers.weights
+    WayHandlers.weights,
+
+    -- Preserve the coarse RadlNavi way class for signal selection at turns.
+    WayHandlers.way_classification_for_turn
   }
 
   WayHandlers.run(profile, way, result, data, handlers)
@@ -780,8 +837,26 @@ function process_turn(profile, turn)
     turn.duration = turn.duration + profile.properties.u_turn_penalty
   end
 
-  if turn.has_traffic_light then
-     turn.duration = turn.duration + profile.properties.traffic_light_penalty
+  local has_signal_penalty = obstacle_map:any(
+    turn.from, turn.via, obstacle_type.stop
+  )
+
+  -- A bicycle right turn does not receive an additional signal penalty. The
+  -- lower bound avoids treating a gentle right-hand road bend as a turn.
+  local is_right_turn = turn.angle >= 45 and turn.angle <= 135
+  if not is_right_turn then
+    local incoming_class = turn.source_road.highway_turn_classification
+    local signal_type = obstacle_type.traffic_signals
+    if incoming_class == WAY_CLASS_BICYCLE then
+      signal_type = obstacle_type.crossing
+    end
+
+    if obstacle_map:any(turn.from, turn.via, signal_type) then
+      has_signal_penalty = true
+    end
+  end
+  if has_signal_penalty then
+    turn.duration = turn.duration + profile.properties.traffic_light_penalty
   end
   if profile.properties.weight_name == 'cyclability' then
     turn.weight = turn.duration * 2

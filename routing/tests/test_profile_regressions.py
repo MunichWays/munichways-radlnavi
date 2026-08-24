@@ -15,8 +15,7 @@ ENDPOINT = "http://localhost:18081"
 PROFILE = Path(__file__).resolve().parents[1] / "bike.lua"
 
 
-def route(lat: float) -> dict:
-    coordinates = f"11.0000,{lat:.4f};11.0010,{lat:.4f}"
+def route_coordinates(coordinates: str) -> dict:
     url = (
         f"{ENDPOINT}/route/v1/bike/{coordinates}"
         "?overview=false&radiuses=8;8"
@@ -28,8 +27,18 @@ def route(lat: float) -> dict:
         return json.load(error)
 
 
+def route(lat: float) -> dict:
+    return route_coordinates(f"11.0000,{lat:.4f};11.0010,{lat:.4f}")
+
+
 def assert_routable(lat: float) -> dict:
     response = route(lat)
+    assert response["code"] == "Ok", response
+    return response["routes"][0]
+
+
+def assert_coordinates_routable(coordinates: str) -> dict:
+    response = route_coordinates(coordinates)
     assert response["code"] == "Ok", response
     return response["routes"][0]
 
@@ -69,6 +78,81 @@ def main() -> int:
     assert_blocked(48.1100)
     for lat in (48.2000, 48.2100, 48.2200):
         assert_blocked(lat)
+
+    road_without_signal = assert_routable(48.3000)
+    road_signal = assert_routable(48.3100)
+    road_crossing_signal = assert_routable(48.3200)
+    path_crossing_signal = assert_routable(48.3300)
+    path_road_signal = assert_routable(48.3400)
+
+    assert math.isclose(
+        road_signal["weight"] - road_without_signal["weight"], 12, abs_tol=0.3
+    ), (road_signal, road_without_signal)
+    assert math.isclose(
+        road_crossing_signal["weight"], road_without_signal["weight"], abs_tol=0.3
+    ), (road_crossing_signal, road_without_signal)
+    assert math.isclose(
+        path_crossing_signal["weight"] - path_road_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (path_crossing_signal, path_road_signal)
+
+    forward_signal = assert_routable(48.3500)
+    backward_signal = assert_coordinates_routable(
+        "11.0010,48.3500;11.0000,48.3500"
+    )
+    assert math.isclose(
+        forward_signal["weight"] - road_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (forward_signal, road_without_signal)
+    assert math.isclose(
+        backward_signal["weight"], road_without_signal["weight"], abs_tol=0.3
+    ), (backward_signal, road_without_signal)
+
+    backward_tag_forward_route = assert_routable(48.3800)
+    backward_tag_backward_route = assert_coordinates_routable(
+        "11.0010,48.3800;11.0000,48.3800"
+    )
+    assert math.isclose(
+        backward_tag_forward_route["weight"],
+        road_without_signal["weight"],
+        abs_tol=0.3,
+    ), (backward_tag_forward_route, road_without_signal)
+    assert math.isclose(
+        backward_tag_backward_route["weight"] - road_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (backward_tag_backward_route, road_without_signal)
+
+    right_turn_signal = assert_coordinates_routable(
+        "11.0000,48.3600;11.0005,48.3595"
+    )
+    right_turn_without_signal = assert_coordinates_routable(
+        "11.0000,48.3700;11.0005,48.3695"
+    )
+    assert math.isclose(
+        right_turn_signal["weight"], right_turn_without_signal["weight"], abs_tol=0.3
+    ), (right_turn_signal, right_turn_without_signal)
+
+    left_turn_signal = assert_coordinates_routable(
+        "11.0000,48.3900;11.0005,48.3905"
+    )
+    left_turn_without_signal = assert_coordinates_routable(
+        "11.0000,48.4000;11.0005,48.4005"
+    )
+    assert math.isclose(
+        left_turn_signal["weight"] - left_turn_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (left_turn_signal, left_turn_without_signal)
+
+    level_crossing = assert_routable(48.4100)
+    assert math.isclose(
+        level_crossing["weight"] - road_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (level_crossing, road_without_signal)
 
     print("profile regressions passed")
     return 0

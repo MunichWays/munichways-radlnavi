@@ -38,6 +38,56 @@
   <node id="35" lat="48.2200" lon="11.0000" />
   <node id="36" lat="48.2200" lon="11.0010" />
 
+  <!-- Traffic signal fixtures: equal-length isolated ways. -->
+  <node id="41" lat="48.3000" lon="11.0000" />
+  <node id="42" lat="48.3000" lon="11.0005" />
+  <node id="43" lat="48.3000" lon="11.0010" />
+  <node id="44" lat="48.3100" lon="11.0000" />
+  <node id="45" lat="48.3100" lon="11.0005"><tag k="highway" v="traffic_signals" /></node>
+  <node id="46" lat="48.3100" lon="11.0010" />
+  <node id="47" lat="48.3200" lon="11.0000" />
+  <node id="48" lat="48.3200" lon="11.0005"><tag k="highway" v="crossing" /><tag k="crossing" v="traffic_signals" /></node>
+  <node id="49" lat="48.3200" lon="11.0010" />
+  <node id="51" lat="48.3300" lon="11.0000" />
+  <node id="52" lat="48.3300" lon="11.0005"><tag k="highway" v="crossing" /><tag k="crossing" v="traffic_signals" /></node>
+  <node id="53" lat="48.3300" lon="11.0010" />
+  <node id="54" lat="48.3400" lon="11.0000" />
+  <node id="55" lat="48.3400" lon="11.0005"><tag k="highway" v="traffic_signals" /></node>
+  <node id="56" lat="48.3400" lon="11.0010" />
+  <node id="57" lat="48.3500" lon="11.0000" />
+  <node id="58" lat="48.3500" lon="11.0005"><tag k="highway" v="traffic_signals" /><tag k="traffic_signals:direction" v="forward" /></node>
+  <node id="59" lat="48.3500" lon="11.0010" />
+  <node id="70" lat="48.3005" lon="11.0005" />
+  <node id="71" lat="48.3105" lon="11.0005" />
+  <node id="72" lat="48.3205" lon="11.0005" />
+  <node id="73" lat="48.3305" lon="11.0005" />
+  <node id="74" lat="48.3405" lon="11.0005" />
+  <node id="75" lat="48.3505" lon="11.0005" />
+  <node id="76" lat="48.3800" lon="11.0000" />
+  <node id="77" lat="48.3800" lon="11.0005"><tag k="highway" v="traffic_signals" /><tag k="traffic_signals:direction" v="backward" /></node>
+  <node id="78" lat="48.3800" lon="11.0010" />
+  <node id="79" lat="48.3805" lon="11.0005" />
+  <node id="81" lat="48.3900" lon="11.0000" />
+  <node id="82" lat="48.3900" lon="11.0005"><tag k="highway" v="traffic_signals" /></node>
+  <node id="83" lat="48.3905" lon="11.0005" />
+  <node id="84" lat="48.3900" lon="11.0010" />
+  <node id="85" lat="48.4000" lon="11.0000" />
+  <node id="86" lat="48.4000" lon="11.0005" />
+  <node id="87" lat="48.4005" lon="11.0005" />
+  <node id="88" lat="48.4000" lon="11.0010" />
+  <node id="91" lat="48.4100" lon="11.0000" />
+  <node id="92" lat="48.4100" lon="11.0005"><tag k="railway" v="level_crossing" /></node>
+  <node id="93" lat="48.4100" lon="11.0010" />
+  <node id="94" lat="48.4105" lon="11.0005" />
+  <node id="61" lat="48.3600" lon="11.0000" />
+  <node id="62" lat="48.3600" lon="11.0005"><tag k="highway" v="traffic_signals" /></node>
+  <node id="63" lat="48.3595" lon="11.0005" />
+  <node id="67" lat="48.3600" lon="11.0010" />
+  <node id="64" lat="48.3700" lon="11.0000" />
+  <node id="65" lat="48.3700" lon="11.0005" />
+  <node id="66" lat="48.3695" lon="11.0005" />
+  <node id="68" lat="48.3700" lon="11.0010" />
+
   <way id="101"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/></way>
   <way id="102"><nd ref="3"/><nd ref="4"/><tag k="highway" v="residential"/><tag k="surface" v="chipseal"/></way>
   <way id="103"><nd ref="5"/><nd ref="6"/><tag k="highway" v="residential"/><tag k="surface" v="concrete"/></way>
@@ -54,4 +104,29 @@
   <way id="301"><nd ref="31"/><nd ref="32"/><tag k="highway" v="construction"/><tag k="construction" v="residential"/></way>
   <way id="302"><nd ref="33"/><nd ref="34"/><tag k="highway" v="proposed"/><tag k="proposed" v="residential"/></way>
   <way id="303"><nd ref="35"/><nd ref="36"/><tag k="highway" v="residential"/><tag k="motorroad" v="yes"/></way>
+
+  <way id="401"><nd ref="41"/><nd ref="42"/><nd ref="43"/><tag k="highway" v="residential"/></way>
+  <way id="402"><nd ref="44"/><nd ref="45"/><nd ref="46"/><tag k="highway" v="residential"/></way>
+  <way id="403"><nd ref="47"/><nd ref="48"/><nd ref="49"/><tag k="highway" v="residential"/></way>
+  <way id="404"><nd ref="51"/><nd ref="52"/><nd ref="53"/><tag k="highway" v="path"/><tag k="bicycle" v="designated"/></way>
+  <way id="405"><nd ref="54"/><nd ref="55"/><nd ref="56"/><tag k="highway" v="path"/><tag k="bicycle" v="designated"/></way>
+  <way id="406"><nd ref="57"/><nd ref="58"/><nd ref="59"/><tag k="highway" v="residential"/></way>
+  <way id="407"><nd ref="61"/><nd ref="62"/><nd ref="67"/><tag k="highway" v="residential"/></way>
+  <way id="408"><nd ref="62"/><nd ref="63"/><tag k="highway" v="residential"/></way>
+  <way id="409"><nd ref="64"/><nd ref="65"/><nd ref="68"/><tag k="highway" v="residential"/></way>
+  <way id="410"><nd ref="65"/><nd ref="66"/><tag k="highway" v="residential"/></way>
+  <way id="411"><nd ref="42"/><nd ref="70"/><tag k="highway" v="residential"/></way>
+  <way id="412"><nd ref="45"/><nd ref="71"/><tag k="highway" v="residential"/></way>
+  <way id="413"><nd ref="48"/><nd ref="72"/><tag k="highway" v="residential"/></way>
+  <way id="414"><nd ref="52"/><nd ref="73"/><tag k="highway" v="residential"/></way>
+  <way id="415"><nd ref="55"/><nd ref="74"/><tag k="highway" v="residential"/></way>
+  <way id="416"><nd ref="58"/><nd ref="75"/><tag k="highway" v="residential"/></way>
+  <way id="417"><nd ref="76"/><nd ref="77"/><nd ref="78"/><tag k="highway" v="residential"/></way>
+  <way id="418"><nd ref="77"/><nd ref="79"/><tag k="highway" v="residential"/></way>
+  <way id="419"><nd ref="81"/><nd ref="82"/><nd ref="84"/><tag k="highway" v="residential"/></way>
+  <way id="420"><nd ref="82"/><nd ref="83"/><tag k="highway" v="residential"/></way>
+  <way id="421"><nd ref="85"/><nd ref="86"/><nd ref="88"/><tag k="highway" v="residential"/></way>
+  <way id="422"><nd ref="86"/><nd ref="87"/><tag k="highway" v="residential"/></way>
+  <way id="423"><nd ref="91"/><nd ref="92"/><nd ref="93"/><tag k="highway" v="residential"/></way>
+  <way id="424"><nd ref="92"/><nd ref="94"/><tag k="highway" v="residential"/></way>
 </osm>

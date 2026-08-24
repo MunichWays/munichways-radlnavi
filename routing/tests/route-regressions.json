@@ -40,5 +40,34 @@
     "expected_step_names": ["Humboldtstraße"],
     "baseline_distance_m": 99.6,
     "distance_tolerance": 0.25
+  },
+  {
+    "id": "rudolf_vogel_bogen_separate_cycleway",
+    "description": "A separately mapped cycleway prefers the sidepath without blocking a substantially shorter legal carriageway route",
+    "coordinates": "11.642564,48.093118;11.646189,48.092094",
+    "expected_step_names": [
+      "Helmut-Käutner-Straße",
+      "Horst-Caspar-Straße",
+      "Rudolf-Vogel-Bogen"
+    ],
+    "baseline_distance_m": 370.3,
+    "distance_tolerance": 0.15
+  },
+  {
+    "id": "lindwurmstrasse_turn_restrictions",
+    "description": "Bicycle routing observes the only-right-turn restrictions from Ringseisstrasse and Rothmundstrasse into Lindwurmstrasse",
+    "coordinates": "11.562274,48.129620;11.554595,48.127858",
+    "expected_step_names": [
+      "Maistraße",
+      "Waltherstraße",
+      "Häberlstraße",
+      "Lindwurmstraße"
+    ],
+    "forbidden_step_names": [
+      "Ringseisstraße",
+      "Rothmundstraße"
+    ],
+    "baseline_distance_m": 788.2,
+    "distance_tolerance": 0.15
   }
 ]

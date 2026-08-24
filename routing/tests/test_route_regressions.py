@@ -66,6 +66,16 @@ def check_case(endpoint: str, case: dict[str, Any]) -> list[str]:
             f"{' -> '.join(expected_names)}, got {' -> '.join(actual_names)}"
         )
 
+    forbidden_names = case.get("forbidden_step_names", [])
+    used_forbidden_names = [
+        name for name in forbidden_names if name in actual_names
+    ]
+    if used_forbidden_names:
+        errors.append(
+            "route uses forbidden street sequence: "
+            + " -> ".join(used_forbidden_names)
+        )
+
     distance = float(route["distance"])
     baseline = float(case["baseline_distance_m"])
     tolerance = float(case["distance_tolerance"])

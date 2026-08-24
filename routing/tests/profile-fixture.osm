@@ -37,6 +37,16 @@
   <node id="34" lat="48.2100" lon="11.0010" />
   <node id="35" lat="48.2200" lon="11.0000" />
   <node id="36" lat="48.2200" lon="11.0010" />
+  <node id="37" lat="48.2300" lon="11.0000" />
+  <node id="38" lat="48.2300" lon="11.0010" />
+  <node id="39" lat="48.2400" lon="11.0000" />
+  <node id="40" lat="48.2400" lon="11.0010" />
+  <node id="95" lat="48.2500" lon="11.0000" />
+  <node id="96" lat="48.2500" lon="11.0010" />
+  <node id="97" lat="48.2600" lon="11.0000" />
+  <node id="98" lat="48.2600" lon="11.0010" />
+  <node id="99" lat="48.2700" lon="11.0000" />
+  <node id="100" lat="48.2700" lon="11.0010" />
 
   <!-- Traffic signal fixtures: equal-length isolated ways. -->
   <node id="41" lat="48.3000" lon="11.0000" />
@@ -79,6 +89,17 @@
   <node id="92" lat="48.4100" lon="11.0005"><tag k="railway" v="level_crossing" /></node>
   <node id="93" lat="48.4100" lon="11.0010" />
   <node id="94" lat="48.4105" lon="11.0005" />
+  <!-- Turn restrictions and bicycle-specific exceptions. -->
+  <node id="101" lat="48.4200" lon="11.0000" />
+  <node id="102" lat="48.4200" lon="11.0005" />
+  <node id="103" lat="48.4205" lon="11.0005" />
+  <node id="104" lat="48.4195" lon="11.0005" />
+  <node id="105" lat="48.4300" lon="11.0000" />
+  <node id="106" lat="48.4300" lon="11.0005" />
+  <node id="107" lat="48.4305" lon="11.0005" />
+  <node id="108" lat="48.4295" lon="11.0005" />
+  <node id="109" lat="48.4400" lon="11.0000" />
+  <node id="110" lat="48.4400" lon="11.0010" />
   <node id="61" lat="48.3600" lon="11.0000" />
   <node id="62" lat="48.3600" lon="11.0005"><tag k="highway" v="traffic_signals" /></node>
   <node id="63" lat="48.3595" lon="11.0005" />
@@ -104,6 +125,11 @@
   <way id="301"><nd ref="31"/><nd ref="32"/><tag k="highway" v="construction"/><tag k="construction" v="residential"/></way>
   <way id="302"><nd ref="33"/><nd ref="34"/><tag k="highway" v="proposed"/><tag k="proposed" v="residential"/></way>
   <way id="303"><nd ref="35"/><nd ref="36"/><tag k="highway" v="residential"/><tag k="motorroad" v="yes"/></way>
+  <way id="304"><nd ref="37"/><nd ref="38"/><tag k="highway" v="residential"/><tag k="bicycle" v="yes"/><tag k="cycleway:both" v="separate"/></way>
+  <way id="305"><nd ref="39"/><nd ref="40"/><tag k="highway" v="residential"/><tag k="bicycle" v="yes"/><tag k="cycleway:left" v="separate"/></way>
+  <way id="306"><nd ref="95"/><nd ref="96"/><tag k="highway" v="residential"/><tag k="bicycle" v="yes"/><tag k="cycleway:right" v="separate"/></way>
+  <way id="307"><nd ref="97"/><nd ref="98"/><tag k="highway" v="residential"/><tag k="bicycle" v="use_sidepath"/><tag k="cycleway:both" v="separate"/></way>
+  <way id="308"><nd ref="99"/><nd ref="100"/><tag k="highway" v="residential"/><tag k="bicycle" v="no"/></way>
 
   <way id="401"><nd ref="41"/><nd ref="42"/><nd ref="43"/><tag k="highway" v="residential"/></way>
   <way id="402"><nd ref="44"/><nd ref="45"/><nd ref="46"/><tag k="highway" v="residential"/></way>
@@ -129,4 +155,27 @@
   <way id="422"><nd ref="86"/><nd ref="87"/><tag k="highway" v="residential"/></way>
   <way id="423"><nd ref="91"/><nd ref="92"/><nd ref="93"/><tag k="highway" v="residential"/></way>
   <way id="424"><nd ref="92"/><nd ref="94"/><tag k="highway" v="residential"/></way>
+  <way id="501"><nd ref="101"/><nd ref="102"/><tag k="highway" v="residential"/></way>
+  <way id="502"><nd ref="102"/><nd ref="103"/><tag k="highway" v="residential"/></way>
+  <way id="503"><nd ref="102"/><nd ref="104"/><tag k="highway" v="residential"/></way>
+  <way id="504"><nd ref="105"/><nd ref="106"/><tag k="highway" v="residential"/></way>
+  <way id="505"><nd ref="106"/><nd ref="107"/><tag k="highway" v="residential"/></way>
+  <way id="506"><nd ref="106"/><nd ref="108"/><tag k="highway" v="residential"/></way>
+  <way id="507"><nd ref="109"/><nd ref="110"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/><tag k="oneway:bicycle" v="no"/></way>
+
+  <relation id="601">
+    <member type="way" ref="501" role="from"/>
+    <member type="node" ref="102" role="via"/>
+    <member type="way" ref="503" role="to"/>
+    <tag k="type" v="restriction"/>
+    <tag k="restriction" v="only_right_turn"/>
+  </relation>
+  <relation id="602">
+    <member type="way" ref="504" role="from"/>
+    <member type="node" ref="106" role="via"/>
+    <member type="way" ref="506" role="to"/>
+    <tag k="type" v="restriction"/>
+    <tag k="restriction" v="only_right_turn"/>
+    <tag k="except" v="bicycle"/>
+  </relation>
 </osm>

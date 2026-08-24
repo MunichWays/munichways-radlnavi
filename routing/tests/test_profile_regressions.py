@@ -79,6 +79,41 @@ def main() -> int:
     for lat in (48.2000, 48.2100, 48.2200):
         assert_blocked(lat)
 
+    # A separately mapped cycleway is not an access restriction. It adds a
+    # modest directional carriageway penalty instead of blocking the road.
+    baseline_weight = assert_routable(48.0000)["weight"]
+    both_forward = assert_routable(48.2300)["weight"]
+    both_backward = assert_coordinates_routable(
+        "11.0010,48.2300;11.0000,48.2300"
+    )["weight"]
+    left_forward = assert_routable(48.2400)["weight"]
+    left_backward = assert_coordinates_routable(
+        "11.0010,48.2400;11.0000,48.2400"
+    )["weight"]
+    right_forward = assert_routable(48.2500)["weight"]
+    right_backward = assert_coordinates_routable(
+        "11.0010,48.2500;11.0000,48.2500"
+    )["weight"]
+
+    for penalized_weight in (
+        both_forward,
+        both_backward,
+        left_backward,
+        right_forward,
+    ):
+        assert math.isclose(
+            penalized_weight / baseline_weight, 1 / 0.8, rel_tol=0.03
+        ), (penalized_weight, baseline_weight)
+    for unpenalized_weight in (left_forward, right_backward):
+        assert math.isclose(unpenalized_weight, baseline_weight, rel_tol=0.03), (
+            unpenalized_weight,
+            baseline_weight,
+        )
+
+    # Explicit access restrictions still make the carriageway unroutable.
+    for lat in (48.2600, 48.2700):
+        assert_blocked(lat)
+
     road_without_signal = assert_routable(48.3000)
     road_signal = assert_routable(48.3100)
     road_crossing_signal = assert_routable(48.3200)
@@ -153,6 +188,23 @@ def main() -> int:
         12,
         abs_tol=0.3,
     ), (level_crossing, road_without_signal)
+
+    # Generic OSM turn restrictions apply to bicycles unless bicycles are
+    # explicitly excepted. The first fixture permits only the right turn and
+    # therefore blocks the left turn; the second has except=bicycle.
+    restricted_left_turn = assert_coordinates_routable(
+        "11.0000,48.4200;11.0005,48.4205"
+    )
+    assert restricted_left_turn["distance"] > 150, restricted_left_turn
+    excepted_left_turn = assert_coordinates_routable(
+        "11.0000,48.4300;11.0005,48.4305"
+    )
+    assert excepted_left_turn["distance"] < 100, excepted_left_turn
+
+    # Turn restrictions do not change bicycle-specific oneway access.
+    assert_coordinates_routable(
+        "11.0010,48.4400;11.0000,48.4400"
+    )
 
     print("profile regressions passed")
     return 0

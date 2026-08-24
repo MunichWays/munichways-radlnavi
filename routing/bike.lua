@@ -26,7 +26,7 @@ function setup()
       --weight_name                   = 'duration',
       process_call_tagless_node     = false,
       max_speed_for_map_matching    = 40/3.6, -- kmph -> m/s
-      use_turn_restrictions         = false,
+      use_turn_restrictions         = true,
       continue_straight_at_waypoint = false,
       mode_change_penalty           = 30,
     },
@@ -777,6 +777,8 @@ function process_way(profile, way, result)
   -- munichways ratings
   local class_bicycle = way:get_value_by_key("class:bicycle")
   local class_bicycle_penalty = 0.55
+  local separate_cycleway_penalty_forward = 1
+  local separate_cycleway_penalty_backward = 1
 
   if class_bicycle then
     if class_bicycle == "-3" then
@@ -799,14 +801,25 @@ function process_way(profile, way, result)
     end
   end
 
-  -- force routing via cycleway, if one exists
+  -- A separately mapped cycleway does not by itself make the carriageway
+  -- illegal for bicycles. Apply only a modest directional preference for the
+  -- sidepath, so a substantially shorter carriageway route can still win.
   local cycleway_both = way:get_value_by_key("cycleway:both")
-  if cycleway_both == "separate" or data.bicycle == "use_sidepath" or data.bicycle == "no" then
+  if cycleway_both == "separate" then
+    separate_cycleway_penalty_forward = 0.8
+    separate_cycleway_penalty_backward = 0.8
+  else
+    if data.cycleway_right == "separate" then
+      separate_cycleway_penalty_forward = 0.8
+    end
+    if data.cycleway_left == "separate" then
+      separate_cycleway_penalty_backward = 0.8
+    end
+  end
+
+  -- Only explicit bicycle access restrictions make the carriageway unusable.
+  if data.bicycle == "use_sidepath" or data.bicycle == "no" then
     result.forward_speed = 0
-    result.backward_speed = 0
-  elseif data.cycleway_left == "separate" then
-    result.forward_speed = 0
-  elseif data.cycleway_right == "separate" then
     result.backward_speed = 0
   end
 
@@ -818,9 +831,11 @@ function process_way(profile, way, result)
 
   if result.forward_speed > 0 then
     result.forward_rate = result.forward_speed / 3.6 * class_bicycle_penalty
+      * separate_cycleway_penalty_forward
   end
   if result.backward_speed > 0 then
     result.backward_rate = result.backward_speed / 3.6 * class_bicycle_penalty
+      * separate_cycleway_penalty_backward
   end
 end
 

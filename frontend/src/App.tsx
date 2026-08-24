@@ -1318,22 +1318,15 @@ function App() {
       </Dialog>
 
       <Dialog open={showImpressum}>
-        <DialogTitle>Impressum</DialogTitle>
+        <DialogTitle>Impressum und Datenschutzerklärung</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            <h4>Verantwortlich für den Inhalt</h4>
-            Florian Schnell<br />
-            Ansprengerstraße 2<br />
-            80803 München<br />
-            floschnell [at] gmail.com<br />
-            <h4>Datenschutz</h4>
-            Die Anwendung verwendet Leaflet und OpenStreetMap.<br />
-            Die Anwendung verwendet Google Fonts.<br />
-            Die Anwendung speichert vorrübergehend IP Adressen in Log-Dateien.<br />
-            Die Anwendung verwendet <b>keine</b> Cookies.<br />
-            Die Anwendung verwendet <b>keine</b> Analyse-Tools.<br />
-            Die Anwendung verwendet <b>keine</b> Werbung.<br />
-            Die Anwendung verwendet <b>keine</b> Social-Media-Plugins.<br />
+            RadlNavi wird von MunichWays angeboten und weiterentwickelt.<br /><br />
+            Florian Schnell hat das ursprüngliche <a href="https://www.radlnavi.de"
+              target="_blank" rel="noreferrer">RadlNavi</a> entwickelt.<br /><br />
+            Alle Angaben zum Datenschutz und zur verantwortlichen Stelle stehen in der <a
+              href="https://www.munichways.de/datenschutzerklaerung-app/"
+              target="_blank" rel="noreferrer">Datenschutzerklärung für die MunichWays App</a>.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

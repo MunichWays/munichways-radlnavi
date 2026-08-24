@@ -13,6 +13,7 @@ local WAY_CLASS_BICYCLE = 1
 local WAY_CLASS_QUIET = 2
 local WAY_CLASS_TERTIARY = 3
 local WAY_CLASS_MAJOR = 4
+local MAJOR_ROAD_CROSSING_PENALTY = 30
 
 function setup()
   local default_speed = 20
@@ -852,6 +853,12 @@ function process_turn(profile, turn)
     turn.duration = turn.duration + profile.properties.u_turn_penalty
   end
 
+  local has_road_signal = obstacle_map:any(
+    turn.from, turn.via, obstacle_type.traffic_signals
+  )
+  local has_crossing_signal = obstacle_map:any(
+    turn.from, turn.via, obstacle_type.crossing
+  )
   local has_signal_penalty = obstacle_map:any(
     turn.from, turn.via, obstacle_type.stop
   )
@@ -875,6 +882,44 @@ function process_turn(profile, turn)
   end
   if profile.properties.weight_name == 'cyclability' then
     turn.weight = turn.duration * 2
+
+    -- Penalize an unprotected left turn from a minor road onto a major road,
+    -- or a straight crossing of a major road between minor roads. OSRM 6
+    -- exposes the other intersection legs, so a crossed secondary+ can be
+    -- detected even when both the source and target ways are residential.
+    local source_class = turn.source_road.highway_turn_classification
+    local target_class = turn.target_road.highway_turn_classification
+    local is_left_turn = turn.angle <= -45 and turn.angle >= -135
+    local is_straight = math.abs(turn.angle) < 45
+    local is_minor_to_major_left = is_left_turn
+      and source_class ~= WAY_CLASS_MAJOR
+      and target_class == WAY_CLASS_MAJOR
+
+    local crosses_major_road = false
+    if is_straight
+      and source_class ~= WAY_CLASS_MAJOR
+      and target_class ~= WAY_CLASS_MAJOR then
+      for _, road in ipairs(turn.roads_on_the_right) do
+        if road.highway_turn_classification == WAY_CLASS_MAJOR then
+          crosses_major_road = true
+          break
+        end
+      end
+      if not crosses_major_road then
+        for _, road in ipairs(turn.roads_on_the_left) do
+          if road.highway_turn_classification == WAY_CLASS_MAJOR then
+            crosses_major_road = true
+            break
+          end
+        end
+      end
+    end
+
+    if not has_road_signal
+      and not has_crossing_signal
+      and (is_minor_to_major_left or crosses_major_road) then
+      turn.weight = turn.weight + MAJOR_ROAD_CROSSING_PENALTY
+    end
   end
   if turn.source_mode == mode.cycling and turn.target_mode ~= mode.cycling then
     turn.weight = turn.weight + profile.properties.mode_change_penalty

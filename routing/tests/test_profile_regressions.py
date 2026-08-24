@@ -206,6 +206,44 @@ def main() -> int:
         "11.0010,48.4400;11.0000,48.4400"
     )
 
+    quiet_straight = assert_coordinates_routable(
+        "11.0000,48.4600;11.0010,48.4600"
+    )
+    major_straight = assert_coordinates_routable(
+        "11.0000,48.4500;11.0010,48.4500"
+    )
+    signalized_major_straight = assert_coordinates_routable(
+        "11.0000,48.4700;11.0010,48.4700"
+    )
+    assert math.isclose(
+        major_straight["weight"] - quiet_straight["weight"], 30, abs_tol=0.3
+    ), (major_straight, quiet_straight)
+    assert math.isclose(
+        signalized_major_straight["weight"] - quiet_straight["weight"],
+        12,
+        abs_tol=0.3,
+    ), (signalized_major_straight, quiet_straight)
+
+    quiet_left = assert_coordinates_routable(
+        "11.0000,48.4900;11.0005,48.4905"
+    )
+    major_left = assert_coordinates_routable(
+        "11.0000,48.4800;11.0005,48.4805"
+    )
+    assert math.isclose(
+        major_left["weight"] - quiet_left["weight"], 30, abs_tol=0.3
+    ), (major_left, quiet_left)
+
+    quiet_right = assert_coordinates_routable(
+        "11.0000,48.5100;11.0005,48.5095"
+    )
+    major_right = assert_coordinates_routable(
+        "11.0000,48.5000;11.0005,48.4995"
+    )
+    assert math.isclose(
+        major_right["weight"], quiet_right["weight"], abs_tol=0.3
+    ), (major_right, quiet_right)
+
     print("profile regressions passed")
     return 0
 

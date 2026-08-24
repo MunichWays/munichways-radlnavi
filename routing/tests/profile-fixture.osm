@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="radlnavi-profile-tests">
+  <node id="1" lat="48.0000" lon="11.0000" />
+  <node id="2" lat="48.0000" lon="11.0010" />
+  <node id="3" lat="48.0100" lon="11.0000" />
+  <node id="4" lat="48.0100" lon="11.0010" />
+  <node id="5" lat="48.0200" lon="11.0000" />
+  <node id="6" lat="48.0200" lon="11.0010" />
+  <node id="7" lat="48.0300" lon="11.0000" />
+  <node id="8" lat="48.0300" lon="11.0010" />
+  <node id="9" lat="48.0400" lon="11.0000" />
+  <node id="10" lat="48.0400" lon="11.0010" />
+  <node id="11" lat="48.0500" lon="11.0000" />
+  <node id="12" lat="48.0500" lon="11.0010" />
+  <node id="13" lat="48.0600" lon="11.0000" />
+  <node id="14" lat="48.0600" lon="11.0010" />
+  <node id="15" lat="48.0700" lon="11.0000" />
+  <node id="16" lat="48.0700" lon="11.0010" />
+
+  <node id="21" lat="48.1000" lon="11.0000" />
+  <node id="22" lat="48.1000" lon="11.0005">
+    <tag k="barrier" v="fence" />
+    <tag k="sensory" v="audible" />
+  </node>
+  <node id="23" lat="48.1000" lon="11.0010" />
+  <node id="24" lat="48.1100" lon="11.0000" />
+  <node id="25" lat="48.1100" lon="11.0005">
+    <tag k="barrier" v="fence" />
+  </node>
+  <node id="26" lat="48.1100" lon="11.0010" />
+
+  <node id="31" lat="48.2000" lon="11.0000" />
+  <node id="32" lat="48.2000" lon="11.0010" />
+  <node id="33" lat="48.2100" lon="11.0000" />
+  <node id="34" lat="48.2100" lon="11.0010" />
+  <node id="35" lat="48.2200" lon="11.0000" />
+  <node id="36" lat="48.2200" lon="11.0010" />
+
+  <way id="101"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/></way>
+  <way id="102"><nd ref="3"/><nd ref="4"/><tag k="highway" v="residential"/><tag k="surface" v="chipseal"/></way>
+  <way id="103"><nd ref="5"/><nd ref="6"/><tag k="highway" v="residential"/><tag k="surface" v="concrete"/></way>
+  <way id="104"><nd ref="7"/><nd ref="8"/><tag k="highway" v="residential"/><tag k="surface" v="concrete:lanes"/></way>
+  <way id="105"><nd ref="9"/><nd ref="10"/><tag k="highway" v="residential"/><tag k="surface" v="wood"/></way>
+  <way id="106"><nd ref="11"/><nd ref="12"/><tag k="highway" v="residential"/><tag k="surface" v="metal"/></way>
+  <way id="107"><nd ref="13"/><nd ref="14"/><tag k="highway" v="residential"/><tag k="surface" v="grass_paver"/></way>
+  <way id="108"><nd ref="15"/><nd ref="16"/><tag k="highway" v="residential"/><tag k="surface" v="woodchips"/></way>
+
+  <way id="201"><nd ref="21"/><nd ref="22"/><nd ref="23"/><tag k="highway" v="residential"/></way>
+  <way id="202"><nd ref="24"/><nd ref="25"/><nd ref="26"/><tag k="highway" v="residential"/></way>
+
+  <way id="301"><nd ref="31"/><nd ref="32"/><tag k="highway" v="construction"/><tag k="construction" v="residential"/></way>
+  <way id="302"><nd ref="33"/><nd ref="34"/><tag k="highway" v="proposed"/><tag k="proposed" v="residential"/></way>
+  <way id="303"><nd ref="35"/><nd ref="36"/><tag k="highway" v="residential"/><tag k="motorroad" v="yes"/></way>
+</osm>

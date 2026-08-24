@@ -20,7 +20,7 @@ function setup()
       weight_name                   = 'cyclability',
       --weight_name                   = 'duration',
       process_call_tagless_node     = false,
-      max_speed_for_map_matching    = 110/3.6, -- kmph -> m/s
+      max_speed_for_map_matching    = 40/3.6, -- kmph -> m/s
       use_turn_restrictions         = false,
       continue_straight_at_waypoint = false,
       mode_change_penalty           = 30,
@@ -178,6 +178,9 @@ function setup()
 
     surface_speeds = {
       asphalt = default_speed,
+      chipseal = default_speed,
+      concrete = default_speed,
+      ["concrete:lanes"] = default_speed,
       compacted = default_speed,
       fine_gravel = 19,
       paving_stones = 19,
@@ -193,7 +196,11 @@ function setup()
       ground = 6,
       grass = 6,
       mud = 3,
-      sand = 3
+      sand = 3,
+      wood = 10,
+      metal = 10,
+      grass_paver = 6,
+      woodchips = 3
     },
 
     classes = Sequence {
@@ -219,7 +226,9 @@ function setup()
 
     avoid = Set {
       'impassable',
-      'construction'
+      'construction',
+      'proposed',
+      'motorroad'
     }
   }
 end
@@ -253,7 +262,10 @@ function process_node(profile, node, result)
   else
     local barrier = node:get_value_by_key("barrier")
     if barrier and "" ~= barrier then
-      if not profile.barrier_whitelist[barrier] then
+      local sensory = node:get_value_by_key("sensory")
+      local audible_fence = barrier == "fence" and sensory and
+        (sensory == "audible" or sensory == "audio")
+      if not profile.barrier_whitelist[barrier] and not audible_fence then
         result.barrier = true
       end
     end

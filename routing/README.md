@@ -21,6 +21,18 @@ For reproducible imports, set `RADLNAVI_ROUTING_DATE=YYYY-MM-DD` during
 Run the focused unit tests from this directory with
 `lua test_conditional_access.lua`.
 
+The synthetic profile regressions exercise surface speeds, avoided ways, and
+barrier handling on a small deterministic OSM fixture:
+
+```shell
+docker build -t radlnavi-routing-profile-tests \
+  -f routing/tests/Dockerfile routing
+docker run --rm -d -p 18081:8080 \
+  --name radlnavi-profile-tests radlnavi-routing-profile-tests
+python routing/tests/test_profile_regressions.py
+docker stop radlnavi-profile-tests
+```
+
 ## OSRM version and migration smoke test
 
 The routing image uses the official

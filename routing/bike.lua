@@ -891,9 +891,11 @@ function process_turn(profile, turn)
     local target_class = turn.target_road.highway_turn_classification
     local is_left_turn = turn.angle <= -45 and turn.angle >= -135
     local is_straight = math.abs(turn.angle) < 45
-    local is_minor_to_major_left = is_left_turn
-      and source_class ~= WAY_CLASS_MAJOR
-      and target_class == WAY_CLASS_MAJOR
+    local is_major_road_left_turn = is_left_turn
+      and ((source_class ~= WAY_CLASS_MAJOR
+          and target_class == WAY_CLASS_MAJOR)
+        or (source_class == WAY_CLASS_MAJOR
+          and target_class ~= WAY_CLASS_MAJOR))
 
     local crosses_major_road = false
     if is_straight
@@ -917,7 +919,7 @@ function process_turn(profile, turn)
 
     if not has_road_signal
       and not has_crossing_signal
-      and (is_minor_to_major_left or crosses_major_road) then
+      and (is_major_road_left_turn or crosses_major_road) then
       turn.weight = turn.weight + MAJOR_ROAD_CROSSING_PENALTY
     end
   end

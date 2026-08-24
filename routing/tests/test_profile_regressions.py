@@ -234,6 +234,18 @@ def main() -> int:
         major_left["weight"] - quiet_left["weight"], 30, abs_tol=0.3
     ), (major_left, quiet_left)
 
+    quiet_left_off_road = assert_coordinates_routable(
+        "11.0005,48.4895;11.0000,48.4900"
+    )
+    major_left_off_road = assert_coordinates_routable(
+        "11.0005,48.4795;11.0000,48.4800"
+    )
+    assert math.isclose(
+        major_left_off_road["weight"] - quiet_left_off_road["weight"],
+        30,
+        abs_tol=0.3,
+    ), (major_left_off_road, quiet_left_off_road)
+
     quiet_right = assert_coordinates_routable(
         "11.0000,48.5100;11.0005,48.5095"
     )

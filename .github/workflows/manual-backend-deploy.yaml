@@ -1,0 +1,38 @@
+name: Deploy backend
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: manual-backend-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: projects/264044299735/locations/global/workloadIdentityPools/github-actions/providers/github-munichways
+          service_account: radlnavi-github@munichways-radlnavi-prod.iam.gserviceaccount.com
+
+      - name: Set up Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v3
+
+      - name: Build and deploy backend
+        run: >-
+          gcloud builds submit .
+          --project=munichways-radlnavi-prod
+          --region=europe-west3
+          --config=cloudbuild-api.yaml
+          --substitutions=COMMIT_SHA=${GITHUB_SHA}

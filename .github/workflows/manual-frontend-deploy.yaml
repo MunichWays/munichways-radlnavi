@@ -31,7 +31,7 @@ jobs:
 
       - name: Build and deploy frontend
         run: >-
-          gcloud builds submit .
+          gcloud builds submit --no-source
           --project=munichways-radlnavi-prod
           --region=europe-west3
           --config=cloudbuild-frontend.yaml

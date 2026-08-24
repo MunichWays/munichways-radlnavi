@@ -5,6 +5,16 @@ substitutions:
   _FRONTEND_SERVICE: munichways-radlnavi-frontend
 
 steps:
+  - name: gcr.io/cloud-builders/git
+    id: checkout-source
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        git clone https://github.com/MunichWays/munichways-radlnavi.git /workspace/source
+        cd /workspace/source
+        git checkout "$COMMIT_SHA"
+
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     id: resolve-api-url
     entrypoint: bash
@@ -16,7 +26,8 @@ steps:
 
   - name: gcr.io/cloud-builders/docker
     id: build-frontend
-    waitFor: [resolve-api-url]
+    waitFor: [checkout-source, resolve-api-url]
+    dir: source
     entrypoint: bash
     args:
       - -ceu

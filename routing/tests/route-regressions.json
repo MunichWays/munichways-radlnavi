@@ -17,6 +17,28 @@
     "distance_tolerance": 0.2
   },
   {
+    "id": "baumgartnerstrasse_left_turn_into_ganghoferstrasse",
+    "description": "Visible use-sidepath carriageway makes the quiet Kraelerstrasse route preferable",
+    "coordinates": "11.540340,48.125839;11.539048,48.123341",
+    "expected_step_names": [
+      "Kraelerstraße",
+      "Ganghoferstraße"
+    ],
+    "baseline_distance_m": 417.3,
+    "distance_tolerance": 0.15
+  },
+  {
+    "id": "ganghoferstrasse_crosses_baumgartnerstrasse",
+    "description": "Straight crossing of the use-sidepath Baumgartnerstrasse prefers the signalized Pfeuferstrasse route",
+    "coordinates": "11.539089,48.126316;11.541042,48.124543",
+    "expected_step_names": [
+      "Ganghoferstraße",
+      "Kraelerstraße"
+    ],
+    "baseline_distance_m": 402.5,
+    "distance_tolerance": 0.15
+  },
+  {
     "id": "wirtstrasse_to_scharfnagelberg",
     "description": "Short route at the signalized Martin-Luther-Strasse crossing does not take a large detour",
     "coordinates": "11.577385,48.112370;11.574445,48.112901",

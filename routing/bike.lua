@@ -818,8 +818,16 @@ function process_way(profile, way, result)
     end
   end
 
-  -- Only explicit bicycle access restrictions make the carriageway unusable.
-  if data.bicycle == "use_sidepath" or data.bicycle == "no" then
+  -- Keep mandatory-sidepath carriageways in the extracted graph so their
+  -- road class remains visible when a bicycle route crosses them. Mark them
+  -- as restricted and prevent waypoint snapping; entering them receives
+  -- OSRM's maximum turn weight in process_turn below. bicycle=no remains
+  -- completely inaccessible.
+  if data.bicycle == "use_sidepath" then
+    result.forward_restricted = true
+    result.backward_restricted = true
+    result.is_startpoint = false
+  elseif data.bicycle == "no" then
     result.forward_speed = 0
     result.backward_speed = 0
   end
@@ -921,6 +929,12 @@ function process_turn(profile, turn)
       and not has_crossing_signal
       and (is_major_road_left_turn or crosses_major_road) then
       turn.weight = turn.weight + MAJOR_ROAD_CROSSING_PENALTY
+    end
+
+    -- A use_sidepath carriageway is retained only as intersection metadata.
+    -- Never let a bicycle route enter it from an unrestricted way.
+    if not turn.source_restricted and turn.target_restricted then
+      turn.weight = constants.max_turn_weight
     end
   end
   if turn.source_mode == mode.cycling and turn.target_mode ~= mode.cycling then

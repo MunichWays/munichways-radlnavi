@@ -212,6 +212,12 @@ def main() -> int:
     major_straight = assert_coordinates_routable(
         "11.0000,48.4500;11.0010,48.4500"
     )
+    mandatory_sidepath_carriageway = route_coordinates(
+        "11.0005,48.4495;11.0005,48.4505"
+    )
+    assert mandatory_sidepath_carriageway["code"] in {"NoRoute", "NoSegment"}, (
+        mandatory_sidepath_carriageway
+    )
     signalized_major_straight = assert_coordinates_routable(
         "11.0000,48.4700;11.0010,48.4700"
     )

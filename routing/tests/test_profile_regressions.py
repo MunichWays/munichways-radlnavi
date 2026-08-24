@@ -57,6 +57,7 @@ def main() -> int:
         48.0500: 2.0,  # metal: 10 km/h
         48.0600: 20 / 6,  # grass_paver: 6 km/h
         48.0700: 20 / 3,  # woodchips: 3 km/h
+        48.0800: 20 / 9,  # sett: 9 km/h
     }
     for lat, expected_ratio in expected_speed_ratios.items():
         duration = assert_routable(lat)["duration"]

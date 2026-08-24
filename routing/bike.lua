@@ -185,7 +185,7 @@ function setup()
       fine_gravel = 19,
       paving_stones = 19,
       ["cobblestone:flattened"] = 18,
-      sett = 18,
+      sett = 9,
       pebblestone = 16,
       cobblestone = 15,
       earth = 13,

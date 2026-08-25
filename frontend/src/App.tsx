@@ -302,12 +302,10 @@ let posChangeInterval = null;
 
 const munichWaysLayer = L.vectorGrid.protobuf("/layers/munichways/{z}/{x}/{y}.pbf", {
   vectorTileLayerStyles: {
-    munichways: (prop) => ({ color: prop.color })
+    munichways: (prop) => ({ color: prop.color, weight: 1.5 })
   },
-  interactive: true,
+  interactive: false,
   rendererFactory: L.canvas.tile,
-}).on('click', function (e) {
-  console.log(e.layer.properties);
 });
 
 function App() {
@@ -349,7 +347,7 @@ function App() {
   const [hightlightLit, setHightlightLit] = useState<string | null>(null);
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
-  const [showMunichways, setShowMunichways] = useState(false);
+  const [showMunichways, setShowMunichways] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
@@ -419,8 +417,14 @@ function App() {
   };
 
   useEffect(() => {
-    map?.invalidateSize()
-  }, [menuMinimized])
+    if (!map) {
+      return;
+    }
+    const resizeMap = () => map.invalidateSize({animate: false});
+    requestAnimationFrame(resizeMap);
+    const resizeTimer = window.setTimeout(resizeMap, 300);
+    return () => window.clearTimeout(resizeTimer);
+  }, [map, menuMinimized])
 
   useEffect(() => {
     loadRegionShape();
@@ -892,6 +896,19 @@ function App() {
     setIsNavigating(false);
   }, []);
 
+  const showFullRoute = useCallback(() => {
+    if (!map || !route) {
+      return;
+    }
+    setMenuMinimized(true);
+    window.setTimeout(() => {
+      map.invalidateSize({animate: false});
+      map.fitBounds(new LatLngBounds(route.geometry.coordinates.map((c: any) => {
+        return [c[1], c[0]];
+      })), {padding: [20, 20], maxZoom: 17, animate: false});
+    }, 300);
+  }, [map, route]);
+
   useEffect(() => {
     if (map != null) {
       window.document.onresize = () => {
@@ -939,9 +956,7 @@ function App() {
               <Tooltip title="Gesamte Route anzeigen">
                 <Fab color="primary" onClick={() => {
                   setIsNavigating(false);
-                  map.fitBounds(new LatLngBounds(route.geometry.coordinates.map((c: any) => {
-                    return [c[1], c[0]];
-                  })));
+                  showFullRoute();
                 }} style={{ position: "absolute", top: 15, left: 85, zIndex: 1 }}>
                   <FitScreen />
                 </Fab></Tooltip> :
@@ -973,9 +988,14 @@ function App() {
             {illuminatedElement}
           </div> : null}
 
-        <Drawer sx={{".MuiDrawer-paper": {overflow: "visible"}, width: menuMinimized ? 0 : 360, flexShrink: 0}}
+        <Drawer sx={{".MuiDrawer-paper": {overflow: "visible", width: "min(360px, 100vw)"}, width: menuMinimized ? 0 : 360, flexShrink: 0}}
                 variant="persistent" anchor="left" open={!menuMinimized} onClose={() => setMenuMinimized(true)}
                 onOpen={() => setMenuMinimized(false)}>
+
+          <IconButton aria-label="Menü ausblenden" onClick={() => setMenuMinimized(true)}
+                      style={{position: "absolute", top: 8, right: 8, zIndex: 1, background: "white"}}>
+            <MenuOpen />
+          </IconButton>
 
           <img src="logo.svg" width="320" height="80" alt="RadlNavi Logo" style={{margin: "10px auto"}}></img>
           <img src="logo-munichways.svg" width="320" height="80" alt="MunichWays Logo" style={{margin: "10px auto"}}></img>
@@ -1077,12 +1097,7 @@ function App() {
                 color="primary"
                 style={{margin: "0 10px"}}
                 startIcon={<CenterFocusWeak/>}
-                onClick={() => {
-                  setMenuMinimized(true);
-                  map.fitBounds(new LatLngBounds(route.geometry.coordinates.map((c: any) => {
-                    return [c[1], c[0]];
-                  })));
-                }}>Route anzeigen</Button> : null}
+                onClick={showFullRoute}>Route anzeigen</Button> : null}
             {route != null ?
                 <Button
                     style={{margin: "10px 10px 0 10px"}}
@@ -1114,8 +1129,8 @@ function App() {
             <div style={{flexGrow: 1}}></div>
             <div style={{display: 'flex', justifyContent: 'center', marginBottom: 5}}>
               <FormControlLabel
-                  control={<Switch value={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
-                  label="MunichWays Bewertungen"/>
+                  control={<Switch checked={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
+                  label="Bewertungen"/>
             </div>
             <div style={{fontSize: '0.75rem', margin: "0 auto 15px auto", textAlign: 'center'}}>
               <Link style={{cursor: "pointer"}} onClick={() => setShowImpressum(true)}>Impressum und
@@ -1204,7 +1219,7 @@ function App() {
         <LeafletMap
           className="map"
           center={[48.134991, 11.584225]}
-          zoom={13}
+          zoom={14}
           zoomSnap={0.5}
           zoomDelta={0.5}
           zoomAnimation={true}
@@ -1212,12 +1227,6 @@ function App() {
           maxBounds={MAP_BOUNDS}
           ref={setMap}
           rotate={true}
-          style={{
-            marginLeft: 360,
-            ...(!menuMinimized && {
-              marginLeft: 0,
-            })
-          }}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -1312,11 +1321,9 @@ function App() {
         <DialogTitle>Über RadlNavi</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Während bei konventionellen Navigationsanwendungen (bspw. Google Maps) die schnellste Route für den Radverkehr berechnet wird, berücksichtigt RadlNavi explizit auch die Bedürfnisse von Radfahrern.<br />
-            Dabei liegt der Fokus auf der Sicherheit und dem Komfort der Route.<br />
-            RadlNavi verwendet dazu Streckenbewertungen, welche durch die <a href="https://www.munichways.de">MunichWays</a> Initiative erfasst wurden.<br />
-            In die Bewertungen fließen unter anderem ein, ob es einen baulich getrennten Radweg gibt, wie breit dieser ist, wie die generelle Verkehrsdichte ist, wie viele Straßenmündungen auf der Route liegen und ob diese übersichtlich (oder eben gefährlich) gestaltet sind.<br />
-            Die Bewertungen können durch einen Schalter auch in der Karte als farbige Linien dargestellt werden, wobei die Farben von Grün (genütlich) über Gelb und Rot bis Schwarz (stressig) reichen.<br />
+            RadlNavi findet angenehmere Fahrradverbindungen – möglichst über komfortable Wege, ruhigere Straßen und mit weniger schwierigen Querungen.<br /><br />
+            Die farbigen Linien zeigen das von Radfahrer*innen gemeinsam bewertete Radnetz: von Grün für angenehm bis Schwarz für besonders stressig.<br /><br />
+            <a href="https://www.munichways.de/radlvorrangnetz/" target="_blank" rel="noreferrer">Mehr über das RadlVorrang-Netz und die Bewertung erfahren</a>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

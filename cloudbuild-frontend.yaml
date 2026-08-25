@@ -37,6 +37,7 @@ steps:
         docker build \
           --build-arg="BACKEND_URL=$${api_url}" \
           --build-arg="VERSION=$${frontend_version}" \
+          --build-arg="COMMIT=$COMMIT_SHA" \
           -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA' \
           -f frontend/Dockerfile frontend
 

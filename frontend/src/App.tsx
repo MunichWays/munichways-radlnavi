@@ -82,7 +82,9 @@ interface RouteMetadata {
 
 interface VersionInfo {
   backend: string;
+  backendCommit: string;
   routing: string;
+  routingCommit: string;
   osrm: string;
 }
 
@@ -90,16 +92,17 @@ function shortVersion(version: string): string {
   return /^[0-9a-f]{7,40}$/i.test(version) ? version.substring(0, 7) : version;
 }
 
-function VersionLink({label, version}: {label: string, version: string}) {
+function VersionLink({label, version, commit}: {label: string, version: string, commit?: string}) {
   const displayVersion = /^\d+\.\d+\.\d+(?:[-+].+)?$/.test(version)
     ? `v${version}`
     : shortVersion(version);
   const text = `${label} ${displayVersion}`;
-  if (!/^[0-9a-f]{7,40}$/i.test(version)) {
+  const targetCommit = commit || (/^[0-9a-f]{7,40}$/i.test(version) ? version : "");
+  if (!/^[0-9a-f]{7,40}$/i.test(targetCommit)) {
     return <span>{text}</span>;
   }
   return <Link
-    href={`https://github.com/MunichWays/munichways-radlnavi/commit/${version}`}
+    href={`https://github.com/MunichWays/munichways-radlnavi/commit/${targetCommit}`}
     target="_blank"
     rel="noreferrer"
   >{text}</Link>;
@@ -1119,10 +1122,11 @@ function App() {
                 Datenschutzerklärung</Link><br/>
               <div style={{padding: 2}}></div>
               <span style={{fontWeight: 'bold'}}>Versionen: </span>
-              <VersionLink label="FE" version={process.env.REACT_APP_VERSION || "local"}/>
+              <VersionLink label="FE" version={process.env.REACT_APP_VERSION || "local"}
+                           commit={process.env.REACT_APP_COMMIT}/>
               {versionInfo == null ? <span> · BE/Routing werden geladen</span> : <>
-                <span> · </span><VersionLink label="BE" version={versionInfo.backend}/>
-                <span> · </span><VersionLink label="Routing" version={versionInfo.routing}/>
+                <span> · </span><VersionLink label="BE" version={versionInfo.backend} commit={versionInfo.backendCommit}/>
+                <span> · </span><VersionLink label="Routing" version={versionInfo.routing} commit={versionInfo.routingCommit}/>
                 <span> · OSRM {versionInfo.osrm}</span>
               </>}
             </div>

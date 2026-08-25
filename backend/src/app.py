@@ -55,7 +55,9 @@ geo_store: Optional[sqlite3.Connection] = None
 OSRM_BACKEND_URL = os.environ["OSRM_BACKEND_URL"]
 OSRM_AUTH_AUDIENCE = os.environ.get("OSRM_AUTH_AUDIENCE")
 APP_VERSION = os.environ.get("APP_VERSION", "local")
+APP_COMMIT = os.environ.get("APP_COMMIT", "")
 ROUTING_VERSION = os.environ.get("ROUTING_VERSION", "unknown")
+ROUTING_COMMIT = os.environ.get("ROUTING_COMMIT", "")
 OSRM_VERSION = os.environ.get("OSRM_VERSION", "unknown")
 
 default_origins = [
@@ -122,7 +124,9 @@ async def health():
 async def version():
     return {
         "backend": APP_VERSION,
+        "backendCommit": APP_COMMIT,
         "routing": ROUTING_VERSION,
+        "routingCommit": ROUTING_COMMIT,
         "osrm": OSRM_VERSION,
     }
 

@@ -85,13 +85,17 @@ class VersionTest(unittest.TestCase):
     def test_version_reports_backend_routing_and_osrm_builds(self):
         with (
             patch.object(app, "APP_VERSION", "backend-commit"),
+            patch.object(app, "APP_COMMIT", "abcdef123456"),
             patch.object(app, "ROUTING_VERSION", "routing-commit"),
+            patch.object(app, "ROUTING_COMMIT", "123456abcdef"),
             patch.object(app, "OSRM_VERSION", "26.6.5"),
         ):
             self.assertEqual(
                 {
                     "backend": "backend-commit",
+                    "backendCommit": "abcdef123456",
                     "routing": "routing-commit",
+                    "routingCommit": "123456abcdef",
                     "osrm": "26.6.5",
                 },
                 asyncio.run(app.version()),

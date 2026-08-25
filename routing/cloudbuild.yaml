@@ -67,7 +67,7 @@ steps:
         routing_version="$$(tr -d '\r\n' < routing/VERSION)"
         gcloud run services update '${_API_SERVICE}' \
           --region='${_REGION}' \
-          --update-env-vars="ROUTING_VERSION=$${routing_version},OSRM_VERSION=26.6.5"
+          --update-env-vars="ROUTING_VERSION=$${routing_version},ROUTING_COMMIT=$COMMIT_SHA,OSRM_VERSION=26.6.5"
 
 images:
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA

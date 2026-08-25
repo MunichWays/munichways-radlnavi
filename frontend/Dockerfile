@@ -5,6 +5,7 @@ RUN cd tippecanoe && make -j && make install && cd -
 
 ARG BACKEND_URL="https://backend.radlnavi.de"
 ARG VERSION="local"
+ARG COMMIT=""
 ARG REGION="europe/germany/bayern/oberbayern"
 
 COPY public public
@@ -23,7 +24,7 @@ RUN node load_munichways.mjs
 RUN mkdir ./public/layers
 RUN ./tippecanoe/tippecanoe --maximum-zoom=19 --no-tile-compression -e ./public/layers/munichways ./public/munichways.json
 
-RUN REACT_APP_BACKEND_URL="$BACKEND_URL" REACT_APP_VERSION="$VERSION" npm run build
+RUN REACT_APP_BACKEND_URL="$BACKEND_URL" REACT_APP_VERSION="$VERSION" REACT_APP_COMMIT="$COMMIT" npm run build
 
 FROM ubuntu/nginx
 

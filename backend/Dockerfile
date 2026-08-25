@@ -2,8 +2,10 @@ FROM python:3.12.2-bookworm
 
 ARG OSRM_BACKEND_URL="https://routing.radlnavi.de"
 ARG VERSION="local"
+ARG COMMIT=""
 ENV OSRM_BACKEND_URL=${OSRM_BACKEND_URL}
 ENV APP_VERSION=${VERSION}
+ENV APP_COMMIT=${COMMIT}
 ENV OSRM_VERSION=26.6.5
 LABEL org.opencontainers.image.revision=$VERSION
 

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "sintpertstrasse_to_bergstrasse",
+    "description": "Unprotected straight crossing of Martin-Luther-Strasse avoids the established main-road corridor",
+    "coordinates": "11.588561,48.109294;11.575550,48.114667",
+    "expected_step_names": [
+      "Sintpertstraße",
+      "Setzbergstraße",
+      "Untersbergstraße",
+      "Firstalmstraße",
+      "Wirtstraße",
+      "Martin-Luther-Straße",
+      "Zehentbauernstraße",
+      "Bergstraße"
+    ],
+    "baseline_distance_m": 1390.6,
+    "distance_tolerance": 0.2
+  },
+  {
+    "id": "baumgartnerstrasse_left_turn_into_ganghoferstrasse",
+    "description": "Visible use-sidepath carriageway makes the quiet Kraelerstrasse route preferable",
+    "coordinates": "11.540340,48.125839;11.539048,48.123341",
+    "expected_step_names": [
+      "Kraelerstraße",
+      "Ganghoferstraße"
+    ],
+    "baseline_distance_m": 417.3,
+    "distance_tolerance": 0.15
+  },
+  {
+    "id": "ganghoferstrasse_crosses_baumgartnerstrasse",
+    "description": "Straight crossing of the use-sidepath Baumgartnerstrasse prefers the signalized Pfeuferstrasse route",
+    "coordinates": "11.539089,48.126316;11.541042,48.124543",
+    "expected_step_names": [
+      "Ganghoferstraße",
+      "Kraelerstraße"
+    ],
+    "baseline_distance_m": 402.5,
+    "distance_tolerance": 0.15
+  },
+  {
+    "id": "wirtstrasse_to_scharfnagelberg",
+    "description": "Short route at the signalized Martin-Luther-Strasse crossing does not take a large detour",
+    "coordinates": "11.577385,48.112370;11.574445,48.112901",
+    "expected_step_names": [
+      "Wirtstraße",
+      "Martin-Luther-Straße",
+      "Tegernseer Landstraße"
+    ],
+    "baseline_distance_m": 258.2,
+    "distance_tolerance": 0.25
+  },
+  {
+    "id": "pilgersheimer_strasse_signalized_intersection",
+    "description": "Route along Pilgersheimer Strasse through the signalized intersection stays direct",
+    "coordinates": "11.575631,48.119852;11.575040,48.119104",
+    "expected_step_names": ["Pilgersheimer Straße"],
+    "baseline_distance_m": 94.0,
+    "distance_tolerance": 0.25
+  },
+  {
+    "id": "humboldtstrasse_cycleway_signalized_intersection",
+    "description": "Route on the separated Humboldtstrasse cycleway stays direct",
+    "coordinates": "11.575903,48.119362;11.574743,48.119808",
+    "expected_step_names": ["Humboldtstraße"],
+    "baseline_distance_m": 99.6,
+    "distance_tolerance": 0.25
+  },
+  {
+    "id": "rudolf_vogel_bogen_separate_cycleway",
+    "description": "A separately mapped cycleway prefers the sidepath without blocking a substantially shorter legal carriageway route",
+    "coordinates": "11.642564,48.093118;11.646189,48.092094",
+    "expected_step_names": [
+      "Helmut-Käutner-Straße",
+      "Horst-Caspar-Straße",
+      "Rudolf-Vogel-Bogen"
+    ],
+    "baseline_distance_m": 370.3,
+    "distance_tolerance": 0.15
+  },
+  {
+    "id": "lindwurmstrasse_turn_restrictions",
+    "description": "Bicycle routing observes the only-right-turn restrictions from Ringseisstrasse and Rothmundstrasse into Lindwurmstrasse",
+    "coordinates": "11.562274,48.129620;11.554595,48.127858",
+    "expected_step_names": [
+      "Maistraße",
+      "Waltherstraße",
+      "Häberlstraße",
+      "Lindwurmstraße"
+    ],
+    "forbidden_step_names": [
+      "Ringseisstraße",
+      "Rothmundstraße"
+    ],
+    "baseline_distance_m": 788.2,
+    "distance_tolerance": 0.15
+  }
+]

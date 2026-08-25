@@ -80,6 +80,25 @@ class RouteTest(unittest.TestCase):
             timeout=30,
         )
 
+
+class VersionTest(unittest.TestCase):
+    def test_version_reports_backend_routing_and_osrm_builds(self):
+        with (
+            patch.object(app, "APP_VERSION", "backend-commit"),
+            patch.object(app, "ROUTING_VERSION", "routing-commit"),
+            patch.object(app, "OSRM_VERSION", "26.6.5"),
+        ):
+            self.assertEqual(
+                {
+                    "backend": "backend-commit",
+                    "routing": "routing-commit",
+                    "osrm": "26.6.5",
+                },
+                asyncio.run(app.version()),
+            )
+
+
+class RouteForwardingTest(unittest.TestCase):
     def test_route_forwards_coordinates_and_osrm_options(self):
         response = Mock()
         response.status_code = 200

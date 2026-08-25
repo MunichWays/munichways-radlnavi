@@ -12,6 +12,22 @@ You need to have Docker setup on your system and all the given tooling has only 
 
 To test the frontend only, use `npm run start` from the frontend folder. When you want to test a new frontend together with backend/routing changes, then use the [build_and_run_locally.sh](./build_and_run_locally.sh). This command will build new frontend and backend images and spin them up in new containers. Access the frontend via `https://localhost:9966`.
 
+## Local build versions
+
+Frontend, backend, and routing are built and deployed independently. The
+frontend displays all three build versions and the OSRM version. To label local
+Docker images with the currently checked-out Git commit in PowerShell, run:
+
+```powershell
+$env:VERSION = git rev-parse --short HEAD
+docker compose build frontend backend routing
+docker compose up -d --no-build --force-recreate frontend backend routing
+```
+
+The backend also exposes the same information as JSON at
+`http://localhost:8000/version`. Without the `VERSION` environment variable,
+local images are identified as `local`.
+
 # Release
 
 Each service (frontend and backend) have their own `build.sh` script that builds the respective docker container. The full system can be build via the [root build.sh](./build.sh) script. Since currently the webpage is hosted via Google's Cloud Run service, whenever new images are built, these need to be pushed to the Cloud Run registry and deployed via the Google Cloud Console.

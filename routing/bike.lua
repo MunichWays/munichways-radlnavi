@@ -9,6 +9,12 @@ find_access_tag = require("lib/access").find_access_tag
 limit = require("lib/maxspeed").limit
 local conditional_access = require("conditional_access")
 
+local WAY_CLASS_BICYCLE = 1
+local WAY_CLASS_QUIET = 2
+local WAY_CLASS_TERTIARY = 3
+local WAY_CLASS_MAJOR = 4
+local MAJOR_ROAD_CROSSING_PENALTY = 30
+
 function setup()
   local default_speed = 20
   local walking_speed = 4
@@ -20,8 +26,8 @@ function setup()
       weight_name                   = 'cyclability',
       --weight_name                   = 'duration',
       process_call_tagless_node     = false,
-      max_speed_for_map_matching    = 110/3.6, -- kmph -> m/s
-      use_turn_restrictions         = false,
+      max_speed_for_map_matching    = 40/3.6, -- kmph -> m/s
+      use_turn_restrictions         = true,
       continue_straight_at_waypoint = false,
       mode_change_penalty           = 30,
     },
@@ -92,6 +98,28 @@ function setup()
     restrictions = Set {
       'bicycle'
     },
+
+    highway_turn_classification = {
+      cycleway = WAY_CLASS_BICYCLE,
+      path = WAY_CLASS_BICYCLE,
+      footway = WAY_CLASS_BICYCLE,
+      pedestrian = WAY_CLASS_BICYCLE,
+      residential = WAY_CLASS_QUIET,
+      living_street = WAY_CLASS_QUIET,
+      service = WAY_CLASS_QUIET,
+      unclassified = WAY_CLASS_QUIET,
+      road = WAY_CLASS_QUIET,
+      tertiary = WAY_CLASS_TERTIARY,
+      tertiary_link = WAY_CLASS_TERTIARY,
+      secondary = WAY_CLASS_MAJOR,
+      secondary_link = WAY_CLASS_MAJOR,
+      primary = WAY_CLASS_MAJOR,
+      primary_link = WAY_CLASS_MAJOR,
+      trunk = WAY_CLASS_MAJOR,
+      trunk_link = WAY_CLASS_MAJOR,
+    },
+
+    access_turn_classification = {},
 
     cycleway_tags = Set {
       'track',
@@ -178,11 +206,14 @@ function setup()
 
     surface_speeds = {
       asphalt = default_speed,
+      chipseal = default_speed,
+      concrete = default_speed,
+      ["concrete:lanes"] = default_speed,
       compacted = default_speed,
       fine_gravel = 19,
       paving_stones = 19,
       ["cobblestone:flattened"] = 18,
-      sett = 18,
+      sett = 9,
       pebblestone = 16,
       cobblestone = 15,
       earth = 13,
@@ -193,7 +224,11 @@ function setup()
       ground = 6,
       grass = 6,
       mud = 3,
-      sand = 3
+      sand = 3,
+      wood = 10,
+      metal = 10,
+      grass_paver = 6,
+      woodchips = 3
     },
 
     classes = Sequence {
@@ -219,7 +254,9 @@ function setup()
 
     avoid = Set {
       'impassable',
-      'construction'
+      'construction',
+      'proposed',
+      'motorroad'
     }
   }
 end
@@ -253,21 +290,51 @@ function process_node(profile, node, result)
   else
     local barrier = node:get_value_by_key("barrier")
     if barrier and "" ~= barrier then
-      if not profile.barrier_whitelist[barrier] then
+      local sensory = node:get_value_by_key("sensory")
+      local audible_fence = barrier == "fence" and sensory and
+        (sensory == "audible" or sensory == "audio")
+      if not profile.barrier_whitelist[barrier] and not audible_fence then
         result.barrier = true
       end
     end
   end
 
-  -- check if node is a traffic light
-  local tag = node:get_value_by_key("highway")
-  if tag and "traffic_signals" == tag then
-    result.traffic_lights = true
+  -- Keep carriageway signals and signalized bicycle crossings separate. The
+  -- matching obstacle is selected later from the incoming way class.
+  local direction_tag = node:get_value_by_key("traffic_signals:direction") or
+    node:get_value_by_key("direction")
+  local obstacle_direction_value = obstacle_direction.both
+  if direction_tag == "forward" then
+    obstacle_direction_value = obstacle_direction.forward
+  elseif direction_tag == "backward" then
+    obstacle_direction_value = obstacle_direction.backward
+  end
+
+  if highway == "traffic_signals" then
+    obstacle_map:add(node, Obstacle.new(
+      obstacle_type.traffic_signals,
+      obstacle_direction_value,
+      0,
+      0
+    ))
+  elseif highway == "crossing" and
+      node:get_value_by_key("crossing") == "traffic_signals" then
+    obstacle_map:add(node, Obstacle.new(
+      obstacle_type.crossing,
+      obstacle_direction_value,
+      0,
+      0
+    ))
   end
 
   local railway = node:get_value_by_key("railway")
   if railway and railway == "level_crossing" then
-    result.traffic_lights = true
+    obstacle_map:add(node, Obstacle.new(
+      obstacle_type.stop,
+      obstacle_direction.both,
+      0,
+      0
+    ))
   end
 end
 
@@ -686,7 +753,10 @@ function process_way(profile, way, result)
     WayHandlers.classes,
 
     -- set weight properties of the way
-    WayHandlers.weights
+    WayHandlers.weights,
+
+    -- Preserve the coarse RadlNavi way class for signal selection at turns.
+    WayHandlers.way_classification_for_turn
   }
 
   WayHandlers.run(profile, way, result, data, handlers)
@@ -708,6 +778,8 @@ function process_way(profile, way, result)
   -- munichways ratings
   local class_bicycle = way:get_value_by_key("class:bicycle")
   local class_bicycle_penalty = 0.55
+  local separate_cycleway_penalty_forward = 1
+  local separate_cycleway_penalty_backward = 1
 
   if class_bicycle then
     if class_bicycle == "-3" then
@@ -730,14 +802,33 @@ function process_way(profile, way, result)
     end
   end
 
-  -- force routing via cycleway, if one exists
+  -- A separately mapped cycleway does not by itself make the carriageway
+  -- illegal for bicycles. Apply only a modest directional preference for the
+  -- sidepath, so a substantially shorter carriageway route can still win.
   local cycleway_both = way:get_value_by_key("cycleway:both")
-  if cycleway_both == "separate" or data.bicycle == "use_sidepath" or data.bicycle == "no" then
+  if cycleway_both == "separate" then
+    separate_cycleway_penalty_forward = 0.8
+    separate_cycleway_penalty_backward = 0.8
+  else
+    if data.cycleway_right == "separate" then
+      separate_cycleway_penalty_forward = 0.8
+    end
+    if data.cycleway_left == "separate" then
+      separate_cycleway_penalty_backward = 0.8
+    end
+  end
+
+  -- Keep mandatory-sidepath carriageways in the extracted graph so their
+  -- road class remains visible when a bicycle route crosses them. Mark them
+  -- as restricted and prevent waypoint snapping; entering them receives
+  -- OSRM's maximum turn weight in process_turn below. bicycle=no remains
+  -- completely inaccessible.
+  if data.bicycle == "use_sidepath" then
+    result.forward_restricted = true
+    result.backward_restricted = true
+    result.is_startpoint = false
+  elseif data.bicycle == "no" then
     result.forward_speed = 0
-    result.backward_speed = 0
-  elseif data.cycleway_left == "separate" then
-    result.forward_speed = 0
-  elseif data.cycleway_right == "separate" then
     result.backward_speed = 0
   end
 
@@ -749,9 +840,11 @@ function process_way(profile, way, result)
 
   if result.forward_speed > 0 then
     result.forward_rate = result.forward_speed / 3.6 * class_bicycle_penalty
+      * separate_cycleway_penalty_forward
   end
   if result.backward_speed > 0 then
     result.backward_rate = result.backward_speed / 3.6 * class_bicycle_penalty
+      * separate_cycleway_penalty_backward
   end
 end
 
@@ -768,11 +861,81 @@ function process_turn(profile, turn)
     turn.duration = turn.duration + profile.properties.u_turn_penalty
   end
 
-  if turn.has_traffic_light then
-     turn.duration = turn.duration + profile.properties.traffic_light_penalty
+  local has_road_signal = obstacle_map:any(
+    turn.from, turn.via, obstacle_type.traffic_signals
+  )
+  local has_crossing_signal = obstacle_map:any(
+    turn.from, turn.via, obstacle_type.crossing
+  )
+  local has_signal_penalty = obstacle_map:any(
+    turn.from, turn.via, obstacle_type.stop
+  )
+
+  -- A bicycle right turn does not receive an additional signal penalty. The
+  -- lower bound avoids treating a gentle right-hand road bend as a turn.
+  local is_right_turn = turn.angle >= 45 and turn.angle <= 135
+  if not is_right_turn then
+    local incoming_class = turn.source_road.highway_turn_classification
+    local signal_type = obstacle_type.traffic_signals
+    if incoming_class == WAY_CLASS_BICYCLE then
+      signal_type = obstacle_type.crossing
+    end
+
+    if obstacle_map:any(turn.from, turn.via, signal_type) then
+      has_signal_penalty = true
+    end
+  end
+  if has_signal_penalty then
+    turn.duration = turn.duration + profile.properties.traffic_light_penalty
   end
   if profile.properties.weight_name == 'cyclability' then
     turn.weight = turn.duration * 2
+
+    -- Penalize an unprotected left turn from a minor road onto a major road,
+    -- or a straight crossing of a major road between minor roads. OSRM 6
+    -- exposes the other intersection legs, so a crossed secondary+ can be
+    -- detected even when both the source and target ways are residential.
+    local source_class = turn.source_road.highway_turn_classification
+    local target_class = turn.target_road.highway_turn_classification
+    local is_left_turn = turn.angle <= -45 and turn.angle >= -135
+    local is_straight = math.abs(turn.angle) < 45
+    local is_major_road_left_turn = is_left_turn
+      and ((source_class ~= WAY_CLASS_MAJOR
+          and target_class == WAY_CLASS_MAJOR)
+        or (source_class == WAY_CLASS_MAJOR
+          and target_class ~= WAY_CLASS_MAJOR))
+
+    local crosses_major_road = false
+    if is_straight
+      and source_class ~= WAY_CLASS_MAJOR
+      and target_class ~= WAY_CLASS_MAJOR then
+      for _, road in ipairs(turn.roads_on_the_right) do
+        if road.highway_turn_classification == WAY_CLASS_MAJOR then
+          crosses_major_road = true
+          break
+        end
+      end
+      if not crosses_major_road then
+        for _, road in ipairs(turn.roads_on_the_left) do
+          if road.highway_turn_classification == WAY_CLASS_MAJOR then
+            crosses_major_road = true
+            break
+          end
+        end
+      end
+    end
+
+    if not has_road_signal
+      and not has_crossing_signal
+      and (is_major_road_left_turn or crosses_major_road) then
+      turn.weight = turn.weight + MAJOR_ROAD_CROSSING_PENALTY
+    end
+
+    -- A use_sidepath carriageway is retained only as intersection metadata.
+    -- Never let a bicycle route enter it from an unrestricted way.
+    if not turn.source_restricted and turn.target_restricted then
+      turn.weight = constants.max_turn_weight
+    end
   end
   if turn.source_mode == mode.cycling and turn.target_mode ~= mode.cycling then
     turn.weight = turn.weight + profile.properties.mode_change_penalty

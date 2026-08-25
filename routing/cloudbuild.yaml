@@ -2,6 +2,7 @@ substitutions:
   _REGION: europe-west3
   _REPOSITORY: radlnavi
   _ROUTING_SERVICE: munichways-radlnavi-routing
+  _API_SERVICE: munichways-radlnavi-api
 
 steps:
   - name: gcr.io/cloud-builders/git
@@ -22,6 +23,8 @@ steps:
       - build
       - --build-arg
       - RADLNAVI_ROUTING_DATE=$BUILD_ID
+      - --build-arg
+      - VERSION=$COMMIT_SHA
       - -t
       - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA
       - -f
@@ -53,6 +56,18 @@ steps:
       - --cpu=1
       - --concurrency=20
       - --timeout=60
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: publish-routing-version
+    waitFor: [deploy-routing]
+    entrypoint: gcloud
+    args:
+      - run
+      - services
+      - update
+      - ${_API_SERVICE}
+      - --region=${_REGION}
+      - --update-env-vars=ROUTING_VERSION=$COMMIT_SHA,OSRM_VERSION=26.6.5
 
 images:
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA

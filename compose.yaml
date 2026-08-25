@@ -5,20 +5,30 @@ services:
       context: ./frontend
       args:
         - BACKEND_URL=http://localhost:8000
+        - VERSION=${VERSION:-local}
     ports:
       - 80:80
 
   routing:
     image: radlnavi-routing
-    build: ./routing
+    build:
+      context: ./routing
+      args:
+        - VERSION=${VERSION:-local}
     ports:
       - 8080:8080
 
   backend:
     image: radlnavi-backend
-    build: ./backend
+    build:
+      context: ./backend
+      args:
+        - VERSION=${VERSION:-local}
     environment:
       - OSRM_BACKEND_URL=http://routing:8080
+      - APP_VERSION=${VERSION:-local}
+      - ROUTING_VERSION=${VERSION:-local}
+      - OSRM_VERSION=26.6.5
     ports:
       - 8000:8000
     depends_on:

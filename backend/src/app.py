@@ -54,6 +54,9 @@ def get_geo_store() -> sqlite3.Connection:
 geo_store: Optional[sqlite3.Connection] = None
 OSRM_BACKEND_URL = os.environ["OSRM_BACKEND_URL"]
 OSRM_AUTH_AUDIENCE = os.environ.get("OSRM_AUTH_AUDIENCE")
+APP_VERSION = os.environ.get("APP_VERSION", "local")
+ROUTING_VERSION = os.environ.get("ROUTING_VERSION", "unknown")
+OSRM_VERSION = os.environ.get("OSRM_VERSION", "unknown")
 
 default_origins = [
     "http://localhost",
@@ -113,6 +116,15 @@ async def osrm_route_proxy(
 @app.get("/health")
 async def health():
     return {"ok": True}
+
+
+@app.get("/version")
+async def version():
+    return {
+        "backend": APP_VERSION,
+        "routing": ROUTING_VERSION,
+        "osrm": OSRM_VERSION,
+    }
 
 
 def routing_auth_headers() -> dict[str, str]:

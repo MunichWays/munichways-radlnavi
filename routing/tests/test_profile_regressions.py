@@ -1,0 +1,270 @@
+#!/usr/bin/env python3
+"""Regression checks for RadlNavi bicycle profile behavior."""
+
+from __future__ import annotations
+
+import json
+import math
+import sys
+import urllib.error
+import urllib.request
+from pathlib import Path
+
+
+ENDPOINT = "http://localhost:18081"
+PROFILE = Path(__file__).resolve().parents[1] / "bike.lua"
+
+
+def route_coordinates(coordinates: str) -> dict:
+    url = (
+        f"{ENDPOINT}/route/v1/bike/{coordinates}"
+        "?overview=false&radiuses=8;8"
+    )
+    try:
+        with urllib.request.urlopen(url, timeout=10) as response:
+            return json.load(response)
+    except urllib.error.HTTPError as error:
+        return json.load(error)
+
+
+def route(lat: float) -> dict:
+    return route_coordinates(f"11.0000,{lat:.4f};11.0010,{lat:.4f}")
+
+
+def assert_routable(lat: float) -> dict:
+    response = route(lat)
+    assert response["code"] == "Ok", response
+    return response["routes"][0]
+
+
+def assert_coordinates_routable(coordinates: str) -> dict:
+    response = route_coordinates(coordinates)
+    assert response["code"] == "Ok", response
+    return response["routes"][0]
+
+
+def assert_blocked(lat: float) -> None:
+    response = route(lat)
+    assert response["code"] in {"NoRoute", "NoSegment"}, response
+
+
+def main() -> int:
+    profile = PROFILE.read_text(encoding="utf-8")
+    assert "max_speed_for_map_matching    = 40/3.6" in profile
+
+    asphalt_duration = assert_routable(48.0000)["duration"]
+    for lat in (48.0100, 48.0200, 48.0300):
+        duration = assert_routable(lat)["duration"]
+        assert math.isclose(duration, asphalt_duration, rel_tol=0.03), (
+            lat,
+            duration,
+            asphalt_duration,
+        )
+
+    expected_speed_ratios = {
+        48.0400: 2.0,  # wood: 10 km/h instead of 20 km/h
+        48.0500: 2.0,  # metal: 10 km/h
+        48.0600: 20 / 6,  # grass_paver: 6 km/h
+        48.0700: 20 / 3,  # woodchips: 3 km/h
+        48.0800: 20 / 9,  # sett: 9 km/h
+    }
+    for lat, expected_ratio in expected_speed_ratios.items():
+        duration = assert_routable(lat)["duration"]
+        assert math.isclose(
+            duration / asphalt_duration, expected_ratio, rel_tol=0.05
+        ), (lat, duration, asphalt_duration, expected_ratio)
+
+    assert_routable(48.1000)
+    assert_blocked(48.1100)
+    for lat in (48.2000, 48.2100, 48.2200):
+        assert_blocked(lat)
+
+    # A separately mapped cycleway is not an access restriction. It adds a
+    # modest directional carriageway penalty instead of blocking the road.
+    baseline_weight = assert_routable(48.0000)["weight"]
+    both_forward = assert_routable(48.2300)["weight"]
+    both_backward = assert_coordinates_routable(
+        "11.0010,48.2300;11.0000,48.2300"
+    )["weight"]
+    left_forward = assert_routable(48.2400)["weight"]
+    left_backward = assert_coordinates_routable(
+        "11.0010,48.2400;11.0000,48.2400"
+    )["weight"]
+    right_forward = assert_routable(48.2500)["weight"]
+    right_backward = assert_coordinates_routable(
+        "11.0010,48.2500;11.0000,48.2500"
+    )["weight"]
+
+    for penalized_weight in (
+        both_forward,
+        both_backward,
+        left_backward,
+        right_forward,
+    ):
+        assert math.isclose(
+            penalized_weight / baseline_weight, 1 / 0.8, rel_tol=0.03
+        ), (penalized_weight, baseline_weight)
+    for unpenalized_weight in (left_forward, right_backward):
+        assert math.isclose(unpenalized_weight, baseline_weight, rel_tol=0.03), (
+            unpenalized_weight,
+            baseline_weight,
+        )
+
+    # Explicit access restrictions still make the carriageway unroutable.
+    for lat in (48.2600, 48.2700):
+        assert_blocked(lat)
+
+    road_without_signal = assert_routable(48.3000)
+    road_signal = assert_routable(48.3100)
+    road_crossing_signal = assert_routable(48.3200)
+    path_crossing_signal = assert_routable(48.3300)
+    path_road_signal = assert_routable(48.3400)
+
+    assert math.isclose(
+        road_signal["weight"] - road_without_signal["weight"], 12, abs_tol=0.3
+    ), (road_signal, road_without_signal)
+    assert math.isclose(
+        road_crossing_signal["weight"], road_without_signal["weight"], abs_tol=0.3
+    ), (road_crossing_signal, road_without_signal)
+    assert math.isclose(
+        path_crossing_signal["weight"] - path_road_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (path_crossing_signal, path_road_signal)
+
+    forward_signal = assert_routable(48.3500)
+    backward_signal = assert_coordinates_routable(
+        "11.0010,48.3500;11.0000,48.3500"
+    )
+    assert math.isclose(
+        forward_signal["weight"] - road_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (forward_signal, road_without_signal)
+    assert math.isclose(
+        backward_signal["weight"], road_without_signal["weight"], abs_tol=0.3
+    ), (backward_signal, road_without_signal)
+
+    backward_tag_forward_route = assert_routable(48.3800)
+    backward_tag_backward_route = assert_coordinates_routable(
+        "11.0010,48.3800;11.0000,48.3800"
+    )
+    assert math.isclose(
+        backward_tag_forward_route["weight"],
+        road_without_signal["weight"],
+        abs_tol=0.3,
+    ), (backward_tag_forward_route, road_without_signal)
+    assert math.isclose(
+        backward_tag_backward_route["weight"] - road_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (backward_tag_backward_route, road_without_signal)
+
+    right_turn_signal = assert_coordinates_routable(
+        "11.0000,48.3600;11.0005,48.3595"
+    )
+    right_turn_without_signal = assert_coordinates_routable(
+        "11.0000,48.3700;11.0005,48.3695"
+    )
+    assert math.isclose(
+        right_turn_signal["weight"], right_turn_without_signal["weight"], abs_tol=0.3
+    ), (right_turn_signal, right_turn_without_signal)
+
+    left_turn_signal = assert_coordinates_routable(
+        "11.0000,48.3900;11.0005,48.3905"
+    )
+    left_turn_without_signal = assert_coordinates_routable(
+        "11.0000,48.4000;11.0005,48.4005"
+    )
+    assert math.isclose(
+        left_turn_signal["weight"] - left_turn_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (left_turn_signal, left_turn_without_signal)
+
+    level_crossing = assert_routable(48.4100)
+    assert math.isclose(
+        level_crossing["weight"] - road_without_signal["weight"],
+        12,
+        abs_tol=0.3,
+    ), (level_crossing, road_without_signal)
+
+    # Generic OSM turn restrictions apply to bicycles unless bicycles are
+    # explicitly excepted. The first fixture permits only the right turn and
+    # therefore blocks the left turn; the second has except=bicycle.
+    restricted_left_turn = assert_coordinates_routable(
+        "11.0000,48.4200;11.0005,48.4205"
+    )
+    assert restricted_left_turn["distance"] > 150, restricted_left_turn
+    excepted_left_turn = assert_coordinates_routable(
+        "11.0000,48.4300;11.0005,48.4305"
+    )
+    assert excepted_left_turn["distance"] < 100, excepted_left_turn
+
+    # Turn restrictions do not change bicycle-specific oneway access.
+    assert_coordinates_routable(
+        "11.0010,48.4400;11.0000,48.4400"
+    )
+
+    quiet_straight = assert_coordinates_routable(
+        "11.0000,48.4600;11.0010,48.4600"
+    )
+    major_straight = assert_coordinates_routable(
+        "11.0000,48.4500;11.0010,48.4500"
+    )
+    mandatory_sidepath_carriageway = route_coordinates(
+        "11.0005,48.4495;11.0005,48.4505"
+    )
+    assert mandatory_sidepath_carriageway["code"] in {"NoRoute", "NoSegment"}, (
+        mandatory_sidepath_carriageway
+    )
+    signalized_major_straight = assert_coordinates_routable(
+        "11.0000,48.4700;11.0010,48.4700"
+    )
+    assert math.isclose(
+        major_straight["weight"] - quiet_straight["weight"], 30, abs_tol=0.3
+    ), (major_straight, quiet_straight)
+    assert math.isclose(
+        signalized_major_straight["weight"] - quiet_straight["weight"],
+        12,
+        abs_tol=0.3,
+    ), (signalized_major_straight, quiet_straight)
+
+    quiet_left = assert_coordinates_routable(
+        "11.0000,48.4900;11.0005,48.4905"
+    )
+    major_left = assert_coordinates_routable(
+        "11.0000,48.4800;11.0005,48.4805"
+    )
+    assert math.isclose(
+        major_left["weight"] - quiet_left["weight"], 30, abs_tol=0.3
+    ), (major_left, quiet_left)
+
+    quiet_left_off_road = assert_coordinates_routable(
+        "11.0005,48.4895;11.0000,48.4900"
+    )
+    major_left_off_road = assert_coordinates_routable(
+        "11.0005,48.4795;11.0000,48.4800"
+    )
+    assert math.isclose(
+        major_left_off_road["weight"] - quiet_left_off_road["weight"],
+        30,
+        abs_tol=0.3,
+    ), (major_left_off_road, quiet_left_off_road)
+
+    quiet_right = assert_coordinates_routable(
+        "11.0000,48.5100;11.0005,48.5095"
+    )
+    major_right = assert_coordinates_routable(
+        "11.0000,48.5000;11.0005,48.4995"
+    )
+    assert math.isclose(
+        major_right["weight"], quiet_right["weight"], abs_tol=0.3
+    ), (major_right, quiet_right)
+
+    print("profile regressions passed")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

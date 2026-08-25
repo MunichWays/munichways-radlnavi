@@ -1,4 +1,4 @@
-FROM node:18.16-buster AS builder
+FROM node:18.16-buster AS map-builder
 
 RUN git clone https://github.com/mapbox/tippecanoe.git
 RUN cd tippecanoe && make -j && make install && cd -
@@ -24,9 +24,14 @@ RUN node load_munichways.mjs
 RUN mkdir ./public/layers
 RUN ./tippecanoe/tippecanoe --maximum-zoom=19 --no-tile-compression -e ./public/layers/munichways ./public/munichways.json
 
+FROM map-builder AS app-builder
+
 COPY src src
 
-RUN REACT_APP_BACKEND_URL="$BACKEND_URL" REACT_APP_VERSION="$VERSION" REACT_APP_COMMIT="$COMMIT" npm run build
+RUN GENERATE_SOURCEMAP=false REACT_APP_BACKEND_URL="$BACKEND_URL" REACT_APP_VERSION="$VERSION" REACT_APP_COMMIT="$COMMIT" npm run build
+
+# Keep the large, stable map tiles out of the frequently changing app layer.
+RUN rm -rf ./build/layers
 
 FROM ubuntu/nginx
 
@@ -35,7 +40,8 @@ LABEL org.opencontainers.image.revision=$VERSION
 
 ENV PORT 80
 
-COPY --from=builder build /var/www/html
+COPY --from=map-builder public/layers /var/www/html/layers
+COPY --from=app-builder build /var/www/html
 
 EXPOSE 80
 

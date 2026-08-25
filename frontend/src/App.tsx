@@ -13,7 +13,7 @@ import {
 import { LatLngBounds, LeafletEvent, LeafletMouseEvent, Map as LMap, Icon as LeafletIcon } from "leaflet";
 import { throttle } from "lodash";
 import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Switch, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
-import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
+import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LegendToggle, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
 import lineSlice from "@turf/line-slice";
 import { point, lineString } from "@turf/helpers";
 import length from "@turf/length";
@@ -38,6 +38,15 @@ const debounce = (fn, time) => {
 const togpx = require("togpx");
 
 const RADLNAVI_BLUE = "#00BCF2";
+const ROUTE_BLUE = "#0057D9";
+
+const RATING_COLORS = {
+  black: "#000000",
+  green: "#27F5A5",
+  yellow: "#FFD000",
+  red: "#F44336",
+  grey: "#9C9D9F",
+};
 
 const SOUTH_WEST = {
   lng: 8.5,
@@ -226,14 +235,44 @@ function translateSurface(surface: string): string {
 }
 
 const BICYCLE_CLASSES_COLORS = new Map([
-  ["-3", "black"],
-  ["-2", "black"],
-  ["-1", "red"],
-  ["0", "lightgrey"],
-  ["1", "yellow"],
-  ["2", "green"],
-  ["3", "green"],
+  ["-3", RATING_COLORS.black],
+  ["-2", RATING_COLORS.black],
+  ["-1", RATING_COLORS.red],
+  ["0", RATING_COLORS.grey],
+  ["1", RATING_COLORS.yellow],
+  ["2", RATING_COLORS.green],
+  ["3", RATING_COLORS.green],
 ])
+
+const DASHED_BICYCLE_CLASSES = new Set(["-3", "-2", "-1"]);
+const RATING_LEGEND = [
+  { color: RATING_COLORS.green, label: "Gemütlich", dashed: false },
+  { color: RATING_COLORS.yellow, label: "Durchschnittlich", dashed: false },
+  { color: RATING_COLORS.red, label: "Stressig", dashed: true },
+  { color: RATING_COLORS.black, label: "Sehr stressig", dashed: true },
+];
+
+function appRatingColor(color: string): string {
+  switch (color.toLowerCase()) {
+    case "black":
+    case "schwarz": return RATING_COLORS.black;
+    case "green":
+    case "grün": return RATING_COLORS.green;
+    case "yellow":
+    case "gelb": return RATING_COLORS.yellow;
+    case "red":
+    case "rot": return RATING_COLORS.red;
+    case "grey":
+    case "gray":
+    case "grau": return RATING_COLORS.grey;
+    default: return color;
+  }
+}
+
+function isStressfulRatingColor(color: string): boolean {
+  const normalizedColor = appRatingColor(color).toUpperCase();
+  return normalizedColor === RATING_COLORS.red || normalizedColor === RATING_COLORS.black;
+}
 
 const SURFACE_COLORS = new Map([
   ["asphalt", "#4682B4"],
@@ -302,7 +341,11 @@ let posChangeInterval = null;
 
 const munichWaysLayer = L.vectorGrid.protobuf("/layers/munichways/{z}/{x}/{y}.pbf", {
   vectorTileLayerStyles: {
-    munichways: (prop) => ({ color: prop.color, weight: 1.5 })
+    munichways: (prop) => ({
+      color: appRatingColor(prop.color),
+      dashArray: isStressfulRatingColor(prop.color) ? "6 5" : undefined,
+      weight: 1.5,
+    })
   },
   interactive: false,
   rendererFactory: L.canvas.tile,
@@ -350,6 +393,7 @@ function App() {
   const [showMunichways, setShowMunichways] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
+  const [showLegend, setShowLegend] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [geolocationWathId, setGeolocationWatchId] = useState<number | null>(null);
   const [userPosition, setUserPosition] = useState<null | { lat: number, lng: number, speed: number | null, heading: number | null }>(null);
@@ -360,6 +404,30 @@ function App() {
   const [regionShape, setRegionShape] = useState<Polygon | null>(null);
   const [gpsMode, setGpsMode] = useState<"gps_off" | "gps_not_fixed" | "gps_fixed">("gps_off");
   const [versionInfo, setVersionInfo] = useState<VersionInfo | null>(null);
+  const initialPositionRequested = React.useRef(false);
+
+  const setCurrentPositionAsStart = useCallback((position: GeolocationPosition) => {
+    const item = {
+      display_name: "Aktuelle Position",
+      place_id: 1,
+      lat: position.coords.latitude.toString(),
+      lon: position.coords.longitude.toString(),
+    };
+    setStartSuggestions([item]);
+    setStartPosition(item);
+  }, []);
+
+  useEffect(() => {
+    if (initialPositionRequested.current || !("geolocation" in navigator)) {
+      return;
+    }
+    initialPositionRequested.current = true;
+    navigator.geolocation.getCurrentPosition(setCurrentPositionAsStart, () => undefined, {
+      enableHighAccuracy: true,
+      maximumAge: 60000,
+      timeout: 10000,
+    });
+  }, [setCurrentPositionAsStart]);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/version`)
@@ -823,11 +891,11 @@ function App() {
       })
     );
     return <React.Fragment>
-      <Polyline key={`route-${hightlightLit !== null || hightlightSurface !== null}`} weight={hightlightLit !== null || hightlightSurface !== null ? 3 : 8} positions={coords} color="black"></Polyline>
-      {bicycleClassesPaths == null ? <Polyline dashArray="2 4" color={RADLNAVI_BLUE} weight={2} positions={coords}></Polyline> : hightlightLit || hightlightSurface ? [] : [...bicycleClassesPaths.entries()]
+      <Polyline key={`route-${hightlightLit !== null || hightlightSurface !== null}`} weight={hightlightLit !== null || hightlightSurface !== null ? 3 : 8} positions={coords} color={ROUTE_BLUE}></Polyline>
+      {bicycleClassesPaths == null ? <Polyline dashArray="2 4" color={ROUTE_BLUE} weight={2} positions={coords}></Polyline> : hightlightLit || hightlightSurface ? [] : [...bicycleClassesPaths.entries()]
         .map(([key, entry]) => entry.map(
           (bicycleClassPath, i) =>
-            <Polyline key={`${key}-${i}`} color={BICYCLE_CLASSES_COLORS.get(key) || 'gray'} weight={3} positions={
+            <Polyline key={`${key}-${i}`} color={BICYCLE_CLASSES_COLORS.get(key) || RATING_COLORS.grey} dashArray={DASHED_BICYCLE_CLASSES.has(key) ? "6 5" : undefined} weight={3} positions={
               bicycleClassPath.map(
                 (point) => ({ lat: point[1], lng: point[0] })
               )
@@ -846,7 +914,7 @@ function App() {
       .filter(([key, _]) => key === hightlightLit)
       .map(([key, entry]) => entry.map(
         (litPath, i) =>
-          <Polyline key={`${key}-${i}-backdrop`} color="black" weight={8} positions={
+          <Polyline key={`${key}-${i}-backdrop`} color={ROUTE_BLUE} weight={8} positions={
             litPath.map(
               (point) => ({ lat: point[1], lng: point[0] })
             )
@@ -870,7 +938,7 @@ function App() {
       .filter(([key, _]) => key === hightlightSurface)
       .map(([key, entry]) => entry.map(
         (surfacePath, i) =>
-          <Polyline key={`${key}-${i}-backdrop`} color={"black"} weight={8} positions={
+          <Polyline key={`${key}-${i}-backdrop`} color={ROUTE_BLUE} weight={8} positions={
             surfacePath.map(
               (point) => ({ lat: point[1], lng: point[0] })
             )
@@ -934,18 +1002,38 @@ function App() {
           >
             <Button
               color="primary"
+              sx={{ textTransform: "none" }}
               onClick={() => routeFromHere(contextMenuPosition)}
             >
               Route von hier
             </Button>
             <Button
               color="primary"
+              sx={{ textTransform: "none" }}
               onClick={() => routeToHere(contextMenuPosition)}
             >
-              Route zu dieser Position
+              Route hierhin
             </Button>
           </div>
         ) : null}
+
+        <Tooltip title="Legende">
+          <IconButton
+            aria-label="Legende öffnen"
+            onClick={() => setShowLegend(true)}
+            sx={{
+              position: "absolute",
+              top: 82,
+              right: 10,
+              zIndex: 1000,
+              backgroundColor: "white",
+              boxShadow: 2,
+              "&:hover": { backgroundColor: "#f5f5f5" },
+            }}
+          >
+            <LegendToggle />
+          </IconButton>
+        </Tooltip>
 
         {menuMinimized ?
           <React.Fragment>
@@ -1040,12 +1128,7 @@ function App() {
               />
               <Tooltip title="Aktuelle Position ermitteln und als Start setzen" arrow>
                 <IconButton color="primary"
-                            onClick={() => navigator.geolocation.getCurrentPosition((loc) => setStartPosition({
-                              display_name: "Ermittelter Standort",
-                              place_id: 1,
-                              lat: loc.coords.latitude + "",
-                              lon: loc.coords.longitude + "",
-                            }))}><LocationSearching/></IconButton>
+                            onClick={() => navigator.geolocation.getCurrentPosition(setCurrentPositionAsStart)}><LocationSearching/></IconButton>
               </Tooltip>
             </div>
             <div style={{
@@ -1286,16 +1369,6 @@ function App() {
             : null}
           {illuminatedPaths != null && startPosition != null && endPosition != null && hightlightLit !== null ? drawIlluminated() : null}
           {surfacePaths != null && startPosition != null && endPosition != null && hightlightSurface !== null ? drawSurfaces() : null}
-          {!isNavigating || navigationPath == null || route == null ? null :
-            <Polyline color="#00BCF2" weight={6} positions={
-              navigationPath
-            }></Polyline>
-          }
-          {!isNavigating || navigationPath == null || route == null || nextNavigationStep?.geometry == null ? null :
-            <Polyline color="#008CB4" weight={8} positions={
-              nextNavigationStep.geometry
-            }></Polyline>
-          }
           {!isNavigating || navigationPath == null || route == null || lineToRoute == null ? null :
             <Polyline color="red" dashArray="7 7" weight={4} positions={
               lineToRoute
@@ -1328,6 +1401,28 @@ function App() {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setShowAbout(false)}>Schließen</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={showLegend} onClose={() => setShowLegend(false)}>
+        <DialogTitle>Bewertungen</DialogTitle>
+        <DialogContent>
+          {RATING_LEGEND.map(({color, label, dashed}) => (
+            <div key={label} style={{display: "flex", alignItems: "center", gap: 12, margin: "12px 0"}}>
+              <span style={{
+                display: "inline-block",
+                width: 54,
+                height: 4,
+                background: dashed
+                  ? `repeating-linear-gradient(to right, ${color} 0 8px, transparent 8px 13px)`
+                  : color,
+              }} />
+              <Typography>{label}</Typography>
+            </div>
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShowLegend(false)}>Schließen</Button>
         </DialogActions>
       </Dialog>
 

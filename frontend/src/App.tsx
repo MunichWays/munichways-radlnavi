@@ -91,7 +91,10 @@ function shortVersion(version: string): string {
 }
 
 function VersionLink({label, version}: {label: string, version: string}) {
-  const text = `${label} ${shortVersion(version)}`;
+  const displayVersion = /^\d+\.\d+\.\d+(?:[-+].+)?$/.test(version)
+    ? `v${version}`
+    : shortVersion(version);
+  const text = `${label} ${displayVersion}`;
   if (!/^[0-9a-f]{7,40}$/i.test(version)) {
     return <span>{text}</span>;
   }

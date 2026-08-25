@@ -33,9 +33,10 @@ steps:
       - -ceu
       - |
         api_url="$$(cat /workspace/api-url)"
+        frontend_version="$$(tr -d '\r\n' < frontend/VERSION)"
         docker build \
           --build-arg="BACKEND_URL=$${api_url}" \
-          --build-arg="VERSION=$COMMIT_SHA" \
+          --build-arg="VERSION=$${frontend_version}" \
           -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA' \
           -f frontend/Dockerfile frontend
 

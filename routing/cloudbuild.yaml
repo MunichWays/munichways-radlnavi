@@ -19,17 +19,16 @@ steps:
     id: build-routing
     waitFor: [checkout-source]
     dir: source
+    entrypoint: bash
     args:
-      - build
-      - --build-arg
-      - RADLNAVI_ROUTING_DATE=$BUILD_ID
-      - --build-arg
-      - VERSION=$COMMIT_SHA
-      - -t
-      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA
-      - -f
-      - routing/Dockerfile
-      - routing
+      - -ceu
+      - |
+        routing_version="$$(tr -d '\r\n' < routing/VERSION)"
+        docker build \
+          --build-arg="RADLNAVI_ROUTING_DATE=$BUILD_ID" \
+          --build-arg="VERSION=$${routing_version}" \
+          -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA' \
+          -f routing/Dockerfile routing
 
   - name: gcr.io/cloud-builders/docker
     id: push-routing
@@ -60,14 +59,15 @@ steps:
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     id: publish-routing-version
     waitFor: [deploy-routing]
-    entrypoint: gcloud
+    dir: source
+    entrypoint: bash
     args:
-      - run
-      - services
-      - update
-      - ${_API_SERVICE}
-      - --region=${_REGION}
-      - --update-env-vars=ROUTING_VERSION=$COMMIT_SHA,OSRM_VERSION=26.6.5
+      - -ceu
+      - |
+        routing_version="$$(tr -d '\r\n' < routing/VERSION)"
+        gcloud run services update '${_API_SERVICE}' \
+          --region='${_REGION}' \
+          --update-env-vars="ROUTING_VERSION=$${routing_version},OSRM_VERSION=26.6.5"
 
 images:
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA

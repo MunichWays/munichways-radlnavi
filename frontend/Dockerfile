@@ -26,6 +26,10 @@ RUN ./tippecanoe/tippecanoe --maximum-zoom=19 --no-tile-compression -e ./public/
 
 FROM map-builder AS app-builder
 
+ARG BACKEND_URL="https://backend.radlnavi.de"
+ARG VERSION="local"
+ARG COMMIT=""
+
 COPY src src
 
 RUN GENERATE_SOURCEMAP=false REACT_APP_BACKEND_URL="$BACKEND_URL" REACT_APP_VERSION="$VERSION" REACT_APP_COMMIT="$COMMIT" npm run build

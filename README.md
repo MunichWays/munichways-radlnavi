@@ -8,9 +8,79 @@ The [frontend service](./frontend/) interacts with the user and also features an
 
 # Development
 
-You need to have Docker setup on your system and all the given tooling has only been tested on a Ubuntu/Linux system.
+There are two different ways to run RadlNavi locally. Choose the workflow based
+on which services you changed.
 
-To test the frontend only, use `npm run start` from the frontend folder. When you want to test a new frontend together with backend/routing changes, then use the [build_and_run_locally.sh](./build_and_run_locally.sh). This command will build new frontend and backend images and spin them up in new containers. Access the frontend via `https://localhost:9966`.
+## Test frontend changes only
+
+Use this workflow when only files in `frontend/` have changed. It starts the
+React development server locally and uses the currently deployed MunichWays
+production backend for routing and route analysis. A local backend, routing
+engine, and Docker are not required.
+
+Prerequisites:
+
+- Node.js and npm
+- Internet access to the production backend
+
+From the repository root, run:
+
+```powershell
+cd frontend
+npm install --legacy-peer-deps
+npm start
+```
+
+Open <http://localhost:3000> if the browser does not open automatically.
+
+In development, API and MunichWays vector-tile requests use relative URLs. The
+proxy in `frontend/src/setupProxy.js` forwards:
+
+- `/route`, `/tag_distribution`, and `/version` to the deployed MunichWays API
+- `/layers/munichways` to the deployed MunichWays frontend, which provides the
+  generated rating tiles
+
+This makes both routing and the colored MunichWays ratings available locally
+without browser CORS restrictions. The development proxy is used only by
+`npm start`; it does not affect production builds.
+
+Run `npm install --legacy-peer-deps` only after the initial checkout or when the
+dependencies have changed. The option is currently required because the
+Leaflet fork used by the project does not satisfy `leaflet.vectorgrid`'s peer
+dependency declaration. For subsequent starts, `npm start` is sufficient.
+
+## Test frontend together with backend or routing changes
+
+Use this workflow when `backend/` or `routing/` has changed, or when an
+end-to-end test of all local services is required. Docker Compose builds and
+starts the local frontend, backend, and OSRM routing service together.
+
+Prerequisites:
+
+- Docker with Docker Compose
+
+From the repository root, run:
+
+```powershell
+docker compose up --build
+```
+
+Open <http://localhost>. The service connections in this setup are:
+
+- Frontend: <http://localhost>
+- Backend API: <http://localhost:8000>
+- Routing service: <http://localhost:8080>
+
+The Docker frontend is built with `BACKEND_URL=http://localhost:8000`, so it
+uses the local backend rather than the production backend. The local backend in
+turn connects to the routing container through the Docker network.
+
+Stop all services with `Ctrl+C`. To remove the stopped containers afterwards,
+run:
+
+```powershell
+docker compose down
+```
 
 ## Local build versions
 

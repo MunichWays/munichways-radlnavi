@@ -106,3 +106,38 @@
   font-size: 1.1em;
   color: grey;
 }
+
+.comfort-index {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comfort-index-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.comfort-index-heading strong {
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+.comfort-bar {
+  display: flex;
+  min-height: 30px;
+  overflow: hidden;
+  border: 2px solid #666;
+  border-radius: 4px;
+}
+
+.comfort-bar > div {
+  min-width: 2px;
+}
+
+.comfort-index small {
+  color: #666;
+  font-size: 0.72rem;
+}

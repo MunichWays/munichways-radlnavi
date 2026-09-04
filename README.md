@@ -82,6 +82,48 @@ run:
 docker compose down
 ```
 
+## Radl-Komfort API
+
+Clients can request the centrally calculated Radl-Komfort metadata together
+with an OSRM-compatible route by adding `comfort=true`:
+
+```text
+GET /route/v1/bike/{coordinates}?comfort=true&annotations=false&...
+```
+
+The backend requests only the required node annotations internally. If the
+client sets `annotations=false` or omits `annotations`, those internal node IDs
+are removed again before the response is returned. Each entry in `routes`
+receives a `comfort` object:
+
+```json
+{
+  "index": 78,
+  "coverage": 82,
+  "sufficientCoverage": true,
+  "distribution": {
+    "black": 2,
+    "red": 7,
+    "yellow": 18,
+    "green": 68,
+    "unrated": 5
+  }
+}
+```
+
+`index` is a length-weighted value from 0 to 100. It is `null` when less than
+70 percent of the analyzed route is rated. `coverage` and all values in
+`distribution` are integer percentages; the distribution always sums to 100.
+Unknown `class:bicycle` values are included in `unrated`.
+
+The option is explicitly opt-in: requests without `comfort=true` remain an
+unchanged OSRM proxy without comfort-analysis overhead. If optional comfort
+analysis fails, the valid routing response is still returned without the
+`comfort` field.
+
+The existing `POST /tag_distribution` response also contains the same
+backend-calculated `comfort` object for the RadlNavi web frontend.
+
 ## Local build versions
 
 Frontend, backend, and routing are built and deployed independently. The

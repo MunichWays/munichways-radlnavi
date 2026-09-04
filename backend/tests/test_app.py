@@ -1,5 +1,6 @@
 import asyncio
 import importlib
+import json
 import os
 from pathlib import Path
 import sys
@@ -136,6 +137,109 @@ class RouteForwardingTest(unittest.TestCase):
             headers={},
             timeout=30,
         )
+
+    def test_comfort_option_enriches_route_without_exposing_internal_nodes(self):
+        payload = {
+            "code": "Ok",
+            "routes": [
+                {
+                    "distance": 100,
+                    "legs": [
+                        {"annotation": {"nodes": [1, 2, 3]}, "steps": []},
+                        {"annotation": {"nodes": [3, 4]}, "steps": []},
+                    ],
+                }
+            ],
+        }
+        response = Mock(
+            status_code=200,
+            content=json.dumps(payload).encode(),
+            headers={"content-type": "application/json"},
+        )
+        response.json.return_value = payload
+        request = Request(
+            {
+                "type": "http",
+                "method": "GET",
+                "path": "/route/v1/bike/coordinates",
+                "query_string": b"steps=true&annotations=false&comfort=true",
+                "headers": [],
+            }
+        )
+        comfort = {
+            "index": 80,
+            "coverage": 90,
+            "sufficientCoverage": True,
+            "distribution": {
+                "black": 0,
+                "red": 10,
+                "yellow": 20,
+                "green": 60,
+                "unrated": 10,
+            },
+        }
+
+        with (
+            patch.object(app, "get", return_value=response) as get,
+            patch.object(app, "routing_auth_headers", return_value={}),
+            patch.object(
+                app, "calculate_comfort_for_node_ids", return_value=comfort
+            ) as calculate,
+        ):
+            result = asyncio.run(
+                app.osrm_route_proxy(request, "bike", "coordinates")
+            )
+
+        body = json.loads(result.body)
+        self.assertEqual(comfort, body["routes"][0]["comfort"])
+        self.assertNotIn("annotation", body["routes"][0]["legs"][0])
+        calculate.assert_called_once_with([1, 2, 3, 4])
+        get.assert_called_once_with(
+            "http://routing:8080/route/v1/bike/coordinates",
+            params=[("steps", "true"), ("annotations", "nodes")],
+            headers={},
+            timeout=30,
+        )
+
+    def test_comfort_failure_does_not_break_valid_route(self):
+        payload = {
+            "code": "Ok",
+            "routes": [{"legs": [{"annotation": {"nodes": [1, 2]}}]}],
+        }
+        content = json.dumps(payload).encode()
+        response = Mock(
+            status_code=200,
+            content=content,
+            headers={"content-type": "application/json"},
+        )
+        response.json.return_value = payload
+        request = Request(
+            {
+                "type": "http",
+                "method": "GET",
+                "path": "/route/v1/bike/coordinates",
+                "query_string": b"comfort=true",
+                "headers": [],
+            }
+        )
+
+        with self.assertLogs(app.logger, level="ERROR") as logs:
+            with (
+                patch.object(app, "get", return_value=response),
+                patch.object(app, "routing_auth_headers", return_value={}),
+                patch.object(
+                    app,
+                    "calculate_comfort_for_node_ids",
+                    side_effect=RuntimeError("analysis unavailable"),
+                ),
+            ):
+                result = asyncio.run(
+                    app.osrm_route_proxy(request, "bike", "coordinates")
+                )
+
+        self.assertEqual(200, result.status_code)
+        self.assertEqual(content, result.body)
+        self.assertIn("Could not add comfort information", logs.output[0])
 
 
 class ComfortIndexTest(unittest.TestCase):

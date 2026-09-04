@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import logging
 import os
 import sqlite3
 from collections import defaultdict
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
-from json import loads
+from json import dumps, loads
+from math import floor
 from typing import List, Optional
 
 from pydantic import BaseModel
@@ -18,6 +20,7 @@ from google.oauth2 import id_token
 from requests import get
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
+logger = logging.getLogger(__name__)
 
 @dataclass
 class Node(object):
@@ -98,9 +101,31 @@ async def osrm_route_proxy(
     request: Request, profile: str, coordinates: str
 ) -> Response:
     """Expose the private routing service through an OSRM-compatible API."""
+    query_params = list(request.query_params.multi_items())
+    comfort_requested = any(
+        key == "comfort" and value.lower() == "true"
+        for key, value in query_params
+    )
+    upstream_params = [(key, value) for key, value in query_params if key != "comfort"]
+    original_annotations = next(
+        (value for key, value in reversed(upstream_params) if key == "annotations"),
+        None,
+    )
+    if comfort_requested and original_annotations not in ("true", "nodes"):
+        upstream_params = [
+            (key, value) for key, value in upstream_params if key != "annotations"
+        ]
+        requested_annotations = {
+            annotation.strip()
+            for annotation in (original_annotations or "").split(",")
+            if annotation.strip() and annotation != "false"
+        }
+        requested_annotations.add("nodes")
+        upstream_params.append(("annotations", ",".join(sorted(requested_annotations))))
+
     response = get(
         f"{OSRM_BACKEND_URL}/route/v1/{profile}/{coordinates}",
-        params=list(request.query_params.multi_items()),
+        params=upstream_params,
         headers=routing_auth_headers(),
         timeout=30,
     )
@@ -108,11 +133,35 @@ async def osrm_route_proxy(
     content_type = response.headers.get("content-type")
     if content_type:
         headers["content-type"] = content_type
-    return Response(
-        content=response.content,
-        status_code=response.status_code,
-        headers=headers,
-    )
+    if not comfort_requested or response.status_code != 200:
+        return Response(
+            content=response.content,
+            status_code=response.status_code,
+            headers=headers,
+        )
+
+    try:
+        payload = response.json()
+        keep_annotations = original_annotations not in (None, "false")
+        for route in payload.get("routes", []):
+            node_ids = route_node_ids(route)
+            route["comfort"] = calculate_comfort_for_node_ids(node_ids)
+            if not keep_annotations:
+                for leg in route.get("legs", []):
+                    leg.pop("annotation", None)
+        return Response(
+            content=dumps(payload, separators=(",", ":")),
+            status_code=response.status_code,
+            headers=headers,
+        )
+    except Exception:
+        # Comfort data is optional metadata and must never make a valid route fail.
+        logger.exception("Could not add comfort information to routing response")
+        return Response(
+            content=response.content,
+            status_code=response.status_code,
+            headers=headers,
+        )
 
 
 @app.get("/health")
@@ -157,6 +206,77 @@ class TagInfo(object):
     ways: dict[int, WayInfo] = field(default_factory=lambda: dict())
 
 
+MIN_COMFORT_COVERAGE = 0.7
+COMFORT_SCORES = {
+    "black": 0,
+    "red": 35,
+    "yellow": 70,
+    "green": 100,
+}
+COMFORT_CLASSES = {
+    "-3": "black",
+    "-2": "black",
+    "-1": "red",
+    "1": "yellow",
+    "2": "green",
+    "3": "green",
+}
+
+
+def calculate_comfort_index(class_distribution: dict[str, TagInfo]) -> dict:
+    """Aggregate an existing class:bicycle distribution without further I/O."""
+    distances = {category: 0.0 for category in (*COMFORT_SCORES, "unrated")}
+    for bicycle_class, tag_info in class_distribution.items():
+        category = COMFORT_CLASSES.get(bicycle_class, "unrated")
+        distances[category] += tag_info.distance
+
+    total_distance = sum(distances.values())
+    rated_distance = sum(distances[category] for category in COMFORT_SCORES)
+    coverage_ratio = rated_distance / total_distance if total_distance > 0 else 0.0
+    weighted_score = sum(
+        distances[category] * score for category, score in COMFORT_SCORES.items()
+    )
+    index = int(weighted_score / rated_distance + 0.5) if rated_distance > 0 else None
+
+    distribution = {category: 0 for category in distances}
+    if total_distance > 0:
+        exact_percentages = {
+            category: category_distance / total_distance * 100
+            for category, category_distance in distances.items()
+        }
+        distribution = {
+            category: floor(percentage)
+            for category, percentage in exact_percentages.items()
+        }
+        remainder = 100 - sum(distribution.values())
+        largest_fractions = sorted(
+            exact_percentages,
+            key=lambda category: exact_percentages[category] - distribution[category],
+            reverse=True,
+        )
+        for category in largest_fractions[:remainder]:
+            distribution[category] += 1
+
+    return {
+        "index": index if coverage_ratio >= MIN_COMFORT_COVERAGE else None,
+        "coverage": int(coverage_ratio * 100 + 0.5),
+        "sufficientCoverage": coverage_ratio >= MIN_COMFORT_COVERAGE,
+        "distribution": distribution,
+    }
+
+
+def route_node_ids(route: dict) -> list[int]:
+    """Combine OSRM leg annotations without duplicating waypoint nodes."""
+    node_ids: list[int] = []
+    for leg in route.get("legs", []):
+        leg_nodes = leg.get("annotation", {}).get("nodes", [])
+        if node_ids and leg_nodes and node_ids[-1] == leg_nodes[0]:
+            node_ids.extend(leg_nodes[1:])
+        else:
+            node_ids.extend(leg_nodes)
+    return node_ids
+
+
 def retrieve_nodes_by_id(
     db_con: sqlite3.Connection, node_ids: list[int]
 ) -> dict[int, Node]:
@@ -190,30 +310,14 @@ def retrieve_ways_by_node_ids(
 
     return way_by_id
 
-class NodeList(BaseModel):
-    node_ids: List[int]
 
-@app.post("/tag_distribution")
-async def tag_distribution(
-    node_list: NodeList
-):
+def retrieve_route_ways(node_ids: list[int]) -> tuple[dict[int, list[Node]], dict[int, Way]]:
     assert geo_store is not None
 
-    node_ids = node_list.node_ids
-    print("retrieve nodes by id start")
     nodes_by_id = retrieve_nodes_by_id(geo_store, node_ids)
-    print("retrieve nodes by id end")
     ways_by_id = retrieve_ways_by_node_ids(geo_store, node_ids)
-    print("retrieve ways end")
-    route_nodes = list(filter(None, map(lambda id: nodes_by_id.get(id), node_ids)))
+    route_nodes = [nodes_by_id[node_id] for node_id in node_ids if node_id in nodes_by_id]
 
-    # fix start and end of route
-    # route_nodes[0].lon = route_coords[0][0]
-    # route_nodes[0].lat = route_coords[0][1]
-    # route_nodes[-1].lon = route_coords[-1][0]
-    # route_nodes[-1].lat = route_coords[-1][1]
-
-    # retrieve route information
     route_ways: dict[int, list[Node]] = defaultdict(list)
     for node_a, node_b in zip(route_nodes, route_nodes[1:]):
         ways = filter(
@@ -224,30 +328,58 @@ async def tag_distribution(
         )
         for way in ways:
             way_nodes = route_ways[way.id]
-            if len(way_nodes) > 0 and way_nodes[-1] == node_a:
+            if way_nodes and way_nodes[-1] == node_a:
                 way_nodes.append(node_b)
             else:
-                way_nodes.append(node_a)
-                way_nodes.append(node_b)
+                way_nodes.extend((node_a, node_b))
+
+    return route_ways, ways_by_id
+
+
+def route_way_distance(nodes: list[Node]) -> float:
+    return sum(
+        distance.distance(node_a.location, node_b.location).meters
+        for node_a, node_b in zip(nodes, nodes[1:])
+    )
+
+
+def calculate_comfort_for_node_ids(node_ids: list[int]) -> dict:
+    if not node_ids:
+        return calculate_comfort_index({})
+
+    route_ways, ways_by_id = retrieve_route_ways(node_ids)
+    class_distribution: dict[str, TagInfo] = defaultdict(TagInfo)
+    for way_id, nodes in route_ways.items():
+        bicycle_class = ways_by_id[way_id].tags.get("class:bicycle", "unknown")
+        class_distribution[bicycle_class].distance += route_way_distance(nodes)
+    return calculate_comfort_index(class_distribution)
+
+class NodeList(BaseModel):
+    node_ids: List[int]
+
+@app.post("/tag_distribution")
+async def tag_distribution(
+    node_list: NodeList
+):
+    node_ids = node_list.node_ids
+    route_ways, ways_by_id = retrieve_route_ways(node_ids)
 
     interesting_tags = ["class:bicycle", "lit", "surface"]
     tag_distribution: dict[str, dict[str, TagInfo]] = defaultdict(lambda: defaultdict(TagInfo))
     for way_id, nodes in route_ways.items():
         way = ways_by_id[way_id]
+        geometry = LineStringGeometry(list(map(lambda node: node.coord, nodes)))
+        way_distance = route_way_distance(nodes)
         for tag in interesting_tags:
             way_tag_value = way.tags.get(tag, "unknown")
-            tag_distribution[tag][way_tag_value].ways[way_id] = WayInfo(
-                way.tags.get("name", ""),
-                LineStringGeometry(list(map(lambda node: node.coord, nodes))),
-            )
-            for node_a, node_b in zip(nodes, nodes[1:]):
-                tag_distribution[tag][way_tag_value].distance += distance.distance(
-                    node_a.location, node_b.location
-                ).meters
+            tag_info = tag_distribution[tag][way_tag_value]
+            tag_info.ways[way_id] = WayInfo(way.tags.get("name", ""), geometry)
+            tag_info.distance += way_distance
 
     return {
         "ok": True,
         "tag_distribution": tag_distribution,
+        "comfort": calculate_comfort_index(tag_distribution["class:bicycle"]),
     }
 
 

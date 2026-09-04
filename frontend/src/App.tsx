@@ -876,7 +876,14 @@ function App() {
             />
           </Tooltip>)}
       </div>
-      <small>{Math.round(coverage * 100)} % der Route bewertet</small>
+      <small>
+        {Math.round(coverage * 100)} % der Route bewertet ·{" "}
+        <Link
+          href="https://www.munichways.de/berwertungskriterien-radwege/"
+          target="_blank"
+          rel="noreferrer"
+        >Erläuterung</Link>
+      </small>
     </div>;
   }
 

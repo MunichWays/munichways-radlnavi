@@ -6,6 +6,7 @@ from collections import defaultdict
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from json import loads
+from math import floor
 from typing import List, Optional
 
 from pydantic import BaseModel
@@ -157,6 +158,65 @@ class TagInfo(object):
     ways: dict[int, WayInfo] = field(default_factory=lambda: dict())
 
 
+MIN_COMFORT_COVERAGE = 0.7
+COMFORT_SCORES = {
+    "black": 0,
+    "red": 35,
+    "yellow": 70,
+    "green": 100,
+}
+COMFORT_CLASSES = {
+    "-3": "black",
+    "-2": "black",
+    "-1": "red",
+    "1": "yellow",
+    "2": "green",
+    "3": "green",
+}
+
+
+def calculate_comfort_index(class_distribution: dict[str, TagInfo]) -> dict:
+    """Aggregate an existing class:bicycle distribution without further I/O."""
+    distances = {category: 0.0 for category in (*COMFORT_SCORES, "unrated")}
+    for bicycle_class, tag_info in class_distribution.items():
+        category = COMFORT_CLASSES.get(bicycle_class, "unrated")
+        distances[category] += tag_info.distance
+
+    total_distance = sum(distances.values())
+    rated_distance = sum(distances[category] for category in COMFORT_SCORES)
+    coverage_ratio = rated_distance / total_distance if total_distance > 0 else 0.0
+    weighted_score = sum(
+        distances[category] * score for category, score in COMFORT_SCORES.items()
+    )
+    index = int(weighted_score / rated_distance + 0.5) if rated_distance > 0 else None
+
+    distribution = {category: 0 for category in distances}
+    if total_distance > 0:
+        exact_percentages = {
+            category: category_distance / total_distance * 100
+            for category, category_distance in distances.items()
+        }
+        distribution = {
+            category: floor(percentage)
+            for category, percentage in exact_percentages.items()
+        }
+        remainder = 100 - sum(distribution.values())
+        largest_fractions = sorted(
+            exact_percentages,
+            key=lambda category: exact_percentages[category] - distribution[category],
+            reverse=True,
+        )
+        for category in largest_fractions[:remainder]:
+            distribution[category] += 1
+
+    return {
+        "index": index if coverage_ratio >= MIN_COMFORT_COVERAGE else None,
+        "coverage": int(coverage_ratio * 100 + 0.5),
+        "sufficientCoverage": coverage_ratio >= MIN_COMFORT_COVERAGE,
+        "distribution": distribution,
+    }
+
+
 def retrieve_nodes_by_id(
     db_con: sqlite3.Connection, node_ids: list[int]
 ) -> dict[int, Node]:
@@ -234,20 +294,21 @@ async def tag_distribution(
     tag_distribution: dict[str, dict[str, TagInfo]] = defaultdict(lambda: defaultdict(TagInfo))
     for way_id, nodes in route_ways.items():
         way = ways_by_id[way_id]
+        geometry = LineStringGeometry(list(map(lambda node: node.coord, nodes)))
+        way_distance = sum(
+            distance.distance(node_a.location, node_b.location).meters
+            for node_a, node_b in zip(nodes, nodes[1:])
+        )
         for tag in interesting_tags:
             way_tag_value = way.tags.get(tag, "unknown")
-            tag_distribution[tag][way_tag_value].ways[way_id] = WayInfo(
-                way.tags.get("name", ""),
-                LineStringGeometry(list(map(lambda node: node.coord, nodes))),
-            )
-            for node_a, node_b in zip(nodes, nodes[1:]):
-                tag_distribution[tag][way_tag_value].distance += distance.distance(
-                    node_a.location, node_b.location
-                ).meters
+            tag_info = tag_distribution[tag][way_tag_value]
+            tag_info.ways[way_id] = WayInfo(way.tags.get("name", ""), geometry)
+            tag_info.distance += way_distance
 
     return {
         "ok": True,
         "tag_distribution": tag_distribution,
+        "comfort": calculate_comfort_index(tag_distribution["class:bicycle"]),
     }
 
 

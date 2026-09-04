@@ -49,15 +49,17 @@ const RATING_COLORS = {
   brown: "#8D6E63",
 };
 
-const MIN_COMFORT_COVERAGE = 0.7;
-
 const COMFORT_CATEGORIES = [
-  { key: "very-stressful", label: "Sehr stressig", color: RATING_COLORS.black, classes: ["-3", "-2"], score: 0 },
-  { key: "stressful", label: "Stressig", color: RATING_COLORS.red, classes: ["-1"], score: 35 },
-  { key: "average", label: "Durchschnittlich", color: RATING_COLORS.yellow, classes: ["1"], score: 70 },
-  { key: "comfortable", label: "Gemütlich", color: RATING_COLORS.green, classes: ["2", "3"], score: 100 },
-  { key: "unrated", label: "Nicht bewertet", color: RATING_COLORS.brown, classes: ["0", "unknown"], score: null },
+  { key: "black", label: "Sehr stressig", color: RATING_COLORS.black, classes: ["-3", "-2"] },
+  { key: "red", label: "Stressig", color: RATING_COLORS.red, classes: ["-1"] },
+  { key: "yellow", label: "Durchschnittlich", color: RATING_COLORS.yellow, classes: ["1"] },
+  { key: "green", label: "Gemütlich", color: RATING_COLORS.green, classes: ["2", "3"] },
+  { key: "unrated", label: "Nicht bewertet", color: RATING_COLORS.brown, classes: ["0", "unknown"] },
 ];
+
+function comfortCategoryForClass(bicycleClass: string): string {
+  return COMFORT_CATEGORIES.find(category => category.classes.includes(bicycleClass))?.key || "unrated";
+}
 
 const SOUTH_WEST = {
   lng: 8.5,
@@ -106,6 +108,13 @@ interface VersionInfo {
   routing: string;
   routingCommit: string;
   osrm: string;
+}
+
+interface ComfortInfo {
+  index: number | null;
+  coverage: number;
+  sufficientCoverage: boolean;
+  distribution: Record<string, number>;
 }
 
 function shortVersion(version: string): string {
@@ -387,7 +396,7 @@ function App() {
   >>(null);
   const [illuminatedPaths, setIlluminatedPaths] = useState<null | Map<string, Array<Array<{ lat: number, lon: number }>>>>(null);
   const [surfacePaths, setSurfacePaths] = useState<null | Map<string, Array<Array<{ lat: number, lon: number }>>>>(null);
-  const [bicycleClassesOnRoute, setBicycleClassesOnRoute] = useState<null | Map<string, number>>(null);
+  const [comfortInfo, setComfortInfo] = useState<ComfortInfo | null>(null);
   const [bicycleClassesPaths, setBicycleClassesPaths] = useState<null | Map<string, Array<Array<{ lat: number, lon: number }>>>>(null);
   const [navigationPath, setNavigationPath] = useState<null | Array<{ lat: number, lng: number }> | null>(null);
   const [routeMetadata, setRouteMetadata] = useState<RouteMetadata | null>(
@@ -672,7 +681,7 @@ function App() {
       setIlluminatedPaths(() => new Map(Object.entries(tag_distribution.lit).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
       setSurfacesOnRoute(() => new Map(Object.entries(tag_distribution.surface).map(([key, value]) => [key, value.distance])));
       setSurfacePaths(() => new Map(Object.entries(tag_distribution.surface).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
-      setBicycleClassesOnRoute(() => new Map(Object.entries(tag_distribution['class:bicycle']).map(([key, value]) => [key, value.distance])));
+      setComfortInfo(result.comfort);
       setBicycleClassesPaths(() => new Map(Object.entries(tag_distribution['class:bicycle']).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
     });
   }
@@ -819,7 +828,7 @@ function App() {
     setIlluminatedPaths(() => null);
     setSurfacesOnRoute(() => null);
     setSurfacePaths(() => null);
-    setBicycleClassesOnRoute(() => null);
+    setComfortInfo(() => null);
     setBicycleClassesPaths(() => null);
     setRouteMetadata(() => null);
     calculateRoute(startPosition, endPosition)
@@ -832,52 +841,39 @@ function App() {
   let illuminatedElement = null;
   let comfortElement = null;
 
-  if (startPosition != null && endPosition != null && bicycleClassesOnRoute != null && routeMetadata != null) {
-    const knownClasses = new Set(COMFORT_CATEGORIES.flatMap(category => category.classes));
-    const categoryDistances = COMFORT_CATEGORIES.map(category => ({
+  if (startPosition != null && endPosition != null && comfortInfo != null && routeMetadata != null) {
+    const categoryPercentages = COMFORT_CATEGORIES.map(category => ({
       ...category,
-      distance: category.classes.reduce((sum, bicycleClass) => sum + (bicycleClassesOnRoute.get(bicycleClass) || 0), 0)
-        + (category.key === "unrated"
-          ? [...bicycleClassesOnRoute.entries()]
-            .filter(([bicycleClass]) => !knownClasses.has(bicycleClass))
-            .reduce((sum, [, distance]) => sum + distance, 0)
-          : 0),
+      percentage: comfortInfo.distribution[category.key] || 0,
     }));
-    const analyzedDistance = categoryDistances.reduce((sum, category) => sum + category.distance, 0);
-    const ratedCategories = categoryDistances.filter(category => category.score != null);
-    const ratedDistance = ratedCategories.reduce((sum, category) => sum + category.distance, 0);
-    const coverage = analyzedDistance > 0 ? ratedDistance / analyzedDistance : 0;
-    const comfortIndex = ratedDistance > 0
-      ? Math.round(ratedCategories.reduce((sum, category) => sum + category.distance * category.score, 0) / ratedDistance)
-      : null;
 
     comfortElement = <div className="comfort-index">
       <div className="comfort-index-heading">
         <span>Radl-Komfort</span>
-        <strong>{coverage >= MIN_COMFORT_COVERAGE && comfortIndex != null
-          ? `${comfortIndex}/100`
+        <strong>{comfortInfo.sufficientCoverage && comfortInfo.index != null
+          ? `${comfortInfo.index}/100`
           : "nicht ausreichend bewertet"}</strong>
       </div>
-      <div className="comfort-bar" aria-label={`Radl-Komfort: ${comfortIndex == null ? "nicht bewertet" : `${comfortIndex} von 100`}`}>
-        {categoryDistances
-          .filter(category => category.distance > 0)
+      <div className="comfort-bar" aria-label={`Radl-Komfort: ${comfortInfo.index == null ? "nicht ausreichend bewertet" : `${comfortInfo.index} von 100`}`}>
+        {categoryPercentages
+          .filter(category => category.percentage > 0)
           .map(category => <Tooltip
             key={category.key}
             arrow
             placement="top"
-            title={`${category.label}: ${Math.round(category.distance / analyzedDistance * 100)} %`}
+            title={`${category.label}: ${category.percentage} %`}
           >
             <div
               onTouchStart={() => setHighlightComfort(category.key)}
               onTouchEnd={() => setHighlightComfort(null)}
               onMouseOver={() => setHighlightComfort(category.key)}
               onMouseOut={() => setHighlightComfort(null)}
-              style={{ background: category.color, flexGrow: category.distance / analyzedDistance * 100 }}
+              style={{ background: category.color, flexGrow: category.percentage }}
             />
           </Tooltip>)}
       </div>
       <small>
-        {Math.round(coverage * 100)} % der Route bewertet ·{" "}
+        {comfortInfo.coverage} % der Route bewertet ·{" "}
         <Link
           href="https://www.munichways.de/berwertungskriterien-radwege/"
           target="_blank"
@@ -966,10 +962,10 @@ function App() {
     return <React.Fragment>
       <Polyline key={`route-${hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null}`} weight={hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null ? 3 : 8} positions={coords} color={ROUTE_BLUE}></Polyline>
       {bicycleClassesPaths == null ? <Polyline dashArray="2 4" color={ROUTE_BLUE} weight={2} positions={coords}></Polyline> : hightlightLit || hightlightSurface ? [] : [...bicycleClassesPaths.entries()]
-        .filter(([key]) => highlightComfort == null || COMFORT_CATEGORIES.find(category => category.key === highlightComfort)?.classes.includes(key))
+        .filter(([key]) => highlightComfort == null || comfortCategoryForClass(key) === highlightComfort)
         .map(([key, entry]) => entry.map(
           (bicycleClassPath, i) =>
-            <Polyline key={`${key}-${i}`} color={BICYCLE_CLASSES_COLORS.get(key) || RATING_COLORS.grey} dashArray={DASHED_BICYCLE_CLASSES.has(key) ? "6 5" : undefined} weight={3} positions={
+            <Polyline key={`${key}-${i}`} color={BICYCLE_CLASSES_COLORS.get(key) || RATING_COLORS.brown} dashArray={DASHED_BICYCLE_CLASSES.has(key) ? "6 5" : undefined} weight={3} positions={
               bicycleClassPath.map(
                 (point) => ({ lat: point[1], lng: point[0] })
               )

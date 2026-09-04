@@ -138,5 +138,95 @@ class RouteForwardingTest(unittest.TestCase):
         )
 
 
+class ComfortIndexTest(unittest.TestCase):
+    @staticmethod
+    def distribution(**distances):
+        return {
+            bicycle_class: app.TagInfo(distance=distance)
+            for bicycle_class, distance in distances.items()
+        }
+
+    def test_calculates_weighted_index_coverage_and_distribution(self):
+        result = app.calculate_comfort_index(
+            self.distribution(**{"-2": 10, "-1": 20, "1": 30, "2": 40})
+        )
+
+        self.assertEqual(68, result["index"])
+        self.assertEqual(100, result["coverage"])
+        self.assertTrue(result["sufficientCoverage"])
+        self.assertEqual(
+            {"black": 10, "red": 20, "yellow": 30, "green": 40, "unrated": 0},
+            result["distribution"],
+        )
+
+    def test_excludes_unrated_distance_and_hides_index_below_threshold(self):
+        result = app.calculate_comfort_index(
+            self.distribution(**{"2": 69, "0": 10, "unknown": 20, "unexpected": 1})
+        )
+
+        self.assertIsNone(result["index"])
+        self.assertEqual(69, result["coverage"])
+        self.assertFalse(result["sufficientCoverage"])
+        self.assertEqual(31, result["distribution"]["unrated"])
+
+    def test_returns_index_at_exact_coverage_threshold(self):
+        result = app.calculate_comfort_index(
+            self.distribution(**{"1": 70, "unknown": 30})
+        )
+
+        self.assertEqual(70, result["index"])
+        self.assertEqual(70, result["coverage"])
+        self.assertTrue(result["sufficientCoverage"])
+
+    def test_handles_empty_distribution(self):
+        result = app.calculate_comfort_index({})
+
+        self.assertIsNone(result["index"])
+        self.assertEqual(0, result["coverage"])
+        self.assertFalse(result["sufficientCoverage"])
+        self.assertEqual(
+            {"black": 0, "red": 0, "yellow": 0, "green": 0, "unrated": 0},
+            result["distribution"],
+        )
+
+    def test_rounded_distribution_always_sums_to_one_hundred(self):
+        result = app.calculate_comfort_index(
+            self.distribution(**{"-2": 1, "-1": 1, "1": 1})
+        )
+
+        self.assertEqual(100, sum(result["distribution"].values()))
+
+
+class TagDistributionComfortTest(unittest.TestCase):
+    def test_response_includes_backend_calculated_comfort(self):
+        nodes = {
+            1: app.Node(1, 48.1, 11.5, {}),
+            2: app.Node(2, 48.101, 11.501, {}),
+        }
+        ways = {
+            10: app.Way(
+                10,
+                [1, 2],
+                {"class:bicycle": "2", "surface": "asphalt", "lit": "yes"},
+            )
+        }
+
+        with (
+            patch.object(app, "geo_store", Mock()),
+            patch.object(app, "retrieve_nodes_by_id", return_value=nodes),
+            patch.object(app, "retrieve_ways_by_node_ids", return_value=ways),
+            patch.object(
+                app.distance, "distance", return_value=Mock(meters=100)
+            ) as calculate_distance,
+        ):
+            result = asyncio.run(app.tag_distribution(app.NodeList(node_ids=[1, 2])))
+
+        self.assertTrue(result["ok"])
+        self.assertEqual(100, result["comfort"]["index"])
+        self.assertEqual(100, result["comfort"]["coverage"])
+        self.assertEqual(100, result["comfort"]["distribution"]["green"])
+        calculate_distance.assert_called_once()
+
+
 if __name__ == "__main__":
     unittest.main()

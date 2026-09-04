@@ -27,19 +27,27 @@ From the repository root, run:
 
 ```powershell
 cd frontend
-npm install
+npm install --legacy-peer-deps
 npm start
 ```
 
 Open <http://localhost:3000> if the browser does not open automatically.
 
-In development, API calls use relative URLs. The React development server
-forwards them to the production backend configured by the `proxy` entry in
-`frontend/package.json`. This avoids browser CORS restrictions. The proxy is
-used only by `npm start`; it does not affect production builds.
+In development, API and MunichWays vector-tile requests use relative URLs. The
+proxy in `frontend/src/setupProxy.js` forwards:
 
-Run `npm install` only after the initial checkout or when the dependencies have
-changed. For subsequent starts, `npm start` is sufficient.
+- `/route`, `/tag_distribution`, and `/version` to the deployed MunichWays API
+- `/layers/munichways` to the deployed MunichWays frontend, which provides the
+  generated rating tiles
+
+This makes both routing and the colored MunichWays ratings available locally
+without browser CORS restrictions. The development proxy is used only by
+`npm start`; it does not affect production builds.
+
+Run `npm install --legacy-peer-deps` only after the initial checkout or when the
+dependencies have changed. The option is currently required because the
+Leaflet fork used by the project does not satisfy `leaflet.vectorgrid`'s peer
+dependency declaration. For subsequent starts, `npm start` is sufficient.
 
 ## Test frontend together with backend or routing changes
 

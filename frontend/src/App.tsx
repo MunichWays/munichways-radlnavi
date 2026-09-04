@@ -46,7 +46,18 @@ const RATING_COLORS = {
   yellow: "#FFD000",
   red: "#F44336",
   grey: "#9C9D9F",
+  brown: "#8D6E63",
 };
+
+const MIN_COMFORT_COVERAGE = 0.7;
+
+const COMFORT_CATEGORIES = [
+  { key: "very-stressful", label: "Sehr stressig", color: RATING_COLORS.black, classes: ["-3", "-2"], score: 0 },
+  { key: "stressful", label: "Stressig", color: RATING_COLORS.red, classes: ["-1"], score: 35 },
+  { key: "average", label: "Durchschnittlich", color: RATING_COLORS.yellow, classes: ["1"], score: 70 },
+  { key: "comfortable", label: "Gemütlich", color: RATING_COLORS.green, classes: ["2", "3"], score: 100 },
+  { key: "unrated", label: "Nicht bewertet", color: RATING_COLORS.brown, classes: ["0", "unknown"], score: null },
+];
 
 const SOUTH_WEST = {
   lng: 8.5,
@@ -238,10 +249,11 @@ const BICYCLE_CLASSES_COLORS = new Map([
   ["-3", RATING_COLORS.black],
   ["-2", RATING_COLORS.black],
   ["-1", RATING_COLORS.red],
-  ["0", RATING_COLORS.grey],
+  ["0", RATING_COLORS.brown],
   ["1", RATING_COLORS.yellow],
   ["2", RATING_COLORS.green],
   ["3", RATING_COLORS.green],
+  ["unknown", RATING_COLORS.brown],
 ])
 
 const DASHED_BICYCLE_CLASSES = new Set(["-3", "-2", "-1"]);
@@ -375,6 +387,7 @@ function App() {
   >>(null);
   const [illuminatedPaths, setIlluminatedPaths] = useState<null | Map<string, Array<Array<{ lat: number, lon: number }>>>>(null);
   const [surfacePaths, setSurfacePaths] = useState<null | Map<string, Array<Array<{ lat: number, lon: number }>>>>(null);
+  const [bicycleClassesOnRoute, setBicycleClassesOnRoute] = useState<null | Map<string, number>>(null);
   const [bicycleClassesPaths, setBicycleClassesPaths] = useState<null | Map<string, Array<Array<{ lat: number, lon: number }>>>>(null);
   const [navigationPath, setNavigationPath] = useState<null | Array<{ lat: number, lng: number }> | null>(null);
   const [routeMetadata, setRouteMetadata] = useState<RouteMetadata | null>(
@@ -389,6 +402,7 @@ function App() {
   const [menuMinimized, setMenuMinimized] = useState<boolean>(false);
   const [hightlightLit, setHightlightLit] = useState<string | null>(null);
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
+  const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
   const [showMunichways, setShowMunichways] = useState(true);
   const [showAbout, setShowAbout] = useState(false);
@@ -658,6 +672,7 @@ function App() {
       setIlluminatedPaths(() => new Map(Object.entries(tag_distribution.lit).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
       setSurfacesOnRoute(() => new Map(Object.entries(tag_distribution.surface).map(([key, value]) => [key, value.distance])));
       setSurfacePaths(() => new Map(Object.entries(tag_distribution.surface).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
+      setBicycleClassesOnRoute(() => new Map(Object.entries(tag_distribution['class:bicycle']).map(([key, value]) => [key, value.distance])));
       setBicycleClassesPaths(() => new Map(Object.entries(tag_distribution['class:bicycle']).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
     });
   }
@@ -790,6 +805,7 @@ function App() {
       map.on("mouseover", () => {
         setHightlightSurface(null);
         setHightlightLit(null);
+        setHighlightComfort(null);
       });
     }
   }, [map, closeContextMenu, openContextMenu]);
@@ -803,6 +819,7 @@ function App() {
     setIlluminatedPaths(() => null);
     setSurfacesOnRoute(() => null);
     setSurfacePaths(() => null);
+    setBicycleClassesOnRoute(() => null);
     setBicycleClassesPaths(() => null);
     setRouteMetadata(() => null);
     calculateRoute(startPosition, endPosition)
@@ -813,6 +830,55 @@ function App() {
 
   let surfacesElement = null;
   let illuminatedElement = null;
+  let comfortElement = null;
+
+  if (startPosition != null && endPosition != null && bicycleClassesOnRoute != null && routeMetadata != null) {
+    const knownClasses = new Set(COMFORT_CATEGORIES.flatMap(category => category.classes));
+    const categoryDistances = COMFORT_CATEGORIES.map(category => ({
+      ...category,
+      distance: category.classes.reduce((sum, bicycleClass) => sum + (bicycleClassesOnRoute.get(bicycleClass) || 0), 0)
+        + (category.key === "unrated"
+          ? [...bicycleClassesOnRoute.entries()]
+            .filter(([bicycleClass]) => !knownClasses.has(bicycleClass))
+            .reduce((sum, [, distance]) => sum + distance, 0)
+          : 0),
+    }));
+    const analyzedDistance = categoryDistances.reduce((sum, category) => sum + category.distance, 0);
+    const ratedCategories = categoryDistances.filter(category => category.score != null);
+    const ratedDistance = ratedCategories.reduce((sum, category) => sum + category.distance, 0);
+    const coverage = analyzedDistance > 0 ? ratedDistance / analyzedDistance : 0;
+    const comfortIndex = ratedDistance > 0
+      ? Math.round(ratedCategories.reduce((sum, category) => sum + category.distance * category.score, 0) / ratedDistance)
+      : null;
+
+    comfortElement = <div className="comfort-index">
+      <div className="comfort-index-heading">
+        <span>Radl-Komfort</span>
+        <strong>{coverage >= MIN_COMFORT_COVERAGE && comfortIndex != null
+          ? `${comfortIndex}/100`
+          : "nicht ausreichend bewertet"}</strong>
+      </div>
+      <div className="comfort-bar" aria-label={`Radl-Komfort: ${comfortIndex == null ? "nicht bewertet" : `${comfortIndex} von 100`}`}>
+        {categoryDistances
+          .filter(category => category.distance > 0)
+          .map(category => <Tooltip
+            key={category.key}
+            arrow
+            placement="top"
+            title={`${category.label}: ${Math.round(category.distance / analyzedDistance * 100)} %`}
+          >
+            <div
+              onTouchStart={() => setHighlightComfort(category.key)}
+              onTouchEnd={() => setHighlightComfort(null)}
+              onMouseOver={() => setHighlightComfort(category.key)}
+              onMouseOut={() => setHighlightComfort(null)}
+              style={{ background: category.color, flexGrow: category.distance / analyzedDistance * 100 }}
+            />
+          </Tooltip>)}
+      </div>
+      <small>{Math.round(coverage * 100)} % der Route bewertet</small>
+    </div>;
+  }
 
 
   if (startPosition != null && endPosition != null && surfacesOnRoute != null) {
@@ -891,8 +957,9 @@ function App() {
       })
     );
     return <React.Fragment>
-      <Polyline key={`route-${hightlightLit !== null || hightlightSurface !== null}`} weight={hightlightLit !== null || hightlightSurface !== null ? 3 : 8} positions={coords} color={ROUTE_BLUE}></Polyline>
+      <Polyline key={`route-${hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null}`} weight={hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null ? 3 : 8} positions={coords} color={ROUTE_BLUE}></Polyline>
       {bicycleClassesPaths == null ? <Polyline dashArray="2 4" color={ROUTE_BLUE} weight={2} positions={coords}></Polyline> : hightlightLit || hightlightSurface ? [] : [...bicycleClassesPaths.entries()]
+        .filter(([key]) => highlightComfort == null || COMFORT_CATEGORIES.find(category => category.key === highlightComfort)?.classes.includes(key))
         .map(([key, entry]) => entry.map(
           (bicycleClassPath, i) =>
             <Polyline key={`${key}-${i}`} color={BICYCLE_CLASSES_COLORS.get(key) || RATING_COLORS.grey} dashArray={DASHED_BICYCLE_CLASSES.has(key) ? "6 5" : undefined} weight={3} positions={
@@ -1056,14 +1123,14 @@ function App() {
             }
           </React.Fragment> : null}
 
-        {menuMinimized && !isNavigating && route && surfacesElement && illuminatedElement ?
+        {menuMinimized && !isNavigating && route && comfortElement && surfacesElement && illuminatedElement ?
           <div style={{
             padding: 10,
             display: "flex",
             left: 15,
             bottom: 15,
             right: 15,
-            height: 70,
+            minHeight: 150,
             position: "absolute",
             flexDirection: 'column',
             backgroundColor: "white",
@@ -1071,6 +1138,8 @@ function App() {
             borderRadius: 10,
             zIndex: 1,
           }}>
+            {comfortElement}
+            <div style={{ height: 10 }}></div>
             {surfacesElement}
             <div style={{ height: 10 }}></div>
             {illuminatedElement}
@@ -1195,6 +1264,7 @@ function App() {
                 : null}
             {startPosition != null && endPosition != null && (surfacesElement == null || illuminatedElement == null || routeMetaElement == null) ?
                 <LinearProgress sx={{height: 10, borderRadius: 4, margin: "10px"}}/> : null}
+            {comfortElement}
             {surfacesElement}
             {illuminatedElement}
             {route != null ?

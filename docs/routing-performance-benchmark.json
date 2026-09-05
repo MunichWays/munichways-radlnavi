@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-05",
+  "source_commit": "5254859041d8eaa693368a503e1e58f89b78e9cd",
+  "command": "backend/.venv/Scripts/python.exe backend/benchmarks/route_analysis.py",
+  "python": "3.12.1",
+  "platform": "Windows-11-10.0.22621-SP0",
+  "repeat": 3,
+  "fixture": "synthetic, in-memory, 8 edges per way",
+  "scope": "Offline microbenchmark; not a production or end-to-end measurement",
+  "results": [
+    {"nodes": 1000, "ways": 125, "mapping_current_ms": 47.096, "mapping_pair_index_ms": 21.19, "comfort_current_ms": 201.455, "all_tags_current_ms": 196.473, "encode_and_json_ms": 25.638, "payload_bytes": 85656, "comfort_arithmetic_ms": 0.012, "comfort_pair_index_ms": 173.752},
+    {"nodes": 2000, "ways": 250, "mapping_current_ms": 129.876, "mapping_pair_index_ms": 23.276, "comfort_current_ms": 330.097, "all_tags_current_ms": 413.094, "encode_and_json_ms": 45.62, "payload_bytes": 171326, "comfort_arithmetic_ms": 0.007, "comfort_pair_index_ms": 258.079},
+    {"nodes": 4000, "ways": 500, "mapping_current_ms": 548.201, "mapping_pair_index_ms": 67.258, "comfort_current_ms": 1175.56, "all_tags_current_ms": 1078.609, "encode_and_json_ms": 121.065, "payload_bytes": 343136, "comfort_arithmetic_ms": 0.006, "comfort_pair_index_ms": 546.458},
+    {"nodes": 8000, "ways": 1000, "mapping_current_ms": 1805.228, "mapping_pair_index_ms": 131.938, "comfort_current_ms": 2714.474, "all_tags_current_ms": 4751.934, "encode_and_json_ms": 301.906, "payload_bytes": 687742, "comfort_arithmetic_ms": 0.007, "comfort_pair_index_ms": 1343.209}
+  ]
+}

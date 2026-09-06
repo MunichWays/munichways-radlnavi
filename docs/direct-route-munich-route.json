@@ -1,0 +1,60 @@
+{
+  "standard": {
+    "distance": 43193,
+    "duration": 9495.3,
+    "weight_name": "cyclability",
+    "comfort": {
+      "index": 77,
+      "coverage": 84,
+      "sufficientCoverage": true,
+      "distribution": {
+        "black": 1,
+        "red": 8,
+        "yellow": 43,
+        "green": 32,
+        "unrated": 16
+      }
+    },
+    "comfortAnalysis": {
+      "version": "segments-v2",
+      "distanceBasis": "osrm",
+      "distanceComplete": true,
+      "totalDistance": 43193.0121305724,
+      "unresolvedSegments": 0,
+      "ambiguousSegments": 0,
+      "missingNodeSegments": 0
+    },
+    "legs": 3,
+    "steps": 154,
+    "elapsed_seconds": 0.397
+  },
+  "direct": {
+    "distance": 37201,
+    "duration": 12777.2,
+    "weight_name": "distance",
+    "comfort": {
+      "index": null,
+      "coverage": 52,
+      "sufficientCoverage": false,
+      "distribution": {
+        "black": 3,
+        "red": 18,
+        "yellow": 26,
+        "green": 5,
+        "unrated": 48
+      }
+    },
+    "comfortAnalysis": {
+      "version": "segments-v2",
+      "distanceBasis": "osrm",
+      "distanceComplete": true,
+      "totalDistance": 37200.980022928,
+      "unresolvedSegments": 4,
+      "ambiguousSegments": 3,
+      "missingNodeSegments": 0
+    },
+    "legs": 3,
+    "steps": 136,
+    "elapsed_seconds": 0.299
+  }
+}

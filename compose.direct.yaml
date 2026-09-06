@@ -1,0 +1,29 @@
+# Optional extension: docker compose -f compose.yaml -f compose.direct.yaml up --build
+# Build the standard routing image first; direct reuses its exact map snapshot.
+services:
+  backend:
+    environment:
+      - DIRECT_API_URL=http://direct-backend:8000
+      - PUBLIC_DIRECT_API_URL=http://localhost:8001
+  direct-routing:
+    image: radlnavi-direct-routing
+    build:
+      context: ./routing
+      args:
+        MAP_SOURCE: radlnavi-routing
+        ROUTING_PROFILE: direct
+        VERSION: ${VERSION:-local}
+    cpus: 1
+  direct-backend:
+    image: radlnavi-backend
+    ports:
+      - 8001:8000
+    environment:
+      OSRM_BACKEND_URL: http://direct-routing:8080
+      ROUTING_VARIANT: direct
+      APP_VERSION: ${VERSION:-local}
+      ROUTING_VERSION: ${VERSION:-local}
+      OSRM_VERSION: 26.6.5
+    cpus: 1
+    depends_on:
+      - direct-routing

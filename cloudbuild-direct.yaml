@@ -1,0 +1,94 @@
+# Explicit rollout after the standard routing/API deployment has completed.
+# Reuse the DEPLOYED standard graph's PBF, never download a second snapshot.
+substitutions:
+  _REGION: europe-west3
+  _REPOSITORY: radlnavi
+  _ROUTING_SERVICE: munichways-radlnavi-routing
+  _API_SERVICE: munichways-radlnavi-api
+  _DIRECT_ROUTING_SERVICE: munichways-radlnavi-direct-routing
+  _DIRECT_API_SERVICE: munichways-radlnavi-direct-api
+
+steps:
+  - name: gcr.io/cloud-builders/git
+    id: checkout-source
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        git clone https://github.com/MunichWays/munichways-radlnavi.git /workspace/source
+        cd /workspace/source
+        git checkout "$COMMIT_SHA"
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: resolve-standard-snapshot
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        revision="$$(gcloud run services describe '${_ROUTING_SERVICE}' --region '${_REGION}' --format='value(status.latestReadyRevisionName)')"
+        gcloud run revisions describe "$${revision}" --region '${_REGION}' \
+          --format='value(status.imageDigest)' > /workspace/standard-routing-image
+        api_revision="$$(gcloud run services describe '${_API_SERVICE}' --region '${_REGION}' --format='value(status.latestReadyRevisionName)')"
+        gcloud run revisions describe "$${api_revision}" --region '${_REGION}' \
+          --format='value(status.imageDigest)' > /workspace/standard-api-image
+        gcloud run services describe '${_API_SERVICE}' --region '${_REGION}' --format=json > /workspace/standard-api.json
+        python3 -c 'import json; d=json.load(open("/workspace/standard-api.json")); print(next((e["value"] for e in d["spec"]["template"]["spec"]["containers"][0].get("env", []) if e["name"]=="CORS_ORIGINS"), "https://radlnavi.munichways.de"))' > /workspace/api-cors
+
+  - name: gcr.io/cloud-builders/docker
+    id: build-direct
+    dir: source
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        map_source="$$(cat /workspace/standard-routing-image)"
+        test -n "$${map_source}"
+        docker pull "$${map_source}"
+        docker build --build-arg="MAP_SOURCE=$${map_source}" --build-arg=ROUTING_PROFILE=direct \
+          --build-arg="VERSION=$COMMIT_SHA" \
+          -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA' \
+          -f routing/Dockerfile routing
+        docker push '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA'
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy-direct-services
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        api_image="$$(cat /workspace/standard-api-image)"
+        api_cors="$$(cat /workspace/api-cors)"
+        test -n "$${api_image}"
+        gcloud run deploy '${_DIRECT_ROUTING_SERVICE}' \
+          --image='${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA' \
+          --region='${_REGION}' --service-account='radlnavi-routing@$PROJECT_ID.iam.gserviceaccount.com' \
+          --no-allow-unauthenticated --min-instances=0 --max-instances=1 \
+          --memory=2Gi --cpu=1 --concurrency=4 --timeout=60
+        routing_url="$$(gcloud run services describe '${_DIRECT_ROUTING_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        gcloud run services add-iam-policy-binding '${_DIRECT_ROUTING_SERVICE}' --region='${_REGION}' \
+          --member='serviceAccount:radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' --role=roles/run.invoker
+        gcloud run deploy '${_DIRECT_API_SERVICE}' \
+          --image="$${api_image}" \
+          --region='${_REGION}' --service-account='radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' \
+          --allow-unauthenticated --min-instances=0 --max-instances=2 \
+          --memory=512Mi --cpu=1 --concurrency=4 --timeout=60 \
+          --update-env-vars="ROUTING_VARIANT=direct,OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=$${api_cors}"
+        gcloud run services add-iam-policy-binding '${_DIRECT_API_SERVICE}' --region='${_REGION}' \
+          --member='serviceAccount:radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' --role=roles/run.invoker
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: enable-direct
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        direct_url="$$(gcloud run services describe '${_DIRECT_API_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        gcloud run services update '${_API_SERVICE}' --region='${_REGION}' \
+          --update-env-vars="DIRECT_API_URL=$${direct_url},PUBLIC_DIRECT_API_URL=$${direct_url},DIRECT_API_AUTH_AUDIENCE="
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA
+options:
+  logging: CLOUD_LOGGING_ONLY
+serviceAccount: projects/$PROJECT_ID/serviceAccounts/radlnavi-build@$PROJECT_ID.iam.gserviceaccount.com
+timeout: 3600s

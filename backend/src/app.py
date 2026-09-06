@@ -8,16 +8,18 @@ from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from json import dumps, loads
 from math import floor, isfinite
-from typing import List, Optional
+from typing import List, Optional, Literal
 
 from pydantic import BaseModel, model_validator
 
-from fastapi import FastAPI, Request, Response
+from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from geopy import distance
 from google.auth.transport.requests import Request as GoogleAuthRequest
 from google.oauth2 import id_token
 from requests import get
+
+from src.direct_proxy import DirectRouteProxy
 
 from src.route_analysis import (
     AnalysisLeg,
@@ -71,6 +73,11 @@ def get_geo_store() -> sqlite3.Connection:
 geo_store: Optional[sqlite3.Connection] = None
 OSRM_BACKEND_URL = os.environ["OSRM_BACKEND_URL"]
 OSRM_AUTH_AUDIENCE = os.environ.get("OSRM_AUTH_AUDIENCE")
+ROUTING_VARIANT = os.environ.get("ROUTING_VARIANT", "standard")
+DIRECT_API_URL = os.environ.get("DIRECT_API_URL")
+PUBLIC_DIRECT_API_URL = os.environ.get("PUBLIC_DIRECT_API_URL")
+DIRECT_API_AUTH_AUDIENCE = os.environ.get("DIRECT_API_AUTH_AUDIENCE")
+direct_proxy: Optional[DirectRouteProxy] = None
 APP_VERSION = os.environ.get("APP_VERSION", "local")
 APP_COMMIT = os.environ.get("APP_COMMIT", "")
 ROUTING_VERSION = os.environ.get("ROUTING_VERSION", "unknown")
@@ -94,10 +101,20 @@ origins = [
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    global geo_store
+    global geo_store, direct_proxy
+    if ROUTING_VARIANT not in ("standard", "direct"):
+        raise ValueError("ROUTING_VARIANT must be standard or direct")
     geo_store = get_geo_store()
-    yield
-    pass
+    if ROUTING_VARIANT == "standard" and DIRECT_API_URL:
+        direct_proxy = DirectRouteProxy(DIRECT_API_URL, direct_auth_headers)
+    try:
+        yield
+    finally:
+        if direct_proxy is not None:
+            await direct_proxy.close()
+            direct_proxy = None
+        geo_store.close()
+        geo_store = None
 
 
 app = FastAPI(lifespan=lifespan)
@@ -117,6 +134,12 @@ async def osrm_route_proxy(
 ) -> Response:
     """Expose the private routing service through an OSRM-compatible API."""
     query_params = list(request.query_params.multi_items())
+    variant = resolve_variant(request.query_params.get("variant"))
+    if variant != ROUTING_VARIANT:
+        return await forward_direct(
+            "GET", f"/route/v1/{profile}/{coordinates}", params=query_params
+        )
+    query_params = [(key, value) for key, value in query_params if key != "variant"]
     comfort_requested = any(
         key == "comfort" and value.lower() == "true" for key, value in query_params
     )
@@ -143,7 +166,7 @@ async def osrm_route_proxy(
         headers=routing_auth_headers(),
         timeout=30,
     )
-    headers = {}
+    headers = {"x-routing-variant": variant}
     content_type = response.headers.get("content-type")
     if content_type:
         headers["content-type"] = content_type
@@ -200,6 +223,42 @@ async def osrm_route_proxy(
 @app.get("/health")
 async def health():
     return {"ok": True}
+
+
+@app.get("/routing_variants")
+async def routing_variants():
+    return {
+        "default": ROUTING_VARIANT,
+        "standard": {"available": ROUTING_VARIANT == "standard"},
+        "direct": {
+            "available": ROUTING_VARIANT == "direct"
+            or bool(PUBLIC_DIRECT_API_URL or DIRECT_API_URL),
+            "objective": "distance",
+            "base_url": PUBLIC_DIRECT_API_URL,
+        },
+    }
+
+
+def resolve_variant(value):
+    variant = value if value is not None else ROUTING_VARIANT
+    if variant not in ("standard", "direct"):
+        raise HTTPException(400, "Unknown routing variant")
+    if ROUTING_VARIANT == "direct" and variant != "direct":
+        raise HTTPException(503, "Standard routing is not hosted by this service")
+    return variant
+
+
+async def forward_direct(method, path, **kwargs):
+    if direct_proxy is None:
+        raise HTTPException(503, "Direct routing is not configured")
+    return await direct_proxy.request(method, path, **kwargs)
+
+
+def direct_auth_headers():
+    if not DIRECT_API_AUTH_AUDIENCE:
+        return {}
+    token = id_token.fetch_id_token(GoogleAuthRequest(), DIRECT_API_AUTH_AUDIENCE)
+    return {"Authorization": f"Bearer {token}"}
 
 
 @app.get("/version")
@@ -459,6 +518,7 @@ def calculate_comfort_for_node_ids(node_ids: list[int]) -> dict:
 class NodeList(BaseModel):
     node_ids: List[int] | None = None
     legs: list[AnalysisLeg] | None = None
+    variant: Literal["standard", "direct"] | None = None
 
     @model_validator(mode="after")
     def one_route_context(self):
@@ -469,6 +529,11 @@ class NodeList(BaseModel):
 
 @app.post("/tag_distribution")
 async def tag_distribution(node_list: NodeList):
+    variant = resolve_variant(node_list.variant)
+    if variant != ROUTING_VARIANT:
+        return await forward_direct(
+            "POST", "/tag_distribution", json=node_list.model_dump(exclude_none=True)
+        )
     legs = (
         node_list.legs
         if node_list.legs is not None
@@ -479,8 +544,25 @@ async def tag_distribution(node_list: NodeList):
 
 @app.get("/route")
 async def route(
-    start_lat: float, start_lon: float, target_lat: float, target_lon: float
+    start_lat: float,
+    start_lon: float,
+    target_lat: float,
+    target_lon: float,
+    variant: Literal["standard", "direct"] | None = None,
 ):
+    selected = resolve_variant(variant)
+    if selected != ROUTING_VARIANT:
+        return await forward_direct(
+            "GET",
+            "/route",
+            params={
+                "start_lat": start_lat,
+                "start_lon": start_lon,
+                "target_lat": target_lat,
+                "target_lon": target_lon,
+                "variant": selected,
+            },
+        )
     print("request start")
     response = get(
         f"{OSRM_BACKEND_URL}/route/v1/bike/{start_lon},{start_lat};{target_lon},{target_lat}",

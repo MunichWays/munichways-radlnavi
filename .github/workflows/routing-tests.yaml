@@ -1,7 +1,7 @@
 name: Routing regression tests
 on:
   pull_request:
-    paths: ['backend/**', 'routing/**', '.github/workflows/routing-tests.yaml']
+    paths: ['backend/**', 'routing/**', 'cloudbuild*.yaml', 'compose*.yaml', '.github/workflows/routing-tests.yaml']
   workflow_dispatch:
 permissions:
   contents: read

@@ -6,6 +6,7 @@ from unittest.mock import AsyncMock, Mock, patch
 import httpx
 from fastapi import HTTPException, Response
 from starlette.requests import Request
+from requests.exceptions import ConnectionError, Timeout
 
 from test_app import app
 from src.direct_proxy import DirectRouteProxy
@@ -24,6 +25,78 @@ def request(query):
 
 
 class DirectRoutingTest(unittest.IsolatedAsyncioTestCase):
+    async def test_public_apis_report_upstream_failures_and_recover(self):
+        upstream = Mock(
+            content=b'{"code":"Ok","routes":[]}', status_code=200, headers={}
+        )
+        for variant in ("standard", "direct"):
+            for error, status in (
+                (Timeout("slow"), 504),
+                (ConnectionError("offline"), 503),
+            ):
+                with self.subTest(variant=variant, error=error):
+                    with (
+                        patch.object(app, "ROUTING_VARIANT", variant),
+                        patch.object(app, "routing_auth_headers", return_value={}),
+                        patch.object(app, "get", side_effect=[error, upstream]),
+                    ):
+                        async with httpx.AsyncClient(
+                            transport=httpx.ASGITransport(app=app.app),
+                            base_url="http://test",
+                        ) as client:
+                            path = f"/route/v1/bike/11,48;11.1,48.1?variant={variant}"
+                            failed = await client.get(path)
+                            self.assertEqual(status, failed.status_code)
+                            recovered = await client.get(path)
+                            self.assertEqual(200, recovered.status_code)
+                            self.assertEqual(
+                                variant, recovered.headers["x-routing-variant"]
+                            )
+
+    async def test_direct_comfort_failure_preserves_route_and_navigation(self):
+        payload = {
+            "code": "Ok",
+            "routes": [
+                {
+                    "geometry": {
+                        "type": "LineString",
+                        "coordinates": [[11, 48], [11.1, 48.1]],
+                    },
+                    "legs": [
+                        {
+                            "annotation": {"nodes": [1, 2], "distance": [20]},
+                            "steps": [{"maneuver": {"type": "arrive"}}],
+                        }
+                    ],
+                }
+            ],
+        }
+        upstream = Mock(
+            content=json.dumps(payload).encode(),
+            status_code=200,
+            headers={},
+            json=lambda: payload,
+        )
+        with (
+            patch.object(app, "ROUTING_VARIANT", "direct"),
+            patch.object(app, "get", return_value=upstream),
+            patch.object(app, "routing_auth_headers", return_value={}),
+            patch.object(
+                app, "analyze_route", side_effect=RuntimeError("analysis unavailable")
+            ),
+            patch.object(app.logger, "exception"),
+        ):
+            result = await app.osrm_route_proxy(
+                request("variant=direct&comfort=true&steps=true"),
+                "bike",
+                "11,48;11.1,48.1",
+            )
+        route = json.loads(result.body)["routes"][0]
+        self.assertEqual(200, result.status_code)
+        self.assertEqual("arrive", route["legs"][0]["steps"][0]["maneuver"]["type"])
+        self.assertNotIn("comfort", route)
+        self.assertNotIn("annotation", route["legs"][0])
+
     async def test_capabilities_discover_separate_public_api_without_proxy(self):
         with (
             patch.object(app, "PUBLIC_DIRECT_API_URL", "https://direct.example"),

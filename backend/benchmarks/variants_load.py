@@ -1,4 +1,4 @@
-"""Open-loop ABBA comparison; use ONLY a local or explicitly designated staging API."""
+"""Open-loop ABBA comparison; use only endpoints explicitly authorized for this load."""
 
 import argparse
 import asyncio

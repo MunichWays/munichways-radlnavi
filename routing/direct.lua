@@ -27,10 +27,12 @@ local function process_direct_way(profile, way, result)
   -- OSRM distance weighting: length / rate, without comfort/sidepath bonuses.
   -- Discard fixed time-based weights (e.g. ferries), retaining their durations.
   result.weight = -1
-  if result.forward_mode ~= mode.inaccessible and result.forward_speed > 0 then
+  if result.forward_mode ~= mode.inaccessible and
+      (result.forward_speed > 0 or result.duration > 0) then
     result.forward_rate = 1
   end
-  if result.backward_mode ~= mode.inaccessible and result.backward_speed > 0 then
+  if result.backward_mode ~= mode.inaccessible and
+      (result.backward_speed > 0 or result.duration > 0) then
     result.backward_rate = 1
   end
 end

@@ -58,7 +58,8 @@ und kein garantierter Gesamtzeit-Deadline. Pooling folgt der
 Bei Verwendung der Weiterleitung verursachen der gemeinsame API-Zugang und die Infrastruktur weiterhin etwas
 Zusatzaufwand. Vollständig unveränderte Latenz unter beliebiger Last ist damit
 nicht garantiert. Der Lastvergleich muss vor Aktivierung auf der Zielumgebung
-wiederholt werden, einschließlich Cold Starts und Sättigung.
+wiederholt werden. Vereinbart ist ein begrenzter Test nach dem Produktionsdeploy,
+einschließlich einzelner Cold Starts, ohne Sättigungstest.
 
 Die App soll zuerst Standard anfordern und anzeigen, danach Direkt über dessen
 eigene `base_url` laden. Beide
@@ -103,6 +104,9 @@ Die Digest-Felder entsprechen der
 Die Direkt-API übernimmt den Image-Digest der bereiten Standard-API. Der Build-Account
 benötigt wie bei den bestehenden Deployments Deployment-Rechte und zusätzlich
 die Berechtigung, die Invoker-Bindungen der neuen Dienste zu setzen.
+Vor Veröffentlichung der URL prüft `backend/check_direct_deployment.py` den
+Direkt-Modus, Distanzgewichtung, Navigationsschritte, einen Zwischenhalt und die
+separate Komfortanalyse. `index=null` bei niedriger Abdeckung ist zulässig.
 
 Der wöchentliche Workflow aktualisiert Direkt nach dem Standard-Kartenupdate,
 sobald `DIRECT_API_URL` in der Standard-API gesetzt ist. Die erste Aktivierung
@@ -112,11 +116,16 @@ Die Analyse-Datenbank stammt wie bisher aus dem API-Image; deren bestehender
 separater Aktualisierungszyklus bleibt bestehen. Beide Analysevarianten verwenden
 dasselbe API-Image. Rollback: `DIRECT_API_URL` und `DIRECT_API_AUTH_AUDIENCE` aus
 der Standard-API entfernen, außerdem `PUBLIC_DIRECT_API_URL`. Standardrouting benötigt diese Dienste nicht.
+Die API-Builds (`cloudbuild-api.yaml` und `cloudbuild.yaml`) aktualisieren eine
+bereits aktivierte Direkt-API auf dasselbe neue Backend-Image. Deren Direktprofil,
+OSRM-Zugang und Routing-Version bleiben erhalten; CORS wird mitgeführt.
+Die Aktualisierung beider APIs erfolgt nacheinander, nicht atomar.
 
 ## Prüfungen
 
 Backend: `backend/.venv/Scripts/python.exe -m unittest discover -s backend/tests`.
-46 Tests einschließlich Variantenwahl, URL-Erkennung, deaktivierter Direktfunktion, Fehlercodes,
+53 Tests einschließlich Deployment-Vertrag, Image-Synchronisierung, Variantenwahl,
+URL-Erkennung, deaktivierter Direktfunktion, Fehlercodes,
 Weitergabe aller Zwischenziele und Optionen, Parallelität, Kapazitätsgrenze und
 Freigabe nach Abbruch.
 
@@ -138,7 +147,8 @@ Komfort-Index im Vergleichsfall ist 100 bzw. 35.
 ABBA-Vergleich: Standard allein, zweimal mit Direktlast, Standard allein. Die
 Standard-Ankunftsrate bleibt gleich, Direkt kommt zusätzlich dazu. Fehler und
 Verspätungen bei der Anfrageerzeugung werden mitgezählt; Rohwerte werden gespeichert.
-Nur gegen lokale oder ausdrücklich vorgesehene Staging-Dienste ausführen.
+Nur gegen lokale oder ausdrücklich für den jeweiligen Test freigegebene Dienste
+ausführen. Die hier gespeicherten Messungen entstanden ausschließlich lokal.
 
 Fixture-Messung: fünf Standardanfragen/s, zusätzlich fünf Direktanfragen/s, jeweils
 inklusive Komfort und zwei Zwischenzielen. 600 HTTP-Anfragen, keine Fehler.
@@ -180,9 +190,10 @@ isoliert; gemeinsamer VM-/Host-Einfluss ist eine mögliche Erklärung, kein Bewe
 Die separate API entfernt den gemeinsamen Standardprozess aus dem Direktpfad,
 garantiert auf diesem gemeinsam genutzten Host aber keine gleichbleibende Latenz.
 
-Vor Performance-Freigabe: denselben Vergleich auf einer getrennt provisionierten
-Staging-Umgebung wiederholen, mit mehreren längeren Routen, kalten Instanzen und
-Sättigung. Standardlast und Ressourcen müssen konstant bleiben; Fehler und p95
-sind zusammen zu bewerten. Cloud-Konfiguration und IAM wurden lokal statisch
-geprüft, nicht deployt. Die Funktion ist implementiert, die Performance-Abnahme
-und der App-Gerätetest sind noch offen.
+Vereinbarte Abnahme ohne Staging: Nach dem Produktionsdeploy zuerst einzelne
+Routen und Cold Starts prüfen, danach zu einer ruhigen Zeit einen kurzen Vergleich
+mit begrenzter Zusatzlast über die separate Direkt-API durchführen. Bei steigender
+Standardlatenz oder Fehlern die Testanfragen stoppen. Keine Sättigungstests;
+die Aussage gilt nur für die geprüfte Last. Cloud-Konfiguration und IAM wurden
+lokal geprüft, nicht deployt. Die Performance-Abnahme und der App-Gerätetest sind
+noch offen. Siehe `direct-route-qa.md` für den Abgleich mit der App-Ziellösung.

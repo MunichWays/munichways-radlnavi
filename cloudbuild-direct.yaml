@@ -42,10 +42,11 @@ steps:
       - -ceu
       - |
         map_source="$$(cat /workspace/standard-routing-image)"
+        routing_version="$$(tr -d '\r\n' < routing/VERSION)"
         test -n "$${map_source}"
         docker pull "$${map_source}"
         docker build --build-arg="MAP_SOURCE=$${map_source}" --build-arg=ROUTING_PROFILE=direct \
-          --build-arg="VERSION=$COMMIT_SHA" \
+          --build-arg="VERSION=$${routing_version}" \
           -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA' \
           -f routing/Dockerfile routing
         docker push '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA'
@@ -57,6 +58,7 @@ steps:
       - -ceu
       - |
         api_image="$$(cat /workspace/standard-api-image)"
+        routing_version="$$(tr -d '\r\n' < /workspace/source/routing/VERSION)"
         api_cors="$$(cat /workspace/api-cors)"
         test -n "$${api_image}"
         gcloud run deploy '${_DIRECT_ROUTING_SERVICE}' \
@@ -72,7 +74,7 @@ steps:
           --region='${_REGION}' --service-account='radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' \
           --allow-unauthenticated --min-instances=0 --max-instances=2 \
           --memory=512Mi --cpu=1 --concurrency=4 --timeout=60 \
-          --update-env-vars="ROUTING_VARIANT=direct,OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=$${api_cors}"
+          --update-env-vars="ROUTING_VARIANT=direct,OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=$${api_cors},ROUTING_VERSION=$${routing_version},ROUTING_COMMIT=$COMMIT_SHA,OSRM_VERSION=26.6.5"
         gcloud run services add-iam-policy-binding '${_DIRECT_API_SERVICE}' --region='${_REGION}' \
           --member='serviceAccount:radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' --role=roles/run.invoker
 
@@ -83,6 +85,7 @@ steps:
       - -ceu
       - |
         direct_url="$$(gcloud run services describe '${_DIRECT_API_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        python3 /workspace/source/backend/check_direct_deployment.py --base-url="$${direct_url}"
         gcloud run services update '${_API_SERVICE}' --region='${_REGION}' \
           --update-env-vars="DIRECT_API_URL=$${direct_url},PUBLIC_DIRECT_API_URL=$${direct_url},DIRECT_API_AUTH_AUDIENCE="
 

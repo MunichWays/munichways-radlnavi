@@ -3,6 +3,7 @@ substitutions:
   _REPOSITORY: radlnavi
   _ROUTING_SERVICE: munichways-radlnavi-routing
   _API_SERVICE: munichways-radlnavi-api
+  _DIRECT_API_SERVICE: munichways-radlnavi-direct-api
   _FRONTEND_SERVICE: munichways-radlnavi-frontend
 
 steps:
@@ -46,8 +47,20 @@ steps:
           --update-env-vars="OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=https://radlnavi.munichways.de;https://api.radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app"
 
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
-    id: resolve-api-url
+    id: refresh-direct-api
     waitFor: [deploy-api]
+    entrypoint: python3
+    args:
+      - backend/sync_direct_api.py
+      - --project=$PROJECT_ID
+      - --region=${_REGION}
+      - --standard=${_API_SERVICE}
+      - --direct=${_DIRECT_API_SERVICE}
+      - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: resolve-api-url
+    waitFor: [refresh-direct-api]
     entrypoint: bash
     args:
       - -ceu

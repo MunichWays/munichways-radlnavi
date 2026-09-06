@@ -16,8 +16,10 @@ from fastapi import FastAPI, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from geopy import distance
 from google.auth.transport.requests import Request as GoogleAuthRequest
+from google.auth.exceptions import GoogleAuthError
 from google.oauth2 import id_token
 from requests import get
+from requests.exceptions import RequestException, Timeout
 
 from src.direct_proxy import DirectRouteProxy
 
@@ -160,11 +162,9 @@ async def osrm_route_proxy(
         requested_annotations.update(("nodes", "distance"))
         upstream_params.append(("annotations", ",".join(sorted(requested_annotations))))
 
-    response = get(
+    response = get_routing_response(
         f"{OSRM_BACKEND_URL}/route/v1/{profile}/{coordinates}",
         params=upstream_params,
-        headers=routing_auth_headers(),
-        timeout=30,
     )
     headers = {"x-routing-variant": variant}
     content_type = response.headers.get("content-type")
@@ -278,6 +278,16 @@ def routing_auth_headers() -> dict[str, str]:
 
     token = id_token.fetch_id_token(GoogleAuthRequest(), OSRM_AUTH_AUDIENCE)
     return {"Authorization": f"Bearer {token}"}
+
+
+def get_routing_response(url, *, params):
+    """Expose recoverable upstream failures on both public routing APIs."""
+    try:
+        return get(url, params=params, headers=routing_auth_headers(), timeout=30)
+    except Timeout as error:
+        raise HTTPException(504, "Routing timed out") from error
+    except (RequestException, GoogleAuthError) as error:
+        raise HTTPException(503, "Routing is unavailable") from error
 
 
 @dataclass
@@ -564,7 +574,7 @@ async def route(
             },
         )
     print("request start")
-    response = get(
+    response = get_routing_response(
         f"{OSRM_BACKEND_URL}/route/v1/bike/{start_lon},{start_lat};{target_lon},{target_lat}",
         params={
             "overview": "full",
@@ -573,8 +583,6 @@ async def route(
             "geometries": "geojson",
             "annotations": "true",
         },
-        headers=routing_auth_headers(),
-        timeout=30,
     )
 
     if response.status_code != 200:

@@ -55,6 +55,10 @@ def main():
         assert route["legs"][0]["steps"][-1]["maneuver"]["type"] == "arrive", route
 
     with_stops = "11.0000,48.6000;11.0010,48.6000;11.0020,48.6000;11.0000,48.6000"
+    ferry = successful(args.direct, "10.9990,48.6100;11.0030,48.6100")
+    assert abs(ferry["weight"] - ferry["distance"]) < 0.5, ferry
+    assert 300 < ferry["duration"] < 400, ferry
+    assert any(step["mode"] == "ferry" for step in ferry["legs"][0]["steps"]), ferry
     for endpoint in (args.standard, args.direct):
         route = successful(endpoint, with_stops)
         assert len(route["legs"]) == 3, route

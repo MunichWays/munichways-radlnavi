@@ -1,0 +1,364 @@
+{
+  "started_at_utc": "2026-09-05T12:50:52.484371+00:00",
+  "base_url": "https://api.radlnavi.munichways.de",
+  "coordinates_lat_lon": [
+    [
+      48.156304,
+      11.540013
+    ],
+    [
+      48.102548,
+      11.568796
+    ],
+    [
+      48.120477,
+      11.655645
+    ],
+    [
+      47.99186,
+      11.828568
+    ]
+  ],
+  "method": "Sequential requests from Windows; first route is excluded warmup; 3 samples per main variant; no intentional concurrency or server cache control",
+  "samples": [
+    {
+      "label": "version_before",
+      "started_at_utc": "2026-09-05T12:50:52.484371+00:00",
+      "http_status": 200,
+      "headers_s": 0.5879,
+      "total_s": 0.5881,
+      "decoded_response_bytes": 171,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0,
+      "versions": {
+        "backend": "2.2.0",
+        "backendCommit": "00a18f93f80cadbbe42c888549eef8b8214747d5",
+        "routing": "2.1.0",
+        "routingCommit": "2f8c2b4d7e749abb35b27072a77ed308789b69b6",
+        "osrm": "26.6.5"
+      }
+    },
+    {
+      "label": "first_route_warmup",
+      "started_at_utc": "2026-09-05T12:50:53.068575+00:00",
+      "http_status": 200,
+      "headers_s": 0.22,
+      "total_s": 0.3997,
+      "decoded_response_bytes": 195157,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0068,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": null
+    },
+    {
+      "label": "without_comfort_1",
+      "started_at_utc": "2026-09-05T12:50:53.494174+00:00",
+      "http_status": 200,
+      "headers_s": 0.1698,
+      "total_s": 0.2207,
+      "decoded_response_bytes": 195157,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0126,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": null
+    },
+    {
+      "label": "with_comfort_1",
+      "started_at_utc": "2026-09-05T12:50:53.737396+00:00",
+      "http_status": 200,
+      "headers_s": 15.4139,
+      "total_s": 15.4568,
+      "decoded_response_bytes": 195619,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0083,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": {
+        "index": 77,
+        "coverage": 83,
+        "sufficientCoverage": true,
+        "distribution": {
+          "black": 1,
+          "red": 8,
+          "yellow": 43,
+          "green": 31,
+          "unrated": 17
+        }
+      }
+    },
+    {
+      "label": "with_comfort_2",
+      "started_at_utc": "2026-09-05T12:51:09.210625+00:00",
+      "http_status": 200,
+      "headers_s": 1.0781,
+      "total_s": 1.1179,
+      "decoded_response_bytes": 195619,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0091,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": {
+        "index": 77,
+        "coverage": 83,
+        "sufficientCoverage": true,
+        "distribution": {
+          "black": 1,
+          "red": 8,
+          "yellow": 43,
+          "green": 31,
+          "unrated": 17
+        }
+      }
+    },
+    {
+      "label": "without_comfort_2",
+      "started_at_utc": "2026-09-05T12:51:10.340408+00:00",
+      "http_status": 200,
+      "headers_s": 0.2063,
+      "total_s": 0.2438,
+      "decoded_response_bytes": 195157,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.024,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": null
+    },
+    {
+      "label": "without_comfort_3",
+      "started_at_utc": "2026-09-05T12:51:10.626395+00:00",
+      "http_status": 200,
+      "headers_s": 0.1768,
+      "total_s": 0.2366,
+      "decoded_response_bytes": 195157,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0324,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": null
+    },
+    {
+      "label": "with_comfort_3",
+      "started_at_utc": "2026-09-05T12:51:10.911100+00:00",
+      "http_status": 200,
+      "headers_s": 1.1003,
+      "total_s": 1.1521,
+      "decoded_response_bytes": 195619,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0059,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        0,
+        0,
+        0
+      ],
+      "comfort": {
+        "index": 77,
+        "coverage": 83,
+        "sufficientCoverage": true,
+        "distribution": {
+          "black": 1,
+          "red": 8,
+          "yellow": 43,
+          "green": 31,
+          "unrated": 17
+        }
+      }
+    },
+    {
+      "label": "route_with_node_annotations",
+      "started_at_utc": "2026-09-05T12:51:12.067602+00:00",
+      "http_status": 200,
+      "headers_s": 0.1956,
+      "total_s": 0.2374,
+      "decoded_response_bytes": 215961,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0067,
+      "code": "Ok",
+      "data_version": null,
+      "distance_m": 43193,
+      "duration_s": 9495.3,
+      "leg_distances_m": [
+        8708,
+        9099.7,
+        25385.3
+      ],
+      "legs": 3,
+      "steps": 154,
+      "geometry_points": 1941,
+      "geometry_sha256": "815ea74da5bdf98e6510a19ee0fb578e86e8bcb6c8047f82be9a572ff76e4800",
+      "annotation_node_counts": [
+        520,
+        458,
+        965
+      ],
+      "comfort": null
+    },
+    {
+      "label": "tag_distribution",
+      "started_at_utc": "2026-09-05T12:51:12.319792+00:00",
+      "http_status": 200,
+      "headers_s": 1.1404,
+      "total_s": 1.2099,
+      "decoded_response_bytes": 267008,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0214,
+      "ok": true,
+      "comfort": {
+        "index": 77,
+        "coverage": 83,
+        "sufficientCoverage": true,
+        "distribution": {
+          "black": 1,
+          "red": 8,
+          "yellow": 43,
+          "green": 31,
+          "unrated": 17
+        }
+      },
+      "tag_categories": [
+        "class:bicycle",
+        "lit",
+        "surface"
+      ]
+    },
+    {
+      "label": "version_after",
+      "started_at_utc": "2026-09-05T12:51:13.553875+00:00",
+      "http_status": 200,
+      "headers_s": 0.0674,
+      "total_s": 0.068,
+      "decoded_response_bytes": 171,
+      "content_encoding": null,
+      "server_timing": null,
+      "python_json_parse_s": 0.0001,
+      "versions": {
+        "backend": "2.2.0",
+        "backendCommit": "00a18f93f80cadbbe42c888549eef8b8214747d5",
+        "routing": "2.1.0",
+        "routingCommit": "2f8c2b4d7e749abb35b27072a77ed308789b69b6",
+        "osrm": "26.6.5"
+      }
+    }
+  ],
+  "analysis_node_count": 1941
+}

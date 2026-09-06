@@ -670,11 +670,11 @@ function App() {
     }
   }, 500);
 
-  const analyzeRoute = (nodeIds) => {
+  const analyzeRoute = (route) => {
     fetch(`${process.env.REACT_APP_BACKEND_URL}/tag_distribution`, {
-      method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({
-        node_ids: nodeIds,
-      })
+      method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify(
+        route.analysis_legs ? { legs: route.analysis_legs } : { node_ids: route.annotation.nodes }
+      )
     }).then(response => response.json()).then(result => {
       const { tag_distribution } = result;
       setIlluminatedOnRoute(() => new Map(Object.entries(tag_distribution.lit).map(([key, value]) => [key, value.distance])));
@@ -699,7 +699,7 @@ function App() {
               distance: results.route.distance as number,
               duration: results.route.duration as number,
             }));
-            analyzeRoute(results.route.annotation.nodes);
+            analyzeRoute(results.route);
           });
       }
     }, 500),

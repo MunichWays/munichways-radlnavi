@@ -91,10 +91,10 @@ with an OSRM-compatible route by adding `comfort=true`:
 GET /route/v1/bike/{coordinates}?comfort=true&annotations=false&...
 ```
 
-The backend requests only the required node annotations internally. If the
-client sets `annotations=false` or omits `annotations`, those internal node IDs
-are removed again before the response is returned. Each entry in `routes`
-receives a `comfort` object:
+The backend requests node and distance annotations internally and analyzes each
+leg separately, including partially traversed boundary edges. Internally added
+annotations are removed before returning the response, including after an
+analysis error. Each entry in `routes` receives a `comfort` object:
 
 ```json
 {
@@ -123,6 +123,28 @@ analysis fails, the valid routing response is still returned without the
 
 The existing `POST /tag_distribution` response also contains the same
 backend-calculated `comfort` object for the RadlNavi web frontend.
+
+The original `{ "node_ids": [...] }` request remains supported. For exact
+partial-edge lengths, clients can instead send `{ "legs": [...] }`. Each leg
+contains OSRM's `annotation.nodes` as `nodes`, `annotation.distance` as
+`distance`, and optional snapped `start`/`end` coordinates in longitude/latitude
+order. Never flatten these arrays across intermediate stops. The `/route`
+wrapper supplies this context as `route.analysis_legs`; the web client forwards
+it to the existing analysis endpoint.
+
+Analysis uses ordered edge occurrences and a per-request pair index. Loops and
+return journeys retain every traversal. Competing OSM ways remain unrated;
+missing nodes never create shortcut edges. Highlight geometries stay separate
+for disconnected visits. Keys in `TagInfo.ways` identify occurrences: the first
+visit uses the OSM way ID, further visits use `wayId:legIndex:segmentIndex`.
+Consumers should iterate the values, as the web frontend already does.
+
+Responses include `analysis` metadata (`comfortAnalysis` on enriched routes),
+with version `segments-v2`, distance basis and unresolved-segment counts.
+Node-only requests still use distances between bounding OSM nodes; they cannot
+recover snapped endpoints or lost leg boundaries. See the
+[implementation notes and benchmark](docs/routing-performance-segments.md)
+for compatibility limits and deliberate corrections to previous results.
 
 ## Local build versions
 

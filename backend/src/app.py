@@ -7,10 +7,10 @@ from collections import defaultdict
 from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from json import dumps, loads
-from math import floor
+from math import floor, isfinite
 from typing import List, Optional
 
-from pydantic import BaseModel
+from pydantic import BaseModel, model_validator
 
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -19,8 +19,16 @@ from google.auth.transport.requests import Request as GoogleAuthRequest
 from google.oauth2 import id_token
 from requests import get
 
+from src.route_analysis import (
+    AnalysisLeg,
+    INTERESTING_TAGS,
+    analysis_metadata,
+    route_segments,
+)
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 logger = logging.getLogger(__name__)
+
 
 @dataclass
 class Node(object):
@@ -44,6 +52,7 @@ class Way(object):
     nodes: list[int]
     tags: dict[str, str]
 
+
 def get_geo_store() -> sqlite3.Connection:
     geo_folder = os.path.join(script_dir, "../geo")
     geo_store_path = os.path.join(geo_folder, "geo.db")
@@ -51,8 +60,13 @@ def get_geo_store() -> sqlite3.Connection:
     if not geo_store_exists:
         raise Exception(f"geo store '{geo_store_path}' does not exist!")
     else:
-        db_con = sqlite3.connect(f"file:{geo_store_path}?mode=ro&nolock=1", uri=True, isolation_level="EXCLUSIVE")
+        db_con = sqlite3.connect(
+            f"file:{geo_store_path}?mode=ro&nolock=1",
+            uri=True,
+            isolation_level="EXCLUSIVE",
+        )
         return db_con
+
 
 geo_store: Optional[sqlite3.Connection] = None
 OSRM_BACKEND_URL = os.environ["OSRM_BACKEND_URL"]
@@ -76,6 +90,7 @@ origins = [
     for origin in os.environ.get("CORS_ORIGINS", ";".join(default_origins)).split(";")
     if origin.strip()
 ]
+
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
@@ -103,15 +118,14 @@ async def osrm_route_proxy(
     """Expose the private routing service through an OSRM-compatible API."""
     query_params = list(request.query_params.multi_items())
     comfort_requested = any(
-        key == "comfort" and value.lower() == "true"
-        for key, value in query_params
+        key == "comfort" and value.lower() == "true" for key, value in query_params
     )
     upstream_params = [(key, value) for key, value in query_params if key != "comfort"]
     original_annotations = next(
         (value for key, value in reversed(upstream_params) if key == "annotations"),
         None,
     )
-    if comfort_requested and original_annotations not in ("true", "nodes"):
+    if comfort_requested and original_annotations != "true":
         upstream_params = [
             (key, value) for key, value in upstream_params if key != "annotations"
         ]
@@ -120,7 +134,7 @@ async def osrm_route_proxy(
             for annotation in (original_annotations or "").split(",")
             if annotation.strip() and annotation != "false"
         }
-        requested_annotations.add("nodes")
+        requested_annotations.update(("nodes", "distance"))
         upstream_params.append(("annotations", ",".join(sorted(requested_annotations))))
 
     response = get(
@@ -142,13 +156,32 @@ async def osrm_route_proxy(
 
     try:
         payload = response.json()
-        keep_annotations = original_annotations not in (None, "false")
         for route in payload.get("routes", []):
-            node_ids = route_node_ids(route)
-            route["comfort"] = calculate_comfort_for_node_ids(node_ids)
-            if not keep_annotations:
+            try:
+                analysis = analyze_route(
+                    osrm_analysis_legs(route, payload.get("waypoints", []))
+                )
+                route["comfort"] = analysis["comfort"]
+                route["comfortAnalysis"] = analysis["analysis"]
+            except Exception:
+                logger.exception(
+                    "Could not add comfort information to routing response"
+                )
+            # Internal annotations must also be removed after analysis errors.
+            if original_annotations != "true":
+                keep = {
+                    value.strip() for value in (original_annotations or "").split(",")
+                } - {"", "false"}
                 for leg in route.get("legs", []):
-                    leg.pop("annotation", None)
+                    if not keep:
+                        leg.pop("annotation", None)
+                    elif "annotation" in leg:
+                        leg["annotation"] = {
+                            key: value
+                            for key, value in leg["annotation"].items()
+                            if key in keep
+                            or (key == "metadata" and "datasources" in keep)
+                        }
         return Response(
             content=dumps(payload, separators=(",", ":")),
             status_code=response.status_code,
@@ -203,7 +236,7 @@ class WayInfo(object):
 @dataclass
 class TagInfo(object):
     distance: float = 0.0
-    ways: dict[int, WayInfo] = field(default_factory=lambda: dict())
+    ways: dict[int | str, WayInfo] = field(default_factory=lambda: dict())
 
 
 MIN_COMFORT_COVERAGE = 0.7
@@ -277,110 +310,171 @@ def route_node_ids(route: dict) -> list[int]:
     return node_ids
 
 
+def osrm_analysis_legs(route: dict, waypoints: list[dict]) -> list[AnalysisLeg]:
+    """Adapt OSRM 26.6.5 annotations without flattening waypoint boundaries."""
+    legs = route.get("legs", [])
+    result = []
+    for index, leg in enumerate(legs):
+        annotation = leg.get("annotation", {})
+        endpoints = {}
+        if len(waypoints) == len(legs) + 1:
+            endpoints = {
+                "start": waypoints[index].get("location"),
+                "end": waypoints[index + 1].get("location"),
+            }
+        context = AnalysisLeg(
+            nodes=annotation.get("nodes", []),
+            distance=annotation.get("distance"),
+            **endpoints,
+        )
+        # Mismatched annotations must not silently produce a different route.
+        if "distance" in leg:
+            if not isfinite(leg["distance"]) or leg["distance"] < 0:
+                raise ValueError("Invalid OSRM leg distance")
+            if leg["distance"] > 0 and len(context.nodes) < 2:
+                raise ValueError("Missing OSRM leg nodes")
+            if (
+                context.distance is not None
+                and abs(sum(context.distance) - leg["distance"]) > 0.2
+            ):
+                raise ValueError("OSRM leg distance does not match its annotations")
+        result.append(context)
+    return result
+
+
 def retrieve_nodes_by_id(
     db_con: sqlite3.Connection, node_ids: list[int]
 ) -> dict[int, Node]:
-    c = db_con.cursor()
-    c.execute(
-        f"SELECT id, lat, lon, tags FROM nodes WHERE id IN ({','.join('?' * len(node_ids))})",
-        node_ids,
-    )
-    node_data = c.fetchall()
-    nodes_by_id = dict(
-        map(
-            lambda node: (node[0], Node(node[0], node[1], node[2], loads(node[3]))),
-            node_data,
+    nodes_by_id = {}
+    for batch in lookup_batches(db_con, node_ids):
+        rows = db_con.execute(
+            f"SELECT id, lat, lon, tags FROM nodes WHERE id IN ({','.join('?' * len(batch))})",
+            batch,
         )
-    )
+        for node in rows:
+            nodes_by_id[node[0]] = Node(node[0], node[1], node[2], loads(node[3]))
     return nodes_by_id
 
 
 def retrieve_ways_by_node_ids(
     db_con: sqlite3.Connection, node_ids: list[int]
 ) -> dict[int, Way]:
-    c = db_con.cursor()
-    c.execute(
-        f"SELECT w.id, w.node_list, w.tags FROM node_to_ways ntw INNER JOIN ways w ON (ntw.way_id = w.id) WHERE ntw.node_id IN ({','.join('?' * len(node_ids))})",
-        node_ids,
-    )
-    ways = c.fetchall()
-    way_by_id = dict(
-        map(lambda way: (way[0], Way(way[0], loads(way[1]), loads(way[2]))), ways)
-    )
-
+    # First select unique IDs using the node index, then read/decode each way
+    # once. A long way can be encountered in several SQL batches.
+    way_ids = set()
+    for batch in lookup_batches(db_con, node_ids):
+        way_ids.update(
+            row[0]
+            for row in db_con.execute(
+                f"SELECT DISTINCT way_id FROM node_to_ways WHERE node_id IN ({','.join('?' * len(batch))})",
+                batch,
+            )
+        )
+    way_by_id = {}
+    for batch in lookup_batches(db_con, sorted(way_ids)):
+        for way in db_con.execute(
+            f"SELECT id, node_list, tags FROM ways WHERE id IN ({','.join('?' * len(batch))})",
+            batch,
+        ):
+            way_by_id[way[0]] = Way(way[0], loads(way[1]), loads(way[2]))
     return way_by_id
 
 
-def retrieve_route_ways(node_ids: list[int]) -> tuple[dict[int, list[Node]], dict[int, Way]]:
+def lookup_batches(db_con, ids):
+    ids = list(dict.fromkeys(ids))
+    size = min(900, db_con.getlimit(sqlite3.SQLITE_LIMIT_VARIABLE_NUMBER))
+    for start in range(0, len(ids), size):
+        yield ids[start : start + size]
+
+
+def retrieve_route_segments(legs):
     assert geo_store is not None
+    ids = [node for leg in legs for node in leg.nodes]
+    nodes = retrieve_nodes_by_id(geo_store, ids)
+    ways = retrieve_ways_by_node_ids(geo_store, ids)
+    return route_segments(legs, nodes, ways)
 
-    nodes_by_id = retrieve_nodes_by_id(geo_store, node_ids)
-    ways_by_id = retrieve_ways_by_node_ids(geo_store, node_ids)
-    route_nodes = [nodes_by_id[node_id] for node_id in node_ids if node_id in nodes_by_id]
 
-    route_ways: dict[int, list[Node]] = defaultdict(list)
-    for node_a, node_b in zip(route_nodes, route_nodes[1:]):
-        ways = filter(
-            lambda way: node_a.id in way.nodes
-            and node_b.id in way.nodes
-            and abs(way.nodes.index(node_a.id) - way.nodes.index(node_b.id)) == 1,
-            ways_by_id.values(),
-        )
-        for way in ways:
-            way_nodes = route_ways[way.id]
-            if way_nodes and way_nodes[-1] == node_a:
-                way_nodes.append(node_b)
+def analyze_route(legs: list[AnalysisLeg], *, details: bool = False):
+    segments = retrieve_route_segments(legs)
+    distributions = {tag: defaultdict(TagInfo) for tag in INTERESTING_TAGS}
+    previous = None
+    geometry = None
+    seen_ways = set()
+    for segment in segments:
+        if segment.distance is None or segment.distance == 0:
+            previous = None
+            continue
+        for tag in INTERESTING_TAGS:
+            distributions[tag][
+                segment.tags.get(tag, "unknown")
+            ].distance += segment.distance
+        if details and segment.coordinates is not None:
+            # Merge only consecutive occurrences of the same way within a leg.
+            # Returning to a way after a detour must start a new LineString.
+            if (
+                previous is not None
+                and geometry is not None
+                and previous.leg_index == segment.leg_index
+                and previous.segment_index + 1 == segment.segment_index
+                and previous.way_id == segment.way_id
+                and previous.status == segment.status
+                and geometry.coordinates[-1] == segment.coordinates[0]
+            ):
+                geometry.coordinates.append(segment.coordinates[1])
             else:
-                way_nodes.extend((node_a, node_b))
-
-    return route_ways, ways_by_id
-
-
-def route_way_distance(nodes: list[Node]) -> float:
-    return sum(
-        distance.distance(node_a.location, node_b.location).meters
-        for node_a, node_b in zip(nodes, nodes[1:])
-    )
+                geometry = LineStringGeometry(list(segment.coordinates))
+                occurrence = f"{segment.way_id if segment.way_id is not None else segment.status}:{segment.leg_index}:{segment.segment_index}"
+                if segment.way_id is not None and segment.way_id not in seen_ways:
+                    occurrence = segment.way_id
+                    seen_ways.add(segment.way_id)
+                info = WayInfo(segment.tags.get("name", ""), geometry)
+                for tag in INTERESTING_TAGS:
+                    distributions[tag][segment.tags.get(tag, "unknown")].ways[
+                        occurrence
+                    ] = info
+        else:
+            geometry = None
+        previous = segment
+    metadata = analysis_metadata(legs, segments)
+    comfort = calculate_comfort_index(distributions["class:bicycle"])
+    if not metadata["distanceComplete"]:
+        # An absent node without an OSRM distance has unknown length. Do not
+        # turn coverage of the remaining fragments into coverage of the route.
+        comfort.update(index=None, coverage=0, sufficientCoverage=False)
+    return {
+        "ok": True,
+        "tag_distribution": distributions,
+        "comfort": comfort,
+        "analysis": metadata,
+    }
 
 
 def calculate_comfort_for_node_ids(node_ids: list[int]) -> dict:
     if not node_ids:
         return calculate_comfort_index({})
+    return analyze_route([AnalysisLeg(nodes=node_ids)])["comfort"]
 
-    route_ways, ways_by_id = retrieve_route_ways(node_ids)
-    class_distribution: dict[str, TagInfo] = defaultdict(TagInfo)
-    for way_id, nodes in route_ways.items():
-        bicycle_class = ways_by_id[way_id].tags.get("class:bicycle", "unknown")
-        class_distribution[bicycle_class].distance += route_way_distance(nodes)
-    return calculate_comfort_index(class_distribution)
 
 class NodeList(BaseModel):
-    node_ids: List[int]
+    node_ids: List[int] | None = None
+    legs: list[AnalysisLeg] | None = None
+
+    @model_validator(mode="after")
+    def one_route_context(self):
+        if (self.node_ids is None) == (self.legs is None):
+            raise ValueError("Provide either node_ids or legs")
+        return self
+
 
 @app.post("/tag_distribution")
-async def tag_distribution(
-    node_list: NodeList
-):
-    node_ids = node_list.node_ids
-    route_ways, ways_by_id = retrieve_route_ways(node_ids)
-
-    interesting_tags = ["class:bicycle", "lit", "surface"]
-    tag_distribution: dict[str, dict[str, TagInfo]] = defaultdict(lambda: defaultdict(TagInfo))
-    for way_id, nodes in route_ways.items():
-        way = ways_by_id[way_id]
-        geometry = LineStringGeometry(list(map(lambda node: node.coord, nodes)))
-        way_distance = route_way_distance(nodes)
-        for tag in interesting_tags:
-            way_tag_value = way.tags.get(tag, "unknown")
-            tag_info = tag_distribution[tag][way_tag_value]
-            tag_info.ways[way_id] = WayInfo(way.tags.get("name", ""), geometry)
-            tag_info.distance += way_distance
-
-    return {
-        "ok": True,
-        "tag_distribution": tag_distribution,
-        "comfort": calculate_comfort_index(tag_distribution["class:bicycle"]),
-    }
+async def tag_distribution(node_list: NodeList):
+    legs = (
+        node_list.legs
+        if node_list.legs is not None
+        else [AnalysisLeg(nodes=node_list.node_ids)]
+    )
+    return analyze_route(legs, details=True)
 
 
 @app.get("/route")
@@ -408,9 +502,23 @@ async def route(
     osrm_response = response.json()
     print("response end")
 
+    first_route = osrm_response["routes"][0]
+    analysis_context = {}
+    try:
+        analysis_context["analysis_legs"] = [
+            leg.model_dump(exclude_none=True)
+            for leg in osrm_analysis_legs(
+                first_route, osrm_response.get("waypoints", [])
+            )
+        ]
+    except Exception:
+        # Optional analysis must not invalidate the navigable OSRM response.
+        logger.exception("Could not prepare route analysis context")
+
     return {
         "ok": True,
         "route": {
+            **analysis_context,
             "annotation": osrm_response["routes"][0]["legs"][0]["annotation"],
             "steps": osrm_response["routes"][0]["legs"][0]["steps"],
             "geometry": osrm_response["routes"][0]["geometry"],

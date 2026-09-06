@@ -31,8 +31,10 @@ RUN wget https://download.geofabrik.de/europe/germany/bayern/oberbayern-latest.o
     rm ../geo/oberbayern-latest.osm.pbf && \
     rm geo_store.py
 
-COPY src/app.py /opt/app/src/app.py
+COPY src/app.py src/route_analysis.py src/__init__.py /opt/app/src/
+
+WORKDIR /opt/app
 
 ENV PORT 8000
 
-CMD poetry run python -m uvicorn app:app --host=0.0.0.0 --port=$PORT
+CMD poetry run python -m uvicorn src.app:app --host=0.0.0.0 --port=$PORT

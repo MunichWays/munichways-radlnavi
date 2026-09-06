@@ -69,8 +69,7 @@ class RouteTest(unittest.TestCase):
         self.assertEqual(b'{"code":"InvalidOptions"}', result.body)
         self.assertEqual("application/json", result.headers["content-type"])
         get.assert_called_once_with(
-            "http://routing:8080/route/v1/bike/"
-            "11.5,48.1;11.55,48.15;11.6,48.2",
+            "http://routing:8080/route/v1/bike/" "11.5,48.1;11.55,48.15;11.6,48.2",
             params=[
                 ("alternatives", "false"),
                 ("steps", "true"),
@@ -104,6 +103,99 @@ class VersionTest(unittest.TestCase):
 
 
 class RouteForwardingTest(unittest.TestCase):
+    def test_internal_annotations_are_filtered_for_success_and_failure(self):
+        for query, expected in (
+            (b"annotations=nodes&comfort=true", {"nodes": [1, 2]}),
+            (b"annotations=duration&comfort=true", {"duration": [2.0]}),
+            (
+                b"annotations=true&comfort=true",
+                {"nodes": [1, 2], "distance": [12.0], "duration": [2.0]},
+            ),
+        ):
+            for failed in (False, True):
+                with self.subTest(query=query, failed=failed):
+                    payload = {
+                        "code": "Ok",
+                        "routes": [
+                            {
+                                "distance": 12.0,
+                                "duration": 2.0,
+                                "geometry": "unchanged",
+                                "legs": [
+                                    {
+                                        "distance": 12.0,
+                                        "steps": [{"maneuver": {"type": "arrive"}}],
+                                        "annotation": {
+                                            "nodes": [1, 2],
+                                            "distance": [12.0],
+                                            "duration": [2.0],
+                                        },
+                                    }
+                                ],
+                            }
+                        ],
+                    }
+                    response = Mock(
+                        status_code=200,
+                        headers={"content-type": "application/json"},
+                        content=json.dumps(payload).encode(),
+                    )
+                    response.json.return_value = payload
+                    request = Request(
+                        {
+                            "type": "http",
+                            "method": "GET",
+                            "path": "/route/v1/bike/test",
+                            "query_string": query,
+                            "headers": [],
+                        }
+                    )
+                    with (
+                        patch.object(app, "get", return_value=response),
+                        patch.object(app, "routing_auth_headers", return_value={}),
+                        patch.object(
+                            app,
+                            "analyze_route",
+                            return_value={"comfort": {}, "analysis": {}},
+                            side_effect=(
+                                ValueError("bad annotations") if failed else None
+                            ),
+                        ),
+                        patch.object(app.logger, "exception"),
+                    ):
+                        result = asyncio.run(
+                            app.osrm_route_proxy(request, "bike", "test")
+                        )
+                    route = json.loads(result.body)["routes"][0]
+                    self.assertEqual(expected, route["legs"][0]["annotation"])
+                    self.assertEqual("unchanged", route["geometry"])
+                    self.assertEqual(12.0, route["distance"])
+                    self.assertEqual(
+                        [{"maneuver": {"type": "arrive"}}], route["legs"][0]["steps"]
+                    )
+                    self.assertEqual(not failed, "comfort" in route)
+
+    def test_plain_proxy_has_no_analysis_work(self):
+        response = Mock(status_code=200, headers={}, content=b'{"code":"Ok"}')
+        request = Request(
+            {
+                "type": "http",
+                "method": "GET",
+                "path": "/route/v1/bike/test",
+                "query_string": b"steps=true&annotations=nodes",
+                "headers": [],
+            }
+        )
+        with (
+            patch.object(app, "get", return_value=response),
+            patch.object(app, "routing_auth_headers", return_value={}),
+            patch.object(app, "analyze_route") as analyze,
+        ):
+            result = asyncio.run(app.osrm_route_proxy(request, "bike", "test"))
+        self.assertEqual(response.content, result.body)
+        response.json.assert_not_called()
+        analyze.assert_not_called()
+
     def test_route_forwards_coordinates_and_osrm_options(self):
         response = Mock()
         response.status_code = 200
@@ -125,6 +217,7 @@ class RouteForwardingTest(unittest.TestCase):
             result = asyncio.run(app.route(48.1, 11.5, 48.2, 11.6))
 
         self.assertTrue(result["ok"])
+        self.assertEqual([{"nodes": []}], result["route"]["analysis_legs"])
         get.assert_called_once_with(
             "http://routing:8080/route/v1/bike/11.5,48.1;11.6,48.2",
             params={
@@ -183,20 +276,20 @@ class RouteForwardingTest(unittest.TestCase):
             patch.object(app, "get", return_value=response) as get,
             patch.object(app, "routing_auth_headers", return_value={}),
             patch.object(
-                app, "calculate_comfort_for_node_ids", return_value=comfort
+                app, "analyze_route", return_value={"comfort": comfort, "analysis": {}}
             ) as calculate,
         ):
-            result = asyncio.run(
-                app.osrm_route_proxy(request, "bike", "coordinates")
-            )
+            result = asyncio.run(app.osrm_route_proxy(request, "bike", "coordinates"))
 
         body = json.loads(result.body)
         self.assertEqual(comfort, body["routes"][0]["comfort"])
         self.assertNotIn("annotation", body["routes"][0]["legs"][0])
-        calculate.assert_called_once_with([1, 2, 3, 4])
+        calculate.assert_called_once_with(
+            [app.AnalysisLeg(nodes=[1, 2, 3]), app.AnalysisLeg(nodes=[3, 4])]
+        )
         get.assert_called_once_with(
             "http://routing:8080/route/v1/bike/coordinates",
-            params=[("steps", "true"), ("annotations", "nodes")],
+            params=[("steps", "true"), ("annotations", "distance,nodes")],
             headers={},
             timeout=30,
         )
@@ -229,7 +322,7 @@ class RouteForwardingTest(unittest.TestCase):
                 patch.object(app, "routing_auth_headers", return_value={}),
                 patch.object(
                     app,
-                    "calculate_comfort_for_node_ids",
+                    "analyze_route",
                     side_effect=RuntimeError("analysis unavailable"),
                 ),
             ):
@@ -238,7 +331,9 @@ class RouteForwardingTest(unittest.TestCase):
                 )
 
         self.assertEqual(200, result.status_code)
-        self.assertEqual(content, result.body)
+        self.assertEqual(
+            {"code": "Ok", "routes": [{"legs": [{}]}]}, json.loads(result.body)
+        )
         self.assertIn("Could not add comfort information", logs.output[0])
 
 
@@ -320,7 +415,9 @@ class TagDistributionComfortTest(unittest.TestCase):
             patch.object(app, "retrieve_nodes_by_id", return_value=nodes),
             patch.object(app, "retrieve_ways_by_node_ids", return_value=ways),
             patch.object(
-                app.distance, "distance", return_value=Mock(meters=100)
+                app.distance,
+                "geodesic",
+                return_value=Mock(measure=Mock(return_value=0.1)),
             ) as calculate_distance,
         ):
             result = asyncio.run(app.tag_distribution(app.NodeList(node_ids=[1, 2])))

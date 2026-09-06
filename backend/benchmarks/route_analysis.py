@@ -1,17 +1,16 @@
-"""Offline microbenchmark of the current analysis and a pair-index prototype.
+"""Offline before/after benchmark of route segment analysis.
 
 Run from the repository root with the backend environment:
   backend/.venv/Scripts/python.exe backend/benchmarks/route_analysis.py
 
-Uses a synthetic SQLite database in memory, never calls OSRM or production.
-The prototype intentionally preserves the current way-grouping behavior; it
-does not address missing nodes, disconnected way visits or ambiguous OSM ways.
-Times are not end-to-end route latency predictions.
+Uses synthetic SQLite data and the original implementation from commit f05172e.
+Verifies ordinary-route comfort, distances and highlight geometries match.
+The annotated path uses precomputed lengths as supplied by OSRM; it is reported
+separately from legacy node-only clients. No network, OSRM or production load.
 """
 
 import argparse
 import asyncio
-from collections import defaultdict
 import importlib
 import json
 import os
@@ -32,48 +31,57 @@ app = importlib.import_module("src.app")
 
 def fixture(count):
     db = sqlite3.connect(":memory:")
-    db.executescript("""
+    db.executescript(
+        """
         CREATE TABLE nodes (id INTEGER PRIMARY KEY, lat FLOAT, lon FLOAT, tags TEXT);
         CREATE TABLE ways (id INTEGER PRIMARY KEY, node_list TEXT, tags TEXT);
         CREATE TABLE node_to_ways (node_id INTEGER, way_id INTEGER);
         CREATE INDEX node_to_ways_node_id ON node_to_ways(node_id);
         CREATE INDEX node_to_ways_way_id ON node_to_ways(way_id);
-    """)
+    """
+    )
     ids = list(range(1, count + 1))
-    db.executemany("INSERT INTO nodes VALUES (?, ?, ?, ?)", [
-        (node, 48.1, 11.4 + node * 0.0001, "{}") for node in ids
-    ])
+    db.executemany(
+        "INSERT INTO nodes VALUES (?, ?, ?, ?)",
+        [(node, 48.1, 11.4 + node * 0.0001, "{}") for node in ids],
+    )
     way_count = 0
     for start in range(0, count - 1, 8):
         way_count += 1
-        nodes = ids[start:start + 9]
-        tags = {"class:bicycle": str(way_count % 3 + 1),
-                "surface": "asphalt", "lit": "yes", "name": "Fixture"}
-        db.execute("INSERT INTO ways VALUES (?, ?, ?)",
-                   (way_count, json.dumps(nodes), json.dumps(tags)))
-        db.executemany("INSERT INTO node_to_ways VALUES (?, ?)",
-                       [(node, way_count) for node in nodes])
+        nodes = ids[start : start + 9]
+        tags = {
+            "class:bicycle": str(way_count % 3 + 1),
+            "surface": "asphalt",
+            "lit": "yes",
+            "name": "Fixture",
+        }
+        db.execute(
+            "INSERT INTO ways VALUES (?, ?, ?)",
+            (way_count, json.dumps(nodes), json.dumps(tags)),
+        )
+        db.executemany(
+            "INSERT INTO node_to_ways VALUES (?, ?)",
+            [(node, way_count) for node in nodes],
+        )
     return db, ids, way_count
 
 
-def indexed_route_ways(node_ids):
-    nodes = app.retrieve_nodes_by_id(app.geo_store, node_ids)
-    ways = app.retrieve_ways_by_node_ids(app.geo_store, node_ids)
-    by_pair = defaultdict(list)
-    for way in ways.values():
-        for a, b in zip(way.nodes, way.nodes[1:]):
-            by_pair[(a, b)].append(way.id)
-            by_pair[(b, a)].append(way.id)
-    ordered = [nodes[node] for node in node_ids if node in nodes]
-    result = defaultdict(list)
-    for a, b in zip(ordered, ordered[1:]):
-        for way_id in by_pair.get((a.id, b.id), ()):
-            way_nodes = result[way_id]
-            if way_nodes and way_nodes[-1] == a:
-                way_nodes.append(b)
-            else:
-                way_nodes.extend((a, b))
-    return result, ways
+def load_baseline():
+    """Use the reviewed pre-change implementation as an independent reference."""
+    import subprocess
+    import types
+
+    source = subprocess.check_output(
+        ["git", "show", "f05172e:backend/src/app.py"],
+        cwd=Path(__file__).resolve().parents[2],
+        text=True,
+        encoding="utf-8",
+    )
+    module = types.ModuleType("radlnavi_analysis_baseline")
+    module.__file__ = str(Path(app.__file__))
+    sys.modules[module.__name__] = module
+    exec(compile(source, "baseline/app.py", "exec"), module.__dict__)
+    return module
 
 
 def median_ms(action, repeat):
@@ -85,29 +93,90 @@ def median_ms(action, repeat):
     return round(statistics.median(samples), 3)
 
 
-def benchmark(count, repeat):
+def benchmark(count, repeat, baseline):
     db, ids, way_count = fixture(count)
     try:
-        with patch.object(app, "geo_store", db):
-            original = app.retrieve_route_ways(ids)
-            candidate = indexed_route_ways(ids)
-            assert original == candidate, "Prototype changed the synthetic mapping"
-            payload = asyncio.run(app.tag_distribution(app.NodeList(node_ids=ids)))
-            encoded = jsonable_encoder(payload)
+        with patch.object(app, "geo_store", db), patch.object(
+            baseline, "geo_store", db
+        ):
+            nodes = app.retrieve_nodes_by_id(db, ids)
+            # Preparation is outside measurement, as OSRM supplies these lengths.
+            distances = [
+                app.distance.distance(nodes[a].location, nodes[b].location).meters
+                for a, b in zip(ids, ids[1:])
+            ]
+            legs = [
+                app.AnalysisLeg(
+                    nodes=ids,
+                    distance=distances,
+                    start=nodes[ids[0]].coord,
+                    end=nodes[ids[-1]].coord,
+                )
+            ]
+            legacy_request = app.NodeList(node_ids=ids)
+            old_payload = asyncio.run(
+                baseline.tag_distribution(baseline.NodeList(node_ids=ids))
+            )
+            payload = asyncio.run(app.tag_distribution(legacy_request))
+            annotated = app.analyze_route(legs, details=True)
+            assert payload["comfort"] == old_payload["comfort"] == annotated["comfort"]
+            for tag, values in old_payload["tag_distribution"].items():
+                for value, info in values.items():
+                    assert (
+                        abs(
+                            info.distance
+                            - payload["tag_distribution"][tag][value].distance
+                        )
+                        < 1e-6
+                    )
+                    old_lines = [way.geometry.coordinates for way in info.ways.values()]
+                    new_lines = [
+                        way.geometry.coordinates
+                        for way in payload["tag_distribution"][tag][value].ways.values()
+                    ]
+                    assert old_lines == new_lines, "Ordinary route geometry changed"
             result = {
                 "nodes": count,
                 "ways": way_count,
-                "mapping_current_ms": median_ms(lambda: app.retrieve_route_ways(ids), repeat),
-                "mapping_pair_index_ms": median_ms(lambda: indexed_route_ways(ids), repeat),
-                "comfort_current_ms": median_ms(lambda: app.calculate_comfort_for_node_ids(ids), repeat),
-                "all_tags_current_ms": median_ms(lambda: asyncio.run(app.tag_distribution(app.NodeList(node_ids=ids))), repeat),
-                "encode_and_json_ms": median_ms(lambda: json.dumps(jsonable_encoder(payload), separators=(",", ":")), repeat),
-                "payload_bytes": len(json.dumps(encoded, separators=(",", ":")).encode()),
-                "comfort_arithmetic_ms": median_ms(lambda: app.calculate_comfort_index(payload["tag_distribution"]["class:bicycle"]), 101),
+                "ways_sql_before_ms": median_ms(
+                    lambda: baseline.retrieve_ways_by_node_ids(db, ids), repeat
+                ),
+                "ways_sql_after_ms": median_ms(
+                    lambda: app.retrieve_ways_by_node_ids(db, ids), repeat
+                ),
+                "comfort_before_ms": median_ms(
+                    lambda: baseline.calculate_comfort_for_node_ids(ids), repeat
+                ),
+                "comfort_nodes_after_ms": median_ms(
+                    lambda: app.calculate_comfort_for_node_ids(ids), repeat
+                ),
+                "comfort_annotations_after_ms": median_ms(
+                    lambda: app.analyze_route(legs), repeat
+                ),
+                "details_before_ms": median_ms(
+                    lambda: asyncio.run(
+                        baseline.tag_distribution(baseline.NodeList(node_ids=ids))
+                    ),
+                    repeat,
+                ),
+                "details_nodes_after_ms": median_ms(
+                    lambda: asyncio.run(app.tag_distribution(legacy_request)), repeat
+                ),
+                "details_annotations_after_ms": median_ms(
+                    lambda: app.analyze_route(legs, details=True), repeat
+                ),
+                "encode_and_json_ms": median_ms(
+                    lambda: json.dumps(
+                        jsonable_encoder(payload), separators=(",", ":")
+                    ),
+                    repeat,
+                ),
+                "payload_bytes": len(
+                    json.dumps(
+                        jsonable_encoder(payload), separators=(",", ":")
+                    ).encode()
+                ),
             }
-            with patch.object(app, "retrieve_route_ways", indexed_route_ways):
-                assert app.calculate_comfort_for_node_ids(ids) == payload["comfort"]
-                result["comfort_pair_index_ms"] = median_ms(lambda: app.calculate_comfort_for_node_ids(ids), repeat)
             return result
     finally:
         db.close()
@@ -115,15 +184,26 @@ def benchmark(count, repeat):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--nodes", type=int, nargs="+", default=[1000, 2000, 4000, 8000])
+    parser.add_argument(
+        "--nodes", type=int, nargs="+", default=[1000, 2000, 4000, 8000]
+    )
     parser.add_argument("--repeat", type=int, default=3)
     args = parser.parse_args()
     if args.repeat < 1 or any(count < 2 for count in args.nodes):
         parser.error("repeat must be positive; node counts must be at least two")
-    print(json.dumps({"python": platform.python_version(), "platform": platform.platform(),
-                      "repeat": args.repeat, "fixture": "synthetic, in-memory, 8 edges per way"}))
+    print(
+        json.dumps(
+            {
+                "python": platform.python_version(),
+                "platform": platform.platform(),
+                "repeat": args.repeat,
+                "fixture": "synthetic, in-memory, 8 edges per way",
+            }
+        )
+    )
+    baseline = load_baseline()
     for count in args.nodes:
-        print(json.dumps(benchmark(count, args.repeat)), flush=True)
+        print(json.dumps(benchmark(count, args.repeat, baseline)), flush=True)
 
 
 if __name__ == "__main__":

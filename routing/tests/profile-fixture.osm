@@ -141,6 +141,16 @@
   <node id="66" lat="48.3695" lon="11.0005" />
   <node id="68" lat="48.3700" lon="11.0010" />
 
+  <!-- Direct-route comparison: short rough road versus longer comfortable path. -->
+  <node id="1001" lat="48.6000" lon="11.0000"/>
+  <node id="1002" lat="48.6000" lon="11.0010"/>
+  <node id="1003" lat="48.6000" lon="11.0020"/>
+  <node id="1004" lat="48.6005" lon="11.0000"/>
+  <node id="1005" lat="48.6005" lon="11.0020"/>
+  <node id="1101" lat="48.6100" lon="11.0000"/>
+  <node id="1102" lat="48.6100" lon="11.0020"/>
+  <node id="1100" lat="48.6100" lon="10.9990"/>
+  <node id="1103" lat="48.6100" lon="11.0030"/>
   <way id="101"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/></way>
   <way id="102"><nd ref="3"/><nd ref="4"/><tag k="highway" v="residential"/><tag k="surface" v="chipseal"/></way>
   <way id="103"><nd ref="5"/><nd ref="6"/><tag k="highway" v="residential"/><tag k="surface" v="concrete"/></way>
@@ -227,4 +237,9 @@
     <tag k="restriction" v="only_right_turn"/>
     <tag k="except" v="bicycle"/>
   </relation>
+  <way id="10001"><nd ref="1001"/><nd ref="1002"/><nd ref="1003"/><tag k="highway" v="residential"/><tag k="name" v="Short rough road"/><tag k="class:bicycle" v="-1"/><tag k="surface" v="grass_paver"/></way>
+  <way id="10002"><nd ref="1001"/><nd ref="1004"/><nd ref="1005"/><nd ref="1003"/><tag k="highway" v="cycleway"/><tag k="name" v="Comfortable detour"/><tag k="class:bicycle" v="3"/><tag k="surface" v="asphalt"/></way>
+  <way id="11001"><nd ref="1101"/><nd ref="1102"/><tag k="route" v="ferry"/><tag k="bicycle" v="yes"/><tag k="duration" v="00:05"/><tag k="name" v="Timed ferry"/></way>
+  <way id="11002"><nd ref="1100"/><nd ref="1101"/><tag k="highway" v="cycleway"/></way>
+  <way id="11003"><nd ref="1102"/><nd ref="1103"/><tag k="highway" v="cycleway"/></way>
 </osm>

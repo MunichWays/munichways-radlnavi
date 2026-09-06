@@ -1,0 +1,41 @@
+name: Routing regression tests
+on:
+  pull_request:
+    paths: ['backend/**', 'routing/**', 'cloudbuild*.yaml', 'compose*.yaml', '.github/workflows/routing-tests.yaml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install poetry
+      - working-directory: backend
+        run: |
+          poetry install --only main --no-root
+          poetry run python -m unittest discover -s tests
+  profiles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - run: |
+          docker build -t profile-standard -f routing/tests/Dockerfile routing
+          docker build --build-arg ROUTING_PROFILE=direct -t profile-direct -f routing/tests/Dockerfile routing
+          docker run -d --name standard -p 18081:8080 profile-standard
+          docker run -d --name direct -p 18082:8080 profile-direct
+          for port in 18081 18082; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://localhost:$port/route/v1/bike/11,48.6;11.002,48.6?overview=false" > /dev/null; then
+                break
+              fi
+              sleep 1
+            done
+          done
+          python routing/tests/test_profile_regressions.py
+          python routing/tests/test_direct_profile.py

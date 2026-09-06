@@ -1,0 +1,13 @@
+# Fast integration image using an existing local backend image, no PBF download.
+ARG BASE_IMAGE=radlnavi-backend
+FROM ${BASE_IMAGE}
+WORKDIR /opt/app
+COPY backend/pyproject.toml backend/poetry.lock ./
+RUN poetry install --only main --no-root
+COPY backend/src/ ./src/
+COPY backend/tests/build_fixture_database.py /tmp/build_fixture_database.py
+COPY routing/tests/profile-fixture.osm /tmp/profile-fixture.osm
+ARG FIXTURE=true
+RUN if [ "$FIXTURE" = true ]; then \
+    poetry run python /tmp/build_fixture_database.py /tmp/profile-fixture.osm /opt/app/geo/geo.db; fi
+CMD ["poetry", "run", "python", "-m", "uvicorn", "src.app:app", "--host=0.0.0.0", "--port=8000"]

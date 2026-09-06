@@ -25,6 +25,7 @@ steps:
       - |
         routing_version="$$(tr -d '\r\n' < routing/VERSION)"
         docker build \
+          --build-arg="MAP_SNAPSHOT=$BUILD_ID" \
           --build-arg="RADLNAVI_ROUTING_DATE=$BUILD_ID" \
           --build-arg="VERSION=$${routing_version}" \
           -t '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/routing:$COMMIT_SHA' \

@@ -42,11 +42,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          gcloud run services describe munichways-radlnavi-api \
-            --project=munichways-radlnavi-prod --region=europe-west3 \
-            --format=json > /tmp/radlnavi-api.json
-          enabled=$(python3 -c 'import json; d=json.load(open("/tmp/radlnavi-api.json")); print(any(e.get("name")=="DIRECT_API_URL" and e.get("value") for e in d["spec"]["template"]["spec"]["containers"][0].get("env", [])))')
-          if [ "$enabled" = True ]; then
+          enabled=$(python3 backend/check_direct_enabled.py \
+            --base-url=https://api.radlnavi.munichways.de)
+          if [ "$enabled" = true ]; then
             gcloud builds submit --no-source \
               --project=munichways-radlnavi-prod --region=europe-west3 \
               --config=cloudbuild-direct.yaml \

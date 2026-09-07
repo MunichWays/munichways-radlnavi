@@ -107,6 +107,11 @@ die Berechtigung, die Invoker-Bindungen der neuen Dienste zu setzen.
 Vor Veröffentlichung der URL prüft `backend/check_direct_deployment.py` den
 Direkt-Modus, Distanzgewichtung, Navigationsschritte, einen Zwischenhalt und die
 separate Komfortanalyse. `index=null` bei niedriger Abdeckung ist zulässig.
+Frisch gesetzte Cloud-Run-Aufrufrechte können verzögert wirksam werden. Der Check
+wiederholt deshalb HTTP 403/429/502/503/504 und Transportfehler mit 5 bis 30 Sekunden
+Abstand innerhalb eines gemeinsamen Acht-Minuten-Fensters. Dauerhafte Fehler oder
+ungültige Antworten brechen weiterhin ab; die URL wird dann nicht veröffentlicht.
+Hintergrund: [Google IAM Access change propagation](https://docs.cloud.google.com/iam/docs/access-change-propagation).
 
 Der wöchentliche Workflow aktualisiert Direkt nach dem Standard-Kartenupdate,
 sobald `DIRECT_API_URL` in der Standard-API gesetzt ist. Die erste Aktivierung
@@ -124,7 +129,7 @@ Die Aktualisierung beider APIs erfolgt nacheinander, nicht atomar.
 ## Prüfungen
 
 Backend: `backend/.venv/Scripts/python.exe -m unittest discover -s backend/tests`.
-53 Tests einschließlich Deployment-Vertrag, Image-Synchronisierung, Variantenwahl,
+57 Tests einschließlich IAM-Wartezeit, Deployment-Vertrag, Image-Synchronisierung, Variantenwahl,
 URL-Erkennung, deaktivierter Direktfunktion, Fehlercodes,
 Weitergabe aller Zwischenziele und Optionen, Parallelität, Kapazitätsgrenze und
 Freigabe nach Abbruch.

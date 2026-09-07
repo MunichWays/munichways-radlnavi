@@ -1,16 +1,91 @@
 import copy
+import io
 import json
 from pathlib import Path
 import sys
 import unittest
 from unittest.mock import Mock
+from urllib.error import HTTPError, URLError
+from urllib.request import Request
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from check_direct_deployment import check
+from check_direct_deployment import check, fetch_json
 from sync_direct_api import sync
 
 
 class DeploymentContractTest(unittest.TestCase):
+    def test_iam_propagation_and_transient_errors_retry_the_same_request(self):
+        for error in (
+            HTTPError("http://test", 403, "Forbidden", {}, None),
+            HTTPError("http://test", 503, "Unavailable", {}, None),
+            URLError("connection reset"),
+        ):
+            with self.subTest(error=error):
+                clock = [0.0]
+
+                def sleep(seconds):
+                    clock[0] += seconds
+
+                opener = Mock(side_effect=[error, io.BytesIO(b'{"ok":true}')])
+                request = Request("http://test", data=b'{"variant":"direct"}')
+                result = fetch_json(
+                    request,
+                    deadline=60,
+                    opener=opener,
+                    now=lambda: clock[0],
+                    sleep=sleep,
+                )
+                self.assertEqual({"ok": True}, result)
+                self.assertEqual(5, clock[0])
+                self.assertTrue(
+                    all(call.args[0] is request for call in opener.call_args_list)
+                )
+
+    def test_persistent_forbidden_fails_within_retry_budget(self):
+        clock = [0.0]
+
+        def sleep(seconds):
+            clock[0] += seconds
+
+        opener = Mock(side_effect=HTTPError("http://test", 403, "Forbidden", {}, None))
+        with self.assertRaises(HTTPError):
+            fetch_json(
+                Request("http://test"),
+                deadline=18,
+                opener=opener,
+                now=lambda: clock[0],
+                sleep=sleep,
+            )
+        self.assertEqual(3, opener.call_count)
+        self.assertLessEqual(clock[0], 18)
+        self.assertEqual(3, opener.call_args.kwargs["timeout"])
+
+    def test_permanent_error_or_invalid_json_is_not_retried(self):
+        for outcome, error_type in (
+            (HTTPError("http://test", 400, "Bad request", {}, None), HTTPError),
+            (io.BytesIO(b"not-json"), ValueError),
+        ):
+            opener = Mock(side_effect=[outcome])
+            sleeper = Mock()
+            with self.assertRaises(error_type):
+                fetch_json(
+                    Request("http://test"),
+                    deadline=60,
+                    opener=opener,
+                    now=lambda: 0,
+                    sleep=sleeper,
+                )
+            opener.assert_called_once()
+            sleeper.assert_not_called()
+
+    def test_expired_shared_deadline_does_not_start_another_request(self):
+        opener = Mock()
+        with self.assertRaises(TimeoutError):
+            fetch_json(
+                Request("http://test"), deadline=10, opener=opener, now=lambda: 10
+            )
+        opener.assert_not_called()
+
     def responses(self):
         leg = {
             "steps": [{"maneuver": {"type": "arrive"}}],

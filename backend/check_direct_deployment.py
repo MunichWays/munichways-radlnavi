@@ -2,7 +2,39 @@
 
 import argparse
 import json
+import time
+from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+
+
+def fetch_json(
+    request, *, deadline, opener=urlopen, now=time.monotonic, sleep=time.sleep
+):
+    """Allow newly granted Cloud Run IAM policies to propagate; never skip checks."""
+    delay = 5
+    while True:
+        remaining = deadline - now()
+        if remaining <= 0:
+            raise TimeoutError("Direct deployment readiness deadline exceeded")
+        try:
+            with opener(request, timeout=min(45, remaining)) as response:
+                return json.load(response)
+        except HTTPError as error:
+            error.close()
+            if error.code not in (403, 429, 502, 503, 504):
+                raise
+            reason = f"HTTP {error.code}"
+            remaining = deadline - now()
+            if remaining <= delay:
+                raise
+        except (URLError, TimeoutError) as error:
+            reason = type(error).__name__
+            remaining = deadline - now()
+            if remaining <= delay:
+                raise
+        print(f"Direct deployment readiness: {reason}; retry in {delay}s", flush=True)
+        sleep(delay)
+        delay = min(delay * 2, 30)
 
 
 def check(fetch):
@@ -48,6 +80,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base-url", required=True)
     args = parser.parse_args()
+    # One retry budget shared by capabilities, routing and analysis. IAM updates
+    # typically propagate in minutes, rather than before gcloud returns.
+    deadline = time.monotonic() + 480
 
     def fetch(path, body=None):
         request = Request(
@@ -55,8 +90,7 @@ def main():
             data=None if body is None else json.dumps(body).encode(),
             headers={"Content-Type": "application/json"},
         )
-        with urlopen(request, timeout=45) as response:
-            return json.load(response)
+        return fetch_json(request, deadline=deadline)
 
     check(fetch)
     print(

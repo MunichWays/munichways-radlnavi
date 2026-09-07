@@ -37,4 +37,4 @@ WORKDIR /opt/app
 
 ENV PORT 8000
 
-CMD poetry run python -m uvicorn src.app:app --host=0.0.0.0 --port=$PORT
+CMD ["/bin/sh", "-c", "exec /opt/app/.venv/bin/python -m uvicorn src.app:app --host=0.0.0.0 --port=\"$PORT\""]

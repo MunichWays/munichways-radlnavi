@@ -3,6 +3,11 @@
 Geprüft am 06.09.2026: gesamter Branch seit `main`, einschließlich der noch
 uncommitteten Versionsänderungen; App-Code auf Commit `21f6bc4` nur gelesen.
 Versionsdateien zum Abschluss: Backend, Routing und Frontend jeweils 2.3.0.
+
+Nachtrag 07.09.2026: Ab Routing 2.3.1 werden Fähren aus beiden Profilen
+ausgeschlossen und Treppen in beiden stark abgewertet. Die folgende Fährprüfung dokumentiert den damaligen
+2.3.0-Vertrag; der aktuelle Regressionstest prüft den bewussten Ausschluss.
+Siehe [Produktionsprüfung](production-performance-2026-09-07.md).
 Die während der QA vorgenommenen Versionsangleichungen wurden beibehalten;
 funktionale Frontend-Änderungen enthält dieser Branch weiterhin nicht.
 

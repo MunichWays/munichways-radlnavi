@@ -35,6 +35,9 @@ function setup()
     default_mode              = mode.cycling,
     default_speed             = default_speed,
     walking_speed             = walking_speed,
+    -- Shared by both variants: one metre of stairs costs at least 20 ordinary
+    -- metres. Keep the actual stair speed separate so ETA stays meaningful.
+    steps_distance_penalty    = 20,
     oneway_handling           = true,
     turn_penalty              = 6,
     turn_bias                 = 1.4,
@@ -672,6 +675,14 @@ end
 
 
 function process_way(profile, way, result)
+  -- Both bicycle variants must stay on land, even with bicycle=yes or a
+  -- fixed ferry duration. Exclude before handlers assign a mode or weight.
+  if way:get_value_by_key('route') == 'ferry' then
+    result.forward_mode = mode.inaccessible
+    result.backward_mode = mode.inaccessible
+    return
+  end
+
   -- the initial filtering of ways based on presence of tags
   -- affects processing times significantly, because all ways
   -- have to be checked.
@@ -832,10 +843,11 @@ function process_way(profile, way, result)
     result.backward_speed = 0
   end
 
-  -- do not route via steps where there's no cycling possible
-  if data.highway == "steps" and data.bicycle == "dismount" then
-    result.forward_speed = 0
-    result.backward_speed = 0
+  -- Stairs remain a last-resort connection, including bicycle=dismount.
+  -- Never reopen an access exclusion or an inaccessible direction.
+  if data.highway == "steps" then
+    result.forward_speed = math.min(result.forward_speed, profile.pedestrian_speeds.steps)
+    result.backward_speed = math.min(result.backward_speed, profile.pedestrian_speeds.steps)
   end
 
   if result.forward_speed > 0 then
@@ -845,6 +857,12 @@ function process_way(profile, way, result)
   if result.backward_speed > 0 then
     result.backward_rate = result.backward_speed / 3.6 * class_bicycle_penalty
       * separate_cycleway_penalty_backward
+  end
+  if data.highway == "steps" then
+    local stair_rate = profile.default_speed / 3.6 * class_bicycle_penalty
+      / profile.steps_distance_penalty
+    result.forward_rate = math.min(result.forward_rate, stair_rate)
+    result.backward_rate = math.min(result.backward_rate, stair_rate)
   end
 end
 

@@ -1,5 +1,5 @@
 -- Shortest traversable bicycle route, sharing access and guidance with bike.lua.
--- Edge weights are metres; actual speeds and turn durations remain available
+-- Edge weights are metres with a shared stair penalty; speeds and durations remain available
 -- for ETA and turn-by-turn navigation. Comfort is analyzed independently.
 local bicycle = require('bike')
 
@@ -14,7 +14,9 @@ local function process_direct_way(profile, way, result)
 
   -- This rating is an explicit exclusion in the existing standard profile.
   -- Removing comfort preferences must not reopen these excluded ways.
-  if way:get_value_by_key('class:bicycle') == '-3' then
+  if way:get_value_by_key('class:bicycle') == '-3' or
+      way:get_value_by_key('route') == 'ferry' or
+      result.forward_mode == mode.ferry or result.backward_mode == mode.ferry then
     result.forward_mode = mode.inaccessible
     result.backward_mode = mode.inaccessible
     result.forward_speed = 0
@@ -25,15 +27,17 @@ local function process_direct_way(profile, way, result)
   end
 
   -- OSRM distance weighting: length / rate, without comfort/sidepath bonuses.
-  -- Discard fixed time-based weights (e.g. ferries), retaining their durations.
+  -- Discard fixed time-based weights, retaining durations for ETA.
   result.weight = -1
+  local rate = way:get_value_by_key('highway') == 'steps'
+    and 1 / profile.steps_distance_penalty or 1
   if result.forward_mode ~= mode.inaccessible and
       (result.forward_speed > 0 or result.duration > 0) then
-    result.forward_rate = 1
+    result.forward_rate = rate
   end
   if result.backward_mode ~= mode.inaccessible and
       (result.backward_speed > 0 or result.duration > 0) then
-    result.backward_rate = 1
+    result.backward_rate = rate
   end
 end
 

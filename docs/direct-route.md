@@ -2,13 +2,22 @@
 
 ## Entscheidung und API
 
+Ab Routing 2.3.1 sind Fähren in beiden Profilen ausgeschlossen, auch bei
+expliziter Fahrradfreigabe. Treppen (`highway=steps`) bleiben erlaubt, soweit
+Zugangsregeln es zulassen, werden aber in beiden Profilen stark abgewertet:
+Ein Meter zählt wie mindestens 20 normale Meter (bei Standard mit derselben
+Komfortbewertung). Der gemeinsame Faktor steht in `steps_distance_penalty`.
+Die Geschwindigkeit wird unabhängig davon auf höchstens 2 km/h begrenzt.
+Auch `bicycle=dismount` bleibt eine mögliche Verbindung; `bicycle=no` bleibt gesperrt.
+
 `routing/direct.lua` minimiert die befahrbare Entfernung. Es übernimmt die
 Zugangsregeln, Geschwindigkeiten, Abbiegebeschränkungen und Navigationsausgabe aus
-dem unveränderten `bike.lua`. Komfortfaktoren und zeitbasierte Abbiegekosten
+dem gemeinsamen `bike.lua`. Komfortfaktoren und zeitbasierte Abbiegekosten
 beeinflussen das Entfernungsgewicht nicht. Fahrzeit und Abbiegedauer bleiben für
 die ETA erhalten. Ausgeschlossene Wege (`class:bicycle=-3`) und der Schutz vor
 dem Einfahren in `bicycle=use_sidepath` bleiben bestehen. „Kürzeste“ gilt innerhalb
-dieses zulässigen Netzes und der gesnappten Wegpunkte, nicht als Luftlinie.
+dieses zulässigen Netzes, mit Treppenaufschlag und gesnappten Wegpunkten,
+nicht als Luftlinie. Die ausgegebene Streckenlänge bleibt die tatsächliche Länge.
 
 Bestehende Clients erhalten ohne Parameter weiterhin die Standardroute.
 

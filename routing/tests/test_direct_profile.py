@@ -55,10 +55,36 @@ def main():
         assert route["legs"][0]["steps"][-1]["maneuver"]["type"] == "arrive", route
 
     with_stops = "11.0000,48.6000;11.0010,48.6000;11.0020,48.6000;11.0000,48.6000"
-    ferry = successful(args.direct, "10.9990,48.6100;11.0030,48.6100")
-    assert abs(ferry["weight"] - ferry["distance"]) < 0.5, ferry
-    assert 300 < ferry["duration"] < 400, ferry
-    assert any(step["mode"] == "ferry" for step in ferry["legs"][0]["steps"]), ferry
+    # Both variants exclude ferries, with or without a fixed duration.
+    for endpoint in (args.standard, args.direct):
+        for coordinates in (
+            "10.9990,48.6100;11.0030,48.6100",
+            "11.0030,48.6100;10.9990,48.6100",
+            "11.0000,48.6300;11.0010,48.6300",
+            "11.0010,48.6300;11.0000,48.6300",
+        ):
+            result = fetch(endpoint, coordinates)
+            assert result["code"] in ("NoRoute", "NoSegment"), result
+    # Prefer a rideable detour, but retain stairs as the only connection.
+    for endpoint in (args.standard, args.direct):
+        for coordinates in (
+            "11.0000,48.6400;11.0010,48.6400",
+            "11.0010,48.6400;11.0000,48.6400",
+        ):
+            detour = successful(endpoint, coordinates)
+            names = [step.get("name") for step in detour["legs"][0]["steps"]]
+            assert "Rideable detour" in names and "Stair shortcut" not in names, detour
+        for lat in (48.6200, 48.6500):
+            for coordinates in (
+                f"11.0000,{lat:.4f};11.0010,{lat:.4f}",
+                f"11.0010,{lat:.4f};11.0000,{lat:.4f}",
+            ):
+                stairs = successful(endpoint, coordinates)
+                assert abs(stairs["duration"] - stairs["distance"] * 1.8) < 2, stairs
+                if endpoint == args.direct:
+                    assert abs(stairs["weight"] - 20 * stairs["distance"]) < 2, stairs
+            result = fetch(endpoint, "11.0000,48.6600;11.0010,48.6600")
+            assert result["code"] in ("NoRoute", "NoSegment"), result
     for endpoint in (args.standard, args.direct):
         route = successful(endpoint, with_stops)
         assert len(route["legs"]) == 3, route

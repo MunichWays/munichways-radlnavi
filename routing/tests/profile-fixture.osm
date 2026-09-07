@@ -151,6 +151,18 @@
   <node id="1102" lat="48.6100" lon="11.0020"/>
   <node id="1100" lat="48.6100" lon="10.9990"/>
   <node id="1103" lat="48.6100" lon="11.0030"/>
+  <node id="13001" lat="48.6300" lon="11.0000"/>
+  <node id="13002" lat="48.6300" lon="11.0010"/>
+  <node id="12001" lat="48.6200" lon="11.0000"/>
+  <node id="12002" lat="48.6200" lon="11.0010"/>
+  <node id="14001" lat="48.64" lon="11"/>
+  <node id="14002" lat="48.64" lon="11.001"/>
+  <node id="14003" lat="48.642" lon="11"/>
+  <node id="14004" lat="48.642" lon="11.001"/>
+  <node id="15001" lat="48.65" lon="11"/>
+  <node id="15002" lat="48.65" lon="11.001"/>
+  <node id="16001" lat="48.66" lon="11"/>
+  <node id="16002" lat="48.66" lon="11.001"/>
   <way id="101"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/></way>
   <way id="102"><nd ref="3"/><nd ref="4"/><tag k="highway" v="residential"/><tag k="surface" v="chipseal"/></way>
   <way id="103"><nd ref="5"/><nd ref="6"/><tag k="highway" v="residential"/><tag k="surface" v="concrete"/></way>
@@ -242,4 +254,10 @@
   <way id="11001"><nd ref="1101"/><nd ref="1102"/><tag k="route" v="ferry"/><tag k="bicycle" v="yes"/><tag k="duration" v="00:05"/><tag k="name" v="Timed ferry"/></way>
   <way id="11002"><nd ref="1100"/><nd ref="1101"/><tag k="highway" v="cycleway"/></way>
   <way id="11003"><nd ref="1102"/><nd ref="1103"/><tag k="highway" v="cycleway"/></way>
+  <way id="12001"><nd ref="12001"/><nd ref="12002"/><tag k="highway" v="steps"/><tag k="bicycle" v="yes"/></way>
+  <way id="13001"><nd ref="13001"/><nd ref="13002"/><tag k="route" v="ferry"/><tag k="bicycle" v="yes"/></way>
+  <way id="14001"><nd ref="14001"/><nd ref="14002"/><tag k="highway" v="steps"/><tag k="bicycle" v="yes"/><tag k="name" v="Stair shortcut"/></way>
+  <way id="14002"><nd ref="14001"/><nd ref="14003"/><nd ref="14004"/><nd ref="14002"/><tag k="highway" v="residential"/><tag k="name" v="Rideable detour"/></way>
+  <way id="15001"><nd ref="15001"/><nd ref="15002"/><tag k="highway" v="steps"/><tag k="bicycle" v="dismount"/></way>
+  <way id="16001"><nd ref="16001"/><nd ref="16002"/><tag k="highway" v="steps"/><tag k="bicycle" v="no"/></way>
 </osm>

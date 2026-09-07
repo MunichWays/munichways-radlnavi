@@ -43,11 +43,17 @@ def __initialize_geo_store(db_con: sqlite3.Connection, pbf_path: str) -> None:
             CONSTRAINT fk_way_id FOREIGN KEY (way_id) REFERENCES ways(id)
         );"""
     )
-    db_con.execute("CREATE INDEX node_to_ways_node_id ON node_to_ways (node_id)")
-    db_con.execute("CREATE INDEX node_to_ways_way_id ON node_to_ways (way_id)")
     handler = GeoStoreInitHandler(db_con)
     handler.apply_file(pbf_path)
     handler.finalize()
+    # The route lookup needs both columns. Keep them in one covering index to
+    # avoid a second, scattered table read for every matching node occurrence.
+    # Build once after import instead of maintaining the indexes for every batch.
+    db_con.execute(
+        "CREATE INDEX node_to_ways_node_id ON node_to_ways (node_id, way_id)"
+    )
+    db_con.execute("CREATE INDEX node_to_ways_way_id ON node_to_ways (way_id)")
+    db_con.commit()
     print("done.")
 
 
@@ -110,6 +116,7 @@ class GeoStoreInitHandler(osmium.SimpleHandler):
         self.__nodes_batch.clear()
         self.__ways_batch.clear()
         self.__node_to_way_batch.clear()
+
 
 if __name__ == "__main__":
     print("building geostore ...")

@@ -8,6 +8,7 @@ from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from json import dumps, loads
 from math import floor, isfinite
+from time import perf_counter
 from typing import List, Optional, Literal
 
 from pydantic import BaseModel, model_validator
@@ -458,10 +459,28 @@ def lookup_batches(db_con, ids):
 
 def retrieve_route_segments(legs):
     assert geo_store is not None
+    started = perf_counter()
     ids = [node for leg in legs for node in leg.nodes]
     nodes = retrieve_nodes_by_id(geo_store, ids)
+    nodes_loaded = perf_counter()
     ways = retrieve_ways_by_node_ids(geo_store, ids)
-    return route_segments(legs, nodes, ways)
+    ways_loaded = perf_counter()
+    segments = route_segments(legs, nodes, ways)
+    finished = perf_counter()
+    if finished - started >= 1:
+        # Counts and timings only: never log coordinates, node IDs or geometry.
+        logger.warning(
+            "Slow route analysis lookup: variant=%s nodes=%d ways=%d "
+            "nodes_ms=%.1f ways_ms=%.1f segments_ms=%.1f total_ms=%.1f",
+            ROUTING_VARIANT,
+            len(nodes),
+            len(ways),
+            (nodes_loaded - started) * 1000,
+            (ways_loaded - nodes_loaded) * 1000,
+            (finished - ways_loaded) * 1000,
+            (finished - started) * 1000,
+        )
+    return segments
 
 
 def analyze_route(legs: list[AnalysisLeg], *, details: bool = False):

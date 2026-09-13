@@ -38,6 +38,7 @@ function setup()
     -- Shared by both variants: one metre of stairs costs at least 20 ordinary
     -- metres. Keep the actual stair speed separate so ETA stays meaningful.
     steps_distance_penalty    = 20,
+    pushing_distance_penalty  = 10,
     oneway_handling           = true,
     turn_penalty              = 6,
     turn_bias                 = 1.4,
@@ -502,6 +503,8 @@ function oneway_handler(profile,way,result,data)
   elseif data.implied_oneway then
     result.backward_mode = mode.inaccessible
   end
+  data.forward_oneway_blocked = result.forward_mode == mode.inaccessible
+  data.backward_oneway_blocked = result.backward_mode == mode.inaccessible
 end
 
 function cycleway_handler(profile,way,result,data)
@@ -559,6 +562,11 @@ function cycleway_handler(profile,way,result,data)
 end
 
 function bike_push_handler(profile,way,result,data)
+  -- Preserve the cycling directions after explicit counterflow exceptions have
+  -- been applied. Do not turn a forbidden cycling direction into a shortcut by
+  -- silently switching to pushing on the same mapped way.
+  local forward_blocked = data.forward_oneway_blocked and not data.has_cycleway_forward
+  local backward_blocked = data.backward_oneway_blocked and not data.has_cycleway_backward
   -- pushing bikes - if no other mode found
   if result.forward_mode == mode.inaccessible or result.backward_mode == mode.inaccessible or
     result.forward_speed == -1 or result.backward_speed == -1 then
@@ -609,6 +617,16 @@ function bike_push_handler(profile,way,result,data)
     result.backward_mode = mode.pushing_bike
     result.forward_speed = profile.walking_speed
     result.backward_speed = profile.walking_speed
+  end
+  -- foot=use_sidepath requires the separately mapped pedestrian connection.
+  local pushing_forbidden = data.foot == 'no' or data.foot == 'use_sidepath'
+  if forward_blocked or (pushing_forbidden and result.forward_mode == mode.pushing_bike) then
+    result.forward_mode = mode.inaccessible
+    result.forward_speed = 0
+  end
+  if backward_blocked or (pushing_forbidden and result.backward_mode == mode.pushing_bike) then
+    result.backward_mode = mode.inaccessible
+    result.backward_speed = 0
   end
 end
 
@@ -864,6 +882,14 @@ function process_way(profile, way, result)
     result.forward_rate = math.min(result.forward_rate, stair_rate)
     result.backward_rate = math.min(result.backward_rate, stair_rate)
   end
+  local pushing_rate = profile.default_speed / 3.6 * class_bicycle_penalty
+    / profile.pushing_distance_penalty
+  if result.forward_mode == mode.pushing_bike then
+    result.forward_rate = math.min(result.forward_rate, pushing_rate)
+  end
+  if result.backward_mode == mode.pushing_bike then
+    result.backward_rate = math.min(result.backward_rate, pushing_rate)
+  end
 end
 
 function process_turn(profile, turn)
@@ -885,9 +911,10 @@ function process_turn(profile, turn)
   local has_crossing_signal = obstacle_map:any(
     turn.from, turn.via, obstacle_type.crossing
   )
-  local has_signal_penalty = obstacle_map:any(
+  local has_stop_penalty = obstacle_map:any(
     turn.from, turn.via, obstacle_type.stop
   )
+  local has_signal_penalty = has_stop_penalty
 
   -- A bicycle right turn does not receive an additional signal penalty. The
   -- lower bound avoids treating a gentle right-hand road bend as a turn.
@@ -954,6 +981,13 @@ function process_turn(profile, turn)
     if not turn.source_restricted and turn.target_restricted then
       turn.weight = constants.max_turn_weight
     end
+  elseif profile.properties.weight_name == 'fast_cycling' then
+    -- Stops (including level crossings) retain their full search cost, even
+    -- when a signal is present at the same node. Travel time is unchanged.
+    local signal_weight = has_signal_penalty and not has_stop_penalty
+      and profile.properties.traffic_light_penalty or 0
+    local signal_factor = profile.traffic_light_weight_factor or 1
+    turn.weight = turn.duration - signal_weight + signal_weight * signal_factor
   end
   if turn.source_mode == mode.cycling and turn.target_mode ~= mode.cycling then
     turn.weight = turn.weight + profile.properties.mode_change_penalty

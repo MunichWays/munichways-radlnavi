@@ -19,8 +19,9 @@ def fetch(base, path, body=None):
 def check(base):
     capabilities = fetch(base, "/routing_variants")
     assert capabilities["direct"]["available"]
+    assert capabilities["direct"]["objective"] == "fast_cycling"
     results = {}
-    for variant, index in (("standard", 100), ("direct", 35)):
+    for variant in ("standard", "direct"):
         for coordinates, leg_count in (
             ("11,48.6;11.002,48.6", 1),
             ("11,48.6;11.001,48.6;11.002,48.6;11,48.6", 3),
@@ -38,6 +39,8 @@ def check(base):
             payload = fetch(base, f"/route/v1/bike/{coordinates}?{query}")
             assert payload["code"] == "Ok"
             route = payload["routes"][0]
+            expected_weight = "cyclability" if variant == "standard" else "fast_cycling"
+            assert route["weight_name"] == expected_weight, route
             assert len(route["legs"]) == leg_count
             assert route["geometry"]["type"] == "LineString"
             assert route["comfortAnalysis"]["distanceComplete"]
@@ -46,7 +49,7 @@ def check(base):
                 for leg in route["legs"]
             )
             if leg_count == 1:
-                assert route["comfort"]["index"] == index
+                assert route["comfort"]["index"] == 100
                 results[variant] = {
                     key: route[key] for key in ("distance", "duration", "comfort")
                 }
@@ -64,7 +67,8 @@ def check(base):
                 base, "/tag_distribution", {"variant": variant, "legs": legs}
             )
             assert analysis["comfort"] == route["comfort"]
-    assert results["direct"]["distance"] < results["standard"]["distance"]
+    # The fast rideable detour now wins in both profiles on this fixture.
+    assert results["direct"] == results["standard"], results
     print(json.dumps(results, indent=2))
 
 

@@ -25,6 +25,41 @@ def request(query):
 
 
 class DirectRoutingTest(unittest.IsolatedAsyncioTestCase):
+    async def test_standard_route_advertises_only_public_direct_endpoint(self):
+        payload = b'{"code":"Ok","routes":[]}'
+        upstream = Mock(content=payload, status_code=200, headers={})
+        for variant, public_url, status, expected in (
+            ("standard", "https://direct.example/api", 200, "https://direct.example/api"),
+            ("standard", None, 200, ""),
+            ("standard", "https://direct.example", 400, None),
+            ("direct", "https://direct.example", 200, None),
+        ):
+            with self.subTest(variant=variant, public_url=public_url, status=status):
+                upstream.status_code = status
+                with (
+                    patch.object(app, "ROUTING_VARIANT", variant),
+                    patch.object(app, "PUBLIC_DIRECT_API_URL", public_url),
+                    patch.object(app, "DIRECT_API_URL", "https://private.example"),
+                    patch.object(app, "get", return_value=upstream) as get,
+                    patch.object(app, "routing_auth_headers", return_value={}),
+                    patch.object(app, "analyze_route") as analyze,
+                ):
+                    async with httpx.AsyncClient(
+                        transport=httpx.ASGITransport(app=app.app),
+                        base_url="http://test",
+                    ) as client:
+                        response = await client.get(
+                            f"/route/v1/bike/11,48;11.1,48.1?variant={variant}",
+                            headers={"Origin": "http://localhost"},
+                        )
+                self.assertEqual(expected, response.headers.get("x-direct-api-url"))
+                self.assertIn(
+                    "x-direct-api-url", response.headers["access-control-expose-headers"]
+                )
+                self.assertEqual(payload, response.content)
+                get.assert_called_once()
+                analyze.assert_not_called()
+
     async def test_public_apis_report_upstream_failures_and_recover(self):
         upstream = Mock(
             content=b'{"code":"Ok","routes":[]}', status_code=200, headers={}
@@ -105,6 +140,7 @@ class DirectRoutingTest(unittest.IsolatedAsyncioTestCase):
             capabilities = await app.routing_variants()
         self.assertTrue(capabilities["direct"]["available"])
         self.assertEqual("https://direct.example", capabilities["direct"]["base_url"])
+        self.assertEqual("fast_cycling", capabilities["direct"]["objective"])
         self.assertEqual("standard", capabilities["default"])
 
     async def test_forwarding_keeps_all_waypoints_and_navigation_options(self):

@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
+import { fetchRoute, fetchRouteAnalysis } from "./routingRequests";
 import {
   MapContainer as LeafletMap,
   TileLayer,
@@ -372,6 +373,11 @@ const munichWaysLayer = L.vectorGrid.protobuf("/layers/munichways/{z}/{x}/{y}.pb
   rendererFactory: L.canvas.tile,
 });
 
+// Fixed for this page load: reloading with ?variant=direct starts a separate
+// test session, so route and delayed comfort requests cannot switch variants.
+const routingVariant = new URLSearchParams(window.location.search).get("variant") === "direct"
+  ? "direct" : "standard";
+
 function App() {
   const [startSuggestions, setStartSuggestions] = useState<
     Array<NominatimItem>
@@ -386,6 +392,10 @@ function App() {
   );
   const [endPosition, setEndPosition] = useState<NominatimItem | null>(null);
   const [route, setRoute] = useState<null | any>();
+  const [routingError, setRoutingError] = useState<string | null>(null);
+  const [analysisError, setAnalysisError] = useState<string | null>(null);
+  const [routingLoading, setRoutingLoading] = useState(false);
+  const [analysisLoading, setAnalysisLoading] = useState(false);
   const [surfacesOnRoute, setSurfacesOnRoute] = useState<null | Map<
     string,
     number
@@ -670,41 +680,59 @@ function App() {
     }
   }, 500);
 
-  const analyzeRoute = (route) => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/tag_distribution`, {
-      method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify(
-        route.analysis_legs ? { legs: route.analysis_legs } : { node_ids: route.annotation.nodes }
-      )
-    }).then(response => response.json()).then(result => {
+  const analyzeRoute = async (route, signal: AbortSignal) => {
+    setAnalysisLoading(true);
+    try {
+      const result = await fetchRouteAnalysis(
+        `${process.env.REACT_APP_BACKEND_URL}/tag_distribution`, route, routingVariant, signal);
+      if (signal.aborted) return;
       const { tag_distribution } = result;
-      setIlluminatedOnRoute(() => new Map(Object.entries(tag_distribution.lit).map(([key, value]) => [key, value.distance])));
-      setIlluminatedPaths(() => new Map(Object.entries(tag_distribution.lit).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
-      setSurfacesOnRoute(() => new Map(Object.entries(tag_distribution.surface).map(([key, value]) => [key, value.distance])));
-      setSurfacePaths(() => new Map(Object.entries(tag_distribution.surface).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
+      // Prepare all values before updating state so malformed optional data
+      // cannot throw from a deferred React state updater and blank the page.
+      const distances = (tag) => new Map(Object.entries(tag).map(([key, value]) => [key, value.distance]));
+      const paths = (tag) => new Map(Object.entries(tag).map(([key, value]) =>
+        [key, Object.values(value.ways).map(way => way.geometry.coordinates)]));
+      const lit = distances(tag_distribution.lit);
+      const litPaths = paths(tag_distribution.lit);
+      const surfaces = distances(tag_distribution.surface);
+      const surfacesPaths = paths(tag_distribution.surface);
+      const bicyclePaths = paths(tag_distribution['class:bicycle']);
+      setIlluminatedOnRoute(lit);
+      setIlluminatedPaths(litPaths);
+      setSurfacesOnRoute(surfaces);
+      setSurfacePaths(surfacesPaths);
       setComfortInfo(result.comfort);
-      setBicycleClassesPaths(() => new Map(Object.entries(tag_distribution['class:bicycle']).map(([key, value]) => [key, Object.values(value.ways).map(way => way.geometry.coordinates)])));
-    });
-  }
-
-  const calculateRoute = useCallback(
-    debounce((startPosition, endPosition) => {
-      if (startPosition && endPosition) {
-        fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/route?start_lon=${startPosition.lon}&start_lat=${startPosition.lat}&target_lon=${endPosition.lon}&target_lat=${endPosition.lat}`
-        )
-          .then((response) => response.json())
-          .then((results) => {
-            setRoute(() => results.route);
-            setRouteMetadata(() => ({
-              distance: results.route.distance as number,
-              duration: results.route.duration as number,
-            }));
-            analyzeRoute(results.route);
-          });
+      setBicycleClassesPaths(bicyclePaths);
+    } catch (error) {
+      if (!signal.aborted) {
+        console.warn("Route analysis unavailable", error);
+        setAnalysisError("Radl-Komfort und Wegdetails sind derzeit nicht verfügbar. Die Route bleibt nutzbar.");
       }
-    }, 500),
-    []
-  );
+    } finally {
+      if (!signal.aborted) setAnalysisLoading(false);
+    }
+  };
+
+  const calculateRoute = useCallback(async (startPosition, endPosition, signal: AbortSignal) => {
+    try {
+      const nextRoute = await fetchRoute(
+        `${process.env.REACT_APP_BACKEND_URL}/route?start_lon=${startPosition.lon}&start_lat=${startPosition.lat}&target_lon=${endPosition.lon}&target_lat=${endPosition.lat}&variant=${routingVariant}`,
+        signal);
+      if (signal.aborted) return;
+      setRoute(nextRoute);
+      setRouteMetadata({ distance: nextRoute.distance, duration: nextRoute.duration });
+      void analyzeRoute(nextRoute, signal);
+    } catch (error) {
+      if (!signal.aborted) {
+        console.warn("Route unavailable", error);
+        setRoutingError(routingVariant === "direct"
+          ? "Direkte Route ist derzeit nicht verfügbar. Bitte prüfen, ob der Direkt-Dienst läuft, und erneut versuchen."
+          : "Die Route konnte nicht berechnet werden. Bitte erneut versuchen.");
+      }
+    } finally {
+      if (!signal.aborted) setRoutingLoading(false);
+    }
+  }, []);
 
   const exportGpx = useCallback(() => {
     if (route.geometry != null) {
@@ -831,7 +859,20 @@ function App() {
     setComfortInfo(() => null);
     setBicycleClassesPaths(() => null);
     setRouteMetadata(() => null);
-    calculateRoute(startPosition, endPosition)
+    setRoutingError(null);
+    setAnalysisError(null);
+    setAnalysisLoading(false);
+    setRoutingLoading(Boolean(startPosition && endPosition));
+    const controller = new AbortController();
+    const timer = setTimeout(() => {
+      if (startPosition && endPosition) {
+        void calculateRoute(startPosition, endPosition, controller.signal);
+      }
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
   }, [
     startPosition,
     endPosition,
@@ -1165,6 +1206,11 @@ function App() {
               meine Fahrradfahrt entspannter?</Link>
           </div>
           <div className="routing" style={{flex: 1, overflowY: 'auto'}}>
+            {routingVariant === "direct" && (
+              <Typography role="status" style={{padding: "8px 16px", fontWeight: "bold", background: "#e3f2fd"}}>
+                Direkte Route (Testmodus)
+              </Typography>
+            )}
             <div style={{display: 'flex', marginTop: 20}}>
               <Autocomplete
                   id="start"
@@ -1246,6 +1292,9 @@ function App() {
                 }}><SwapVert></SwapVert></IconButton>
               </Tooltip>
             </div>
+            {routingError && <Typography role="alert" color="error" sx={{m: 2}}>{routingError}</Typography>}
+            {analysisError && <Typography role="status" sx={{m: 2}}>{analysisError}</Typography>}
+            {routingError && <Button onClick={() => setEndPosition({...endPosition})}>Erneut versuchen</Button>}
             {routeMetaElement}
             {route && map ? <Button
                 variant="contained"
@@ -1265,7 +1314,7 @@ function App() {
                   Navigation starten
                 </Button>
                 : null}
-            {startPosition != null && endPosition != null && (surfacesElement == null || illuminatedElement == null || routeMetaElement == null) ?
+            {(routingLoading || analysisLoading) ?
                 <LinearProgress sx={{height: 10, borderRadius: 4, margin: "10px"}}/> : null}
             {comfortElement}
             {surfacesElement}

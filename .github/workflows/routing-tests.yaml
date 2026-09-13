@@ -39,3 +39,18 @@ jobs:
           done
           python routing/tests/test_profile_regressions.py
           python routing/tests/test_direct_profile.py
+      - name: Munich one-way regressions
+        run: |
+          docker build --build-arg FIXTURE=tests/fixtures/munich-oneway.osm -t munich-standard -f routing/tests/Dockerfile routing
+          docker build --build-arg FIXTURE=tests/fixtures/munich-oneway.osm --build-arg ROUTING_PROFILE=direct -t munich-direct -f routing/tests/Dockerfile routing
+          docker run -d --name munich-standard -p 18083:8080 munich-standard
+          docker run -d --name munich-direct -p 18084:8080 munich-direct
+          for port in 18083 18084; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://localhost:$port/route/v1/bike/11.554569,48.142131;11.562248,48.141745?overview=false" > /dev/null; then
+                break
+              fi
+              sleep 1
+            done
+            python routing/tests/test_munich_oneway.py --endpoint "http://localhost:$port"
+          done

@@ -82,6 +82,19 @@ run:
 docker compose down
 ```
 
+## Other variants
+```powershell
+docker compose build backend routing
+```
+
+```powershell
+docker compose -f compose.yaml -f compose.direct.yaml build direct-routing
+docker compose -f compose.yaml -f compose.direct.yaml up --no-build
+```
+compose.yaml enthält die Standarddienste; compose.direct.yaml ergänzt Variante Direkt für test im frontend mit:
+http://localhost/?variant=direct
+
+
 ## Radl-Komfort API
 
 Clients can request the centrally calculated Radl-Komfort metadata together

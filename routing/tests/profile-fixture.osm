@@ -163,6 +163,44 @@
   <node id="15002" lat="48.65" lon="11.001"/>
   <node id="16001" lat="48.66" lon="11"/>
   <node id="16002" lat="48.66" lon="11.001"/>
+<node id="20001" lat="48.7000" lon="11.0000"/>
+<node id="20002" lat="48.7000" lon="11.0010"/>
+<node id="20003" lat="48.7100" lon="11.0000"/>
+<node id="20004" lat="48.7100" lon="11.0010"/>
+<node id="20005" lat="48.7200" lon="11.0000"/>
+<node id="20006" lat="48.7200" lon="11.0010"/>
+<node id="20007" lat="48.7300" lon="11.0000"/>
+<node id="20008" lat="48.7300" lon="11.0010"/>
+<node id="20009" lat="48.7400" lon="11.0000"/>
+<node id="20010" lat="48.7400" lon="11.0010"/>
+<node id="20011" lat="48.7500" lon="11.0000"/>
+<node id="20012" lat="48.7500" lon="11.0010"/>
+<node id="20013" lat="48.7600" lon="11.0000"/>
+<node id="20014" lat="48.7600" lon="11.0010"/>
+<node id="20015" lat="48.7700" lon="11.0000"/>
+<node id="20016" lat="48.7700" lon="11.0010"/>
+<node id="21001" lat="48.7800" lon="11.0000"/>
+<node id="21002" lat="48.7800" lon="11.0010"/>
+<node id="21003" lat="48.7820" lon="11.0000"/>
+<node id="21004" lat="48.7820" lon="11.0010"/>
+<node id="21005" lat="48.8000" lon="11.0000"/>
+<node id="21006" lat="48.8000" lon="11.0010"/>
+<node id="21007" lat="48.8100" lon="11.0000"/>
+<node id="21008" lat="48.8100" lon="11.0010"/>
+<node id="22001" lat="48.6700" lon="11.0000"/>
+<node id="22002" lat="48.6700" lon="11.0010"/>
+<node id="22003" lat="48.6800" lon="11.0000"/>
+<node id="22004" lat="48.6800" lon="11.0010"/>
+  <node id="23001" lat="48.8200" lon="11.0000"/>
+  <node id="23002" lat="48.8200" lon="11.0020"/>
+  <node id="23003" lat="48.82008" lon="11.0010"/>
+  <node id="23004" lat="48.8400" lon="11.0000"/>
+  <node id="23005" lat="48.8400" lon="11.0020"/>
+  <node id="23006" lat="48.8420" lon="11.0010"/>
+  <node id="23007" lat="48.8600" lon="11.0000"/>
+  <node id="23008" lat="48.8600" lon="11.0020"/>
+  <node id="23009" lat="48.8800" lon="11.0000"/>
+  <node id="23010" lat="48.8800" lon="11.0020"/>
   <way id="101"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/></way>
   <way id="102"><nd ref="3"/><nd ref="4"/><tag k="highway" v="residential"/><tag k="surface" v="chipseal"/></way>
   <way id="103"><nd ref="5"/><nd ref="6"/><tag k="highway" v="residential"/><tag k="surface" v="concrete"/></way>
@@ -260,4 +298,24 @@
   <way id="14002"><nd ref="14001"/><nd ref="14003"/><nd ref="14004"/><nd ref="14002"/><tag k="highway" v="residential"/><tag k="name" v="Rideable detour"/></way>
   <way id="15001"><nd ref="15001"/><nd ref="15002"/><tag k="highway" v="steps"/><tag k="bicycle" v="dismount"/></way>
   <way id="16001"><nd ref="16001"/><nd ref="16002"/><tag k="highway" v="steps"/><tag k="bicycle" v="no"/></way>
+<way id="20001"><nd ref="20001"/><nd ref="20002"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/></way>
+<way id="20002"><nd ref="20003"/><nd ref="20004"/><tag k="highway" v="residential"/><tag k="oneway" v="-1"/></way>
+<way id="20003"><nd ref="20005"/><nd ref="20006"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/><tag k="oneway:bicycle" v="no"/></way>
+<way id="20004"><nd ref="20007"/><nd ref="20008"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/><tag k="cycleway" v="opposite_lane"/></way>
+<way id="20005"><nd ref="20009"/><nd ref="20010"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/><tag k="foot" v="use_sidepath"/></way>
+<way id="20006"><nd ref="20011"/><nd ref="20012"/><tag k="highway" v="residential"/><tag k="oneway" v="yes"/><tag k="bicycle" v="dismount"/></way>
+<way id="20007"><nd ref="20013"/><nd ref="20014"/><tag k="highway" v="path"/><tag k="oneway" v="yes"/><tag k="foot" v="designated"/><tag k="bicycle" v="designated"/></way>
+<way id="20008"><nd ref="20015"/><nd ref="20016"/><tag k="highway" v="footway"/><tag k="bicycle" v="dismount"/></way>
+<way id="21001"><nd ref="21001"/><nd ref="21002"/><tag k="highway" v="footway"/><tag k="bicycle" v="dismount"/><tag k="name" v="Push shortcut"/></way>
+<way id="21002"><nd ref="21001"/><nd ref="21003"/><nd ref="21004"/><nd ref="21002"/><tag k="highway" v="residential"/><tag k="name" v="Cycling detour"/></way>
+<way id="21003"><nd ref="21005"/><nd ref="21006"/><tag k="highway" v="footway"/><tag k="bicycle" v="dismount"/><tag k="name" v="Push shortcut"/></way>
+<way id="21004"><nd ref="21005"/><nd ref="21007"/><nd ref="21008"/><nd ref="21006"/><tag k="highway" v="residential"/><tag k="name" v="Cycling detour"/></way>
+<way id="22001"><nd ref="22001"/><nd ref="22002"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/><tag k="class:bicycle" v="-3"/></way>
+<way id="22002"><nd ref="22003"/><nd ref="22004"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/><tag k="class:bicycle" v="3"/></way>
+<way id="23001"><nd ref="23001"/><nd ref="23002"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/><tag k="name" v="Residential shortcut"/></way>
+<way id="23002"><nd ref="23001"/><nd ref="23003"/><nd ref="23002"/><tag k="highway" v="primary"/><tag k="surface" v="asphalt"/><tag k="name" v="Main connection"/></way>
+<way id="23003"><nd ref="23004"/><nd ref="23005"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/><tag k="name" v="Useful residential connection"/></way>
+<way id="23004"><nd ref="23004"/><nd ref="23006"/><nd ref="23005"/><tag k="highway" v="primary"/><tag k="surface" v="asphalt"/><tag k="name" v="Excessive main-road detour"/></way>
+<way id="23005"><nd ref="23007"/><nd ref="23008"/><tag k="highway" v="cycleway"/><tag k="surface" v="gravel"/></way>
+<way id="23006"><nd ref="23009"/><nd ref="23010"/><tag k="highway" v="cycleway"/><tag k="surface" v="fine_gravel"/></way>
 </osm>

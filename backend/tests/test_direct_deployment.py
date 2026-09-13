@@ -98,7 +98,7 @@ class DeploymentContractTest(unittest.TestCase):
                 "waypoints": [{"location": [11, 48]}] * 3,
                 "routes": [
                     {
-                        "weight_name": "distance",
+                        "weight_name": "fast_cycling",
                         "geometry": {"type": "LineString"},
                         "legs": [copy.deepcopy(leg), copy.deepcopy(leg)],
                     }

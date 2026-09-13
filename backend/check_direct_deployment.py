@@ -48,9 +48,9 @@ def check(fetch):
     if payload.get("code") != "Ok" or not payload.get("routes"):
         raise ValueError("Direct routing did not return a route")
     route = payload["routes"][0]
-    if route.get("weight_name") != "distance" or len(route.get("legs", [])) != 2:
+    if route.get("weight_name") != "fast_cycling" or len(route.get("legs", [])) != 2:
         raise ValueError(
-            "Direct route must use distance weighting and preserve both legs"
+            "Direct route must use fast-cycling weighting and preserve both legs"
         )
     if route.get("geometry", {}).get("type") != "LineString":
         raise ValueError("Direct route is missing GeoJSON geometry")
@@ -94,7 +94,7 @@ def main():
 
     check(fetch)
     print(
-        "Direct API: distance profile, navigation, intermediate stop and comfort analysis OK"
+        "Direct API: fast-cycling profile, navigation, intermediate stop and comfort analysis OK"
     )
 
 

@@ -128,6 +128,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["x-routing-variant", "x-direct-api-url"],
 )
 
 
@@ -168,6 +169,11 @@ async def osrm_route_proxy(
         params=upstream_params,
     )
     headers = {"x-routing-variant": variant}
+    if variant == "standard" and response.status_code == 200:
+        # Let clients start direct routing without queuing discovery behind
+        # their subsequent comfort analysis. Never expose the internal proxy.
+        # Empty explicitly withdraws a previously advertised public endpoint.
+        headers["x-direct-api-url"] = PUBLIC_DIRECT_API_URL or ""
     content_type = response.headers.get("content-type")
     if content_type:
         headers["content-type"] = content_type
@@ -234,7 +240,7 @@ async def routing_variants():
         "direct": {
             "available": ROUTING_VARIANT == "direct"
             or bool(PUBLIC_DIRECT_API_URL or DIRECT_API_URL),
-            "objective": "distance",
+            "objective": "fast_cycling",
             "base_url": PUBLIC_DIRECT_API_URL,
         },
     }

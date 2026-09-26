@@ -1,5 +1,12 @@
 # RadlNavi Backend
 
+## Routing- und Ansageanalyse
+
+Die [Analyse zur OSRM-Standardbasis](../docs/osrm-standard-guidance-plan.md)
+dokumentiert konkrete Münchner Problemstellen, produktive Rohantworten,
+die Zuständigkeiten von Routing und App sowie einen Arbeitsplan für eine
+spätere Umsetzung. Sie verändert das aktuelle Routing-Verhalten nicht.
+
 This is the routing backend for [radlnavi.de](https://www.radlnavi.de).
 
 ## Seasonal bicycle access

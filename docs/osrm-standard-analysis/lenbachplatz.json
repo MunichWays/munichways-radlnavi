@@ -1,0 +1,433 @@
+{
+  "retrieved_at_utc": "2026-09-26T14:49:01.941367+00:00",
+  "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.568148,48.140563;11.570143,48.140709?alternatives=false&steps=true&annotations=nodes,distance&variant=standard&geometries=geojson&overview=full&continue_straight=default",
+  "response": {
+    "code": "Ok",
+    "routes": [
+      {
+        "legs": [
+          {
+            "annotation": {
+              "nodes": [
+                2489934092,
+                11030594103,
+                1230460343,
+                1447721777,
+                1230460037,
+                11753908655,
+                11753908656,
+                11753908657,
+                1447721779,
+                1239217025,
+                1239217001,
+                637837435,
+                19471658
+              ],
+              "distance": [
+                19.30842138,
+                23.41882273,
+                10.48384061,
+                19.81229033,
+                3.727537581,
+                10.20774933,
+                10.37035241,
+                2.447306542,
+                6.733564859,
+                14.88696187,
+                8.116574336,
+                30.52439524
+              ]
+            },
+            "duration": 34.9,
+            "summary": "Lenbachplatz, Pacellistraße",
+            "weight": 61.7,
+            "distance": 160,
+            "steps": [
+              {
+                "intersections": [
+                  {
+                    "out": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      61
+                    ],
+                    "location": [
+                      11.56815,
+                      48.140561
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      60,
+                      150,
+                      255
+                    ],
+                    "location": [
+                      11.568791,
+                      48.14077
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "in": 1,
+                    "entry": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "bearings": [
+                      60,
+                      240,
+                      330
+                    ],
+                    "location": [
+                      11.569031,
+                      48.140847
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.56815,
+                      48.140561
+                    ],
+                    [
+                      11.568377,
+                      48.140645
+                    ],
+                    [
+                      11.568657,
+                      48.140741
+                    ],
+                    [
+                      11.568791,
+                      48.14077
+                    ],
+                    [
+                      11.569031,
+                      48.140847
+                    ],
+                    [
+                      11.569075,
+                      48.140863
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 61,
+                  "bearing_before": 0,
+                  "location": [
+                    11.56815,
+                    48.140561
+                  ],
+                  "type": "depart"
+                },
+                "name": "Lenbachplatz",
+                "mode": "cycling",
+                "weight": 18.6,
+                "duration": 16.4,
+                "distance": 76.8
+              },
+              {
+                "intersections": [
+                  {
+                    "out": 1,
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      60,
+                      120,
+                      240
+                    ],
+                    "location": [
+                      11.569075,
+                      48.140863
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.569075,
+                      48.140863
+                    ],
+                    [
+                      11.569188,
+                      48.140811
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 123,
+                  "bearing_before": 60,
+                  "location": [
+                    11.569075,
+                    48.140863
+                  ],
+                  "modifier": "right",
+                  "type": "turn"
+                },
+                "name": "",
+                "mode": "cycling",
+                "weight": 8.6,
+                "duration": 4.4,
+                "distance": 10.2
+              },
+              {
+                "intersections": [
+                  {
+                    "out": 0,
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      75,
+                      105,
+                      300
+                    ],
+                    "location": [
+                      11.569188,
+                      48.140811
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "in": 1,
+                    "entry": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "bearings": [
+                      120,
+                      255,
+                      300
+                    ],
+                    "location": [
+                      11.569323,
+                      48.140834
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "in": 1,
+                    "entry": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      105,
+                      285,
+                      315
+                    ],
+                    "location": [
+                      11.569746,
+                      48.140778
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.569188,
+                      48.140811
+                    ],
+                    [
+                      11.569323,
+                      48.140834
+                    ],
+                    [
+                      11.569353,
+                      48.140825
+                    ],
+                    [
+                      11.569441,
+                      48.140811
+                    ],
+                    [
+                      11.569638,
+                      48.140788
+                    ],
+                    [
+                      11.569746,
+                      48.140778
+                    ],
+                    [
+                      11.570144,
+                      48.140712
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 74,
+                  "bearing_before": 123,
+                  "location": [
+                    11.569188,
+                    48.140811
+                  ],
+                  "modifier": "left",
+                  "type": "turn"
+                },
+                "name": "Pacellistraße",
+                "mode": "cycling",
+                "weight": 34.5,
+                "duration": 14.1,
+                "distance": 73.1
+              },
+              {
+                "intersections": [
+                  {
+                    "in": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      284
+                    ],
+                    "location": [
+                      11.570144,
+                      48.140712
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.570144,
+                      48.140712
+                    ],
+                    [
+                      11.570144,
+                      48.140712
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 0,
+                  "bearing_before": 104,
+                  "location": [
+                    11.570144,
+                    48.140712
+                  ],
+                  "type": "arrive"
+                },
+                "name": "Pacellistraße",
+                "mode": "cycling",
+                "weight": 0,
+                "duration": 0,
+                "distance": 0
+              }
+            ]
+          }
+        ],
+        "weight_name": "cyclability",
+        "geometry": {
+          "coordinates": [
+            [
+              11.56815,
+              48.140561
+            ],
+            [
+              11.568377,
+              48.140645
+            ],
+            [
+              11.568657,
+              48.140741
+            ],
+            [
+              11.568791,
+              48.14077
+            ],
+            [
+              11.569031,
+              48.140847
+            ],
+            [
+              11.569075,
+              48.140863
+            ],
+            [
+              11.569188,
+              48.140811
+            ],
+            [
+              11.569323,
+              48.140834
+            ],
+            [
+              11.569353,
+              48.140825
+            ],
+            [
+              11.569441,
+              48.140811
+            ],
+            [
+              11.569638,
+              48.140788
+            ],
+            [
+              11.569746,
+              48.140778
+            ],
+            [
+              11.570144,
+              48.140712
+            ]
+          ],
+          "type": "LineString"
+        },
+        "weight": 61.7,
+        "duration": 34.9,
+        "distance": 160
+      }
+    ],
+    "waypoints": [
+      {
+        "hint": "DYohgP___38bAAAAPgAAABMAAAA9AAAA9051QaZ3mkGR8SpBVJwHQhsAAAA-AAAAEwAAAD0AAADCAgAAFoSwABGR3gIUhLAAE5HeAgIA3wMAAAAA",
+        "location": [
+          11.56815,
+          48.140561
+        ],
+        "name": "Lenbachplatz",
+        "distance": 0.2676256492
+      },
+      {
+        "hint": "VckAgAgaBIDZAAAA3AAAAAAAAAAAAAAARBfxQfYx9EEAAAAAAAAAADYAAAA3AAAAAAAAAAAAAADCAgAA4IuwAKiR3gLfi7AApZHeAgAAvxEAAAAA",
+        "location": [
+          11.570144,
+          48.140712
+        ],
+        "name": "Pacellistraße",
+        "distance": 0.3417842881
+      }
+    ]
+  }
+}

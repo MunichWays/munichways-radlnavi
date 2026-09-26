@@ -1,5 +1,10 @@
 # Analyse: normale und leichte Abbiegehinweise
 
+Ergänzung 26.09.2026: Die [OSRM-Standard-Analyse mit vier konkreten Fällen](osrm-standard-guidance-plan.md)
+enthält Live-Rohantworten, zusätzliche Ursachen und einen priorisierten
+Umsetzungsplan. Für diese Fälle gilt deren differenzierte Priorisierung statt
+einer pauschalen Änderung des 12-Meter-Fensters.
+
 Stand 12.09.2026. Nur Analyse; keine Änderung an Ansage- oder Winkelregeln.
 
 ## Befund aus der App

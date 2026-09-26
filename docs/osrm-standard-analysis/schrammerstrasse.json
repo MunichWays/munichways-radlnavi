@@ -1,0 +1,282 @@
+{
+  "retrieved_at_utc": "2026-09-26T14:31:17.499209+00:00",
+  "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576817,48.139050;11.577644,48.138800?alternatives=false&steps=true&annotations=nodes,distance&variant=standard&geometries=geojson&overview=full&continue_straight=default",
+  "response": {
+    "code": "Ok",
+    "routes": [
+      {
+        "legs": [
+          {
+            "annotation": {
+              "nodes": [
+                10120251523,
+                11900449257,
+                10120251524,
+                2345350680,
+                11900449252,
+                1955013,
+                11900449256,
+                7027262417
+              ],
+              "distance": [
+                9.71252552,
+                7.379848861,
+                9.082222156,
+                6.625140206,
+                5.799761584,
+                8.062779194,
+                28.95388317
+              ]
+            },
+            "duration": 23.4,
+            "summary": "Schrammerstraße, Dienerstraße",
+            "weight": 37.5,
+            "distance": 75.6,
+            "steps": [
+              {
+                "intersections": [
+                  {
+                    "out": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      103
+                    ],
+                    "location": [
+                      11.576821,
+                      48.13906
+                    ]
+                  },
+                  {
+                    "out": 1,
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      15,
+                      195,
+                      315
+                    ],
+                    "location": [
+                      11.577291,
+                      48.138941
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.576821,
+                      48.13906
+                    ],
+                    [
+                      11.576948,
+                      48.13904
+                    ],
+                    [
+                      11.577046,
+                      48.13903
+                    ],
+                    [
+                      11.577165,
+                      48.139012
+                    ],
+                    [
+                      11.577241,
+                      48.138981
+                    ],
+                    [
+                      11.577291,
+                      48.138941
+                    ],
+                    [
+                      11.577269,
+                      48.13887
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 103,
+                  "bearing_before": 0,
+                  "location": [
+                    11.576821,
+                    48.13906
+                  ],
+                  "type": "depart"
+                },
+                "name": "Schrammerstraße",
+                "mode": "cycling",
+                "weight": 30.9,
+                "duration": 18.1,
+                "distance": 46.7
+              },
+              {
+                "intersections": [
+                  {
+                    "out": 1,
+                    "in": 0,
+                    "entry": [
+                      false,
+                      true,
+                      true
+                    ],
+                    "bearings": [
+                      15,
+                      105,
+                      195
+                    ],
+                    "location": [
+                      11.577269,
+                      48.13887
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.577269,
+                      48.13887
+                    ],
+                    [
+                      11.577646,
+                      48.138806
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 104,
+                  "bearing_before": 191,
+                  "location": [
+                    11.577269,
+                    48.13887
+                  ],
+                  "modifier": "slight left",
+                  "type": "turn"
+                },
+                "name": "Hofgraben",
+                "mode": "cycling",
+                "weight": 6.6,
+                "duration": 5.3,
+                "distance": 29
+              },
+              {
+                "intersections": [
+                  {
+                    "in": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      284
+                    ],
+                    "location": [
+                      11.577646,
+                      48.138806
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.577646,
+                      48.138806
+                    ],
+                    [
+                      11.577646,
+                      48.138806
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 0,
+                  "bearing_before": 104,
+                  "location": [
+                    11.577646,
+                    48.138806
+                  ],
+                  "type": "arrive"
+                },
+                "name": "Hofgraben",
+                "mode": "cycling",
+                "weight": 0,
+                "duration": 0,
+                "distance": 0
+              }
+            ]
+          }
+        ],
+        "weight_name": "cyclability",
+        "geometry": {
+          "coordinates": [
+            [
+              11.576821,
+              48.13906
+            ],
+            [
+              11.576948,
+              48.13904
+            ],
+            [
+              11.577046,
+              48.13903
+            ],
+            [
+              11.577165,
+              48.139012
+            ],
+            [
+              11.577241,
+              48.138981
+            ],
+            [
+              11.577291,
+              48.138941
+            ],
+            [
+              11.577269,
+              48.13887
+            ],
+            [
+              11.577646,
+              48.138806
+            ]
+          ],
+          "type": "LineString"
+        },
+        "weight": 37.5,
+        "duration": 23.4,
+        "distance": 75.6
+      }
+    ],
+    "waypoints": [
+      {
+        "hint": "JhQEgM0UBIAWAAAAFQAAAEEAAABSAAAAgWYbQTYyFUGFGOdBH1ASQhEAAAARAAAAMwAAAEIAAADCAgAA9aWwADSL3gLxpbAAKoveAggAvxEAAAAA",
+        "location": [
+          11.576821,
+          48.13906
+        ],
+        "name": "Schrammerstraße",
+        "distance": 1.151110569
+      },
+      {
+        "hint": "IGYhgCRmIYA4AAAAQgAAAAAAAAAAAAAAo1PLQY2h50EAAAAAAAAAAC0AAAA1AAAAAAAAAAAAAADCAgAALqmwADaK3gIsqbAAMIreAgAAzxEAAAAA",
+        "location": [
+          11.577646,
+          48.138806
+        ],
+        "name": "Hofgraben",
+        "distance": 0.6835685763
+      }
+    ]
+  }
+}

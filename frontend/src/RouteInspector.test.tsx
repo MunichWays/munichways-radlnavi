@@ -1,7 +1,7 @@
 import React from 'react';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import RouteInspector, { listSteps, parseCoordinates } from './RouteInspector';
+import RouteInspector, { listSteps, parseCoordinates, withWayType } from './RouteInspector';
 
 const step = (type: string, modifier: string | undefined, distance: number) => ({
   maneuver: { type, modifier, location: [11.52138, 48.145394], bearing_after: 90, bearing_before: 0 },
@@ -23,6 +23,45 @@ test('preserves close opposite maneuvers and accumulates distances across legs w
   expect(rows[2].instruction).toMatch(/rechts/i);
   expect(rows[4].legIndex).toBe(1);
   expect(JSON.stringify(route)).toBe(before);
+});
+
+test('adds the way-type suffix after the named street and only at known changes', () => {
+  expect(withWayType('Rechts abbiegen auf Bodenstedtstraße.', 'cycleway'))
+    .toBe('Rechts abbiegen auf Bodenstedtstraße, auf Radweg.');
+  const route = { legs: [{ steps: [
+    { ...step('depart', undefined, 60), intersections: [{ classes: ['road'] }] },
+    { ...step('turn', 'right', 60), name: 'Bodenstedtstraße',
+      intersections: [{ classes: ['cycleway'] }] },
+    { ...step('turn', 'left', 30), intersections: [{ classes: ['road'] }] },
+    { ...step('turn', 'right', 20), intersections: [{ classes: [] }] },
+    { ...step('turn', 'left', 10), intersections: [{ classes: ['cycleway'] }] },
+  ] }] };
+  const before = JSON.stringify(route);
+  const rows = listSteps(route);
+  expect(rows[0].detectedWayType).toBeNull();
+  expect(rows[1].instruction).toContain('Bodenstedtstraße, auf Radweg');
+  expect(rows[2].instruction).toContain('auf Straße');
+  expect(rows[3].detectedWayType).toBeNull();
+  expect(rows[4].detectedWayType).toBeNull();
+  expect(JSON.stringify(route)).toBe(before);
+});
+
+test('simulates and clears a suffix without changing raw route steps', () => {
+  const named = { ...step('turn', 'right', 80), name: 'Bodenstedtstraße' };
+  const route = { steps: [step('depart', undefined, 60), named, step('arrive', undefined, 0)], distance: 140 };
+  const raw = JSON.stringify(route);
+  render(<RouteInspector open onClose={jest.fn()} onMap={jest.fn()} route={route} variant="standard" />);
+  fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
+  expect(screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 1')).toBeDisabled();
+  const select = screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 2');
+  fireEvent.change(select, { target: { value: 'cycleway' } });
+  expect(screen.getByText(/Bodenstedtstraße, auf Radweg/)).toBeInTheDocument();
+  fireEvent.change(select, { target: { value: 'road' } });
+  expect(screen.getByText(/Bodenstedtstraße, auf Straße/)).toBeInTheDocument();
+  fireEvent.change(select, { target: { value: 'none' } });
+  expect(screen.queryByText(/Bodenstedtstraße, auf (Radweg|Straße)/)).not.toBeInTheDocument();
+  fireEvent.change(select, { target: { value: 'auto' } });
+  expect(JSON.stringify(route)).toBe(raw);
 });
 
 test('accepts user coordinate order and rejects missing or invalid coordinates', () => {
@@ -55,7 +94,7 @@ test('loads raw maneuvers, recovers from request errors and passes exact step to
   } finally { global.fetch = originalFetch; }
 });
 
-test('reads every instruction in order and stops the sequence on close', () => {
+test('reads simulated instructions in order and stops the sequence on close', () => {
   const originalSpeech = window.speechSynthesis;
   const originalUtterance = window.SpeechSynthesisUtterance;
   const spoken: any[] = [];
@@ -68,10 +107,13 @@ test('reads every instruction in order and stops the sequence on close', () => {
   try {
     const view = render(<RouteInspector {...props} open />);
     fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
+    fireEvent.change(screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 2'),
+      { target: { value: 'cycleway' } });
     fireEvent.click(screen.getByText('Alle Hinweise vorlesen'));
     expect(spoken).toHaveLength(1);
     act(() => spoken[0].onend());
     expect(spoken[1].text).toMatch(/links/i);
+    expect(spoken[1].text).toContain('auf Radweg');
     act(() => spoken[1].onend());
     expect(spoken[2].text).toMatch(/rechts/i);
     view.rerender(<RouteInspector {...props} open={false} />);

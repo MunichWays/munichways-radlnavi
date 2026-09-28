@@ -5,6 +5,14 @@ Die beschriebenen Routing- und Flutter-Regeln wurden nicht geändert.
 
 ## Praktische Prüfmöglichkeit
 
+Ergänzung 28.09.2026: [Ansagen beim Wechsel Radweg ↔ Straße](way-type-announcements.md).
+Die Einstufung entsteht im Routingprofil, der Sprachzusatz in der App.
+
+Neue Idee vom 27.09.2026: [Zwischenansage auf langen geraden Abschnitten](straight-ahead-reassurance-proposal.md).
+Die Grundregel wurde am 28.09.2026 lokal in der App umgesetzt: Bei Abschnitten
+über 500 m einmal ungefähr in der Mitte „Weiter geradeaus, in x Metern …“.
+Weitere Wiederholungen und ein Gerätetest stehen noch aus.
+
 Im Webfrontend gibt es jetzt **Hinweise prüfen**: vier Beispielrouten,
 eigene Koordinaten, Übernahme der aktuellen Kartenroute, vollständige
 Manöverliste, Browser-Vorlesen, Kartenmarkierung und Export der Rohantwort.
@@ -13,6 +21,11 @@ Damit lassen sich Backend-Hinweise ohne Fahrt prüfen und konkrete Antworten
 für spätere Replays sichern. Die Flutter-Ansagelogik bleibt gesondert zu prüfen.
 
 ## Entscheidungsempfehlung
+
+Vertiefung vom 27.09.2026: [Birketweg – vorbereiteter App-Patch und Abnahmeplan](birketweg-app-offset-change.md).
+Der Entwurf begrenzt die Paarunterdrückung auf zwei leichte `turn`-Manöver;
+Birketweg bleibt rechnerisch erhalten, der bestehende Balanstraße-Test bleibt
+unterdrückt. Der Patch ist vorbereitet, noch nicht in Flutter angewandt.
 
 Ja: aktuelle OSRM-Manöver sollen die maßgebliche Ausgangsbasis werden. Zuerst
 die bestehenden App-Eingriffe einzeln gegen unveränderte Manöver vergleichen;

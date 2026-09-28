@@ -21,17 +21,48 @@ export function parseCoordinates(value: string): number[] {
   return [lon, lat];
 }
 
+type WayType = 'cycleway' | 'road';
+type WayTypeOverride = WayType | 'none';
+
+function intersectionWayType(intersection: any): WayType | null {
+  const classes = intersection?.classes;
+  if (!Array.isArray(classes)) return null;
+  const cycleway = classes.includes('cycleway');
+  const road = classes.includes('road');
+  if (cycleway === road) return null;
+  return cycleway ? 'cycleway' : 'road';
+}
+
+export function withWayType(instruction: string, wayType: WayType | null): string {
+  if (!wayType) return instruction;
+  const ending = /[.!?]$/.test(instruction) ? instruction.slice(-1) : '';
+  const main = ending ? instruction.slice(0, -1) : instruction;
+  return `${main}, auf ${wayType === 'cycleway' ? 'Radweg' : 'Straße'}${ending}`;
+}
+
 export function listSteps(route: any) {
   let distance = 0;
   const legs = route?.legs || [{ steps: route?.steps || [] }];
-  return legs.flatMap((leg: any, legIndex: number) => (leg.steps || []).map((step: any, stepIndex: number) => {
+  return legs.flatMap((leg: any, legIndex: number) => {
+    let previousWayType: WayType | null = null;
+    return (leg.steps || []).map((step: any, stepIndex: number) => {
     const at = distance;
     distance += Number(step.distance) || 0;
-    let instruction: string;
-    try { instruction = textInstructions('v5').compile('de', step); }
-    catch { instruction = 'Für dieses Manöver ist keine deutsche Übersetzung verfügbar.'; }
-    return { step, at, instruction, legIndex, stepIndex };
-  }));
+    let baseInstruction: string;
+    try { baseInstruction = textInstructions('v5').compile('de', step); }
+    catch { baseInstruction = 'Für dieses Manöver ist keine deutsche Übersetzung verfügbar.'; }
+    const intersections = step.intersections;
+    const outgoing = Array.isArray(intersections) && intersections.length
+      ? intersectionWayType(intersections[0]) : null;
+    const detectedWayType: WayType | null = step.mode === 'cycling' &&
+      step.maneuver?.type !== 'depart' && step.maneuver?.type !== 'arrive' &&
+      previousWayType && outgoing && previousWayType !== outgoing ? outgoing : null;
+    previousWayType = step.mode === 'cycling' && Array.isArray(intersections) && intersections.length
+      ? intersectionWayType(intersections[intersections.length - 1]) : null;
+    return { step, at, baseInstruction, detectedWayType,
+      instruction: withWayType(baseInstruction, detectedWayType), legIndex, stepIndex };
+    });
+  });
 }
 
 type Props = {
@@ -48,6 +79,7 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
   const [start, setStart] = useState(examples[0].start);
   const [end, setEnd] = useState(examples[0].end);
   const [snapshot, setSnapshot] = useState<any>(null);
+  const [wayTypeOverrides, setWayTypeOverrides] = useState<Record<string, WayTypeOverride>>({});
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const request = useRef<AbortController | null>(null);
@@ -95,7 +127,11 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
   }, [open, stopSpeech]);
 
   const selectedRoute = snapshot?.response.routes?.[0] || snapshot?.response.route;
-  const rows = listSteps(selectedRoute);
+  const rows = listSteps(selectedRoute).map((row: any) => {
+    const override = wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`];
+    return override ? { ...row, instruction: withWayType(row.baseInstruction,
+      override === 'none' ? null : override) } : row;
+  });
 
   const calculate = useCallback(async (from: string, to: string) => {
     request.current?.abort();
@@ -103,6 +139,7 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
     setSpeaking(null);
     setError('');
     setSnapshot(null);
+    setWayTypeOverrides({});
     const controller = new AbortController();
     request.current = controller;
     try {
@@ -210,8 +247,9 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
     <div hidden={minimized} style={{ overflow: 'auto', flex: 1, padding: minimized ? 0 : 16 }}>
       <p>Am Titel verschieben, an der unteren rechten Ecke die Größe ändern. Die Karte bleibt bedienbar.</p>
       <p>Alle von RadlNavi gelieferten Manöver, einschließlich Start und Ziel. Die deutschen Texte
-        werden im Browser erzeugt. Das Vorlesen ist eine Textvorschau; Ansagen, Filter und Zeitpunkt
-        der Flutter-App werden hier nicht simuliert.</p>
+        werden im Browser erzeugt. Wegwechsel-Zusätze aus OSRM-Klassen werden angezeigt;
+        pro Hinweis kann der Zusatz auch ohne neue Serverdaten simuliert werden.
+        Das Vorlesen ist eine Textvorschau; Filter und Zeitpunkt der Flutter-App werden hier nicht simuliert.</p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
         {examples.map(example => <Button key={example.name} onClick={() => {
           setStart(example.start); setEnd(example.end);
@@ -222,7 +260,7 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
         <TextField label="Ziel: Breite, Länge" value={end} onChange={e => setEnd(e.target.value)} />
         <Button variant="contained" onClick={() => calculate(start, end)} disabled={loading}>Route prüfen</Button>
         <Button disabled={!route || loading} onClick={() => {
-          stop(); setError(''); setSnapshot({ source: 'Aktuelle Kartenroute aus RadlNavi /route', variant,
+          stop(); setError(''); setWayTypeOverrides({}); setSnapshot({ source: 'Aktuelle Kartenroute aus RadlNavi /route', variant,
             captured_at_utc: new Date().toISOString(), response: { route } });
         }}>Aktuelle Kartenroute übernehmen</Button>
       </div>
@@ -246,6 +284,28 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
             <strong>{row.instruction}</strong>
             <p>Bei {Math.round(row.at)} m ab Start · Abschnitt {row.legIndex + 1} · danach {Math.round(row.step.distance)} m</p>
             <p>Straße: {row.step.name || 'ohne Namen'} · Manöver: <code>{row.step.maneuver?.type} / {row.step.maneuver?.modifier || '—'}</code></p>
+            <label>Wegwechsel-Zusatz für Hinweis {index + 1}{' '}
+              <select aria-label={`Wegwechsel-Zusatz für Hinweis ${index + 1}`}
+                disabled={row.step.maneuver?.type === 'depart' || row.step.maneuver?.type === 'arrive'}
+                value={wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`] || 'auto'}
+                onChange={event => {
+                  stop();
+                  const key = `${row.legIndex}-${row.stepIndex}`;
+                  const value = event.target.value;
+                  setWayTypeOverrides(previous => {
+                    const next = { ...previous };
+                    if (value === 'auto') delete next[key];
+                    else next[key] = value as WayTypeOverride;
+                    return next;
+                  });
+                }}>
+                <option value="auto">Automatisch aus Routendaten</option>
+                <option value="cycleway">auf Radweg simulieren</option>
+                <option value="road">auf Straße simulieren</option>
+                <option value="none">Kein Zusatz</option>
+              </select>
+            </label>
+            {row.detectedWayType && <span> · OSRM: {row.detectedWayType === 'cycleway' ? 'Radweg' : 'Straße'}</span>}
             <Button disabled={!canSpeak} onClick={() => speak(index, false)}>Hinweis {index + 1} vorlesen</Button>
             <Button disabled={!row.step.maneuver?.location} onClick={() => {
               stop(); onMap(row.step);

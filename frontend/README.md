@@ -17,6 +17,12 @@ sind dafür nicht erforderlich.
    Die Meterangabe ist die Position des Manövers ab Routenstart, die Distanz
    danach gehört zum anschließenden Wegstück. Auch nahe Doppelabbiegungen,
    Start/Ziel und sämtliche gelieferten Legs bleiben sichtbar.
+   Wenn der Routingserver die Wegklassen `road` und `cycleway` liefert,
+   ergänzt die Vorschau bei einem eindeutigen Wechsel „auf Straße“ oder
+   „auf Radweg“. Über **Wegwechsel-Zusatz für Hinweis …** lässt sich jeder
+   Zusatz auch mit alten Serverantworten simulieren und wieder auf
+   **Automatisch aus Routendaten** zurückstellen. Die Simulation ändert weder
+   die Karte noch die herunterladbare Rohantwort.
 3. **Hinweis … auf Karte** markiert den Manöverort und das folgende Wegstück
    orange. Das Prüffenster bleibt dabei geöffnet, die Karte bleibt bedienbar.
    Am Titel lässt sich das Fenster verschieben (auch per Pfeiltasten nach
@@ -34,5 +40,6 @@ Beispiels befüllt nur die Eingabe; eine neue Abfrage erfolgt über **Route prü
 Die API liefert strukturierte Manöver. Deutsche Texte erzeugt wie im
 Webfrontend `osrm-text-instructions`; vorgelesen wird mit der Browserstimme.
 Das ist keine Simulation der Flutter-Filter, Verkettung, GPS-Fortschrittslogik
-oder tatsächlichen Ansagezeitpunkte. Roh-Typ und Modifier stehen deshalb neben
+oder tatsächlichen Ansagezeitpunkte. Auch die Wegwechsel-Zusätze sind eine
+Textvorschau und kein Replay der App. Roh-Typ und Modifier stehen deshalb neben
 jedem übersetzten Hinweis; die vollständigen Step-Daten lassen sich aufklappen.

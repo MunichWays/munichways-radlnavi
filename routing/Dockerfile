@@ -24,6 +24,7 @@ COPY --from=map /data/map.osm.pbf /data/map.osm.pbf
 COPY bike.lua /opt/bike.lua
 COPY direct.lua /opt/direct.lua
 COPY conditional_access.lua /opt/conditional_access.lua
+COPY guidance_way_type.lua /opt/guidance_way_type.lua
 RUN test "$ROUTING_PROFILE" = bike -o "$ROUTING_PROFILE" = direct && \
     sha256sum /data/map.osm.pbf > /data/map.sha256 && \
     osrm-extract --threads ${BUILD_THREADS} -p /opt/${ROUTING_PROFILE}.lua /data/map.osm.pbf

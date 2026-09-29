@@ -8,6 +8,7 @@ Handlers = require("lib/way_handlers")
 find_access_tag = require("lib/access").find_access_tag
 limit = require("lib/maxspeed").limit
 local conditional_access = require("conditional_access")
+local guidance_way_type = require("guidance_way_type")
 
 local WAY_CLASS_BICYCLE = 1
 local WAY_CLASS_QUIET = 2
@@ -236,7 +237,7 @@ function setup()
     },
 
     classes = Sequence {
-        'ferry', 'tunnel'
+        'ferry', 'tunnel', 'cycleway', 'road'
     },
 
     -- Which classes should be excludable
@@ -789,6 +790,7 @@ function process_way(profile, way, result)
   }
 
   WayHandlers.run(profile, way, result, data, handlers)
+  guidance_way_type.apply(way, result)
 
   -- surface
   local surface = way:get_value_by_key("surface")

@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import { fetchRoute, fetchRouteAnalysis } from "./routingRequests";
+import RouteInspector from './RouteInspector';
 import {
   MapContainer as LeafletMap,
   TileLayer,
@@ -392,6 +393,8 @@ function App() {
   );
   const [endPosition, setEndPosition] = useState<NominatimItem | null>(null);
   const [route, setRoute] = useState<null | any>();
+  const [showRouteInspector, setShowRouteInspector] = useState(false);
+  const [inspectedStep, setInspectedStep] = useState<any>(null);
   const [routingError, setRoutingError] = useState<string | null>(null);
   const [analysisError, setAnalysisError] = useState<string | null>(null);
   const [routingLoading, setRoutingLoading] = useState(false);
@@ -1296,6 +1299,8 @@ function App() {
             {analysisError && <Typography role="status" sx={{m: 2}}>{analysisError}</Typography>}
             {routingError && <Button onClick={() => setEndPosition({...endPosition})}>Erneut versuchen</Button>}
             {routeMetaElement}
+            <Button style={{margin: '10px'}} variant="outlined"
+              onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
             {route && map ? <Button
                 variant="contained"
                 color="primary"
@@ -1437,6 +1442,14 @@ function App() {
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          {inspectedStep?.maneuver?.location && <Marker icon={endMarkerIcon}
+            position={[inspectedStep.maneuver.location[1], inspectedStep.maneuver.location[0]]}>
+            <Popup>Prüfhinweis: {inspectedStep.maneuver.type} / {inspectedStep.maneuver.modifier || '—'}
+              <button onClick={() => { setInspectedStep(null); setShowRouteInspector(true); }}>Zur Prüfliste</button>
+            </Popup>
+          </Marker>}
+          {inspectedStep?.geometry?.type === 'LineString' && <Polyline color="#d65a00" weight={7}
+            positions={inspectedStep.geometry.coordinates.map(([lon, lat]) => [lat, lon])} />}
           {startPosition != null ? (
             <Marker
               icon={startMarkerIcon}
@@ -1512,6 +1525,13 @@ function App() {
           }} onClick={() => routeFromHere(lineToRoute[0])}>Route neu berechnen</Button>
       }
 
+      <RouteInspector open={showRouteInspector} onClose={() => setShowRouteInspector(false)}
+        startPosition={startPosition} endPosition={endPosition}
+        route={route} variant={routingVariant} onMap={step => {
+          setInspectedStep(step);
+          setGpsMode('gps_off');
+          map?.setView([step.maneuver.location[1], step.maneuver.location[0]], 19);
+        }} />
       <Dialog open={showAbout}>
         <DialogTitle>Über RadlNavi</DialogTitle>
         <DialogContent>

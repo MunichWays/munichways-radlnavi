@@ -1,0 +1,35 @@
+docker compose build backend routing
+# compose.yaml enthält die Standarddienste; compose.direct.yaml ergänzt Direkt
+docker compose -f compose.yaml -f compose.direct.yaml build direct-routing
+docker compose -f compose.yaml -f compose.direct.yaml up --no-build
+
+------------------------------
+
+
+docker compose --parallel 1 build routing backend frontend
+docker compose -f compose.yaml -f compose.direct.yaml build direct-routing
+docker compose -f compose.yaml -f compose.direct.yaml up -d
+docker compose -f compose.yaml -f compose.direct.yaml up -d --no-deps direct-routing
+
+Der letzte Befehl startet Standard und Direkt gemeinsam, einschließlich Frontend. compose.yaml enthält die Standarddienste; compose.direct.yaml ergänzt Direkt. Ein zusätzlicher Standard-Start ist daher nicht nötig.
+
+Durch -d laufen alle Dienste im Hintergrund. Die Logs kannst du anschließend ansehen:
+docker compose -f compose.yaml -f compose.direct.yaml logs -f
+
+Hier beendet Strg+C nur die Loganzeige, nicht die Dienste.
+
+----------------------------
+Docker Speicher bereinigen
+# was Docker tatsächlich verwendet:
+docker system df
+# Nicht mehr benötigte Container, Images, Netzwerke und Build-Cache kannst du z. B. entfernen:
+docker system prune
+wsl --shutdown
+# docker_data.vhdx:
+cd C:\Users\Thomas\AppData\Local\Docker\wsl\disk\
+diskpart
+# neues diskpart Fenster dort:
+select vdisk file="C:\Users\Thomas\AppData\Local\Docker\wsl\disk\docker_data.vhdx"
+compact vdisk
+exit
+

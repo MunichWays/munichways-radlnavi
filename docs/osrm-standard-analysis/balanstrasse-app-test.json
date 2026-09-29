@@ -1,0 +1,90 @@
+{
+  "source_kind": "reconstructed_existing_app_test_not_api_response",
+  "app_commit": "7e455fade2e4dc83e711aa08d40d0870f8038f8f",
+  "source_file": "test/ui/map/voice_guidance_test.dart",
+  "description": "Existing Balanstrasse test geometry and its two maneuvers, wrapped for the offline geometry inspector. No live OSRM response; distances and other step metadata are intentionally absent.",
+  "response": {
+    "routes": [
+      {
+        "geometry": {
+          "coordinates": [
+            [
+              11.605648,
+              48.10481
+            ],
+            [
+              11.60549,
+              48.104772
+            ],
+            [
+              11.605477,
+              48.10477
+            ],
+            [
+              11.605284,
+              48.104724
+            ],
+            [
+              11.605201,
+              48.104743
+            ],
+            [
+              11.6051,
+              48.104719
+            ],
+            [
+              11.604985,
+              48.104691
+            ],
+            [
+              11.604948,
+              48.10465
+            ],
+            [
+              11.60459,
+              48.104568
+            ],
+            [
+              11.604566,
+              48.104562
+            ],
+            [
+              11.604226,
+              48.104485
+            ],
+            [
+              11.60398,
+              48.104425
+            ]
+          ]
+        },
+        "legs": [
+          {
+            "steps": [
+              {
+                "maneuver": {
+                  "type": "turn",
+                  "modifier": "left",
+                  "location": [
+                    11.605201,
+                    48.104743
+                  ]
+                }
+              },
+              {
+                "maneuver": {
+                  "type": "turn",
+                  "modifier": "slight right",
+                  "location": [
+                    11.604948,
+                    48.10465
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

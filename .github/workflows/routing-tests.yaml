@@ -24,6 +24,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
+      - name: Guidance way classification
+        run: |
+          python -m pip install lupa==2.6
+          python routing/tests/test_guidance_way_type.py
       - run: |
           docker build -t profile-standard -f routing/tests/Dockerfile routing
           docker build --build-arg ROUTING_PROFILE=direct -t profile-direct -f routing/tests/Dockerfile routing
@@ -39,6 +43,7 @@ jobs:
           done
           python routing/tests/test_profile_regressions.py
           python routing/tests/test_direct_profile.py
+          python routing/tests/test_guidance_classes.py
       - name: Munich one-way regressions
         run: |
           docker build --build-arg FIXTURE=tests/fixtures/munich-oneway.osm -t munich-standard -f routing/tests/Dockerfile routing

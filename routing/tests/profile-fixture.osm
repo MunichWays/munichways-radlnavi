@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="radlnavi-profile-tests">
+  <node id="24001" lat="48.9000" lon="11.0000" />
+  <node id="24002" lat="48.9000" lon="11.0010" />
+  <node id="24003" lat="48.9010" lon="11.0010" />
+  <node id="24004" lat="48.9010" lon="11.0020" />
+  <node id="24005" lat="48.9020" lon="11.0020" />
   <node id="1" lat="48.0000" lon="11.0000" />
   <node id="2" lat="48.0000" lon="11.0010" />
   <node id="3" lat="48.0100" lon="11.0000" />
@@ -318,4 +323,8 @@
 <way id="23004"><nd ref="23004"/><nd ref="23006"/><nd ref="23005"/><tag k="highway" v="primary"/><tag k="surface" v="asphalt"/><tag k="name" v="Excessive main-road detour"/></way>
 <way id="23005"><nd ref="23007"/><nd ref="23008"/><tag k="highway" v="cycleway"/><tag k="surface" v="gravel"/></way>
 <way id="23006"><nd ref="23009"/><nd ref="23010"/><tag k="highway" v="cycleway"/><tag k="surface" v="fine_gravel"/></way>
+<way id="24001"><nd ref="24001"/><nd ref="24002"/><tag k="highway" v="residential"/><tag k="name" v="Road"/></way>
+<way id="24002"><nd ref="24002"/><nd ref="24003"/><tag k="highway" v="cycleway"/><tag k="name" v="Cycle path"/></way>
+<way id="24003"><nd ref="24003"/><nd ref="24004"/><tag k="highway" v="residential"/><tag k="cycleway" v="lane"/><tag k="cycleway:lane" v="exclusive"/><tag k="name" v="Exclusive lane"/></way>
+<way id="24004"><nd ref="24004"/><nd ref="24005"/><tag k="highway" v="residential"/><tag k="cycleway" v="lane"/><tag k="cycleway:lane" v="advisory"/><tag k="name" v="Advisory lane"/></way>
 </osm>

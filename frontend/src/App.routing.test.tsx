@@ -37,6 +37,42 @@ jest.mock("@mui/icons-material", () => Object.fromEntries(
 window.history.replaceState({}, "", "/?variant=direct");
 const App = require("./App").default;
 
+test("coordinate selections retain exact start and destination alongside address suggestions", async () => {
+  const originalFetch = global.fetch;
+  const log = jest.spyOn(console, "log").mockImplementation(() => {});
+  const warn = jest.spyOn(console, "warn").mockImplementation(() => {});
+  const requests: string[] = [];
+  global.fetch = jest.fn(async (url: any) => {
+    requests.push(String(url));
+    let body: any = {};
+    if (url === "/region.json") {
+      body = { features: [{ geometry: { coordinates: [[]] } }] };
+    } else if (String(url).includes("nominatim")) {
+      body = [{ display_name: "Adresse in der Nähe", place_id: 42, lat: "48.14", lon: "11.52" }];
+    }
+    return { ok: true, status: 200, json: async () => body } as Response;
+  });
+  try {
+    const { unmount } = render(<App />);
+    const start = screen.getByRole("combobox", { name: "Startposition" });
+    fireEvent.change(start, { target: { value: "48.145548, 11.519868" } });
+    expect(await screen.findByRole("option", { name: "48.145548, 11.519868" })).toBeInTheDocument();
+    expect(await screen.findByRole("option", { name: "Adresse in der Nähe" }, { timeout: 3000 })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("option", { name: "48.145548, 11.519868" }));
+    const end = screen.getByRole("combobox", { name: "Ziel" });
+    fireEvent.change(end, { target: { value: "[48.145143, 11.526294]" } });
+    fireEvent.click(await screen.findByRole("option", { name: "48.145143, 11.526294" }));
+    await waitFor(() => expect(requests.some(url => url.includes(
+      "/route?start_lon=11.519868&start_lat=48.145548&target_lon=11.526294&target_lat=48.145143"
+    ))).toBe(true));
+    unmount();
+  } finally {
+    global.fetch = originalFetch;
+    log.mockRestore();
+    warn.mockRestore();
+  }
+});
+
 test("Route hierhin survives unavailable direct service and retry preserves route on analysis failure", async () => {
   const originalFetch = global.fetch;
   const warn = jest.spyOn(console, "warn").mockImplementation(() => {});

@@ -1,6 +1,7 @@
 // @ts-nocheck
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
+import { coordinateSuggestion } from "./coordinateSuggestion";
 import { fetchRoute, fetchRouteAnalysis } from "./routingRequests";
 import RouteInspector from './RouteInspector';
 import {
@@ -23,19 +24,6 @@ import lineSliceAlong from "@turf/line-slice-along";
 import RotatedMarker from './RotatedMarker';
 import textInstructions from 'osrm-text-instructions';
 import "leaflet.vectorgrid";
-
-const debounce = (fn, time) => {
-  let timer = null;
-  return function () {
-    if (timer != null) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(() => {
-      fn(...arguments);
-      timer = null;
-    }, time);
-  }
-};
 
 const togpx = require("togpx");
 
@@ -552,22 +540,29 @@ function App() {
     }
   }, [map]);
 
-  const autocompleteStart = useCallback(
-    debounce((value: string) => {
-      geocode(value).then(setStartSuggestions);
-    }, 1000),
-    []
-  );
+  useEffect(() => {
+    let active = true;
+    const exact = coordinateSuggestion(startValue);
+    setStartSuggestions(exact ? [exact] : []);
+    const timer = window.setTimeout(() => {
+      geocode(startValue).then(items => {
+        if (active) setStartSuggestions(exact ? [exact, ...items] : items);
+      }).catch(error => console.warn("Could not load start suggestions", error));
+    }, 1000);
+    return () => { active = false; window.clearTimeout(timer); };
+  }, [startValue]);
 
-  const autocompleteEnd = useCallback(
-    debounce((value: string) => {
-      geocode(value).then(setEndSuggestions);
-    }, 1000),
-    []
-  );
-
-  useEffect(() => autocompleteStart(startValue), [startValue]);
-  useEffect(() => autocompleteEnd(endValue), [endValue]);
+  useEffect(() => {
+    let active = true;
+    const exact = coordinateSuggestion(endValue);
+    setEndSuggestions(exact ? [exact] : []);
+    const timer = window.setTimeout(() => {
+      geocode(endValue).then(items => {
+        if (active) setEndSuggestions(exact ? [exact, ...items] : items);
+      }).catch(error => console.warn("Could not load destination suggestions", error));
+    }, 1000);
+    return () => { active = false; window.clearTimeout(timer); };
+  }, [endValue]);
 
   useEffect(() => {
     if (map) {

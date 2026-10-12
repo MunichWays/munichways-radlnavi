@@ -206,6 +206,76 @@
   <node id="23008" lat="48.8600" lon="11.0020"/>
   <node id="23009" lat="48.8800" lon="11.0000"/>
   <node id="23010" lat="48.8800" lon="11.0020"/>
+  <!-- Cycleway tag precedence: isolated ways without turn or signal costs. -->
+  <node id="25001" lat="49.0000" lon="11.0000"/>
+  <node id="25002" lat="49.0000" lon="11.0010"/>
+  <node id="25003" lat="49.0100" lon="11.0000"/>
+  <node id="25004" lat="49.0100" lon="11.0010"/>
+  <node id="25005" lat="49.0200" lon="11.0000"/>
+  <node id="25006" lat="49.0200" lon="11.0010"/>
+  <node id="25007" lat="49.0300" lon="11.0000"/>
+  <node id="25008" lat="49.0300" lon="11.0010"/>
+  <node id="25009" lat="49.0400" lon="11.0000"/>
+  <node id="25010" lat="49.0400" lon="11.0010"/>
+  <node id="25011" lat="49.0500" lon="11.0000"/>
+  <node id="25012" lat="49.0500" lon="11.0010"/>
+  <node id="25013" lat="49.0600" lon="11.0000"/>
+  <node id="25014" lat="49.0600" lon="11.0010"/>
+  <node id="25015" lat="49.0700" lon="11.0000"/>
+  <node id="25016" lat="49.0700" lon="11.0010"/>
+  <node id="25017" lat="49.0800" lon="11.0000"/>
+  <node id="25018" lat="49.0800" lon="11.0010"/>
+  <node id="25019" lat="49.0900" lon="11.0000"/>
+  <node id="25020" lat="49.0900" lon="11.0010"/>
+  <node id="25021" lat="49.1000" lon="11.0000"/>
+  <node id="25022" lat="49.1000" lon="11.0010"/>
+  <node id="25023" lat="49.1100" lon="11.0000"/>
+  <node id="25024" lat="49.1100" lon="11.0010"/>
+  <node id="25025" lat="49.1200" lon="11.0000"/>
+  <node id="25026" lat="49.1200" lon="11.0010"/>
+  <!-- Paired route-choice fixtures differ only in cycleway-specific tags. -->
+  <node id="26001" lat="49.2000" lon="11.0000"/>
+  <node id="26002" lat="49.2000" lon="11.0020"/>
+  <node id="26003" lat="49.2003" lon="11.0010"/>
+  <node id="26004" lat="49.2200" lon="11.0000"/>
+  <node id="26005" lat="49.2200" lon="11.0020"/>
+  <node id="26006" lat="49.2203" lon="11.0010"/>
+  <node id="26007" lat="49.2400" lon="11.0000"/>
+  <node id="26008" lat="49.2400" lon="11.0020"/>
+  <node id="26009" lat="49.2403" lon="11.0010"/>
+  <node id="26010" lat="49.2600" lon="11.0000"/>
+  <node id="26011" lat="49.2600" lon="11.0020"/>
+  <node id="26012" lat="49.2603" lon="11.0010"/>
+  <!-- Original Munich examples from OSM, retrieved 2026-10-12. -->
+  <node id="254040692" lat="48.1322162" lon="11.5849614" />
+  <node id="298509489" lat="48.1321141" lon="11.5851406" />
+  <node id="4096269203" lat="48.1426622" lon="11.4089472" />
+  <node id="4096269205" lat="48.1440595" lon="11.4086753" />
+  <node id="4096269206" lat="48.1449102" lon="11.4085136" />
+  <node id="4096269207" lat="48.1455993" lon="11.4081195"><tag k="crossing:island" v="no" /><tag k="crossing:markings" v="yes" /><tag k="crossing:signals" v="no" /><tag k="highway" v="crossing" /><tag k="tactile_paving" v="no" /></node>
+  <node id="7804109933" lat="48.1455366" lon="11.4081559"><tag k="barrier" v="bollard" /><tag k="bollard" v="removable" /><tag k="maxwidth:physical" v="1" /></node>
+  <node id="12010121361" lat="48.1451263" lon="11.4083953" />
+  <node id="12010121368" lat="48.1447133" lon="11.4085493" />
+  <node id="12726555522" lat="48.1451481" lon="11.4083815" />
+  <node id="13270841503" lat="48.1448557" lon="11.4085263" />
+  <node id="13330565690" lat="48.1440892" lon="11.4086693" />
+  <node id="13372578710" lat="48.1453998" lon="11.4082366" />
+  <node id="13372578726" lat="48.1448825" lon="11.4085211" />
+  <node id="13372578727" lat="48.1452987" lon="11.4082953" />
+  <node id="13372578745" lat="48.1454677" lon="11.4081965" />
+  <node id="13482046991" lat="48.1440256" lon="11.4086819"><tag k="barrier" v="bollard" /></node>
+  <node id="13482068715" lat="48.1441147" lon="11.4086639"><tag k="barrier" v="bollard" /></node>
+  <node id="13482068717" lat="48.1444972" lon="11.4085900" />
+  <node id="13482068719" lat="48.1439717" lon="11.4086911" />
+  <node id="13534424196" lat="48.1442950" lon="11.4086290" />
+  <node id="13535829617" lat="48.1455476" lon="11.4081492" />
+  <node id="13543947795" lat="48.1427096" lon="11.4089237" />
+  <node id="13620835542" lat="48.1450068" lon="11.4084610" />
+  <node id="13620835545" lat="48.1454157" lon="11.4082267" />
+  <node id="13620835594" lat="48.1453064" lon="11.4082904" />
+  <node id="13784713825" lat="48.1449323" lon="11.4085066" />
+  <node id="13825288148" lat="48.1426750" lon="11.4089409"><tag k="barrier" v="bollard" /></node>
+  <node id="13825288161" lat="48.1428327" lon="11.4089010"><tag k="barrier" v="bollard" /></node>
   <way id="101"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/><tag k="surface" v="asphalt"/></way>
   <way id="102"><nd ref="3"/><nd ref="4"/><tag k="highway" v="residential"/><tag k="surface" v="chipseal"/></way>
   <way id="103"><nd ref="5"/><nd ref="6"/><tag k="highway" v="residential"/><tag k="surface" v="concrete"/></way>
@@ -327,4 +397,28 @@
 <way id="24002"><nd ref="24002"/><nd ref="24003"/><tag k="highway" v="cycleway"/><tag k="name" v="Cycle path"/></way>
 <way id="24003"><nd ref="24003"/><nd ref="24004"/><tag k="highway" v="residential"/><tag k="cycleway" v="lane"/><tag k="cycleway:lane" v="exclusive"/><tag k="name" v="Exclusive lane"/></way>
 <way id="24004"><nd ref="24004"/><nd ref="24005"/><tag k="highway" v="residential"/><tag k="cycleway" v="lane"/><tag k="cycleway:lane" v="advisory"/><tag k="name" v="Advisory lane"/></way>
+  <!-- Cycleway-specific surface and smoothness override their general tags. -->
+  <way id="25001"><nd ref="25001"/><nd ref="25002"/><tag k="highway" v="cycleway"/></way>
+  <way id="25002"><nd ref="25003"/><nd ref="25004"/><tag k="highway" v="cycleway"/><tag k="surface" v="sett"/><tag k="smoothness" v="bad"/></way>
+  <way id="25003"><nd ref="25005"/><nd ref="25006"/><tag k="highway" v="cycleway"/><tag k="surface" v="sett"/><tag k="cycleway:surface" v="asphalt"/></way>
+  <way id="25004"><nd ref="25007"/><nd ref="25008"/><tag k="highway" v="cycleway"/><tag k="surface" v="asphalt"/><tag k="cycleway:surface" v="sett"/></way>
+  <way id="25005"><nd ref="25009"/><nd ref="25010"/><tag k="highway" v="cycleway"/><tag k="smoothness" v="bad"/><tag k="cycleway:smoothness" v="excellent"/></way>
+  <way id="25006"><nd ref="25011"/><nd ref="25012"/><tag k="highway" v="cycleway"/><tag k="smoothness" v="excellent"/><tag k="cycleway:smoothness" v="intermediate"/></way>
+  <way id="25007"><nd ref="25013"/><nd ref="25014"/><tag k="highway" v="cycleway"/><tag k="surface" v="sett"/><tag k="smoothness" v="bad"/><tag k="cycleway:surface" v="asphalt"/></way>
+  <way id="25008"><nd ref="25015"/><nd ref="25016"/><tag k="highway" v="cycleway"/><tag k="surface" v="sett"/><tag k="smoothness" v="bad"/><tag k="cycleway:smoothness" v="excellent"/></way>
+  <way id="25009"><nd ref="25017"/><nd ref="25018"/><tag k="highway" v="cycleway"/><tag k="cycleway:surface" v="gravel"/></way>
+  <way id="25010"><nd ref="25019"/><nd ref="25020"/><tag k="highway" v="cycleway"/><tag k="cycleway:smoothness" v="intermediate"/></way>
+  <way id="25011"><nd ref="25021"/><nd ref="25022"/><tag k="highway" v="cycleway"/><tag k="cycleway:smoothness" v="excellent"/></way>
+  <way id="25012"><nd ref="25023"/><nd ref="25024"/><tag k="highway" v="cycleway"/><tag k="surface" v="sett"/><tag k="smoothness" v="bad"/><tag k="cycleway:surface" v="unknown"/><tag k="cycleway:smoothness" v="unknown"/></way>
+  <way id="25013"><nd ref="25025"/><nd ref="25026"/><tag k="highway" v="cycleway"/><tag k="surface" v="asphalt"/><tag k="smoothness" v="excellent"/><tag k="cycleway:surface" v="sett"/><tag k="cycleway:smoothness" v="bad"/></way>
+  <way id="26001"><nd ref="26001"/><nd ref="26002"/><tag k="highway" v="cycleway"/><tag k="name" v="Cycleway surface shortcut"/><tag k="surface" v="sett"/><tag k="smoothness" v="excellent"/></way>
+  <way id="26002"><nd ref="26001"/><nd ref="26003"/><nd ref="26002"/><tag k="highway" v="cycleway"/><tag k="name" v="Asphalt detour"/><tag k="surface" v="asphalt"/></way>
+  <way id="26003"><nd ref="26004"/><nd ref="26005"/><tag k="highway" v="cycleway"/><tag k="name" v="Cycleway surface shortcut"/><tag k="surface" v="sett"/><tag k="smoothness" v="excellent"/><tag k="cycleway:surface" v="asphalt"/></way>
+  <way id="26004"><nd ref="26004"/><nd ref="26006"/><nd ref="26005"/><tag k="highway" v="cycleway"/><tag k="name" v="Asphalt detour"/><tag k="surface" v="asphalt"/></way>
+  <way id="26005"><nd ref="26007"/><nd ref="26008"/><tag k="highway" v="cycleway"/><tag k="name" v="Cycleway smoothness shortcut"/><tag k="surface" v="asphalt"/><tag k="smoothness" v="bad"/></way>
+  <way id="26006"><nd ref="26007"/><nd ref="26009"/><nd ref="26008"/><tag k="highway" v="cycleway"/><tag k="name" v="Asphalt detour"/><tag k="surface" v="asphalt"/></way>
+  <way id="26007"><nd ref="26010"/><nd ref="26011"/><tag k="highway" v="cycleway"/><tag k="name" v="Cycleway smoothness shortcut"/><tag k="surface" v="asphalt"/><tag k="smoothness" v="bad"/><tag k="cycleway:smoothness" v="excellent"/></way>
+  <way id="26008"><nd ref="26010"/><nd ref="26012"/><nd ref="26011"/><tag k="highway" v="cycleway"/><tag k="name" v="Asphalt detour"/><tag k="surface" v="asphalt"/></way>
+  <way id="23457803"><nd ref="254040692" /><nd ref="298509489" /><tag k="bicycle" v="designated" /><tag k="class:bicycle" v="2" /><tag k="cycleway:smoothness" v="excellent" /><tag k="cycleway:surface" v="asphalt" /><tag k="cycleway:width" v="2.4" /><tag k="description" v="Fu&#223;-/Radweg Ludwigsbr&#252;cke" /><tag k="foot" v="designated" /><tag k="footway:smoothness" v="intermediate" /><tag k="footway:surface" v="chipseal" /><tag k="highway" v="path" /><tag k="lit" v="yes" /><tag k="segregated" v="yes" /><tag k="source:cycleway:width" v="ARCore" /><tag k="surface" v="paved" /></way>
+  <way id="513653294"><nd ref="4096269203" /><nd ref="13825288148" /><nd ref="13543947795" /><nd ref="13825288161" /><nd ref="13482068719" /><nd ref="13482046991" /><nd ref="4096269205" /><nd ref="13330565690" /><nd ref="13482068715" /><nd ref="13534424196" /><nd ref="13482068717" /><nd ref="12010121368" /><nd ref="13270841503" /><nd ref="13372578726" /><nd ref="4096269206" /><nd ref="13784713825" /><nd ref="13620835542" /><nd ref="12010121361" /><nd ref="12726555522" /><nd ref="13372578727" /><nd ref="13620835594" /><nd ref="13372578710" /><nd ref="13620835545" /><nd ref="13372578745" /><nd ref="7804109933" /><nd ref="13535829617" /><nd ref="4096269207" /><tag k="bicycle" v="designated" /><tag k="bicycle_road" v="yes" /><tag k="class:bicycle" v="2" /><tag k="cycleway:smoothness" v="intermediate" /><tag k="cycleway:surface" v="chipseal" /><tag k="foot" v="designated" /><tag k="footway:smoothness" v="good" /><tag k="footway:surface" v="paving_stones" /><tag k="highway" v="path" /><tag k="lit" v="yes" /><tag k="maxspeed" v="30" /><tag k="motor_vehicle" v="no" /><tag k="name" v="Golo-Mann-Weg" /><tag k="segregated" v="yes" /><tag k="source" v="https://www.muenchen-transparent.de/dokumente/4514008" /><tag k="source:maxspeed" v="DE:bicycle_road" /><tag k="surface" v="paved" /><tag k="traffic_sign" v="DE:244.1" /><tag k="vehicle" v="no" /><tag k="width" v="4" /></way>
 </osm>

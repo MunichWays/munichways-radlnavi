@@ -12,3 +12,23 @@ available under the Open Database License (ODbL).
 The fixture covers the reported Arnulfstraße and Elisenstraße/Lenbachplatz
 routes. `test_munich_oneway.py` checks route annotation edges against the mapped
 cycling one-way directions while allowing explicit bicycle counterflow.
+
+## Cycleway attribute examples
+
+The otherwise synthetic `../profile-fixture.osm` also contains two original
+OSM ways and their nodes, retrieved on 2026-10-12 through the OSM API:
+
+- [Ludwigsbrücke foot/cycle path, way 23457803](https://www.openstreetmap.org/way/23457803)
+- [Golo-Mann-Weg, way 513653294](https://www.openstreetmap.org/way/513653294)
+
+All way/node tags and coordinates were retained; contributor metadata was
+removed. Adjacent ways and relations are omitted to test these attributes on
+the isolated original geometry. This fixture checks their physical travel
+time and selection weight, rather than the surrounding Munich network.
+`test_cycleway_tags.py` runs both examples with Standard and Direct in both
+directions. Both original ways have `highway=path`, whose base speed is
+18 km/h. Golo-Mann-Weg uses `cycleway:smoothness=intermediate` (16.2 km/h),
+while Ludwigsbrücke uses `excellent` (18 km/h, unchanged from the baseline).
+
+These examples are also © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright),
+available under the Open Database License (ODbL).

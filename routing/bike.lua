@@ -16,6 +16,13 @@ local WAY_CLASS_TERTIARY = 3
 local WAY_CLASS_MAJOR = 4
 local MAJOR_ROAD_CROSSING_PENALTY = 30
 
+-- Resolve each cycling attribute independently. Even an unrecognized
+-- cycleway-specific value takes precedence; speed/cost tables decide whether
+-- that value has an effect, rather than falling back to the carriageway.
+local function get_cycling_tag(way, key)
+  return way:get_value_by_key('cycleway:' .. key) or way:get_value_by_key(key)
+end
+
 function setup()
   local default_speed = 20
   local walking_speed = 4
@@ -793,8 +800,8 @@ function process_way(profile, way, result)
   guidance_way_type.apply(way, result)
 
   -- surface
-  local surface = way:get_value_by_key("surface")
-  local smoothness = way:get_value_by_key("smoothness")
+  local surface = get_cycling_tag(way, 'surface')
+  local smoothness = get_cycling_tag(way, 'smoothness')
 
   if surface and profile.surface_speeds[surface] then
     result.forward_speed = math.min(profile.surface_speeds[surface], result.forward_speed)
@@ -997,6 +1004,7 @@ function process_turn(profile, turn)
 end
 
 return {
+  get_cycling_tag = get_cycling_tag,
   setup = setup,
   process_way = process_way,
   process_node = process_node,

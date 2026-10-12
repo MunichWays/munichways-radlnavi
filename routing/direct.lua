@@ -43,7 +43,7 @@ local function process_direct_way(profile, way, result)
 
   local highway = way:get_value_by_key('highway')
   local road_cost = highway == 'residential' and 1.08 or 1
-  local surface_cost = surface_costs[way:get_value_by_key('surface')] or 1
+  local surface_cost = surface_costs[bicycle.get_cycling_tag(way, 'surface')] or 1
   local cycling_cost = road_cost * surface_cost
   if way:get_value_by_key('route') == 'ferry' then
     exclude_direction(result, 'forward')

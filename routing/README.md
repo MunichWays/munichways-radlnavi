@@ -9,6 +9,32 @@ spätere Umsetzung. Sie verändert das aktuelle Routing-Verhalten nicht.
 
 This is the routing backend for [radlnavi.de](https://www.radlnavi.de).
 
+## Cycleway surface and smoothness
+
+Both Standard and Direct prefer `cycleway:surface` over `surface` and
+`cycleway:smoothness` over `smoothness`. Each attribute falls back independently
+to its general tag only when the cycleway-specific tag is absent. The existing
+surface speed limits and smoothness factors apply to the resolved values;
+Direct also uses the resolved surface for its route-selection cost.
+
+Unrecognized cycleway-specific values still take precedence and receive no
+table-based adjustment. Side-specific attributes such as
+`cycleway:left:surface` are outside this rule.
+
+Profile changes require rebuilding both OSRM datasets, starting with
+`osrm-extract`; restarting the servers with old datasets is insufficient.
+
+The synthetic regression suite checks precedence, independent fallbacks,
+travel times, selection weights and route choices in both directions. After
+building and starting both test profiles (ports 18081 and 18082), run:
+
+```shell
+python routing/tests/test_cycleway_tags.py
+```
+
+It also checks the original Ludwigsbrücke and Golo-Mann-Weg OSM geometries;
+see [fixture provenance](tests/fixtures/README.md#cycleway-attribute-examples).
+
 ## Seasonal bicycle access
 
 The bicycle profile observes recurring seasonal prohibitions such as
@@ -34,10 +60,18 @@ barrier handling on a small deterministic OSM fixture:
 ```shell
 docker build -t radlnavi-routing-profile-tests \
   -f routing/tests/Dockerfile routing
+docker build --build-arg ROUTING_PROFILE=direct \
+  -t radlnavi-routing-direct-profile-tests \
+  -f routing/tests/Dockerfile routing
 docker run --rm -d -p 18081:8080 \
   --name radlnavi-profile-tests radlnavi-routing-profile-tests
+docker run --rm -d -p 18082:8080 \
+  --name radlnavi-direct-profile-tests radlnavi-routing-direct-profile-tests
 python routing/tests/test_profile_regressions.py
-docker stop radlnavi-profile-tests
+python routing/tests/test_direct_profile.py
+python routing/tests/test_cycleway_tags.py
+python routing/tests/test_guidance_classes.py
+docker stop radlnavi-profile-tests radlnavi-direct-profile-tests
 ```
 
 ## OSRM version and migration smoke test

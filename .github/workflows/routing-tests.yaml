@@ -43,6 +43,7 @@ jobs:
           done
           python routing/tests/test_profile_regressions.py
           python routing/tests/test_direct_profile.py
+          python routing/tests/test_cycleway_tags.py
           python routing/tests/test_guidance_classes.py
       - name: Munich one-way regressions
         run: |

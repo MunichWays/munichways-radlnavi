@@ -3,6 +3,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
 import { coordinateSuggestion } from "./coordinateSuggestion";
 import { fetchRoute, fetchRouteAnalysis } from "./routingRequests";
+import { routeDisplaySections, withoutPushing } from "./routeDisplay";
 import RouteInspector from './RouteInspector';
 import {
   MapContainer as LeafletMap,
@@ -992,15 +993,17 @@ function App() {
   ) : null;
 
   const drawRoute = (route: any) => {
-    const coords = route.geometry.coordinates.map(
-      (tuple: Array<Array<number>>) => ({
-        lat: tuple[1],
-        lng: tuple[0],
-      })
-    );
+    const sections = routeDisplaySections(route);
+    const ratings = bicycleClassesPaths == null ? null : [...bicycleClassesPaths.entries()]
+      .map(([key, entry]) => [key, entry.flatMap(path => withoutPushing(path, sections))]);
     return <React.Fragment>
-      <Polyline key={`route-${hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null}`} weight={hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null ? 3 : 8} positions={coords} color={ROUTE_BLUE}></Polyline>
-      {bicycleClassesPaths == null ? <Polyline dashArray="2 4" color={ROUTE_BLUE} weight={2} positions={coords}></Polyline> : hightlightLit || hightlightSurface ? [] : [...bicycleClassesPaths.entries()]
+      {sections.map((section, i) => <Polyline key={`route-${i}-${section.pushing}`}
+        dashArray={section.pushing ? "6 5" : undefined}
+        weight={section.pushing || hightlightLit !== null || hightlightSurface !== null || highlightComfort !== null ? 3 : 8}
+        positions={section.coordinates.map(([lng, lat]) => ({ lat, lng }))} color={ROUTE_BLUE} />)}
+      {ratings == null ? sections.filter(section => !section.pushing).map((section, i) =>
+        <Polyline key={`pending-${i}`} dashArray="2 4" color={ROUTE_BLUE} weight={2}
+          positions={section.coordinates.map(([lng, lat]) => ({ lat, lng }))} />) : hightlightLit || hightlightSurface ? [] : ratings
         .filter(([key]) => highlightComfort == null || comfortCategoryForClass(key) === highlightComfort)
         .map(([key, entry]) => entry.map(
           (bicycleClassPath, i) =>
@@ -1019,7 +1022,10 @@ function App() {
   };
 
   const drawIlluminated = () => {
-    return illuminatedPaths == null ? [] : [...illuminatedPaths.entries()]
+    const sections = routeDisplaySections(route);
+    const paths = illuminatedPaths == null ? [] : [...illuminatedPaths.entries()]
+      .map(([key, entry]) => [key, entry.flatMap(path => withoutPushing(path, sections))]);
+    return paths
       .filter(([key, _]) => key === hightlightLit)
       .map(([key, entry]) => entry.map(
         (litPath, i) =>
@@ -1029,7 +1035,7 @@ function App() {
             )
           }></Polyline>
       )
-      ).concat([...illuminatedPaths.entries()]
+      ).concat(paths
         .filter(([key, _]) => key === hightlightLit)
         .map(([key, entry]) => entry.map(
           (litPath, i) =>
@@ -1043,7 +1049,10 @@ function App() {
   };
 
   const drawSurfaces = () => {
-    return surfacePaths == null ? [] : [...surfacePaths.entries()]
+    const sections = routeDisplaySections(route);
+    const paths = surfacePaths == null ? [] : [...surfacePaths.entries()]
+      .map(([key, entry]) => [key, entry.flatMap(path => withoutPushing(path, sections))]);
+    return paths
       .filter(([key, _]) => key === hightlightSurface)
       .map(([key, entry]) => entry.map(
         (surfacePath, i) =>
@@ -1053,7 +1062,7 @@ function App() {
             )
           }></Polyline>
       )
-      ).concat([...surfacePaths.entries()]
+      ).concat(paths
         .filter(([key, _]) => key === hightlightSurface)
         .map(([key, entry]) => entry.map(
           (surfacePath, i) =>

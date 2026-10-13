@@ -8,6 +8,10 @@ The [frontend service](./frontend/) interacts with the user and also features an
 
 # Development
 
+The API supports [endpoint pushing access](docs/endpoint-pushing-access.md)
+without changing the bicycle profiles. This feature requires a newly built
+backend database and frontend; rebuilding the routing service alone is insufficient.
+
 There are two different ways to run RadlNavi locally. Choose the workflow based
 on which services you changed.
 

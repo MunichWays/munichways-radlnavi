@@ -53,6 +53,22 @@ def __initialize_geo_store(db_con: sqlite3.Connection, pbf_path: str) -> None:
         "CREATE INDEX node_to_ways_node_id ON node_to_ways (node_id, way_id)"
     )
     db_con.execute("CREATE INDEX node_to_ways_way_id ON node_to_ways (way_id)")
+    # Endpoint access queries must not scan the regional node/way tables on
+    # every request. Bounds include whole segments, even if both bounding
+    # nodes are outside the small initial search box.
+    db_con.execute(
+        "CREATE VIRTUAL TABLE access_way_bounds USING rtree "
+        "(id, min_lon, max_lon, min_lat, max_lat)"
+    )
+    db_con.execute(
+        """INSERT INTO access_way_bounds
+        SELECT w.id, MIN(n.lon), MAX(n.lon), MIN(n.lat), MAX(n.lat)
+        FROM ways w
+        JOIN node_to_ways nw ON nw.way_id = w.id
+        JOIN nodes n ON n.id = nw.node_id
+        WHERE json_extract(w.tags, '$.highway') IS NOT NULL
+        GROUP BY w.id"""
+    )
     db_con.commit()
     print("done.")
 

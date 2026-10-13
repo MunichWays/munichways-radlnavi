@@ -1,0 +1,1699 @@
+{
+  "date": "2026-10-13",
+  "source_commit": "4d56bd7",
+  "live_api": "https://api.radlnavi.munichways.de",
+  "local_osrm_version": "26.6.5",
+  "local_map_bboxes": {
+    "hofgarten": "11.576,48.141,11.583,48.145",
+    "botanischer_garten": "11.560,48.140,11.568,48.146"
+  },
+  "notes": [
+    "Records without local_ or weight_ prefix are production responses.",
+    "Local maps are cropped; distances need not match production.",
+    "pushing data variant replaces bicycle=no by dismount on selected public pedestrian ways for diagnosis only.",
+    "Low-penalty variant changes pushing_distance_penalty from 10 to 1 in a temporary profile copy.",
+    "No routing source files or OSM data were published or changed."
+  ],
+  "records": [
+    {
+      "record": "alter_botanischer_garten_direct",
+      "code": "Ok",
+      "distance_m": 616.1,
+      "duration_s": 138.7,
+      "weight": 133.5,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563253,
+            48.14147
+          ],
+          "distance": 47.36930502,
+          "name": "Elisenstraße"
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 144.1,
+          "duration": 34.2
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "alter_botanischer_garten_standard",
+      "code": "Ok",
+      "distance_m": 616.1,
+      "duration_s": 138.7,
+      "weight": 198,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.563253,
+            48.14147
+          ],
+          "distance": 47.36930502,
+          "name": "Elisenstraße"
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 144.1,
+          "duration": 34.2
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "hofgarten_toilet_a_direct",
+      "code": "Ok",
+      "distance_m": 12.7,
+      "duration_s": 12.9,
+      "weight": 22.9,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.578313,
+            48.142795
+          ],
+          "distance": 69.19334951,
+          "name": ""
+        },
+        {
+          "location": [
+            11.57815,
+            48.142829
+          ],
+          "distance": 7.352542032,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.7,
+          "duration": 12.9
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "hofgarten_toilet_a_standard",
+      "code": "Ok",
+      "distance_m": 12.7,
+      "duration_s": 12.9,
+      "weight": 41.6,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.578313,
+            48.142795
+          ],
+          "distance": 69.19334951,
+          "name": ""
+        },
+        {
+          "location": [
+            11.57815,
+            48.142829
+          ],
+          "distance": 7.352542032,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.7,
+          "duration": 12.9
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "hofgarten_toilet_b_direct",
+      "code": "Ok",
+      "distance_m": 741.4,
+      "duration_s": 268.2,
+      "weight": 312.5,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.578313,
+            48.142795
+          ],
+          "distance": 8.911575846,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 29.3,
+          "duration": 31.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 220.6,
+          "duration": 44.4
+        },
+        {
+          "name": "Ludwigstraße",
+          "mode": "cycling",
+          "distance": 71.2,
+          "duration": 34
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 22.7,
+          "duration": 18.6
+        },
+        {
+          "name": "Ludwigstraße",
+          "mode": "cycling",
+          "distance": 43.5,
+          "duration": 20.9
+        },
+        {
+          "name": "Ludwigstraße",
+          "mode": "cycling",
+          "distance": 285.8,
+          "duration": 84.5
+        },
+        {
+          "name": "Odeonsplatz",
+          "mode": "cycling",
+          "distance": 34.8,
+          "duration": 13.2
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "hofgarten_toilet_b_standard",
+      "code": "Ok",
+      "distance_m": 741.4,
+      "duration_s": 268.2,
+      "weight": 649.8,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.578313,
+            48.142795
+          ],
+          "distance": 8.911575846,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 29.3,
+          "duration": 31.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 220.6,
+          "duration": 44.4
+        },
+        {
+          "name": "Ludwigstraße",
+          "mode": "cycling",
+          "distance": 71.2,
+          "duration": 34
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 22.7,
+          "duration": 18.6
+        },
+        {
+          "name": "Ludwigstraße",
+          "mode": "cycling",
+          "distance": 43.5,
+          "duration": 20.9
+        },
+        {
+          "name": "Ludwigstraße",
+          "mode": "cycling",
+          "distance": 285.8,
+          "duration": 84.5
+        },
+        {
+          "name": "Odeonsplatz",
+          "mode": "cycling",
+          "distance": 34.8,
+          "duration": 13.2
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_alter_botanischer_garten_direct_original",
+      "code": "Ok",
+      "distance_m": 616.1,
+      "duration_s": 138.7,
+      "weight": 133.5,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563253,
+            48.14147
+          ],
+          "distance": 47.36930502,
+          "name": "Elisenstraße"
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 144.1,
+          "duration": 34.2
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_alter_botanischer_garten_direct_pushing",
+      "code": "Ok",
+      "distance_m": 653,
+      "duration_s": 187.7,
+      "weight": 229.8,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 52.5,
+          "duration": 51.7
+        },
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 128.6,
+          "duration": 31.5
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_alter_botanischer_garten_standard_low_penalty",
+      "code": "Ok",
+      "distance_m": 326.2,
+      "duration_s": 167.1,
+      "weight": 283.3,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 107.7,
+          "duration": 110.6
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 46.4,
+          "duration": 16.2
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_alter_botanischer_garten_standard_original",
+      "code": "Ok",
+      "distance_m": 616.1,
+      "duration_s": 138.7,
+      "weight": 198,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.563253,
+            48.14147
+          ],
+          "distance": 47.36930502,
+          "name": "Elisenstraße"
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 144.1,
+          "duration": 34.2
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_alter_botanischer_garten_standard_pushing",
+      "code": "Ok",
+      "distance_m": 653,
+      "duration_s": 187.7,
+      "weight": 375.3,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 52.5,
+          "duration": 51.7
+        },
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 128.6,
+          "duration": 31.5
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_a_direct_original",
+      "code": "Ok",
+      "distance_m": 255.8,
+      "duration_s": 60.2,
+      "weight": 59.5,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.568861,
+            48.144237
+          ],
+          "distance": 772.2783208,
+          "name": "Barer Straße"
+        },
+        {
+          "location": [
+            11.56874,
+            48.142461
+          ],
+          "distance": 699.116244,
+          "name": "Karlstraße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Barer Straße",
+          "mode": "cycling",
+          "distance": 187.2,
+          "duration": 47.9
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 68.6,
+          "duration": 12.3
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_a_direct_pushing",
+      "code": "Ok",
+      "distance_m": 109.2,
+      "duration_s": 111.9,
+      "weight": 208.8,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.579101,
+            48.143125
+          ],
+          "distance": 0,
+          "name": ""
+        },
+        {
+          "location": [
+            11.57815,
+            48.142829
+          ],
+          "distance": 7.352542032,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 44.8,
+          "duration": 48.3
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 51.7,
+          "duration": 50.7
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.7,
+          "duration": 12.9
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_a_standard_original",
+      "code": "Ok",
+      "distance_m": 255.8,
+      "duration_s": 60.2,
+      "weight": 178.9,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.568861,
+            48.144237
+          ],
+          "distance": 772.2783208,
+          "name": "Barer Straße"
+        },
+        {
+          "location": [
+            11.56874,
+            48.142461
+          ],
+          "distance": 699.116244,
+          "name": "Karlstraße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Barer Straße",
+          "mode": "cycling",
+          "distance": 187.2,
+          "duration": 47.9
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 68.6,
+          "duration": 12.3
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_a_standard_pushing",
+      "code": "Ok",
+      "distance_m": 109.2,
+      "duration_s": 111.9,
+      "weight": 382,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.579101,
+            48.143125
+          ],
+          "distance": 0,
+          "name": ""
+        },
+        {
+          "location": [
+            11.57815,
+            48.142829
+          ],
+          "distance": 7.352542032,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 44.8,
+          "duration": 48.3
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 51.7,
+          "duration": 50.7
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.7,
+          "duration": 12.9
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_b_direct_original",
+      "code": "Ok",
+      "distance_m": 504,
+      "duration_s": 276.4,
+      "weight": 466.7,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.578313,
+            48.142795
+          ],
+          "distance": 8.911575846,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 29.3,
+          "duration": 31.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 118.8,
+          "duration": 28.4
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 3.1,
+          "duration": 8
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 14.4,
+          "duration": 27.2
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 45.8,
+          "duration": 43
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 16,
+          "duration": 28.8
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 2.7,
+          "duration": 6.9
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 205.8,
+          "duration": 68.3
+        },
+        {
+          "name": "Odeonsplatz",
+          "mode": "cycling",
+          "distance": 34.8,
+          "duration": 13.2
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_b_direct_pushing",
+      "code": "Ok",
+      "distance_m": 105.1,
+      "duration_s": 79.1,
+      "weight": 163.4,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.578349,
+            48.142871
+          ],
+          "distance": 0.1488898057,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 47.1,
+          "duration": 46.7
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 24.5,
+          "duration": 11.3
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_b_standard_low_penalty",
+      "code": "Ok",
+      "distance_m": 105.1,
+      "duration_s": 79.1,
+      "weight": 174.8,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.578349,
+            48.142871
+          ],
+          "distance": 0.1488898057,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 47.1,
+          "duration": 46.7
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 24.5,
+          "duration": 11.3
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_b_standard_original",
+      "code": "Ok",
+      "distance_m": 956.4,
+      "duration_s": 399.5,
+      "weight": 702.7,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.578313,
+            48.142795
+          ],
+          "distance": 8.911575846,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 29.3,
+          "duration": 31.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 159.1,
+          "duration": 36.2
+        },
+        {
+          "name": "Galeriestraße",
+          "mode": "cycling",
+          "distance": 273.1,
+          "duration": 126.7
+        },
+        {
+          "name": "Leibregimentsweg",
+          "mode": "cycling",
+          "distance": 198.5,
+          "duration": 124.9
+        },
+        {
+          "name": "Hofgartenstraße",
+          "mode": "cycling",
+          "distance": 262.8,
+          "duration": 59.1
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "local_hofgarten_toilet_b_standard_pushing",
+      "code": "Ok",
+      "distance_m": 105.1,
+      "duration_s": 79.1,
+      "weight": 273,
+      "weight_name": "cyclability",
+      "waypoints": [
+        {
+          "location": [
+            11.578349,
+            48.142871
+          ],
+          "distance": 0.1488898057,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 47.1,
+          "duration": 46.7
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 24.5,
+          "duration": 11.3
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "weight_bot_18194",
+      "code": "Ok",
+      "distance_m": 653,
+      "duration_s": 187.7,
+      "weight": 229.8,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 52.5,
+          "duration": 51.7
+        },
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 128.6,
+          "duration": 31.5
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 50.4,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.6,
+          "duration": 4.1
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 236,
+          "duration": 50.6
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "weight_bot_18195",
+      "code": "Ok",
+      "distance_m": 326.2,
+      "duration_s": 167.1,
+      "weight": 163.2,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 107.7,
+          "duration": 110.6
+        },
+        {
+          "name": "Sophienstraße",
+          "mode": "cycling",
+          "distance": 46.4,
+          "duration": 16.2
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 172.1,
+          "duration": 40.3
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "weight_bot_via_north_18194",
+      "code": "Ok",
+      "distance_m": 737.7,
+      "duration_s": 227.2,
+      "weight": 274.5,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.563829,
+            48.144008
+          ],
+          "distance": 0,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 52.5,
+          "duration": 51.7
+        },
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 128.6,
+          "duration": 31.5
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 248.9,
+          "duration": 48.7
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 81.5,
+          "duration": 22.6
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.9,
+          "duration": 6.2
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.9,
+          "duration": 14.9
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 135.3,
+          "duration": 39.1
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 63.1,
+          "duration": 12.5
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "weight_bot_via_north_18195",
+      "code": "Ok",
+      "distance_m": 737.7,
+      "duration_s": 227.2,
+      "weight": 227.2,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.563505,
+            48.141873
+          ],
+          "distance": 2.061887635,
+          "name": ""
+        },
+        {
+          "location": [
+            11.563829,
+            48.144008
+          ],
+          "distance": 0,
+          "name": ""
+        },
+        {
+          "location": [
+            11.565747,
+            48.143926
+          ],
+          "distance": 1.948857277,
+          "name": "Katharina-von-Bora-Straße"
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 52.5,
+          "duration": 51.7
+        },
+        {
+          "name": "Elisenstraße",
+          "mode": "cycling",
+          "distance": 128.6,
+          "duration": 31.5
+        },
+        {
+          "name": "Luisenstraße",
+          "mode": "cycling",
+          "distance": 248.9,
+          "duration": 48.7
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 81.5,
+          "duration": 22.6
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.9,
+          "duration": 6.2
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 13.9,
+          "duration": 14.9
+        },
+        {
+          "name": "Karlstraße",
+          "mode": "cycling",
+          "distance": 135.3,
+          "duration": 39.1
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 63.1,
+          "duration": 12.5
+        },
+        {
+          "name": "Katharina-von-Bora-Straße",
+          "mode": "cycling",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "weight_hofgarten_b_18194",
+      "code": "Ok",
+      "distance_m": 105.1,
+      "duration_s": 79.1,
+      "weight": 163.4,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.578349,
+            48.142871
+          ],
+          "distance": 0.1488898057,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 47.1,
+          "duration": 46.7
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 24.5,
+          "duration": 11.3
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    },
+    {
+      "record": "weight_hofgarten_b_18195",
+      "code": "Ok",
+      "distance_m": 105.1,
+      "duration_s": 79.1,
+      "weight": 109.4,
+      "weight_name": "fast_cycling",
+      "waypoints": [
+        {
+          "location": [
+            11.578349,
+            48.142871
+          ],
+          "distance": 0.1488898057,
+          "name": ""
+        },
+        {
+          "location": [
+            11.578076,
+            48.142673
+          ],
+          "distance": 5.46008281,
+          "name": ""
+        }
+      ],
+      "steps": [
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 47.1,
+          "duration": 46.7
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 24.5,
+          "duration": 11.3
+        },
+        {
+          "name": "",
+          "mode": "cycling",
+          "distance": 20.6,
+          "duration": 9.5
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 12.9,
+          "duration": 11.6
+        },
+        {
+          "name": "",
+          "mode": "pushing bike",
+          "distance": 0,
+          "duration": 0
+        }
+      ]
+    }
+  ]
+}

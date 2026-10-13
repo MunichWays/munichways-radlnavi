@@ -20,9 +20,11 @@ from google.auth.transport.requests import Request as GoogleAuthRequest
 from google.auth.exceptions import GoogleAuthError
 from google.oauth2 import id_token
 from requests import get
+from requests import Response as RoutingResponse
 from requests.exceptions import RequestException, Timeout
 
 from src.direct_proxy import DirectRouteProxy
+from src.endpoint_routes import endpoint_route
 
 from src.route_analysis import (
     AnalysisLeg,
@@ -164,10 +166,7 @@ async def osrm_route_proxy(
         requested_annotations.update(("nodes", "distance"))
         upstream_params.append(("annotations", ",".join(sorted(requested_annotations))))
 
-    response = get_routing_response(
-        f"{OSRM_BACKEND_URL}/route/v1/{profile}/{coordinates}",
-        params=upstream_params,
-    )
+    response = get_endpoint_routing_response(profile, coordinates, upstream_params)
     headers = {"x-routing-variant": variant}
     if variant == "standard" and response.status_code == 200:
         # Let clients start direct routing without queuing discovery behind
@@ -287,14 +286,63 @@ def routing_auth_headers() -> dict[str, str]:
     return {"Authorization": f"Bearer {token}"}
 
 
-def get_routing_response(url, *, params):
+def get_routing_response(url, *, params, auth_context=None, timeout=30):
     """Expose recoverable upstream failures on both public routing APIs."""
     try:
-        return get(url, params=params, headers=routing_auth_headers(), timeout=30)
+        if auth_context is None:
+            headers = routing_auth_headers()
+        else:
+            if "headers" not in auth_context:
+                auth_context["headers"] = routing_auth_headers()
+            headers = auth_context["headers"]
+        return get(url, params=params, headers=headers, timeout=timeout)
     except Timeout as error:
         raise HTTPException(504, "Routing timed out") from error
     except (RequestException, GoogleAuthError) as error:
         raise HTTPException(503, "Routing is unavailable") from error
+
+
+def get_endpoint_routing_response(profile, coordinates, params):
+    auth_context = {}
+    response = get_routing_response(
+        f"{OSRM_BACKEND_URL}/route/v1/{profile}/{coordinates}", params=params,
+        auth_context=auth_context,
+    )
+    if geo_store is None or response.status_code not in (200, 400):
+        return response
+    deadline = perf_counter() + 8
+
+    def fetch_connection(points, query):
+        remaining = deadline - perf_counter()
+        if remaining > 0:
+            try:
+                return get_routing_response(
+                    f"{OSRM_BACKEND_URL}/route/v1/{profile}/{points}",
+                    params=query, auth_context=auth_context, timeout=min(remaining, 5),
+                )
+            except HTTPException as error:
+                if error.status_code not in (503, 504):
+                    raise
+        unavailable = RoutingResponse()
+        unavailable.status_code = 503
+        return unavailable
+
+    try:
+        payload = endpoint_route(
+            geo_store, profile, coordinates,
+            list(params.items()) if isinstance(params, dict) else params, response.json(),
+            fetch_connection, ROUTING_VARIANT,
+        )
+    except (sqlite3.Error, ValueError, KeyError, TypeError):
+        logger.exception("Could not calculate endpoint pushing access")
+        return response
+    if payload is None:
+        return response
+    augmented = RoutingResponse()
+    augmented.status_code = 200
+    augmented.headers["content-type"] = "application/json"
+    augmented._content = dumps(payload, separators=(",", ":")).encode()
+    return augmented
 
 
 @dataclass
@@ -599,8 +647,8 @@ async def route(
             },
         )
     print("request start")
-    response = get_routing_response(
-        f"{OSRM_BACKEND_URL}/route/v1/bike/{start_lon},{start_lat};{target_lon},{target_lat}",
+    response = get_endpoint_routing_response(
+        "bike", f"{start_lon},{start_lat};{target_lon},{target_lat}",
         params={
             "overview": "full",
             "alternatives": "true",

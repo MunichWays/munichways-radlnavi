@@ -13,6 +13,25 @@ The fixture covers the reported Arnulfstraße and Elisenstraße/Lenbachplatz
 routes. `test_munich_oneway.py` checks route annotation edges against the mapped
 cycling one-way directions while allowing explicit bicycle counterflow.
 
+## Endpoint pushing access
+
+`munich-endpoint-access.osm` freezes the Hofgarten and Alter Botanischer Garten
+examples from Issue #19. It was obtained on 2026-10-13 from the official OSM map
+API with bounding boxes `11.576,48.141,11.583,48.145` and
+`11.560,48.140,11.568,48.146`. Only highway ways, their nodes and complete turn
+restrictions were retained; contributor metadata was removed. All retained
+access tags are original, including `bicycle=no`; the fixture is not modified
+to make the bicycle profile accept them.
+
+`test_endpoint_access.py` builds the same spatial database index as production
+and checks endpoint-only backend composition against both unchanged OSRM
+profiles, including reverse routes, intermediate stops and ordinary bike endpoints.
+The map is cropped, so these distances are regression expectations for this
+fixture rather than guarantees for the full regional graph.
+
+Data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright),
+available under the Open Database License (ODbL).
+
 ## Cycleway attribute examples
 
 The otherwise synthetic `../profile-fixture.osm` also contains two original

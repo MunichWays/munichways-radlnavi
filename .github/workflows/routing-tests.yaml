@@ -24,9 +24,12 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: Guidance way classification
         run: |
-          python -m pip install lupa==2.6
+          python -m pip install lupa==2.6 osmium==3.7.0
           python routing/tests/test_guidance_way_type.py
       - run: |
           docker build -t profile-standard -f routing/tests/Dockerfile routing
@@ -60,3 +63,18 @@ jobs:
             done
             python routing/tests/test_munich_oneway.py --endpoint "http://localhost:$port"
           done
+      - name: Endpoint pushing access with unchanged bicycle profiles
+        run: |
+          docker build --build-arg FIXTURE=tests/fixtures/munich-endpoint-access.osm -t endpoint-standard -f routing/tests/Dockerfile routing
+          docker build --build-arg FIXTURE=tests/fixtures/munich-endpoint-access.osm --build-arg ROUTING_PROFILE=direct -t endpoint-direct -f routing/tests/Dockerfile routing
+          docker run -d --name endpoint-standard -p 18085:8080 endpoint-standard
+          docker run -d --name endpoint-direct -p 18086:8080 endpoint-direct
+          for port in 18085 18086; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://localhost:$port/route/v1/bike/11.563063,48.1415279;11.5642517,48.1426711?overview=false" > /dev/null; then
+                break
+              fi
+              sleep 1
+            done
+          done
+          python routing/tests/test_endpoint_access.py

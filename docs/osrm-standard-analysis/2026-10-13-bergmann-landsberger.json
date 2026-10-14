@@ -1,0 +1,408 @@
+{
+  "source": "RadlNavi production API",
+  "retrieved_date_utc": "2026-10-13",
+  "api_version": {
+    "backend": "2.3.4",
+    "backendCommit": "b63e04928e77358e98da9b573135d50ca5a5fb0d",
+    "routing": "2.3.4",
+    "routingCommit": "11482f35d84a221583fbe0be794a5bd4fe2c6719",
+    "osrm": "26.6.5"
+  },
+  "request": "https://api.radlnavi.munichways.de/route/v1/bike/11.537721,48.138255;11.538348,48.140515?alternatives=false&steps=true&annotations=nodes,distance&variant=standard&geometries=geojson&overview=full&continue_straight=default",
+  "response": {
+    "code": "Ok",
+    "waypoints": [
+      {
+        "hint": "YMkmgCXKJoB0AQAACgAAAAAAAAAAAAAAWp0lQweBgUAAAAAAAAAAACkBAAAIAAAAAAAAAAAAAADBAgAANw2wAA-I3gI5DbAAD4jeAgAAvwsAAAAA",
+        "location": [
+          11.537719,
+          48.138255
+        ],
+        "name": "Bergmannstraße",
+        "distance": 0.1488898057
+      },
+      {
+        "hint": "Xc0mgGrNJoAHAAAADgAAAAAAAAAAAAAAkeNdQO8AukAAAAAAAAAAAAYAAAALAAAAAAAAAAAAAADBAgAAsQ-wAOOQ3gKsD7AA45DeAgAAXwAAAAAA",
+        "location": [
+          11.538353,
+          48.140515
+        ],
+        "name": "Philipp-Loewenfeld-Straße",
+        "distance": 0.3722245144
+      }
+    ],
+    "routes": [
+      {
+        "legs": [
+          {
+            "annotation": {
+              "nodes": [
+                13197406243,
+                893260784,
+                12089550644,
+                9344476701,
+                9344476700,
+                9344476699,
+                9344476698,
+                446252847,
+                1099906516,
+                10170087691,
+                2464420219,
+                2465752921
+              ],
+              "distance": [
+                165.6146556,
+                6.659100906,
+                8.681303081,
+                4.69140778,
+                4.920155691,
+                2.906307061,
+                4.248868302,
+                6.070500642,
+                52.04825332,
+                10.94661815,
+                3.467014599
+              ]
+            },
+            "duration": 73.6,
+            "summary": "Bergmannstraße, Philipp-Loewenfeld-Straße",
+            "weight": 116.9,
+            "distance": 270.3,
+            "steps": [
+              {
+                "intersections": [
+                  {
+                    "classes": [
+                      "road"
+                    ],
+                    "out": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      8
+                    ],
+                    "location": [
+                      11.537719,
+                      48.138255
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.537719,
+                      48.138255
+                    ],
+                    [
+                      11.538028,
+                      48.13973
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 8,
+                  "bearing_before": 0,
+                  "location": [
+                    11.537719,
+                    48.138255
+                  ],
+                  "type": "depart"
+                },
+                "name": "Bergmannstraße",
+                "mode": "cycling",
+                "weight": 45.3,
+                "duration": 33.7,
+                "distance": 165.6
+              },
+              {
+                "intersections": [
+                  {
+                    "out": 1,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      false
+                    ],
+                    "bearings": [
+                      15,
+                      90,
+                      195,
+                      270
+                    ],
+                    "location": [
+                      11.538028,
+                      48.13973
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      90,
+                      195,
+                      270
+                    ],
+                    "location": [
+                      11.538117,
+                      48.139724
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      0,
+                      90,
+                      270
+                    ],
+                    "location": [
+                      11.538233,
+                      48.139716
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      false
+                    ],
+                    "bearings": [
+                      0,
+                      90,
+                      180,
+                      270
+                    ],
+                    "location": [
+                      11.538239,
+                      48.139758
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "road"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      false,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      15,
+                      90,
+                      180,
+                      270
+                    ],
+                    "location": [
+                      11.538256,
+                      48.139866
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.538028,
+                      48.13973
+                    ],
+                    [
+                      11.538117,
+                      48.139724
+                    ],
+                    [
+                      11.538233,
+                      48.139716
+                    ],
+                    [
+                      11.538239,
+                      48.139758
+                    ],
+                    [
+                      11.538246,
+                      48.139802
+                    ],
+                    [
+                      11.53825,
+                      48.139828
+                    ],
+                    [
+                      11.538256,
+                      48.139866
+                    ],
+                    [
+                      11.538268,
+                      48.13992
+                    ],
+                    [
+                      11.538334,
+                      48.140386
+                    ],
+                    [
+                      11.538348,
+                      48.140484
+                    ],
+                    [
+                      11.538353,
+                      48.140515
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 95,
+                  "bearing_before": 7,
+                  "location": [
+                    11.538028,
+                    48.13973
+                  ],
+                  "modifier": "right",
+                  "type": "turn"
+                },
+                "name": "",
+                "mode": "cycling",
+                "weight": 71.6,
+                "duration": 39.9,
+                "distance": 104.6
+              },
+              {
+                "intersections": [
+                  {
+                    "in": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      186
+                    ],
+                    "location": [
+                      11.538353,
+                      48.140515
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.538353,
+                      48.140515
+                    ],
+                    [
+                      11.538353,
+                      48.140515
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 0,
+                  "bearing_before": 6,
+                  "location": [
+                    11.538353,
+                    48.140515
+                  ],
+                  "type": "arrive"
+                },
+                "name": "Philipp-Loewenfeld-Straße",
+                "mode": "cycling",
+                "weight": 0,
+                "duration": 0,
+                "distance": 0
+              }
+            ]
+          }
+        ],
+        "weight_name": "cyclability",
+        "geometry": {
+          "coordinates": [
+            [
+              11.537719,
+              48.138255
+            ],
+            [
+              11.538028,
+              48.13973
+            ],
+            [
+              11.538117,
+              48.139724
+            ],
+            [
+              11.538233,
+              48.139716
+            ],
+            [
+              11.538239,
+              48.139758
+            ],
+            [
+              11.538246,
+              48.139802
+            ],
+            [
+              11.53825,
+              48.139828
+            ],
+            [
+              11.538256,
+              48.139866
+            ],
+            [
+              11.538268,
+              48.13992
+            ],
+            [
+              11.538334,
+              48.140386
+            ],
+            [
+              11.538348,
+              48.140484
+            ],
+            [
+              11.538353,
+              48.140515
+            ]
+          ],
+          "type": "LineString"
+        },
+        "weight": 116.9,
+        "duration": 73.6,
+        "distance": 270.3
+      }
+    ]
+  }
+}

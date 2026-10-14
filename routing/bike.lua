@@ -30,6 +30,9 @@ function setup()
   return {
     properties = {
       u_turn_penalty                = 20,
+      -- Keep short, distinct decisions visible. OSRM's default (30 m) merges
+      -- the right/left turns at Bergmannstraße/Landsberger Straße into one step.
+      max_collapse_distance         = 0,
       traffic_light_penalty         = 6,
       weight_name                   = 'cyclability',
       --weight_name                   = 'duration',

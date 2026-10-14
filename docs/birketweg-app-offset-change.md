@@ -1,5 +1,10 @@
 # Birketweg: gezielter Rückbau der App-Paarunterdrückung
 
+Aktualisierung 13.10.2026: Dieser Text dokumentiert die damalige
+Verdachtslage. Der Nutzer hat die Ansagen nach Korrektur einer fehlerhaften
+temporären Testinstallation erneut geprüft und als korrekt bestätigt.
+Aus diesem Dokument allein folgt kein weiterer App-Patch.
+
 Stand: 27.09.2026. Status: **Änderung vorbereitet, nicht in Flutter angewandt.**
 Ergänzt den [Gesamtplan](osrm-standard-guidance-plan.md).
 

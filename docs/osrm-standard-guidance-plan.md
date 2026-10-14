@@ -1,7 +1,18 @@
 # OSRM-Standard als Basis für Routing und Ansagen
 
+Aktualisierung 13.10.2026: Die zuvor als fehlerhaft beobachteten Ansagen
+bei ZOB und Maffeistraße wurden nach einer fehlerhaften temporären
+Testinstallation erneut geprüft und waren korrekt. Der Fall
+Schrammerstraße/Hofgraben wurde inzwischen in OSM geändert. Frühere
+Fehlervermutungen und Patch-Vorschläge unten sind historisch und dürfen
+nicht ohne neue Reproduktion umgesetzt werden. Der jetzt bestätigte
+Einzelfall ist die [fehlende Linksansage an der Landsberger Straße](bergmann-landsberger-guidance-analysis-2026-10-13.md).
+Eine lokale OSRM-Profiländerung und ein CI-Routentest für diesen Fall sind
+inzwischen vorbereitet; andere historische Patch-Vorschläge bleiben offen.
+
 Stand: 26.09.2026, ergänzt um Lenbachplatz und eine Prüfansicht im Webfrontend.
-Die beschriebenen Routing- und Flutter-Regeln wurden nicht geändert.
+Die in diesem historischen Stand beschriebenen Routing- und Flutter-Regeln
+waren damals noch nicht geändert.
 
 ## Praktische Prüfmöglichkeit
 

@@ -5,7 +5,7 @@ const FRONTEND_URL = "https://radlnavi.munichways.de";
 
 module.exports = function setupProxy(app) {
   app.use(
-    ["/route", "/tag_distribution", "/version"],
+    ["/route", "/tag_distribution", "/version", "/shared_routes"],
     createProxyMiddleware({
       target: API_URL,
       changeOrigin: true,

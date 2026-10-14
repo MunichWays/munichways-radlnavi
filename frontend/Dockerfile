@@ -46,6 +46,7 @@ ENV PORT 80
 
 COPY --from=map-builder public/layers /var/www/html/layers
 COPY --from=app-builder build /var/www/html
+COPY nginx-route-sharing.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 

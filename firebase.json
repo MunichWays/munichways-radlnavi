@@ -5,9 +5,9 @@
       "public": "firebase-public",
       "ignore": [
         "firebase.json",
-        "**/.*",
         "**/node_modules/**"
       ],
+      "headers": [{"source": "/.well-known/**", "headers": [{"key": "Content-Type", "value": "application/json"}]}],
       "rewrites": [
         {
           "source": "**",

@@ -1,8 +1,9 @@
 // @ts-nocheck
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
+import { withCompactPlaceName } from "./placeName";
 import { coordinateSuggestion } from "./coordinateSuggestion";
-import { fetchRoute, fetchRouteAnalysis } from "./routingRequests";
+import { fetchRoute, fetchRouteAnalysis, normalizeRouteResponse } from "./routingRequests";
 import { routeDisplaySections, withoutPushing } from "./routeDisplay";
 import RouteInspector from './RouteInspector';
 import {
@@ -26,7 +27,9 @@ import RotatedMarker from './RotatedMarker';
 import textInstructions from 'osrm-text-instructions';
 import "leaflet.vectorgrid";
 
-const togpx = require("togpx");
+import RouteStops from './RouteStops';
+import RouteShare from './RouteShare';
+import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
 const ROUTE_BLUE = "#0057D9";
@@ -140,10 +143,11 @@ async function geocode(value: string): Promise<Array<NominatimItem>> {
     const response = await fetch(
       `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
         value
-      )}&format=json&viewbox=${SOUTH_WEST.lng},${SOUTH_WEST.lat},${NORTH_EAST.lng
+      )}&format=jsonv2&addressdetails=1&viewbox=${SOUTH_WEST.lng},${SOUTH_WEST.lat},${NORTH_EAST.lng
       },${NORTH_EAST.lat}&bounded=1`
     );
-    return response.json();
+    const places = await response.json();
+    return places.map(withCompactPlaceName);
   } else {
     return [];
   }
@@ -381,6 +385,11 @@ function App() {
     null
   );
   const [endPosition, setEndPosition] = useState<NominatimItem | null>(null);
+  const [stops, setStops] = useState<any[]>([]);
+  const [routeName, setRouteName] = useState('RadlNavi-Route');
+  const [imported, setImported] = useState<any>(null);
+  const [pendingImport, setPendingImport] = useState<any>(null);
+  const [importError, setImportError] = useState('');
   const [route, setRoute] = useState<null | any>();
   const [showRouteInspector, setShowRouteInspector] = useState(false);
   const [inspectedStep, setInspectedStep] = useState<any>(null);
@@ -712,10 +721,10 @@ function App() {
     }
   };
 
-  const calculateRoute = useCallback(async (startPosition, endPosition, signal: AbortSignal) => {
+  const calculateRoute = useCallback(async (startPosition, endPosition, stops, signal: AbortSignal) => {
     try {
       const nextRoute = await fetchRoute(
-        `${process.env.REACT_APP_BACKEND_URL}/route?start_lon=${startPosition.lon}&start_lat=${startPosition.lat}&target_lon=${endPosition.lon}&target_lat=${endPosition.lat}&variant=${routingVariant}`,
+        `${process.env.REACT_APP_BACKEND_URL || ''}/route/v1/bike/${[startPosition, ...stops, endPosition].map(p => `${p.lon},${p.lat}`).join(';')}?variant=${routingVariant}&steps=true&overview=full&geometries=geojson&annotations=nodes,distance&alternatives=false&continue_straight=default`,
         signal);
       if (signal.aborted) return;
       setRoute(nextRoute);
@@ -733,12 +742,37 @@ function App() {
     }
   }, []);
 
-  const exportGpx = useCallback(() => {
-    if (route.geometry != null) {
-      const routeGpx = togpx(route.geometry);
-      download("route.gpx", routeGpx);
-    }
-  }, [route]);
+  const transfer = React.useMemo(() => {
+    if (!route?.response || !startPosition || !endPosition || stops.some(p => !p)) return null;
+    try { return createTransfer(route, [startPosition, ...stops, endPosition], imported?.variant || routingVariant, routeName); }
+    catch (_) { return null; }
+  }, [route, startPosition, endPosition, stops, routeName, imported]);
+  const exportGpx = () => {
+    try {
+      if (transfer) download(gpxFilename(transfer.name), transferGpx(transfer)); else if (imported?.version === 0) download(gpxFilename(routeName), trackGpx(routeName, route.geometry.coordinates));
+    } catch (err) { setImportError(err.message); }
+  };
+  const applyImport = () => {
+    const value = pendingImport;
+    if (!value) return;
+    const plan = value.plan.map((p, i) => ({ display_name: p.name || `Ort ${i + 1}`, place_id: -i - 1, lon: String(p.coordinates[0]), lat: String(p.coordinates[1]) }));
+    setIsNavigating(false); setImported(value); setRouteName(value.name);
+    setStartPosition(plan[0]); setStops(plan.slice(1, -1)); setEndPosition(plan[plan.length - 1]);
+    setPendingImport(null); setImportError('');
+  };
+  useEffect(() => {
+    const id = /^\/r\/([a-zA-Z0-9_-]{22,64})\/?$/.exec(window.location.pathname)?.[1];
+    if (!id) return;
+    const controller = new AbortController();
+    fetch(`${process.env.REACT_APP_BACKEND_URL || ''}/shared_routes/${id}`, { signal: controller.signal })
+      .then(async r => { if (!r.ok) throw new Error(r.status === 404 || r.status === 410 ? 'Dieser Link ist abgelaufen oder nicht mehr verfügbar.' : 'Route konnte nicht geladen werden. Bitte die Seite erneut öffnen.'); return r.json(); })
+      .then(value => { if (!controller.signal.aborted) setPendingImport(validateTransfer(value)); })
+      .catch(err => { if (!controller.signal.aborted) setImportError(err.message); });
+    return () => controller.abort();
+  }, []);
+  useEffect(() => {
+    if (pendingImport && map) map.fitBounds(pendingImport.response.routes[0].geometry.coordinates.map(p => [p[1], p[0]]));
+  }, [pendingImport, map]);
 
   const openContextMenu = useCallback((e: LeafletMouseEvent) => {
     e.originalEvent.preventDefault();
@@ -831,6 +865,14 @@ function App() {
     closeContextMenu();
   }, []);
 
+  const stopHere = (position: { lat: number; lng: number }) => {
+    setStops(previous => previous.length >= MAX_STOPS ? previous : [...previous, {
+      display_name: `[${position.lat.toPrecision(8)}, ${position.lng.toPrecision(8)}]`,
+      place_id: -Date.now(), lat: String(position.lat), lon: String(position.lng),
+    }]);
+    closeContextMenu();
+  };
+
   useEffect(() => {
     if (map != null) {
       map.on("contextmenu", (e: LeafletMouseEvent) => {
@@ -861,11 +903,19 @@ function App() {
     setRoutingError(null);
     setAnalysisError(null);
     setAnalysisLoading(false);
-    setRoutingLoading(Boolean(startPosition && endPosition));
+    setRoutingLoading(Boolean(startPosition && endPosition && stops.every(Boolean)));
     const controller = new AbortController();
+    const plan = [startPosition, ...stops, endPosition];
+    if (imported && plan.every(Boolean) && JSON.stringify(plan.map(p => [Number(p.lon), Number(p.lat)])) === JSON.stringify(imported.plan.map(p => p.coordinates))) {
+      const restored = normalizeRouteResponse(imported.response);
+      setRoute(restored); setRouteMetadata({ distance: restored.distance, duration: restored.duration });
+      setRoutingLoading(false);
+      return () => controller.abort();
+    }
+    if (imported) setImported(null);
     const timer = setTimeout(() => {
-      if (startPosition && endPosition) {
-        void calculateRoute(startPosition, endPosition, controller.signal);
+      if (startPosition && endPosition && stops.every(Boolean)) {
+        void calculateRoute(startPosition, endPosition, stops, controller.signal);
       }
     }, 500);
     return () => {
@@ -875,6 +925,8 @@ function App() {
   }, [
     startPosition,
     endPosition,
+    stops,
+    imported,
   ]);
 
   let surfacesElement = null;
@@ -976,7 +1028,7 @@ function App() {
       <div id="route-duration" className="route-meta">
         <div id="route-duration-key">Geschätzte Dauer</div>
         <div id="route-duration-value">
-          {routeMetadata
+          {routeMetadata && imported?.version !== 0
             ? `${Math.round(routeMetadata.duration / 60)} Minuten`
             : "unbekannt"}
         </div>
@@ -1132,6 +1184,11 @@ function App() {
             >
               Route hierhin
             </Button>
+            <Button color="primary" sx={{ textTransform: "none" }}
+              disabled={stops.length >= MAX_STOPS}
+              onClick={() => stopHere(contextMenuPosition)}>
+              Zwischenziel setzen
+            </Button>
           </div>
         ) : null}
 
@@ -1256,6 +1313,7 @@ function App() {
                             onClick={() => navigator.geolocation.getCurrentPosition(setCurrentPositionAsStart)}><LocationSearching/></IconButton>
               </Tooltip>
             </div>
+            <RouteStops stops={stops} onChange={setStops} />
             <div style={{
               display: 'flex',
             }}>
@@ -1296,12 +1354,24 @@ function App() {
                   const tmp = startPosition;
                   setStartPosition(endPosition);
                   setEndPosition(tmp);
+                  setStops([...stops].reverse());
                 }}><SwapVert></SwapVert></IconButton>
               </Tooltip>
             </div>
             {routingError && <Typography role="alert" color="error" sx={{m: 2}}>{routingError}</Typography>}
             {analysisError && <Typography role="status" sx={{m: 2}}>{analysisError}</Typography>}
             {routingError && <Button onClick={() => setEndPosition({...endPosition})}>Erneut versuchen</Button>}
+            <TextField label="Routenname" value={routeName} onChange={e => setRouteName(e.target.value)} inputProps={{ maxLength: 200 }} size="small" sx={{ m: 1 }} />
+            <Button component="label">GPX importieren
+              <input hidden type="file" accept=".gpx,application/gpx+xml" onChange={async e => {
+                const file = e.target.files?.[0]; e.target.value = '';
+                if (!file) return;
+                try { if (file.size > MAX_TRANSFER_BYTES) throw new Error('GPX-Datei ist zu groß (maximal 4 MB).'); setPendingImport(readTransferGpx(await file.text())); setImportError(''); }
+                catch (err) { setImportError(err.message); }
+              }} />
+            </Button>
+            {importError && <Typography role="alert" color="error" sx={{ m: 2 }}>{importError}</Typography>}
+            {imported && <Typography sx={{ m: 1 }}>Importierte Originalstrecke. Änderungen an den Orten berechnen eine neue Route.</Typography>}
             {routeMetaElement}
             <Button style={{margin: '10px'}} variant="outlined"
               onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
@@ -1311,7 +1381,7 @@ function App() {
                 style={{margin: "0 10px"}}
                 startIcon={<CenterFocusWeak/>}
                 onClick={showFullRoute}>Route anzeigen</Button> : null}
-            {route != null ?
+            {route != null && imported?.version !== 0 ?
                 <Button
                     style={{margin: "10px 10px 0 10px"}}
                     variant="contained"
@@ -1334,12 +1404,13 @@ function App() {
                     variant="outlined"
                     color="primary"
                     onClick={() => exportGpx()}
-                    disabled={route == null}
+                    disabled={!transfer && imported?.version !== 0}
                     startIcon={<Download/>}
                 >
                   GPX herunterladen
                 </Button>
                 : null}
+            <RouteShare transfer={transfer} />
             <div style={{flexGrow: 1}}></div>
             <div style={{display: 'flex', justifyContent: 'center', marginBottom: 5}}>
               <FormControlLabel
@@ -1503,6 +1574,9 @@ function App() {
           rotationAngle={userPosition.heading || 0}
           rotationOrigin={"center center"}
         ></RotatedMarker> : null}
+          {stops.map((p, i) => p && <Marker key={`stop-${i}`} draggable position={[Number(p.lat), Number(p.lon)]}
+            eventHandlers={{ dragend: e => { const pos = e.target.getLatLng(); setStops(stops.map((s, j) => j === i ? { ...s, lat: String(pos.lat), lon: String(pos.lng) } : s)); } }}><Popup>Zwischenziel {i + 1}: {p.display_name}</Popup></Marker>)}
+          {pendingImport && <Polyline color="#0057D9" dashArray="8 6" positions={pendingImport.response.routes[0].geometry.coordinates.map(p => [p[1], p[0]])} />}
           {route != null && startPosition != null && endPosition != null
             ? drawRoute(route)
             : null}
@@ -1529,6 +1603,18 @@ function App() {
           }} onClick={() => routeFromHere(lineToRoute[0])}>Route neu berechnen</Button>
       }
 
+      <Dialog open={Boolean(pendingImport)} onClose={() => setPendingImport(null)}>
+        <DialogTitle>Route übernehmen?</DialogTitle>
+        <DialogContent>{pendingImport && <>
+          <p>{pendingImport.name} · {(pendingImport.response.routes[0].distance / 1000).toFixed(1)} km · {pendingImport.plan.length - 2} Zwischenziele</p>
+          <p>Die gestrichelte Linie zeigt die Originalstrecke. {pendingImport.version === 1 ? 'Die Route enthält Abbiegehinweise.' : 'Track ohne Abbiegehinweise und Fahrzeit.'}</p>
+          <p>Übernehmen ersetzt die aktuelle Route und beendet eine laufende Navigation.</p>
+          <p>Auf dem Handy: GPX herunterladen und in MunichWays unter „Route importieren“ öffnen.</p>
+          <p>MunichWays installieren: <a href="https://play.google.com/store/apps/details?id=com.munichways.app">Android</a> · <a href="https://apps.apple.com/app/id1534934984">iPhone</a>. Danach diesen Link erneut öffnen.</p>
+          <Button onClick={() => download(gpxFilename(pendingImport.name), pendingImport.version === 1 ? transferGpx(pendingImport) : trackGpx(pendingImport.name, pendingImport.response.routes[0].geometry.coordinates))}>GPX herunterladen</Button>
+        </>}</DialogContent>
+        <DialogActions><Button onClick={() => setPendingImport(null)}>Abbrechen</Button><Button onClick={applyImport}>Übernehmen</Button></DialogActions>
+      </Dialog>
       <RouteInspector open={showRouteInspector} onClose={() => setShowRouteInspector(false)}
         startPosition={startPosition} endPosition={endPosition}
         route={route} variant={routingVariant} onMap={step => {

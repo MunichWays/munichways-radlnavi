@@ -29,7 +29,14 @@ services:
       - APP_VERSION=${VERSION:-local}
       - ROUTING_VERSION=${VERSION:-local}
       - OSRM_VERSION=26.6.5
+      - SHARED_ROUTES_DIR=/opt/app/shared-routes
+      - SHARE_PUBLIC_BASE_URL=http://localhost
+    volumes:
+      - shared-routes:/opt/app/shared-routes
     ports:
       - 8000:8000
     depends_on:
       - routing
+
+volumes:
+  shared-routes:

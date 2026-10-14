@@ -25,6 +25,7 @@ from requests.exceptions import RequestException, Timeout
 
 from src.direct_proxy import DirectRouteProxy
 from src.endpoint_routes import endpoint_route
+from src.shared_routes import router as shared_routes_router
 
 from src.route_analysis import (
     AnalysisLeg,
@@ -123,6 +124,7 @@ async def lifespan(_: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.include_router(shared_routes_router)
 
 app.add_middleware(
     CORSMiddleware,

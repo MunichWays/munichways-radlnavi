@@ -1,14 +1,23 @@
+
+im VS code Terminal oder powershell
+cd C:\Users\Thomas\dev\munichways-radlnavi
+
 docker compose build backend routing
 # compose.yaml enthält die Standarddienste; compose.direct.yaml ergänzt Direkt
+# build alles:
 docker compose -f compose.yaml -f compose.direct.yaml build direct-routing
+# starte alles
 docker compose -f compose.yaml -f compose.direct.yaml up --no-build
 
 ------------------------------
 
-
+# build alles ohne direct-routing
 docker compose --parallel 1 build routing backend frontend
+# build alles:
 docker compose -f compose.yaml -f compose.direct.yaml build direct-routing
+# starte alles, plus build?
 docker compose -f compose.yaml -f compose.direct.yaml up -d
+# starte alles, --no-deps ?
 docker compose -f compose.yaml -f compose.direct.yaml up -d --no-deps direct-routing
 
 Der letzte Befehl startet Standard und Direkt gemeinsam, einschließlich Frontend. compose.yaml enthält die Standarddienste; compose.direct.yaml ergänzt Direkt. Ein zusätzlicher Standard-Start ist daher nicht nötig.

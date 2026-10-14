@@ -78,3 +78,19 @@ jobs:
             done
           done
           python routing/tests/test_endpoint_access.py
+      - name: Bergmannstraße crossing guidance
+        run: |
+          fixture=tests/fixtures/bergmann-landsberger-2026-10-13.osm
+          docker build --build-arg FIXTURE="$fixture" -t bergmann-standard -f routing/tests/Dockerfile routing
+          docker build --build-arg FIXTURE="$fixture" --build-arg ROUTING_PROFILE=direct -t bergmann-direct -f routing/tests/Dockerfile routing
+          docker run -d --name bergmann-standard -p 18087:8080 bergmann-standard
+          docker run -d --name bergmann-direct -p 18088:8080 bergmann-direct
+          for port in 18087 18088; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://localhost:$port/route/v1/bike/11.537721,48.138255;11.538348,48.140515?steps=true&overview=false" > /dev/null; then
+                break
+              fi
+              sleep 1
+            done
+            python routing/tests/test_bergmann_guidance.py --endpoint "http://localhost:$port"
+          done

@@ -3,9 +3,12 @@
 ## Routing- und Ansageanalyse
 
 Die [Analyse zur OSRM-Standardbasis](../docs/osrm-standard-guidance-plan.md)
-dokumentiert konkrete Münchner Problemstellen, produktive Rohantworten,
-die Zuständigkeiten von Routing und App sowie einen Arbeitsplan für eine
-spätere Umsetzung. Sie verändert das aktuelle Routing-Verhalten nicht.
+dokumentiert konkrete Münchner Problemstellen und die Zuständigkeiten von
+Routing und App. Für die [Bergmannstraße/Landsberger Straße](../docs/bergmann-landsberger-guidance-analysis-2026-10-13.md)
+setzt `bike.lua` die OSRM-Zusammenfassungsgrenze für kurze Manöver auf 0 m;
+`direct.lua` übernimmt sie. So bleibt das Linksabbiegen 15,3 m nach dem
+Rechtsabbiegen als eigener Step erhalten. Der Routing-Graph muss dafür neu
+mit `osrm-extract`, `osrm-partition` und `osrm-customize` gebaut werden.
 
 This is the routing backend for [radlnavi.de](https://www.radlnavi.de).
 

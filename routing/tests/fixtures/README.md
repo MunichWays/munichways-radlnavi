@@ -1,4 +1,19 @@
-# Munich one-way regression map
+# Routing regression fixtures
+
+## Bergmannstraße/Landsberger Straße guidance
+
+`bergmann-landsberger-2026-10-13.osm` was downloaded on 2026-10-13 from the
+[OpenStreetMap map API](https://api.openstreetmap.org/api/0.6/map?bbox=11.53755,48.1381,11.5386,48.1407).
+Contributor metadata was removed; coordinates, ways and tags remain unchanged.
+The exact route from Bergmannstraße across Landsberger Straße has a right turn
+followed 15.3 m later by a left turn onto the cycleway crossing. With OSRM's
+default `max_collapse_distance` of 30 m the second maneuver disappears.
+`test_bergmann_guidance.py` checks that Standard and Direct keep both turns.
+
+Data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright),
+available under the Open Database License (ODbL).
+
+## Munich one-way regression map
 
 `munich-oneway.osm` was obtained on 2026-09-11 from the OpenStreetMap map API,
 bounding box `11.554,48.140,11.572,48.144` (longitude/latitude).

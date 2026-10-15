@@ -52,7 +52,8 @@ export default function RouteShare({ transfer }: { transfer: RouteTransfer | nul
         {busy && <p role="status">Link wird erstellt …</p>}
         {link && <>
           <img src={qr} alt="QR-Code zum Öffnen dieser Route" width={280} height={280} />
-          <p>Mit der Handykamera scannen. Anschließend in MunichWays prüfen und speichern.</p>
+          <p>In der MunichWays App „Route“ → „Route importieren“ → „QR-Code scannen“ wählen. Anschließend die Route prüfen und speichern.</p>
+          <p>Alternativ den Teilen-Link in der App unter „Route importieren“ einfügen.</p>
           <TextField label="Teilen-Link" value={link} fullWidth InputProps={{ readOnly: true }} />
           <Button onClick={async () => { try { await navigator.clipboard.writeText(link); } catch (_) { setError('Bitte den Link im Textfeld markieren und kopieren.'); } }}>Link kopieren</Button>
           <p>Gültig bis {new Date(expires).toLocaleDateString('de-DE')}. Die in der App gespeicherte Kopie bleibt erhalten.</p>

@@ -749,7 +749,7 @@ function App() {
   }, [route, startPosition, endPosition, stops, routeName, imported]);
   const exportGpx = () => {
     try {
-      if (transfer) download(gpxFilename(transfer.name), transferGpx(transfer)); else if (imported?.version === 0) download(gpxFilename(routeName), trackGpx(routeName, route.geometry.coordinates));
+      if (transfer) download(gpxFilename(transfer.name), transferGpx(transfer)); else if (imported?.version === 0) download(gpxFilename(routeName), trackGpx(routeName, route.geometry.coordinates, imported.plan));
     } catch (err) { setImportError(err.message); }
   };
   const applyImport = () => {
@@ -1599,7 +1599,7 @@ function App() {
           <p>Importierte Originalstrecke: Änderungen an den Orten berechnen eine neue Route.</p>
           <p>GPX herunterladen und in der MunichWays App importieren.</p>
           <p>MunichWays installieren: <a href="https://play.google.com/store/apps/details?id=com.munichways.app">Android</a> · <a href="https://apps.apple.com/app/id1534934984">iPhone</a>.</p>
-          <Button onClick={() => download(gpxFilename(pendingImport.name), pendingImport.version === 1 ? transferGpx(pendingImport) : trackGpx(pendingImport.name, pendingImport.response.routes[0].geometry.coordinates))}>GPX herunterladen</Button>
+          <Button onClick={() => download(gpxFilename(pendingImport.name), pendingImport.version === 1 ? transferGpx(pendingImport) : trackGpx(pendingImport.name, pendingImport.response.routes[0].geometry.coordinates, pendingImport.plan))}>GPX herunterladen</Button>
         </>}</DialogContent>
         <DialogActions><Button onClick={() => setPendingImport(null)}>Abbrechen</Button><Button onClick={applyImport}>Übernehmen</Button></DialogActions>
       </Dialog>

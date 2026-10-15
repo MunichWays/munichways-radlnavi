@@ -5,8 +5,8 @@ export async function fetchRoute(url: string, signal: AbortSignal) {
     throw new Error(`Routing HTTP ${response.status}`);
   }
   const result = await response.json();
-  const route = result?.route;
-  if (result?.ok !== true || !route ||
+  const route = normalizeRouteResponse(result);
+  if (!(result?.ok === true || result?.code === 'Ok') || !route ||
       route.geometry?.type !== "LineString" ||
       !Array.isArray(route.geometry.coordinates) ||
       route.geometry.coordinates.length < 2 ||
@@ -18,6 +18,20 @@ export async function fetchRoute(url: string, signal: AbortSignal) {
     throw new Error("Invalid routing response");
   }
   return route;
+}
+
+export function normalizeRouteResponse(result: any) {
+  const raw = result?.routes?.[0];
+  return raw ? { ...raw, response: result,
+    // An intermediate arrival must not look like the final destination to the
+    // existing web navigation. Keep every raw step in response for the app.
+    steps: raw.legs?.flatMap((leg: any, i: number) => (leg.steps || []).filter((step: any) =>
+      i === raw.legs.length - 1 || step.maneuver?.type !== 'arrive')),
+    analysis_legs: raw.legs?.map((leg: any, i: number) => ({
+      nodes: leg.annotation?.nodes, distance: leg.annotation?.distance,
+      start: result.waypoints?.[i]?.location, end: result.waypoints?.[i + 1]?.location,
+    })),
+  } : result?.route;
 }
 
 export async function fetchRouteAnalysis(url: string, route: any,

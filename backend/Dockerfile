@@ -31,7 +31,7 @@ RUN wget https://download.geofabrik.de/europe/germany/bayern/oberbayern-latest.o
     rm ../geo/oberbayern-latest.osm.pbf && \
     rm geo_store.py
 
-COPY src/app.py src/route_analysis.py src/direct_proxy.py src/endpoint_access.py src/endpoint_routes.py src/__init__.py /opt/app/src/
+COPY src/app.py src/route_analysis.py src/direct_proxy.py src/endpoint_access.py src/endpoint_routes.py src/shared_routes.py src/__init__.py /opt/app/src/
 
 WORKDIR /opt/app
 

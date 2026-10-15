@@ -74,9 +74,21 @@
   flex-direction: column;
 }
 
-.routing>div {
-  margin: 10px;
-}
+.planner-panel { padding: 12px; }
+.planner-header { display: flex; align-items: center; gap: 8px; }
+.planner-brands { display: flex; flex: 1; min-width: 0; gap: 12px; }
+.planner-brands img { width: calc(50% - 6px); height: 44px; object-fit: contain; }
+.planner-panel .planner-tagline { font-size: 0.7rem; margin: 4px 0 12px; color: #555; }
+.planner-panel .routing { gap: 12px; }
+.planner-place { display: flex; align-items: center; gap: 4px; }
+.planner-panel .planner-import { align-self: flex-start; padding-left: 0; }
+.route-stops, .planner-actions, .planner-more-content { display: flex; flex-direction: column; gap: 8px; }
+.stop-actions { display: flex; align-items: center; justify-content: space-between; }
+.planner-more { border-top: 1px solid #ddd; padding-top: 8px; }
+.planner-more summary { cursor: pointer; padding: 8px 0; font-weight: 600; }
+.planner-more-content { padding: 4px 0 8px; gap: 12px; }
+.planner-more-content > button { text-align: left; align-self: flex-start; }
+.planner-versions { font-size: 0.7rem; color: #555; overflow-wrap: anywhere; }
 
 .surfaces {
   margin-top: 0;
@@ -97,7 +109,9 @@
 }
 
 .route-meta-heading {
-  font-size: 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .loading {

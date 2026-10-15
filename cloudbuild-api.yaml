@@ -51,11 +51,24 @@ steps:
           --allow-unauthenticated \
           --min-instances=0 \
           --max-instances=2 \
-          --memory=512Mi \
+          --memory=1Gi \
           --cpu=1 \
           --concurrency=20 \
           --timeout=60 \
-          --update-env-vars="OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=https://radlnavi.munichways.de;https://api.radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app"
+          --update-env-vars="OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},SHARED_ROUTES_BUCKET=$PROJECT_ID-shared-routes,SHARE_PUBLIC_BASE_URL=https://radlnavi.munichways.de,CORS_ORIGINS=https://radlnavi.munichways.de;https://api.radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app"
+
+  # The private bucket and API bucket permissions are a one-time prerequisite:
+  # backend/configure_route_sharing.ps1. Do not grant storage-admin to the builder.
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: verify-route-sharing
+    waitFor: [deploy-api]
+    dir: source
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        api_url="$$(gcloud run services describe '${_API_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
+        python3 backend/check_route_sharing_deployment.py --endpoint="$${api_url}"
 
   - name: gcr.io/google.com/cloudsdktool/cloud-sdk
     id: refresh-direct-api

@@ -1,5 +1,46 @@
 # GPX-Routenübergabe: geprüfter Stand
 
+## Nachbesserungen RadlNavi am 15. Oktober 2026
+
+Der Live-Linkfehler wurde als HTTP 503 mit `Route sharing is not configured`
+reproduziert. In der API fehlten `SHARED_ROUTES_BUCKET` und
+`SHARE_PUBLIC_BASE_URL`; der private Bucket existierte noch nicht. Die einmalige
+Einrichtung wurde ausgeführt: Bucket in `europe-west3`, 90-Tage-Löschregel für
+`routes/`, Objektzugriff für das bestehende API-Dienstkonto. Beim ersten Lauf
+wurde zudem ein Windows-PowerShell-Fehler im Einrichtungsskript behoben: Ein
+404 beim Prüfen des noch fehlenden Buckets brach bisher vor dessen Erstellung ab.
+
+Live geprüft wurden Linkerstellung (201), CORS für die Web-Domain, unverändertes
+Zurücklesen (200), der Domainname des Links und das Ablaufdatum nach 90 Tagen.
+Die ausschließlich hierfür erzeugten synthetischen Testobjekte wurden entfernt.
+Die neue Deployment-Prüfung bestätigt zusätzlich lesend den Speicherzugriff.
+Cloud Build setzt künftig die Sharing-Konfiguration ausdrücklich und meldet
+einen fehlenden Speicherzugriff als Deploymentfehler.
+
+Das Planungsfenster wurde kompakter angeordnet und erhält einen gemeinsamen
+Scrollbereich einschließlich Kopf. GPX-Import steht über dem Start;
+„Entfernen“ steht links. Zusatzfunktionen liegen im aufklappbaren „Mehr“.
+Der Hinweis zur importierten Originalstrecke steht nur noch im gekürzten
+Übernahmedialog. Ein Integrationstest bestätigt Import und unveränderte
+Übernahme ohne neue Routinganfrage.
+
+Backend: 86 Tests bestanden. Frontend: 51 Tests bestanden. Nach Korrektur eines
+TypeScript-Typfehlers in der neuen Testabfrage wurden die vier Import-/Routing-
+Integrationstests erneut erfolgreich ausgeführt. Der Produktionsbuild ist
+erfolgreich; bestehende ESLint-/Browserslist-Hinweise bleiben sichtbar.
+Die Cloud-Build-YAML wurde syntaktisch geprüft; der Deployment-Lesecheck besteht
+gegen die Live-API. Der Bucket hat Public Access Prevention und einheitlichen
+IAM-Zugriff aktiviert.
+Eine Sichtprüfung im Browser war nicht verfügbar (keine verbundene
+Browseroberfläche). Es wurden keine App-, Flutter- oder Geräteaktionen gestartet.
+Die Oberflächenänderungen sind für den Live-Test über die Backend- und Frontend-
+Workflows aus `feature/gpx-route-transfer` vorbereitet; ein Routing-Deployment
+ist dafür nicht erforderlich. Beide API-Dienste wurden live auf 1 GiB RAM
+gesetzt. Die Deployment-Dateien schreiben jeweils `--memory=1Gi` fest; der
+separate Direkt-Routing-Dienst bleibt bei 2 GiB.
+
+## Vorheriger Prüfstand
+
 14. Oktober 2026, Feature-Branch `feature/gpx-route-transfer` in Web/Backend und App.
 Android-Testbuild **65**, App-Version 3.2.1+79; RadlNavi 2.3.5.
 

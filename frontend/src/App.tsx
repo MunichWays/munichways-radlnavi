@@ -1253,29 +1253,37 @@ function App() {
             {illuminatedElement}
           </div> : null}
 
-        <Drawer sx={{".MuiDrawer-paper": {overflow: "visible", width: "min(360px, 100vw)"}, width: menuMinimized ? 0 : 360, flexShrink: 0}}
+        <Drawer sx={{".MuiDrawer-paper": {overflowY: "auto", overflowX: "hidden", display: "block", width: "min(360px, 100vw)"}, width: menuMinimized ? 0 : "min(360px, 100vw)", flexShrink: 0}}
                 variant="persistent" anchor="left" open={!menuMinimized} onClose={() => setMenuMinimized(true)}
                 onOpen={() => setMenuMinimized(false)}>
 
-          <IconButton aria-label="Menü ausblenden" onClick={() => setMenuMinimized(true)}
-                      style={{position: "absolute", top: 8, right: 8, zIndex: 1, background: "white"}}>
-            <MenuOpen />
-          </IconButton>
-
-          <img src="logo.svg" width="320" height="80" alt="RadlNavi Logo" style={{margin: "10px auto"}}></img>
-          <img src="logo-munichways.svg" width="320" height="80" alt="MunichWays Logo" style={{margin: "10px auto"}}></img>
-          <div style={{margin: "-7px 5px 7px 5px", display: "flex", alignItems: "center", flexDirection: "column"}}>
-            <Typography style={{fontSize: "0.7rem"}}>Fahrradnavigation für München und Umgebung</Typography>
-            <Link style={{fontSize: "0.7rem", cursor: "pointer"}} onClick={() => setShowAbout(true)}>Wie macht RadlNavi
-              meine Fahrradfahrt entspannter?</Link>
-          </div>
-          <div className="routing" style={{flex: 1, overflowY: 'auto'}}>
+          <div className="planner-panel">
+          <header className="planner-header">
+            <div className="planner-brands">
+              <img src="logo.svg" alt="RadlNavi Logo" />
+              <img src="logo-munichways.svg" alt="MunichWays Logo" />
+            </div>
+            <IconButton aria-label="Menü ausblenden" size="small" onClick={() => setMenuMinimized(true)}>
+              <MenuOpen />
+            </IconButton>
+          </header>
+          <Typography className="planner-tagline">Fahrradnavigation für München und Umgebung</Typography>
+          <div className="routing">
             {routingVariant === "direct" && (
               <Typography role="status" style={{padding: "8px 16px", fontWeight: "bold", background: "#e3f2fd"}}>
                 Direkte Route (Testmodus)
               </Typography>
             )}
-            <div style={{display: 'flex', marginTop: 20}}>
+            <Button component="label" className="planner-import" size="small">GPX importieren
+              <input hidden type="file" accept=".gpx,application/gpx+xml" onChange={async e => {
+                const file = e.target.files?.[0]; e.target.value = '';
+                if (!file) return;
+                try { if (file.size > MAX_TRANSFER_BYTES) throw new Error('GPX-Datei ist zu groß (maximal 4 MB).'); setPendingImport(readTransferGpx(await file.text())); setImportError(''); }
+                catch (err) { setImportError(err.message); }
+              }} />
+            </Button>
+            {importError && <Typography role="alert" color="error" sx={{ m: 2 }}>{importError}</Typography>}
+            <div className="planner-place">
               <Autocomplete
                   id="start"
                   filterOptions={(x) => x}
@@ -1297,7 +1305,8 @@ function App() {
                   getOptionLabel={(option: NominatimItem | null) =>
                       !option ? "" : option.display_name
                   }
-                  style={{width: 300}}
+                  size="small"
+                  sx={{ flex: 1, minWidth: 0 }}
                   noOptionsText={"Für Vorschläge Adresse eingeben ..."}
                   renderInput={(params) => (
                       <TextField
@@ -1314,9 +1323,7 @@ function App() {
               </Tooltip>
             </div>
             <RouteStops stops={stops} onChange={setStops} />
-            <div style={{
-              display: 'flex',
-            }}>
+            <div className="planner-place">
               <Autocomplete
                   id="end"
                   filterOptions={(x) => x}
@@ -1338,7 +1345,8 @@ function App() {
                   getOptionLabel={(option: NominatimItem | null) =>
                       !option ? "" : option.display_name
                   }
-                  style={{width: 300}}
+                  size="small"
+                  sx={{ flex: 1, minWidth: 0 }}
                   noOptionsText={"Für Vorschläge Adresse eingeben ..."}
                   renderInput={(params) => (
                       <TextField
@@ -1361,75 +1369,55 @@ function App() {
             {routingError && <Typography role="alert" color="error" sx={{m: 2}}>{routingError}</Typography>}
             {analysisError && <Typography role="status" sx={{m: 2}}>{analysisError}</Typography>}
             {routingError && <Button onClick={() => setEndPosition({...endPosition})}>Erneut versuchen</Button>}
-            <TextField label="Routenname" value={routeName} onChange={e => setRouteName(e.target.value)} inputProps={{ maxLength: 200 }} size="small" sx={{ m: 1 }} />
-            <Button component="label">GPX importieren
-              <input hidden type="file" accept=".gpx,application/gpx+xml" onChange={async e => {
-                const file = e.target.files?.[0]; e.target.value = '';
-                if (!file) return;
-                try { if (file.size > MAX_TRANSFER_BYTES) throw new Error('GPX-Datei ist zu groß (maximal 4 MB).'); setPendingImport(readTransferGpx(await file.text())); setImportError(''); }
-                catch (err) { setImportError(err.message); }
-              }} />
-            </Button>
-            {importError && <Typography role="alert" color="error" sx={{ m: 2 }}>{importError}</Typography>}
-            {imported && <Typography sx={{ m: 1 }}>Importierte Originalstrecke. Änderungen an den Orten berechnen eine neue Route.</Typography>}
+            <TextField label="Routenname" value={routeName} onChange={e => setRouteName(e.target.value)} inputProps={{ maxLength: 200 }} size="small" />
             {routeMetaElement}
-            <Button style={{margin: '10px'}} variant="outlined"
-              onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
-            {route && map ? <Button
-                variant="contained"
-                color="primary"
-                style={{margin: "0 10px"}}
-                startIcon={<CenterFocusWeak/>}
+            {route && map ? <Button variant="contained" startIcon={<CenterFocusWeak/>}
                 onClick={showFullRoute}>Route anzeigen</Button> : null}
-            {route != null && imported?.version !== 0 ?
-                <Button
-                    style={{margin: "10px 10px 0 10px"}}
-                    variant="contained"
-                    color="primary"
-                    onClick={() => startNavigation()}
-                    disabled={route == null}
-                    startIcon={<PlayArrow/>}
-                >
-                  Navigation starten
-                </Button>
-                : null}
-            {(routingLoading || analysisLoading) ?
-                <LinearProgress sx={{height: 10, borderRadius: 4, margin: "10px"}}/> : null}
+            {(routingLoading || analysisLoading) ? <LinearProgress sx={{height: 4, borderRadius: 4}}/> : null}
             {comfortElement}
-            {surfacesElement}
-            {illuminatedElement}
-            {route != null ?
-                <Button
-                    style={{margin: "0 10px"}}
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => exportGpx()}
-                    disabled={!transfer && imported?.version !== 0}
-                    startIcon={<Download/>}
-                >
-                  GPX herunterladen
-                </Button>
-                : null}
-            <RouteShare transfer={transfer} />
-            <div style={{flexGrow: 1}}></div>
-            <div style={{display: 'flex', justifyContent: 'center', marginBottom: 5}}>
-              <FormControlLabel
-                  control={<Switch checked={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
-                  label="Bewertungen"/>
+            <div className="planner-actions">
+              {route != null ? <Button variant="outlined" onClick={exportGpx}
+                  disabled={!transfer && imported?.version !== 0} startIcon={<Download/>}>
+                GPX herunterladen
+              </Button> : null}
+              <RouteShare transfer={transfer} />
             </div>
-            <div style={{fontSize: '0.75rem', margin: "0 auto 15px auto", textAlign: 'center'}}>
-              <Link style={{cursor: "pointer"}} onClick={() => setShowImpressum(true)}>Impressum und
-                Datenschutzerklärung</Link><br/>
-              <div style={{padding: 2}}></div>
-              <span style={{fontWeight: 'bold'}}>Versionen: </span>
-              <VersionLink label="FE" version={process.env.REACT_APP_VERSION || "local"}
-                           commit={process.env.REACT_APP_COMMIT}/>
-              {versionInfo == null ? <span> · BE/Routing werden geladen</span> : <>
-                <span> · </span><VersionLink label="BE" version={versionInfo.backend} commit={versionInfo.backendCommit}/>
-                <span> · </span><VersionLink label="Routing" version={versionInfo.routing} commit={versionInfo.routingCommit}/>
-                <span> · OSRM {versionInfo.osrm}</span>
-              </>}
-            </div>
+            <details className="planner-more">
+              <summary>Mehr</summary>
+              <div className="planner-more-content">
+                <Button variant="outlined" onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
+                {route != null && imported?.version !== 0 ? <Button variant="outlined"
+                    onClick={startNavigation} startIcon={<PlayArrow/>}>Navigation starten</Button> : null}
+                {surfacesElement && <section aria-label="Untergrund">
+                  <Typography variant="subtitle2">Untergrund</Typography>
+                  {surfacesElement}
+                </section>}
+                {illuminatedElement && <section aria-label="Beleuchtung">
+                  <Typography variant="subtitle2">Beleuchtung</Typography>
+                  {illuminatedElement}
+                </section>}
+                <FormControlLabel sx={{m: 0}}
+                    control={<Switch size="small" checked={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
+                    label="Bewertungen"/>
+                <Link component="button" underline="hover" onClick={() => setShowAbout(true)}>
+                  Über RadlNavi
+                </Link>
+                <Link component="button" underline="hover" onClick={() => setShowImpressum(true)}>
+                  Impressum und Datenschutzerklärung
+                </Link>
+                <div className="planner-versions">
+                  <strong>Versionen: </strong>
+                  <VersionLink label="FE" version={process.env.REACT_APP_VERSION || "local"}
+                               commit={process.env.REACT_APP_COMMIT}/>
+                  {versionInfo == null ? <span> · BE/Routing werden geladen</span> : <>
+                    <span> · </span><VersionLink label="BE" version={versionInfo.backend} commit={versionInfo.backendCommit}/>
+                    <span> · </span><VersionLink label="Routing" version={versionInfo.routing} commit={versionInfo.routingCommit}/>
+                    <span> · OSRM {versionInfo.osrm}</span>
+                  </>}
+                </div>
+              </div>
+            </details>
+          </div>
           </div>
         </Drawer>
 
@@ -1606,11 +1594,11 @@ function App() {
       <Dialog open={Boolean(pendingImport)} onClose={() => setPendingImport(null)}>
         <DialogTitle>Route übernehmen?</DialogTitle>
         <DialogContent>{pendingImport && <>
-          <p>{pendingImport.name} · {(pendingImport.response.routes[0].distance / 1000).toFixed(1)} km · {pendingImport.plan.length - 2} Zwischenziele</p>
+          <p>{pendingImport.name} · {(pendingImport.response.routes[0].distance / 1000).toFixed(1)} km · {pendingImport.plan.length - 2} {pendingImport.plan.length === 3 ? 'Zwischenziel' : 'Zwischenziele'}</p>
           <p>Die gestrichelte Linie zeigt die Originalstrecke. {pendingImport.version === 1 ? 'Die Route enthält Abbiegehinweise.' : 'Track ohne Abbiegehinweise und Fahrzeit.'}</p>
-          <p>Übernehmen ersetzt die aktuelle Route und beendet eine laufende Navigation.</p>
-          <p>Auf dem Handy: GPX herunterladen und in MunichWays unter „Route importieren“ öffnen.</p>
-          <p>MunichWays installieren: <a href="https://play.google.com/store/apps/details?id=com.munichways.app">Android</a> · <a href="https://apps.apple.com/app/id1534934984">iPhone</a>. Danach diesen Link erneut öffnen.</p>
+          <p>Importierte Originalstrecke: Änderungen an den Orten berechnen eine neue Route.</p>
+          <p>GPX herunterladen und in der MunichWays App importieren.</p>
+          <p>MunichWays installieren: <a href="https://play.google.com/store/apps/details?id=com.munichways.app">Android</a> · <a href="https://apps.apple.com/app/id1534934984">iPhone</a>.</p>
           <Button onClick={() => download(gpxFilename(pendingImport.name), pendingImport.version === 1 ? transferGpx(pendingImport) : trackGpx(pendingImport.name, pendingImport.response.routes[0].geometry.coordinates))}>GPX herunterladen</Button>
         </>}</DialogContent>
         <DialogActions><Button onClick={() => setPendingImport(null)}>Abbrechen</Button><Button onClick={applyImport}>Übernehmen</Button></DialogActions>

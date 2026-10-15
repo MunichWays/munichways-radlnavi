@@ -101,7 +101,8 @@ Cloudprojekt read-only verifiziert: `munichways-radlnavi-prod`, Region
 gcloud-Projektstandard zeigt auf ein anderes Projekt; Befehle daher immer mit
 explizitem `--project` ausführen.
 
-Nach Veröffentlichung der neuen Backendversion:
+Einmalige Einrichtung nach Veröffentlichung der neuen Backendversion (am
+15. Oktober 2026 für `munichways-radlnavi-prod` ausgeführt und live geprüft):
 
 ```powershell
 backend/configure_route_sharing.ps1 -Project munichways-radlnavi-prod
@@ -114,6 +115,14 @@ flüchtigen Containerspeichers. Lesen nach Ablauf ergibt HTTP 410; bereits
 gelöschte Objekte ergeben HTTP 404. Die API begrenzt Uploadgröße sowie Erstellung
 pro IP/Instanz; diese Grenze ist keine globale, instanzübergreifende Quote.
 
+`cloudbuild-api.yaml` setzt die beiden Sharing-Variablen künftig bei jedem
+API-Deployment und prüft anschließend den Speicherzugriff. Die einmalige
+Bucket-Einrichtung bleibt eine Aufgabe für einen entsprechend berechtigten
+Projektadministrator; das Build-Dienstkonto erhält dafür keine zusätzlichen
+Storage-Admin-Rechte. Der reine Lesecheck erstellt keine Testobjekte. Der
+separate Live-Rundlauf zur Einrichtung prüfte Erstellen, CORS, identisches
+Zurücklesen und 90 Tage Laufzeit; die synthetischen Testobjekte wurden entfernt.
+
 Firebase Hosting muss `firebase-public/.well-known/` veröffentlichen. Der Web-
 Container leitet `/r/<id>` an React weiter. Android-Manifest und iOS-Entitlements
 sind auf `radlnavi.munichways.de/r/` begrenzt. Die AASA-Datei nutzt das vorhandene
@@ -124,8 +133,9 @@ iOS-Team `J9FYFLM2K5` und Bundle `com.munichways.app`.
 SHA-256-Fingerabdruck des tatsächlichen App-Signing-Zertifikats ergänzt werden;
 ein Uploadzertifikat allein genügt dafür nicht. iOS benötigt ein aktualisiertes
 Provisioningprofil mit Associated Domains und eine Prüfung auf macOS/iPhone.
-Konfiguration ist vorbereitet, aber noch nicht veröffentlicht oder auf Geräten
-verifiziert.
+Die Zertifikat-/iOS-Zuordnung ist noch auf Geräten zu verifizieren. Der private
+Routenspeicher und die API-Konfiguration sind eingerichtet; der erfolgreiche
+Live-Dateirundlauf bestätigt noch keine native App-/Universal-Link-Zuordnung.
 
 ## Handyprüfung
 

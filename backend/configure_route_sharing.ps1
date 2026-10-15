@@ -13,8 +13,20 @@ function Invoke-Gcloud([string[]]$Arguments) {
     & gcloud @Arguments
     if ($LASTEXITCODE -ne 0) { throw "gcloud failed: $($Arguments[0])" }
 }
-& gcloud storage buckets describe "gs://$Bucket" --project=$Project --format='value(name)' 2>$null
-if ($LASTEXITCODE -ne 0) {
+# The Windows gcloud.ps1 wrapper writes a missing bucket to PowerShell's error
+# stream. With Stop this used to terminate before reaching the create branch.
+$previousErrorAction = $ErrorActionPreference
+try {
+    $ErrorActionPreference = 'Continue'
+    $description = & gcloud storage buckets describe "gs://$Bucket" --project=$Project --format='value(name)' 2>&1
+    $describeExitCode = $LASTEXITCODE
+} finally {
+    $ErrorActionPreference = $previousErrorAction
+}
+if ($describeExitCode -ne 0 -and "$description" -notmatch '404|not found') {
+    throw "Cannot inspect route bucket: $description"
+}
+if ($describeExitCode -ne 0) {
     Invoke-Gcloud -Arguments @('storage','buckets','create',"gs://$Bucket","--project=$Project","--location=$Region",'--uniform-bucket-level-access','--public-access-prevention')
 }
 Invoke-Gcloud -Arguments @('storage','buckets','update',"gs://$Bucket","--project=$Project",'--public-access-prevention',"--lifecycle-file=$PSScriptRoot/shared-routes-lifecycle.json")

@@ -3,6 +3,7 @@ import { act, fireEvent, render, screen, waitFor } from "@testing-library/react"
 import "@testing-library/jest-dom";
 import { TextEncoder, TextDecoder } from 'util';
 import fixture from './fixtures/route-transfer.json';
+import { transferGpx } from './routeTransfer';
 Object.assign(globalThis, { TextEncoder, TextDecoder });
 
 // Full MUI rendering plus debounced lookup/routing can exceed Jest's 5 s
@@ -12,7 +13,7 @@ jest.setTimeout(15000);
 const mockHandlers: Record<string, Function> = {};
 const mockMap = {
   on: (event: string, handler: Function) => { mockHandlers[event] = handler; },
-  invalidateSize: jest.fn(), setBearing: jest.fn(),
+  invalidateSize: jest.fn(), setBearing: jest.fn(), fitBounds: jest.fn(),
 };
 jest.mock("leaflet.vectorgrid", () => {
   const L = require("leaflet");
@@ -74,6 +75,36 @@ jest.mock("@mui/icons-material", () => Object.fromEntries(
 // App reads the variant once per page load, as it does in the real test mode.
 window.history.replaceState({}, "", "/?variant=direct");
 const App = require("./App").default;
+
+test('GPX import explains original-route behavior only in the preview and keeps the exact route without recalculation', async () => {
+  const original = global.fetch;
+  const requests: string[] = [];
+  global.fetch = jest.fn(async (url: any) => {
+    requests.push(String(url));
+    return { ok: true, status: 200, json: async () => url === '/region.json'
+      ? { features: [{ geometry: { coordinates: [[]] } }] } : {} } as Response;
+  });
+  const log = jest.spyOn(console, 'log').mockImplementation(() => {});
+  try {
+    const { container, unmount } = render(<App />);
+    const file = new File([], 'Tour.gpx');
+    Object.assign(file, { text: async () => transferGpx(fixture as any) });
+    fireEvent.change(container.querySelector('input[type=file]')!, { target: { files: [file] } });
+    const dialog = await screen.findByRole('dialog');
+    expect(dialog).toHaveTextContent('Importierte Originalstrecke: Änderungen an den Orten berechnen eine neue Route.');
+    expect(dialog).toHaveTextContent('GPX herunterladen und in der MunichWays App importieren.');
+    expect(dialog).not.toHaveTextContent('Danach diesen Link erneut öffnen');
+    expect(dialog).not.toHaveTextContent('Übernehmen ersetzt die aktuelle Route');
+    fireEvent.click(screen.getByRole('button', { name: 'Übernehmen' }));
+    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+    expect(screen.queryByText(/Importierte Originalstrecke/)).not.toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Zwischenziel 1' })).toHaveValue(fixture.plan[1].name);
+    expect(screen.getByRole('combobox', { name: 'Zwischenziel 2' })).toHaveValue(fixture.plan[2].name);
+    expect(screen.getByRole('button', { name: 'GPX herunterladen' })).toBeEnabled();
+    expect(requests.some(url => url.includes('/route/v1/'))).toBe(false);
+    unmount();
+  } finally { global.fetch = original; log.mockRestore(); }
+});
 
 test("coordinate selections retain exact start and destination alongside address suggestions", async () => {
   const originalFetch = global.fetch;

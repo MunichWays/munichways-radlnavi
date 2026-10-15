@@ -23,7 +23,7 @@ function Stop({ value, onChange, index }: any) {
     return () => { clearTimeout(timer); controller.abort(); };
   }, [query, value]);
   const choices = value && !options.some(p => p.lat === value.lat && p.lon === value.lon) ? [value, ...options] : options;
-  return <Autocomplete value={value} options={choices} filterOptions={x => x}
+  return <Autocomplete size="small" value={value} options={choices} filterOptions={x => x}
     getOptionLabel={(p: any) => p.display_name || ''} isOptionEqualToValue={(a, b) => a.lat === b.lat && a.lon === b.lon}
     onChange={(_, p) => onChange(p)} onInputChange={(_, text, reason) => { if (reason === 'input') setQuery(text); }}
     noOptionsText="Adresse oder Breitengrad, Längengrad eingeben"
@@ -34,13 +34,17 @@ export default function RouteStops({ stops, onChange }: { stops: any[]; onChange
   const move = (i: number, delta: number) => {
     const next = [...stops]; [next[i], next[i + delta]] = [next[i + delta], next[i]]; onChange(next);
   };
-  return <div style={{ margin: '8px 10px' }}>
-    {stops.map((stop, i) => <div key={i} style={{ marginBottom: 8 }}>
+  return <div className="route-stops">
+    {stops.map((stop, i) => <div key={i}>
       <Stop value={stop} index={i} onChange={(value: any) => onChange(stops.map((p, j) => j === i ? value : p))} />
-      <Button aria-label={`Zwischenziel ${i + 1} nach oben`} disabled={!i} onClick={() => move(i, -1)}>↑</Button>
-      <Button aria-label={`Zwischenziel ${i + 1} nach unten`} disabled={i === stops.length - 1} onClick={() => move(i, 1)}>↓</Button>
-      <Button onClick={() => onChange(stops.filter((_, j) => j !== i))}>Entfernen</Button>
+      <div className="stop-actions">
+        <Button size="small" sx={{ px: 0, minWidth: 0 }} onClick={() => onChange(stops.filter((_, j) => j !== i))}>Entfernen</Button>
+        <span>
+          <Button size="small" sx={{ minWidth: 32 }} aria-label={`Zwischenziel ${i + 1} nach oben`} disabled={!i} onClick={() => move(i, -1)}>↑</Button>
+          <Button size="small" sx={{ minWidth: 32 }} aria-label={`Zwischenziel ${i + 1} nach unten`} disabled={i === stops.length - 1} onClick={() => move(i, 1)}>↓</Button>
+        </span>
+      </div>
     </div>)}
-    <Button disabled={stops.length >= MAX_STOPS} onClick={() => onChange([...stops, null])}>Zwischenziel hinzufügen</Button>
+    <Button size="small" sx={{ alignSelf: 'flex-start', px: 0 }} disabled={stops.length >= MAX_STOPS} onClick={() => onChange([...stops, null])}>Zwischenziel hinzufügen</Button>
   </div>;
 }

@@ -22,7 +22,17 @@ export default function RouteShare({ transfer }: { transfer: RouteTransfer | nul
         const response = await fetch(`${process.env.REACT_APP_BACKEND_URL || ''}/shared_routes`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(transfer), signal: controller.signal,
         });
-        if (!response.ok) throw new Error('Die Route konnte nicht geteilt werden. Bitte erneut versuchen.');
+        if (!response.ok) {
+          const detail = await response.json().catch(() => ({}));
+          const message = response.status === 503 && detail.detail === 'Route sharing is not configured'
+            ? 'Das Teilen von Routen ist noch nicht eingerichtet. Bitte die Route als GPX herunterladen.'
+            : response.status === 429
+              ? 'Zu viele Links erstellt. Bitte später erneut versuchen oder die Route als GPX herunterladen.'
+              : response.status === 413
+                ? 'Diese Route ist zum Teilen zu groß. Bitte die Route als GPX herunterladen.'
+                : 'Die Route konnte nicht geteilt werden. Bitte erneut versuchen oder als GPX herunterladen.';
+          throw new Error(message);
+        }
         const data = await response.json();
         const code = await QRCode.toDataURL(data.url, { width: 280, margin: 2 });
         if (!controller.signal.aborted) { setLink(data.url); setExpires(data.expiresAt); setQr(code); }

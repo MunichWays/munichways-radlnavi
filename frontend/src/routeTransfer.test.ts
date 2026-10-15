@@ -1,8 +1,33 @@
 import { TextEncoder, TextDecoder } from 'util';
-import { gpxFilename, createTransfer, readTransferGpx, transferGpx, validateTransfer } from './routeTransfer';
+import { gpxFilename, createTransfer, readTransferGpx, transferGpx, trackGpx, validateTransfer } from './routeTransfer';
+import { readFileSync } from 'fs';
 import { normalizeRouteResponse } from './routingRequests';
 import fixture from './fixtures/route-transfer.json';
 Object.assign(globalThis, { TextEncoder, TextDecoder });
+
+test('real Komoot discovery tour retains all eight named waypoints and the exact track on export', () => {
+  const source = readFileSync('src/fixtures/komoot-discovery.gpx', 'utf8');
+  const transfer = readTransferGpx(source);
+  expect(transfer.version).toBe(0);
+  expect(transfer.plan).toHaveLength(10);
+  expect(transfer.plan[1]).toEqual({ name: 'Amsterdamer Straße (Geheimtipp)', coordinates: [11.602076, 48.169055] });
+  expect(transfer.plan[2].name).toBe('Schwabinger See');
+  expect(transfer.plan[8].name).toBe('Nymphenburger Kanal');
+  const restored = readTransferGpx(trackGpx(transfer.name, transfer.response.routes[0].geometry.coordinates, transfer.plan));
+  expect(restored).toEqual(transfer);
+});
+
+test('standard waypoints reject invalid coordinates and excess stops; missing names have a fallback', () => {
+  const prefix = '<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1">';
+  const track = '<trk><trkseg><trkpt lat="48" lon="11"/><trkpt lat="49" lon="12"/></trkseg></trk></gpx>';
+  const stop = '<wpt lat="48.5" lon="11.5"><name>A &amp; B</name></wpt>';
+  const transfer = readTransferGpx(prefix + stop + track);
+  expect(readTransferGpx(trackGpx(transfer.name, transfer.response.routes[0].geometry.coordinates, transfer.plan)).plan[1].name).toBe('A & B');
+  expect(() => readTransferGpx(prefix + stop.replace('48.5', 'NaN') + track)).toThrow();
+  expect(() => readTransferGpx(prefix + stop.repeat(21) + track)).toThrow(/maximal 20/);
+  expect(readTransferGpx(prefix + '<wpt lat="48.5" lon="11.5"/>' + track).plan[1].name).toBe('Zwischenziel 1');
+  expect(readTransferGpx(prefix + track).plan).toHaveLength(2);
+});
 
 test('all legs and exact names survive web GPX roundtrip using the shared app fixture', () => {
   const route = normalizeRouteResponse(fixture.response);

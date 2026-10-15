@@ -84,7 +84,20 @@ export function readTransferGpx(source: string): any {
     .map(p => [p.hasAttribute('lon') ? Number(p.getAttribute('lon')) : NaN, p.hasAttribute('lat') ? Number(p.getAttribute('lat')) : NaN]);
   if (track.length < 2 || track.length > 100000 || !track.every(point)) throw new Error('Die GPX-Datei enthält keine gültige Strecke.');
   if (!extension.length) {
-    const title = doc.getElementsByTagNameNS('http://www.topografix.com/GPX/1/1', 'name')[0]?.textContent?.trim() || 'GPX-Track';
+    // Standard GPX waypoints (including Komoot highlights), in file order.
+    const stops = Array.from(doc.documentElement.children)
+      .filter(p => p.localName === 'wpt' && p.namespaceURI === 'http://www.topografix.com/GPX/1/1')
+      .map((p, i) => ({
+        name: Array.from(p.children).find(c => c.localName === 'name' && c.namespaceURI === p.namespaceURI)?.textContent?.trim() || `Zwischenziel ${i + 1}`,
+        coordinates: [p.hasAttribute('lon') ? Number(p.getAttribute('lon')) : NaN, p.hasAttribute('lat') ? Number(p.getAttribute('lat')) : NaN],
+      }));
+    if (stops.length > MAX_STOPS || !stops.every(p => point(p.coordinates) && p.name.length <= 500)) {
+      throw new Error('GPX-Wegpunkte ungültig oder zu viele Zwischenziele (maximal 20).');
+    }
+    const gpxChild = (parent: Element | undefined, name: string) => parent && Array.from(parent.children)
+      .find(e => e.localName === name && e.namespaceURI === doc.documentElement.namespaceURI);
+    const title = gpxChild(gpxChild(doc.documentElement, 'metadata'), 'name')?.textContent?.trim() ||
+      gpxChild(gpxChild(doc.documentElement, 'trk'), 'name')?.textContent?.trim() || 'GPX-Track';
     let distance = 0;
     const radians = (d: number) => d * Math.PI / 180;
     for (let i = 1; i < track.length; i++) {
@@ -92,7 +105,7 @@ export function readTransferGpx(source: string): any {
       const h = Math.sin(radians(b[1] - a[1]) / 2) ** 2 + Math.cos(radians(a[1])) * Math.cos(radians(b[1])) * Math.sin(radians(b[0] - a[0]) / 2) ** 2;
       distance += 6371000 * 2 * Math.asin(Math.sqrt(Math.min(1, h)));
     }
-    return { version: 0, name: title, plan: [{ name: 'Start', coordinates: track[0] }, { name: 'Ziel', coordinates: track[track.length - 1] }],
+    return { version: 0, name: title, plan: [{ name: 'Start', coordinates: track[0] }, ...stops, { name: 'Ziel', coordinates: track[track.length - 1] }],
       response: { code: 'Ok', routes: [{ geometry: { type: 'LineString', coordinates: track }, distance, duration: 0, legs: [], steps: [] }] } };
   }
   if (extension.length !== 1) throw new Error('Mehrdeutige MunichWays-Routendaten.');
@@ -103,8 +116,11 @@ export function readTransferGpx(source: string): any {
   return transfer;
 }
 
-export function trackGpx(name: string, coordinates: number[][]) {
-  return `<?xml version="1.0" encoding="UTF-8"?><gpx version="1.1" creator="MunichWays" xmlns="http://www.topografix.com/GPX/1/1"><trk><name>${xml(name)}</name><trkseg>${coordinates.map(p => `<trkpt lat="${p[1]}" lon="${p[0]}"/>`).join('')}</trkseg></trk></gpx>`;
+export function trackGpx(name: string, coordinates: number[][], plan: PlanPoint[] = []) {
+  const stops = plan.slice(1, -1).map(p => `<wpt lat="${p.coordinates[1]}" lon="${p.coordinates[0]}"><name>${xml(p.name)}</name></wpt>`).join('');
+  const result = `<?xml version="1.0" encoding="UTF-8"?><gpx version="1.1" creator="MunichWays" xmlns="http://www.topografix.com/GPX/1/1">${stops}<trk><name>${xml(name)}</name><trkseg>${coordinates.map(p => `<trkpt lat="${p[1]}" lon="${p[0]}"/>`).join('')}</trkseg></trk></gpx>`;
+  if (new TextEncoder().encode(result).length > MAX_TRANSFER_BYTES) throw new Error('GPX-Datei ist zu groß (maximal 4 MB).');
+  return result;
 }
 
 // Preserve readable route names while avoiding path separators and reserved filenames.

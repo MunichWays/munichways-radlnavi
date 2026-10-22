@@ -50,6 +50,7 @@ def fixture(count):
         way_count += 1
         nodes = ids[start : start + 9]
         tags = {
+            "highway": "residential",
             "class:bicycle": str(way_count % 3 + 1),
             "surface": "asphalt",
             "lit": "yes",

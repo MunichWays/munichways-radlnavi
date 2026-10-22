@@ -31,8 +31,11 @@ Hier beendet Strg+C nur die Loganzeige, nicht die Dienste.
 Docker Speicher bereinigen
 # was Docker tatsächlich verwendet:
 docker system df
+# Der größte Hebel ist der Build-Cache
+docker builder prune
 # Nicht mehr benötigte Container, Images, Netzwerke und Build-Cache kannst du z. B. entfernen:
 docker system prune
+# Docker Desktop beenden, ggf. Wiztree oder andere Programme
 wsl --shutdown
 # docker_data.vhdx:
 cd C:\Users\Thomas\AppData\Local\Docker\wsl\disk\

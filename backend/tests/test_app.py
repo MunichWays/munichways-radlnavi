@@ -406,7 +406,12 @@ class TagDistributionComfortTest(unittest.TestCase):
             10: app.Way(
                 10,
                 [1, 2],
-                {"class:bicycle": "2", "surface": "asphalt", "lit": "yes"},
+                {
+                    "highway": "residential",
+                    "class:bicycle": "2",
+                    "surface": "asphalt",
+                    "lit": "yes",
+                },
             )
         }
 

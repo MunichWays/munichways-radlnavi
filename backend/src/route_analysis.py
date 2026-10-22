@@ -68,9 +68,13 @@ class RouteSegment:
 
 
 def edge_index(ways):
-    """Index actual adjacent occurrences, including a closed way's last edge."""
+    """Index linear highway edges, including a closed highway's last edge."""
     result = defaultdict(list)
     for way in ways.values():
+        # Land-use/building boundaries can share entire edges with streets.
+        # They are not route candidates, nor are explicitly mapped highway areas.
+        if not way.tags.get("highway") or way.tags.get("area") == "yes":
+            continue
         for index, (a, b) in enumerate(zip(way.nodes, way.nodes[1:])):
             result[a, b].append(EdgeCandidate(way.id, index, True))
             if a != b:

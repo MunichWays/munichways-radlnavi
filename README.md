@@ -150,8 +150,12 @@ wrapper supplies this context as `route.analysis_legs`; the web client forwards
 it to the existing analysis endpoint.
 
 Analysis uses ordered edge occurrences and a per-request pair index. Loops and
-return journeys retain every traversal. Competing OSM ways remain unrated;
-missing nodes never create shortcut edges. Highlight geometries stay separate
+return journeys retain every traversal. Only OSM ways with a `highway` tag and
+without `area=yes` are candidates for route-edge matching. Pure area boundaries
+(for example `landuse=residential`) cannot make a rated street ambiguous.
+Competing highway ways remain unrated; missing nodes never create shortcut
+edges. The candidate filter runs during analysis; existing `geo.db` files remain
+compatible. Highlight geometries stay separate
 for disconnected visits. Keys in `TagInfo.ways` identify occurrences: the first
 visit uses the OSM way ID, further visits use `wayId:legIndex:segmentIndex`.
 Consumers should iterate the values, as the web frontend already does.

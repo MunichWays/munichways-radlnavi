@@ -40,7 +40,11 @@ class SegmentAnalysisTest(unittest.TestCase):
     def way(self, way_id, nodes, rating="2", **tags):
         self.db.execute(
             "INSERT INTO ways VALUES (?, ?, ?)",
-            (way_id, json.dumps(nodes), json.dumps({"class:bicycle": rating, **tags})),
+            (
+                way_id,
+                json.dumps(nodes),
+                json.dumps({"highway": "residential", "class:bicycle": rating, **tags}),
+            ),
         )
         self.db.executemany(
             "INSERT INTO node_to_ways VALUES (?, ?)", [(n, way_id) for n in nodes]
@@ -106,6 +110,114 @@ class SegmentAnalysisTest(unittest.TestCase):
                 self.assertEqual(2, result["analysis"]["ambiguousSegments"])
                 self.assertEqual(100, result["comfort"]["distribution"]["unrated"])
                 self.assertIsNone(result["comfort"]["index"])
+
+    def test_area_boundaries_do_not_compete_with_highways_in_either_direction(self):
+        boundaries = (
+            {"landuse": "residential"},
+            {"building": "yes"},
+            {"natural": "wood"},
+            {"boundary": "administrative"},
+            {"highway": "pedestrian", "area": "yes"},
+        )
+        for tags in boundaries:
+            for order in ([10, 20], [20, 10]):
+                with self.subTest(tags=tags, order=order):
+                    self.db.execute("DELETE FROM ways")
+                    self.db.execute("DELETE FROM node_to_ways")
+                    for way_id in order:
+                        if way_id == 10:
+                            self.way(
+                                way_id,
+                                [1, 2, 3],
+                                rating="1",
+                                name="Street",
+                                lit="yes",
+                                surface="asphalt",
+                            )
+                        else:
+                            self.way(
+                                way_id,
+                                [1, 2, 3, 1],
+                                rating="-3",
+                                **{"highway": None, **tags},
+                            )
+                    result = self.analyze([1, 2, 3, 2, 1])
+                    self.assertEqual(0, result["analysis"]["unresolvedSegments"])
+                    self.assertEqual(100, result["comfort"]["coverage"])
+                    self.assertEqual(100, result["comfort"]["distribution"]["yellow"])
+                    for tag, value in (
+                        ("class:bicycle", "1"),
+                        ("lit", "yes"),
+                        ("surface", "asphalt"),
+                    ):
+                        distribution = result["tag_distribution"][tag]
+                        self.assertEqual({value}, set(distribution))
+                        self.assertEqual(400, distribution[value].distance)
+                        self.assertEqual({10}, set(distribution[value].ways))
+
+    def test_area_boundary_alone_does_not_supply_a_rating(self):
+        self.way(20, [1, 2, 3, 1], highway=None, landuse="residential")
+        result = self.analyze(legs=[AnalysisLeg(nodes=[1, 2], distance=[100])])
+        self.assertEqual(1, result["analysis"]["unresolvedSegments"])
+        self.assertEqual(0, result["analysis"]["ambiguousSegments"])
+        self.assertEqual(100, result["comfort"]["distribution"]["unrated"])
+
+    def test_unrated_highway_does_not_inherit_area_boundary_rating(self):
+        self.way(10, [1, 2], rating="unknown")
+        self.way(20, [1, 2, 3, 1], highway=None, landuse="residential")
+        result = self.analyze([1, 2])
+        self.assertEqual(0, result["analysis"]["unresolvedSegments"])
+        self.assertEqual(100, result["comfort"]["distribution"]["unrated"])
+
+    def test_closed_highway_without_area_yes_retains_its_rating(self):
+        self.way(
+            10, [1, 2, 3, 1], highway="cycleway", area="no", landuse="residential"
+        )
+        result = self.analyze([1, 2, 3, 1])
+        self.assertEqual(0, result["analysis"]["unresolvedSegments"])
+        self.assertEqual(100, result["comfort"]["coverage"])
+
+    def test_recorded_fockenstein_route_is_fully_rated_despite_area_boundaries(self):
+        path = (
+            Path(__file__).resolve().parent
+            / "fixtures/fockenstein-rating-2026-10-22.json"
+        )
+        fixture = json.loads(path.read_text(encoding="utf-8"))
+        for node in fixture["nodes"]:
+            self.db.execute(
+                "INSERT INTO nodes VALUES (?, ?, ?, ?)",
+                (node["id"], node["lat"], node["lon"], "{}"),
+            )
+        for way in fixture["ways"]:
+            self.db.execute(
+                "INSERT INTO ways VALUES (?, ?, ?)",
+                (way["id"], json.dumps(way["nodes"]), json.dumps(way["tags"])),
+            )
+            self.db.executemany(
+                "INSERT INTO node_to_ways VALUES (?, ?)",
+                [(node, way["id"]) for node in way["nodes"]],
+            )
+        result = self.analyze(legs=[AnalysisLeg(**fixture["leg"])])
+        self.assertEqual(
+            53, fixture["productionBaseline"]["comfort"]["distribution"]["unrated"]
+        )
+        self.assertEqual(0, result["analysis"]["unresolvedSegments"])
+        self.assertEqual(0, result["analysis"]["ambiguousSegments"])
+        self.assertEqual(0, result["analysis"]["missingNodeSegments"])
+        self.assertTrue(result["analysis"]["distanceComplete"])
+        self.assertAlmostEqual(761.039094053, result["analysis"]["totalDistance"])
+        self.assertEqual(100, result["comfort"]["coverage"])
+        self.assertEqual(70, result["comfort"]["index"])
+        self.assertEqual(
+            {"black": 0, "red": 0, "yellow": 100, "green": 0, "unrated": 0},
+            result["comfort"]["distribution"],
+        )
+        rated = result["tag_distribution"]["class:bicycle"]["1"]
+        self.assertIn(4642164, rated.ways)
+        self.assertNotIn(424509386, rated.ways)
+        self.assertNotIn(418105901, rated.ways)
+        self.assertAlmostEqual(result["analysis"]["totalDistance"], rated.distance)
+        self.calculate_distance.assert_not_called()
 
     def test_unknown_edge_stays_in_the_coverage_denominator(self):
         self.way(10, [1, 2, 3])
@@ -270,7 +382,9 @@ class AnalysisContextTest(unittest.TestCase):
         nodes = {i: app.Node(i, lat, lon, {}) for i, (lat, lon) in enumerate(coords, 1)}
         ids = [1, 2, 3, 4, 3, 2, 1]
         segments = route_segments(
-            [AnalysisLeg(nodes=ids)], nodes, {10: app.Way(10, [1, 2, 3, 4], {})}
+            [AnalysisLeg(nodes=ids)],
+            nodes,
+            {10: app.Way(10, [1, 2, 3, 4], {"highway": "residential"})},
         )
         for segment, a, b in zip(segments, ids, ids[1:]):
             self.assertAlmostEqual(
@@ -299,7 +413,11 @@ class AnalysisContextTest(unittest.TestCase):
                     patch.object(
                         app,
                         "retrieve_ways_by_node_ids",
-                        return_value={10: app.Way(10, pair, {"class:bicycle": "2"})},
+                        return_value={
+                            10: app.Way(
+                                10, pair, {"highway": "residential", "class:bicycle": "2"}
+                            )
+                        },
                     ),
                     patch.object(app.distance, "geodesic") as geodesic,
                 ):

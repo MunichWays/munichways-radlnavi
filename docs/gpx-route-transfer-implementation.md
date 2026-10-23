@@ -3,9 +3,12 @@
 Issue: [MunichWays-App #168](https://github.com/MunichWays/munich-ways-app/issues/168).
 Feature-Branch in beiden Repositories: `feature/gpx-route-transfer`.
 
+Erweiterung auf 50 Zwischenziele: [User Story MunichWays/munich-ways-app#288](https://github.com/MunichWays/munich-ways-app/issues/288),
+Branch `fix/288-b86-gpx-50-stops` in beiden Repositories.
+
 ## Testbare Teilschritte
 
-1. **Webplanung:** Start, bis zu 20 Zwischenziele und Ziel suchen oder als
+1. **Webplanung:** Start, bis zu 50 Zwischenziele und Ziel suchen oder als
    `Breitengrad, Längengrad` eingeben. Zwischenziele mit Pfeilen sortieren,
    entfernen und auf der Karte verschieben. Umkehren dreht die gesamte Reihenfolge.
    Die Webplanung verwendet den vorhandenen OSRM-Endpunkt und berücksichtigt alle
@@ -59,7 +62,7 @@ XML-escaped JSON-Snapshot. `version: 1` umfasst Name, Zeit, Anbieter `radlnavi`,
 Variante, geordneten Plan (`name`, `coordinates` in **Längengrad/Breitengrad**) und
 eine OSRM-Antwort mit genau der gewählten Route und allen Legs/Steps.
 
-Grenzen: 4 MiB Datei/JSON, 100.000 Trackpunkte, 20 Zwischenziele. Importprüfungen
+Grenzen: 4 MiB Datei/JSON, 100.000 Trackpunkte, 50 Zwischenziele. Importprüfungen
 vergleichen Standardtrack und Snapshot sowie Track und aufeinanderfolgende
 Stepgeometrien. Unbekannte native Formatversionen werden abgelehnt. Externe
 XML-Entitäten/DOCTYPE sind nicht zugelassen. Keine beliebigen URLs aus Dateien

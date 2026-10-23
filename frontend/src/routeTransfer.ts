@@ -1,6 +1,6 @@
 import { compactPlaceName } from './placeName';
 export const GPX_NAMESPACE = 'https://www.munichways.de/gpx/1';
-export const MAX_STOPS = 20;
+export const MAX_STOPS = 50;
 export const MAX_TRANSFER_BYTES = 4 * 1024 * 1024;
 export type PlanPoint = { name: string; coordinates: number[] };
 export type RouteTransfer = {
@@ -72,13 +72,15 @@ export function transferGpx(transfer: RouteTransfer): string {
 }
 
 export function readTransferGpx(source: string): any {
-  if (new TextEncoder().encode(source).length > MAX_TRANSFER_BYTES || /<!DOCTYPE|<!ENTITY/i.test(source)) {
-    throw new Error('GPX-Datei ist zu groß oder enthält nicht unterstützte XML-Deklarationen.');
-  }
+  if (new TextEncoder().encode(source).length > MAX_TRANSFER_BYTES) throw new Error('Die GPX-Datei ist zu groß (maximal 4 MB).');
+  if (/<!DOCTYPE|<!ENTITY/i.test(source)) throw new Error('Die GPX-Datei enthält nicht unterstützte XML-Deklarationen.');
   const doc = new DOMParser().parseFromString(source, 'application/xml');
   if (doc.querySelector('parsererror')) throw new Error('Die GPX-Datei ist beschädigt.');
   if (doc.documentElement.localName !== 'gpx' || doc.documentElement.namespaceURI !== 'http://www.topografix.com/GPX/1/1' || doc.documentElement.getAttribute('version') !== '1.1') throw new Error('Bitte eine GPX-1.1-Datei auswählen.');
-  if (doc.getElementsByTagNameNS('http://www.topografix.com/GPX/1/1', 'trk').length !== 1 || doc.getElementsByTagNameNS('http://www.topografix.com/GPX/1/1', 'trkseg').length !== 1) throw new Error('Bitte eine Datei mit einem durchgehenden Track auswählen.');
+  const tracks = doc.getElementsByTagNameNS('http://www.topografix.com/GPX/1/1', 'trk').length;
+  if (tracks !== 1) throw new Error(`Die GPX-Datei enthält ${tracks} Tracks. Unterstützt wird genau ein Track.`);
+  const segments = doc.getElementsByTagNameNS('http://www.topografix.com/GPX/1/1', 'trkseg').length;
+  if (segments !== 1) throw new Error(`Der Track enthält ${segments} Teilstrecken. Unterstützt wird eine zusammenhängende Strecke.`);
   const extension = doc.getElementsByTagNameNS(GPX_NAMESPACE, 'route');
   const track = Array.from(doc.getElementsByTagNameNS('http://www.topografix.com/GPX/1/1', 'trkpt'))
     .map(p => [p.hasAttribute('lon') ? Number(p.getAttribute('lon')) : NaN, p.hasAttribute('lat') ? Number(p.getAttribute('lat')) : NaN]);
@@ -91,9 +93,8 @@ export function readTransferGpx(source: string): any {
         name: Array.from(p.children).find(c => c.localName === 'name' && c.namespaceURI === p.namespaceURI)?.textContent?.trim() || `Zwischenziel ${i + 1}`,
         coordinates: [p.hasAttribute('lon') ? Number(p.getAttribute('lon')) : NaN, p.hasAttribute('lat') ? Number(p.getAttribute('lat')) : NaN],
       }));
-    if (stops.length > MAX_STOPS || !stops.every(p => point(p.coordinates) && p.name.length <= 500)) {
-      throw new Error('GPX-Wegpunkte ungültig oder zu viele Zwischenziele (maximal 20).');
-    }
+    if (stops.length > MAX_STOPS) throw new Error(`Die GPX-Datei enthält ${stops.length} Zwischenziele. Unterstützt werden bis zu ${MAX_STOPS}.`);
+    if (!stops.every(p => point(p.coordinates) && p.name.length <= 500)) throw new Error('Ein GPX-Zwischenziel enthält ungültige Koordinaten oder einen zu langen Namen.');
     const gpxChild = (parent: Element | undefined, name: string) => parent && Array.from(parent.children)
       .find(e => e.localName === name && e.namespaceURI === doc.documentElement.namespaceURI);
     const title = gpxChild(gpxChild(doc.documentElement, 'metadata'), 'name')?.textContent?.trim() ||

@@ -31,13 +31,25 @@ test('buildings without a matching entrance retain their centroid', () => {
   expect(preferEntrances([building])[0]).toMatchObject({ lat: building.lat, lon: building.lon });
 });
 
-test('embedded entrance data requires the same house number and entrance=yes', () => {
+test('embedded entrance data requires the same house number and a house entrance', () => {
   const node = { type: 'yes', lat: entrance.lat, lon: entrance.lon,
     extratags: { 'addr:housenumber': '19' } };
   expect(preferEntrances([{ ...building, entrances: [node] }])[0]).toMatchObject({ lat: node.lat, lon: node.lon });
   for (const entrances of [null, [], [{ ...node, extratags: {} }],
     [{ ...node, extratags: { 'addr:housenumber': '21' } }], [{ ...node, type: 'exit' }]]) {
     expect(preferEntrances([{ ...building, entrances }])[0]).toMatchObject({ lat: building.lat, lon: building.lon });
+  }
+});
+
+test.each(['home', 'main'])('Schloßschmidstraße 16 prefers entrance=%s for both search results', type => {
+  const address = { road: 'Schloßschmidstraße', house_number: '16', city: 'München', postcode: '80639' };
+  const node = { type, lat: '48.1467013', lon: '11.5169022', extratags: { 'addr:housenumber': '16' } };
+  const house = { ...building, address, lat: '48.1466430', lon: '11.5167847', entrances: [node] };
+  const point = { ...house, category: 'place', type: 'house', entrances: null,
+    lat: node.lat, lon: node.lon, extratags: { entrance: type } };
+  expect(preferEntrances([house], 'Schloßschmidstraße 16')[0]).toMatchObject({ lat: node.lat, lon: node.lon });
+  for (const place of preferEntrances([{ ...house, entrances: null }, point], 'Schloßschmidstraße 16')) {
+    expect(place).toMatchObject({ lat: node.lat, lon: node.lon });
   }
 });
 

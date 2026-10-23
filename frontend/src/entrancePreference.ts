@@ -18,8 +18,9 @@ interface AddressPlace extends NamedPlace {
 
 const normalize = (value?: string) => (value || '').trim().toLocaleLowerCase('de');
 const houseNumber = (place: AddressPlace) => normalize(place.address?.house_number);
+const isHouseEntrance = (type?: string) => ['yes', 'home', 'main'].includes(type || '');
 const isEntrance = (place: AddressPlace) =>
-  (place.category === 'entrance' && place.type === 'yes') || place.extratags?.entrance === 'yes';
+  (place.category === 'entrance' && isHouseEntrance(place.type)) || isHouseEntrance(place.extratags?.entrance);
 
 function sameAddress(a: AddressPlace, b: AddressPlace): boolean {
   const street = (p: AddressPlace) => normalize(p.address?.road || p.address?.pedestrian || p.address?.street || p.address?.place);
@@ -40,7 +41,7 @@ export function preferEntrances<T extends AddressPlace>(places: T[], query = '')
       : original;
     if (isEntrance(place) || !houseNumber(place)) return withCompactPlaceName(place);
     const match = places.find(candidate => isEntrance(candidate) && sameAddress(place, candidate));
-    const entrance = match || place.entrances?.find(candidate => candidate.type === 'yes'
+    const entrance = match || place.entrances?.find(candidate => isHouseEntrance(candidate.type)
       && normalize(candidate.extratags?.['addr:housenumber']) === houseNumber(place));
     return withCompactPlaceName(entrance
       ? { ...place, lat: entrance.lat, lon: entrance.lon }

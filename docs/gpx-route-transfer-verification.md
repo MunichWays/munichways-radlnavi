@@ -77,9 +77,9 @@ Versionsänderungen und lokale Docker-Befehle werden wie gewünscht mitgenommen.
 Der Nutzer hat den abschließenden Android-Handytest erfolgreich bestätigt;
 Lauf beendet und USB getrennt. Android-Releasebuild mit R8 erfolgreich.
 
-Die Dateien `implementation-refinements.py` und `route-import-dialog.refinement.dart`
-sind historische Implementierungsentwürfe, keine Laufzeitbestandteile.
-Das Patchskript nicht erneut ausführen: es enthält einmalige Quelltextänderungen.
+Die historischen Implementierungsentwürfe `implementation-refinements.py` und
+`route-import-dialog.refinement.dart` wurden beim Aufräumen entfernt. Sie waren
+keine Laufzeitbestandteile.
 
 Testschritte und Einrichtung: [Umsetzungsdokument](gpx-route-transfer-implementation.md).
 

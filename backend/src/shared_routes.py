@@ -17,6 +17,7 @@ from fastapi import APIRouter, HTTPException, Request, Response
 from starlette.concurrency import run_in_threadpool
 
 MAX_BYTES = 4 * 1024 * 1024
+MAX_STOPS = 50
 TTL_DAYS = 90
 router = APIRouter()
 
@@ -45,7 +46,7 @@ def validate_transfer(value):
         require(isinstance(value['createdAt'], str))
         datetime.fromisoformat(value['createdAt'].replace('Z', '+00:00'))
         plan = value['plan']
-        require(isinstance(plan, list) and 2 <= len(plan) <= 22)
+        require(isinstance(plan, list) and 2 <= len(plan) <= MAX_STOPS + 2)
         require(all((isinstance(p['name'], str) and len(p['name']) <= 500 and coordinate(p['coordinates']) for p in plan)))
         payload = value['response']
         require(payload['code'] == 'Ok' and len(payload['routes']) == 1)

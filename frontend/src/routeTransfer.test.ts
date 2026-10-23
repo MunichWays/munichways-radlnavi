@@ -1,5 +1,5 @@
 import { TextEncoder, TextDecoder } from 'util';
-import { gpxFilename, createTransfer, readTransferGpx, transferGpx, trackGpx, validateTransfer } from './routeTransfer';
+import { MAX_STOPS, gpxFilename, createTransfer, readTransferGpx, transferGpx, trackGpx, validateTransfer } from './routeTransfer';
 import { readFileSync } from 'fs';
 import { normalizeRouteResponse } from './routingRequests';
 import fixture from './fixtures/route-transfer.json';
@@ -24,9 +24,26 @@ test('standard waypoints reject invalid coordinates and excess stops; missing na
   const transfer = readTransferGpx(prefix + stop + track);
   expect(readTransferGpx(trackGpx(transfer.name, transfer.response.routes[0].geometry.coordinates, transfer.plan)).plan[1].name).toBe('A & B');
   expect(() => readTransferGpx(prefix + stop.replace('48.5', 'NaN') + track)).toThrow();
-  expect(() => readTransferGpx(prefix + stop.repeat(21) + track)).toThrow(/maximal 20/);
+  expect(readTransferGpx(prefix + stop.repeat(MAX_STOPS) + track).plan).toHaveLength(MAX_STOPS + 2);
+  expect(() => readTransferGpx(prefix + stop.repeat(MAX_STOPS + 1) + track)).toThrow(`51 Zwischenziele. Unterstützt werden bis zu 50`);
   expect(readTransferGpx(prefix + '<wpt lat="48.5" lon="11.5"/>' + track).plan[1].name).toBe('Zwischenziel 1');
   expect(readTransferGpx(prefix + track).plan).toHaveLength(2);
+});
+
+test('Nymphenburg Komoot file with 21 waypoints preserves every stop and all 860 track points', () => {
+  const transfer = readTransferGpx(readFileSync('src/fixtures/komoot-nymphenburg-21-stops.gpx', 'utf8'));
+  expect(transfer.plan).toHaveLength(23);
+  expect(transfer.plan[1].name).toBe('Neue Postwiese');
+  expect(transfer.response.routes[0].geometry.coordinates).toHaveLength(860);
+  expect(readTransferGpx(trackGpx(transfer.name, transfer.response.routes[0].geometry.coordinates, transfer.plan))).toEqual(transfer);
+});
+
+test('GPX import distinguishes file size, multiple tracks and multiple segments', () => {
+  const prefix = '<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1">';
+  const segment = '<trkseg><trkpt lat="48" lon="11"/><trkpt lat="49" lon="12"/></trkseg>';
+  expect(() => readTransferGpx(prefix + `<trk>${segment}</trk><trk>${segment}</trk></gpx>`)).toThrow('2 Tracks');
+  expect(() => readTransferGpx(prefix + `<trk>${segment}${segment}</trk></gpx>`)).toThrow('2 Teilstrecken');
+  expect(() => readTransferGpx(' '.repeat(4 * 1024 * 1024 + 1))).toThrow('zu groß');
 });
 
 test('all legs and exact names survive web GPX roundtrip using the shared app fixture', () => {

@@ -45,6 +45,25 @@ class SharedRoutesTest(unittest.TestCase):
             self.store.read('../secret')
         self.assertEqual(404, failure.exception.status_code)
 
+    def test_fifty_intermediate_stops_can_be_shared_but_fifty_one_cannot(self):
+        def transfer(stops):
+            value = json.loads(json.dumps(self.transfer))
+            points = [[11 + i / 1000, 48] for i in range(stops + 2)]
+            value['plan'] = [{'name': str(i), 'coordinates': p} for i, p in enumerate(points)]
+            route = value['response']['routes'][0]
+            route['geometry']['coordinates'] = points
+            route['legs'] = [{
+                'steps': [{
+                    'maneuver': {'type': kind, 'location': p}, 'mode': 'cycling',
+                    'distance': 0, 'duration': 0,
+                    'geometry': {'type': 'LineString', 'coordinates': coords},
+                } for kind, p, coords in [('depart', a, [a, b]), ('arrive', b, [b])]]
+            } for a, b in zip(points, points[1:])]
+            return value
+        shares.validate_transfer(transfer(50))
+        with self.assertRaises(HTTPException):
+            shares.validate_transfer(transfer(51))
+
     def test_http_errors_retry_and_limits(self):
         async def run():
             app = FastAPI()

@@ -18,7 +18,7 @@ interface AddressPlace extends NamedPlace {
 
 const normalize = (value?: string) => (value || '').trim().toLocaleLowerCase('de');
 const houseNumber = (place: AddressPlace) => normalize(place.address?.house_number);
-const isHouseEntrance = (type?: string) => ['yes', 'home', 'main'].includes(type || '');
+const isHouseEntrance = (type?: string) => ['yes', 'home', 'main', 'shop'].includes(type || '');
 const isEntrance = (place: AddressPlace) =>
   (place.category === 'entrance' && isHouseEntrance(place.type)) || isHouseEntrance(place.extratags?.entrance);
 

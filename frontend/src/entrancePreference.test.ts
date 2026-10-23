@@ -41,7 +41,7 @@ test('embedded entrance data requires the same house number and a house entrance
   }
 });
 
-test.each(['home', 'main'])('Schloßschmidstraße 16 prefers entrance=%s for both search results', type => {
+test.each(['home', 'main', 'shop'])('Schloßschmidstraße 16 prefers entrance=%s for both search results', type => {
   const address = { road: 'Schloßschmidstraße', house_number: '16', city: 'München', postcode: '80639' };
   const node = { type, lat: '48.1467013', lon: '11.5169022', extratags: { 'addr:housenumber': '16' } };
   const house = { ...building, address, lat: '48.1466430', lon: '11.5167847', entrances: [node] };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Autocomplete, Button, TextField } from '@mui/material';
 import { coordinateSuggestion } from './coordinateSuggestion';
-import { withCompactPlaceName } from './placeName';
+import { preferEntrances } from './entrancePreference';
 import { MAX_STOPS } from './routeTransfer';
 
 function Stop({ value, onChange, index }: any) {
@@ -14,10 +14,10 @@ function Stop({ value, onChange, index }: any) {
     const timer = setTimeout(async () => {
       if (!query.trim() || coordinate) return;
       try {
-        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&q=${encodeURIComponent(query)}&limit=5&viewbox=11.1,48.5,12,47.8`, { signal: controller.signal });
+        const response = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&extratags=1&entrances=1&dedupe=0&q=${encodeURIComponent(query)}&limit=5&viewbox=11.1,48.5,12,47.8`, { signal: controller.signal });
         if (!response.ok) return;
         const data = await response.json();
-        if (!controller.signal.aborted && Array.isArray(data)) setOptions(data.map(withCompactPlaceName));
+        if (!controller.signal.aborted && Array.isArray(data)) setOptions(preferEntrances(data, query));
       } catch (_) { /* Keep coordinate input available after lookup errors. */ }
     }, 700);
     return () => { clearTimeout(timer); controller.abort(); };

@@ -142,6 +142,44 @@ test("coordinate selections retain exact start and destination alongside address
   }
 });
 
+test('address routing uses the entrance instead of the building centroid', async () => {
+  const originalFetch = global.fetch;
+  const log = jest.spyOn(console, 'log').mockImplementation(() => {});
+  const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  const requests: string[] = [];
+  global.fetch = jest.fn(async (url: any) => {
+    requests.push(String(url));
+    let body: any = {};
+    if (url === '/region.json') body = { features: [{ geometry: { coordinates: [[]] } }] };
+    if (String(url).includes('nominatim')) {
+      expect(String(url)).toContain('dedupe=0');
+      expect(String(url)).toContain('entrances=1');
+      const address = { road: 'Schlossschmidstraße', house_number: '19', city: 'München' };
+      body = [
+        { place_id: 1, category: 'building', type: 'apartments', address: { ...address, house_number: '19,21,23,25' },
+          lat: '48.145', lon: '11.52', entrances: [{ type: 'yes', lat: '48.146', lon: '11.521', extratags: { 'addr:housenumber': '19' } }] },
+        { place_id: 2, category: 'entrance', type: 'yes', address, lat: '48.146', lon: '11.521' },
+      ];
+    }
+    return { ok: true, status: 200, json: async () => body } as Response;
+  });
+  try {
+    const { unmount } = render(<App />);
+    fireEvent.change(screen.getByRole('combobox', { name: 'Startposition' }), { target: { value: '48.1, 11.5' } });
+    fireEvent.click(await screen.findByRole('option', { name: '48.1, 11.5' }));
+    fireEvent.change(screen.getByRole('combobox', { name: 'Ziel' }), { target: { value: 'Schlossschmidstraße 19' } });
+    const options = await screen.findAllByRole('option', { name: 'Schlossschmidstraße 19, München' }, { timeout: 3000 });
+    fireEvent.click(options[0]);
+    await waitFor(() => expect(requests.some(url => url.includes('/route/v1/bike/11.5,48.1;11.521,48.146'))).toBe(true), { timeout: 5000 });
+    expect(requests.some(url => url.includes('/route/v1/bike/11.5,48.1;11.52,48.145'))).toBe(false);
+    unmount();
+  } finally {
+    global.fetch = originalFetch;
+    log.mockRestore();
+    warn.mockRestore();
+  }
+});
+
 test("Route hierhin survives unavailable direct service and retry preserves route on analysis failure", async () => {
   const originalFetch = global.fetch;
   const warn = jest.spyOn(console, "warn").mockImplementation(() => {});

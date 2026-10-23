@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useState, useEffect, useCallback } from "react";
 import "./App.css";
-import { withCompactPlaceName } from "./placeName";
+import { preferEntrances } from "./entrancePreference";
 import { coordinateSuggestion } from "./coordinateSuggestion";
 import { fetchRoute, fetchRouteAnalysis, normalizeRouteResponse } from "./routingRequests";
 import { routeDisplaySections, withoutPushing } from "./routeDisplay";
@@ -143,11 +143,11 @@ async function geocode(value: string): Promise<Array<NominatimItem>> {
     const response = await fetch(
       `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
         value
-      )}&format=jsonv2&addressdetails=1&viewbox=${SOUTH_WEST.lng},${SOUTH_WEST.lat},${NORTH_EAST.lng
+      )}&format=jsonv2&addressdetails=1&extratags=1&entrances=1&dedupe=0&viewbox=${SOUTH_WEST.lng},${SOUTH_WEST.lat},${NORTH_EAST.lng
       },${NORTH_EAST.lat}&bounded=1`
     );
     const places = await response.json();
-    return places.map(withCompactPlaceName);
+    return preferEntrances(places, value);
   } else {
     return [];
   }

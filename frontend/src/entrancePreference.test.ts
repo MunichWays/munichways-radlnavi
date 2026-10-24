@@ -13,8 +13,17 @@ test('Schlossschmidstraße 19 uses entrance coordinates even when the building r
   const results = preferEntrances([building, entrance]);
   expect(results[0]).toMatchObject({ lat: entrance.lat, lon: entrance.lon,
     display_name: 'Schlossschmidstraße 19, 80639 München' });
-  expect(results[1]).toMatchObject({ lat: entrance.lat, lon: entrance.lon });
+  expect(results).toHaveLength(1);
   expect(building.lat).toBe('48.145');
+});
+
+test('duplicate addresses collapse while named POIs and other house numbers remain', () => {
+  const poi = { ...entrance, name: 'Nachbarschaftstreff Hirschgarten' };
+  const other = { ...building, address: { ...building.address, house_number: '23' } };
+  const results = preferEntrances([building, entrance, poi, other]);
+  expect(results).toHaveLength(3);
+  expect(results[1].display_name).toContain('Nachbarschaftstreff Hirschgarten');
+  expect(results[2].address.house_number).toBe('23');
 });
 
 test('buildings without a matching entrance retain their centroid', () => {
@@ -72,4 +81,15 @@ test('the reported building with house numbers 19,21,23,25 selects the requested
   });
   expect(preferEntrances([multiAddress], 'Schlossschmidstraße 25')[0]).toMatchObject({ lat: building.lat, lon: building.lon });
   expect(preferEntrances([multiAddress], 'Schlossschmidstraße')[0]).toMatchObject({ lat: building.lat, lon: building.lon });
+});
+
+test('number 23 removes the aggregate building label and duplicate entrance result', () => {
+  const house = { ...building, display_name: '19,21,23,25, Schloßschmidstraße, München',
+    address: { ...building.address, house_number: '19,21,23,25' } };
+  const node = { ...entrance, display_name: '23, Schloßschmidstraße, München',
+    address: { ...building.address, house_number: '23' } };
+  const results = preferEntrances([house, node], 'Schloßschmidstraße 23');
+  expect(results).toHaveLength(1);
+  expect(results[0].display_name).toBe('Schlossschmidstraße 23, 80639 München');
+  expect(results[0].lat).toBe(node.lat);
 });

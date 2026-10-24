@@ -32,12 +32,15 @@ function sameAddress(a: AddressPlace, b: AddressPlace): boolean {
 
 /** Keep search ranking and labels, but route matching addresses to their entrance. */
 export function preferEntrances<T extends AddressPlace>(places: T[], query = ''): T[] {
-  return places.map(original => {
+  const resolved = places.map(original => {
     // OSM buildings can contain several addresses, e.g. "19,21,23,25".
     const numbers = houseNumber(original).split(/[,;]/).map(normalize);
     const requested = numbers.filter(number => normalize(query).split(/[\s,;]+/).includes(number));
     const place = numbers.length > 1 && requested.length === 1
-      ? { ...original, address: { ...original.address, house_number: requested[0] } }
+      ? { ...original, address: { ...original.address, house_number: requested[0] },
+        name: normalize(original.name) === houseNumber(original) ? requested[0] : original.name,
+        display_name: original.display_name?.startsWith(original.address!.house_number)
+          ? requested[0] + original.display_name.slice(original.address!.house_number.length) : original.display_name }
       : original;
     if (isEntrance(place) || !houseNumber(place)) return withCompactPlaceName(place);
     const match = places.find(candidate => isEntrance(candidate) && sameAddress(place, candidate));
@@ -47,4 +50,6 @@ export function preferEntrances<T extends AddressPlace>(places: T[], query = '')
       ? { ...place, lat: entrance.lat, lon: entrance.lon }
       : place);
   });
+  return resolved.filter((place, index) => !resolved.slice(0, index).some(previous =>
+    sameAddress(place, previous) && normalize(place.display_name) === normalize(previous.display_name)));
 }

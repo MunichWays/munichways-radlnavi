@@ -1,0 +1,892 @@
+[
+  {
+    "id": "general",
+    "tags": {
+      "highway": "residential",
+      "surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "sett",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      9,
+      9,
+      1.15,
+      1.15
+    ]
+  },
+  {
+    "id": "legacy-unsided",
+    "tags": {
+      "highway": "residential",
+      "surface": "sett",
+      "cycleway:surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "cycleway:surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      20,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "different-sides",
+    "tags": {
+      "highway": "residential",
+      "cycleway:both": "track",
+      "cycleway:right:surface": "asphalt",
+      "cycleway:left:surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      9,
+      1,
+      1.15
+    ]
+  },
+  {
+    "id": "gerner",
+    "tags": {
+      "highway": "residential",
+      "surface": "sett",
+      "smoothness": "bad",
+      "cycleway:right": "track",
+      "cycleway:left": "no",
+      "cycleway:right:surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      14,
+      6.3,
+      1,
+      1.15
+    ]
+  },
+  {
+    "id": "aliases",
+    "tags": {
+      "highway": "residential",
+      "cycleway:surface:right": "gravel",
+      "cycleway:surface:left": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:surface:right",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "cycleway:surface:left",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      6,
+      20,
+      1.25,
+      1
+    ]
+  },
+  {
+    "id": "canonical-conflict",
+    "tags": {
+      "highway": "residential",
+      "cycleway:right:surface": "asphalt",
+      "cycleway:surface:right": "gravel",
+      "surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": true,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      9,
+      1,
+      1.15
+    ]
+  },
+  {
+    "id": "both-override",
+    "tags": {
+      "highway": "residential",
+      "cycleway:both:surface": "gravel",
+      "cycleway:left:surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:both:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      6,
+      20,
+      1.25,
+      1
+    ]
+  },
+  {
+    "id": "both-alias",
+    "tags": {
+      "highway": "residential",
+      "cycleway:surface:both": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "sett",
+      "source": "cycleway:surface:both",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "cycleway:surface:both",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      9,
+      9,
+      1.15,
+      1.15
+    ]
+  },
+  {
+    "id": "unknown-precedence",
+    "tags": {
+      "highway": "residential",
+      "cycleway:right:surface": "aspalt",
+      "surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "aspalt",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      9,
+      1,
+      1.15
+    ]
+  },
+  {
+    "id": "empty-fallback",
+    "tags": {
+      "highway": "residential",
+      "cycleway:right:surface": "",
+      "cycleway:surface:right": "asphalt",
+      "surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:surface:right",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "sett",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "independent-smoothness",
+    "tags": {
+      "highway": "residential",
+      "cycleway:both": "track",
+      "cycleway:right:surface": "asphalt",
+      "surface": "sett",
+      "smoothness": "bad",
+      "cycleway:left:smoothness": "excellent"
+    },
+    "key": "smoothness",
+    "forward": {
+      "value": "bad",
+      "source": "smoothness",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "excellent",
+      "source": "cycleway:left:smoothness",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      14,
+      9,
+      1,
+      1.15
+    ]
+  },
+  {
+    "id": "sided-smoothness",
+    "tags": {
+      "highway": "residential",
+      "cycleway:both": "lane",
+      "surface": "asphalt",
+      "cycleway:right:smoothness": "bad",
+      "cycleway:smoothness:left": "intermediate"
+    },
+    "key": "smoothness",
+    "forward": {
+      "value": "bad",
+      "source": "cycleway:right:smoothness",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "intermediate",
+      "source": "cycleway:smoothness:left",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      14,
+      18,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "left-twoway",
+    "tags": {
+      "highway": "residential",
+      "cycleway:left": "track",
+      "cycleway:right": "no",
+      "cycleway:left:oneway": "no",
+      "cycleway:left:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      6,
+      6,
+      1.25,
+      1.25
+    ]
+  },
+  {
+    "id": "right-reverse",
+    "tags": {
+      "highway": "residential",
+      "cycleway:right": "track",
+      "cycleway:right:oneway": "-1",
+      "cycleway:right:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "gravel",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      6,
+      1,
+      1.25
+    ]
+  },
+  {
+    "id": "left-forward",
+    "tags": {
+      "highway": "residential",
+      "cycleway:left": "track",
+      "cycleway:left:oneway": "yes",
+      "cycleway:left:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      6,
+      20,
+      1.25,
+      1
+    ]
+  },
+  {
+    "id": "oneway-left",
+    "tags": {
+      "highway": "residential",
+      "oneway": "yes",
+      "cycleway:left": "lane",
+      "cycleway:left:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "reverse-oneway",
+    "tags": {
+      "highway": "residential",
+      "oneway": "-1",
+      "cycleway:right": "lane",
+      "cycleway:right:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "gravel",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "bicycle-counterflow",
+    "tags": {
+      "highway": "residential",
+      "oneway": "yes",
+      "oneway:bicycle": "no",
+      "cycleway:right": "track",
+      "cycleway:right:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      6,
+      20,
+      1.25,
+      1
+    ]
+  },
+  {
+    "id": "opposite-lane",
+    "tags": {
+      "highway": "residential",
+      "oneway": "yes",
+      "oneway:bicycle": "no",
+      "cycleway:left": "opposite_lane",
+      "cycleway:left:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      6,
+      1,
+      1.25
+    ]
+  },
+  {
+    "id": "left-driving",
+    "tags": {
+      "highway": "residential",
+      "driving_side": "left",
+      "cycleway:both": "track",
+      "cycleway:left:surface": "gravel",
+      "cycleway:right:surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      6,
+      20,
+      1.25,
+      1
+    ]
+  },
+  {
+    "id": "two-legal-sides",
+    "tags": {
+      "highway": "residential",
+      "cycleway:both": "track",
+      "cycleway:both:oneway": "no",
+      "cycleway:left:surface": "gravel",
+      "cycleway:right:surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:right:surface",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "gravel",
+      "source": "cycleway:left:surface",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      6,
+      1,
+      1.25
+    ]
+  },
+  {
+    "id": "separate",
+    "tags": {
+      "highway": "residential",
+      "cycleway:right": "separate",
+      "cycleway:right:surface": "gravel",
+      "cycleway:surface": "sett",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": true,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": true,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      20,
+      1,
+      1
+    ],
+    "standard_cost": {
+      "forward": 1.25,
+      "backward": 1
+    }
+  },
+  {
+    "id": "global-no",
+    "tags": {
+      "highway": "residential",
+      "cycleway": "no",
+      "cycleway:surface": "gravel",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      20,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "unknown-direction",
+    "tags": {
+      "highway": "residential",
+      "cycleway:right": "track",
+      "cycleway:right:oneway": "reversible",
+      "cycleway:right:surface": "gravel",
+      "cycleway:surface": "sett",
+      "surface": "asphalt"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "sett",
+      "source": "cycleway:surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": true
+    },
+    "backward": {
+      "value": "sett",
+      "source": "cycleway:surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": true
+    },
+    "profile": [
+      9,
+      9,
+      1.15,
+      1.15
+    ]
+  },
+  {
+    "id": "physical-halves",
+    "tags": {
+      "highway": "path",
+      "surface": "paved",
+      "surface:left": "asphalt",
+      "surface:right": "gravel"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "paved",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "paved",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "landwehr-width",
+    "tags": {
+      "highway": "residential",
+      "cycleway:left": "no",
+      "cycleway:left:width": "2.0",
+      "cycleway:right": "lane",
+      "width": "5.5"
+    },
+    "key": "width",
+    "forward": {
+      "value": null,
+      "source": null,
+      "side": "right",
+      "conflict": true,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": null,
+      "source": null,
+      "side": null,
+      "conflict": true,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "both-width",
+    "tags": {
+      "highway": "residential",
+      "cycleway:both": "lane",
+      "cycleway:both:width": "1.85",
+      "width": "5.5"
+    },
+    "key": "width",
+    "forward": {
+      "value": "1.85",
+      "source": "cycleway:both:width",
+      "side": "right",
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "1.85",
+      "source": "cycleway:both:width",
+      "side": "left",
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "width-no-surface-effect",
+    "tags": {
+      "highway": "residential",
+      "cycleway:left:width": "0.1",
+      "cycleway:surface": "asphalt",
+      "surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "cycleway:surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "cycleway:surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "profile": [
+      20,
+      20,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "standalone-width",
+    "tags": {
+      "highway": "cycleway",
+      "width": "2.4"
+    },
+    "key": "width",
+    "forward": {
+      "value": "2.4",
+      "source": "width",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "2.4",
+      "source": "width",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "road-width-unknown",
+    "tags": {
+      "highway": "residential",
+      "width": "5.5"
+    },
+    "key": "width",
+    "forward": {
+      "value": null,
+      "source": null,
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": null,
+      "source": null,
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    }
+  },
+  {
+    "id": "pushing-surface",
+    "tags": {
+      "highway": "residential",
+      "bicycle": "dismount",
+      "surface": "asphalt",
+      "cycleway:right:surface": "gravel",
+      "cycleway:surface": "sett"
+    },
+    "key": "surface",
+    "forward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    },
+    "backward": {
+      "value": "asphalt",
+      "source": "surface",
+      "side": null,
+      "conflict": false,
+      "ambiguous": false
+    }
+  }
+]

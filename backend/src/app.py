@@ -551,7 +551,7 @@ def analyze_route(legs: list[AnalysisLeg], *, details: bool = False):
             continue
         for tag in INTERESTING_TAGS:
             distributions[tag][
-                segment.tags.get(tag, "unknown")
+                segment.tag_value(tag)
             ].distance += segment.distance
         if details and segment.coordinates is not None:
             # Merge only consecutive occurrences of the same way within a leg.
@@ -563,6 +563,7 @@ def analyze_route(legs: list[AnalysisLeg], *, details: bool = False):
                 and previous.segment_index + 1 == segment.segment_index
                 and previous.way_id == segment.way_id
                 and previous.status == segment.status
+                and previous.surface == segment.surface
                 and geometry.coordinates[-1] == segment.coordinates[0]
             ):
                 geometry.coordinates.append(segment.coordinates[1])
@@ -574,7 +575,7 @@ def analyze_route(legs: list[AnalysisLeg], *, details: bool = False):
                     seen_ways.add(segment.way_id)
                 info = WayInfo(segment.tags.get("name", ""), geometry)
                 for tag in INTERESTING_TAGS:
-                    distributions[tag][segment.tags.get(tag, "unknown")].ways[
+                    distributions[tag][segment.tag_value(tag)].ways[
                         occurrence
                     ] = info
         else:

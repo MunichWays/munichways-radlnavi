@@ -1,5 +1,20 @@
 # Routing regression fixtures
 
+## Directional cycling attributes (#22)
+
+`cycling-attributes.osm` combines the synthetic cases from
+`../cycling-attribute-cases.json`, a route-choice diamond, and the 13 original
+Munich ways with 58 nodes frozen at 2026-10-26T17:30:00Z. The original data and
+retrieval queries are in [the issue analysis](../../../docs/issue-22-analysis/README.md).
+Contributor names/IDs were removed; tags, way order and coordinates were retained.
+The shortcut's `cycleway:both:width=0.1` deliberately verifies that width cannot
+create any routing preference or exclusion.
+
+Rebuild with `python routing/tests/build_cycling_fixture.py`; the Lua contract
+suite checks that the committed fixture matches its inputs. Test both real
+OSRM profiles with `test_sided_cycleway_tags.py`. Original OSM data:
+© [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL.
+
 ## Bergmannstraße/Landsberger Straße guidance
 
 `bergmann-landsberger-2026-10-13.osm` was downloaded on 2026-10-13 from the

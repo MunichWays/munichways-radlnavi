@@ -20,9 +20,25 @@ to its general tag only when the cycleway-specific tag is absent. The existing
 surface speed limits and smoothness factors apply to the resolved values;
 Direct also uses the resolved surface for its route-selection cost.
 
-Unrecognized cycleway-specific values still take precedence and receive no
-table-based adjustment. Side-specific attributes such as
-`cycleway:left:surface` are outside this rule.
+Standard and Direct also resolve `cycleway:left/right/both:surface` and
+`:smoothness` independently for each direction. `cycleway:surface:left/right/both`
+and the corresponding smoothness order are supported as compatibility aliases;
+the canonical side-first key wins on a conflict. Side attributes override `both`,
+then the unsided cycling attribute, then the general road attribute. Empty values
+fall through; unrecognized nonempty values retain precedence and receive no
+table-based adjustment.
+
+Side selection follows OSM way order, driving side, road oneway and explicit
+cycleway oneway tags. A one-sided two-way cycleway can supply both directions.
+Explicit `no`/`separate` sides do not supply attributes to the carriageway.
+Attributes never grant access. Pushing uses the general way attributes.
+`surface:left/right` without the cycleway prefix is not interpreted as travel
+direction: it can describe physical halves of a shared path. Width can be
+resolved for inspection but has no effect on access, speeds or selection costs.
+
+The backend uses the same contract for the existing surface distribution and
+keeps return journeys separate when their surfaces differ (`segments-v3`).
+See the [Munich analysis and measured acceptance results](../docs/issue-22-analysis/README.md).
 
 Profile changes require rebuilding both OSRM datasets, starting with
 `osrm-extract`; restarting the servers with old datasets is insufficient.
@@ -34,6 +50,15 @@ building and starting both test profiles (ports 18081 and 18082), run:
 ```shell
 python routing/tests/test_cycleway_tags.py
 ```
+
+Shared Lua/Python resolver cases run with
+`python routing/tests/test_cycling_attributes.py` (`lupa==2.6`) and the backend
+unit suite. Build both profiles with
+`--build-arg FIXTURE=tests/fixtures/cycling-attributes.osm`, start them on
+18089/18090, then run `python routing/tests/test_sided_cycleway_tags.py`.
+This checks directional speeds, weights, route choice, width neutrality,
+oneway protection and the original Gerner Straße. Regenerate that fixture with
+`python routing/tests/build_cycling_fixture.py` after changing shared cases.
 
 It also checks the original Ludwigsbrücke and Golo-Mann-Weg OSM geometries;
 see [fixture provenance](tests/fixtures/README.md#cycleway-attribute-examples).

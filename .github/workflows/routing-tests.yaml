@@ -31,6 +31,7 @@ jobs:
         run: |
           python -m pip install lupa==2.6 osmium==3.7.0
           python routing/tests/test_guidance_way_type.py
+          python routing/tests/test_cycling_attributes.py
       - run: |
           docker build -t profile-standard -f routing/tests/Dockerfile routing
           docker build --build-arg ROUTING_PROFILE=direct -t profile-direct -f routing/tests/Dockerfile routing
@@ -48,6 +49,22 @@ jobs:
           python routing/tests/test_direct_profile.py
           python routing/tests/test_cycleway_tags.py
           python routing/tests/test_guidance_classes.py
+      - name: Directional cycling attributes and Munich examples
+        run: |
+          fixture=tests/fixtures/cycling-attributes.osm
+          docker build --build-arg FIXTURE="$fixture" -t attributes-standard -f routing/tests/Dockerfile routing
+          docker build --build-arg FIXTURE="$fixture" --build-arg ROUTING_PROFILE=direct -t attributes-direct -f routing/tests/Dockerfile routing
+          docker run -d --name attributes-standard -p 18089:8080 attributes-standard
+          docker run -d --name attributes-direct -p 18090:8080 attributes-direct
+          for port in 18089 18090; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://localhost:$port/route/v1/bike/11,50;11.001,50?overview=false" > /dev/null; then
+                break
+              fi
+              sleep 1
+            done
+          done
+          python routing/tests/test_sided_cycleway_tags.py
       - name: Munich one-way regressions
         run: |
           docker build --build-arg FIXTURE=tests/fixtures/munich-oneway.osm -t munich-standard -f routing/tests/Dockerfile routing

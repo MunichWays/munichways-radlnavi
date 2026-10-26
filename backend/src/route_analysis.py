@@ -9,10 +9,11 @@ from dataclasses import dataclass
 
 from geopy import distance
 from pydantic import BaseModel, model_validator
+from src.cycling_attributes import resolve_cycling_attribute
 
 
 INTERESTING_TAGS = ("class:bicycle", "lit", "surface")
-ANALYSIS_VERSION = "segments-v2"
+ANALYSIS_VERSION = "segments-v3"
 
 
 class AnalysisLeg(BaseModel):
@@ -65,6 +66,11 @@ class RouteSegment:
     way_id: int | None
     tags: dict[str, str]
     status: str
+    forward: bool | None
+    surface: str | None
+
+    def tag_value(self, key):
+        return (self.surface if key == "surface" else self.tags.get(key)) or "unknown"
 
 
 def edge_index(ways):
@@ -85,8 +91,10 @@ def edge_index(ways):
 def route_segments(legs, nodes, ways):
     by_pair = edge_index(ways)
     # Resolve each pair once, but retain every traversal in the output. Multiple
-    # occurrences in ONE way have the same tags; different ways are ambiguous.
+    # occurrences in ONE way may have ambiguous direction; preserve its other
+    # tags, but never invent a side for that edge. Different ways are ambiguous.
     resolved = {}
+    surfaces = {}
     lengths = {}
     geodesic = None
     segments = []
@@ -94,17 +102,29 @@ def route_segments(legs, nodes, ways):
         for index, (a, b) in enumerate(zip(leg.nodes, leg.nodes[1:])):
             node_a, node_b = nodes.get(a), nodes.get(b)
             if (a, b) not in resolved:
-                candidates = {entry.way_id for entry in by_pair.get((a, b), ())}
+                entries = by_pair.get((a, b), ())
+                candidates = {entry.way_id for entry in entries}
                 way_id = next(iter(candidates)) if len(candidates) == 1 else None
+                directions = {entry.forward for entry in entries}
+                forward = (
+                    next(iter(directions))
+                    if way_id is not None and len(directions) == 1
+                    else None
+                )
                 status = (
                     "matched"
                     if way_id is not None
                     else ("ambiguous" if candidates else "unmatched")
                 )
-                resolved[a, b] = way_id, status
-            way_id, status = resolved[a, b]
+                resolved[a, b] = way_id, status, forward
+            way_id, status, forward = resolved[a, b]
             if node_a is None or node_b is None:
-                way_id, status = None, "missing_node"
+                way_id, status, forward = None, "missing_node", None
+            surface_key = (way_id, forward)
+            if surface_key not in surfaces:
+                surfaces[surface_key] = resolve_cycling_attribute(
+                    ways[way_id].tags if way_id is not None else {}, "surface", forward
+                ).value
             start = (
                 leg.start
                 if index == 0 and leg.start is not None
@@ -152,6 +172,8 @@ def route_segments(legs, nodes, ways):
                     way_id,
                     ways[way_id].tags if way_id is not None else {},
                     status,
+                    forward,
+                    surfaces[surface_key],
                 )
             )
     return segments

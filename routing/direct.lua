@@ -43,8 +43,9 @@ local function process_direct_way(profile, way, result)
 
   local highway = way:get_value_by_key('highway')
   local road_cost = highway == 'residential' and 1.08 or 1
-  local surface_cost = surface_costs[bicycle.get_cycling_tag(way, 'surface')] or 1
-  local cycling_cost = road_cost * surface_cost
+  local function cycling_cost(forward)
+    return road_cost * (surface_costs[bicycle.get_cycling_tag(way, 'surface', forward)] or 1)
+  end
   if way:get_value_by_key('route') == 'ferry' then
     exclude_direction(result, 'forward')
     exclude_direction(result, 'backward')
@@ -64,11 +65,11 @@ local function process_direct_way(profile, way, result)
   -- Speeds retain the shared surface, smoothness and maxspeed rules, so
   -- identical edges retain identical travel time in both variants.
   if result.forward_mode ~= mode.inaccessible and result.forward_speed > 0 then
-    local cost = result.forward_mode == mode.cycling and cycling_cost or 1
+    local cost = result.forward_mode == mode.cycling and cycling_cost(true) or 1
     result.forward_rate = result.forward_speed / 3.6 / cost
   end
   if result.backward_mode ~= mode.inaccessible and result.backward_speed > 0 then
-    local cost = result.backward_mode == mode.cycling and cycling_cost or 1
+    local cost = result.backward_mode == mode.cycling and cycling_cost(false) or 1
     result.backward_rate = result.backward_speed / 3.6 / cost
   end
   -- Same reference speed and penalties as Standard, without comfort ratings.
@@ -87,8 +88,11 @@ local function process_direct_way(profile, way, result)
     result.backward_rate = math.min(result.backward_rate, pushing_rate)
   end
   if result.duration > 0 then
+    -- OSRM exposes one shared weight for fixed-duration ways. Preserve that
+    -- model using unsided attributes; directional edges above use their rates.
+    local surface = way:get_value_by_key('cycleway:surface') or way:get_value_by_key('surface')
     local cost = (result.forward_mode == mode.cycling or result.backward_mode == mode.cycling)
-      and cycling_cost or 1
+      and road_cost * (surface_costs[surface] or 1) or 1
     result.weight = result.duration * cost
   else
     result.weight = -1

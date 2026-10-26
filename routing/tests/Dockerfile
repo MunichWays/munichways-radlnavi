@@ -7,6 +7,7 @@ COPY bike.lua /opt/bike.lua
 COPY direct.lua /opt/direct.lua
 COPY conditional_access.lua /opt/conditional_access.lua
 COPY guidance_way_type.lua /opt/guidance_way_type.lua
+COPY cycling_attributes.lua /opt/cycling_attributes.lua
 COPY ${FIXTURE} /data/profile-fixture.osm
 
 RUN osrm-extract -p /opt/${ROUTING_PROFILE}.lua /data/profile-fixture.osm && \

@@ -98,6 +98,53 @@ class SegmentAnalysisTest(unittest.TestCase):
             [(11.0002, 48.0), (11.0003, 48.0), (11.0004, 48.0)], geometry.coordinates
         )
 
+    def test_gerner_surface_return_in_one_leg_has_separate_geometries(self):
+        self.way(10, [1, 2, 3], surface="sett", smoothness="bad", **{
+            "cycleway:right": "track", "cycleway:left": "no",
+            "cycleway:right:surface": "asphalt",
+        })
+        result = self.analyze([1, 2, 3, 2, 1])
+        surface = result["tag_distribution"]["surface"]
+        self.assertEqual({"asphalt": 200, "sett": 200}, {
+            key: value.distance for key, value in surface.items()
+        })
+        self.assertEqual([[(11.0001, 48), (11.0002, 48), (11.0003, 48)]],
+                         [value.geometry.coordinates for value in surface["asphalt"].ways.values()])
+        self.assertEqual([[(11.0003, 48), (11.0002, 48), (11.0001, 48)]],
+                         [value.geometry.coordinates for value in surface["sett"].ways.values()])
+        self.assertEqual(400, result["analysis"]["totalDistance"])
+        self.assertEqual("segments-v3", result["analysis"]["version"])
+
+    def test_cycleway_override_applies_to_partial_edges_in_both_legs(self):
+        self.way(10, [1, 2], surface="sett", **{
+            "cycleway:right:surface": "asphalt", "cycleway:left:surface": "gravel",
+        })
+        result = self.analyze(legs=[
+            AnalysisLeg(nodes=[1, 2], distance=[40], start=(11.00012, 48), end=(11.00016, 48)),
+            AnalysisLeg(nodes=[2, 1], distance=[25], start=(11.00016, 48), end=(11.000135, 48)),
+        ])
+        self.assertEqual({"asphalt": 40, "gravel": 25}, {
+            key: value.distance for key, value in result["tag_distribution"]["surface"].items()
+        })
+        self.calculate_distance.assert_not_called()
+
+    def test_legacy_unsided_cycleway_surface_is_also_used_for_display(self):
+        self.way(10, [1, 2], highway="path", surface="paved", **{
+            "cycleway:surface": "asphalt",
+        })
+        result = self.analyze([1, 2, 1])
+        self.assertEqual({"asphalt"}, set(result["tag_distribution"]["surface"]))
+        self.assertEqual(200, result["tag_distribution"]["surface"]["asphalt"].distance)
+
+    def test_retraced_edge_in_one_way_does_not_invent_direction(self):
+        self.way(10, [1, 2, 3, 2, 4], **{
+            "cycleway:right:surface": "asphalt", "cycleway:left:surface": "gravel",
+        })
+        result = self.analyze([2, 3, 2])
+        self.assertEqual({"unknown"}, set(result["tag_distribution"]["surface"]))
+        self.assertEqual(200, result["tag_distribution"]["surface"]["unknown"].distance)
+        self.assertEqual(100, result["comfort"]["coverage"])
+
     def test_different_ways_on_same_pair_are_unrated_once_regardless_of_order(self):
         for order in ([10, 20], [20, 10]):
             with self.subTest(order=order):

@@ -9,6 +9,7 @@ find_access_tag = require("lib/access").find_access_tag
 limit = require("lib/maxspeed").limit
 local conditional_access = require("conditional_access")
 local guidance_way_type = require("guidance_way_type")
+local cycling_attributes = require("cycling_attributes")
 
 local WAY_CLASS_BICYCLE = 1
 local WAY_CLASS_QUIET = 2
@@ -19,8 +20,8 @@ local MAJOR_ROAD_CROSSING_PENALTY = 30
 -- Resolve each cycling attribute independently. Even an unrecognized
 -- cycleway-specific value takes precedence; speed/cost tables decide whether
 -- that value has an effect, rather than falling back to the carriageway.
-local function get_cycling_tag(way, key)
-  return way:get_value_by_key('cycleway:' .. key) or way:get_value_by_key(key)
+local function get_cycling_tag(way, key, forward)
+  return cycling_attributes.resolve(way, key, forward ~= false).value
 end
 
 function setup()
@@ -802,18 +803,21 @@ function process_way(profile, way, result)
   WayHandlers.run(profile, way, result, data, handlers)
   guidance_way_type.apply(way, result)
 
-  -- surface
-  local surface = get_cycling_tag(way, 'surface')
-  local smoothness = get_cycling_tag(way, 'smoothness')
-
-  if surface and profile.surface_speeds[surface] then
-    result.forward_speed = math.min(profile.surface_speeds[surface], result.forward_speed)
-    result.backward_speed = math.min(profile.surface_speeds[surface], result.backward_speed)
-  end
-
-  if smoothness and profile.smoothness_speeds[smoothness] then
-    result.forward_speed = profile.smoothness_speeds[smoothness] * result.forward_speed
-    result.backward_speed = profile.smoothness_speeds[smoothness] * result.backward_speed
+  -- Resolve the modeled cycleway independently for each travel direction.
+  -- Side attributes apply only when cycling, never to a pushing connection.
+  for _, direction in ipairs({'forward', 'backward'}) do
+    local speed_key = direction .. '_speed'
+    local cycling = result[direction .. '_mode'] == mode.cycling
+    local surface = cycling and get_cycling_tag(way, 'surface', direction == 'forward')
+      or way:get_value_by_key('surface')
+    local smoothness = cycling and get_cycling_tag(way, 'smoothness', direction == 'forward')
+      or way:get_value_by_key('smoothness')
+    if surface and profile.surface_speeds[surface] then
+      result[speed_key] = math.min(profile.surface_speeds[surface], result[speed_key])
+    end
+    if smoothness and profile.smoothness_speeds[smoothness] then
+      result[speed_key] = profile.smoothness_speeds[smoothness] * result[speed_key]
+    end
   end
 
   -- munichways ratings

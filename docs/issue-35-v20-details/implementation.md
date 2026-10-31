@@ -30,7 +30,9 @@ Route, Start/Ziel und Zwischenziele bleiben von der Detailsuche unabhängig.
 Snapshots fest. `build_street_details.mjs` lädt genau diesen Stand und stoppt
 bei geänderter Prüfsumme, fehlenden/doppelten OSM-IDs oder ungültigen Geometrien.
 Aktuell wird ausschließlich LineString unterstützt; MultiLineString wird
-ausdrücklich abgelehnt. Der Snapshot umfasst einen Münchner Ausschnitt.
+ausdrücklich abgelehnt. RadlNavi verwendet jetzt
+`IST_RadlVorrangNetz_Oberbayern_V20.geojson` einschließlich zusätzlicher Strecken
+außerhalb Münchens. Der Datenzugriff der MunichWays-App wird dadurch nicht geändert.
 
 Ausgabe in `frontend/public/street-details/`:
 
@@ -41,11 +43,19 @@ Ausgabe in `frontend/public/street-details/`:
 - `<sha256>/details/00.json` bis `99.json`: Felder pro Weg, gruppiert nach den
   letzten beiden Ziffern der OSM-ID. Die MunichWays-ID ist kein Primärschlüssel.
 
-Der reale Snapshot ergibt 19.124 Strecken, 7.008.083 Bytes Suchgeometrien und
-100 Detailgruppen; die größte Gruppe umfasst 262.131 Bytes unkomprimiertes
+Der Oberbayern-Snapshot ergibt 27.314 Strecken, 10.108.851 Bytes Suchgeometrien und
+100 Detailgruppen; die größte Gruppe umfasst 342.526 Bytes unkomprimiertes
 JSON. Die Geometriedatei ist wegen der zusätzlich aufgenommenen Namen und
 Bewertungen größer als die reine Geometrieschätzung der ursprünglichen Analyse.
-Mit Python gzip komprimiert umfasst die Suchdatei 1.422.031 Bytes (rund 1,4 MB).
+Mit Python gzip komprimiert umfasst die Suchdatei 2.115.474 Bytes (rund 2,1 MB).
+
+Die Umstellung erweitert den bisherigen Bestand um 8.190 Strecken. Alle 27.314
+Geometrien sind LineStrings mit eindeutiger OSM-ID. Geprüfter Quellhash:
+`2710ba91fb183f44498bf9079b842154f20ddb897aa14bc72da942d03c6015f3`.
+Die ursprüngliche Analyse und ihr Snapshot-Report dokumentieren weiterhin die
+damals geprüfte Münchner Quelle. Der aktuelle Bestand reicht ungefähr von
+10,835 bis 12,716° Ost und von 47,624 bis 48,405° Nord; daraus folgt keine
+vollständige Abdeckung jedes Weges in Oberbayern.
 
 Der Docker-Build erstellt den Datenbestand in einer eigenen Stage und kopiert
 ihn separat in das nginx-Image. Die Hash-Konfiguration invalidiert beim
@@ -91,7 +101,7 @@ Bekannte Ebenheitswerte sind übersetzt, beispielsweise `good` → „gut“.
 Für Stellen ohne Treffer wird kein zusätzlicher Hinweis angezeigt.
 
 Die Fußzeile lautet für den festgelegten Snapshot:
-„Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_MunichWays_V20.geojson.“
+„Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_Oberbayern_V20.geojson.“
 Das Datum stammt aus der zusammen mit dem Quellhash gepflegten `createdAt`-
 Angabe, nicht aus dem Build-/Downloadzeitpunkt. Die GeoJSON enthält selbst kein
 Datumsfeld. Der vom Datenverantwortlichen genannte 26. Oktober stimmt mit dem
@@ -120,6 +130,13 @@ deckt zusätzlich Verschieben, Minimieren/Wiederherstellen, Kartenbedienung bei
 offenem Fenster und die tatsächliche Mapillary-Einbettung ab.
 
 ## Prüfprotokoll
+
+Quellenwechsel auf Oberbayern: neue Prüfsumme und alle Geometrien erfolgreich
+im Datenbuild validiert; 26 betroffene Frontendtests erfolgreich. Zusätzlich
+wurde der vollständige Suchindex mit dem realen neuen Datenbestand aufgebaut
+und OSM-Weg `171431838` („Wuhrweg“, 12,228° Ost / 48,053° Nord) gefunden und
+aus der zugehörigen Detailgruppe geladen. Eine kleine Originalgeometrie dieses
+neu hinzugekommenen Weges ist als Regressionstest eingecheckt.
 
 Die folgenden Angaben beziehen sich auf die ursprüngliche Umsetzung:
 

@@ -4,6 +4,9 @@ This is the frontend for [radlnavi.de](https://www.radlnavi.de).
 
 ## Streckendetails (US #35, Version 2.3.8)
 
+Die RadlNavi-Datenquelle ist `IST_RadlVorrangNetz_Oberbayern_V20.geojson` und
+enthält auch Streckendetails außerhalb Münchens.
+
 Rechtsklick oder langes Drücken auf die Karte öffnet das Kontextmenü. Ab Zoom 14
 erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.

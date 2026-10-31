@@ -10,7 +10,7 @@ jest.mock('./streetDetailsClient', () => ({ StreetDetailsClient: function () {
   return { search: mockSearch, details: mockDetails, dispose: mockDispose };
 } }));
 const manifest = { snapshot: 'a'.repeat(64), retrievedAt: '2026-10-31T10:00:00Z', sourceCreatedAt: '2026-10-26',
-  sourceUrl: 'https://www.munichways.de/App/IST_RadlVorrangNetz_MunichWays_V20.geojson' };
+  sourceUrl: 'https://www.munichways.de/App/IST_RadlVorrangNetz_Oberbayern_V20.geojson' };
 const candidate = (id = '123', name = 'Altostraße') => ({ id: `osm_${id}`, properties: { osm_name: name },
   geometry: { type: 'LineString', coordinates: [[11.5, 48.1], [11.502, 48.1]] }, distance: 0 });
 const query = { lat: 48.1, lng: 11.501, zoom: 16 };
@@ -32,7 +32,7 @@ test('opens details, highlights the full line, preserves fields and safe links, 
   expect(dialog).toHaveTextContent('Viel befahrene Straße');
   expect(dialog).toHaveTextContent('Radweg verbreitern');
   expect(dialog).toHaveTextContent('2.5 Meter');
-  expect(dialog).toHaveTextContent('Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_MunichWays_V20.geojson.');
+  expect(dialog).toHaveTextContent('Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_Oberbayern_V20.geojson.');
   expect(dialog).not.toHaveTextContent('V20-Streckendetails');
   const link = within(dialog).getByRole('link', { name: 'Weiterlesen', hidden: true });
   expect(link).toHaveAttribute('rel', 'noopener noreferrer');

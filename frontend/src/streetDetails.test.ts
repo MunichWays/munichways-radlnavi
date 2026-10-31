@@ -1,5 +1,6 @@
 import { safeStreetUrl, streetDetailGroup, streetLinks, streetName, streetRating, streetSearchRadius, streetText, mapillaryPreview, streetSmoothness } from './streetDetails';
 import { StreetSearchIndex } from './streetDetailsSearch';
+import outsideMunich from './fixtures/street-outside-munich.json';
 
 test('normalizes missing text without losing zero and falls back to MunichWays name', () => {
   expect(streetText(' - ')).toBeUndefined();
@@ -69,4 +70,13 @@ test('rejects malformed collections, duplicate IDs and disconnected geometry for
 test('search tolerance shrinks with zoom and never exceeds twenty meters', () => {
   expect(streetSearchRadius(48.1, 14)).toBe(20);
   expect(streetSearchRadius(48.1, 19)).toBeLessThan(2);
+});
+
+test('finds an added Oberbayern way outside Munich without a MunichWays master-list ID', () => {
+  const index = new StreetSearchIndex(collection([outsideMunich]), 1);
+  const [a, b] = outsideMunich.geometry.coordinates;
+  const results = index.search((a[1] + b[1]) / 2, (a[0] + b[0]) / 2, 20);
+  expect(results.map(result => result.id)).toEqual(['osm_171431838']);
+  expect(streetName(results[0].properties)).toBe('Wuhrweg');
+  expect(streetRating(results[0].properties).label).toBe('Gemütlich');
 });

@@ -108,7 +108,7 @@ try {
     if (process.env.STREET_TEST_MAPILLARY === '1') {
       await page.frameLocator('iframe[title="Mapillary-Straßenansicht"]').locator('canvas').waitFor({ timeout: 45000 });
     }
-    assert.match(await dialog.locator('.street-snapshot').innerText(), /^Datenstand 26\.10\.2026, Quelle IST_RadlVorrangNetz_MunichWays_V20\.geojson\.$/);
+    assert.match(await dialog.locator('.street-snapshot').innerText(), /^Datenstand 26\.10\.2026, Quelle IST_RadlVorrangNetz_Oberbayern_V20\.geojson\.$/);
     const header = dialog.locator('#street-details-title');
     const beforeMove = await dialog.boundingBox();
     await header.focus();

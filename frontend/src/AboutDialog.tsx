@@ -53,12 +53,12 @@ export default function AboutDialog({ open, onClose }: { open: boolean; onClose:
         <p>Das <strong>Happy-Bike-Level</strong> beschreibt, wie angenehm oder stressig sich ein Straßenabschnitt mit dem Rad fahren lässt.</p>
         <Box component="img" loading="lazy" src="https://www.munichways.de/img/legende/Legende_RadlVorrang-Netz.png"
           alt="Farblegende des Happy-Bike-Levels" sx={{ display: 'block', width: '100%', height: 'auto', my: 1.5 }} />
-        <p><ExternalLink href="https://www.munichways.de/img/legende/Legende_RadlVorrang-Netz.png">Legende ansehen</ExternalLink> · <ExternalLink href="https://www.munichways.de/berwertungskriterien-radwege/">Ausführliche Bewertungskriterien</ExternalLink></p>
+        <p><ExternalLink href="https://www.munichways.de/berwertungskriterien-radwege/">Ausführliche Bewertungskriterien</ExternalLink></p>
       </details>
       <details>
         <summary>Über das RadlVorrang-Netz</summary>
         <p>MunichWays macht sichtbar, welche Wege sich heute für den Alltagsradverkehr eignen und wo Verbesserungen fehlen. Die Karte zeigt den erfassten Ist-Zustand – ein durchgängiges, angenehmes Netz ist unser Ziel.</p>
-        <p><ExternalLink href="https://www.munichways.de/radlvorrangnetz/">Mehr zum RadlVorrang-Netz</ExternalLink> · <ExternalLink href="https://www.munichways.de">Über MunichWays</ExternalLink></p>
+        <p><ExternalLink href="https://www.munichways.de/radlvorrangnetz/">Mehr zum RadlVorrang-Netz</ExternalLink></p>
       </details>
       <details>
         <summary>Daten &amp; Aktualisierungen</summary>

@@ -1,0 +1,40 @@
+name: Frontend regression tests
+
+on:
+  pull_request:
+    paths: ['frontend/**', '.github/workflows/frontend-tests.yaml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci --legacy-peer-deps
+        working-directory: frontend
+      - run: npm run test:street-details-build
+        working-directory: frontend
+      - run: npm test -- --watchAll=false --runInBand
+        working-directory: frontend
+        env:
+          CI: 'true'
+      - run: npx tsc --noEmit
+        working-directory: frontend
+      - run: npm run lint:street-details
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+        env:
+          GENERATE_SOURCEMAP: 'false'
+          # Existing App/routeTransfer warnings are unrelated to this feature;
+          # new detail modules are linted with zero warnings above.
+          CI: 'false'

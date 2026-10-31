@@ -8,6 +8,9 @@ The [frontend service](./frontend/) interacts with the user and also features an
 
 # Development
 
+The [V20 street details documentation (issue #35)](docs/issue-35-v20-details/implementation.md)
+describes the context-menu action, data preparation, and local verification.
+
 The API supports [endpoint pushing access](docs/endpoint-pushing-access.md)
 without changing the bicycle profiles. This feature requires a newly built
 backend database and frontend; rebuilding the routing service alone is insufficient.

@@ -1,0 +1,238 @@
+// Optional end-to-end QA against the local production bundle and real prepared V20 data.
+// Install Playwright in the ignored cache; see frontend/README.md.
+import { createServer } from 'node:http';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const { chromium } = await import('../.cache/browser/node_modules/playwright/index.mjs');
+const build = path.join(root, 'build');
+const manifest = JSON.parse(await readFile(path.join(build, 'street-details/manifest.json'), 'utf8'));
+const geometry = JSON.parse(await readFile(path.join(build, 'street-details', manifest.snapshot, 'geometry.json'), 'utf8'));
+const center = [11.584225, 48.134991];
+const project = ([lon, lat], zoom = 14) => {
+  const sin = Math.sin(lat * Math.PI / 180), scale = 256 * 2 ** zoom;
+  return [(lon + 180) / 360 * scale, (0.5 - Math.log((1 + sin) / (1 - sin)) / (4 * Math.PI)) * scale];
+};
+// A real segment midpoint near the initial map center avoids relying on test-only app hooks.
+const segments = geometry.features.flatMap(f => f.geometry.coordinates.slice(1).map((b, i) => {
+  const a = f.geometry.coordinates[i];
+  const midpoint = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+  return { feature: f, midpoint, score: Math.hypot((midpoint[0] - center[0]) * 0.67, midpoint[1] - center[1]) };
+})).sort((a, b) => a.score - b.score);
+const target = segments[0];
+const requests = [];
+const types = { '.js': 'application/javascript', '.json': 'application/json', '.geojson': 'application/geo+json', '.css': 'text/css',
+  '.html': 'text/html', '.svg': 'image/svg+xml', '.png': 'image/png' };
+const server = createServer(async (req, res) => {
+  const url = new URL(req.url, 'http://localhost');
+  if (url.pathname.startsWith('/street-details/') || url.pathname.startsWith('/data/')) requests.push(url.pathname);
+  if (url.pathname.endsWith('.pbf')) { res.writeHead(200); res.end(); return; }
+  const relative = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname).slice(1);
+  const filename = path.resolve(build, relative);
+  if (!filename.startsWith(build + path.sep)) { res.writeHead(403); res.end(); return; }
+  try {
+    let body = await readFile(filename);
+    if (relative === 'index.html') {
+      // Offline QA serves the installed Leaflet fork's CSS below. Its bytes differ
+      // from CDN Leaflet, so use that stylesheet's matching SRI hash in this test.
+      const { createHash } = await import('node:crypto');
+      const css = await readFile(path.join(root, 'node_modules/leaflet/leaflet.css'));
+      const integrity = `sha256-${createHash('sha256').update(css).digest('base64')}`;
+      body = Buffer.from(body.toString().replace(/(<link[^>]+href="https:\/\/unpkg\.com\/leaflet[^"]+"[^>]*?)integrity="[^"]+"/, `$1integrity="${integrity}"`));
+    }
+    res.writeHead(200, { 'Content-Type': types[path.extname(filename)] || 'application/octet-stream' }); res.end(body);
+  } catch { res.writeHead(404); res.end(); }
+});
+await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+const base = `http://127.0.0.1:${server.address().port}`;
+const browser = await chromium.launch({ headless: true, channel: process.env.STREET_TEST_BROWSER_CHANNEL || 'msedge' });
+try {
+  for (const mobile of [false, true]) {
+    const context = await browser.newContext({ viewport: mobile ? { width: 390, height: 844 } : { width: 1280, height: 900 },
+      isMobile: mobile, hasTouch: mobile });
+    const page = await context.newPage();
+    page.setDefaultTimeout(15000);
+    const errors = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.route('https://**/*', async route => {
+      if (process.env.STREET_TEST_MAPILLARY === '1' &&
+          (new URL(route.request().url()).hostname.endsWith('mapillary.com') ||
+           route.request().frame().url().startsWith('https://www.mapillary.com/'))) await route.continue();
+      else if (route.request().url().includes('/Legende_RadlVorrang-Netz.png')) await route.continue();
+      else if (route.request().url().includes('/leaflet.css')) await route.fulfill({
+        body: await readFile(path.join(root, 'node_modules/leaflet/leaflet.css')), contentType: 'text/css', headers: { 'access-control-allow-origin': '*' } });
+      else await route.abort();
+    });
+    await page.goto(base);
+    const info = page.getByRole('dialog', { name: 'Wie radfreundlich sind Münchens Straßen?' });
+    await info.waitFor();
+    const infoBox = await info.boundingBox();
+    assert(infoBox.width <= (mobile ? 390 - 24 : 560) + 1, JSON.stringify({ mobile, infoBox, viewport: await page.evaluate(() => ({ inner: innerWidth, client: document.documentElement.clientWidth, visual: visualViewport?.width })) }));
+    assert(infoBox.y >= 0 && infoBox.y + infoBox.height <= (mobile ? 844 : 900), 'Info must fit the viewport');
+    assert((await info.getByRole('link', { name: 'Feedback an mail@munichways.de' }).getAttribute('href')).startsWith('mailto:mail@munichways.de'));
+    assert.equal(await info.locator('details').count(), 3);
+    assert.equal(await info.locator('details[open]').count(), 0, 'All sections start collapsed');
+    await info.locator('summary').first().click();
+    await info.getByAltText('Farblegende des Happy-Bike-Levels').waitFor({ state: 'visible' });
+    await info.locator('summary').last().click();
+    assert((await info.getByRole('link', { name: 'Daten herunterladen' }).getAttribute('href')).includes('drive.google.com/drive/folders/1u4Q1dyMuB1n0j2_YgQxiK_xfLVC1VYE9'));
+    await page.screenshot({ path: path.join(root, `.cache/info-${mobile ? 'mobile' : 'desktop'}.png`) });
+    await info.getByRole('button', { name: 'Infofenster schließen' }).click();
+    await info.waitFor({ state: 'hidden' });
+    await page.locator('summary').filter({ hasText: 'Mehr' }).click();
+    await page.getByRole('button', { name: 'Über RadlNavi', exact: true }).click();
+    await info.waitFor();
+    assert.equal(await info.locator('details[open]').count(), 0, 'Reopened info starts compact');
+    await info.getByRole('button', { name: 'Karte entdecken' }).click();
+    await info.waitFor({ state: 'hidden' });
+    const districts = page.getByRole('checkbox', { name: 'Stadtbezirke', exact: true });
+    assert.equal(await districts.isChecked(), false, 'Districts start disabled');
+    if (!mobile) assert.equal(requests.filter(p => p.endsWith('/stadtbezirke.geojson')).length, 0, 'No district download until enabled');
+    const districtsLoaded = page.waitForResponse(response => response.url().endsWith('/data/stadtbezirke.geojson'));
+    await districts.check();
+    await districtsLoaded;
+    await page.getByRole('progressbar', { name: 'Stadtbezirke werden geladen' }).waitFor({ state: 'hidden' });
+    assert.equal(await page.locator('.district-label').count(), 25, 'One label for each district, including multipart districts');
+    const all = page.getByRole('radio', { name: 'Alle Details', exact: true });
+    const priority = page.getByRole('radio', { name: 'RadVorrang-Netz', exact: true });
+    assert(await all.isChecked(), 'All details is the default');
+    assert.equal(await priority.isChecked(), false);
+    const networkLoaded = page.waitForResponse(response => response.url().endsWith('/priority-network-v1.json'));
+    await priority.check();
+    await networkLoaded;
+    await page.getByRole('progressbar', { name: 'RadVorrang-Netz wird geladen' }).waitFor({ state: 'hidden' });
+    assert(await page.locator('.leaflet-overlay-pane canvas').count() > 0, 'Priority network uses its own canvas layer');
+    await all.check();
+    assert.equal(await page.locator('.leaflet-overlay-pane canvas').count(), 0, 'Switching back removes priority geometry');
+    await priority.check();
+    await page.getByRole('progressbar', { name: 'RadVorrang-Netz wird geladen' }).waitFor({ state: 'hidden' });
+    if (mobile) await page.getByRole('button', { name: 'Menü ausblenden' }).click();
+    const map = page.locator('.leaflet-container');
+    await map.waitFor({ state: 'visible' });
+    // Wait for the application's initial invalidateSize(300 ms) and layout to settle.
+    await page.waitForTimeout(500);
+    const districtLabel = page.getByRole('button', { name: 'Stadtbezirk BA01 · Altstadt-Lehel', exact: true });
+    if (mobile) await districtLabel.tap();
+    else {
+      await districtLabel.hover();
+      await page.locator('.leaflet-tooltip').filter({ hasText: 'BA01' }).waitFor({ state: 'visible' });
+      await districtLabel.focus(); await page.keyboard.press('Enter');
+    }
+    await page.locator('.district-popup').waitFor();
+    await page.waitForTimeout(250); // Leaflet popup fade-in
+    const popupBox = await page.locator('.leaflet-popup').boundingBox();
+    assert(popupBox.x >= 0 && popupBox.x + popupBox.width <= (mobile ? 390 : 1280), 'District info fits the viewport');
+    assert((await page.locator('.district-popup').innerText()).includes('Altstadt-Lehel'));
+    assert((await page.locator('.district-popup a').getAttribute('href')).endsWith('#toggle-id-1'), 'Imported URL whitespace is normalized');
+    await page.screenshot({ path: path.join(root, `.cache/districts-${mobile ? 'mobile' : 'desktop'}.png`) });
+    // A right-click or touch-hold must still open the street menu and dismiss district info.
+    const box = await map.boundingBox();
+    const t = project(target.midpoint);
+    let x = (mobile ? 390 : 1280) - 80, y = (mobile ? 844 : 900) - 150;
+    // Calibrate the pixel origin via the map's visible click diagnostic: the
+    // responsive planner changes Leaflet's initial center during invalidateSize.
+    const clicked = page.waitForEvent('console', { predicate: message => message.text().startsWith('clicked on point') });
+    await page.mouse.click(x, y, { button: 'right' });
+    const actualClick = await (await clicked).args()[1].jsonValue();
+    const actual = project([actualClick.lng, actualClick.lat]);
+    x += t[0] - actual[0]; y += t[1] - actual[1];
+    await page.locator('.district-popup').waitFor({ state: 'hidden' });
+    await map.dispatchEvent('click');
+    const cdp = mobile ? await context.newCDPSession(page) : null;
+    const openMenu = async () => {
+      if (mobile) {
+        // Exercise the fork's actual touch-hold handler, including its synthetic contextmenu.
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x, y }] });
+        await page.getByRole('button', { name: 'Details anzeigen', exact: true }).waitFor({ timeout: 15000 });
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      } else await page.mouse.click(x, y, { button: 'right' });
+      await page.getByRole('button', { name: 'Details anzeigen', exact: true }).waitFor({ timeout: 15000 }).catch(async error => {
+        console.log(JSON.stringify({ mobile, box, x, y, target: target.feature.id, point: target.midpoint, requests, errors,
+          text: await page.locator('body').innerText() }, null, 2));
+        await page.screenshot({ path: path.join(root, '.cache/street-details-failure.png') });
+        throw error;
+      });
+    };
+    await openMenu();
+    const menu = page.locator('#menu');
+    const menuBox = await menu.boundingBox();
+    await page.screenshot({ path: path.join(root, `.cache/street-menu-${mobile ? 'mobile' : 'desktop'}.png`) });
+    assert(menuBox.x >= 0 && menuBox.x + menuBox.width <= (mobile ? 390 : 1280), JSON.stringify({ menuBox,
+      viewport: await page.evaluate(() => ({ inner: innerWidth, client: document.documentElement.clientWidth, visual: visualViewport?.width })) }));
+    assert(await page.getByRole('button', { name: 'Route von hier', exact: true }).isEnabled());
+    await page.getByRole('button', { name: 'Details anzeigen', exact: true }).click();
+    const dialog = page.getByRole('dialog');
+    await dialog.waitFor();
+    assert.equal(await dialog.getAttribute('aria-modal'), 'false');
+    assert.equal(await dialog.locator('#street-details-title').innerText(), 'Streckendetails');
+    const choice = dialog.getByRole('button', { name: new RegExp(`OSM ${target.feature.id.slice(4)}$`) });
+    if (await choice.count()) await choice.click();
+    await dialog.locator('.street-detail-name').waitFor();
+    const preview = dialog.locator('iframe[title="Mapillary-Straßenansicht"]');
+    assert.equal(await preview.count(), 1, 'Selected real V20 way has a Mapillary preview');
+    if (process.env.STREET_TEST_MAPILLARY === '1') {
+      await page.frameLocator('iframe[title="Mapillary-Straßenansicht"]').locator('canvas').waitFor({ timeout: 45000 });
+    }
+    assert.match(await dialog.locator('.street-snapshot').innerText(), /^Datenstand 26\.10\.2026, Quelle IST_RadlVorrangNetz_Oberbayern_V20\.geojson\.$/);
+    const header = dialog.locator('#street-details-title');
+    const beforeMove = await dialog.boundingBox();
+    await header.focus();
+    await page.keyboard.press('ArrowDown');
+    const afterMove = await dialog.boundingBox();
+    assert(afterMove.y > beforeMove.y, 'Window must move with keyboard');
+    await dialog.getByRole('button', { name: 'Verkleinern', exact: true }).click();
+    assert.equal(await dialog.locator('.street-detail-name').isVisible(), false);
+    await dialog.getByRole('button', { name: 'Öffnen', exact: true }).click();
+    await dialog.locator('.street-detail-name').waitFor();
+    // Closing the map menu/panning must leave this independent window intact.
+    await map.dispatchEvent('click');
+    assert(await dialog.isVisible());
+    if (!mobile) {
+      const boxBeforeDrag = await dialog.boundingBox();
+      const titleBox = await header.boundingBox();
+      await page.mouse.move(titleBox.x + 20, titleBox.y + 10);
+      await page.mouse.down(); await page.mouse.move(titleBox.x + 50, titleBox.y + 30, { steps: 5 }); await page.mouse.up();
+      assert((await dialog.boundingBox()).x > boxBeforeDrag.x, 'Window must be draggable');
+      const beforeResize = await dialog.boundingBox();
+      await page.mouse.move(beforeResize.x + beforeResize.width - 3, beforeResize.y + beforeResize.height - 3);
+      await page.mouse.down();
+      await page.mouse.move(beforeResize.x + beforeResize.width - 63, beforeResize.y + beforeResize.height - 43, { steps: 5 });
+      await page.mouse.up();
+      assert((await dialog.boundingBox()).width < beforeResize.width - 20, 'Window must resize using its corner');
+    }
+    if (mobile) {
+      const rect = await dialog.boundingBox();
+      assert(rect.x >= 0 && rect.x + rect.width <= 390 && rect.y + rect.height <= 845,
+        `Mobile dialog must fit visible viewport: ${JSON.stringify(rect)}`);
+    }
+    assert(await page.locator('path[stroke="#8E24AA"]').count() > 0, 'Selected V20 geometry must be highlighted');
+    await page.screenshot({ path: path.join(root, `.cache/street-details-${mobile ? 'mobile' : 'desktop'}.png`) });
+    await dialog.getByRole('button', { name: 'Schließen', exact: true }).click();
+    await dialog.waitFor({ state: 'hidden' });
+    assert.equal(await page.locator('path[stroke="#8E24AA"]').count(), 0);
+    assert(await map.evaluate(e => e === document.activeElement), 'Focus returns to the map when the original menu has closed');
+    await map.dispatchEvent('click');
+    const before = requests.filter(p => p.endsWith('/geometry.json')).length;
+    await openMenu();
+    assert.equal(requests.filter(p => p.endsWith('/geometry.json')).length, before, 'Search index must be reused');
+    assert(requests.some(p => p.endsWith('/priority-ids-v1.json')), 'Real worker applies priority membership');
+    if (!mobile) {
+      await map.dispatchEvent('click');
+      for (let i = 0; i < 6; i++) { await page.locator('.leaflet-control-zoom-out').click(); await page.waitForTimeout(350); }
+      assert.equal(await page.locator('.district-label').count(), 0, 'Overview hides district labels');
+      assert.equal(await page.locator('.leaflet-district-boundaries-pane path').count(), 25, 'Overview retains boundaries');
+      for (let i = 0; i < 6; i++) { await page.locator('.leaflet-control-zoom-in').click(); await page.waitForTimeout(350); }
+      assert.equal(await page.locator('.district-label').count(), 25, 'Zooming back restores labels');
+      await districts.uncheck();
+      assert.equal(await page.locator('.district-label').count(), 0);
+      assert.equal(await page.locator('.district-popup').count(), 0);
+      assert.equal(await page.locator('.leaflet-district-boundaries-pane path').count(), 0);
+    }
+    assert.deepEqual(errors, [], 'No uncaught browser errors');
+    console.log(`${mobile ? 'Mobile touch-hold' : 'Desktop right-click'}: real worker, candidate choice, detail loading, highlight, focus and cached index OK (${target.feature.id}).`);
+    await context.close();
+  }
+} finally { await browser.close(); await new Promise(resolve => server.close(resolve)); }

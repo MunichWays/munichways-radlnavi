@@ -17,7 +17,7 @@ import {
 } from "react-leaflet";
 import { LatLngBounds, LeafletEvent, LeafletMouseEvent, Map as LMap, Icon as LeafletIcon } from "leaflet";
 import { throttle } from "lodash";
-import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Switch, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Radio, RadioGroup, Checkbox, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
 import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LegendToggle, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
 import lineSlice from "@turf/line-slice";
 import { point, lineString } from "@turf/helpers";
@@ -29,6 +29,11 @@ import "leaflet.vectorgrid";
 
 import RouteStops from './RouteStops';
 import RouteShare from './RouteShare';
+import StreetDetailsControl from './StreetDetailsDialog';
+import { StreetFeature, StreetNetworkMode, streetOsmText } from './streetDetails';
+import PriorityNetworkLayer from './PriorityNetworkLayer';
+import AboutDialog from './AboutDialog';
+import DistrictLayer from './DistrictLayer';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -199,54 +204,7 @@ function translateBicycleClass(bicycleClass: string): string {
 }
 
 function translateSurface(surface: string): string {
-  switch (surface) {
-    case "paved":
-      return "Befestigt";
-    case "asphalt":
-      return "Asphalt"
-    case "concrete":
-      return "Fest/Betoniert";
-    case "concrete:lanes":
-      return "Asphaltweg";
-    case "concrete:plates":
-      return "Asphaltplatten";
-    case "paving_stones":
-      return "Ebener Pflasterstein";
-    case "sett":
-      return "Pflasterstein";
-    case "cobblestone":
-      return "Rundlicher Pflasterstein";
-    case "unhewn_cobblestone":
-      return "Kopfsteinpflaster";
-    case "unpaved":
-      return "Uneben";
-    case "compacted":
-      return "Guter Waldweg";
-    case "fine_gravel":
-      return "Feiner Kies";
-    case "pebblestone":
-      return "Kies";
-    case "gravel":
-      return "Schotter";
-    case "earth":
-      return "Erde";
-    case "dirt":
-      return "Lockere Erde"
-    case "ground":
-      return "Erdboden";
-    case "grass":
-      return "Gras";
-    case "grass_paver":
-      return "Betonstein auf Gras";
-    case "mud":
-      return "Matsch";
-    case "sand":
-      return "Sand";
-    case "woodchips":
-      return "Holzschnitzel";
-    default:
-      return "Unbekannt";
-  }
+  return streetOsmText('osm_surface', surface) || 'Unbekannt';
 }
 
 const BICYCLE_CLASSES_COLORS = new Map([
@@ -418,14 +376,17 @@ function App() {
     top: number;
     lat: number;
     lng: number;
+    zoom: number;
   } | null>(null);
+  const [highlightedStreet, setHighlightedStreet] = useState<StreetFeature | null>(null);
   const [menuMinimized, setMenuMinimized] = useState<boolean>(false);
   const [hightlightLit, setHightlightLit] = useState<string | null>(null);
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
   const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
-  const [showMunichways, setShowMunichways] = useState(true);
-  const [showAbout, setShowAbout] = useState(false);
+  const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
+  const [showAbout, setShowAbout] = useState(true);
+  const [showDistricts, setShowDistricts] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
   const [showLegend, setShowLegend] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
@@ -534,13 +495,14 @@ function App() {
 
   useEffect(() => {
     if (map) {
-      if (showMunichways) {
+      if (streetNetworkMode === 'all') {
         munichWaysLayer.addTo(map);
       } else {
         munichWaysLayer.removeFrom(map);
       }
     }
-  }, [map, showMunichways]);
+    return () => { if (map) munichWaysLayer.removeFrom(map); };
+  }, [map, streetNetworkMode]);
 
   useEffect(() => {
     if (map) {
@@ -775,12 +737,13 @@ function App() {
   }, [pendingImport, map]);
 
   const openContextMenu = useCallback((e: LeafletMouseEvent) => {
-    e.originalEvent.preventDefault();
+    e.originalEvent?.preventDefault();
     setContextMenuPosition({
-      left: e.originalEvent.clientX,
-      top: e.originalEvent.clientY,
+      left: e.originalEvent?.clientX ?? document.documentElement.clientWidth / 2,
+      top: e.originalEvent?.clientY ?? document.documentElement.clientHeight / 2,
       lat: e.latlng.lat,
       lng: e.latlng.lng,
+      zoom: map.getZoom(),
     });
     console.log(
       "clicked on point",
@@ -789,7 +752,7 @@ function App() {
       e.originalEvent.clientY
     );
     return false;
-  }, []);
+  }, [map]);
 
   const closeContextMenu = useCallback(() => {
     setContextMenuPosition(null);
@@ -875,16 +838,21 @@ function App() {
 
   useEffect(() => {
     if (map != null) {
-      map.on("contextmenu", (e: LeafletMouseEvent) => {
-        openContextMenu(e);
-      });
-      map.on("movestart", () => closeContextMenu());
-      map.on("click", () => closeContextMenu());
-      map.on("mouseover", () => {
+      const clearHighlight = () => {
         setHightlightSurface(null);
         setHightlightLit(null);
         setHighlightComfort(null);
-      });
+      };
+      map.on("contextmenu", openContextMenu);
+      map.on("movestart", closeContextMenu);
+      map.on("click", closeContextMenu);
+      map.on("mouseover", clearHighlight);
+      return () => {
+        map.off("contextmenu", openContextMenu);
+        map.off("movestart", closeContextMenu);
+        map.off("click", closeContextMenu);
+        map.off("mouseover", clearHighlight);
+      };
     }
   }, [map, closeContextMenu, openContextMenu]);
 
@@ -1162,12 +1130,12 @@ function App() {
           map.invalidateSize();
         }
       }}>
-        {contextMenuPosition !== null ? (
           <div
             id="menu"
             style={{
-              left: `${contextMenuPosition.left}px`,
-              top: `${contextMenuPosition.top}px`,
+              display: contextMenuPosition ? 'flex' : 'none',
+              left: Math.max(8, Math.min(contextMenuPosition?.left || 0, document.documentElement.clientWidth - 308)),
+              top: Math.max(8, Math.min(contextMenuPosition?.top || 0, document.documentElement.clientHeight - 330)),
             }}
           >
             <Button
@@ -1189,8 +1157,8 @@ function App() {
               onClick={() => stopHere(contextMenuPosition)}>
               Zwischenziel setzen
             </Button>
+            <StreetDetailsControl mode={streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
           </div>
-        ) : null}
 
         <Tooltip title="Legende">
           <IconButton
@@ -1385,7 +1353,6 @@ function App() {
             <details className="planner-more">
               <summary>Mehr</summary>
               <div className="planner-more-content">
-                <Button variant="outlined" onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
                 {route != null && imported?.version !== 0 ? <Button variant="outlined"
                     onClick={startNavigation} startIcon={<PlayArrow/>}>Navigation starten</Button> : null}
                 {surfacesElement && <section aria-label="Untergrund">
@@ -1396,11 +1363,24 @@ function App() {
                   <Typography variant="subtitle2">Beleuchtung</Typography>
                   {illuminatedElement}
                 </section>}
-                <FormControlLabel sx={{m: 0}}
-                    control={<Switch size="small" checked={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
-                    label="Bewertungen"/>
+                <RadioGroup aria-label="Streckennetz" value={streetNetworkMode}
+                    onChange={(_, value) => setStreetNetworkMode(value as StreetNetworkMode)}>
+                    <FormControlLabel value="all" control={<Radio size="small" />} label="Alle Details" />
+                    <FormControlLabel value="priority" control={<Radio size="small" />} label="RadVorrang-Netz" />
+                  </RadioGroup>
+                  <PriorityNetworkLayer map={map} visible={streetNetworkMode === 'priority'} />
+                <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={showDistricts}
+                  onChange={(_, checked) => setShowDistricts(checked)} />} label="Stadtbezirke" />
+                {showDistricts && <Typography variant="caption" color="text.secondary">
+                  BA-Nummern ab Zoom 12. Namen beim Darüberfahren, Bezirksinfos per Klick.
+                </Typography>}
+                <DistrictLayer map={map} visible={showDistricts} streetSelection={contextMenuPosition || highlightedStreet} />
+                <Button variant="text" size="small" sx={{ color: 'text.secondary' }} onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
                 <Link component="button" underline="hover" onClick={() => setShowAbout(true)}>
                   Über RadlNavi
+                </Link>
+                <Link href="mailto:mail@munichways.de?subject=Feedback%20zu%20RadlNavi" underline="hover">
+                  Feedback geben
                 </Link>
                 <Link component="button" underline="hover" onClick={() => setShowImpressum(true)}>
                   Impressum und Datenschutzerklärung
@@ -1500,6 +1480,7 @@ function App() {
           maxBounds={MAP_BOUNDS}
           ref={setMap}
           rotate={true}
+          tapHold={true}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -1576,6 +1557,8 @@ function App() {
             }></Polyline>
           }
           {regionShape == null ? null : <Polygon fillColor="black" weight={0} fillOpacity={0.5} positions={regionShape}></Polygon>}
+          {highlightedStreet && <Polyline positions={highlightedStreet.geometry.coordinates.map(([lng, lat]) => [lat, lng])}
+            pathOptions={{ color: '#8E24AA', weight: 9, opacity: 0.85 }} interactive={false} />}
         </LeafletMap>
       </div>
 
@@ -1610,19 +1593,7 @@ function App() {
           setGpsMode('gps_off');
           map?.setView([step.maneuver.location[1], step.maneuver.location[0]], 19);
         }} />
-      <Dialog open={showAbout}>
-        <DialogTitle>Über RadlNavi</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            RadlNavi findet angenehmere Fahrradverbindungen – möglichst über komfortable Wege, ruhigere Straßen und mit weniger schwierigen Querungen.<br /><br />
-            Die farbigen Linien zeigen das von Radfahrer*innen gemeinsam bewertete Radnetz: von Grün für angenehm bis Schwarz für besonders stressig.<br /><br />
-            <a href="https://www.munichways.de/radlvorrangnetz/" target="_blank" rel="noreferrer">Mehr über das RadlVorrang-Netz und die Bewertung erfahren</a>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setShowAbout(false)}>Schließen</Button>
-        </DialogActions>
-      </Dialog>
+      <AboutDialog open={showAbout} onClose={() => setShowAbout(false)} />
 
       <Dialog open={showLegend} onClose={() => setShowLegend(false)}>
         <DialogTitle>Bewertungen</DialogTitle>

@@ -42,6 +42,9 @@
     "typescript": "4.9.5"
   },
   "scripts": {
+    "prepare:street-details": "node build_street_details.mjs",
+    "test:street-details-build": "node --test tests/build_street_details.test.mjs",
+    "lint:street-details": "eslint src/streetDetails.ts src/streetDetailsSearch.ts src/streetDetailsClient.ts src/streetDetails.worker.ts src/createStreetDetailsWorker.ts src/StreetDetailsDialog.tsx src/FloatingMapWindow.tsx src/MapillaryPreview.tsx src/PriorityNetworkLayer.tsx src/AboutDialog.tsx src/DistrictLayer.tsx --max-warnings=0",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

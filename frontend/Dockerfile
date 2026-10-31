@@ -24,6 +24,11 @@ RUN node load_munichways.mjs
 RUN mkdir ./public/layers
 RUN ./tippecanoe/tippecanoe --maximum-zoom=19 --no-tile-compression -e ./public/layers/munichways ./public/munichways.json
 
+FROM node:18.16-buster AS street-details-builder
+WORKDIR /data
+COPY build_street_details.mjs street-details-source.json ./
+RUN node build_street_details.mjs
+
 FROM map-builder AS app-builder
 
 ARG BACKEND_URL="https://backend.radlnavi.de"
@@ -45,6 +50,7 @@ LABEL org.opencontainers.image.revision=$VERSION
 ENV PORT 80
 
 COPY --from=map-builder public/layers /var/www/html/layers
+COPY --from=street-details-builder /data/public/street-details /var/www/html/street-details
 COPY --from=app-builder build /var/www/html
 COPY nginx-route-sharing.conf /etc/nginx/nginx.conf
 

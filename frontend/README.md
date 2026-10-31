@@ -2,6 +2,86 @@
 
 This is the frontend for [radlnavi.de](https://www.radlnavi.de).
 
+Beim Start erscheint ein kompaktes Infofenster (560 px, auf Mobilgeräten nahezu
+bildschirmbreit). Drei zunächst eingeklappte Abschnitte erklären Farben,
+RadlVorrang-Netz und Datenaktualisierungen. Schließen-Symbol, Escape oder
+„Karte entdecken“ schließen es; unter „Mehr → Über RadlNavi“ lässt es sich
+wieder öffnen. Der Inhalt scrollt innerhalb des Fensters, die Abschlussaktion
+bleibt sichtbar. Die Farblegende steht nur im aufgeklappten Bewertungsabschnitt.
+Im Hauptmenü und im Infofenster führt „Feedback“ per E-Mail zu `mail@munichways.de`.
+
+## Streckendetails (US #35, Version 2.3.8)
+
+Die RadlNavi-Datenquelle ist `IST_RadlVorrangNetz_Oberbayern_V20.geojson` und
+enthält auch Streckendetails außerhalb Münchens.
+
+Rechtsklick oder langes Drücken auf die Karte öffnet das Kontextmenü. Ab Zoom 14
+erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
+der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
+Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
+und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
+Unter „Mehr“ stehen „Alle Details“ (Standard) und „RadVorrang-Netz“ zur Auswahl.
+Die Auswahl filtert Kartenlinien und Detailsuche gemeinsam. Das RadlVorrang-Netz
+verwendet dieselbe V20-Regel wie die App: `munichways_mw_rv_route` fehlt nicht
+und ist weder leer noch genau `-`.
+
+OSM-Sachwerte werden auf Deutsch angezeigt (Straßenart, Oberfläche, Ebenheit,
+Fahrradregelung, Zugang und Beleuchtung), auch bei Mehrfachwerten. Breiten nutzen
+das deutsche Dezimalkomma. Eigennamen und IDs bleiben erhalten; unbekannte neue
+OSM-Werte bleiben lesbar, statt Informationen zu verwerfen.
+
+„Stadtbezirke“ unter „Mehr“ ist standardmäßig ausgeschaltet. Der feste lokale
+GeoJSON-Bestand zeigt Grenzen sowie ab Zoom 12 die anklickbaren BA-Nummern.
+Namen erscheinen beim Überfahren der Labels; Strecken-Rechtsklicks bleiben
+erreichbar. [Import und Darstellung](../docs/stadtbezirke.md).
+
+Für den ersten lokalen Test die Daten erzeugen, dann den Entwicklungsserver starten:
+
+```powershell
+npm run prepare:street-details
+npm start
+```
+
+Der Build prüft die in `street-details-source.json` festgelegte SHA-256. Das dort
+hinterlegte `createdAt` bezeichnet den Datenstand der Quelldatei und wird
+unabhängig vom Downloadzeitpunkt angezeigt. Eine
+geänderte Quelldatei muss vor dem Aktualisieren dieses Hashs geprüft werden.
+Mit `npm run prepare:street-details -- --source PFAD.geojson` kann derselbe
+Snapshot lokal eingelesen werden. Erzeugte Dateien liegen unter
+`public/street-details/` und werden nicht eingecheckt. Der Docker-Build erstellt
+sie in einer eigenen Stage. Ohne lokale Daten verwendet `npm start` den
+Produktionsproxy; dafür muss diese Version bereits veröffentlicht sein.
+
+Automatisierte Prüfungen:
+
+```powershell
+npm run test:street-details-build
+npm run lint:street-details
+$env:CI='true'
+npm test -- --watchAll=false --runInBand
+npx tsc --noEmit
+npm run build
+```
+
+Der optionale Browsertest prüft das Produktionsbundle mit echten V20-Daten,
+Web Worker und Desktop-/Touch-Ereignissen in einer separaten Headless-Edge-Instanz:
+
+```powershell
+npm install --prefix .cache/browser --no-save --package-lock=false playwright@1.56.1
+node tests/street_details.browser.mjs
+```
+
+Mit `$env:STREET_TEST_MAPILLARY='1'` vor dem Browsertest wird zusätzlich die
+echte Mapillary-Einbettung mit Internetzugriff geladen und geprüft.
+
+Dafür müssen Microsoft Edge installiert und die Daten vor `npm run build`
+erzeugt worden sein. Mit `STREET_TEST_BROWSER_CHANNEL=chrome` lässt sich ein
+installierter Chrome verwenden. Screenshots liegen im ignorierten `.cache`.
+Externe Kartentiles sind im Test ausgespart; Routing und Produktionsdaten
+werden dabei nicht verändert. Test auf echter Hardware bleibt zusätzlich sinnvoll.
+
+Technische Einzelheiten: [Umsetzung zu US #35](../docs/issue-35-v20-details/implementation.md).
+
 ## Hinweise und Ansagen am Rechner prüfen
 
 Frontend mit `npm start` starten und `http://localhost:3000` öffnen.

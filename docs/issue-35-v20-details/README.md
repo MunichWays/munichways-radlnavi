@@ -1,8 +1,9 @@
 # US 35: V20-Streckendetails in RadlNavi anzeigen
 
 Analyse vom 31. Oktober 2026 zu [RadlNavi-Issue #35](https://github.com/MunichWays/munichways-radlnavi/issues/35).
-Status: Umsetzungsvorschlag, keine implementierte Produktfunktion. Mit KI anhand
-des vorhandenen Codes und eines heruntergeladenen V20-Snapshots erarbeitet.
+Diese Analyse dokumentiert die ursprüngliche Planung. Die inzwischen realisierte
+Funktion und ihre Prüfungen sind in [Umsetzung und Betrieb](implementation.md) beschrieben.
+Mit KI anhand des vorhandenen Codes und eines heruntergeladenen V20-Snapshots erarbeitet.
 
 ## Ergebnis und Empfehlung
 
@@ -304,5 +305,6 @@ python docs/issue-35-v20-details/inspect_v20.py SOURCE.geojson --output REPORT.j
 ```
 
 Den Quellhash vor einem Vergleich kontrollieren: Die URL ist veränderlich.
-Die vorgesehenen Produkt- und Geometrietests sind Anforderungen an die spätere
-Umsetzung und wurden in diesem Dokumentationsbranch nicht als bestanden ausgegeben.
+Die vorgesehenen Produkt- und Geometrietests waren zum Zeitpunkt dieser Analyse
+Anforderungen an die spätere Umsetzung. Aktuelle Ergebnisse stehen im
+[Prüfprotokoll der Umsetzung](implementation.md#prüfprotokoll).

@@ -29,6 +29,8 @@ import "leaflet.vectorgrid";
 
 import RouteStops from './RouteStops';
 import RouteShare from './RouteShare';
+import StreetDetailsControl from './StreetDetailsDialog';
+import { StreetFeature } from './streetDetails';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -418,7 +420,9 @@ function App() {
     top: number;
     lat: number;
     lng: number;
+    zoom: number;
   } | null>(null);
+  const [highlightedStreet, setHighlightedStreet] = useState<StreetFeature | null>(null);
   const [menuMinimized, setMenuMinimized] = useState<boolean>(false);
   const [hightlightLit, setHightlightLit] = useState<string | null>(null);
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
@@ -775,12 +779,13 @@ function App() {
   }, [pendingImport, map]);
 
   const openContextMenu = useCallback((e: LeafletMouseEvent) => {
-    e.originalEvent.preventDefault();
+    e.originalEvent?.preventDefault();
     setContextMenuPosition({
-      left: e.originalEvent.clientX,
-      top: e.originalEvent.clientY,
+      left: e.originalEvent?.clientX ?? document.documentElement.clientWidth / 2,
+      top: e.originalEvent?.clientY ?? document.documentElement.clientHeight / 2,
       lat: e.latlng.lat,
       lng: e.latlng.lng,
+      zoom: map.getZoom(),
     });
     console.log(
       "clicked on point",
@@ -789,7 +794,7 @@ function App() {
       e.originalEvent.clientY
     );
     return false;
-  }, []);
+  }, [map]);
 
   const closeContextMenu = useCallback(() => {
     setContextMenuPosition(null);
@@ -875,16 +880,21 @@ function App() {
 
   useEffect(() => {
     if (map != null) {
-      map.on("contextmenu", (e: LeafletMouseEvent) => {
-        openContextMenu(e);
-      });
-      map.on("movestart", () => closeContextMenu());
-      map.on("click", () => closeContextMenu());
-      map.on("mouseover", () => {
+      const clearHighlight = () => {
         setHightlightSurface(null);
         setHightlightLit(null);
         setHighlightComfort(null);
-      });
+      };
+      map.on("contextmenu", openContextMenu);
+      map.on("movestart", closeContextMenu);
+      map.on("click", closeContextMenu);
+      map.on("mouseover", clearHighlight);
+      return () => {
+        map.off("contextmenu", openContextMenu);
+        map.off("movestart", closeContextMenu);
+        map.off("click", closeContextMenu);
+        map.off("mouseover", clearHighlight);
+      };
     }
   }, [map, closeContextMenu, openContextMenu]);
 
@@ -1162,12 +1172,12 @@ function App() {
           map.invalidateSize();
         }
       }}>
-        {contextMenuPosition !== null ? (
           <div
             id="menu"
             style={{
-              left: `${contextMenuPosition.left}px`,
-              top: `${contextMenuPosition.top}px`,
+              display: contextMenuPosition ? 'flex' : 'none',
+              left: Math.max(8, Math.min(contextMenuPosition?.left || 0, document.documentElement.clientWidth - 308)),
+              top: Math.max(8, Math.min(contextMenuPosition?.top || 0, document.documentElement.clientHeight - 330)),
             }}
           >
             <Button
@@ -1189,8 +1199,8 @@ function App() {
               onClick={() => stopHere(contextMenuPosition)}>
               Zwischenziel setzen
             </Button>
+            <StreetDetailsControl query={contextMenuPosition} onHighlight={setHighlightedStreet} />
           </div>
-        ) : null}
 
         <Tooltip title="Legende">
           <IconButton
@@ -1386,6 +1396,11 @@ function App() {
               <summary>Mehr</summary>
               <div className="planner-more-content">
                 <Button variant="outlined" onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
+                <Button variant="outlined" onClick={() => {
+                  const center = map?.getCenter();
+                  if (center) setContextMenuPosition({ left: window.innerWidth / 2, top: window.innerHeight / 2,
+                    lat: center.lat, lng: center.lng, zoom: map.getZoom() });
+                }}>Streckendetails an Kartenmitte</Button>
                 {route != null && imported?.version !== 0 ? <Button variant="outlined"
                     onClick={startNavigation} startIcon={<PlayArrow/>}>Navigation starten</Button> : null}
                 {surfacesElement && <section aria-label="Untergrund">
@@ -1500,6 +1515,7 @@ function App() {
           maxBounds={MAP_BOUNDS}
           ref={setMap}
           rotate={true}
+          tapHold={true}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -1576,6 +1592,8 @@ function App() {
             }></Polyline>
           }
           {regionShape == null ? null : <Polygon fillColor="black" weight={0} fillOpacity={0.5} positions={regionShape}></Polygon>}
+          {highlightedStreet && <Polyline positions={highlightedStreet.geometry.coordinates.map(([lng, lat]) => [lat, lng])}
+            pathOptions={{ color: '#8E24AA', weight: 9, opacity: 0.85 }} interactive={false} />}
         </LeafletMap>
       </div>
 

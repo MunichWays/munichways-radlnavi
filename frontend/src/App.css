@@ -62,12 +62,29 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  z-index: 1;
+  z-index: 1100;
+  width: min(280px, calc(100vw - 36px));
+  max-height: calc(100dvh - 36px);
+  overflow-y: auto;
   background: white none repeat scroll 0% 0%;
   border-radius: 10px;
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.4) 5px 5px 10px;
 }
+
+.street-menu-status p { font-size: 0.85rem; margin: 8px 4px; }
+.street-menu-status > button { width: 100%; text-transform: none; }
+.street-snapshot { color: #555; font-size: 0.85rem; margin-top: 0; }
+.street-detail-name { margin-bottom: 8px; }
+.street-rating-dot { display: inline-block; width: 14px; height: 14px; border: 1px solid #555; border-radius: 50%; margin-right: 8px; }
+.street-detail-section { border: 1px solid #b9dfe9; border-radius: 8px; margin: 14px 0; padding: 12px; }
+.street-detail-section > summary { cursor: pointer; font-weight: 600; }
+.street-detail-row { margin: 12px 0; }
+.street-detail-row dt { font-weight: 600; }
+.street-detail-row dd { margin: 4px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.street-candidates { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
+.street-candidates > button { justify-content: flex-start; text-transform: none; text-align: left; }
+.street-details-dialog { overflow-wrap: anywhere; }
 
 .routing {
   display: flex;

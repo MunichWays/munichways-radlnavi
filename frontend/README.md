@@ -2,6 +2,56 @@
 
 This is the frontend for [radlnavi.de](https://www.radlnavi.de).
 
+## V20-Streckendetails (US #35, Version 2.3.8)
+
+Rechtsklick oder langes Drücken auf die Karte öffnet das Kontextmenü. Ab Zoom 14
+erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
+der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
+Unter **Mehr → Streckendetails an Kartenmitte** ist die Suche auch per Tastatur
+erreichbar. Die Funktion ist unabhängig vom Schalter für Bewertungsfarben.
+
+Für den ersten lokalen Test die Daten erzeugen, dann den Entwicklungsserver starten:
+
+```powershell
+npm run prepare:street-details
+npm start
+```
+
+Der Build prüft die in `street-details-source.json` festgelegte SHA-256. Eine
+geänderte Quelldatei muss vor dem Aktualisieren dieses Hashs geprüft werden.
+Mit `npm run prepare:street-details -- --source PFAD.geojson` kann derselbe
+Snapshot lokal eingelesen werden. Erzeugte Dateien liegen unter
+`public/street-details/` und werden nicht eingecheckt. Der Docker-Build erstellt
+sie in einer eigenen Stage. Ohne lokale Daten verwendet `npm start` den
+Produktionsproxy; dafür muss diese Version bereits veröffentlicht sein.
+
+Automatisierte Prüfungen:
+
+```powershell
+npm run test:street-details-build
+npm run lint:street-details
+$env:CI='true'
+npm test -- --watchAll=false --runInBand
+npx tsc --noEmit
+npm run build
+```
+
+Der optionale Browsertest prüft das Produktionsbundle mit echten V20-Daten,
+Web Worker und Desktop-/Touch-Ereignissen in einer separaten Headless-Edge-Instanz:
+
+```powershell
+npm install --prefix .cache/browser --no-save --package-lock=false playwright@1.56.1
+node tests/street_details.browser.mjs
+```
+
+Dafür müssen Microsoft Edge installiert und die Daten vor `npm run build`
+erzeugt worden sein. Mit `STREET_TEST_BROWSER_CHANNEL=chrome` lässt sich ein
+installierter Chrome verwenden. Screenshots liegen im ignorierten `.cache`.
+Externe Kartentiles sind im Test ausgespart; Routing und Produktionsdaten
+werden dabei nicht verändert. Test auf echter Hardware bleibt zusätzlich sinnvoll.
+
+Technische Einzelheiten: [Umsetzung zu US #35](../docs/issue-35-v20-details/implementation.md).
+
 ## Hinweise und Ansagen am Rechner prüfen
 
 Frontend mit `npm start` starten und `http://localhost:3000` öffnen.

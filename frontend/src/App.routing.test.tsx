@@ -13,8 +13,14 @@ jest.setTimeout(15000);
 const mockHandlers: Record<string, Function> = {};
 const mockMap = {
   on: (event: string, handler: Function) => { mockHandlers[event] = handler; },
+  off: jest.fn(), getZoom: () => 16,
   invalidateSize: jest.fn(), setBearing: jest.fn(), fitBounds: jest.fn(),
 };
+const mockStreetSearch = jest.fn().mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] });
+jest.mock('./streetDetailsClient', () => ({ StreetDetailsClient: function () {
+  return { search: mockStreetSearch, details: jest.fn(), dispose: jest.fn() };
+} }));
+beforeEach(() => mockStreetSearch.mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] }));
 jest.mock("leaflet.vectorgrid", () => {
   const L = require("leaflet");
   L.vectorGrid = { protobuf: () => ({ addTo: jest.fn(), removeFrom: jest.fn() }) };

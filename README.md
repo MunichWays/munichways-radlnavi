@@ -8,8 +8,8 @@ The [frontend service](./frontend/) interacts with the user and also features an
 
 # Development
 
-The implementation analysis for [V20 street details (issue #35)](docs/issue-35-v20-details/README.md)
-describes the proposed context-menu action, data preparation, and acceptance criteria.
+The [V20 street details documentation (issue #35)](docs/issue-35-v20-details/implementation.md)
+describes the context-menu action, data preparation, and local verification.
 
 The API supports [endpoint pushing access](docs/endpoint-pushing-access.md)
 without changing the bicycle profiles. This feature requires a newly built

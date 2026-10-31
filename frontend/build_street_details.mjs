@@ -15,6 +15,10 @@ const fields = ['osm_id', 'osm_name', 'osm_class_bicycle', 'osm_smoothness', 'os
 export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOString()) {
   const snapshot = createHash('sha256').update(raw).digest('hex');
   if (snapshot !== config.sha256) throw new Error(`V20 SHA-256 mismatch: expected ${config.sha256}, received ${snapshot}. Review the new source before updating street-details-source.json.`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(config.createdAt || '') ||
+      !Number.isFinite(Date.parse(config.createdAt)) || new Date(config.createdAt).toISOString().slice(0, 10) !== config.createdAt) {
+    throw new Error('A valid source creation date is required in street-details-source.json');
+  }
   const data = JSON.parse(raw.toString('utf8'));
   if (data.type !== 'FeatureCollection' || !Array.isArray(data.features) || !data.features.length) {
     throw new Error('V20 must be a nonempty FeatureCollection');
@@ -53,7 +57,7 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
       .map(key => [key, String(p[key])]));
   }
   return {
-    manifest: { schemaVersion: 1, snapshot, sourceUrl: config.url, retrievedAt, bbox,
+    manifest: { schemaVersion: 1, snapshot, sourceUrl: config.url, sourceCreatedAt: config.createdAt, retrievedAt, bbox,
       featureCount: features.length },
     geometry: { type: 'FeatureCollection', features }, groups,
   };

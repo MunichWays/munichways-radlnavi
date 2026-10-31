@@ -5,7 +5,7 @@ export type StreetFeature = {
   geometry: { type: 'LineString'; coordinates: StreetCoordinate[] };
 };
 export type StreetManifest = {
-  schemaVersion: 1; snapshot: string; sourceUrl: string; retrievedAt: string;
+  schemaVersion: 1; snapshot: string; sourceUrl: string; sourceCreatedAt: string; retrievedAt: string;
   bbox: [number, number, number, number]; featureCount: number;
 };
 export type StreetCandidate = StreetFeature & { distance: number };
@@ -19,6 +19,13 @@ export function streetText(value: unknown): string | undefined {
 
 export function streetName(p: StreetProperties): string {
   return streetText(p.osm_name) || streetText(p.munichways_name) || 'Streckenabschnitt';
+}
+
+export function streetSmoothness(value: unknown): string | undefined {
+  const text = streetText(value);
+  const labels: Record<string, string> = { excellent: 'sehr gut', good: 'gut', intermediate: 'mittelmäßig',
+    bad: 'schlecht', very_bad: 'sehr schlecht', horrible: 'sehr holprig', very_horrible: 'extrem holprig', impassable: 'unpassierbar' };
+  return text ? labels[text] || text : undefined;
 }
 
 const classes: Record<string, { label: string; color: string }> = {
@@ -73,6 +80,25 @@ export function streetLinks(value: unknown): { title: string; url: string }[] {
 export function streetDetailGroup(id: string): string {
   if (!/^osm_\d+$/.test(id)) throw new Error('Ungültige Strecken-ID.');
   return id.slice(4).slice(-2).padStart(2, '0');
+}
+
+export function mapillaryPreview(p: StreetProperties): { id: string; url: string; embedUrl: string } | undefined {
+  const links = streetLinks(p.munichways_mapillary_link);
+  for (const link of links) {
+    const url = new URL(link.url);
+    if (!['www.mapillary.com', 'mapillary.com'].includes(url.hostname) || url.protocol !== 'https:') continue;
+    const id = url.searchParams.get('pKey') || url.searchParams.get('image_key');
+    if (!id || !/^[A-Za-z0-9_-]+$/.test(id)) continue;
+    return { id, url: `https://www.mapillary.com/app/?pKey=${encodeURIComponent(id)}`,
+      embedUrl: `https://www.mapillary.com/embed?image_key=${encodeURIComponent(id)}&style=photo` };
+  }
+  return undefined;
+}
+
+export function streetSourceLabel(manifest: StreetManifest): string {
+  const [year, month, day] = manifest.sourceCreatedAt.split('-');
+  const filename = new URL(manifest.sourceUrl).pathname.split('/').pop();
+  return `Datenstand ${day}.${month}.${year}, Quelle ${filename}.`;
 }
 
 export function streetSearchRadius(lat: number, zoom: number): number {

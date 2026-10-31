@@ -13,9 +13,11 @@ hervorgehoben. Der OSM-Bewertungslayer muss dafür nicht eingeschaltet sein.
 
 Die Ansicht zeigt Namen, Bewertung/Happy Bike Level und OSM-Klasse sowie
 Ist-Zustand, Forderungen und Netzplanung, Links und technische Angaben.
-Fehlende Felder und Platzhalter werden ausgeblendet. Mapillary ist als Link
-verfügbar. Unter „Mehr → Streckendetails an Kartenmitte“ ist die Funktion auch
-ohne Maus erreichbar. Escape oder „Schließen“ entfernt die Hervorhebung und
+Fehlende Felder und Platzhalter werden ausgeblendet. Eine Mapillary-Vorschau
+steht bei ermittelbarer Bild-ID ganz oben. Der blau hinterlegte Titel lässt
+sich ziehen oder mit den Pfeiltasten verschieben. „Verkleinern“ minimiert das
+Fenster; an der unteren rechten Ecke kann es in der Größe geändert werden.
+Escape oder „Schließen“ entfernt die Hervorhebung und
 gibt den Fokus an den Auslöser zurück.
 
 Ladefehler, fehlender Treffer und zu kleiner Zoom haben getrennte Meldungen.
@@ -24,7 +26,7 @@ Route, Start/Ziel und Zwischenziele bleiben von der Detailsuche unabhängig.
 
 ## Datenvertrag und Build
 
-`frontend/street-details-source.json` legt URL und SHA-256 des geprüften
+`frontend/street-details-source.json` legt URL, Erstellungsdatum und SHA-256 des geprüften
 Snapshots fest. `build_street_details.mjs` lädt genau diesen Stand und stoppt
 bei geänderter Prüfsumme, fehlenden/doppelten OSM-IDs oder ungültigen Geometrien.
 Aktuell wird ausschließlich LineString unterstützt; MultiLineString wird
@@ -32,7 +34,7 @@ ausdrücklich abgelehnt. Der Snapshot umfasst einen Münchner Ausschnitt.
 
 Ausgabe in `frontend/public/street-details/`:
 
-- `manifest.json`: Schemaversion 1, SHA-256, Quell-URL, Abrufdatum, Bounding Box
+- `manifest.json`: Schemaversion 1, SHA-256, Quell-URL, Quelldatum (`sourceCreatedAt`), Abrufdatum, Bounding Box
   und Featureanzahl. Veröffentlichung erst nach erfolgreicher Aufbereitung.
 - `<sha256>/geometry.json`: originale Geometrien, Schlüssel `osm_<osm_id>` und
   kurze Namens-/Bewertungsfelder für die Kandidatenauswahl.
@@ -76,14 +78,50 @@ Generierte Daten, Quelldownload und Testbrowser bleiben außerhalb von Git.
   Rohes HTML wird nicht in React eingesetzt: nur Linktext und geprüfte absolute
   HTTP-/HTTPS-URLs werden übernommen. Zugangsdaten in URLs sind nicht erlaubt.
 - Der bereits vorhandene Leaflet-Fork enthält `tapHold`; dieser ist explizit
-  aktiviert. Die zusätzliche Kartenmitte-Aktion bietet einen sichtbaren
-  Tastaturzugang. Auf schmalen Ansichten füllt der Detaildialog den Bildschirm.
+  aktiviert. Das schwebende Fenster bleibt auch beim Verschieben der Karte offen
+  und wird auf die sichtbare Viewportgröße begrenzt.
+
+## Feintuning
+
+Die Ansicht heißt „Streckendetails“, besitzt einen blauen, verschiebbaren Header
+wie „Hinweise prüfen“ und bleibt ohne modale Sperre über der Karte geöffnet.
+„Verkleinern“ klappt den Inhalt ein; die untere rechte Ecke dient zum Skalieren.
+Attribute erscheinen kompakt als „Bezeichnung: Wert“, mit Umbruch langer Texte.
+Bekannte Ebenheitswerte sind übersetzt, beispielsweise `good` → „gut“.
+Für Stellen ohne Treffer wird kein zusätzlicher Hinweis angezeigt.
+
+Die Fußzeile lautet für den festgelegten Snapshot:
+„Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_MunichWays_V20.geojson.“
+Das Datum stammt aus der zusammen mit dem Quellhash gepflegten `createdAt`-
+Angabe, nicht aus dem Build-/Downloadzeitpunkt. Die GeoJSON enthält selbst kein
+Datumsfeld. Der vom Datenverantwortlichen genannte 26. Oktober stimmt mit dem
+am 31. Oktober geprüften HTTP-Header `Last-Modified: Mon, 26 Oct 2026 18:55:33 GMT`
+überein. Bei einem neuen Quelldatenstand müssen Hash und Quelldatum aktualisiert werden.
+
+Eine ermittelbare Mapillary-Bild-ID aus einem Mapillary-Link führt ganz oben
+zur offiziellen Bild-Einbettung im Foto-Modus. Die URL wird aus validierten
+Mapillary-Links erzeugt; beliebige Fremdhosts werden nicht als Vorschau akzeptiert.
+Es werden keine API-Zugangsdaten aus der App kopiert. Der Anbieter lädt die
+Vorschau in einem eigenen iframe; ein zusätzlicher Bildlink bleibt verfügbar.
+Die Einbettung wurde ohne Anmeldung mit einem realen Bild im Testbrowser geprüft.
+Grundlage: [offizielle Mapillary-Einbettung](https://help.mapillary.com/hc/en-us/articles/115001778705-How-to-embedding-a-Mapillary-capture-into-your-own-app).
+
+Der Kartenmitte-Button ist entfernt. „Hinweise prüfen“ steht als dezente Aktion
+ohne Rahmen direkt über „Über RadlNavi“; dessen Beschreibung verwendet den
+vereinfachten Text zum gemeinsam bewerteten Radnetz.
 
 OSRM, Backend und Routingprofile wurden nicht verändert. Ein Frontend-
 Deployment reicht aus. Die GitHub-Actions-Regressionen prüfen jetzt auch
 Frontendänderungen, Datenaufbereitung und TypeScript.
 
+Feintuning-Prüfung: vollständige Frontend-Suite mit 93 Tests erfolgreich,
+Datenbuild-Tests, Lint und TypeScript ebenfalls erfolgreich. Die Browserprüfung
+deckt zusätzlich Verschieben, Minimieren/Wiederherstellen, Kartenbedienung bei
+offenem Fenster und die tatsächliche Mapillary-Einbettung ab.
+
 ## Prüfprotokoll
+
+Die folgenden Angaben beziehen sich auf die ursprüngliche Umsetzung:
 
 Geprüft am 31. Oktober 2026 mit Node 20.11.0:
 

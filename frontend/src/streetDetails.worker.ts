@@ -5,6 +5,7 @@ export function validateStreetManifest(value: unknown): StreetManifest {
   const m = value as StreetManifest;
   if (!m || m.schemaVersion !== 1 || !/^[a-f0-9]{64}$/.test(m.snapshot) ||
       !Number.isInteger(m.featureCount) || m.featureCount < 1 || !Number.isFinite(Date.parse(m.retrievedAt)) ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(m.sourceCreatedAt || '') || !Number.isFinite(Date.parse(m.sourceCreatedAt)) ||
       !Array.isArray(m.bbox) || m.bbox.length !== 4 || !m.bbox.every(Number.isFinite) ||
       m.bbox[0] > m.bbox[2] || m.bbox[1] > m.bbox[3]) throw new Error('Ungültiger V20-Datenstand.');
   return m;

@@ -1395,12 +1395,6 @@ function App() {
             <details className="planner-more">
               <summary>Mehr</summary>
               <div className="planner-more-content">
-                <Button variant="outlined" onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
-                <Button variant="outlined" onClick={() => {
-                  const center = map?.getCenter();
-                  if (center) setContextMenuPosition({ left: window.innerWidth / 2, top: window.innerHeight / 2,
-                    lat: center.lat, lng: center.lng, zoom: map.getZoom() });
-                }}>Streckendetails an Kartenmitte</Button>
                 {route != null && imported?.version !== 0 ? <Button variant="outlined"
                     onClick={startNavigation} startIcon={<PlayArrow/>}>Navigation starten</Button> : null}
                 {surfacesElement && <section aria-label="Untergrund">
@@ -1414,6 +1408,7 @@ function App() {
                 <FormControlLabel sx={{m: 0}}
                     control={<Switch size="small" checked={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
                     label="Bewertungen"/>
+                <Button variant="text" size="small" sx={{ color: 'text.secondary' }} onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
                 <Link component="button" underline="hover" onClick={() => setShowAbout(true)}>
                   Über RadlNavi
                 </Link>
@@ -1633,7 +1628,7 @@ function App() {
         <DialogContent>
           <DialogContentText>
             RadlNavi findet angenehmere Fahrradverbindungen – möglichst über komfortable Wege, ruhigere Straßen und mit weniger schwierigen Querungen.<br /><br />
-            Die farbigen Linien zeigen das von Radfahrer*innen gemeinsam bewertete Radnetz: von Grün für angenehm bis Schwarz für besonders stressig.<br /><br />
+            Die farbigen Linien zeigen das gemeinsam bewertete Radnetz: von Grün für angenehm bis Schwarz für besonders stressig.<br /><br />
             <a href="https://www.munichways.de/radlvorrangnetz/" target="_blank" rel="noreferrer">Mehr über das RadlVorrang-Netz und die Bewertung erfahren</a>
           </DialogContentText>
         </DialogContent>

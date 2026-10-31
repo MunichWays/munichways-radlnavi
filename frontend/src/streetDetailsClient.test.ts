@@ -4,7 +4,7 @@ import { StreetManifest } from './streetDetails';
 jest.mock('./createStreetDetailsWorker', () => ({ createStreetDetailsWorker: jest.fn() }));
 
 const manifest: StreetManifest = { schemaVersion: 1, snapshot: 'a'.repeat(64), retrievedAt: '2026-10-31T10:00:00Z',
-  sourceUrl: 'https://example.org', featureCount: 1, bbox: [11, 48, 12, 49] };
+  sourceUrl: 'https://example.org', sourceCreatedAt: '2026-10-26', featureCount: 1, bbox: [11, 48, 12, 49] };
 const response = (data: unknown, ok = true, contentType = 'application/json') => ({ ok,
   headers: new Headers({ 'content-type': contentType }), json: async () => data } as Response);
 const originalFetch = global.fetch;

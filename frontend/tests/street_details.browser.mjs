@@ -49,7 +49,10 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.route('https://**/*', async route => {
-      if (route.request().url().includes('/leaflet.css')) await route.fulfill({
+      if (process.env.STREET_TEST_MAPILLARY === '1' &&
+          (new URL(route.request().url()).hostname.endsWith('mapillary.com') ||
+           route.request().frame().url().startsWith('https://www.mapillary.com/'))) await route.continue();
+      else if (route.request().url().includes('/leaflet.css')) await route.fulfill({
         body: await readFile(path.join(root, 'node_modules/leaflet/leaflet.css')), contentType: 'text/css' });
       else await route.abort();
     });
@@ -95,9 +98,43 @@ try {
     await page.getByRole('button', { name: 'Details anzeigen', exact: true }).click();
     const dialog = page.getByRole('dialog');
     await dialog.waitFor();
+    assert.equal(await dialog.getAttribute('aria-modal'), 'false');
+    assert.equal(await dialog.locator('#street-details-title').innerText(), 'Streckendetails');
     const choice = dialog.getByRole('button', { name: new RegExp(`OSM ${target.feature.id.slice(4)}$`) });
     if (await choice.count()) await choice.click();
     await dialog.locator('.street-detail-name').waitFor();
+    const preview = dialog.locator('iframe[title="Mapillary-Straßenansicht"]');
+    assert.equal(await preview.count(), 1, 'Selected real V20 way has a Mapillary preview');
+    if (process.env.STREET_TEST_MAPILLARY === '1') {
+      await page.frameLocator('iframe[title="Mapillary-Straßenansicht"]').locator('canvas').waitFor({ timeout: 45000 });
+    }
+    assert.match(await dialog.locator('.street-snapshot').innerText(), /^Datenstand 26\.10\.2026, Quelle IST_RadlVorrangNetz_MunichWays_V20\.geojson\.$/);
+    const header = dialog.locator('#street-details-title');
+    const beforeMove = await dialog.boundingBox();
+    await header.focus();
+    await page.keyboard.press('ArrowDown');
+    const afterMove = await dialog.boundingBox();
+    assert(afterMove.y > beforeMove.y, 'Window must move with keyboard');
+    await dialog.getByRole('button', { name: 'Verkleinern', exact: true }).click();
+    assert.equal(await dialog.locator('.street-detail-name').isVisible(), false);
+    await dialog.getByRole('button', { name: 'Öffnen', exact: true }).click();
+    await dialog.locator('.street-detail-name').waitFor();
+    // Closing the map menu/panning must leave this independent window intact.
+    await map.dispatchEvent('click');
+    assert(await dialog.isVisible());
+    if (!mobile) {
+      const boxBeforeDrag = await dialog.boundingBox();
+      const titleBox = await header.boundingBox();
+      await page.mouse.move(titleBox.x + 20, titleBox.y + 10);
+      await page.mouse.down(); await page.mouse.move(titleBox.x + 50, titleBox.y + 30, { steps: 5 }); await page.mouse.up();
+      assert((await dialog.boundingBox()).x > boxBeforeDrag.x, 'Window must be draggable');
+      const beforeResize = await dialog.boundingBox();
+      await page.mouse.move(beforeResize.x + beforeResize.width - 3, beforeResize.y + beforeResize.height - 3);
+      await page.mouse.down();
+      await page.mouse.move(beforeResize.x + beforeResize.width - 63, beforeResize.y + beforeResize.height - 43, { steps: 5 });
+      await page.mouse.up();
+      assert((await dialog.boundingBox()).width < beforeResize.width - 20, 'Window must resize using its corner');
+    }
     if (mobile) {
       const rect = await dialog.boundingBox();
       assert(rect.x >= 0 && rect.x + rect.width <= 390 && rect.y + rect.height <= 845,
@@ -108,7 +145,7 @@ try {
     await dialog.getByRole('button', { name: 'Schließen', exact: true }).click();
     await dialog.waitFor({ state: 'hidden' });
     assert.equal(await page.locator('path[stroke="#8E24AA"]').count(), 0);
-    assert.equal(await page.evaluate(() => document.activeElement?.textContent), 'Details anzeigen');
+    assert(await map.evaluate(e => e === document.activeElement), 'Focus returns to the map when the original menu has closed');
     await map.dispatchEvent('click');
     const before = requests.filter(p => p.endsWith('/geometry.json')).length;
     await openMenu();

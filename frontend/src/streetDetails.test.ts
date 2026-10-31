@@ -1,4 +1,4 @@
-import { safeStreetUrl, streetDetailGroup, streetLinks, streetName, streetRating, streetSearchRadius, streetText } from './streetDetails';
+import { safeStreetUrl, streetDetailGroup, streetLinks, streetName, streetRating, streetSearchRadius, streetText, mapillaryPreview, streetSmoothness } from './streetDetails';
 import { StreetSearchIndex } from './streetDetailsSearch';
 
 test('normalizes missing text without losing zero and falls back to MunichWays name', () => {
@@ -30,6 +30,16 @@ test('uses numeric OSM IDs for group paths, rejecting traversal', () => {
   expect(streetDetailGroup('osm_123')).toBe('23');
   expect(streetDetailGroup('osm_1')).toBe('01');
   expect(() => streetDetailGroup('osm_../x')).toThrow();
+});
+
+test('only accepts Mapillary-owned image links for the preview', () => {
+  expect(mapillaryPreview({ munichways_mapillary_link: '<a href="https://www.mapillary.com/app/?pKey=123&amp;focus=photo">Bild</a>' })?.id).toBe('123');
+  expect(mapillaryPreview({ munichways_mapillary_link: 'https://www.mapillary.com/embed?image_key=old_key' })?.id).toBe('old_key');
+  expect(mapillaryPreview({ munichways_mapillary_link: 'https://www.mapillary.com.evil.test/app/?pKey=123' })).toBeUndefined();
+  expect(mapillaryPreview({ munichways_mapillary_link: 'https://www.mapillary.com/app/?pKey=../x' })).toBeUndefined();
+  expect(mapillaryPreview({})).toBeUndefined();
+  expect(streetSmoothness('good')).toBe('gut');
+  expect(streetSmoothness('unknown')).toBe('unknown');
 });
 
 const line = (id: number, lat = 48.1) => ({ type: 'Feature', id: `osm_${id}`, properties: { munichways_id: 'shared' },

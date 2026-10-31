@@ -74,17 +74,26 @@
 
 .street-menu-status p { font-size: 0.85rem; margin: 8px 4px; }
 .street-menu-status > button { width: 100%; text-transform: none; }
-.street-snapshot { color: #555; font-size: 0.85rem; margin-top: 0; }
+.street-snapshot { color: #555; font-size: 0.75rem; margin: 18px 0 0; }
 .street-detail-name { margin-bottom: 8px; }
 .street-rating-dot { display: inline-block; width: 14px; height: 14px; border: 1px solid #555; border-radius: 50%; margin-right: 8px; }
-.street-detail-section { border: 1px solid #b9dfe9; border-radius: 8px; margin: 14px 0; padding: 12px; }
+.street-detail-section { border: 1px solid #b9dfe9; border-radius: 8px; margin: 10px 0; padding: 10px; }
 .street-detail-section > summary { cursor: pointer; font-weight: 600; }
-.street-detail-row { margin: 12px 0; }
-.street-detail-row dt { font-weight: 600; }
-.street-detail-row dd { margin: 4px 0 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.street-detail-section dl { margin: 8px 0 0; }
+.street-detail-row { margin: 5px 0; font-size: 0.875rem; line-height: 1.45; }
+.street-detail-row dt { display: inline; font-weight: 600; }
+.street-detail-row dd { display: inline; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
 .street-candidates { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
 .street-candidates > button { justify-content: flex-start; text-transform: none; text-align: left; }
 .street-details-dialog { overflow-wrap: anywhere; }
+.street-window-header { display: flex; align-items: center; background: #e3f5ff; padding: 8px; flex-shrink: 0; gap: 4px; }
+.street-window-header > button { min-width: 0; flex-shrink: 0; padding: 4px; font-size: 0.75rem; text-transform: none; }
+.street-window-title { cursor: move; touch-action: none; user-select: none; flex: 1; font-weight: bold; }
+.street-window-content { overflow: auto; flex: 1; min-height: 0; padding: 16px; }
+.street-window-content[hidden] { display: none; }
+.street-mapillary { margin: 0 0 12px; }
+.street-mapillary iframe { border: 0; width: 100%; height: 240px; display: block; background: #eee; }
+.street-mapillary figcaption { margin-top: 4px; font-size: 0.75rem; }
 
 .routing {
   display: flex;

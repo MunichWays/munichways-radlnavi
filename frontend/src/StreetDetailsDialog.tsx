@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, LinearProgress, useMediaQuery, useTheme } from '@mui/material';
-import { StreetCandidate, StreetFeature, StreetProperties, StreetSearchResult, streetLinks, streetName, streetRating, streetText } from './streetDetails';
+import { Alert, Button, LinearProgress } from '@mui/material';
+import { StreetCandidate, StreetFeature, StreetProperties, StreetSearchResult, streetLinks, streetName, streetRating, streetText, streetSourceLabel, streetSmoothness } from './streetDetails';
 import { StreetDetailsClient } from './streetDetailsClient';
+import FloatingMapWindow from './FloatingMapWindow';
+import MapillaryPreview from './MapillaryPreview';
 
 export type StreetQuery = { lat: number; lng: number; zoom: number };
 type Props = { query: StreetQuery | null; onHighlight: (feature: StreetFeature | null) => void };
@@ -10,11 +12,11 @@ function DetailFields({ properties: p }: { properties: StreetProperties }) {
   const rating = streetRating(p);
   const row = (label: string, value: unknown) => {
     const text = streetText(value);
-    return text ? <div className="street-detail-row" key={label}><dt>{label}</dt><dd>{text}</dd></div> : null;
+    return text ? <div className="street-detail-row" key={label}><dt>{label}:</dt>{' '}<dd>{text}</dd></div> : null;
   };
   const links = (label: string, value: unknown, hideAllWays = false) => streetLinks(value)
     .filter(link => !hideAllWays || link.title.toLowerCase() !== '-n/a-alle-wege')
-    .map(link => <div className="street-detail-row" key={`${label}-${link.url}`}><dt>{label}</dt><dd>
+    .map(link => <div className="street-detail-row" key={`${label}-${link.url}`}><dt>{label}:</dt>{' '}<dd>
       <a href={link.url} target="_blank" rel="noopener noreferrer">{link.title}</a>
     </dd></div>);
   const section = (title: string, items: React.ReactNode[], expanded = false) => {
@@ -34,7 +36,7 @@ function DetailFields({ properties: p }: { properties: StreetProperties }) {
       row('Ist-Situation', p.munichways_current), row('Beschreibung', p.munichways_description),
       ...links('Strecke', p.munichways_route_link, true), row('RadlVorrangNetz', p.munichways_mw_rv_route),
       row('Neuralgischer Punkt', p.munichways_neuralgic_point), row('Straßenart', p.osm_highway),
-      row('Oberfläche', p.osm_surface), row('Ebenheit', p.osm_smoothness), row('Fahrradregelung', p.osm_bicycle),
+      row('Oberfläche', p.osm_surface), row('Ebenheit', streetSmoothness(p.osm_smoothness)), row('Fahrradregelung', p.osm_bicycle),
       row('Zugang', p.osm_access), row('Breite', width && /^\d+(?:[.,]\d+)?$/.test(width) ? `${width} Meter` : width),
       row('Beleuchtung', p.osm_lit),
     ], true)}
@@ -54,6 +56,7 @@ function DetailFields({ properties: p }: { properties: StreetProperties }) {
 export default function StreetDetailsControl({ query, onHighlight }: Props) {
   const clientRef = useRef<StreetDetailsClient>();
   const [search, setSearch] = useState<StreetSearchResult | null>(null);
+  const [windowSearch, setWindowSearch] = useState<StreetSearchResult | null>(null);
   const [searchError, setSearchError] = useState('');
   const [searchBusy, setSearchBusy] = useState(false);
   const [searchRetry, setSearchRetry] = useState(0);
@@ -63,15 +66,16 @@ export default function StreetDetailsControl({ query, onHighlight }: Props) {
   const [detailError, setDetailError] = useState('');
   const [detailRetry, setDetailRetry] = useState(0);
   const [detailBusy, setDetailBusy] = useState(false);
-  const fullScreen = useMediaQuery(useTheme().breakpoints.down('sm'));
   if (!clientRef.current) clientRef.current = new StreetDetailsClient();
   useEffect(() => () => clientRef.current?.dispose(), []);
 
   useEffect(() => {
     const controller = new AbortController();
-    setOpen(false); setSelected(null); setProperties(null); onHighlight(null);
     setSearch(null); setSearchError(''); setSearchBusy(false);
-    if (!query || query.zoom < 14) return () => controller.abort();
+    // Panning/clicking the map closes only the context menu, not the floating window.
+    if (!query) return () => controller.abort();
+    setOpen(false); setSelected(null); setProperties(null); onHighlight(null);
+    if (query.zoom < 14) return () => controller.abort();
     setSearchBusy(true);
     clientRef.current!.search(query.lat, query.lng, query.zoom, controller.signal)
       .then(result => { if (!controller.signal.aborted) setSearch(result); })
@@ -84,18 +88,19 @@ export default function StreetDetailsControl({ query, onHighlight }: Props) {
     const controller = new AbortController();
     setProperties(null); setDetailError(''); setDetailBusy(false);
     onHighlight(open ? selected : null);
-    if (open && search && selected) {
+    if (open && windowSearch && selected) {
       setDetailBusy(true);
-      clientRef.current!.details(search.manifest, selected.id, controller.signal)
+      clientRef.current!.details(windowSearch.manifest, selected.id, controller.signal)
         .then(p => { if (!controller.signal.aborted) setProperties(p); })
         .catch(error => { if (!controller.signal.aborted) setDetailError(error.message || 'Die Streckendetails konnten nicht geladen werden.'); })
         .finally(() => { if (!controller.signal.aborted) setDetailBusy(false); });
     }
     return () => controller.abort();
-  }, [open, search, selected, detailRetry, onHighlight]);
+  }, [open, windowSearch, selected, detailRetry, onHighlight]);
 
   const close = () => { setOpen(false); onHighlight(null); };
   const showDetails = () => {
+    setWindowSearch(search);
     setSelected(search?.candidates.length === 1 ? search.candidates[0] : null);
     setOpen(true);
   };
@@ -103,21 +108,14 @@ export default function StreetDetailsControl({ query, onHighlight }: Props) {
     {query && <div className="street-menu-status" aria-live="polite">
       {query.zoom < 14 ? <p>Für Streckendetails bitte hineinzoomen.</p> : searchBusy ? <p role="status">Streckendetails werden gesucht …</p> :
         searchError ? <><p role="alert">{searchError}</p><Button onClick={() => setSearchRetry(v => v + 1)}>Streckensuche wiederholen</Button></> :
-          search && search.candidates.length ? <Button onClick={showDetails}>Details anzeigen</Button> :
-            search ? <p>Für diese Stelle sind keine V20-Streckendetails vorhanden.</p> : null}
+          search && search.candidates.length ? <Button onClick={showDetails}>Details anzeigen</Button> : null}
     </div>}
-    <Dialog open={open} onClose={close} fullWidth maxWidth="sm" fullScreen={fullScreen}
-      aria-labelledby="street-details-title" PaperProps={{ className: 'street-details-dialog', sx: fullScreen ? {
-        position: 'fixed', inset: 0, width: '100vw', maxWidth: '100vw',
-        height: '100dvh', maxHeight: '100dvh', boxSizing: 'border-box', overflow: 'hidden',
-      } : undefined }}>
-      <DialogTitle id="street-details-title">V20-Streckendetails</DialogTitle>
-      <DialogContent dividers>
-        {search && <p className="street-snapshot">Daten abgerufen am {new Date(search.manifest.retrievedAt).toLocaleDateString('de-DE')} · V20</p>}
-        {search && search.candidates.length > 1 && <>
+    <FloatingMapWindow open={open} onClose={close} title="Streckendetails">
+        {properties && <MapillaryPreview properties={properties} />}
+        {windowSearch && windowSearch.candidates.length > 1 && <>
           <p>Mehrere Strecken an dieser Stelle. Bitte einen Abschnitt auswählen:</p>
           <div className="street-candidates" role="group" aria-label="Streckenabschnitt auswählen">
-            {search.candidates.map(candidate => <Button key={candidate.id} variant={selected?.id === candidate.id ? 'contained' : 'outlined'}
+            {windowSearch.candidates.map(candidate => <Button key={candidate.id} variant={selected?.id === candidate.id ? 'contained' : 'outlined'}
               aria-pressed={selected?.id === candidate.id} onClick={() => setSelected(candidate)}>
               {streetName(candidate.properties)} · {streetRating(candidate.properties).label} · OSM {candidate.id.slice(4)}
             </Button>)}
@@ -126,8 +124,7 @@ export default function StreetDetailsControl({ query, onHighlight }: Props) {
         {detailBusy && <div role="status"><p>Streckendetails werden geladen …</p><LinearProgress /></div>}
         {detailError && <Alert severity="error" action={<Button color="inherit" onClick={() => setDetailRetry(v => v + 1)}>Erneut versuchen</Button>}>{detailError}</Alert>}
         {properties && <DetailFields properties={properties} />}
-      </DialogContent>
-      <DialogActions><Button onClick={close}>Schließen</Button></DialogActions>
-    </Dialog>
+        {windowSearch && <p className="street-snapshot">{streetSourceLabel(windowSearch.manifest)}</p>}
+    </FloatingMapWindow>
   </>;
 }

@@ -9,7 +9,8 @@ const mockDispose = jest.fn();
 jest.mock('./streetDetailsClient', () => ({ StreetDetailsClient: function () {
   return { search: mockSearch, details: mockDetails, dispose: mockDispose };
 } }));
-const manifest = { snapshot: 'a'.repeat(64), retrievedAt: '2026-10-31T10:00:00Z' };
+const manifest = { snapshot: 'a'.repeat(64), retrievedAt: '2026-10-31T10:00:00Z', sourceCreatedAt: '2026-10-26',
+  sourceUrl: 'https://www.munichways.de/App/IST_RadlVorrangNetz_MunichWays_V20.geojson' };
 const candidate = (id = '123', name = 'Altostraße') => ({ id: `osm_${id}`, properties: { osm_name: name },
   geometry: { type: 'LineString', coordinates: [[11.5, 48.1], [11.502, 48.1]] }, distance: 0 });
 const query = { lat: 48.1, lng: 11.501, zoom: 16 };
@@ -31,6 +32,8 @@ test('opens details, highlights the full line, preserves fields and safe links, 
   expect(dialog).toHaveTextContent('Viel befahrene Straße');
   expect(dialog).toHaveTextContent('Radweg verbreitern');
   expect(dialog).toHaveTextContent('2.5 Meter');
+  expect(dialog).toHaveTextContent('Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_MunichWays_V20.geojson.');
+  expect(dialog).not.toHaveTextContent('V20-Streckendetails');
   const link = within(dialog).getByRole('link', { name: 'Weiterlesen', hidden: true });
   expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   expect(within(dialog).queryByText('Unsicher')).not.toBeInTheDocument();
@@ -75,7 +78,9 @@ test('distinguishes zoom, no match and loading failures, and retries a failed de
   expect(mockSearch).not.toHaveBeenCalled();
   mockSearch.mockResolvedValueOnce({ manifest, candidates: [] });
   view.rerender(<StreetDetailsControl query={query} onHighlight={highlight} />);
-  expect(await screen.findByText(/keine V20-Streckendetails/)).toBeInTheDocument();
+  await waitFor(() => expect(screen.queryByText(/werden gesucht/)).not.toBeInTheDocument());
+  expect(screen.queryByText(/keine V20-Streckendetails/)).not.toBeInTheDocument();
+  expect(screen.queryByRole('button', { name: 'Details anzeigen' })).not.toBeInTheDocument();
   mockSearch.mockRejectedValueOnce(new Error('Netzwerkfehler'));
   view.rerender(<StreetDetailsControl query={{ ...query, lng: 11.6 }} onHighlight={highlight} />);
   expect(await screen.findByRole('alert')).toHaveTextContent('Netzwerkfehler');
@@ -85,4 +90,35 @@ test('distinguishes zoom, no match and loading failures, and retries a failed de
   expect(await screen.findByRole('alert')).toHaveTextContent('Ladefehler');
   fireEvent.click(screen.getByRole('button', { name: 'Erneut versuchen' }));
   expect(await screen.findByText('Altostraße')).toBeInTheDocument();
+});
+
+test('floating details stay open when the map menu closes, can minimize and move using the header', async () => {
+  const highlight = jest.fn();
+  const view = render(<StreetDetailsControl query={query} onHighlight={highlight} />);
+  fireEvent.click(await screen.findByRole('button', { name: 'Details anzeigen' }));
+  expect(await screen.findByText('Altostraße')).toBeInTheDocument();
+  view.rerender(<StreetDetailsControl query={null} onHighlight={highlight} />);
+  const dialog = screen.getByRole('dialog');
+  expect(dialog).toHaveAttribute('aria-modal', 'false');
+  expect(dialog).toHaveTextContent('Altostraße');
+  fireEvent.click(within(dialog).getByRole('button', { name: 'Verkleinern' }));
+  expect(screen.getByText('Altostraße')).not.toBeVisible();
+  fireEvent.click(within(dialog).getByRole('button', { name: 'Öffnen' }));
+  expect(screen.getByText('Altostraße')).toBeVisible();
+  fireEvent.keyDown(screen.getByLabelText('Streckendetails verschieben, auch mit Pfeiltasten'), { key: 'ArrowRight' });
+  expect(dialog).toBeInTheDocument();
+  fireEvent.click(within(dialog).getByRole('button', { name: 'Schließen' }));
+  expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+});
+
+test('shows Mapillary preview first and source metadata last', async () => {
+  mockDetails.mockResolvedValue({ osm_id: '123', osm_name: 'Mit Bild',
+    munichways_mapillary_link: 'https://www.mapillary.com/app/?pKey=147463230717937' });
+  render(<StreetDetailsControl query={query} onHighlight={jest.fn()} />);
+  fireEvent.click(await screen.findByRole('button', { name: 'Details anzeigen' }));
+  const preview = await screen.findByTitle('Mapillary-Straßenansicht');
+  expect(preview).toHaveAttribute('src', 'https://www.mapillary.com/embed?image_key=147463230717937&style=photo');
+  const content = preview.closest('.street-window-content')!;
+  expect(content.firstElementChild).toHaveClass('street-mapillary');
+  expect(content.lastElementChild).toHaveClass('street-snapshot');
 });

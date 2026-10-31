@@ -2,13 +2,14 @@
 
 This is the frontend for [radlnavi.de](https://www.radlnavi.de).
 
-## V20-Streckendetails (US #35, Version 2.3.8)
+## Streckendetails (US #35, Version 2.3.8)
 
 Rechtsklick oder langes Drücken auf die Karte öffnet das Kontextmenü. Ab Zoom 14
 erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
-Unter **Mehr → Streckendetails an Kartenmitte** ist die Suche auch per Tastatur
-erreichbar. Die Funktion ist unabhängig vom Schalter für Bewertungsfarben.
+Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
+und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
+Die Funktion ist unabhängig vom Schalter für Bewertungsfarben.
 
 Für den ersten lokalen Test die Daten erzeugen, dann den Entwicklungsserver starten:
 
@@ -17,7 +18,9 @@ npm run prepare:street-details
 npm start
 ```
 
-Der Build prüft die in `street-details-source.json` festgelegte SHA-256. Eine
+Der Build prüft die in `street-details-source.json` festgelegte SHA-256. Das dort
+hinterlegte `createdAt` bezeichnet den Datenstand der Quelldatei und wird
+unabhängig vom Downloadzeitpunkt angezeigt. Eine
 geänderte Quelldatei muss vor dem Aktualisieren dieses Hashs geprüft werden.
 Mit `npm run prepare:street-details -- --source PFAD.geojson` kann derselbe
 Snapshot lokal eingelesen werden. Erzeugte Dateien liegen unter
@@ -43,6 +46,9 @@ Web Worker und Desktop-/Touch-Ereignissen in einer separaten Headless-Edge-Insta
 npm install --prefix .cache/browser --no-save --package-lock=false playwright@1.56.1
 node tests/street_details.browser.mjs
 ```
+
+Mit `$env:STREET_TEST_MAPILLARY='1'` vor dem Browsertest wird zusätzlich die
+echte Mapillary-Einbettung mit Internetzugriff geladen und geprüft.
 
 Dafür müssen Microsoft Edge installiert und die Daten vor `npm run build`
 erzeugt worden sein. Mit `STREET_TEST_BROWSER_CHANNEL=chrome` lässt sich ein

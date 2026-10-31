@@ -8,7 +8,7 @@ The [frontend service](./frontend/) interacts with the user and also features an
 
 # Development
 
-The implementation analysis for [V20 street details (App issue #298)](docs/issue-298-v20-details/README.md)
+The implementation analysis for [V20 street details (issue #35)](docs/issue-35-v20-details/README.md)
 describes the proposed context-menu action, data preparation, and acceptance criteria.
 
 The API supports [endpoint pushing access](docs/endpoint-pushing-access.md)

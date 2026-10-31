@@ -1,7 +1,7 @@
 """Inspect a downloaded V20 snapshot without changing application data.
 
 Run from the repository root:
-python docs/issue-298-v20-details/inspect_v20.py SOURCE.geojson --output REPORT.json
+python docs/issue-35-v20-details/inspect_v20.py SOURCE.geojson --output REPORT.json
 """
 
 import argparse

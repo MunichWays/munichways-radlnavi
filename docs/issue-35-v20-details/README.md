@@ -1,10 +1,8 @@
-# US 298: V20-Streckendetails in RadlNavi anzeigen
+# US 35: V20-Streckendetails in RadlNavi anzeigen
 
-Analyse vom 31. Oktober 2026 zu [App-Issue #298](https://github.com/MunichWays/munich-ways-app/issues/298).
+Analyse vom 31. Oktober 2026 zu [RadlNavi-Issue #35](https://github.com/MunichWays/munichways-radlnavi/issues/35).
 Status: Umsetzungsvorschlag, keine implementierte Produktfunktion. Mit KI anhand
 des vorhandenen Codes und eines heruntergeladenen V20-Snapshots erarbeitet.
-Die Zuordnung zu US 298 einschließlich Branch wurde im Auftrag klargestellt;
-[US 290](https://github.com/MunichWays/munich-ways-app/issues/290) behandelt ein anderes Thema.
 
 ## Ergebnis und Empfehlung
 
@@ -110,7 +108,7 @@ Unterstützung des verwendeten Leaflet-Forks muss auf iOS und Android geprüft
 werden; bei Bedarf ein eigener Pointer-Handler mit Bewegungsabbruch und einer
 sichtbaren Alternative „Streckendetails an dieser Stelle“ im Kartenmenü.
 Auf der Desktop-Tastatur kann derselbe Modus die Kartenmitte verwenden.
-Das sind vorgeschlagene Ergänzungen; #298 fordert ausdrücklich den Rechtsklick.
+Das sind vorgeschlagene Ergänzungen; #35 fordert ausdrücklich den Rechtsklick.
 
 ## Darstellung und Feldzuordnung
 
@@ -302,7 +300,7 @@ mit eingecheckt. `property_presence` zählt vorhandene Schlüssel, nicht ausgef�
 Reproduktion nach Download der oben verlinkten Quelle:
 
 ```powershell
-python docs/issue-298-v20-details/inspect_v20.py SOURCE.geojson --output REPORT.json
+python docs/issue-35-v20-details/inspect_v20.py SOURCE.geojson --output REPORT.json
 ```
 
 Den Quellhash vor einem Vergleich kontrollieren: Die URL ist veränderlich.

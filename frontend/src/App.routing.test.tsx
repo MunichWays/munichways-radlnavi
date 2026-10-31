@@ -41,7 +41,7 @@ test('two intermediate stops use one ordered routing request and produce an expo
   const log = jest.spyOn(console, 'log').mockImplementation(() => {});
   const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
   try {
-    const { unmount } = render(<App />);
+    const { unmount } = await renderApp();
     await waitFor(() => expect(mockHandlers.contextmenu).toBeDefined());
     const open = (lat: number, lng: number) => act(() => mockHandlers.contextmenu({ originalEvent: { preventDefault() {}, clientX: 100, clientY: 100 }, latlng: { lat, lng } }));
     open(48.15, 11.54); fireEvent.click(screen.getByText('Route von hier'));
@@ -92,7 +92,7 @@ test('GPX import explains original-route behavior only in the preview and keeps 
   });
   const log = jest.spyOn(console, 'log').mockImplementation(() => {});
   try {
-    const { container, unmount } = render(<App />);
+    const { container, unmount } = await renderApp();
     const file = new File([], 'Tour.gpx');
     Object.assign(file, { text: async () => transferGpx(fixture as any) });
     fireEvent.change(container.querySelector('input[type=file]')!, { target: { files: [file] } });
@@ -128,7 +128,7 @@ test("coordinate selections retain exact start and destination alongside address
     return { ok: true, status: 200, json: async () => body } as Response;
   });
   try {
-    const { unmount } = render(<App />);
+    const { unmount } = await renderApp();
     const start = screen.getByRole("combobox", { name: "Startposition" });
     fireEvent.change(start, { target: { value: "48.145548, 11.519868" } });
     expect(await screen.findByRole("option", { name: "48.145548, 11.519868" })).toBeInTheDocument();
@@ -171,7 +171,7 @@ test.each(['yes', 'home'])('address routing uses entrance=%s instead of the buil
     return { ok: true, status: 200, json: async () => body } as Response;
   });
   try {
-    const { unmount } = render(<App />);
+    const { unmount } = await renderApp();
     fireEvent.change(screen.getByRole('combobox', { name: 'Startposition' }), { target: { value: '48.146553, 11.519987' } });
     fireEvent.click(await screen.findByRole('option', { name: '48.146553, 11.519987' }));
     fireEvent.change(screen.getByRole('combobox', { name: 'Ziel' }), { target: { value: `Schloßschmidstraße ${houseNumber}` } });
@@ -217,7 +217,7 @@ test("Route hierhin survives unavailable direct service and retry preserves rout
     return { ok: status === 200, status, json: async () => body } as Response;
   });
   try {
-    const { unmount } = render(<App />);
+    const { unmount } = await renderApp();
     const open = (lat: number, lng: number) => act(() => {
       mockHandlers.contextmenu({
         originalEvent: { preventDefault() {}, clientX: 100, clientY: 100 },
@@ -245,3 +245,10 @@ test("Route hierhin survives unavailable direct service and retry preserves rout
     log.mockRestore();
   }
 });
+
+async function renderApp() {
+  const result = render(<App />);
+  fireEvent.click(screen.getByRole('button', { name: 'Karte entdecken' }));
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  return result;
+}

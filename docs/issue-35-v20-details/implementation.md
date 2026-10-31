@@ -199,3 +199,21 @@ erfolgreich, ebenso TypeScript, striktes Lint und Produktionsbuild. Der echte
 Produktionsbuild wurde auf Desktop und mit mobiler Touch-Emulation geprüft:
 Standardauswahl, Wechsel beider Layer, Bereinigung des Canvas und gefilterte
 Detailsuche mit echtem Worker und anschließendem Detailabruf.
+
+## Start- und Infofenster
+
+`AboutDialog.tsx` ersetzt den bisherigen kurzen Über-Dialog. Er erscheint bei
+jedem Start und lässt sich über „Mehr → Über RadlNavi“ erneut öffnen.
+Schließen-Symbol, „Karte entdecken“, Escape und Klick auf den Hintergrund
+schließen den modalen Dialog. Die drei nativen, per Tastatur bedienbaren
+Aufklappabschnitte starten geschlossen. Die Farblegende steht im ersten
+Abschnitt; die neuen Links zum Änderungsprotokoll und Downloadordner stehen
+unter „Daten & Aktualisierungen“. Der Text entspricht der gelieferten Vorlage.
+
+Der Dialog ist auf 560 px Breite und 800 px Höhe begrenzt, auf kleinen
+Bildschirmen mit 12 px Rand. Die Größenberechnung berücksichtigt den sichtbaren
+Viewport, da die Kartenfläche auf Mobilgeräten über den Layoutbereich hinausragen
+kann. Nur der Inhalt scrollt; Titel, Schließen-Symbol und Abschlussaktion bleiben
+erreichbar. Ein kleines MunichWays-Logo steht über dem Titel. Es gibt weder alte
+uMap-Bearbeitungslinks noch eine pauschale V20-Dateiangabe im Starttext; der
+konkrete Quellenname bleibt im datenabhängigen Streckendetail-Fenster.

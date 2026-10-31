@@ -2,6 +2,13 @@
 
 This is the frontend for [radlnavi.de](https://www.radlnavi.de).
 
+Beim Start erscheint ein kompaktes Infofenster (560 px, auf Mobilgeräten nahezu
+bildschirmbreit). Drei zunächst eingeklappte Abschnitte erklären Farben,
+RadlVorrang-Netz und Datenaktualisierungen. Schließen-Symbol, Escape oder
+„Karte entdecken“ schließen es; unter „Mehr → Über RadlNavi“ lässt es sich
+wieder öffnen. Der Inhalt scrollt innerhalb des Fensters, die Abschlussaktion
+bleibt sichtbar. Die Farblegende steht nur im aufgeklappten Bewertungsabschnitt.
+
 ## Streckendetails (US #35, Version 2.3.8)
 
 Die RadlNavi-Datenquelle ist `IST_RadlVorrangNetz_Oberbayern_V20.geojson` und

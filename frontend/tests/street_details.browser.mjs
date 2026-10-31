@@ -52,12 +52,32 @@ try {
       if (process.env.STREET_TEST_MAPILLARY === '1' &&
           (new URL(route.request().url()).hostname.endsWith('mapillary.com') ||
            route.request().frame().url().startsWith('https://www.mapillary.com/'))) await route.continue();
+      else if (route.request().url().includes('/Legende_RadlVorrang-Netz.png')) await route.continue();
       else if (route.request().url().includes('/leaflet.css')) await route.fulfill({
         body: await readFile(path.join(root, 'node_modules/leaflet/leaflet.css')), contentType: 'text/css' });
       else await route.abort();
     });
     await page.goto(base);
+    const info = page.getByRole('dialog', { name: 'Wie radfreundlich sind Münchens Straßen?' });
+    await info.waitFor();
+    const infoBox = await info.boundingBox();
+    assert(infoBox.width <= (mobile ? 390 - 24 : 560) + 1, JSON.stringify({ mobile, infoBox, viewport: await page.evaluate(() => ({ inner: innerWidth, client: document.documentElement.clientWidth, visual: visualViewport?.width })) }));
+    assert(infoBox.y >= 0 && infoBox.y + infoBox.height <= (mobile ? 844 : 900), 'Info must fit the viewport');
+    assert.equal(await info.locator('details').count(), 3);
+    assert.equal(await info.locator('details[open]').count(), 0, 'All sections start collapsed');
+    await info.locator('summary').first().click();
+    await info.getByAltText('Farblegende des Happy-Bike-Levels').waitFor({ state: 'visible' });
+    await info.locator('summary').last().click();
+    assert((await info.getByRole('link', { name: 'Daten herunterladen' }).getAttribute('href')).includes('drive.google.com/drive/folders/1u4Q1dyMuB1n0j2_YgQxiK_xfLVC1VYE9'));
+    await page.screenshot({ path: path.join(root, `.cache/info-${mobile ? 'mobile' : 'desktop'}.png`) });
+    await info.getByRole('button', { name: 'Infofenster schließen' }).click();
+    await info.waitFor({ state: 'hidden' });
     await page.locator('summary').filter({ hasText: 'Mehr' }).click();
+    await page.getByRole('button', { name: 'Über RadlNavi', exact: true }).click();
+    await info.waitFor();
+    assert.equal(await info.locator('details[open]').count(), 0, 'Reopened info starts compact');
+    await info.getByRole('button', { name: 'Karte entdecken' }).click();
+    await info.waitFor({ state: 'hidden' });
     const all = page.getByRole('radio', { name: 'Alle Details', exact: true });
     const priority = page.getByRole('radio', { name: 'RadVorrang-Netz', exact: true });
     assert(await all.isChecked(), 'All details is the default');

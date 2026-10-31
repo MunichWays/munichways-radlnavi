@@ -32,6 +32,7 @@ import RouteShare from './RouteShare';
 import StreetDetailsControl from './StreetDetailsDialog';
 import { StreetFeature, StreetNetworkMode } from './streetDetails';
 import PriorityNetworkLayer from './PriorityNetworkLayer';
+import AboutDialog from './AboutDialog';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -430,7 +431,7 @@ function App() {
   const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
   const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
-  const [showAbout, setShowAbout] = useState(false);
+  const [showAbout, setShowAbout] = useState(true);
   const [showImpressum, setShowImpressum] = useState(false);
   const [showLegend, setShowLegend] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
@@ -1628,19 +1629,7 @@ function App() {
           setGpsMode('gps_off');
           map?.setView([step.maneuver.location[1], step.maneuver.location[0]], 19);
         }} />
-      <Dialog open={showAbout}>
-        <DialogTitle>Über RadlNavi</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            RadlNavi findet angenehmere Fahrradverbindungen – möglichst über komfortable Wege, ruhigere Straßen und mit weniger schwierigen Querungen.<br /><br />
-            Die farbigen Linien zeigen das gemeinsam bewertete Radnetz: von Grün für angenehm bis Schwarz für besonders stressig.<br /><br />
-            <a href="https://www.munichways.de/radlvorrangnetz/" target="_blank" rel="noreferrer">Mehr über das RadlVorrang-Netz und die Bewertung erfahren</a>
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setShowAbout(false)}>Schließen</Button>
-        </DialogActions>
-      </Dialog>
+      <AboutDialog open={showAbout} onClose={() => setShowAbout(false)} />
 
       <Dialog open={showLegend} onClose={() => setShowLegend(false)}>
         <DialogTitle>Bewertungen</DialogTitle>

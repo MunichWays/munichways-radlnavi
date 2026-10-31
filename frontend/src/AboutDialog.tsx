@@ -68,6 +68,9 @@ export default function AboutDialog({ open, onClose }: { open: boolean; onClose:
       <Typography component="p" variant="body2" color="text.secondary" sx={{ borderTop: '1px solid', borderColor: 'divider', pt: 1.5 }}>
         Du kannst dieses Fenster jederzeit über das <strong>Hauptmenü → Über RadlNavi</strong> wieder öffnen.
       </Typography>
+      <Typography component="p" variant="body2">
+        Fragen, Hinweise oder Ideen? <Link href="mailto:mail@munichways.de?subject=Feedback%20zu%20RadlNavi">Feedback an mail@munichways.de</Link>
+      </Typography>
     </DialogContent>
     <DialogActions sx={{ px: 3, py: 2 }}>
       <Button variant="contained" onClick={onClose}>Karte entdecken</Button>

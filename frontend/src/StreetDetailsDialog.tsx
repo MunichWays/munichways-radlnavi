@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert, Button, LinearProgress } from '@mui/material';
-import { StreetCandidate, StreetFeature, StreetNetworkMode, StreetProperties, StreetSearchResult, streetLinks, streetName, streetRating, streetText, streetSourceLabel, streetSmoothness } from './streetDetails';
+import { StreetCandidate, StreetFeature, StreetNetworkMode, StreetProperties, StreetSearchResult, streetLinks, streetName, streetRating, streetText, streetSourceLabel, streetOsmText, streetWidth } from './streetDetails';
 import { StreetDetailsClient } from './streetDetailsClient';
 import FloatingMapWindow from './FloatingMapWindow';
 import MapillaryPreview from './MapillaryPreview';
@@ -24,21 +24,20 @@ function DetailFields({ properties: p }: { properties: StreetProperties }) {
     return children.length ? <details open={expanded || undefined} className="street-detail-section">
       <summary>{title}</summary><dl>{children}</dl></details> : null;
   };
-  const width = streetText(p.osm_width);
   return <>
     <h3 className="street-detail-name">{streetName(p)}</h3>
     <p><span className="street-rating-dot" style={{ backgroundColor: rating.color }} />{rating.label}
-      {rating.bicycleClass !== undefined && ` · OSM class:bicycle: ${rating.bicycleClass}`}</p>
+      {rating.bicycleClass !== undefined && ` · OSM-Fahrradbewertung: ${streetOsmText('osm_class_bicycle', rating.bicycleClass)}`}</p>
     {streetText(p.osm_name) && streetText(p.munichways_name) && <dl>
       {row('OSM', p.osm_name)}{row('MunichWays', p.munichways_name)}
     </dl>}
     {section('Ist-Zustand', [
       row('Ist-Situation', p.munichways_current), row('Beschreibung', p.munichways_description),
       ...links('Strecke', p.munichways_route_link, true), row('RadlVorrangNetz', p.munichways_mw_rv_route),
-      row('Neuralgischer Punkt', p.munichways_neuralgic_point), row('Straßenart', p.osm_highway),
-      row('Oberfläche', p.osm_surface), row('Ebenheit', streetSmoothness(p.osm_smoothness)), row('Fahrradregelung', p.osm_bicycle),
-      row('Zugang', p.osm_access), row('Breite', width && /^\d+(?:[.,]\d+)?$/.test(width) ? `${width} Meter` : width),
-      row('Beleuchtung', p.osm_lit),
+      row('Neuralgischer Punkt', p.munichways_neuralgic_point), row('Straßenart', streetOsmText('osm_highway', p.osm_highway)),
+      row('Oberfläche', streetOsmText('osm_surface', p.osm_surface)), row('Ebenheit', streetOsmText('osm_smoothness', p.osm_smoothness)), row('Fahrradregelung', streetOsmText('osm_bicycle', p.osm_bicycle)),
+      row('Zugang', streetOsmText('osm_access', p.osm_access)), row('Breite', streetWidth(p.osm_width)),
+      row('Beleuchtung', streetOsmText('osm_lit', p.osm_lit)),
     ], true)}
     {section('Forderungen und Netzplanung', [
       row('Soll-Maßnahmen', p.munichways_target), ...links('Maßnahmen-Kategorie', p.munichways_measure_category_link),

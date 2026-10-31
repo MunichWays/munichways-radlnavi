@@ -18,6 +18,8 @@ beforeEach(() => {
   jest.clearAllMocks();
   mockSearch.mockResolvedValue({ manifest, candidates: [candidate()] });
   mockDetails.mockResolvedValue({ osm_id: '123', osm_name: 'Altostraße', osm_class_bicycle: '-2',
+    osm_highway: 'residential', osm_surface: 'asphalt', osm_smoothness: 'good', osm_lit: 'yes',
+    osm_bicycle: 'designated', osm_access: 'agricultural;forestry',
     munichways_current: 'Viel befahrene Straße', munichways_target: 'Radweg verbreitern', osm_width: '2.5',
     munichways_links: '<a href="https://example.org">Weiterlesen</a><a href="javascript:bad()">Unsicher</a>' });
 });
@@ -28,10 +30,16 @@ test('opens details, highlights the full line, preserves fields and safe links, 
   fireEvent.click(await screen.findByRole('button', { name: 'Details anzeigen' }));
   const dialog = await screen.findByRole('dialog');
   expect(await within(dialog).findByText('Altostraße')).toBeInTheDocument();
-  expect(dialog).toHaveTextContent('Sehr stressig · OSM class:bicycle: -2');
+  expect(dialog).toHaveTextContent('Sehr stressig · OSM-Fahrradbewertung: -2');
   expect(dialog).toHaveTextContent('Viel befahrene Straße');
   expect(dialog).toHaveTextContent('Radweg verbreitern');
-  expect(dialog).toHaveTextContent('2.5 Meter');
+  expect(dialog).toHaveTextContent('2,5 Meter');
+  expect(dialog).toHaveTextContent('Straßenart: Wohnstraße');
+  expect(dialog).toHaveTextContent('Oberfläche: Asphalt');
+  expect(dialog).toHaveTextContent('Ebenheit: gut');
+  expect(dialog).toHaveTextContent('Beleuchtung: Ja');
+  expect(dialog).toHaveTextContent('Fahrradregelung: Für Radverkehr vorgesehen');
+  expect(dialog).toHaveTextContent('Zugang: Landwirtschaftlicher Verkehr; Forstwirtschaftlicher Verkehr');
   expect(dialog).toHaveTextContent('Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_Oberbayern_V20.geojson.');
   expect(dialog).not.toHaveTextContent('V20-Streckendetails');
   const link = within(dialog).getByRole('link', { name: 'Weiterlesen', hidden: true });

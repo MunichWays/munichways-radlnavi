@@ -8,6 +8,7 @@ RadlVorrang-Netz und Datenaktualisierungen. Schließen-Symbol, Escape oder
 „Karte entdecken“ schließen es; unter „Mehr → Über RadlNavi“ lässt es sich
 wieder öffnen. Der Inhalt scrollt innerhalb des Fensters, die Abschlussaktion
 bleibt sichtbar. Die Farblegende steht nur im aufgeklappten Bewertungsabschnitt.
+Im Hauptmenü und im Infofenster führt „Feedback“ per E-Mail zu `mail@munichways.de`.
 
 ## Streckendetails (US #35, Version 2.3.8)
 
@@ -23,6 +24,16 @@ Unter „Mehr“ stehen „Alle Details“ (Standard) und „RadVorrang-Netz“ 
 Die Auswahl filtert Kartenlinien und Detailsuche gemeinsam. Das RadlVorrang-Netz
 verwendet dieselbe V20-Regel wie die App: `munichways_mw_rv_route` fehlt nicht
 und ist weder leer noch genau `-`.
+
+OSM-Sachwerte werden auf Deutsch angezeigt (Straßenart, Oberfläche, Ebenheit,
+Fahrradregelung, Zugang und Beleuchtung), auch bei Mehrfachwerten. Breiten nutzen
+das deutsche Dezimalkomma. Eigennamen und IDs bleiben erhalten; unbekannte neue
+OSM-Werte bleiben lesbar, statt Informationen zu verwerfen.
+
+„Stadtbezirke“ unter „Mehr“ ist standardmäßig ausgeschaltet. Der feste lokale
+GeoJSON-Bestand zeigt Grenzen sowie ab Zoom 12 die anklickbaren BA-Nummern.
+Namen erscheinen beim Überfahren der Labels; Strecken-Rechtsklicks bleiben
+erreichbar. [Import und Darstellung](../docs/stadtbezirke.md).
 
 Für den ersten lokalen Test die Daten erzeugen, dann den Entwicklungsserver starten:
 

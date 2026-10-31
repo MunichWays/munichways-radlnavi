@@ -217,3 +217,22 @@ kann. Nur der Inhalt scrollt; Titel, Schließen-Symbol und Abschlussaktion bleib
 erreichbar. Ein kleines MunichWays-Logo steht über dem Titel. Es gibt weder alte
 uMap-Bearbeitungslinks noch eine pauschale V20-Dateiangabe im Starttext; der
 konkrete Quellenname bleibt im datenabhängigen Streckendetail-Fenster.
+
+## Deutsche OSM-Anzeigen und Feedback
+
+`streetOsmText()` übersetzt Straßenart, Oberfläche, Ebenheit, Fahrradregelung,
+Zugang und Beleuchtung. Mehrfachwerte und Angaben wie „links: …; rechts: …“
+werden einzeln übersetzt. `streetWidth()` zeigt metrische Breiten mit
+Dezimalkomma. Die Oberflächenübersetzung wird auch in der bisherigen
+Routenanalyse verwendet; Betonplatten und Betonspurbahnen sind entsprechend
+der [OSM-Dokumentation](https://wiki.openstreetmap.org/wiki/DE:Key:surface)
+benannt. Eigennamen und technische IDs werden nicht übersetzt. Neue unbekannte
+Werte bleiben erhalten, damit keine Informationen verloren gehen.
+
+Gegen den vollständigen aktuellen Snapshot geprüft: alle 91 unterschiedlichen
+Sachwerte in den sechs Feldern haben eine deutsche Anzeige. Der bestehende
+Dialogtest prüft die deutschsprachigen Felder einschließlich Mehrfach-Zugang
+und Dezimalkomma.
+
+„Feedback geben“ im Hauptmenü und „Feedback an mail@munichways.de“ im Infofenster
+öffnen per `mailto:` eine Nachricht mit Betreff „Feedback zu RadlNavi“.

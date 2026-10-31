@@ -181,3 +181,23 @@
   color: #666;
   font-size: 0.72rem;
 }
+
+/* Compact district labels leave street geometry and right-click actions accessible. */
+.district-label {
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.94);
+  color: #374151;
+  border: 1px solid #7b8390;
+  border-radius: 6px;
+  font: 600 11px/22px Arial, sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+.district-label:hover, .district-label:focus-visible {
+  color: #004d69;
+  border-color: #00769b;
+  outline: 2px solid #00769b;
+  outline-offset: 2px;
+}
+.district-popup h3 { margin: 4px 0 8px; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
+.district-popup p { margin: 6px 0; }

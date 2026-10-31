@@ -17,7 +17,7 @@ import {
 } from "react-leaflet";
 import { LatLngBounds, LeafletEvent, LeafletMouseEvent, Map as LMap, Icon as LeafletIcon } from "leaflet";
 import { throttle } from "lodash";
-import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Radio, RadioGroup, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Radio, RadioGroup, Checkbox, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
 import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LegendToggle, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
 import lineSlice from "@turf/line-slice";
 import { point, lineString } from "@turf/helpers";
@@ -30,9 +30,10 @@ import "leaflet.vectorgrid";
 import RouteStops from './RouteStops';
 import RouteShare from './RouteShare';
 import StreetDetailsControl from './StreetDetailsDialog';
-import { StreetFeature, StreetNetworkMode } from './streetDetails';
+import { StreetFeature, StreetNetworkMode, streetOsmText } from './streetDetails';
 import PriorityNetworkLayer from './PriorityNetworkLayer';
 import AboutDialog from './AboutDialog';
+import DistrictLayer from './DistrictLayer';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -203,54 +204,7 @@ function translateBicycleClass(bicycleClass: string): string {
 }
 
 function translateSurface(surface: string): string {
-  switch (surface) {
-    case "paved":
-      return "Befestigt";
-    case "asphalt":
-      return "Asphalt"
-    case "concrete":
-      return "Fest/Betoniert";
-    case "concrete:lanes":
-      return "Asphaltweg";
-    case "concrete:plates":
-      return "Asphaltplatten";
-    case "paving_stones":
-      return "Ebener Pflasterstein";
-    case "sett":
-      return "Pflasterstein";
-    case "cobblestone":
-      return "Rundlicher Pflasterstein";
-    case "unhewn_cobblestone":
-      return "Kopfsteinpflaster";
-    case "unpaved":
-      return "Uneben";
-    case "compacted":
-      return "Guter Waldweg";
-    case "fine_gravel":
-      return "Feiner Kies";
-    case "pebblestone":
-      return "Kies";
-    case "gravel":
-      return "Schotter";
-    case "earth":
-      return "Erde";
-    case "dirt":
-      return "Lockere Erde"
-    case "ground":
-      return "Erdboden";
-    case "grass":
-      return "Gras";
-    case "grass_paver":
-      return "Betonstein auf Gras";
-    case "mud":
-      return "Matsch";
-    case "sand":
-      return "Sand";
-    case "woodchips":
-      return "Holzschnitzel";
-    default:
-      return "Unbekannt";
-  }
+  return streetOsmText('osm_surface', surface) || 'Unbekannt';
 }
 
 const BICYCLE_CLASSES_COLORS = new Map([
@@ -432,6 +386,7 @@ function App() {
   const [map, setMap] = useState<LMap | null>(null);
   const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
   const [showAbout, setShowAbout] = useState(true);
+  const [showDistricts, setShowDistricts] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
   const [showLegend, setShowLegend] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
@@ -1414,9 +1369,18 @@ function App() {
                     <FormControlLabel value="priority" control={<Radio size="small" />} label="RadVorrang-Netz" />
                   </RadioGroup>
                   <PriorityNetworkLayer map={map} visible={streetNetworkMode === 'priority'} />
+                <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={showDistricts}
+                  onChange={(_, checked) => setShowDistricts(checked)} />} label="Stadtbezirke" />
+                {showDistricts && <Typography variant="caption" color="text.secondary">
+                  BA-Nummern ab Zoom 12. Namen beim Darüberfahren, Bezirksinfos per Klick.
+                </Typography>}
+                <DistrictLayer map={map} visible={showDistricts} streetSelection={contextMenuPosition || highlightedStreet} />
                 <Button variant="text" size="small" sx={{ color: 'text.secondary' }} onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
                 <Link component="button" underline="hover" onClick={() => setShowAbout(true)}>
                   Über RadlNavi
+                </Link>
+                <Link href="mailto:mail@munichways.de?subject=Feedback%20zu%20RadlNavi" underline="hover">
+                  Feedback geben
                 </Link>
                 <Link component="button" underline="hover" onClick={() => setShowImpressum(true)}>
                   Impressum und Datenschutzerklärung

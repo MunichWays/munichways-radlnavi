@@ -24,9 +24,69 @@ export function streetName(p: StreetProperties): string {
 
 export function streetSmoothness(value: unknown): string | undefined {
   const text = streetText(value);
-  const labels: Record<string, string> = { excellent: 'sehr gut', good: 'gut', intermediate: 'mittelmäßig',
+  const labels: Record<string, string> = { excellent: 'sehr gut', good: 'gut', intermediate: 'mittelmäßig', medium: 'mittelmäßig',
     bad: 'schlecht', very_bad: 'sehr schlecht', horrible: 'sehr holprig', very_horrible: 'extrem holprig', impassable: 'unpassierbar' };
   return text ? labels[text] || text : undefined;
+}
+
+const osmLabels: Record<string, Record<string, string>> = {
+  osm_highway: {
+    residential: 'Wohnstraße', path: 'Weg', footway: 'Fußweg', cycleway: 'Radweg',
+    primary: 'Hauptverkehrsstraße', secondary: 'Übergeordnete Straße', tertiary: 'Verbindungsstraße',
+    unclassified: 'Nebenstraße', track: 'Wirtschaftsweg', service: 'Zufahrts- oder Erschließungsweg',
+    living_street: 'Verkehrsberuhigter Bereich', pedestrian: 'Fußgängerzone', construction: 'Im Bau',
+    steps: 'Treppe', bus_stop: 'Bushaltestelle', proposed: 'Geplant', elevator: 'Aufzug',
+    road: 'Straße ohne nähere Einordnung', platform: 'Bahnsteig / Haltestellenplattform',
+    motorway: 'Autobahn', trunk: 'Schnellstraße', motorway_link: 'Autobahnauffahrt oder -abfahrt',
+    trunk_link: 'Schnellstraßenauffahrt oder -abfahrt', primary_link: 'Zubringer zur Hauptverkehrsstraße',
+    secondary_link: 'Zubringer zur übergeordneten Straße', tertiary_link: 'Zubringer zur Verbindungsstraße',
+  },
+  // Meanings follow https://wiki.openstreetmap.org/wiki/DE:Key:surface.
+  osm_surface: {
+    asphalt: 'Asphalt', paving_stones: 'Pflastersteine', compacted: 'Verdichteter Belag', sett: 'Natursteinpflaster',
+    fine_gravel: 'Feiner Schotter', gravel: 'Schotter', pebblestone: 'Kieselsteine', concrete: 'Beton',
+    dirt: 'Erde', paved: 'Befestigt', ground: 'Naturboden', wood: 'Holz', grass: 'Gras', unpaved: 'Unbefestigt',
+    chipseal: 'Bitumen mit eingestreutem Splitt', grass_paver: 'Rasengittersteine', 'concrete:plates': 'Betonplatten',
+    metal: 'Metall', sand: 'Sand', cobblestone: 'Kopfsteinpflaster', unhewn_cobblestone: 'Unbehauenes Kopfsteinpflaster',
+    metal_grid: 'Metallgitter', earth: 'Erde', 'concrete:lanes': 'Betonspurbahnen', rock: 'Fels',
+    'cobblestone:flattened': 'Abgeflachtes Kopfsteinpflaster', mud: 'Schlamm', woodchips: 'Holzhackschnitzel',
+  },
+  osm_bicycle: {
+    yes: 'Erlaubt', no: 'Nicht erlaubt', designated: 'Für Radverkehr vorgesehen',
+    official: 'Offiziell für Radverkehr ausgewiesen', use_sidepath: 'Begleitenden Radweg benutzen',
+    permissive: 'Vom Eigentümer geduldet', dismount: 'Absteigen und schieben', destination: 'Nur Anliegerverkehr',
+    private: 'Privat', discouraged: 'Nicht empfohlen', unknown: 'Unbekannt',
+  },
+  osm_access: {
+    yes: 'Erlaubt', no: 'Nicht erlaubt', permissive: 'Vom Eigentümer geduldet', private: 'Privat',
+    destination: 'Nur Anliegerverkehr', agricultural: 'Landwirtschaftlicher Verkehr', forestry: 'Forstwirtschaftlicher Verkehr',
+    designated: 'Für vorgesehenen Verkehr ausgewiesen', restricted: 'Eingeschränkt', unknown: 'Unbekannt',
+    residents: 'Nur Anwohner', customers: 'Nur Kunden', delivery: 'Nur Lieferverkehr',
+  },
+  osm_lit: { yes: 'Ja', no: 'Nein', '24/7': 'Durchgehend', automatic: 'Automatisch', '1': 'Ja',
+    limited: 'Zeitweise', sunset_sunrise: 'Von Sonnenuntergang bis Sonnenaufgang' },
+};
+
+/** Translate OSM values, including multi-values, without translating names or losing unknown tags. */
+export function streetOsmText(field: string, value: unknown): string | undefined {
+  const text = streetText(value);
+  if (!text) return undefined;
+  if (field === 'osm_smoothness') return streetSmoothness(text);
+  const labels = osmLabels[field];
+  if (!labels) return text === 'unknown' ? 'Unbekannt' : text;
+  return text.split(/([;,])/).map(part => {
+    if (/^[;,]$/.test(part)) return `${part} `;
+    const trimmed = part.trim();
+    const side = /^(links|rechts):\s*(.+)$/.exec(trimmed);
+    return side ? `${side[1]}: ${labels[side[2]] || side[2]}` : labels[trimmed] || trimmed;
+  }).join('');
+}
+
+export function streetWidth(value: unknown): string | undefined {
+  const text = streetText(value);
+  if (!text) return undefined;
+  return text.replace(/^(?:(links|rechts):\s*)?(\d+(?:[.,]\d+)?)(?:\s*m)?$/, (_, side, width: string) =>
+    `${side ? `${side}: ` : ''}${width.replace('.', ',')} Meter`);
 }
 
 const classes: Record<string, { label: string; color: string }> = {

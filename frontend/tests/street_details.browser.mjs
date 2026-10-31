@@ -24,17 +24,25 @@ const segments = geometry.features.flatMap(f => f.geometry.coordinates.slice(1).
 })).sort((a, b) => a.score - b.score);
 const target = segments[0];
 const requests = [];
-const types = { '.js': 'application/javascript', '.json': 'application/json', '.css': 'text/css',
+const types = { '.js': 'application/javascript', '.json': 'application/json', '.geojson': 'application/geo+json', '.css': 'text/css',
   '.html': 'text/html', '.svg': 'image/svg+xml', '.png': 'image/png' };
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, 'http://localhost');
-  if (url.pathname.startsWith('/street-details/')) requests.push(url.pathname);
+  if (url.pathname.startsWith('/street-details/') || url.pathname.startsWith('/data/')) requests.push(url.pathname);
   if (url.pathname.endsWith('.pbf')) { res.writeHead(200); res.end(); return; }
   const relative = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname).slice(1);
   const filename = path.resolve(build, relative);
   if (!filename.startsWith(build + path.sep)) { res.writeHead(403); res.end(); return; }
   try {
-    const body = await readFile(filename);
+    let body = await readFile(filename);
+    if (relative === 'index.html') {
+      // Offline QA serves the installed Leaflet fork's CSS below. Its bytes differ
+      // from CDN Leaflet, so use that stylesheet's matching SRI hash in this test.
+      const { createHash } = await import('node:crypto');
+      const css = await readFile(path.join(root, 'node_modules/leaflet/leaflet.css'));
+      const integrity = `sha256-${createHash('sha256').update(css).digest('base64')}`;
+      body = Buffer.from(body.toString().replace(/(<link[^>]+href="https:\/\/unpkg\.com\/leaflet[^"]+"[^>]*?)integrity="[^"]+"/, `$1integrity="${integrity}"`));
+    }
     res.writeHead(200, { 'Content-Type': types[path.extname(filename)] || 'application/octet-stream' }); res.end(body);
   } catch { res.writeHead(404); res.end(); }
 });
@@ -46,6 +54,7 @@ try {
     const context = await browser.newContext({ viewport: mobile ? { width: 390, height: 844 } : { width: 1280, height: 900 },
       isMobile: mobile, hasTouch: mobile });
     const page = await context.newPage();
+    page.setDefaultTimeout(15000);
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.route('https://**/*', async route => {
@@ -54,7 +63,7 @@ try {
            route.request().frame().url().startsWith('https://www.mapillary.com/'))) await route.continue();
       else if (route.request().url().includes('/Legende_RadlVorrang-Netz.png')) await route.continue();
       else if (route.request().url().includes('/leaflet.css')) await route.fulfill({
-        body: await readFile(path.join(root, 'node_modules/leaflet/leaflet.css')), contentType: 'text/css' });
+        body: await readFile(path.join(root, 'node_modules/leaflet/leaflet.css')), contentType: 'text/css', headers: { 'access-control-allow-origin': '*' } });
       else await route.abort();
     });
     await page.goto(base);
@@ -63,6 +72,7 @@ try {
     const infoBox = await info.boundingBox();
     assert(infoBox.width <= (mobile ? 390 - 24 : 560) + 1, JSON.stringify({ mobile, infoBox, viewport: await page.evaluate(() => ({ inner: innerWidth, client: document.documentElement.clientWidth, visual: visualViewport?.width })) }));
     assert(infoBox.y >= 0 && infoBox.y + infoBox.height <= (mobile ? 844 : 900), 'Info must fit the viewport');
+    assert((await info.getByRole('link', { name: 'Feedback an mail@munichways.de' }).getAttribute('href')).startsWith('mailto:mail@munichways.de'));
     assert.equal(await info.locator('details').count(), 3);
     assert.equal(await info.locator('details[open]').count(), 0, 'All sections start collapsed');
     await info.locator('summary').first().click();
@@ -78,6 +88,14 @@ try {
     assert.equal(await info.locator('details[open]').count(), 0, 'Reopened info starts compact');
     await info.getByRole('button', { name: 'Karte entdecken' }).click();
     await info.waitFor({ state: 'hidden' });
+    const districts = page.getByRole('checkbox', { name: 'Stadtbezirke', exact: true });
+    assert.equal(await districts.isChecked(), false, 'Districts start disabled');
+    if (!mobile) assert.equal(requests.filter(p => p.endsWith('/stadtbezirke.geojson')).length, 0, 'No district download until enabled');
+    const districtsLoaded = page.waitForResponse(response => response.url().endsWith('/data/stadtbezirke.geojson'));
+    await districts.check();
+    await districtsLoaded;
+    await page.getByRole('progressbar', { name: 'Stadtbezirke werden geladen' }).waitFor({ state: 'hidden' });
+    assert.equal(await page.locator('.district-label').count(), 25, 'One label for each district, including multipart districts');
     const all = page.getByRole('radio', { name: 'Alle Details', exact: true });
     const priority = page.getByRole('radio', { name: 'RadVorrang-Netz', exact: true });
     assert(await all.isChecked(), 'All details is the default');
@@ -96,9 +114,24 @@ try {
     await map.waitFor({ state: 'visible' });
     // Wait for the application's initial invalidateSize(300 ms) and layout to settle.
     await page.waitForTimeout(500);
+    const districtLabel = page.getByRole('button', { name: 'Stadtbezirk BA01 · Altstadt-Lehel', exact: true });
+    if (mobile) await districtLabel.tap();
+    else {
+      await districtLabel.hover();
+      await page.locator('.leaflet-tooltip').filter({ hasText: 'BA01' }).waitFor({ state: 'visible' });
+      await districtLabel.focus(); await page.keyboard.press('Enter');
+    }
+    await page.locator('.district-popup').waitFor();
+    await page.waitForTimeout(250); // Leaflet popup fade-in
+    const popupBox = await page.locator('.leaflet-popup').boundingBox();
+    assert(popupBox.x >= 0 && popupBox.x + popupBox.width <= (mobile ? 390 : 1280), 'District info fits the viewport');
+    assert((await page.locator('.district-popup').innerText()).includes('Altstadt-Lehel'));
+    assert((await page.locator('.district-popup a').getAttribute('href')).endsWith('#toggle-id-1'), 'Imported URL whitespace is normalized');
+    await page.screenshot({ path: path.join(root, `.cache/districts-${mobile ? 'mobile' : 'desktop'}.png`) });
+    // A right-click or touch-hold must still open the street menu and dismiss district info.
     const box = await map.boundingBox();
-    const c = project(center), t = project(target.midpoint);
-    let x = box.x + box.width / 2 + t[0] - c[0], y = box.y + box.height / 2 + t[1] - c[1];
+    const t = project(target.midpoint);
+    let x = (mobile ? 390 : 1280) - 80, y = (mobile ? 844 : 900) - 150;
     // Calibrate the pixel origin via the map's visible click diagnostic: the
     // responsive planner changes Leaflet's initial center during invalidateSize.
     const clicked = page.waitForEvent('console', { predicate: message => message.text().startsWith('clicked on point') });
@@ -106,6 +139,7 @@ try {
     const actualClick = await (await clicked).args()[1].jsonValue();
     const actual = project([actualClick.lng, actualClick.lat]);
     x += t[0] - actual[0]; y += t[1] - actual[1];
+    await page.locator('.district-popup').waitFor({ state: 'hidden' });
     await map.dispatchEvent('click');
     const cdp = mobile ? await context.newCDPSession(page) : null;
     const openMenu = async () => {
@@ -185,6 +219,18 @@ try {
     await openMenu();
     assert.equal(requests.filter(p => p.endsWith('/geometry.json')).length, before, 'Search index must be reused');
     assert(requests.some(p => p.endsWith('/priority-ids-v1.json')), 'Real worker applies priority membership');
+    if (!mobile) {
+      await map.dispatchEvent('click');
+      for (let i = 0; i < 6; i++) { await page.locator('.leaflet-control-zoom-out').click(); await page.waitForTimeout(350); }
+      assert.equal(await page.locator('.district-label').count(), 0, 'Overview hides district labels');
+      assert.equal(await page.locator('.leaflet-district-boundaries-pane path').count(), 25, 'Overview retains boundaries');
+      for (let i = 0; i < 6; i++) { await page.locator('.leaflet-control-zoom-in').click(); await page.waitForTimeout(350); }
+      assert.equal(await page.locator('.district-label').count(), 25, 'Zooming back restores labels');
+      await districts.uncheck();
+      assert.equal(await page.locator('.district-label').count(), 0);
+      assert.equal(await page.locator('.district-popup').count(), 0);
+      assert.equal(await page.locator('.leaflet-district-boundaries-pane path').count(), 0);
+    }
     assert.deepEqual(errors, [], 'No uncaught browser errors');
     console.log(`${mobile ? 'Mobile touch-hold' : 'Desktop right-click'}: real worker, candidate choice, detail loading, highlight, focus and cached index OK (${target.feature.id}).`);
     await context.close();

@@ -12,7 +12,10 @@ erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
 Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
 und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
-Die Funktion ist unabhängig vom Schalter für Bewertungsfarben.
+Unter „Mehr“ stehen „Alle Details“ (Standard) und „RadVorrang-Netz“ zur Auswahl.
+Die Auswahl filtert Kartenlinien und Detailsuche gemeinsam. Das RadlVorrang-Netz
+verwendet dieselbe V20-Regel wie die App: `munichways_mw_rv_route` fehlt nicht
+und ist weder leer noch genau `-`.
 
 Für den ersten lokalen Test die Daten erzeugen, dann den Entwicklungsserver starten:
 

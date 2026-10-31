@@ -17,7 +17,7 @@ import {
 } from "react-leaflet";
 import { LatLngBounds, LeafletEvent, LeafletMouseEvent, Map as LMap, Icon as LeafletIcon } from "leaflet";
 import { throttle } from "lodash";
-import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Switch, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Radio, RadioGroup, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
 import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LegendToggle, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
 import lineSlice from "@turf/line-slice";
 import { point, lineString } from "@turf/helpers";
@@ -30,7 +30,8 @@ import "leaflet.vectorgrid";
 import RouteStops from './RouteStops';
 import RouteShare from './RouteShare';
 import StreetDetailsControl from './StreetDetailsDialog';
-import { StreetFeature } from './streetDetails';
+import { StreetFeature, StreetNetworkMode } from './streetDetails';
+import PriorityNetworkLayer from './PriorityNetworkLayer';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -428,7 +429,7 @@ function App() {
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
   const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
-  const [showMunichways, setShowMunichways] = useState(true);
+  const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
   const [showAbout, setShowAbout] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
   const [showLegend, setShowLegend] = useState(false);
@@ -538,13 +539,14 @@ function App() {
 
   useEffect(() => {
     if (map) {
-      if (showMunichways) {
+      if (streetNetworkMode === 'all') {
         munichWaysLayer.addTo(map);
       } else {
         munichWaysLayer.removeFrom(map);
       }
     }
-  }, [map, showMunichways]);
+    return () => { if (map) munichWaysLayer.removeFrom(map); };
+  }, [map, streetNetworkMode]);
 
   useEffect(() => {
     if (map) {
@@ -1199,7 +1201,7 @@ function App() {
               onClick={() => stopHere(contextMenuPosition)}>
               Zwischenziel setzen
             </Button>
-            <StreetDetailsControl query={contextMenuPosition} onHighlight={setHighlightedStreet} />
+            <StreetDetailsControl mode={streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
           </div>
 
         <Tooltip title="Legende">
@@ -1405,9 +1407,12 @@ function App() {
                   <Typography variant="subtitle2">Beleuchtung</Typography>
                   {illuminatedElement}
                 </section>}
-                <FormControlLabel sx={{m: 0}}
-                    control={<Switch size="small" checked={showMunichways} onChange={(_, checked) => setShowMunichways(checked)}/>}
-                    label="Bewertungen"/>
+                <RadioGroup aria-label="Streckennetz" value={streetNetworkMode}
+                    onChange={(_, value) => setStreetNetworkMode(value as StreetNetworkMode)}>
+                    <FormControlLabel value="all" control={<Radio size="small" />} label="Alle Details" />
+                    <FormControlLabel value="priority" control={<Radio size="small" />} label="RadVorrang-Netz" />
+                  </RadioGroup>
+                  <PriorityNetworkLayer map={map} visible={streetNetworkMode === 'priority'} />
                 <Button variant="text" size="small" sx={{ color: 'text.secondary' }} onClick={() => setShowRouteInspector(true)}>Hinweise prüfen</Button>
                 <Link component="button" underline="hover" onClick={() => setShowAbout(true)}>
                   Über RadlNavi

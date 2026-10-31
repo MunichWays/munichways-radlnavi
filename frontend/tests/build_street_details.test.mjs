@@ -34,3 +34,11 @@ test('rejects changed snapshot, missing/duplicate IDs and unsupported/invalid co
   assert.throws(() => prepare([{ ...feature(), geometry: { type: 'MultiLineString', coordinates: [] } }]), /geometry/);
   assert.throws(() => prepare([{ ...feature(), geometry: { type: 'LineString', coordinates: [[200, 48], [11, 48]] } }]), /coordinate/);
 });
+
+test('priority membership matches the App sentinel rule, including compound values', () => {
+  const values = [undefined, null, '', '-', 'Standard', 'Premium', 'Standard,-', '-,-'];
+  const result = prepare(values.map((value, i) => feature(String(i + 1), { munichways_mw_rv_route: value })));
+  assert.deepEqual(result.priorityNetwork.features.map(f => f.id), ['osm_5', 'osm_6', 'osm_7', 'osm_8']);
+  assert.equal(result.geometry.features.length, 8);
+  assert.equal(result.geometry.features[4].properties.munichways_mw_rv_route, undefined);
+});

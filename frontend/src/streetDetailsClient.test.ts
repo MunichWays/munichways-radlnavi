@@ -16,7 +16,9 @@ test('reuses one worker, ignores aborted replies, and can create a fresh worker 
   const client = new StreetDetailsClient();
   const first = new AbortController();
   const firstResult = client.search(48.1, 11.5, 16, first.signal).catch(error => error.name);
-  const secondResult = client.search(48.1, 11.6, 16, new AbortController().signal);
+  const secondResult = client.search(48.1, 11.6, 16, new AbortController().signal, 'priority');
+  expect(worker.postMessage).toHaveBeenNthCalledWith(1, expect.objectContaining({ mode: 'all' }));
+  expect(worker.postMessage).toHaveBeenNthCalledWith(2, expect.objectContaining({ mode: 'priority' }));
   first.abort();
   worker.onmessage({ data: { id: 1, result: { manifest, candidates: ['old'] } } });
   worker.onmessage({ data: { id: 2, result: { manifest, candidates: [] } } });

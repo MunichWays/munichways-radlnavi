@@ -169,3 +169,33 @@ lokal nicht ausgeführt werden, weil der Docker-Daemon nicht läuft. Ein Test
 auf einem physischen iPhone/Android-Gerät und ein Produktionsdeployment sind
 noch nicht erfolgt. Die Browserprüfung ersetzt diese gerätespezifische Abnahme
 nicht; externe Basiskartentiles sind im lokalen Test ausgespart.
+
+
+## Netzauswahl
+
+Die Radiobuttons "Alle Details" (Standard) und "RadVorrang-Netz" ersetzen den
+bisherigen Bewertungsschalter. Alle Details behält den bisherigen Kachellayer
+und die vollständige Detailsuche. RadVorrang-Netz zeigt ausschließlich die
+6.507 passenden V20-Abschnitte als nicht interaktiven Leaflet-Canvas-Layer und
+beschränkt die Detailsuche auf dieselben OSM-IDs. Beim Wechsel schließen sich
+offene Streckendetails und die Markierung wird entfernt.
+
+Das Kriterium wurde in der App geprüft:
+[`StreetDetails.fromV20Json`](https://github.com/MunichWays/munich-ways-app/blob/master/lib/model/street_details.dart)
+verwendet `!['-', null, ''].contains(properties['munichways_mw_rv_route'])`.
+Die Regel wird exakt übernommen: zusammengesetzte Werte wie `Standard,-` und
+`-,-` sind enthalten; es wird weder getrimmt noch an Kommas aufgeteilt.
+
+Der Datenbuild erzeugt `priority-network-v1.json` (gefilterte Geometrien und kurze
+Bewertungsfelder) und `priority-ids-v1.json` (Mitgliedschaft für den Suchworker).
+Beide liegen beim bestehenden Snapshot-Hash. Bestehende `geometry.json` bleibt
+bytegleich, damit bereits immutable gecachte Daten kompatibel bleiben.
+Die Zusatzdateien werden erst bei Auswahl des RadVorrang-Netzes geladen.
+Abbruch, Ladefehler und erneutes Laden sind abgedeckt; ein fehlgeschlagener
+Netzdownload zeigt eine Fehlermeldung mit Wiederholung an.
+
+Validierung der Netzauswahl: 98 Frontendtests in 14 Suites und vier Datenbuildtests
+erfolgreich, ebenso TypeScript, striktes Lint und Produktionsbuild. Der echte
+Produktionsbuild wurde auf Desktop und mit mobiler Touch-Emulation geprüft:
+Standardauswahl, Wechsel beider Layer, Bereinigung des Canvas und gefilterte
+Detailsuche mit echtem Worker und anschließendem Detailabruf.

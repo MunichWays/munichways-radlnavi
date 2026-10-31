@@ -1,5 +1,5 @@
 import { createStreetDetailsWorker } from './createStreetDetailsWorker';
-import { StreetManifest, StreetProperties, StreetSearchResult, streetDetailGroup } from './streetDetails';
+import { StreetManifest, StreetNetworkMode, StreetProperties, StreetSearchResult, streetDetailGroup } from './streetDetails';
 
 const aborted = () => new DOMException('Abgebrochen', 'AbortError');
 type Pending = { resolve: (result: StreetSearchResult) => void; reject: (error: Error) => void; cleanup: () => void };
@@ -10,7 +10,7 @@ export class StreetDetailsClient {
   private pending = new Map<number, Pending>();
   private groups = new Map<string, Record<string, StreetProperties>>();
 
-  search(lat: number, lng: number, zoom: number, signal: AbortSignal): Promise<StreetSearchResult> {
+  search(lat: number, lng: number, zoom: number, signal: AbortSignal, mode: StreetNetworkMode = 'all'): Promise<StreetSearchResult> {
     if (signal.aborted) return Promise.reject(aborted());
     return new Promise((resolve, reject) => {
       if (!this.worker) {
@@ -32,7 +32,7 @@ export class StreetDetailsClient {
       const timer = setTimeout(() => this.resetWorker(new Error('Die Streckensuche hat zu lange gedauert. Bitte erneut versuchen.')), 100000);
       this.pending.set(id, { resolve, reject, cleanup: () => { clearTimeout(timer); signal.removeEventListener('abort', cancel); } });
       signal.addEventListener('abort', cancel, { once: true });
-      try { this.worker.postMessage({ id, lat, lng, zoom }); }
+      try { this.worker.postMessage({ id, lat, lng, zoom, mode }); }
       catch { this.resetWorker(new Error('Die Streckensuche konnte nicht gestartet werden. Bitte erneut versuchen.')); }
     });
   }

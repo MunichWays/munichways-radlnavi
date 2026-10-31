@@ -1,4 +1,5 @@
 export type StreetProperties = Record<string, string | number | null | undefined>;
+export type StreetNetworkMode = 'all' | 'priority';
 export type StreetCoordinate = [number, number];
 export type StreetFeature = {
   type: 'Feature'; id: string; properties: StreetProperties;

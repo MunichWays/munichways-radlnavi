@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert, Button, LinearProgress } from '@mui/material';
-import { StreetCandidate, StreetFeature, StreetProperties, StreetSearchResult, streetLinks, streetName, streetRating, streetText, streetSourceLabel, streetSmoothness } from './streetDetails';
+import { StreetCandidate, StreetFeature, StreetNetworkMode, StreetProperties, StreetSearchResult, streetLinks, streetName, streetRating, streetText, streetSourceLabel, streetSmoothness } from './streetDetails';
 import { StreetDetailsClient } from './streetDetailsClient';
 import FloatingMapWindow from './FloatingMapWindow';
 import MapillaryPreview from './MapillaryPreview';
 
 export type StreetQuery = { lat: number; lng: number; zoom: number };
-type Props = { query: StreetQuery | null; onHighlight: (feature: StreetFeature | null) => void };
+type Props = { query: StreetQuery | null; onHighlight: (feature: StreetFeature | null) => void; mode?: StreetNetworkMode };
 
 function DetailFields({ properties: p }: { properties: StreetProperties }) {
   const rating = streetRating(p);
@@ -53,7 +53,7 @@ function DetailFields({ properties: p }: { properties: StreetProperties }) {
 }
 
 /** One owner for menu search, dialog loads and cancellation; route state is never touched. */
-export default function StreetDetailsControl({ query, onHighlight }: Props) {
+export default function StreetDetailsControl({ query, onHighlight, mode = 'all' }: Props) {
   const clientRef = useRef<StreetDetailsClient>();
   const [search, setSearch] = useState<StreetSearchResult | null>(null);
   const [windowSearch, setWindowSearch] = useState<StreetSearchResult | null>(null);
@@ -68,6 +68,7 @@ export default function StreetDetailsControl({ query, onHighlight }: Props) {
   const [detailBusy, setDetailBusy] = useState(false);
   if (!clientRef.current) clientRef.current = new StreetDetailsClient();
   useEffect(() => () => clientRef.current?.dispose(), []);
+  useEffect(() => { setOpen(false); setSelected(null); setProperties(null); onHighlight(null); }, [mode, onHighlight]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -77,12 +78,12 @@ export default function StreetDetailsControl({ query, onHighlight }: Props) {
     setOpen(false); setSelected(null); setProperties(null); onHighlight(null);
     if (query.zoom < 14) return () => controller.abort();
     setSearchBusy(true);
-    clientRef.current!.search(query.lat, query.lng, query.zoom, controller.signal)
+    clientRef.current!.search(query.lat, query.lng, query.zoom, controller.signal, mode)
       .then(result => { if (!controller.signal.aborted) setSearch(result); })
       .catch(error => { if (!controller.signal.aborted) setSearchError(error.message || 'Die Streckensuche ist fehlgeschlagen.'); })
       .finally(() => { if (!controller.signal.aborted) setSearchBusy(false); });
     return () => controller.abort();
-  }, [query, searchRetry, onHighlight]);
+  }, [query, searchRetry, onHighlight, mode]);
 
   useEffect(() => {
     const controller = new AbortController();

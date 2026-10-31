@@ -57,6 +57,20 @@ try {
       else await route.abort();
     });
     await page.goto(base);
+    await page.locator('summary').filter({ hasText: 'Mehr' }).click();
+    const all = page.getByRole('radio', { name: 'Alle Details', exact: true });
+    const priority = page.getByRole('radio', { name: 'RadVorrang-Netz', exact: true });
+    assert(await all.isChecked(), 'All details is the default');
+    assert.equal(await priority.isChecked(), false);
+    const networkLoaded = page.waitForResponse(response => response.url().endsWith('/priority-network-v1.json'));
+    await priority.check();
+    await networkLoaded;
+    await page.getByRole('progressbar', { name: 'RadVorrang-Netz wird geladen' }).waitFor({ state: 'hidden' });
+    assert(await page.locator('.leaflet-overlay-pane canvas').count() > 0, 'Priority network uses its own canvas layer');
+    await all.check();
+    assert.equal(await page.locator('.leaflet-overlay-pane canvas').count(), 0, 'Switching back removes priority geometry');
+    await priority.check();
+    await page.getByRole('progressbar', { name: 'RadVorrang-Netz wird geladen' }).waitFor({ state: 'hidden' });
     if (mobile) await page.getByRole('button', { name: 'Menü ausblenden' }).click();
     const map = page.locator('.leaflet-container');
     await map.waitFor({ state: 'visible' });
@@ -150,6 +164,7 @@ try {
     const before = requests.filter(p => p.endsWith('/geometry.json')).length;
     await openMenu();
     assert.equal(requests.filter(p => p.endsWith('/geometry.json')).length, before, 'Search index must be reused');
+    assert(requests.some(p => p.endsWith('/priority-ids-v1.json')), 'Real worker applies priority membership');
     assert.deepEqual(errors, [], 'No uncaught browser errors');
     console.log(`${mobile ? 'Mobile touch-hold' : 'Desktop right-click'}: real worker, candidate choice, detail loading, highlight, focus and cached index OK (${target.feature.id}).`);
     await context.close();

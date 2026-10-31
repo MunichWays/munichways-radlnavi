@@ -122,3 +122,17 @@ test('shows Mapillary preview first and source metadata last', async () => {
   expect(content.firstElementChild).toHaveClass('street-mapillary');
   expect(content.lastElementChild).toHaveClass('street-snapshot');
 });
+
+test('switching the network closes old details and forwards the new mode to search', async () => {
+  const highlight = jest.fn();
+  const { rerender } = render(<StreetDetailsControl query={query} onHighlight={highlight} />);
+  fireEvent.click(await screen.findByRole('button', { name: 'Details anzeigen' }));
+  await screen.findByRole('dialog');
+  mockSearch.mockResolvedValue({ manifest, candidates: [] });
+  rerender(<StreetDetailsControl query={query} mode="priority" onHighlight={highlight} />);
+  await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
+  expect(highlight).toHaveBeenLastCalledWith(null);
+  expect(mockSearch).toHaveBeenLastCalledWith(query.lat, query.lng, query.zoom, expect.any(AbortSignal), 'priority');
+  await waitFor(() => expect(screen.queryByRole('progressbar')).not.toBeInTheDocument());
+  expect(screen.queryByRole('button', { name: 'Details anzeigen' })).not.toBeInTheDocument();
+});

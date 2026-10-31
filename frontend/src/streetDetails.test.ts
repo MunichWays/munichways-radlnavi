@@ -80,3 +80,10 @@ test('finds an added Oberbayern way outside Munich without a MunichWays master-l
   expect(streetName(results[0].properties)).toBe('Wuhrweg');
   expect(streetRating(results[0].properties).label).toBe('Gemütlich');
 });
+
+test('priority search excludes nearby non-network ways and all mode restores them', () => {
+  const index = new StreetSearchIndex(collection([line(1), line(2, 48.1001)]), 2);
+  expect(index.search(48.1, 11.501, 20, new Set(['osm_2'])).map(c => c.id)).toEqual(['osm_2']);
+  expect(index.search(48.1, 11.501, 20, new Set())).toEqual([]);
+  expect(index.search(48.1, 11.501, 20).map(c => c.id)).toEqual(['osm_1', 'osm_2']);
+});

@@ -55,7 +55,7 @@ export class StreetSearchIndex {
     }
   }
 
-  search(lat: number, lon: number, radius: number): StreetCandidate[] {
+  search(lat: number, lon: number, radius: number, allowedIds?: ReadonlySet<string>): StreetCandidate[] {
     if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 85 || Math.abs(lon) > 180 ||
         !Number.isFinite(radius) || radius <= 0 || radius > 20) throw new Error('Ungültiger Suchpunkt.');
     const dy = radius / METERS_PER_DEGREE;
@@ -68,6 +68,7 @@ export class StreetSearchIndex {
     }
     const candidates: StreetCandidate[] = [];
     entries.forEach(({ feature, bbox }) => {
+      if (allowedIds && !allowedIds.has(feature.id)) return;
       if (bbox[0] > lon + dx || bbox[2] < lon - dx || bbox[1] > lat + dy || bbox[3] < lat - dy) return;
       const distance = lineDistance(feature.geometry.coordinates, lat, lon);
       if (distance <= radius) candidates.push({ ...feature, distance });

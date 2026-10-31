@@ -12,6 +12,12 @@ const fields = ['osm_id', 'osm_name', 'osm_class_bicycle', 'osm_smoothness', 'os
   'munichways_route_link', 'munichways_measure_category_link', 'munichways_district_link',
   'munichways_links', 'munichways_mapillary_link'];
 
+// Same predicate as StreetDetails.fromV20Json() in the MunichWays app.
+export function isRadlVorrangNetz(properties) {
+  const value = properties.munichways_mw_rv_route;
+  return value !== undefined && value !== null && value !== '' && value !== '-';
+}
+
 export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOString()) {
   const snapshot = createHash('sha256').update(raw).digest('hex');
   if (snapshot !== config.sha256) throw new Error(`V20 SHA-256 mismatch: expected ${config.sha256}, received ${snapshot}. Review the new source before updating street-details-source.json.`);
@@ -25,6 +31,7 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
   }
   const ids = new Set();
   const features = [];
+  const priorityFeatures = [];
   const groups = {};
   const bbox = [180, 90, -180, -90];
   for (const feature of data.features) {
@@ -51,6 +58,7 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
       if (typeof p[key] === 'string' || typeof p[key] === 'number') summary[key] = String(p[key]);
     }
     features.push({ type: 'Feature', id, properties: summary, geometry: { type: 'LineString', coordinates } });
+    if (isRadlVorrangNetz(p)) priorityFeatures.push(features[features.length - 1]);
     const group = osmId.slice(-2).padStart(2, '0');
     groups[group] ??= {};
     groups[group][id] = Object.fromEntries(fields.filter(key => typeof p[key] === 'string' || typeof p[key] === 'number')
@@ -59,7 +67,8 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
   return {
     manifest: { schemaVersion: 1, snapshot, sourceUrl: config.url, sourceCreatedAt: config.createdAt, retrievedAt, bbox,
       featureCount: features.length },
-    geometry: { type: 'FeatureCollection', features }, groups,
+    geometry: { type: 'FeatureCollection', features },
+    priorityNetwork: { type: 'FeatureCollection', features: priorityFeatures }, groups,
   };
 }
 
@@ -72,10 +81,15 @@ export async function buildSnapshot({ source, output = path.join(root, 'public/s
     if (!response.ok) throw new Error(`V20 download failed: HTTP ${response.status}`);
     raw = Buffer.from(await response.arrayBuffer());
   }
-  const { manifest, geometry, groups } = prepareSnapshot(raw, config);
+  const { manifest, geometry, priorityNetwork, groups } = prepareSnapshot(raw, config);
   const versionDir = path.join(output, manifest.snapshot);
   await mkdir(path.join(versionDir, 'details'), { recursive: true });
   await writeFile(path.join(versionDir, 'geometry.json'), JSON.stringify(geometry));
+  // New artifact names preserve compatibility with already cached geometry.json.
+  await writeFile(path.join(versionDir, 'priority-network-v1.json'), JSON.stringify(priorityNetwork));
+  await writeFile(path.join(versionDir, 'priority-ids-v1.json'), JSON.stringify({
+    schemaVersion: 1, ids: priorityNetwork.features.map(feature => feature.id),
+  }));
   let largestGroupBytes = 0;
   for (const [group, entries] of Object.entries(groups)) {
     const content = JSON.stringify(entries);
@@ -86,7 +100,7 @@ export async function buildSnapshot({ source, output = path.join(root, 'public/s
   await writeFile(path.join(output, 'manifest.json.tmp'), JSON.stringify(manifest));
   await rename(path.join(output, 'manifest.json.tmp'), path.join(output, 'manifest.json'));
   console.log(JSON.stringify({ ...manifest, geometryBytes: Buffer.byteLength(JSON.stringify(geometry)),
-    detailGroups: Object.keys(groups).length, largestGroupBytes }, null, 2));
+    detailGroups: Object.keys(groups).length, largestGroupBytes, priorityFeatures: priorityNetwork.features.length }, null, 2));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {

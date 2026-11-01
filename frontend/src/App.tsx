@@ -1490,9 +1490,15 @@ function App() {
           tapHold={true}
         >
           <TileLayer
+            key={mapBackground === 'bavaria-aerial' ? 'bavaria-aerial' : 'osm'}
             className="radlnavi-basemap"
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution={mapBackground === 'bavaria-aerial'
+              ? '&copy; Datenquellen: <a href="https://geodaten.bayern.de/">Bayerische Vermessungsverwaltung</a>, Europäische Union, enthält Copernicus Sentinel-2 Daten 2018, verarbeitet durch das Bundesamt für Kartographie und Geodäsie (BKG)'
+              : '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'}
+            url={mapBackground === 'bavaria-aerial'
+              ? 'https://wmtsod1.bayernwolke.de/wmts/by_dop/smerc/{z}/{x}/{y}'
+              : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'}
+            maxNativeZoom={19}
           />
           {inspectedStep?.maneuver?.location && <Marker icon={endMarkerIcon}
             position={[inspectedStep.maneuver.location[1], inspectedStep.maneuver.location[0]]}>

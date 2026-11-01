@@ -70,7 +70,8 @@ jest.mock("react-leaflet", () => {
       React.useImperativeHandle(ref, () => mockMap, []);
       return <div data-testid="map">{children}</div>;
     }),
-    TileLayer: Empty, Marker: Empty, Popup: Empty, Polyline: Empty,
+    TileLayer: ({ url, attribution }: any) => <div data-testid="base-tiles" data-url={url} data-attribution={attribution} />,
+    Marker: Empty, Popup: Empty, Polyline: Empty,
     Tooltip: Empty, Polygon: Empty,
   };
 });
@@ -272,16 +273,23 @@ test('background choice preserves the map and camera, persists, and restores Sta
     fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
     fireEvent.click(screen.getByRole('menuitemradio', { name: 'Dezent' }));
     expect(screen.getByTestId('map').closest('.App')).toHaveClass('radlnavi-basemap--reduced');
+    await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Luftbild Bayern' }));
+    expect(screen.getByTestId('base-tiles')).toHaveAttribute('data-url', 'https://wmtsod1.bayernwolke.de/wmts/by_dop/smerc/{z}/{x}/{y}');
+    expect(screen.getByTestId('base-tiles').getAttribute('data-attribution')).toContain('Bayerische Vermessungsverwaltung');
+    expect(screen.getByTestId('map').closest('.App')).not.toHaveClass('radlnavi-basemap--reduced');
     expect(screen.getByTestId('map')).toBe(mapElement);
     expect(mockMap.fitBounds).toHaveBeenCalledTimes(fitCalls);
     expect(mockMap.setBearing).toHaveBeenCalledTimes(bearingCalls);
     await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
     first.unmount();
     const second = await renderApp();
-    expect(screen.getByTestId('map').closest('.App')).toHaveClass('radlnavi-basemap--reduced');
+    expect(screen.getByTestId('base-tiles').getAttribute('data-url')).toContain('/by_dop/smerc/');
     fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
     fireEvent.click(screen.getByRole('menuitemradio', { name: 'Standard' }));
     expect(screen.getByTestId('map').closest('.App')).not.toHaveClass('radlnavi-basemap--reduced');
+    expect(screen.getByTestId('base-tiles').getAttribute('data-url')).toContain('tile.openstreetmap.org');
     second.unmount();
   } finally {
     global.fetch = originalFetch;

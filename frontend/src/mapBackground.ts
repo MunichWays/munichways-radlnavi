@@ -5,7 +5,8 @@ export const MAP_BACKGROUND_PREFERENCE = 'radlnavi.mapBackground';
 
 function readPreference(): MapBackground {
   try {
-    return window.localStorage.getItem(MAP_BACKGROUND_PREFERENCE) === 'reduced' ? 'reduced' : 'standard';
+    const stored = window.localStorage.getItem(MAP_BACKGROUND_PREFERENCE);
+    return stored === 'reduced' || stored === 'bavaria-aerial' ? stored : 'standard';
   } catch {
     return 'standard';
   }

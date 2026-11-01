@@ -4,7 +4,7 @@ import LayersOutlined from '@mui/icons-material/LayersOutlined';
 import RadioButtonChecked from '@mui/icons-material/RadioButtonChecked';
 import RadioButtonUnchecked from '@mui/icons-material/RadioButtonUnchecked';
 
-export type MapBackground = 'standard' | 'reduced';
+export type MapBackground = 'standard' | 'reduced' | 'bavaria-aerial';
 
 export default function MapBackgroundControl({ value, onChange, reducedLabel = 'Reduziert' }: {
   value: MapBackground;
@@ -34,12 +34,12 @@ export default function MapBackgroundControl({ value, onChange, reducedLabel = '
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       MenuListProps={{ 'aria-labelledby': 'map-background-button' }}>
-      {(['standard', 'reduced'] as const).map(background => <MenuItem
+      {(['standard', 'reduced', 'bavaria-aerial'] as const).map(background => <MenuItem
         key={background} role="menuitemradio" aria-checked={value === background}
         selected={value === background} onClick={() => choose(background)}
         sx={{ minHeight: 48 }}>
         <ListItemIcon>{value === background ? <RadioButtonChecked /> : <RadioButtonUnchecked />}</ListItemIcon>
-        <ListItemText>{background === 'standard' ? 'Standard' : reducedLabel}</ListItemText>
+        <ListItemText>{background === 'standard' ? 'Standard' : background === 'reduced' ? reducedLabel : 'Luftbild Bayern'}</ListItemText>
       </MenuItem>)}
     </Menu>
   </>;

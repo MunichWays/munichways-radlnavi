@@ -11,19 +11,28 @@ Object.assign(globalThis, { TextEncoder, TextDecoder });
 jest.setTimeout(15000);
 
 const mockHandlers: Record<string, Function> = {};
+const mockRatingsLayer = { addTo: jest.fn(), removeFrom: jest.fn() };
+const mockRatingsOptions: { zIndex?: number } = {};
 const mockMap = {
   on: (event: string, handler: Function) => { mockHandlers[event] = handler; },
   off: jest.fn(), getZoom: () => 16,
+  removeLayer: jest.fn(),
   invalidateSize: jest.fn(), setBearing: jest.fn(), fitBounds: jest.fn(),
 };
 const mockStreetSearch = jest.fn().mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] });
 jest.mock('./streetDetailsClient', () => ({ StreetDetailsClient: function () {
   return { search: mockStreetSearch, details: jest.fn(), dispose: jest.fn() };
 } }));
-beforeEach(() => mockStreetSearch.mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] }));
+beforeEach(() => {
+  mockStreetSearch.mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] });
+  window.localStorage.clear();
+});
 jest.mock("leaflet.vectorgrid", () => {
   const L = require("leaflet");
-  L.vectorGrid = { protobuf: () => ({ addTo: jest.fn(), removeFrom: jest.fn() }) };
+  L.vectorGrid = { protobuf: (_url: string, options: any) => {
+    Object.assign(mockRatingsOptions, options);
+    return mockRatingsLayer;
+  } };
   L.control.zoom = () => ({ addTo: jest.fn() });
   (globalThis as any).L = L;
   return {};
@@ -67,7 +76,8 @@ jest.mock("react-leaflet", () => {
       React.useImperativeHandle(ref, () => mockMap, []);
       return <div data-testid="map">{children}</div>;
     }),
-    TileLayer: Empty, Marker: Empty, Popup: Empty, Polyline: Empty,
+    TileLayer: ({ url, attribution, zIndex }: any) => <div data-testid="base-tiles" data-url={url} data-attribution={attribution} data-z-index={zIndex} />,
+    Marker: Empty, Popup: Empty, Polyline: Empty,
     Tooltip: Empty, Polygon: Empty,
   };
 });
@@ -252,3 +262,77 @@ async function renderApp() {
   await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   return result;
 }
+
+
+test('background choice preserves the map and camera, persists, and restores Standard', async () => {
+  const originalFetch = global.fetch;
+  global.fetch = jest.fn(async (url: any) => ({ ok: true, status: 200,
+    json: async () => url === '/region.json' ? { features: [{ geometry: { coordinates: [[]] } }] } : {},
+  })) as any;
+  const log = jest.spyOn(console, 'log').mockImplementation(() => {});
+  const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    const first = await renderApp();
+    const mapElement = screen.getByTestId('map');
+    const fitCalls = mockMap.fitBounds.mock.calls.length;
+    const bearingCalls = mockMap.setBearing.mock.calls.length;
+    const ratingsRemovals = mockRatingsLayer.removeFrom.mock.calls.length;
+    expect(mockRatingsOptions.zIndex).toBe(2);
+    expect(screen.getByTestId('base-tiles')).toHaveAttribute('data-z-index', '1');
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Dezent' }));
+    expect(screen.getByTestId('map').closest('.App')).toHaveClass('radlnavi-basemap--reduced');
+    await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Luftbild Bayern' }));
+    expect(screen.getByTestId('base-tiles')).toHaveAttribute('data-url', 'https://wmtsod1.bayernwolke.de/wmts/by_dop/smerc/{z}/{x}/{y}');
+    expect(screen.getByTestId('base-tiles').getAttribute('data-attribution')).toContain('Bayerische Vermessungsverwaltung');
+    expect(screen.getByTestId('map').closest('.App')).not.toHaveClass('radlnavi-basemap--reduced');
+    expect(screen.getByTestId('map')).toBe(mapElement);
+    expect(mockMap.fitBounds).toHaveBeenCalledTimes(fitCalls);
+    expect(mockMap.setBearing).toHaveBeenCalledTimes(bearingCalls);
+    expect(mockRatingsLayer.removeFrom).toHaveBeenCalledTimes(ratingsRemovals);
+    await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
+    first.unmount();
+    const second = await renderApp();
+    expect(screen.getByTestId('base-tiles').getAttribute('data-url')).toContain('/by_dop/smerc/');
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Standard' }));
+    expect(screen.getByTestId('map').closest('.App')).not.toHaveClass('radlnavi-basemap--reduced');
+    expect(screen.getByTestId('base-tiles').getAttribute('data-url')).toContain('tile.openstreetmap.org');
+    fireEvent.click(screen.getByText('Mehr'));
+    const allRatings = screen.getByRole('button', { name: 'Alle Bewertungen' });
+    const priorityRatings = screen.getByRole('button', { name: 'RadlVorrang-Netz' });
+    const noRatings = screen.getByRole('button', { name: 'Keine Bewertungen' });
+    const districts = screen.getByRole('checkbox', { name: 'Stadtbezirke' });
+    expect(allRatings).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(districts);
+    fireEvent.click(noRatings);
+    expect(noRatings).toHaveAttribute('aria-pressed', 'true');
+    expect(allRatings).toHaveAttribute('aria-pressed', 'false');
+    expect(priorityRatings).toHaveAttribute('aria-pressed', 'false');
+    expect(districts).toBeChecked();
+    fireEvent.click(noRatings);
+    expect(noRatings).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Luftbild Bayern' }));
+    expect(noRatings).toHaveAttribute('aria-pressed', 'true');
+    expect(districts).toBeChecked();
+    await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
+    fireEvent.click(priorityRatings);
+    expect(priorityRatings).toHaveAttribute('aria-pressed', 'true');
+    expect(noRatings).toHaveAttribute('aria-pressed', 'false');
+    expect(districts).toBeChecked();
+    fireEvent.click(districts);
+    expect(priorityRatings).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(allRatings);
+    expect(allRatings).toHaveAttribute('aria-pressed', 'true');
+    expect(priorityRatings).toHaveAttribute('aria-pressed', 'false');
+    expect(mockRatingsLayer.addTo).toHaveBeenLastCalledWith(mockMap);
+    second.unmount();
+  } finally {
+    global.fetch = originalFetch;
+    log.mockRestore();
+    warn.mockRestore();
+  }
+});

@@ -17,7 +17,7 @@ import {
 } from "react-leaflet";
 import { LatLngBounds, LeafletEvent, LeafletMouseEvent, Map as LMap, Icon as LeafletIcon } from "leaflet";
 import { throttle } from "lodash";
-import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Radio, RadioGroup, Checkbox, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Checkbox, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
 import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LegendToggle, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
 import lineSlice from "@turf/line-slice";
 import { point, lineString } from "@turf/helpers";
@@ -34,6 +34,8 @@ import { StreetFeature, StreetNetworkMode, streetOsmText } from './streetDetails
 import PriorityNetworkLayer from './PriorityNetworkLayer';
 import AboutDialog from './AboutDialog';
 import DistrictLayer from './DistrictLayer';
+import MapBackgroundControl from './MapBackgroundControl';
+import { useMapBackground } from './mapBackground';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -314,6 +316,8 @@ L.DomEvent.fakeStop = function () {
 let posChangeInterval = null;
 
 const munichWaysLayer = L.vectorGrid.protobuf("/layers/munichways/{z}/{x}/{y}.pbf", {
+  // Keep ratings above replacement base tiles, regardless of insertion order.
+  zIndex: 2,
   vectorTileLayerStyles: {
     munichways: (prop) => ({
       color: appRatingColor(prop.color),
@@ -384,7 +388,8 @@ function App() {
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
   const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
-  const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
+  const [mapBackground, setMapBackground] = useMapBackground();
+  const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode | 'none'>('all');
   const [showAbout, setShowAbout] = useState(true);
   const [showDistricts, setShowDistricts] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
@@ -1125,7 +1130,7 @@ function App() {
 
   return (
     <ThemeProvider theme={RADLNAVI_THEME}>
-      <div className="App" style={{ display: 'flex' }} onResize={() => {
+      <div className={`App${mapBackground === 'reduced' ? ' radlnavi-basemap--reduced' : ''}`} style={{ display: 'flex' }} onResize={() => {
         if (map != null) {
           map.invalidateSize();
         }
@@ -1157,8 +1162,10 @@ function App() {
               onClick={() => stopHere(contextMenuPosition)}>
               Zwischenziel setzen
             </Button>
-            <StreetDetailsControl mode={streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
+            <StreetDetailsControl mode={streetNetworkMode === 'none' ? 'all' : streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
           </div>
+
+        <MapBackgroundControl value={mapBackground} onChange={setMapBackground} reducedLabel="Dezent" />
 
         <Tooltip title="Legende">
           <IconButton
@@ -1166,8 +1173,10 @@ function App() {
             onClick={() => setShowLegend(true)}
             sx={{
               position: "absolute",
-              top: 82,
+              top: 136,
               right: 10,
+              width: 44,
+              height: 44,
               zIndex: 1000,
               backgroundColor: "white",
               boxShadow: 2,
@@ -1363,13 +1372,16 @@ function App() {
                   <Typography variant="subtitle2">Beleuchtung</Typography>
                   {illuminatedElement}
                 </section>}
-                <RadioGroup aria-label="Streckennetz" value={streetNetworkMode}
-                    onChange={(_, value) => setStreetNetworkMode(value as StreetNetworkMode)}>
-                    <FormControlLabel value="all" control={<Radio size="small" />} label="Alle Details" />
-                    <FormControlLabel value="priority" control={<Radio size="small" />} label="RadVorrang-Netz" />
-                  </RadioGroup>
+                <ToggleButtonGroup exclusive orientation="vertical" fullWidth aria-label="Bewertungen" value={streetNetworkMode}
+                    onChange={(_, value: StreetNetworkMode | 'none' | null) => {
+                      if (value !== null) setStreetNetworkMode(value);
+                    }}>
+                    <ToggleButton value="all">Alle Bewertungen</ToggleButton>
+                    <ToggleButton value="priority">RadlVorrang-Netz</ToggleButton>
+                    <ToggleButton value="none">Keine Bewertungen</ToggleButton>
+                  </ToggleButtonGroup>
                   <PriorityNetworkLayer map={map} visible={streetNetworkMode === 'priority'} />
-                <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={showDistricts}
+                <FormControlLabel sx={{ m: 0, mt: 1, pt: 1, borderTop: '1px solid', borderColor: 'divider' }} control={<Checkbox size="small" checked={showDistricts}
                   onChange={(_, checked) => setShowDistricts(checked)} />} label="Stadtbezirke" />
                 {showDistricts && <Typography variant="caption" color="text.secondary">
                   BA-Nummern ab Zoom 12. Namen beim Darüberfahren, Bezirksinfos per Klick.
@@ -1483,8 +1495,16 @@ function App() {
           tapHold={true}
         >
           <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            key={mapBackground === 'bavaria-aerial' ? 'bavaria-aerial' : 'osm'}
+            className="radlnavi-basemap"
+            zIndex={1}
+            attribution={mapBackground === 'bavaria-aerial'
+              ? '&copy; Datenquellen: <a href="https://geodaten.bayern.de/">Bayerische Vermessungsverwaltung</a>, Europäische Union, enthält Copernicus Sentinel-2 Daten 2018, verarbeitet durch das Bundesamt für Kartographie und Geodäsie (BKG)'
+              : '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'}
+            url={mapBackground === 'bavaria-aerial'
+              ? 'https://wmtsod1.bayernwolke.de/wmts/by_dop/smerc/{z}/{x}/{y}'
+              : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'}
+            maxNativeZoom={19}
           />
           {inspectedStep?.maneuver?.location && <Marker icon={endMarkerIcon}
             position={[inspectedStep.maneuver.location[1], inspectedStep.maneuver.location[0]]}>

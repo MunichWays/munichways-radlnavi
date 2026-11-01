@@ -20,8 +20,12 @@ erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
 Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
 und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
-Unter „Mehr“ stehen „Alle Details“ (Standard) und „RadVorrang-Netz“ zur Auswahl.
-Die Auswahl filtert Kartenlinien und Detailsuche gemeinsam. Das RadlVorrang-Netz
+Unter „Mehr“ bilden „Alle Bewertungen“ (Standard), „RadlVorrang-Netz“ und
+„Keine Bewertungen“ eine gemeinsame Einzelauswahl. „Stadtbezirke“ steht darunter
+als unabhängiger Schalter. „Keine Bewertungen“ blendet die Bewertungslinien aus;
+die Detailsuche bleibt für alle Strecken verfügbar. „RadlVorrang-Netz“ filtert
+Kartenlinien und Detailsuche gemeinsam. Der Wechsel der Grundkarte erhält die
+Bewertungsauswahl; Bewertungskacheln liegen immer über der Grundkarte. Das RadlVorrang-Netz
 verwendet dieselbe V20-Regel wie die App: `munichways_mw_rv_route` fehlt nicht
 und ist weder leer noch genau `-`.
 
@@ -123,3 +127,27 @@ Das ist keine Simulation der Flutter-Filter, Verkettung, GPS-Fortschrittslogik
 oder tatsächlichen Ansagezeitpunkte. Auch die Wegwechsel-Zusätze sind eine
 Textvorschau und kein Replay der App. Roh-Typ und Modifier stehen deshalb neben
 jedem übersetzten Hinweis; die vollständigen Step-Daten lassen sich aufklappen.
+
+## Kartenansicht (Issue #281 der MunichWays-App)
+
+Rechts oben steht zwischen Zoom und Legende ein Kartenlayer-Symbol. Es bietet
+**Standard** (bisherige OSM-Karte), **Dezent** (dieselbe Grundkarte
+entsättigt und aufgehellt) und **Luftbild Bayern**. Bewertungen, Route, Haltepunkte und andere
+Überlagerungen behalten ihre Farben. Die Auswahl bleibt beim nächsten Besuch
+erhalten; bei gesperrtem Browserspeicher funktioniert sie für den aktuellen Besuch.
+
+Dezent ist keine neue detailärmere Datenquelle: Beschriftungen werden nicht
+entfernt. Es gibt keine zusätzlichen Kachelabfragen, Anbieter, Kontingente oder
+Abhängigkeiten für diese Ansicht. Leaflet und seine Drehfunktion bleiben bestehen.
+
+Luftbild Bayern nutzt den offiziellen OpenData-WMTS der Bayerischen
+Vermessungsverwaltung (`by_dop`, Web Mercator `smerc`, Zoomstufen 0–19).
+Die Luftbildkacheln werden direkt von `wmtsod1.bayernwolke.de` geladen;
+der erforderliche Quellenhinweis erscheint am Kartenrand.
+Dienstbeschreibung: https://geodatenonline.bayern.de/geodatenonline/seiten/wmts_ba
+
+Lokal prüfen: zwischen allen drei Ansichten wechseln, Karte verschieben/zoomen/drehen,
+Bewertungen und RadVorrang-Netz vergleichen, eine Route mit Zwischenzielen planen
+und laden, Seite neu laden und die gespeicherte Wahl kontrollieren. Menü auch mit
+Tastatur öffnen, mit Escape schließen; kleine Fenster und Browserzoom prüfen.
+Die Auswahl darf Ausschnitt, Route, Netzmodus oder Navigation nicht verändern.

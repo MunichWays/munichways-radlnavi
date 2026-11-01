@@ -201,3 +201,10 @@
 }
 .district-popup h3 { margin: 4px 0 8px; font-size: 14px; line-height: 1.4; overflow-wrap: anywhere; }
 .district-popup p { margin: 6px 0; }
+
+/* De-emphasize only the existing base tiles; ratings, routes, markers and
+   attribution retain their original colors. No second tile source or renderer. */
+.App.radlnavi-basemap--reduced .radlnavi-basemap {
+  filter: grayscale(1) contrast(0.65) brightness(1.35);
+  opacity: 0.65;
+}

@@ -17,7 +17,7 @@ import {
 } from "react-leaflet";
 import { LatLngBounds, LeafletEvent, LeafletMouseEvent, Map as LMap, Icon as LeafletIcon } from "leaflet";
 import { throttle } from "lodash";
-import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Radio, RadioGroup, Checkbox, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
+import { ToggleButtonGroup, ToggleButton, TextField, IconButton, LinearProgress, Button, createTheme, ThemeProvider, Autocomplete, Tooltip, Checkbox, FormControlLabel, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Link, Typography, Drawer, Fab } from "@mui/material";
 import { CenterFocusWeak, Directions, Download, FitScreen, GpsFixed, GpsNotFixed, GpsOff, LegendToggle, LocationSearching, MenuOpen, PlayArrow, SwapVert } from "@mui/icons-material";
 import lineSlice from "@turf/line-slice";
 import { point, lineString } from "@turf/helpers";
@@ -316,6 +316,8 @@ L.DomEvent.fakeStop = function () {
 let posChangeInterval = null;
 
 const munichWaysLayer = L.vectorGrid.protobuf("/layers/munichways/{z}/{x}/{y}.pbf", {
+  // Keep ratings above replacement base tiles, regardless of insertion order.
+  zIndex: 2,
   vectorTileLayerStyles: {
     munichways: (prop) => ({
       color: appRatingColor(prop.color),
@@ -387,7 +389,7 @@ function App() {
   const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
   const [mapBackground, setMapBackground] = useMapBackground();
-  const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
+  const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode | 'none'>('all');
   const [showAbout, setShowAbout] = useState(true);
   const [showDistricts, setShowDistricts] = useState(false);
   const [showImpressum, setShowImpressum] = useState(false);
@@ -1160,7 +1162,7 @@ function App() {
               onClick={() => stopHere(contextMenuPosition)}>
               Zwischenziel setzen
             </Button>
-            <StreetDetailsControl mode={streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
+            <StreetDetailsControl mode={streetNetworkMode === 'none' ? 'all' : streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
           </div>
 
         <MapBackgroundControl value={mapBackground} onChange={setMapBackground} reducedLabel="Dezent" />
@@ -1370,13 +1372,16 @@ function App() {
                   <Typography variant="subtitle2">Beleuchtung</Typography>
                   {illuminatedElement}
                 </section>}
-                <RadioGroup aria-label="Streckennetz" value={streetNetworkMode}
-                    onChange={(_, value) => setStreetNetworkMode(value as StreetNetworkMode)}>
-                    <FormControlLabel value="all" control={<Radio size="small" />} label="Alle Details" />
-                    <FormControlLabel value="priority" control={<Radio size="small" />} label="RadVorrang-Netz" />
-                  </RadioGroup>
+                <ToggleButtonGroup exclusive orientation="vertical" fullWidth aria-label="Bewertungen" value={streetNetworkMode}
+                    onChange={(_, value: StreetNetworkMode | 'none' | null) => {
+                      if (value !== null) setStreetNetworkMode(value);
+                    }}>
+                    <ToggleButton value="all">Alle Bewertungen</ToggleButton>
+                    <ToggleButton value="priority">RadlVorrang-Netz</ToggleButton>
+                    <ToggleButton value="none">Keine Bewertungen</ToggleButton>
+                  </ToggleButtonGroup>
                   <PriorityNetworkLayer map={map} visible={streetNetworkMode === 'priority'} />
-                <FormControlLabel sx={{ m: 0 }} control={<Checkbox size="small" checked={showDistricts}
+                <FormControlLabel sx={{ m: 0, mt: 1, pt: 1, borderTop: '1px solid', borderColor: 'divider' }} control={<Checkbox size="small" checked={showDistricts}
                   onChange={(_, checked) => setShowDistricts(checked)} />} label="Stadtbezirke" />
                 {showDistricts && <Typography variant="caption" color="text.secondary">
                   BA-Nummern ab Zoom 12. Namen beim Darüberfahren, Bezirksinfos per Klick.
@@ -1492,6 +1497,7 @@ function App() {
           <TileLayer
             key={mapBackground === 'bavaria-aerial' ? 'bavaria-aerial' : 'osm'}
             className="radlnavi-basemap"
+            zIndex={1}
             attribution={mapBackground === 'bavaria-aerial'
               ? '&copy; Datenquellen: <a href="https://geodaten.bayern.de/">Bayerische Vermessungsverwaltung</a>, Europäische Union, enthält Copernicus Sentinel-2 Daten 2018, verarbeitet durch das Bundesamt für Kartographie und Geodäsie (BKG)'
               : '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'}

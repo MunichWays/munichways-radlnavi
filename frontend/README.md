@@ -20,8 +20,12 @@ erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
 Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
 und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
-Unter „Mehr“ stehen „Alle Details“ (Standard) und „RadVorrang-Netz“ zur Auswahl.
-Die Auswahl filtert Kartenlinien und Detailsuche gemeinsam. Das RadlVorrang-Netz
+Unter „Mehr“ bilden „Alle Bewertungen“ (Standard), „RadlVorrang-Netz“ und
+„Keine Bewertungen“ eine gemeinsame Einzelauswahl. „Stadtbezirke“ steht darunter
+als unabhängiger Schalter. „Keine Bewertungen“ blendet die Bewertungslinien aus;
+die Detailsuche bleibt für alle Strecken verfügbar. „RadlVorrang-Netz“ filtert
+Kartenlinien und Detailsuche gemeinsam. Der Wechsel der Grundkarte erhält die
+Bewertungsauswahl; Bewertungskacheln liegen immer über der Grundkarte. Das RadlVorrang-Netz
 verwendet dieselbe V20-Regel wie die App: `munichways_mw_rv_route` fehlt nicht
 und ist weder leer noch genau `-`.
 

@@ -34,6 +34,8 @@ import { StreetFeature, StreetNetworkMode, streetOsmText } from './streetDetails
 import PriorityNetworkLayer from './PriorityNetworkLayer';
 import AboutDialog from './AboutDialog';
 import DistrictLayer from './DistrictLayer';
+import MapBackgroundControl from './MapBackgroundControl';
+import { useMapBackground } from './mapBackground';
 import { createTransfer, transferGpx, readTransferGpx, trackGpx, validateTransfer, gpxFilename, MAX_STOPS, MAX_TRANSFER_BYTES } from './routeTransfer';
 
 const RADLNAVI_BLUE = "#00BCF2";
@@ -384,6 +386,7 @@ function App() {
   const [hightlightSurface, setHightlightSurface] = useState<string | null>(null);
   const [highlightComfort, setHighlightComfort] = useState<string | null>(null);
   const [map, setMap] = useState<LMap | null>(null);
+  const [mapBackground, setMapBackground] = useMapBackground();
   const [streetNetworkMode, setStreetNetworkMode] = useState<StreetNetworkMode>('all');
   const [showAbout, setShowAbout] = useState(true);
   const [showDistricts, setShowDistricts] = useState(false);
@@ -1125,7 +1128,7 @@ function App() {
 
   return (
     <ThemeProvider theme={RADLNAVI_THEME}>
-      <div className="App" style={{ display: 'flex' }} onResize={() => {
+      <div className={`App${mapBackground === 'reduced' ? ' radlnavi-basemap--reduced' : ''}`} style={{ display: 'flex' }} onResize={() => {
         if (map != null) {
           map.invalidateSize();
         }
@@ -1160,14 +1163,18 @@ function App() {
             <StreetDetailsControl mode={streetNetworkMode} query={contextMenuPosition} onHighlight={setHighlightedStreet} />
           </div>
 
+        <MapBackgroundControl value={mapBackground} onChange={setMapBackground} reducedLabel="Dezent" />
+
         <Tooltip title="Legende">
           <IconButton
             aria-label="Legende öffnen"
             onClick={() => setShowLegend(true)}
             sx={{
               position: "absolute",
-              top: 82,
+              top: 136,
               right: 10,
+              width: 44,
+              height: 44,
               zIndex: 1000,
               backgroundColor: "white",
               boxShadow: 2,
@@ -1483,6 +1490,7 @@ function App() {
           tapHold={true}
         >
           <TileLayer
+            className="radlnavi-basemap"
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />

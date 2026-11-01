@@ -20,7 +20,10 @@ const mockStreetSearch = jest.fn().mockResolvedValue({ manifest: { retrievedAt: 
 jest.mock('./streetDetailsClient', () => ({ StreetDetailsClient: function () {
   return { search: mockStreetSearch, details: jest.fn(), dispose: jest.fn() };
 } }));
-beforeEach(() => mockStreetSearch.mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] }));
+beforeEach(() => {
+  mockStreetSearch.mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] });
+  window.localStorage.clear();
+});
 jest.mock("leaflet.vectorgrid", () => {
   const L = require("leaflet");
   L.vectorGrid = { protobuf: () => ({ addTo: jest.fn(), removeFrom: jest.fn() }) };
@@ -252,3 +255,37 @@ async function renderApp() {
   await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
   return result;
 }
+
+
+test('background choice preserves the map and camera, persists, and restores Standard', async () => {
+  const originalFetch = global.fetch;
+  global.fetch = jest.fn(async (url: any) => ({ ok: true, status: 200,
+    json: async () => url === '/region.json' ? { features: [{ geometry: { coordinates: [[]] } }] } : {},
+  })) as any;
+  const log = jest.spyOn(console, 'log').mockImplementation(() => {});
+  const warn = jest.spyOn(console, 'warn').mockImplementation(() => {});
+  try {
+    const first = await renderApp();
+    const mapElement = screen.getByTestId('map');
+    const fitCalls = mockMap.fitBounds.mock.calls.length;
+    const bearingCalls = mockMap.setBearing.mock.calls.length;
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Dezent' }));
+    expect(screen.getByTestId('map').closest('.App')).toHaveClass('radlnavi-basemap--reduced');
+    expect(screen.getByTestId('map')).toBe(mapElement);
+    expect(mockMap.fitBounds).toHaveBeenCalledTimes(fitCalls);
+    expect(mockMap.setBearing).toHaveBeenCalledTimes(bearingCalls);
+    await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
+    first.unmount();
+    const second = await renderApp();
+    expect(screen.getByTestId('map').closest('.App')).toHaveClass('radlnavi-basemap--reduced');
+    fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
+    fireEvent.click(screen.getByRole('menuitemradio', { name: 'Standard' }));
+    expect(screen.getByTestId('map').closest('.App')).not.toHaveClass('radlnavi-basemap--reduced');
+    second.unmount();
+  } finally {
+    global.fetch = originalFetch;
+    log.mockRestore();
+    warn.mockRestore();
+  }
+});

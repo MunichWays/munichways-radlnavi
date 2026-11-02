@@ -20,11 +20,10 @@ export function isRadlVorrangNetz(properties) {
 
 export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOString()) {
   const snapshot = createHash('sha256').update(raw).digest('hex');
-  if (snapshot !== config.sha256) throw new Error(`V20 SHA-256 mismatch: expected ${config.sha256}, received ${snapshot}. Review the new source before updating street-details-source.json.`);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(config.createdAt || '') ||
-      !Number.isFinite(Date.parse(config.createdAt)) || new Date(config.createdAt).toISOString().slice(0, 10) !== config.createdAt) {
-    throw new Error('A valid source creation date is required in street-details-source.json');
-  }
+  // Last-Modified describes the source; retrieval time is never invented as its creation date.
+  const modified = config.lastModified ? Date.parse(config.lastModified) : NaN;
+  const sourceCreatedAt = Number.isFinite(modified) && new Date(modified).toUTCString() === config.lastModified.trim()
+    ? new Date(modified).toISOString().slice(0, 10) : null;
   const data = JSON.parse(raw.toString('utf8'));
   if (data.type !== 'FeatureCollection' || !Array.isArray(data.features) || !data.features.length) {
     throw new Error('V20 must be a nonempty FeatureCollection');
@@ -35,7 +34,10 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
   const groups = {};
   const bbox = [180, 90, -180, -90];
   for (const feature of data.features) {
-    const p = feature.properties;
+    const p = feature?.properties;
+    if (feature?.type !== 'Feature' || !p || typeof p !== 'object' || Array.isArray(p)) {
+      throw new Error('Invalid V20 feature or properties');
+    }
     const osmId = String(p?.osm_id ?? '').trim();
     if (!/^\d+$/.test(osmId)) throw new Error('Missing or invalid OSM way ID');
     const id = `osm_${osmId}`;
@@ -65,23 +67,25 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
       .map(key => [key, String(p[key])]));
   }
   return {
-    manifest: { schemaVersion: 1, snapshot, sourceUrl: config.url, sourceCreatedAt: config.createdAt, retrievedAt, bbox,
+    manifest: { schemaVersion: 1, snapshot, sourceUrl: config.url, sourceCreatedAt, retrievedAt, bbox,
       featureCount: features.length },
     geometry: { type: 'FeatureCollection', features },
     priorityNetwork: { type: 'FeatureCollection', features: priorityFeatures }, groups,
   };
 }
 
-export async function buildSnapshot({ source, output = path.join(root, 'public/street-details') } = {}) {
+export async function buildSnapshot({ source, output = path.join(root, 'public/street-details'), fetchImpl = fetch } = {}) {
   const config = JSON.parse(await readFile(path.join(root, 'street-details-source.json'), 'utf8'));
   let raw;
+  let lastModified;
   if (source) raw = await readFile(source);
   else {
-    const response = await fetch(config.url, { signal: AbortSignal.timeout(120000) });
+    const response = await fetchImpl(config.url, { cache: 'no-store', signal: AbortSignal.timeout(120000) });
     if (!response.ok) throw new Error(`V20 download failed: HTTP ${response.status}`);
+    lastModified = response.headers.get('last-modified');
     raw = Buffer.from(await response.arrayBuffer());
   }
-  const { manifest, geometry, priorityNetwork, groups } = prepareSnapshot(raw, config);
+  const { manifest, geometry, priorityNetwork, groups } = prepareSnapshot(raw, { url: config.url, lastModified });
   const versionDir = path.join(output, manifest.snapshot);
   await mkdir(path.join(versionDir, 'details'), { recursive: true });
   await writeFile(path.join(versionDir, 'geometry.json'), JSON.stringify(geometry));

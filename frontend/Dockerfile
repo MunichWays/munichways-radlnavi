@@ -27,7 +27,8 @@ RUN ./tippecanoe/tippecanoe --maximum-zoom=19 --no-tile-compression -e ./public/
 FROM node:18.16-buster AS street-details-builder
 WORKDIR /data
 COPY build_street_details.mjs street-details-source.json ./
-RUN node build_street_details.mjs
+ARG STREET_DETAILS_BUILD_ID=local
+RUN echo "V20 refresh: $STREET_DETAILS_BUILD_ID" && node build_street_details.mjs
 
 FROM map-builder AS app-builder
 

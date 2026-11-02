@@ -322,8 +322,9 @@ test('background choice preserves the map and camera, persists, and restores Sta
     expect(districts).toBeChecked();
     fireEvent.click(districts);
     expect(ratings).toHaveValue('priority');
-    fireEvent.change(ratings, { target: { value: 'munichways-only' } });
-    expect(screen.getByTestId('v20-ratings')).toHaveAttribute('data-source', 'munichways-only');
+    expect(Array.from((ratings as HTMLSelectElement).options).map(option => option.text)).toEqual([
+      'Alle Bewertungen', 'RadlVorrang-Netz', 'Keine Bewertungen',
+    ]);
     fireEvent.change(ratings, { target: { value: 'all' } });
     expect(ratings).toHaveValue('all');
     expect(mockRatingsLayer.addTo).toHaveBeenLastCalledWith(mockMap);

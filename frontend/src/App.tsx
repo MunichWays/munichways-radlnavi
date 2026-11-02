@@ -1378,7 +1378,6 @@ function App() {
                     onChange={event => setStreetNetworkMode(event.target.value as StreetNetworkMode | 'none')}>
                     <option value="all">Alle Bewertungen</option>
                     <option value="priority">RadlVorrang-Netz</option>
-                    <option value="munichways-only">Nur MunichWays ID, ohne OSM</option>
                     <option value="none">Keine Bewertungen</option>
                   </TextField>
                   <PriorityNetworkLayer map={map} visible={streetNetworkMode !== 'none'}

@@ -9,6 +9,16 @@ import { prepareSnapshot, buildSnapshot } from '../build_street_details.mjs';
 const feature = (id = '123', properties = {}) => ({ type: 'Feature', properties: { osm_id: id,
   osm_name: 'Testweg', munichways_id: 'shared', munichways_current: 'Text', ...properties },
 geometry: { type: 'LineString', coordinates: [[11.5, 48.1], [11.6, 48.2]] } });
+
+test('keeps Jahnstraße in Olching red without class:bicycle or MunichWays details', async () => {
+  const jahnstrasse = JSON.parse(await readFile(new URL('../src/fixtures/street-olching-jahnstrasse.json', import.meta.url)));
+  const result = prepare([jahnstrasse]);
+  assert.equal(result.geometry.features[0].id, 'osm_8059921');
+  assert.equal(result.geometry.features[0].properties.color, 'red');
+  assert.equal(result.geometry.features[0].properties.osm_class_bicycle, undefined);
+  assert.equal(result.groups['21'].osm_8059921.munichways_id, '');
+  assert.equal(result.priorityNetwork.features.length, 0);
+});
 function prepare(features, modifyConfig = {}) {
   const raw = Buffer.from(JSON.stringify({ type: 'FeatureCollection', features }));
   return prepareSnapshot(raw, { url: 'https://example.org/v20', lastModified: 'Mon, 26 Oct 2026 18:55:33 GMT', ...modifyConfig }, '2026-10-31T10:00:00Z');

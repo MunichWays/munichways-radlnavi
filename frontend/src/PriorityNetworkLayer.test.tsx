@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PriorityNetworkLayer from './PriorityNetworkLayer';
+import jahnstrasse from './fixtures/street-olching-jahnstrasse.json';
 const mockAdd = jest.fn();
 const mockGeoJSON = jest.fn();
 jest.mock('leaflet', () => ({ geoJSON: (...args: unknown[]) => mockGeoJSON(...args), canvas: () => ({}) }));
@@ -55,3 +56,14 @@ test.each([['all', 'geometry.json'], ['munichways-only', 'munichways-only-v1.jso
       expect(await screen.findByRole('status')).toHaveTextContent('Keine Strecken ohne OSM-ID');
     }
   });
+
+test('all ratings draws the V20 Jahnstraße as red without OSM bicycle tags or MunichWays details', async () => {
+  const feature = { ...jahnstrasse, id: 'osm_8059921' };
+  const collection = { type: 'FeatureCollection', features: [feature] };
+  mockGeoJSON.mockReturnValue({ addTo: mockAdd });
+  global.fetch = jest.fn().mockResolvedValueOnce({ ok: true, json: async () => ({ snapshot: 'a'.repeat(64) }) })
+    .mockResolvedValueOnce({ ok: true, json: async () => collection });
+  render(<PriorityNetworkLayer map={{ removeLayer: jest.fn() }} visible source="all" />);
+  await waitFor(() => expect(mockGeoJSON).toHaveBeenCalledWith(collection, expect.anything()));
+  expect(mockGeoJSON.mock.calls[0][1].style(feature)).toEqual({ color: '#F44336', weight: 1.5, dashArray: '6 5' });
+});

@@ -20,8 +20,8 @@ erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
 Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
 und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
-Unter „Mehr“ bilden „Alle Bewertungen“ (Standard), „RadlVorrang-Netz“,
-„Nur MunichWays ID, ohne OSM“ und „Keine Bewertungen“ ein kompaktes Dropdown.
+Unter „Mehr“ bilden „Alle Bewertungen“ (Standard), „RadlVorrang-Netz“
+und „Keine Bewertungen“ ein kompaktes Dropdown.
 „Stadtbezirke“ steht darunter
 als unabhängiger Schalter. „Keine Bewertungen“ blendet die Bewertungslinien aus;
 die Detailsuche bleibt für alle Strecken verfügbar. „RadlVorrang-Netz“ filtert
@@ -34,9 +34,11 @@ und ist weder leer noch genau `-`.
 exportierte Bewertungen. Strecken ohne OSM-ID werden anhand ihrer MunichWays-ID
 und Geometrie stabil unterschieden; mehrere Abschnitte derselben MunichWays-ID
 bleiben erhalten. Sie erscheinen auch im RadlVorrang-Netz und in der Detailsuche.
-„Nur MunichWays ID, ohne OSM“ zeigt ausschließlich diese Strecken, nicht alle
-Strecken mit einer MunichWays-Bewertung. Enthält die Quelldatei keine solchen
-Strecken, bleibt diese Auswahl leer. Die Importversion fließt in den Snapshot-Hash
+Eine OSM-ID setzt kein `class:bicycle` voraus: Jahnstraße in Olching
+(`8059921`) wird anhand von V20 `color: "red"` rot gezeichnet, auch ohne
+OSM-Fahrradbewertung oder MunichWays-Details. Fehlende Details werden nicht aus
+der Masterliste ergänzt. Eine eigene Auswahl für vermeintlich fehlende OSM-IDs
+ist dafür nicht erforderlich. Die Importversion fließt in den Snapshot-Hash
 ein, damit alte Browser-Caches keine neu unterstützten Strecken ausblenden.
 
 OSM-Sachwerte werden auf Deutsch angezeigt (Straßenart, Oberfläche, Ebenheit,

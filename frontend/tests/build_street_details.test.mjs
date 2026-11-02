@@ -1,14 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { prepareSnapshot } from '../build_street_details.mjs';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { prepareSnapshot, buildSnapshot } from '../build_street_details.mjs';
 
 const feature = (id = '123', properties = {}) => ({ type: 'Feature', properties: { osm_id: id,
   osm_name: 'Testweg', munichways_id: 'shared', munichways_current: 'Text', ...properties },
 geometry: { type: 'LineString', coordinates: [[11.5, 48.1], [11.6, 48.2]] } });
 function prepare(features, modifyConfig = {}) {
   const raw = Buffer.from(JSON.stringify({ type: 'FeatureCollection', features }));
-  return prepareSnapshot(raw, { url: 'https://example.org/v20', createdAt: '2026-10-26', sha256: createHash('sha256').update(raw).digest('hex'), ...modifyConfig }, '2026-10-31T10:00:00Z');
+  return prepareSnapshot(raw, { url: 'https://example.org/v20', lastModified: 'Mon, 26 Oct 2026 18:55:33 GMT', ...modifyConfig }, '2026-10-31T10:00:00Z');
 }
 
 test('keeps distinct OSM ways sharing a MunichWays ID and partitions details without copying text into geometry', () => {
@@ -26,9 +29,9 @@ test('keeps zero and drops unrecognized structured properties', () => {
   assert.equal(result.groups['01'].osm_1.osm_class_bicycle, '0');
   assert.equal(result.groups['01'].osm_1.ignored, undefined);
 });
-test('rejects changed snapshot, missing/duplicate IDs and unsupported/invalid coordinates', () => {
-  assert.throws(() => prepare([feature()], { sha256: '0'.repeat(64) }), /SHA-256 mismatch/);
-  assert.throws(() => prepare([feature()], { createdAt: '2026-02-31' }), /creation date/);
+test('rejects missing/duplicate IDs and unsupported/invalid coordinates', () => {
+  assert.throws(() => prepare([null]), /feature/);
+  assert.throws(() => prepare([{ ...feature(), properties: [] }]), /properties/);
   assert.throws(() => prepare([feature('')]), /ID/);
   assert.throws(() => prepare([feature(), feature()]), /Duplicate/);
   assert.throws(() => prepare([{ ...feature(), geometry: { type: 'MultiLineString', coordinates: [] } }]), /geometry/);
@@ -41,4 +44,48 @@ test('priority membership matches the App sentinel rule, including compound valu
   assert.deepEqual(result.priorityNetwork.features.map(f => f.id), ['osm_5', 'osm_6', 'osm_7', 'osm_8']);
   assert.equal(result.geometry.features.length, 8);
   assert.equal(result.geometry.features[4].properties.munichways_mw_rv_route, undefined);
+});
+
+
+test('weekly content changes get fresh content hashes without a pinned approval', () => {
+  const first = prepare([feature('1')]);
+  const next = prepare([feature('2')], { lastModified: 'Sun, 01 Nov 2026 22:42:14 GMT' });
+  assert.notEqual(first.manifest.snapshot, next.manifest.snapshot);
+  assert.equal(next.manifest.sourceCreatedAt, '2026-11-01');
+  assert.equal(prepare([feature('2')]).manifest.snapshot, next.manifest.snapshot);
+  for (const lastModified of [undefined, '', 'invalid', 'Tue, 31 Feb 2026 00:00:00 GMT']) {
+    assert.equal(prepare([feature('2')], {lastModified}).manifest.sourceCreatedAt, null);
+  }
+});
+
+test('valid weekly downloads publish matching artifacts; failure preserves the old manifest and retry recovers', async t => {
+  const output = await mkdtemp(path.join(tmpdir(), 'v20-build-test-'));
+  t.after(() => rm(output, { recursive: true, force: true }));
+  const publish = (features, status = 200) => buildSnapshot({ output, fetchImpl: async (url, options) => {
+    assert.match(url, /Oberbayern_V20/);
+    assert.equal(options.cache, 'no-store');
+    return new Response(JSON.stringify({type:'FeatureCollection',features}), {
+      status, headers: {'Last-Modified':'Sun, 01 Nov 2026 22:42:14 GMT'},
+    });
+  }});
+  await publish([feature('1')]);
+  const readManifest = () => readFile(path.join(output, 'manifest.json'), 'utf8');
+  const original = await readManifest();
+  await assert.rejects(publish([feature('1'),feature('1')]), /Duplicate/);
+  assert.equal(await readManifest(), original);
+  await assert.rejects(publish([], 503), /HTTP 503/);
+  assert.equal(await readManifest(), original);
+  await assert.rejects(buildSnapshot({output, fetchImpl: async () => { throw new Error('offline'); }}), /offline/);
+  assert.equal(await readManifest(), original);
+  await publish([feature('2')]);
+  const manifest = JSON.parse(await readManifest());
+  assert.notEqual(manifest.snapshot, JSON.parse(original).snapshot);
+  const version = path.join(output, manifest.snapshot);
+  const geometry = JSON.parse(await readFile(path.join(version, 'geometry.json')));
+  const details = JSON.parse(await readFile(path.join(version, 'details/02.json')));
+  assert.equal(geometry.features[0].id, 'osm_2');
+  assert.equal(details.osm_2.osm_name, 'Testweg');
+  assert.equal(manifest.sourceCreatedAt, '2026-11-01');
+  const raw = Buffer.from(JSON.stringify({type:'FeatureCollection',features:[feature('2')]}));
+  assert.equal(manifest.snapshot, createHash('sha256').update(raw).digest('hex'));
 });

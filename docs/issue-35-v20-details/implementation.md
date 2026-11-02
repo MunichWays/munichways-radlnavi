@@ -26,9 +26,15 @@ Route, Start/Ziel und Zwischenziele bleiben von der Detailsuche unabhängig.
 
 ## Datenvertrag und Build
 
-`frontend/street-details-source.json` legt URL, Erstellungsdatum und SHA-256 des geprüften
-Snapshots fest. `build_street_details.mjs` lädt genau diesen Stand und stoppt
-bei geänderter Prüfsumme, fehlenden/doppelten OSM-IDs oder ungültigen Geometrien.
+`frontend/street-details-source.json` legt nur die Quell-URL fest.
+`build_street_details.mjs` lädt bei jedem Cloud-Build den aktuellen Export,
+prüft eindeutige OSM-IDs, FeatureCollection, LineString-Geometrien und WGS84-
+Koordinaten und berechnet danach die SHA-256-Snapshot-Kennung aus den Rohdaten.
+Ein reguläres wöchentliches Update benötigt keine manuelle Hash-Freigabe.
+Die Cloud-Build-Konfigurationen übergeben `STREET_DETAILS_BUILD_ID=$BUILD_ID`,
+damit Docker den Download nicht aus einem vorherigen Build wiederverwendet.
+Lokale Docker-Builds verwenden dafür ebenfalls einen neuen Build-Schlüssel oder
+`--no-cache-filter street-details-builder`.
 Aktuell wird ausschließlich LineString unterstützt; MultiLineString wird
 ausdrücklich abgelehnt. RadlNavi verwendet jetzt
 `IST_RadlVorrangNetz_Oberbayern_V20.geojson` einschließlich zusätzlicher Strecken
@@ -49,8 +55,8 @@ JSON. Die Geometriedatei ist wegen der zusätzlich aufgenommenen Namen und
 Bewertungen größer als die reine Geometrieschätzung der ursprünglichen Analyse.
 Mit Python gzip komprimiert umfasst die Suchdatei 2.115.474 Bytes (rund 2,1 MB).
 
-Die Umstellung erweitert den bisherigen Bestand um 8.190 Strecken. Alle 27.314
-Geometrien sind LineStrings mit eindeutiger OSM-ID. Geprüfter Quellhash:
+Bei der ursprünglichen Umstellung kamen 8.190 Strecken hinzu. Die damals geprüften
+27.314 Geometrien waren LineStrings mit eindeutiger OSM-ID. Historischer Quellhash:
 `2710ba91fb183f44498bf9079b842154f20ddb897aa14bc72da942d03c6015f3`.
 Die ursprüngliche Analyse und ihr Snapshot-Report dokumentieren weiterhin die
 damals geprüfte Münchner Quelle. Der aktuelle Bestand reicht ungefähr von
@@ -58,8 +64,8 @@ damals geprüfte Münchner Quelle. Der aktuelle Bestand reicht ungefähr von
 vollständige Abdeckung jedes Weges in Oberbayern.
 
 Der Docker-Build erstellt den Datenbestand in einer eigenen Stage und kopiert
-ihn separat in das nginx-Image. Die Hash-Konfiguration invalidiert beim
-Datenupdate den betreffenden Buildcache. nginx liefert fehlende Daten als 404,
+ihn separat in das nginx-Image. Der pro Cloud-Build eindeutige
+`STREET_DETAILS_BUILD_ID` invalidiert den Download-Schritt im Buildcache. nginx liefert fehlende Daten als 404,
 revalidiert das Manifest und kann Snapshotdateien dauerhaft cachen. Der Client
 bleibt für alle Abfragen beim einmal gewählten Snapshot. Ist dieser nach einem
 Deployment nicht mehr vorhanden, nennt die Fehlermeldung das Neuladen der Seite.
@@ -100,13 +106,14 @@ Attribute erscheinen kompakt als „Bezeichnung: Wert“, mit Umbruch langer Tex
 Bekannte Ebenheitswerte sind übersetzt, beispielsweise `good` → „gut“.
 Für Stellen ohne Treffer wird kein zusätzlicher Hinweis angezeigt.
 
-Die Fußzeile lautet für den festgelegten Snapshot:
-„Datenstand 26.10.2026, Quelle IST_RadlVorrangNetz_Oberbayern_V20.geojson.“
-Das Datum stammt aus der zusammen mit dem Quellhash gepflegten `createdAt`-
-Angabe, nicht aus dem Build-/Downloadzeitpunkt. Die GeoJSON enthält selbst kein
-Datumsfeld. Der vom Datenverantwortlichen genannte 26. Oktober stimmt mit dem
-am 31. Oktober geprüften HTTP-Header `Last-Modified: Mon, 26 Oct 2026 18:55:33 GMT`
-überein. Bei einem neuen Quelldatenstand müssen Hash und Quelldatum aktualisiert werden.
+Die Fußzeile nennt das aus dem HTTP-Header `Last-Modified` ermittelte Quelldatum.
+Fehlt dieser Header oder ist er nicht lesbar, ist `sourceCreatedAt` im Manifest
+`null` und die Anzeige lautet „Datenstand unbekannt“. `retrievedAt` dokumentiert
+unabhängig davon den Abrufzeitpunkt und wird nicht als Quelldatum ausgegeben.
+Auch lokale Eingabedateien ohne Quellmetadaten verwenden kein erfundenes Datum.
+Geometrien und Detailgruppen liegen unter derselben inhaltsabhängigen Kennung;
+das Manifest wird erst nach vollständiger Verarbeitung atomar veröffentlicht.
+Bei Download- oder Validierungsfehlern bleibt ein vorhandenes Manifest erhalten.
 
 Eine ermittelbare Mapillary-Bild-ID aus einem Mapillary-Link führt ganz oben
 zur offiziellen Bild-Einbettung im Foto-Modus. Die URL wird aus validierten
@@ -142,7 +149,7 @@ Die folgenden Angaben beziehen sich auf die ursprüngliche Umsetzung:
 
 Geprüft am 31. Oktober 2026 mit Node 20.11.0:
 
-- Datenaufbereitung gegen den per SHA-256 festgelegten Originalsnapshot:
+- Datenaufbereitung mit Validierung und inhaltsabhängiger SHA-256-Kennung:
   19.124 gültige Strecken, 100 Detailgruppen; keine doppelten OSM-IDs.
 - `npm run test:street-details-build`: drei Tests erfolgreich, einschließlich
   Hashwechsel, fehlender/doppelter IDs und ungültiger Geometrien.

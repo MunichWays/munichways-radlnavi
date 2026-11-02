@@ -6,7 +6,7 @@ export type StreetFeature = {
   geometry: { type: 'LineString'; coordinates: StreetCoordinate[] };
 };
 export type StreetManifest = {
-  schemaVersion: 1; snapshot: string; sourceUrl: string; sourceCreatedAt: string; retrievedAt: string;
+  schemaVersion: 1; snapshot: string; sourceUrl: string; sourceCreatedAt: string | null; retrievedAt: string;
   bbox: [number, number, number, number]; featureCount: number;
 };
 export type StreetCandidate = StreetFeature & { distance: number };
@@ -157,9 +157,10 @@ export function mapillaryPreview(p: StreetProperties): { id: string; url: string
 }
 
 export function streetSourceLabel(manifest: StreetManifest): string {
-  const [year, month, day] = manifest.sourceCreatedAt.split('-');
+  const date = manifest.sourceCreatedAt;
+  const dateLabel = date ? date.split('-').reverse().join('.') : 'unbekannt';
   const filename = new URL(manifest.sourceUrl).pathname.split('/').pop();
-  return `Datenstand ${day}.${month}.${year}, Quelle ${filename}.`;
+  return `Datenstand ${dateLabel}, Quelle ${filename}.`;
 }
 
 export function streetSearchRadius(lat: number, zoom: number): number {

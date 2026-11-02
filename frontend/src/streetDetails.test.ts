@@ -14,8 +14,18 @@ test.each([['3', 'Hervorragend'], ['2', 'Gemütlich'], ['1', 'Durchschnittlich']
   expect(streetRating({ osm_class_bicycle: value, color: 'red' }).label).toBe(label);
 });
 test('unknown/missing classes use known exported colors or an explicit unrated label', () => {
+  expect(streetRating({ munichways_color: 'gelb' }).color).toBe('#FFD000');
   expect(streetRating({ color: 'green' }).label).toBe('Grün');
   expect(streetRating({ osm_class_bicycle: 'invalid', color: 'unknown' }).label).toBe('Nicht bewertet');
+});
+
+test('MunichWays-only geometry is searchable and uses its own detail partition', () => {
+  const id = `mw_${'a'.repeat(64)}`;
+  const feature = { type: 'Feature', id, properties: { munichways_name: 'MW-Weg', color: 'yellow' },
+    geometry: { type: 'LineString', coordinates: [[11.5, 48.1], [11.6, 48.1]] } };
+  const index = new StreetSearchIndex({ type: 'FeatureCollection', features: [feature] }, 1);
+  expect(index.search(48.1, 11.55, 20)[0].id).toBe(id);
+  expect(streetDetailGroup(id)).toBe('mw-aa');
 });
 test('extracts text and deduplicated safe links from HTML without accepting executable or relative URLs', () => {
   const links = streetLinks('<p><a href="https://example.org/a" onclick="bad()"><b>Mehr</b></a></p>' +

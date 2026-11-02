@@ -9,6 +9,16 @@ import { prepareSnapshot, buildSnapshot } from '../build_street_details.mjs';
 const feature = (id = '123', properties = {}) => ({ type: 'Feature', properties: { osm_id: id,
   osm_name: 'Testweg', munichways_id: 'shared', munichways_current: 'Text', ...properties },
 geometry: { type: 'LineString', coordinates: [[11.5, 48.1], [11.6, 48.2]] } });
+
+test('keeps Jahnstraße in Olching red without class:bicycle or MunichWays details', async () => {
+  const jahnstrasse = JSON.parse(await readFile(new URL('../src/fixtures/street-olching-jahnstrasse.json', import.meta.url)));
+  const result = prepare([jahnstrasse]);
+  assert.equal(result.geometry.features[0].id, 'osm_8059921');
+  assert.equal(result.geometry.features[0].properties.color, 'red');
+  assert.equal(result.geometry.features[0].properties.osm_class_bicycle, undefined);
+  assert.equal(result.groups['21'].osm_8059921.munichways_id, '');
+  assert.equal(result.priorityNetwork.features.length, 0);
+});
 function prepare(features, modifyConfig = {}) {
   const raw = Buffer.from(JSON.stringify({ type: 'FeatureCollection', features }));
   return prepareSnapshot(raw, { url: 'https://example.org/v20', lastModified: 'Mon, 26 Oct 2026 18:55:33 GMT', ...modifyConfig }, '2026-10-31T10:00:00Z');
@@ -29,10 +39,26 @@ test('keeps zero and drops unrecognized structured properties', () => {
   assert.equal(result.groups['01'].osm_1.osm_class_bicycle, '0');
   assert.equal(result.groups['01'].osm_1.ignored, undefined);
 });
+
+test('keeps MunichWays-only lines, including separate geometries with the same master ID', () => {
+  const first = feature('', { munichways_id: 'LHM_42', osm_class_bicycle: '-', munichways_color: 'gelb', munichways_mw_rv_route: 'Standard' });
+  const second = { ...first, geometry: { type: 'LineString', coordinates: [[11.6, 48.2], [11.7, 48.3]] } };
+  const result = prepare([feature('123'), first, second]);
+  assert.equal(result.geometry.features.length, 3);
+  assert.equal(result.munichWaysOnly.features.length, 2);
+  const [a, b] = result.munichWaysOnly.features;
+  assert.match(a.id, /^mw_[a-f0-9]{64}$/);
+  assert.notEqual(a.id, b.id);
+  assert.equal(prepare([first]).geometry.features[0].id, a.id);
+  assert.equal(result.groups[`mw-${a.id.slice(-2)}`][a.id].munichways_id, 'LHM_42');
+  assert.equal(a.properties.munichways_color, 'gelb');
+  assert.deepEqual(result.priorityNetwork.features.map(f => f.id), [a.id, b.id]);
+  assert.throws(() => prepare([first, first]), /Duplicate/);
+});
 test('rejects missing/duplicate IDs and unsupported/invalid coordinates', () => {
   assert.throws(() => prepare([null]), /feature/);
   assert.throws(() => prepare([{ ...feature(), properties: [] }]), /properties/);
-  assert.throws(() => prepare([feature('')]), /ID/);
+  assert.throws(() => prepare([feature('', { munichways_id: '-' })]), /ID/);
   assert.throws(() => prepare([feature(), feature()]), /Duplicate/);
   assert.throws(() => prepare([{ ...feature(), geometry: { type: 'MultiLineString', coordinates: [] } }]), /geometry/);
   assert.throws(() => prepare([{ ...feature(), geometry: { type: 'LineString', coordinates: [[200, 48], [11, 48]] } }]), /coordinate/);
@@ -87,5 +113,13 @@ test('valid weekly downloads publish matching artifacts; failure preserves the o
   assert.equal(details.osm_2.osm_name, 'Testweg');
   assert.equal(manifest.sourceCreatedAt, '2026-11-01');
   const raw = Buffer.from(JSON.stringify({type:'FeatureCollection',features:[feature('2')]}));
-  assert.equal(manifest.snapshot, createHash('sha256').update(raw).digest('hex'));
+  assert.equal(manifest.snapshot, createHash('sha256').update('street-details-v2\0').update(raw).digest('hex'));
+  await publish([feature('3'), feature('', { munichways_id: 'MW_ONLY', color: 'yellow' })]);
+  const withMw = JSON.parse(await readManifest());
+  const mwVersion = path.join(output, withMw.snapshot);
+  const onlyMw = JSON.parse(await readFile(path.join(mwVersion, 'munichways-only-v1.json')));
+  assert.equal(onlyMw.features.length, 1);
+  const mwId = onlyMw.features[0].id;
+  const mwDetails = JSON.parse(await readFile(path.join(mwVersion, 'details', `mw-${mwId.slice(-2)}.json`)));
+  assert.equal(mwDetails[mwId].munichways_id, 'MW_ONLY');
 });

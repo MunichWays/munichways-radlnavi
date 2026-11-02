@@ -20,6 +20,8 @@ const mockMap = {
   invalidateSize: jest.fn(), setBearing: jest.fn(), fitBounds: jest.fn(),
 };
 const mockStreetSearch = jest.fn().mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] });
+jest.mock('./PriorityNetworkLayer', () => ({ __esModule: true, default: ({ visible, source }: any) =>
+  visible ? <div data-testid="v20-ratings" data-source={source} /> : null }));
 jest.mock('./streetDetailsClient', () => ({ StreetDetailsClient: function () {
   return { search: mockStreetSearch, details: jest.fn(), dispose: jest.fn() };
 } }));
@@ -301,33 +303,30 @@ test('background choice preserves the map and camera, persists, and restores Sta
     expect(screen.getByTestId('map').closest('.App')).not.toHaveClass('radlnavi-basemap--reduced');
     expect(screen.getByTestId('base-tiles').getAttribute('data-url')).toContain('tile.openstreetmap.org');
     fireEvent.click(screen.getByText('Mehr'));
-    const allRatings = screen.getByRole('button', { name: 'Alle Bewertungen' });
-    const priorityRatings = screen.getByRole('button', { name: 'RadlVorrang-Netz' });
-    const noRatings = screen.getByRole('button', { name: 'Keine Bewertungen' });
+    const ratings = screen.getByRole('combobox', { name: 'Bewertungen' });
     const districts = screen.getByRole('checkbox', { name: 'Stadtbezirke' });
-    expect(allRatings).toHaveAttribute('aria-pressed', 'true');
+    expect(ratings).toHaveValue('all');
+    expect(screen.getByTestId('v20-ratings')).toHaveAttribute('data-source', 'all');
     fireEvent.click(districts);
-    fireEvent.click(noRatings);
-    expect(noRatings).toHaveAttribute('aria-pressed', 'true');
-    expect(allRatings).toHaveAttribute('aria-pressed', 'false');
-    expect(priorityRatings).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.change(ratings, { target: { value: 'none' } });
+    expect(ratings).toHaveValue('none');
+    expect(screen.queryByTestId('v20-ratings')).not.toBeInTheDocument();
     expect(districts).toBeChecked();
-    fireEvent.click(noRatings);
-    expect(noRatings).toHaveAttribute('aria-pressed', 'true');
     fireEvent.click(screen.getByRole('button', { name: 'Kartenansicht auswählen' }));
     fireEvent.click(screen.getByRole('menuitemradio', { name: 'Luftbild Bayern' }));
-    expect(noRatings).toHaveAttribute('aria-pressed', 'true');
+    expect(ratings).toHaveValue('none');
     expect(districts).toBeChecked();
     await waitFor(() => expect(screen.queryByRole('menu')).not.toBeInTheDocument());
-    fireEvent.click(priorityRatings);
-    expect(priorityRatings).toHaveAttribute('aria-pressed', 'true');
-    expect(noRatings).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.change(ratings, { target: { value: 'priority' } });
+    expect(screen.getByTestId('v20-ratings')).toHaveAttribute('data-source', 'priority');
     expect(districts).toBeChecked();
     fireEvent.click(districts);
-    expect(priorityRatings).toHaveAttribute('aria-pressed', 'true');
-    fireEvent.click(allRatings);
-    expect(allRatings).toHaveAttribute('aria-pressed', 'true');
-    expect(priorityRatings).toHaveAttribute('aria-pressed', 'false');
+    expect(ratings).toHaveValue('priority');
+    expect(Array.from((ratings as HTMLSelectElement).options).map(option => option.text)).toEqual([
+      'Alle Bewertungen', 'RadlVorrang-Netz', 'Keine Bewertungen',
+    ]);
+    fireEvent.change(ratings, { target: { value: 'all' } });
+    expect(ratings).toHaveValue('all');
     expect(mockRatingsLayer.addTo).toHaveBeenLastCalledWith(mockMap);
     second.unmount();
   } finally {

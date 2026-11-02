@@ -6,7 +6,7 @@ import path from 'node:path';
 const root = path.dirname(fileURLToPath(import.meta.url));
 const fields = ['osm_id', 'osm_name', 'osm_class_bicycle', 'osm_smoothness', 'osm_surface',
   'osm_highway', 'osm_lit', 'osm_bicycle', 'osm_width', 'osm_access', 'color',
-  'munichways_id', 'munichways_name', 'munichways_current', 'munichways_target',
+  'munichways_id', 'munichways_name', 'munichways_color', 'munichways_current', 'munichways_target',
   'munichways_description', 'munichways_status_implementation', 'munichways_neuralgic_point',
   'munichways_net_type_plan', 'munichways_net_type_target', 'munichways_mw_rv_route',
   'munichways_route_link', 'munichways_measure_category_link', 'munichways_district_link',
@@ -19,7 +19,8 @@ export function isRadlVorrangNetz(properties) {
 }
 
 export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOString()) {
-  const snapshot = createHash('sha256').update(raw).digest('hex');
+  // Include the processor version so old immutable artifacts cannot hide added features.
+  const snapshot = createHash('sha256').update('street-details-v2\0').update(raw).digest('hex');
   // Last-Modified describes the source; retrieval time is never invented as its creation date.
   const modified = config.lastModified ? Date.parse(config.lastModified) : NaN;
   const sourceCreatedAt = Number.isFinite(modified) && new Date(modified).toUTCString() === config.lastModified.trim()
@@ -31,6 +32,7 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
   const ids = new Set();
   const features = [];
   const priorityFeatures = [];
+  const munichWaysOnlyFeatures = [];
   const groups = {};
   const bbox = [180, 90, -180, -90];
   for (const feature of data.features) {
@@ -39,9 +41,11 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
       throw new Error('Invalid V20 feature or properties');
     }
     const osmId = String(p?.osm_id ?? '').trim();
-    if (!/^\d+$/.test(osmId)) throw new Error('Missing or invalid OSM way ID');
-    const id = `osm_${osmId}`;
-    if (ids.has(id)) throw new Error(`Duplicate OSM way ID: ${osmId}`);
+    const hasOsmId = /^\d+$/.test(osmId);
+    const mwId = String(p.munichways_id ?? '').trim();
+    if (!hasOsmId && (!['', '-'].includes(osmId) || !mwId || mwId === '-')) throw new Error('Missing or invalid street ID');
+    const id = hasOsmId ? `osm_${osmId}` : `mw_${createHash('sha256').update(JSON.stringify([mwId, feature.geometry])).digest('hex')}`;
+    if (ids.has(id)) throw new Error(`Duplicate street ID: ${id}`);
     ids.add(id);
     const geometry = feature.geometry;
     if (geometry?.type !== 'LineString' || !Array.isArray(geometry.coordinates) || geometry.coordinates.length < 2) {
@@ -56,12 +60,13 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
     });
     // Only short display fields travel with the search geometry, never the full detail texts.
     const summary = {};
-    for (const key of ['osm_name', 'munichways_name', 'osm_class_bicycle', 'color']) {
+    for (const key of ['osm_name', 'munichways_name', 'osm_class_bicycle', 'color', 'munichways_color']) {
       if (typeof p[key] === 'string' || typeof p[key] === 'number') summary[key] = String(p[key]);
     }
     features.push({ type: 'Feature', id, properties: summary, geometry: { type: 'LineString', coordinates } });
     if (isRadlVorrangNetz(p)) priorityFeatures.push(features[features.length - 1]);
-    const group = osmId.slice(-2).padStart(2, '0');
+    if (!hasOsmId) munichWaysOnlyFeatures.push(features[features.length - 1]);
+    const group = hasOsmId ? osmId.slice(-2).padStart(2, '0') : `mw-${id.slice(-2)}`;
     groups[group] ??= {};
     groups[group][id] = Object.fromEntries(fields.filter(key => typeof p[key] === 'string' || typeof p[key] === 'number')
       .map(key => [key, String(p[key])]));
@@ -71,6 +76,7 @@ export function prepareSnapshot(raw, config, retrievedAt = new Date().toISOStrin
       featureCount: features.length },
     geometry: { type: 'FeatureCollection', features },
     priorityNetwork: { type: 'FeatureCollection', features: priorityFeatures }, groups,
+    munichWaysOnly: { type: 'FeatureCollection', features: munichWaysOnlyFeatures },
   };
 }
 
@@ -85,12 +91,13 @@ export async function buildSnapshot({ source, output = path.join(root, 'public/s
     lastModified = response.headers.get('last-modified');
     raw = Buffer.from(await response.arrayBuffer());
   }
-  const { manifest, geometry, priorityNetwork, groups } = prepareSnapshot(raw, { url: config.url, lastModified });
+  const { manifest, geometry, priorityNetwork, munichWaysOnly, groups } = prepareSnapshot(raw, { url: config.url, lastModified });
   const versionDir = path.join(output, manifest.snapshot);
   await mkdir(path.join(versionDir, 'details'), { recursive: true });
   await writeFile(path.join(versionDir, 'geometry.json'), JSON.stringify(geometry));
   // New artifact names preserve compatibility with already cached geometry.json.
   await writeFile(path.join(versionDir, 'priority-network-v1.json'), JSON.stringify(priorityNetwork));
+  await writeFile(path.join(versionDir, 'munichways-only-v1.json'), JSON.stringify(munichWaysOnly));
   await writeFile(path.join(versionDir, 'priority-ids-v1.json'), JSON.stringify({
     schemaVersion: 1, ids: priorityNetwork.features.map(feature => feature.id),
   }));

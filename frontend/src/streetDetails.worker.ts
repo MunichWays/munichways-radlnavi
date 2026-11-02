@@ -30,7 +30,7 @@ function getPriorityIds(manifest: StreetManifest) {
   if (!priorityIds) priorityIds = readJson(`/street-details/${manifest.snapshot}/priority-ids-v1.json`)
     .then(data => {
       if (data?.schemaVersion !== 1 || !Array.isArray(data.ids) ||
-          !data.ids.every((id: unknown) => typeof id === 'string' && /^osm_\d+$/.test(id))) {
+          !data.ids.every((id: unknown) => typeof id === 'string' && /^(osm_\d+|mw_[a-f0-9]{64})$/.test(id))) {
         throw new Error('Ungültige RadlVorrang-Netzdaten.');
       }
       return new Set<string>(data.ids);
@@ -54,9 +54,10 @@ globalThis.onmessage = async (event: MessageEvent<{ id: number; lat: number; lng
   try {
     if (!Number.isFinite(zoom) || zoom < 14 || zoom > 24) throw new Error('Für Streckendetails bitte hineinzoomen.');
     const { manifest, index } = await initialize();
-    if (mode !== 'all' && mode !== 'priority') throw new Error('Ungültige Netzauswahl.');
+    if (mode !== 'all' && mode !== 'priority' && mode !== 'munichways-only') throw new Error('Ungültige Netzauswahl.');
     const allowedIds = mode === 'priority' ? await getPriorityIds(manifest) : undefined;
-    const candidates = index.search(lat, lng, streetSearchRadius(lat, zoom), allowedIds);
+    const candidates = index.search(lat, lng, streetSearchRadius(lat, zoom), allowedIds)
+      .filter(feature => mode !== 'munichways-only' || feature.id.startsWith('mw_'));
     globalThis.postMessage({ id, result: { manifest, candidates } });
   } catch (error) {
     globalThis.postMessage({ id, error: error instanceof Error && error.name !== 'AbortError'

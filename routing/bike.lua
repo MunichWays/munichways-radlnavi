@@ -644,7 +644,7 @@ end
 
 function safety_handler(profile,way,result,data)
   -- convert duration into cyclability
-  if profile.properties.weight_name == 'cyclability' then
+  if profile.properties.weight_name == 'cyclability' or profile.properties.weight_name == 'relaxed_cycling' then
     local safety_penalty = profile.unsafe_highway_list[data.highway] or 1.
     local is_unsafe = safety_penalty < 1
 
@@ -949,7 +949,7 @@ function process_turn(profile, turn)
   if has_signal_penalty then
     turn.duration = turn.duration + profile.properties.traffic_light_penalty
   end
-  if profile.properties.weight_name == 'cyclability' then
+  if profile.properties.weight_name == 'cyclability' or profile.properties.weight_name == 'relaxed_cycling' then
     turn.weight = turn.duration * 2
 
     -- Penalize an unprotected left turn from a minor road onto a major road,

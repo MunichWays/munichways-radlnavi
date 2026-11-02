@@ -111,3 +111,14 @@ jobs:
             done
             python routing/tests/test_bergmann_guidance.py --endpoint "http://localhost:$port"
           done
+
+      - name: Discovery profile
+        run: |
+          python -m unittest discover -s routing/tests -p 'test_discovery_unit.py'
+          docker build --build-arg ROUTING_PROFILE=discovery -t profile-discovery -f routing/tests/Dockerfile routing
+          docker run -d --name discovery -p 18091:8080 profile-discovery
+          for attempt in $(seq 1 30); do
+            if curl -fsS 'http://localhost:18091/route/v1/bike/11,49;11.002,49?overview=false' > /dev/null; then break; fi
+            sleep 1
+          done
+          python routing/tests/test_discovery_profile.py

@@ -1,0 +1,30 @@
+# Optional extension: docker compose -f compose.yaml -f compose.discovery.yaml up --build
+# Build the standard routing image first; discovery reuses its exact map snapshot.
+services:
+  backend:
+    environment:
+      - DISCOVERY_API_URL=http://discovery-backend:8000
+      - PUBLIC_DISCOVERY_API_URL=http://localhost:8002
+  discovery-routing:
+    image: radlnavi-discovery-routing
+    build:
+      context: ./routing
+      args:
+        MAP_SOURCE: radlnavi-routing
+        ROUTING_PROFILE: discovery
+        V20_SNAPSHOT: ${V20_SNAPSHOT:-local}
+        VERSION: ${VERSION:-local}
+    cpus: 1
+  discovery-backend:
+    image: radlnavi-backend
+    ports:
+      - 8002:8000
+    environment:
+      OSRM_BACKEND_URL: http://discovery-routing:8080
+      ROUTING_VARIANT: discovery
+      APP_VERSION: ${VERSION:-local}
+      ROUTING_VERSION: ${VERSION:-local}
+      OSRM_VERSION: 26.6.5
+    cpus: 1
+    depends_on:
+      - discovery-routing

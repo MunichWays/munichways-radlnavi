@@ -331,8 +331,9 @@ const munichWaysLayer = L.vectorGrid.protobuf("/layers/munichways/{z}/{x}/{y}.pb
 
 // Fixed for this page load: reloading with ?variant=direct starts a separate
 // test session, so route and delayed comfort requests cannot switch variants.
-const routingVariant = new URLSearchParams(window.location.search).get("variant") === "direct"
-  ? "direct" : "standard";
+const requestedRoutingVariant = new URLSearchParams(window.location.search).get("variant");
+const routingVariant = requestedRoutingVariant === "direct" || requestedRoutingVariant === "discovery"
+  ? requestedRoutingVariant : "standard";
 
 function App() {
   const [startSuggestions, setStartSuggestions] = useState<

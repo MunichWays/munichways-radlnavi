@@ -5,7 +5,7 @@ export const MAX_TRANSFER_BYTES = 4 * 1024 * 1024;
 export type PlanPoint = { name: string; coordinates: number[] };
 export type RouteTransfer = {
   version: 1; name: string; createdAt: string; provider: 'radlnavi';
-  variant: 'standard' | 'direct'; plan: PlanPoint[]; response: any;
+  variant: 'standard' | 'direct' | 'discovery'; plan: PlanPoint[]; response: any;
 };
 const point = (p: any) => Array.isArray(p) && p.length === 2 &&
   p.every(Number.isFinite) && Math.abs(p[0]) <= 180 && Math.abs(p[1]) <= 90;
@@ -13,7 +13,7 @@ const point = (p: any) => Array.isArray(p) && p.length === 2 &&
 export function validateTransfer(value: any): RouteTransfer {
   const route = value?.response?.routes?.[0];
   if (value?.version !== 1 || value.provider !== 'radlnavi' ||
-      !['standard', 'direct'].includes(value.variant) ||
+      !['standard', 'direct', 'discovery'].includes(value.variant) ||
       typeof value.name !== 'string' || !value.name.trim() || value.name.length > 200 ||
       typeof value.createdAt !== 'string' || !Number.isFinite(Date.parse(value.createdAt)) ||
       !Array.isArray(value.plan) || value.plan.length < 2 || value.plan.length > MAX_STOPS + 2 ||
@@ -46,7 +46,7 @@ export function validateTransfer(value: any): RouteTransfer {
   return value;
 }
 
-export function createTransfer(route: any, plan: any[], variant: 'standard' | 'direct', name: string): RouteTransfer {
+export function createTransfer(route: any, plan: any[], variant: 'standard' | 'direct' | 'discovery', name: string): RouteTransfer {
   // Capture only the selected route. Do not share another calculated alternative.
   return validateTransfer({ version: 1, provider: 'radlnavi', variant, name: name.trim(),
     createdAt: new Date().toISOString(),

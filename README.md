@@ -189,3 +189,37 @@ local images are identified as `local`.
 # Release
 
 Each service (frontend and backend) have their own `build.sh` script that builds the respective docker container. The full system can be build via the [root build.sh](./build.sh) script. Since currently the webpage is hosted via Google's Cloud Run service, whenever new images are built, these need to be pushed to the Cloud Run registry and deployed via the Google Cloud Console.
+
+
+## Discovery routing (2.4.0, MunichWays app #299)
+
+`variant=discovery` uses a separate OSRM graph and API, with the same route,
+navigation and comfort-analysis contract as Standard. The OSRM weight is
+`relaxed_cycling`. Cycling access, one-way restrictions, physical speeds,
+stair/pushing penalties and crossing guidance remain inherited from Standard.
+Class:bicycle and quiet highway types receive stronger selection preferences;
+compacted/fine_gravel is acceptable, rougher tracks still receive a penalty.
+Highway types are only a proxy for quiet/green surroundings, not a safety promise.
+V20 Geheimtipps add a bounded 20% preference to their mapped OSM way IDs. They
+are preferences, never forced intermediate stops. Unmapped tips cannot affect
+the OSRM graph. The V20 file is validated and hashed during the Discovery image
+build; an empty/corrupt lookup fails that build rather than silently losing tips.
+The cloud build supplies a fresh V20_SNAPSHOT build key on every rollout so
+weekly refreshes cannot reuse a stale cached V20 download. Standard and Direct
+do not download it or change their graph weights.
+
+Deploy the 2.4.0 backend first, then Standard routing/Direct as usual. Run
+`cloudbuild-discovery.yaml` (or manual-discovery-deploy workflow) to build from
+Standard's deployed PBF, deploy the isolated services, verify the profile,
+intermediate stops, guidance and comfort endpoint, then advertise Discovery.
+It uses the same deployed backend image and geo database as Standard. Backend
+updates synchronize enabled workers; weekly graph refresh also refreshes enabled
+Discovery. The app falls back to BRouter trekking if Discovery is unavailable.
+No services are deployed merely by changing source files.
+
+For local use build the standard routing image first, then use
+`docker compose -f compose.yaml -f compose.direct.yaml -f compose.discovery.yaml up --build`.
+Discovery API uses port 8002. For a web test use `?variant=discovery`; the mobile
+app offers Discovery tour (relaxed) as its second recommendation. Saved/shared
+snapshots retain the variant. Validate phone routing, stops, shortest comparison,
+network recovery and automatic rerouting before production release.

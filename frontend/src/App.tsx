@@ -1373,15 +1373,16 @@ function App() {
                   <Typography variant="subtitle2">Beleuchtung</Typography>
                   {illuminatedElement}
                 </section>}
-                <ToggleButtonGroup exclusive orientation="vertical" fullWidth aria-label="Bewertungen" value={streetNetworkMode}
-                    onChange={(_, value: StreetNetworkMode | 'none' | null) => {
-                      if (value !== null) setStreetNetworkMode(value);
-                    }}>
-                    <ToggleButton value="all">Alle Bewertungen</ToggleButton>
-                    <ToggleButton value="priority">RadlVorrang-Netz</ToggleButton>
-                    <ToggleButton value="none">Keine Bewertungen</ToggleButton>
-                  </ToggleButtonGroup>
-                  <PriorityNetworkLayer map={map} visible={streetNetworkMode === 'priority'} />
+                <TextField select size="small" fullWidth label="Bewertungen" value={streetNetworkMode}
+                    SelectProps={{ native: true }} InputLabelProps={{ shrink: true }}
+                    onChange={event => setStreetNetworkMode(event.target.value as StreetNetworkMode | 'none')}>
+                    <option value="all">Alle Bewertungen</option>
+                    <option value="priority">RadlVorrang-Netz</option>
+                    <option value="munichways-only">Nur MunichWays ID, ohne OSM</option>
+                    <option value="none">Keine Bewertungen</option>
+                  </TextField>
+                  <PriorityNetworkLayer map={map} visible={streetNetworkMode !== 'none'}
+                    source={streetNetworkMode === 'none' ? 'all' : streetNetworkMode} />
                 <FormControlLabel sx={{ m: 0, mt: 1, pt: 1, borderTop: '1px solid', borderColor: 'divider' }} control={<Checkbox size="small" checked={showDistricts}
                   onChange={(_, checked) => setShowDistricts(checked)} />} label="Stadtbezirke" />
                 {showDistricts && <Typography variant="caption" color="text.secondary">

@@ -20,14 +20,24 @@ erscheint bei einem V20-Treffer **Details anzeigen**. Bei mehreren Treffern wird
 der Abschnitt im Dialog ausgewählt und auf der Karte violett hervorgehoben.
 Das Fenster lässt sich am blauen Titel verschieben, mit „Verkleinern“ minimieren
 und an der unteren rechten Ecke in der Größe ändern. Die Karte bleibt bedienbar.
-Unter „Mehr“ bilden „Alle Bewertungen“ (Standard), „RadlVorrang-Netz“ und
-„Keine Bewertungen“ eine gemeinsame Einzelauswahl. „Stadtbezirke“ steht darunter
+Unter „Mehr“ bilden „Alle Bewertungen“ (Standard), „RadlVorrang-Netz“,
+„Nur MunichWays ID, ohne OSM“ und „Keine Bewertungen“ ein kompaktes Dropdown.
+„Stadtbezirke“ steht darunter
 als unabhängiger Schalter. „Keine Bewertungen“ blendet die Bewertungslinien aus;
 die Detailsuche bleibt für alle Strecken verfügbar. „RadlVorrang-Netz“ filtert
 Kartenlinien und Detailsuche gemeinsam. Der Wechsel der Grundkarte erhält die
 Bewertungsauswahl; Bewertungskacheln liegen immer über der Grundkarte. Das RadlVorrang-Netz
 verwendet dieselbe V20-Regel wie die App: `munichways_mw_rv_route` fehlt nicht
 und ist weder leer noch genau `-`.
+
+„Alle Bewertungen“ ergänzt die OSM-Kacheln um die V20-Geometrien und deren
+exportierte Bewertungen. Strecken ohne OSM-ID werden anhand ihrer MunichWays-ID
+und Geometrie stabil unterschieden; mehrere Abschnitte derselben MunichWays-ID
+bleiben erhalten. Sie erscheinen auch im RadlVorrang-Netz und in der Detailsuche.
+„Nur MunichWays ID, ohne OSM“ zeigt ausschließlich diese Strecken, nicht alle
+Strecken mit einer MunichWays-Bewertung. Enthält die Quelldatei keine solchen
+Strecken, bleibt diese Auswahl leer. Die Importversion fließt in den Snapshot-Hash
+ein, damit alte Browser-Caches keine neu unterstützten Strecken ausblenden.
 
 OSM-Sachwerte werden auf Deutsch angezeigt (Straßenart, Oberfläche, Ebenheit,
 Fahrradregelung, Zugang und Beleuchtung), auch bei Mehrfachwerten. Breiten nutzen
@@ -132,7 +142,7 @@ jedem übersetzten Hinweis; die vollständigen Step-Daten lassen sich aufklappen
 
 Rechts oben steht zwischen Zoom und Legende ein Kartenlayer-Symbol. Es bietet
 **Standard** (bisherige OSM-Karte), **Dezent** (dieselbe Grundkarte
-entsättigt und aufgehellt) und **Luftbild Bayern**. Bewertungen, Route, Haltepunkte und andere
+entsättigt und abgedunkelt für besseren Kontrast gelber Bewertungen) und **Luftbild Bayern**. Bewertungen, Route, Haltepunkte und andere
 Überlagerungen behalten ihre Farben. Die Auswahl bleibt beim nächsten Besuch
 erhalten; bei gesperrtem Browserspeicher funktioniert sie für den aktuellen Besuch.
 

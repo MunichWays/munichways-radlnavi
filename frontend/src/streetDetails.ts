@@ -1,5 +1,5 @@
 export type StreetProperties = Record<string, string | number | null | undefined>;
-export type StreetNetworkMode = 'all' | 'priority';
+export type StreetNetworkMode = 'all' | 'priority' | 'munichways-only';
 export type StreetCoordinate = [number, number];
 export type StreetFeature = {
   type: 'Feature'; id: string; properties: StreetProperties;
@@ -106,7 +106,9 @@ const colors: Record<string, { label: string; color: string }> = {
 export function streetRating(p: StreetProperties) {
   const bicycleClass = streetText(p.osm_class_bicycle);
   const known = bicycleClass !== undefined ? classes[bicycleClass] : undefined;
-  const fallback = colors[streetText(p.color)?.toLowerCase() || ''];
+  const mwColor = streetText(p.munichways_color)?.toLowerCase() || '';
+  const translated: Record<string, string> = { grün: 'green', gelb: 'yellow', rot: 'red', schwarz: 'black', blau: 'blue', grau: 'grey' };
+  const fallback = colors[streetText(p.color)?.toLowerCase() || ''] || colors[translated[mwColor] || mwColor];
   return { label: known?.label || fallback?.label || 'Nicht bewertet',
     color: known?.color || fallback?.color || '#9C9D9F', bicycleClass };
 }
@@ -139,6 +141,7 @@ export function streetLinks(value: unknown): { title: string; url: string }[] {
 }
 
 export function streetDetailGroup(id: string): string {
+  if (/^mw_[a-f0-9]{64}$/.test(id)) return `mw-${id.slice(-2)}`;
   if (!/^osm_\d+$/.test(id)) throw new Error('Ungültige Strecken-ID.');
   return id.slice(4).slice(-2).padStart(2, '0');
 }

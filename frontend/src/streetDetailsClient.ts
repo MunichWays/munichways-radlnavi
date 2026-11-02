@@ -65,7 +65,10 @@ export class StreetDetailsClient {
       } finally { clearTimeout(timeout); signal.removeEventListener('abort', cancel); }
     }
     const properties = entries?.[id];
-    if (!properties || String(properties.osm_id) !== id.slice(4) || Object.values(properties).some(v => v !== null && typeof v !== 'string' && typeof v !== 'number')) {
+    const matchesId = properties && (id.startsWith('osm_') ? String(properties.osm_id) === id.slice(4)
+      : !!String(properties.munichways_id ?? '').trim() && String(properties.munichways_id).trim() !== '-'
+        && ['', '-'].includes(String(properties.osm_id ?? '').trim()));
+    if (!properties || !matchesId || Object.values(properties).some(v => v !== null && typeof v !== 'string' && typeof v !== 'number')) {
       this.groups.delete(key);
       throw new Error('Für diese Strecke fehlen gültige Details.');
     }

@@ -31,7 +31,7 @@ export class StreetSearchIndex {
     const ids = new Set<string>();
     for (const feature of data.features) {
       const coordinates = feature.geometry?.coordinates;
-      if (!/^osm_\d+$/.test(feature.id) || ids.has(feature.id) || feature.geometry?.type !== 'LineString' ||
+      if (!/^(osm_\d+|mw_[a-f0-9]{64})$/.test(feature.id) || ids.has(feature.id) || feature.geometry?.type !== 'LineString' ||
           !Array.isArray(coordinates) || coordinates.length < 2 || !feature.properties) {
         throw new Error('Ungültige V20-Strecke.');
       }

@@ -40,3 +40,18 @@ test('a response arriving after switching back cannot add an obsolete layer', as
   await waitFor(() => expect(global.fetch).toHaveBeenCalledTimes(2));
   expect(mockAdd).not.toHaveBeenCalled();
 });
+
+test.each([['all', 'geometry.json'], ['munichways-only', 'munichways-only-v1.json']] as const)(
+  '%s loads the matching V20 collection and renders exported MunichWays ratings', async (source, file) => {
+    mockGeoJSON.mockReturnValue({ addTo: mockAdd });
+    global.fetch = jest.fn().mockResolvedValueOnce({ ok: true, json: async () => ({ snapshot: 'a'.repeat(64) }) })
+      .mockResolvedValueOnce({ ok: true, json: async () => ({ type: 'FeatureCollection', features: [] }) });
+    render(<PriorityNetworkLayer map={{ removeLayer: jest.fn() }} visible source={source} />);
+    await waitFor(() => expect(mockGeoJSON).toHaveBeenCalled());
+    expect(global.fetch).toHaveBeenLastCalledWith(`/street-details/${'a'.repeat(64)}/${file}`, expect.anything());
+    const options = mockGeoJSON.mock.calls[0][1];
+    expect(options.style({ properties: { munichways_color: 'gelb' } }).color).toBe('#FFD000');
+    if (source === 'munichways-only') {
+      expect(await screen.findByRole('status')).toHaveTextContent('Keine Strecken ohne OSM-ID');
+    }
+  });

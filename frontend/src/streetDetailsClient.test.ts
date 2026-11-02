@@ -8,6 +8,15 @@ const manifest: StreetManifest = { schemaVersion: 1, snapshot: 'a'.repeat(64), r
 const response = (data: unknown, ok = true, contentType = 'application/json') => ({ ok,
   headers: new Headers({ 'content-type': contentType }), json: async () => data } as Response);
 const originalFetch = global.fetch;
+
+test('loads details for a MunichWays-only line without requiring an OSM ID', async () => {
+  const id = `mw_${'a'.repeat(64)}`;
+  global.fetch = jest.fn().mockResolvedValue(response({ [id]: { munichways_id: 'LHM_42', osm_id: '-', munichways_name: 'MW-Weg' } }));
+  const client = new StreetDetailsClient();
+  expect((await client.details(manifest, id, new AbortController().signal)).munichways_id).toBe('LHM_42');
+  expect(global.fetch).toHaveBeenCalledWith(expect.stringContaining('/details/mw-aa.json'), expect.anything());
+  client.dispose();
+});
 afterEach(() => { global.fetch = originalFetch; jest.clearAllMocks(); });
 
 test('reuses one worker, ignores aborted replies, and can create a fresh worker after failure', async () => {

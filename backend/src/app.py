@@ -83,6 +83,10 @@ ROUTING_VARIANT = os.environ.get("ROUTING_VARIANT", "standard")
 DIRECT_API_URL = os.environ.get("DIRECT_API_URL")
 PUBLIC_DIRECT_API_URL = os.environ.get("PUBLIC_DIRECT_API_URL")
 DIRECT_API_AUTH_AUDIENCE = os.environ.get("DIRECT_API_AUTH_AUDIENCE")
+DISCOVERY_API_URL = os.environ.get("DISCOVERY_API_URL")
+PUBLIC_DISCOVERY_API_URL = os.environ.get("PUBLIC_DISCOVERY_API_URL")
+DISCOVERY_API_AUTH_AUDIENCE = os.environ.get("DISCOVERY_API_AUTH_AUDIENCE")
+discovery_proxy: Optional[DirectRouteProxy] = None
 direct_proxy: Optional[DirectRouteProxy] = None
 APP_VERSION = os.environ.get("APP_VERSION", "local")
 APP_COMMIT = os.environ.get("APP_COMMIT", "")
@@ -107,18 +111,23 @@ origins = [
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
-    global geo_store, direct_proxy
-    if ROUTING_VARIANT not in ("standard", "direct"):
-        raise ValueError("ROUTING_VARIANT must be standard or direct")
+    global geo_store, direct_proxy, discovery_proxy
+    if ROUTING_VARIANT not in ("standard", "direct", "discovery"):
+        raise ValueError("ROUTING_VARIANT must be standard, direct or discovery")
     geo_store = get_geo_store()
     if ROUTING_VARIANT == "standard" and DIRECT_API_URL:
         direct_proxy = DirectRouteProxy(DIRECT_API_URL, direct_auth_headers)
+    if ROUTING_VARIANT == "standard" and DISCOVERY_API_URL:
+        discovery_proxy = DirectRouteProxy(DISCOVERY_API_URL, discovery_auth_headers, variant="discovery")
     try:
         yield
     finally:
         if direct_proxy is not None:
             await direct_proxy.close()
             direct_proxy = None
+        if discovery_proxy is not None:
+            await discovery_proxy.close()
+            discovery_proxy = None
         geo_store.close()
         geo_store = None
 
@@ -132,7 +141,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["x-routing-variant", "x-direct-api-url"],
+    expose_headers=["x-routing-variant", "x-direct-api-url", "x-discovery-api-url"],
 )
 
 
@@ -144,7 +153,7 @@ async def osrm_route_proxy(
     query_params = list(request.query_params.multi_items())
     variant = resolve_variant(request.query_params.get("variant"))
     if variant != ROUTING_VARIANT:
-        return await forward_direct(
+        return await forward_variant(variant,
             "GET", f"/route/v1/{profile}/{coordinates}", params=query_params
         )
     query_params = [(key, value) for key, value in query_params if key != "variant"]
@@ -175,6 +184,7 @@ async def osrm_route_proxy(
         # their subsequent comfort analysis. Never expose the internal proxy.
         # Empty explicitly withdraws a previously advertised public endpoint.
         headers["x-direct-api-url"] = PUBLIC_DIRECT_API_URL or ""
+        headers["x-discovery-api-url"] = PUBLIC_DISCOVERY_API_URL or ""
     content_type = response.headers.get("content-type")
     if content_type:
         headers["content-type"] = content_type
@@ -238,6 +248,11 @@ async def routing_variants():
     return {
         "default": ROUTING_VARIANT,
         "standard": {"available": ROUTING_VARIANT == "standard"},
+        "discovery": {
+            "available": ROUTING_VARIANT == "discovery" or bool(PUBLIC_DISCOVERY_API_URL or DISCOVERY_API_URL),
+            "objective": "relaxed_cycling",
+            "base_url": PUBLIC_DISCOVERY_API_URL,
+        },
         "direct": {
             "available": ROUTING_VARIANT == "direct"
             or bool(PUBLIC_DIRECT_API_URL or DIRECT_API_URL),
@@ -249,11 +264,26 @@ async def routing_variants():
 
 def resolve_variant(value):
     variant = value if value is not None else ROUTING_VARIANT
-    if variant not in ("standard", "direct"):
+    if variant not in ("standard", "direct", "discovery"):
         raise HTTPException(400, "Unknown routing variant")
-    if ROUTING_VARIANT == "direct" and variant != "direct":
-        raise HTTPException(503, "Standard routing is not hosted by this service")
+    if ROUTING_VARIANT != "standard" and variant != ROUTING_VARIANT:
+        raise HTTPException(503, "Requested routing variant is not hosted by this service")
     return variant
+
+
+async def forward_variant(variant, method, path, **kwargs):
+    if variant == "direct":
+        return await forward_direct(method, path, **kwargs)
+    if variant != "discovery" or discovery_proxy is None:
+        raise HTTPException(503, "Discovery routing is not configured")
+    return await discovery_proxy.request(method, path, **kwargs)
+
+
+def discovery_auth_headers():
+    if not DISCOVERY_API_AUTH_AUDIENCE:
+        return {}
+    token = id_token.fetch_id_token(GoogleAuthRequest(), DISCOVERY_API_AUTH_AUDIENCE)
+    return {"Authorization": f"Bearer {token}"}
 
 
 async def forward_direct(method, path, **kwargs):
@@ -604,7 +634,7 @@ def calculate_comfort_for_node_ids(node_ids: list[int]) -> dict:
 class NodeList(BaseModel):
     node_ids: List[int] | None = None
     legs: list[AnalysisLeg] | None = None
-    variant: Literal["standard", "direct"] | None = None
+    variant: Literal["standard", "direct", "discovery"] | None = None
 
     @model_validator(mode="after")
     def one_route_context(self):
@@ -617,7 +647,7 @@ class NodeList(BaseModel):
 async def tag_distribution(node_list: NodeList):
     variant = resolve_variant(node_list.variant)
     if variant != ROUTING_VARIANT:
-        return await forward_direct(
+        return await forward_variant(variant,
             "POST", "/tag_distribution", json=node_list.model_dump(exclude_none=True)
         )
     legs = (
@@ -634,11 +664,11 @@ async def route(
     start_lon: float,
     target_lat: float,
     target_lon: float,
-    variant: Literal["standard", "direct"] | None = None,
+    variant: Literal["standard", "direct", "discovery"] | None = None,
 ):
     selected = resolve_variant(variant)
     if selected != ROUTING_VARIANT:
-        return await forward_direct(
+        return await forward_variant(selected,
             "GET",
             "/route",
             params={

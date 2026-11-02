@@ -13,7 +13,8 @@ from starlette.concurrency import run_in_threadpool
 
 
 class DirectRouteProxy:
-    def __init__(self, url, auth_headers):
+    def __init__(self, url, auth_headers, variant="direct"):
+        self.variant = variant
         self.url = url.rstrip("/")
         self.auth_headers = auth_headers
         self.slots = asyncio.Semaphore(4)
@@ -30,7 +31,7 @@ class DirectRouteProxy:
         try:
             await asyncio.wait_for(self.slots.acquire(), timeout=0.1)
         except TimeoutError as error:
-            raise HTTPException(503, "Direct routing capacity is busy") from error
+            raise HTTPException(503, f"{self.variant.title()} routing capacity is busy") from error
         try:
             return await self._request(method, path, params=params, json=json)
         finally:
@@ -43,11 +44,11 @@ class DirectRouteProxy:
                 method, self.url + path, params=params, json=json, headers=headers
             )
         except httpx.PoolTimeout as error:
-            raise HTTPException(503, "Direct routing capacity is busy") from error
+            raise HTTPException(503, f"{self.variant.title()} routing capacity is busy") from error
         except httpx.TimeoutException as error:
-            raise HTTPException(504, "Direct routing timed out") from error
+            raise HTTPException(504, f"{self.variant.title()} routing timed out") from error
         except (httpx.HTTPError, OSError, GoogleAuthError) as error:
-            raise HTTPException(503, "Direct routing is unavailable") from error
+            raise HTTPException(503, f"{self.variant.title()} routing is unavailable") from error
         return Response(
             content=upstream.content,
             status_code=upstream.status_code,
@@ -55,6 +56,6 @@ class DirectRouteProxy:
                 "content-type": upstream.headers.get(
                     "content-type", "application/json"
                 ),
-                "x-routing-variant": "direct",
+                "x-routing-variant": self.variant,
             },
         )

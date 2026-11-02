@@ -84,3 +84,11 @@ test('saved GPX names omit districts while all coordinates and routing stay exac
   expect(restored.response).toEqual(transfer.response);
   expect(plan[0].display_name).toBe(fixture.plan[0].name);
 });
+
+
+test('discovery snapshots retain variant and geometry through GPX roundtrip', () => {
+  const transfer = validateTransfer({ ...fixture, variant: 'discovery' });
+  const restored = readTransferGpx(transferGpx(transfer));
+  expect(restored.variant).toBe('discovery');
+  expect(restored.response.routes[0].geometry).toEqual(transfer.response.routes[0].geometry);
+});

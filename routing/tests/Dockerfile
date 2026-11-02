@@ -5,6 +5,8 @@ ARG FIXTURE=tests/profile-fixture.osm
 
 COPY bike.lua /opt/bike.lua
 COPY direct.lua /opt/direct.lua
+COPY discovery.lua /opt/discovery.lua
+COPY tests/secret_tips.lua /opt/secret_tips.lua
 COPY conditional_access.lua /opt/conditional_access.lua
 COPY guidance_way_type.lua /opt/guidance_way_type.lua
 COPY cycling_attributes.lua /opt/cycling_attributes.lua

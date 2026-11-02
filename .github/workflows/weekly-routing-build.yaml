@@ -50,3 +50,16 @@ jobs:
               --config=cloudbuild-direct.yaml \
               --substitutions=COMMIT_SHA=${GITHUB_SHA}
           fi
+
+      - name: Refresh discovery profile when enabled
+        shell: bash
+        run: |
+          set -euo pipefail
+          enabled=$(python3 backend/check_discovery_enabled.py \
+            --base-url=https://api.radlnavi.munichways.de)
+          if [ "$enabled" = true ]; then
+            gcloud builds submit --no-source \
+              --project=munichways-radlnavi-prod --region=europe-west3 \
+              --config=cloudbuild-discovery.yaml \
+              --substitutions=COMMIT_SHA=${GITHUB_SHA}
+          fi

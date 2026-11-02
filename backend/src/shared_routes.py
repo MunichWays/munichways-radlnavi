@@ -41,7 +41,7 @@ def validate_transfer(value):
     try:
         require(value['version'] == 1 and type(value['version']) is int)
         require(value['provider'] == 'radlnavi')
-        require(value['variant'] in ('standard', 'direct'))
+        require(value['variant'] in ('standard', 'direct', 'discovery'))
         require(isinstance(value['name'], str) and 0 < len(value['name'].strip()) <= 200)
         require(isinstance(value['createdAt'], str))
         datetime.fromisoformat(value['createdAt'].replace('Z', '+00:00'))

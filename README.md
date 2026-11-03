@@ -223,3 +223,14 @@ Discovery API uses port 8002. For a web test use `?variant=discovery`; the mobil
 app offers Discovery tour (relaxed) as its second recommendation. Saved/shared
 snapshots retain the variant. Validate phone routing, stops, shortest comparison,
 network recovery and automatic rerouting before production release.
+
+### Discovery profile finetuning (2.4.0)
+
+Discovery reduces the previous residential selection rate by 10% and the
+tertiary/tertiary_link rate by 20%. A footway bonus applies only when the shared
+bicycle profile already permits cycling; pushing or prohibited directions
+receive no bonus. This separates the legally rideable parallel shared path
+from Schlosschmidstrasse in the frozen Munich regression. Physical speeds,
+one-way/access rules and Standard/Direct remain unchanged. The routing version
+is still 2.4.0. Activating the change requires rebuilding/deploying the Discovery
+graph; an API/frontend-only rollout does not change graph weights.

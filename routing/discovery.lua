@@ -3,11 +3,14 @@ local bicycle = require('bike')
 local secret_tips = require('secret_tips')
 local class_factors = { ['-2']=0.45, ['-1']=0.65, ['0']=0.85, ['1']=1.10, ['2']=1.35, ['3']=1.55 }
 -- Highway is a preference proxy, not proof of greenery or traffic volume.
+-- Footway preferences apply only to cycling directions allowed by bike.lua.
+-- Residential loses only 10% of its previous rate; tertiary/link lose 20%.
 local highway_factors = {
-  cycleway=1.20, path=1.15, living_street=1.10, residential=1,
-  service=0.95, track=0.95, unclassified=0.85, tertiary=0.75,
+  cycleway=1.20, path=1.15, footway=1.25,
+  living_street=1.10, residential=0.90,
+  service=0.95, track=0.95, unclassified=0.85, tertiary=0.60,
   secondary=0.55, primary=0.40, trunk=0.30,
-  tertiary_link=0.75, secondary_link=0.55, primary_link=0.40, trunk_link=0.30,
+  tertiary_link=0.60, secondary_link=0.55, primary_link=0.40, trunk_link=0.30,
 }
 local surface_factors = { compacted=0.95, fine_gravel=0.95, gravel=0.75,
   unpaved=0.80, ground=0.75, dirt=0.75, grass=0.60, mud=0.45, sand=0.45 }

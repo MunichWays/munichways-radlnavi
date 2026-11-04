@@ -1,3 +1,5 @@
+# SDK 592 removed system python3; deployment helpers require it on PATH.
+# Keep this image pinned until a Python-enabled replacement is verified.
 substitutions:
   _REGION: europe-west3
   _REPOSITORY: radlnavi
@@ -26,7 +28,7 @@ steps:
     waitFor: [build-api]
     args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA']
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: deploy-api
     waitFor: [push-api]
     entrypoint: bash
@@ -47,7 +49,7 @@ steps:
           --timeout=60 \
           --update-env-vars="OSRM_BACKEND_URL=$${routing_url},OSRM_AUTH_AUDIENCE=$${routing_url},CORS_ORIGINS=https://radlnavi.munichways.de;https://api.radlnavi.munichways.de;https://munichways-radlnavi-prod.web.app"
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: refresh-direct-api
     waitFor: [deploy-api]
     entrypoint: python3
@@ -59,7 +61,7 @@ steps:
       - --direct=${_DIRECT_API_SERVICE}
       - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: refresh-discovery-api
     waitFor: [refresh-direct-api]
     entrypoint: python3
@@ -71,7 +73,7 @@ steps:
       - --discovery=${_DISCOVERY_API_SERVICE}
       - --image=${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/api:$COMMIT_SHA
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: resolve-api-url
     waitFor: [refresh-direct-api]
     entrypoint: bash
@@ -103,7 +105,7 @@ steps:
     waitFor: [build-frontend]
     args: [push, '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/frontend:$COMMIT_SHA']
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: deploy-frontend
     waitFor: [push-frontend]
     entrypoint: gcloud
@@ -123,7 +125,7 @@ steps:
       - --concurrency=80
       - --timeout=60
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: configure-api-cors
     waitFor: [deploy-frontend]
     entrypoint: bash

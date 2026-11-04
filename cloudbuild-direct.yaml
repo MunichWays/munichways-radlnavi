@@ -1,3 +1,5 @@
+# SDK 592 removed system python3; deployment helpers require it on PATH.
+# Keep this image pinned until a Python-enabled replacement is verified.
 # Explicit rollout after the standard routing/API deployment has completed.
 # Reuse the DEPLOYED standard graph's PBF, never download a second snapshot.
 substitutions:
@@ -19,7 +21,7 @@ steps:
         cd /workspace/source
         git checkout "$COMMIT_SHA"
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: resolve-standard-snapshot
     entrypoint: bash
     args:
@@ -51,7 +53,7 @@ steps:
           -f routing/Dockerfile routing
         docker push '${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/direct-routing:$COMMIT_SHA'
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: deploy-direct-services
     entrypoint: bash
     args:
@@ -78,7 +80,7 @@ steps:
         gcloud run services add-iam-policy-binding '${_DIRECT_API_SERVICE}' --region='${_REGION}' \
           --member='serviceAccount:radlnavi-api@$PROJECT_ID.iam.gserviceaccount.com' --role=roles/run.invoker
 
-  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk:591.0.0
     id: enable-direct
     entrypoint: bash
     args:

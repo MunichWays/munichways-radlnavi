@@ -234,3 +234,23 @@ from Schlosschmidstrasse in the frozen Munich regression. Physical speeds,
 one-way/access rules and Standard/Direct remain unchanged. The routing version
 is still 2.4.0. Activating the change requires rebuilding/deploying the Discovery
 graph; an API/frontend-only rollout does not change graph weights.
+
+### Discovery warm instances: disabled draft
+
+Scheduled warm instances were evaluated but rejected because of their ongoing
+cost. Production keeps minimum instances at zero. The Discovery build does not
+call the draft warmup helper, create schedules or enable minimum instances.
+The following files are retained only as a draft for a future explicit decision:
+
+- `backend/configure_discovery_warmup.py`: four OAuth-authenticated Cloud Scheduler
+  jobs for a minimum of one Discovery API/routing instance from 05:00 until 00:00
+  Europe/Berlin, zero overnight. Includes DST and deploy-boundary reconciliation.
+- `backend/setup_discovery_warmup.ps1`: one-time Scheduler/IAM prerequisites.
+- `backend/tests/test_discovery_warmup.py`: time windows and failure/retry checks.
+
+Do not run the setup script or helper with `--apply` without a new decision to
+activate paid warm instances. A normal Discovery deployment leaves them disabled.
+No warmup jobs or permissions were created during implementation.
+
+Local checks: `python -m unittest discover -s backend/tests -p test_discovery_warmup.py`.
+Windows Python needs `python -m pip install tzdata` for the IANA time zone data.

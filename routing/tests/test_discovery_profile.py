@@ -8,7 +8,7 @@ def main():
     parser.add_argument("--standard", default="http://localhost:18081")
     parser.add_argument("--discovery", default="http://localhost:18091")
     args = parser.parse_args()
-    coordinates = "11,49;11.002,49"
+    coordinates = "11,49.4;11.002,49.4"
     standard = successful(args.standard, coordinates)
     discovery = successful(args.discovery, coordinates)
     names = lambda route: [step.get("name") for leg in route["legs"] for step in leg["steps"]]
@@ -22,7 +22,7 @@ def main():
     for lat in (48.7000, 48.7400, 48.7500, 48.7600):
         response = fetch(args.discovery, f"11.001,{lat};11,{lat}")
         assert response["code"] in ("NoRoute", "NoSegment"), response
-    route = successful(args.discovery, "11,49;11.001,49.0005;11.002,49;11,49")
+    route = successful(args.discovery, "11,49.4;11.001,49.4005;11.002,49.4;11,49.4")
     assert len(route["legs"]) == 3, route
     for leg in route["legs"]:
         assert leg["steps"][-1]["maneuver"]["type"] == "arrive"

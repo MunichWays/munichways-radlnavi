@@ -24,11 +24,19 @@ def check(standard, direct):
         (49.11, 20, 1),  # unknown cycleway values still override general tags
         (49.12, 6.3, 1.15),  # both cycleway tags override independently
     )
-    for lat, speed, surface_cost in cases:
+    for index, (lat, speed, surface_cost) in enumerate(cases):
         for start, end in ((11, 11.001), (11.001, 11)):
             coordinates = f"{start},{lat:.4f};{end},{lat:.4f}"
             routes = [successful(endpoint, coordinates) for endpoint in (standard, direct)]
             for route in routes:
+                # Identical geometry can hide snapping onto an unrelated,
+                # overlapping fixture. Verify the intended isolated OSM edge.
+                expected_nodes = [25001 + 2 * index, 25002 + 2 * index]
+                if start > end:
+                    expected_nodes.reverse()
+                assert route["legs"][0]["annotation"]["nodes"] == expected_nodes, (
+                    coordinates, expected_nodes, route
+                )
                 assert math.isclose(
                     route["duration"], route["distance"] / (speed / 3.6), abs_tol=0.2
                 ), (coordinates, speed, route)

@@ -1,0 +1,387 @@
+{
+  "dashboard": {
+    "displayName": "RadNavi - Betrieb und Ressourcen",
+    "gridLayout": {
+      "columns": "2",
+      "widgets": [
+        {
+          "title": "RadNavi Betrieb und Kosten",
+          "text": {
+            "format": "MARKDOWN",
+            "content": "[Kostenbericht](https://console.cloud.google.com/billing?project=munichways-radlnavi-prod) | [Fehlerlogs](https://console.cloud.google.com/logs/query?project=munichways-radlnavi-prod) | [Alarme](https://console.cloud.google.com/monitoring/alerting?project=munichways-radlnavi-prod)\n\nKostenindikatoren sind keine Euro-Abrechnung. Echte Kosten und Budgets stehen in Cloud Billing. Speicher/CPU: Maximum pro Dienst; Latenz: hoechster Revisions-p95. Scale-to-zero kann Messluecken verursachen. Bestehende Uptime-Pruefungen bleiben aktiv."
+          }
+        },
+        {
+          "title": "Anfragen / Sekunde",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/request_count\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_RATE",
+                      "crossSeriesReducer": "REDUCE_SUM",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "1/s"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "HTTP 5xx / 5 Minuten",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/request_count\" AND metric.labels.response_code_class=\"5xx\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "1"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Antwortzeit p95 (ms)",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/request_latencies\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                      "crossSeriesReducer": "REDUCE_MAX",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "ms"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Speicherauslastung p95",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/memory/utilizations\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                      "crossSeriesReducer": "REDUCE_MAX",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "10^2.%"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "CPU-Auslastung p95",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/cpu/utilizations\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                      "crossSeriesReducer": "REDUCE_MAX",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "10^2.%"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Instanzen",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/instance_count\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_MAX",
+                      "crossSeriesReducer": "REDUCE_SUM",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "1"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Kaltstart p95 (ms)",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/startup_latencies\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                      "crossSeriesReducer": "REDUCE_MAX",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "ms"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Abrechenbare Instanzsekunden / 5 Minuten",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/billable_instance_time\"",
+                    "aggregation": {
+                      "alignmentPeriod": "300s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "s"
+                },
+                "plotType": "LINE"
+              }
+            ],
+            "timeshiftDuration": "0s",
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "policies": [
+    {
+      "displayName": "RadNavi - Speicher ueber 85 Prozent",
+      "combiner": "OR",
+      "enabled": true,
+      "conditions": [
+        {
+          "displayName": "RadNavi - Speicher ueber 85 Prozent",
+          "conditionThreshold": {
+            "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/memory/utilizations\"",
+            "aggregations": [
+              {
+                "alignmentPeriod": "300s",
+                "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                "crossSeriesReducer": "REDUCE_MAX",
+                "groupByFields": [
+                  "resource.labels.service_name"
+                ]
+              }
+            ],
+            "comparison": "COMPARISON_GT",
+            "thresholdValue": 0.85,
+            "duration": "600s",
+            "trigger": {
+              "count": 1
+            }
+          }
+        }
+      ],
+      "alertStrategy": {
+        "autoClose": "1800s"
+      },
+      "documentation": {
+        "mimeType": "text/markdown",
+        "content": "Betroffenen Dienst und Revision im Monitoring pruefen, dann Fehlerlogs und Traffic vergleichen. Bei Speicherproblemen nach 'Memory limit' suchen. Vor Ressourcenanpassung Parallelitaet und Kosten pruefen. Keine automatische Skalierungs- oder Speicheranpassung."
+      }
+    },
+    {
+      "displayName": "RadNavi - CPU ueber 85 Prozent",
+      "combiner": "OR",
+      "enabled": true,
+      "conditions": [
+        {
+          "displayName": "RadNavi - CPU ueber 85 Prozent",
+          "conditionThreshold": {
+            "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/container/cpu/utilizations\"",
+            "aggregations": [
+              {
+                "alignmentPeriod": "300s",
+                "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                "crossSeriesReducer": "REDUCE_MAX",
+                "groupByFields": [
+                  "resource.labels.service_name"
+                ]
+              }
+            ],
+            "comparison": "COMPARISON_GT",
+            "thresholdValue": 0.85,
+            "duration": "900s",
+            "trigger": {
+              "count": 1
+            }
+          }
+        }
+      ],
+      "alertStrategy": {
+        "autoClose": "1800s"
+      },
+      "documentation": {
+        "mimeType": "text/markdown",
+        "content": "Betroffenen Dienst und Revision im Monitoring pruefen, dann Fehlerlogs und Traffic vergleichen. Bei Speicherproblemen nach 'Memory limit' suchen. Vor Ressourcenanpassung Parallelitaet und Kosten pruefen. Keine automatische Skalierungs- oder Speicheranpassung."
+      }
+    },
+    {
+      "displayName": "RadNavi - Antwortzeit p95 ueber 10 Sekunden",
+      "combiner": "OR",
+      "enabled": true,
+      "conditions": [
+        {
+          "displayName": "RadNavi - Antwortzeit p95 ueber 10 Sekunden",
+          "conditionThreshold": {
+            "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/request_latencies\"",
+            "aggregations": [
+              {
+                "alignmentPeriod": "300s",
+                "perSeriesAligner": "ALIGN_PERCENTILE_95",
+                "crossSeriesReducer": "REDUCE_MAX",
+                "groupByFields": [
+                  "resource.labels.service_name"
+                ]
+              }
+            ],
+            "comparison": "COMPARISON_GT",
+            "thresholdValue": 10000,
+            "duration": "600s",
+            "trigger": {
+              "count": 1
+            }
+          }
+        }
+      ],
+      "alertStrategy": {
+        "autoClose": "1800s"
+      },
+      "documentation": {
+        "mimeType": "text/markdown",
+        "content": "Betroffenen Dienst und Revision im Monitoring pruefen, dann Fehlerlogs und Traffic vergleichen. Bei Speicherproblemen nach 'Memory limit' suchen. Vor Ressourcenanpassung Parallelitaet und Kosten pruefen. Keine automatische Skalierungs- oder Speicheranpassung."
+      }
+    },
+    {
+      "displayName": "RadNavi - Serverfehler alle Dienste",
+      "combiner": "OR",
+      "enabled": true,
+      "conditions": [
+        {
+          "displayName": "RadNavi - Serverfehler alle Dienste",
+          "conditionThreshold": {
+            "filter": "resource.type=\"cloud_run_revision\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\") AND metric.type=\"run.googleapis.com/request_count\" AND metric.labels.response_code_class=\"5xx\"",
+            "aggregations": [
+              {
+                "alignmentPeriod": "300s",
+                "perSeriesAligner": "ALIGN_SUM",
+                "crossSeriesReducer": "REDUCE_SUM",
+                "groupByFields": [
+                  "resource.labels.service_name"
+                ]
+              }
+            ],
+            "comparison": "COMPARISON_GT",
+            "thresholdValue": 5,
+            "duration": "0s",
+            "trigger": {
+              "count": 1
+            }
+          }
+        }
+      ],
+      "alertStrategy": {
+        "autoClose": "1800s"
+      },
+      "documentation": {
+        "mimeType": "text/markdown",
+        "content": "Betroffenen Dienst und Revision im Monitoring pruefen, dann Fehlerlogs und Traffic vergleichen. Bei Speicherproblemen nach 'Memory limit' suchen. Vor Ressourcenanpassung Parallelitaet und Kosten pruefen. Keine automatische Skalierungs- oder Speicheranpassung."
+      }
+    }
+  ]
+}

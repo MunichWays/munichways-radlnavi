@@ -81,3 +81,24 @@ while Ludwigsbrücke uses `excellent` (18 km/h, unchanged from the baseline).
 
 These examples are also © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright),
 available under the Open Database License (ODbL).
+
+## Discovery parallel foot/cycle path
+
+`discovery-parallel-path-2026-11-03.osm` was retrieved on 2026-11-03 from
+[the official OSM map API](https://api.openstreetmap.org/api/0.6/map?bbox=11.5145,48.1448,11.5225,48.1485).
+It retains highway ways, all their nodes and complete turn restrictions;
+platform areas and contributor metadata were removed. Access tags, coordinates
+and node order are unchanged. This is a frozen current-map regression, not the
+exact PBF of the deployed regional graph.
+
+`test_discovery_parallel_path.py` checks the reported trip from
+48.146644, 11.520648 to 48.146799, 11.516315 using the real backend's endpoint
+composition. Standard keeps Schlosschmidstrasse (way 153360599); Discovery
+reaches the parallel `footway` with `bicycle=yes` (way 5197210) via a legal
+connection farther west. The cycling one-way near the eastern entry stays
+unchanged. Pure pedestrian access at the start remains a pushing section.
+Reverse routing, intermediate stops, annotations, guidance and identical ETA on
+the same shared path are also checked.
+
+Data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright),
+available under the Open Database License (ODbL).

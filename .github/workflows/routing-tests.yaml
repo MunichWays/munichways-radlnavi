@@ -122,3 +122,18 @@ jobs:
             sleep 1
           done
           python routing/tests/test_discovery_profile.py
+
+      - name: Discovery parallel shared path in Munich
+        run: |
+          fixture=tests/fixtures/discovery-parallel-path-2026-11-03.osm
+          docker build --build-arg FIXTURE="$fixture" -t discovery-parallel-standard -f routing/tests/Dockerfile routing
+          docker build --build-arg FIXTURE="$fixture" --build-arg ROUTING_PROFILE=discovery -t discovery-parallel-relaxed -f routing/tests/Dockerfile routing
+          docker run -d --name discovery-parallel-standard -p 18092:8080 discovery-parallel-standard
+          docker run -d --name discovery-parallel-relaxed -p 18093:8080 discovery-parallel-relaxed
+          for port in 18092 18093; do
+            for attempt in $(seq 1 30); do
+              if curl -fsS "http://localhost:$port/route/v1/bike/11.520104,48.1467246;11.5169514,48.1468999?overview=false" > /dev/null; then break; fi
+              sleep 1
+            done
+          done
+          python routing/tests/test_discovery_parallel_path.py

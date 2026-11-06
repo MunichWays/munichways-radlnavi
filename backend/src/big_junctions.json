@@ -1,157 +1,226 @@
 {
-  "id": "arnulf-steuben",
-  "version": "arnulf-steuben-pilot-v1",
-  "polygon": {
-    "type": "Polygon",
-    "coordinates": [
-      [
-        [
-          11.51993,
-          48.14998
-        ],
-        [
-          11.52,
-          48.14988
-        ],
-        [
-          11.52049,
-          48.14979
-        ],
-        [
-          11.52066,
-          48.14988
-        ],
-        [
-          11.52067,
-          48.15022
-        ],
-        [
-          11.52055,
-          48.15037
-        ],
-        [
-          11.52004,
-          48.15045
-        ],
-        [
-          11.51991,
-          48.15033
-        ],
-        [
-          11.51993,
-          48.14998
+  "schemaVersion": 1,
+  "version": "munich-big-junctions-v1",
+  "junctions": [
+    {
+      "id": "arnulf-steuben",
+      "name": "Arnulfstrasse / Steubenplatz",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.51993,
+              48.14998
+            ],
+            [
+              11.52,
+              48.14988
+            ],
+            [
+              11.52049,
+              48.14979
+            ],
+            [
+              11.52066,
+              48.14988
+            ],
+            [
+              11.52067,
+              48.15022
+            ],
+            [
+              11.52055,
+              48.15037
+            ],
+            [
+              11.52004,
+              48.15045
+            ],
+            [
+              11.51991,
+              48.15033
+            ],
+            [
+              11.51993,
+              48.14998
+            ]
+          ]
         ]
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-11-06",
+        "evidence": "Polygon reviewed by user; physical pilot successful."
+      },
+      "movements": [
+        {
+          "entry": [
+            11.519927399,
+            48.150025514
+          ],
+          "exit": [
+            11.520497358,
+            48.150378258
+          ],
+          "corridor": [
+            [
+              11.519927399,
+              48.150025514
+            ],
+            [
+              11.520027,
+              48.150007
+            ],
+            [
+              11.520094,
+              48.149987
+            ],
+            [
+              11.520095,
+              48.149927
+            ],
+            [
+              11.520219,
+              48.149906
+            ],
+            [
+              11.52037,
+              48.14988
+            ],
+            [
+              11.520488,
+              48.149865
+            ],
+            [
+              11.520482,
+              48.149941
+            ],
+            [
+              11.520466,
+              48.149996
+            ],
+            [
+              11.520472,
+              48.150037
+            ],
+            [
+              11.520473,
+              48.150041
+            ],
+            [
+              11.520476,
+              48.150061
+            ],
+            [
+              11.520478,
+              48.150069
+            ],
+            [
+              11.520482,
+              48.150094
+            ],
+            [
+              11.520485,
+              48.15011
+            ],
+            [
+              11.520489,
+              48.150136
+            ],
+            [
+              11.520492,
+              48.150156
+            ],
+            [
+              11.520502,
+              48.150211
+            ],
+            [
+              11.520505,
+              48.15023
+            ],
+            [
+              11.520497358,
+              48.150378258
+            ]
+          ],
+          "approach": [
+            [
+              11.519602,
+              48.150086
+            ],
+            [
+              11.519927399,
+              48.150025514
+            ]
+          ],
+          "departure": [
+            [
+              11.520497358,
+              48.150378258
+            ],
+            [
+              11.520485,
+              48.150618
+            ]
+          ],
+          "id": "west-north-left",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "review": {
+            "status": "approved",
+            "evidence": "User confirmed successful physical Arnulfstrasse pilot test on 2026-11-06."
+          }
+        }
       ]
-    ]
-  },
-  "entry": [
-    11.519927399,
-    48.150025514
+    }
   ],
-  "exit": [
-    11.520497358,
-    48.150378258
-  ],
-  "corridor": [
-    [
-      11.519927399,
-      48.150025514
-    ],
-    [
-      11.520027,
-      48.150007
-    ],
-    [
-      11.520094,
-      48.149987
-    ],
-    [
-      11.520095,
-      48.149927
-    ],
-    [
-      11.520219,
-      48.149906
-    ],
-    [
-      11.52037,
-      48.14988
-    ],
-    [
-      11.520488,
-      48.149865
-    ],
-    [
-      11.520482,
-      48.149941
-    ],
-    [
-      11.520466,
-      48.149996
-    ],
-    [
-      11.520472,
-      48.150037
-    ],
-    [
-      11.520473,
-      48.150041
-    ],
-    [
-      11.520476,
-      48.150061
-    ],
-    [
-      11.520478,
-      48.150069
-    ],
-    [
-      11.520482,
-      48.150094
-    ],
-    [
-      11.520485,
-      48.15011
-    ],
-    [
-      11.520489,
-      48.150136
-    ],
-    [
-      11.520492,
-      48.150156
-    ],
-    [
-      11.520502,
-      48.150211
-    ],
-    [
-      11.520505,
-      48.15023
-    ],
-    [
-      11.520497358,
-      48.150378258
-    ]
-  ],
-  "approach": [
-    [
-      11.519602,
-      48.150086
-    ],
-    [
-      11.519927399,
-      48.150025514
-    ]
-  ],
-  "departure": [
-    [
-      11.520497358,
-      48.150378258
-    ],
-    [
-      11.520485,
-      48.150618
-    ]
+  "excluded": [
+    {
+      "referenceNodeId": 5693658006,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": [
+        "mixed_unverified_cycling_approaches"
+      ],
+      "evidence": "Four selected carriageway segments, but no verified complete cycling-path ring and no approved entry/exit relationships.",
+      "id": "am-knie"
+    },
+    {
+      "referenceNodeId": 12878607912,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": [
+        "complex_curved_arms",
+        "motorroad_and_tunnel_transition"
+      ],
+      "evidence": "Four local segments include short internal connectors to bicycle=no/motorroad=yes roads near the Altstadtring tunnel.",
+      "id": "gabelsberger-oskar-von-miller"
+    },
+    {
+      "referenceNodeId": 17707826,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": [
+        "t_intersection_with_carriageway_connector"
+      ],
+      "evidence": "The apparent fourth direction follows Else-Rosenfeld-Strasse way 37666177 only 18.2 m to node 428737 on the other Kreillerstrasse carriageway.",
+      "id": "kreiller-els-rosenfeld"
+    },
+    {
+      "referenceNodeId": 15687747,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": [
+        "motorroad_ramp_complex",
+        "residential_arm_omitted_by_candidate_filter"
+      ],
+      "evidence": "Four selected segments versus five total motor-traffic-road segments; Nawiaskystrasse is residential, and the eastern ramp complex reaches trunk_link/motorroad=yes roads.",
+      "id": "quidde-nawiasky"
+    }
   ]
 }

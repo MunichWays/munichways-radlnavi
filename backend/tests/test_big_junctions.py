@@ -11,7 +11,7 @@ from requests import Response
 from starlette.requests import Request
 
 from test_app import app
-from src.big_junctions import add_guidance, meters, pilot
+from src.big_junctions import add_guidance, meters, approved_movements, catalog, validate_catalog
 
 
 FIXTURE = Path(__file__).with_name("fixtures") / "arnulf-steuben-route.json"
@@ -46,6 +46,86 @@ OPTIONS = {"junction_guidance": "true", "geometries": "geojson", "overview": "fu
 
 
 class BigJunctionMatchingTest(unittest.TestCase):
+    def test_catalog_requires_review_and_preserves_explicit_exclusions(self):
+        value = deepcopy(catalog())
+        self.assertEqual(1, len(approved_movements(value)))
+        for kind in ("unreviewed_junction", "unreviewed_movement", "duplicate", "excluded", "self_intersection"):
+            invalid = deepcopy(value)
+            junction = invalid["junctions"][0]
+            if kind == "unreviewed_junction":
+                junction["review"]["status"] = "draft"
+            elif kind == "unreviewed_movement":
+                junction["movements"][0]["review"]["status"] = "draft"
+            elif kind == "duplicate":
+                invalid["junctions"].append(deepcopy(junction))
+            elif kind == "excluded":
+                invalid["excluded"].append({"id": junction["id"]})
+            else:
+                ring = junction["polygon"]["coordinates"][0]
+                ring[1], ring[5] = ring[5], ring[1]
+            with self.subTest(kind=kind), self.assertRaises(ValueError):
+                validate_catalog(invalid)
+        value["junctions"][0]["movements"][0]["enabled"] = False
+        self.assertEqual([], approved_movements(value))
+
+    def test_repeated_visits_have_distinct_ids_and_step_intervals(self):
+        original = payload()["routes"][0]["geometry"]["coordinates"]
+        line = original + original[-2::-1] + original[1:]
+        value = with_line(line)
+        value["routes"][0]["legs"][0]["steps"] = [
+            {"mode": "cycling", "maneuver": {"type": "depart" if i == 0 else "continue", "location": a},
+             "geometry": {"type": "LineString", "coordinates": [a, b]}}
+            for i, (a, b) in enumerate(zip(line, line[1:]))]
+        hits = add_guidance(value)["routes"][0]["guidance"]["junctions"]
+        self.assertEqual(2, len(hits))
+        self.assertNotEqual(hits[0]["occurrenceId"], hits[1]["occurrenceId"])
+        self.assertLess(hits[0]["exit"]["distanceAlongRouteMeters"], hits[1]["entry"]["distanceAlongRouteMeters"])
+        self.assertLess(max(hits[0]["suppressedStepIndices"]), min(hits[1]["suppressedStepIndices"]))
+
+    def test_multiple_catalog_junctions_in_one_leg(self):
+        data = deepcopy(catalog())
+        second = deepcopy(data["junctions"][0])
+        second["id"] = "synthetic-second"
+        def move(point):
+            return [point[0] + .003, point[1]]
+        second["polygon"]["coordinates"][0] = list(map(move, second["polygon"]["coordinates"][0]))
+        movement = second["movements"][0]
+        for key in ("entry", "exit"):
+            movement[key] = move(movement[key])
+        for key in ("corridor", "approach", "departure"):
+            movement[key] = list(map(move, movement[key]))
+        data["junctions"].append(second)
+        original = payload()["routes"][0]["geometry"]["coordinates"]
+        line = original + list(map(move, original))
+        value = with_line(line)
+        value["routes"][0]["legs"][0]["steps"] = [
+            {"mode": "cycling", "maneuver": {"type": "continue", "location": a},
+             "geometry": {"type": "LineString", "coordinates": [a, b]}}
+            for a, b in zip(line, line[1:])]
+        with patch("src.big_junctions.catalog", return_value=data):
+            hits = add_guidance(value)["routes"][0]["guidance"]["junctions"]
+        self.assertEqual(["arnulf-steuben", "synthetic-second"], [h["id"] for h in hits])
+        self.assertLess(hits[0]["exit"]["geometrySegmentIndex"], hits[1]["entry"]["geometrySegmentIndex"])
+
+    def test_straight_movement_and_ambiguous_catalog_fallback(self):
+        data = deepcopy(catalog())
+        junction = data["junctions"][0]
+        junction["id"] = "synthetic-straight"
+        ring = [[11.6, 48.15], [11.601, 48.15], [11.601, 48.151], [11.6, 48.151], [11.6, 48.15]]
+        junction["polygon"]["coordinates"] = [ring]
+        line = [[11.5995, 48.1505], [11.6, 48.1505], [11.6005, 48.1505], [11.601, 48.1505], [11.6015, 48.1505]]
+        movement = junction["movements"][0]
+        movement.update(movement="straight", entryArm="west", exitArm="east", entry=line[1], exit=line[3],
+            approach=line[:2], departure=line[-2:], corridor=line[1:4])
+        value = with_line(line)
+        with patch("src.big_junctions.catalog", return_value=data):
+            result = add_guidance(value)
+            self.assertEqual("straight", result["routes"][0]["guidance"]["junctions"][0]["movement"])
+            ambiguous = deepcopy(movement)
+            ambiguous["id"] = "ambiguous-copy"
+            junction["movements"].append(ambiguous)
+            self.assertIsNone(add_guidance(value))
+
     def test_approved_route_gets_only_additional_metadata_without_mutation(self):
         original = payload()
         saved = deepcopy(original)
@@ -75,7 +155,6 @@ class BigJunctionMatchingTest(unittest.TestCase):
             "detour_inside_same_gates": detour,
             "shortcut_same_gates": line[:5] + line[17:],
             "backtracking_inside": line[:9] + line[6:8][::-1] + line[8:],
-            "repeated_visits": line + line[-2::-1] + line[1:],
         }
         for name, coordinates in cases.items():
             with self.subTest(name=name):
@@ -102,7 +181,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
 
     def test_gate_location_alone_does_not_approve_wrong_approach_or_departure(self):
         line = payload()["routes"][0]["geometry"]["coordinates"]
-        entry, exit = pilot()["entry"], pilot()["exit"]
+        entry, exit = approved_movements()[0]["entry"], approved_movements()[0]["exit"]
         for altered in (
             [[entry[0], entry[1] - .0003], entry, *line[3:]],
             [*line[:21], exit, [exit[0] + .001, exit[1] + .0002]],
@@ -134,10 +213,10 @@ class BigJunctionMatchingTest(unittest.TestCase):
         self.assertAlmostEqual(meters(before, first), hit["entry"]["distanceAlongRouteMeters"] - hit["entry"]["distanceAlongLegMeters"])
 
     def test_result_cannot_mutate_cached_catalog(self):
-        original = deepcopy(pilot())
+        original = deepcopy(approved_movements()[0])
         result = add_guidance(payload())
         result["routes"][0]["guidance"]["junctions"][0]["polygon"]["coordinates"][0][0][0] = 0
-        self.assertEqual(original, pilot())
+        self.assertEqual(original, approved_movements()[0])
 
 
 class BigJunctionApiTest(unittest.TestCase):

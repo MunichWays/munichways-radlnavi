@@ -1,12 +1,17 @@
-# Große Kreuzungen: Backend-Pilot Arnulfstraße
+# Große Kreuzungen: Katalog und API
 
-Stand: 06.11.2026. Nur **Arnulfstraße West → Steubenplatz Nord, links**.
-Die Polygonprüfung ist bestätigt. App-Ansagen, Rerouting und Deployment
-sind nicht Teil dieses Umsetzungsschritts.
+Stand: 06.11.2026. Der Arnulf-Praxistest war erfolgreich. Der allgemeine
+Katalog unterstützt mehrere Kreuzungen, links/geradeaus und wiederholte
+Durchfahrten. Aktiv freigegeben: **Arnulfstraße West zum Steubenplatz Nord,
+links**. Die vier schwierigen Fälle bleiben ausgeschlossen.
+
+Neue App-Builds fragen die Zusatzdaten standardmäßig ab. RadlNavis
+Einzelhinweise, Route und Geometrie bleiben unverändert. Der Backend-Endpunkt
+bleibt opt-in; bestehende Clients ohne Parameter erhalten ihre bisherige Antwort.
 
 ## Einschalten pro Anfrage
 
-Standardmäßig wird nichts ergänzt. Für den Pilotversuch ausdrücklich
+Standardmäßig wird nichts ergänzt. Für die Kreuzungszuordnung
 `junction_guidance=true` zusammen mit `steps=true`, `overview=full` und
 `geometries=geojson` senden:
 
@@ -14,7 +19,7 @@ Standardmäßig wird nichts ergänzt. Für den Pilotversuch ausdrücklich
 GET /route/v1/bike/11.518913,48.150239;11.520477,48.150871?junction_guidance=true&steps=true&overview=full&geometries=geojson&alternatives=false
 ```
 
-Nur der Standard-Worker mit Profil `bike` erzeugt Pilot-Metadaten. Direct
+Nur der Standard-Worker mit Profil `bike` erzeugt Kreuzungsmetadaten. Direct
 und Discovery bleiben ohne diese Ergänzung. Das neue Argument wird vor
 dem Aufruf des OSRM-Diensts entfernt. `comfort=true` und die bisherige
 Annotationenbehandlung bleiben kombinierbar.
@@ -28,10 +33,10 @@ sie unter `routes[i].guidance`, separat für jede Alternative.
 ```json
 {
   "version": "big-junctions-v1",
-  "catalogVersion": "arnulf-steuben-pilot-v1",
+  "catalogVersion": "munich-big-junctions-v1",
   "junctions": [{
     "id": "arnulf-steuben",
-    "occurrenceId": "arnulf-steuben:leg:0",
+    "occurrenceId": "arnulf-steuben:west-north-left:leg:0:visit:0",
     "legIndex": 0,
     "movement": "left",
     "entryArm": "west",
@@ -63,20 +68,29 @@ Koordinaten sind `[Länge, Breite]`. Indizes sind nullbasiert;
 `suppressedStepIndices` referenziert die Steps innerhalb des angegebenen
 Legs. Das Backend löscht oder verschiebt keine Steps.
 
-Entfernungen werden geodätisch entlang der Geometrie summiert. Die spätere
-App kann ihren Routenfortschritt mit dem Einfahrtsanker abgleichen.
+Entfernungen werden geodätisch entlang der Geometrie summiert. Die App
+gleicht ihren Routenfortschritt mit dem Einfahrtsanker ab.
 Die Beispielroute beginnt nur ca. 79 m vor der Einfahrt; für die geplante
 100-/60-m-Ansage ist eine längere Anfahrt nötig.
 
 ## Konservative Zuordnung
 
 Die Laufzeitdaten liegen in `backend/src/big_junctions.json` und werden mit
-dem Backend-Image ausgeliefert. Die Zuordnung verlangt:
+dem Backend-Image ausgeliefert. Das Dokument enthält `schemaVersion`, eine
+`version`, `junctions` und explizite `excluded`-Einträge. Jede Kreuzung hat
+Kennung, Polygon, Review und eine Liste gerichteter `movements`. Aktivierung
+verlangt sowohl an der Kreuzung als auch an der Fahrbeziehung `enabled: true`,
+`review.status: approved` und einen Prüfnachweis. Kandidaten werden nicht aus
+der Suchliste in diesen Katalog importiert. Die Offline-Prüfung lehnt unter
+anderem Selbstüberschneidungen, doppelte Kennungen, ausgeschlossene Kennungen
+und eine zum Anschlusswinkel widersprüchliche Fahrbeziehung ab.
+
+Die Zuordnung verlangt:
 
 - Vollständige, zusammenhängende GeoJSON-Step-Geometrien, die exakt die
   Route-Geometrie rekonstruieren. Doppelte aufeinanderfolgende Punkte in
   der Route-Geometrie werden wegen sonst mehrdeutiger Indizes abgelehnt.
-- Einen Eintritt im Westen und Austritt im Norden, jeweils höchstens 2,5 m
+- Die für die Fahrbeziehung freigegebenen Ein- und Ausgänge, höchstens 2,5 m
   vom geprüften Grenzpunkt entfernt; Start und Ziel des Legs außerhalb.
 - Mindestens 10 m Anfahrt und Weiterfahrt außerhalb der Fläche, deren
   Richtungen höchstens 30° von den geprüften Anschlussrichtungen abweichen.
@@ -84,12 +98,15 @@ dem Backend-Image ausgeliefert. Die Zuordnung verlangt:
   Die Prüfung tastet den Verlauf in höchstens 2-m-Abständen ab und lehnt
   Rückwärtsverlauf bzw. innere Schleifen ab.
 - Ausschließlich `cycling`-Steps im betroffenen Leg, mindestens einen inneren
-  Hinweis und genau zwei Grenzübertritte. Wiederholte Durchfahrten innerhalb
-  desselben Legs bleiben für diesen ersten Pilotstand ohne Zuordnung.
+  Hinweis je Durchfahrt und eindeutig gepaarte Grenzübertritte. Wiederholte
+  vollständige Durchfahrten erhalten getrennte `occurrenceId`-Werte und
+  Step-Intervalle. Mehrere Kreuzungen und Legs werden in Routenreihenfolge
+  ausgegeben. Überlappende/mehrdeutige Zuordnungen verwerfen die Zusatzdaten
+  dieser Routenalternative.
 
 Andere Ein-/Ausgänge, Gegenrichtung, Abkürzungen, Umwege, Schiebeabschnitte,
-Start/Ziel in der Fläche, unvollständige oder unklare Geometrien erhalten
-keine Pilot-Metadaten. Das gilt ebenso für die vier zuvor ausgeschlossenen
+Start/Ziel in der betreffenden Fläche, unvollständige oder unklare Geometrien erhalten
+keine Kreuzungsmetadaten. Das gilt ebenso für die vier zuvor ausgeschlossenen
 schwierigen Kreuzungen.
 
 **Die derzeitige Freigabe gilt nur für die geprüfte innere Route.** Andere
@@ -113,8 +130,20 @@ Schleifen/Umwege/Abkürzungen, Teilrouten, Alternativen, Leg-/Geometrieindizes,
 Unveränderlichkeit, Opt-in, beide API-Wege, Comfort und Fehler-Rückfall.
 
 ```powershell
+backend/.venv/Scripts/python.exe backend/check_big_junction_catalog.py
 backend/.venv/Scripts/python.exe -m unittest discover -s backend/tests
 ```
 
-Kein produktives Deployment und kein App-/Telefonlauf. Der nächste Schritt
-ist die getrennte App-Anbindung dieses optionalen Vertrags.
+Der bisherige Arnulf-Pilot wurde live und auf dem Telefon erfolgreich
+geprüft. Die verallgemeinerte Technik wird vor Deployment erneut getestet.
+
+## Stadtweite Erfassung
+
+Die separate `docs/large-junction-analysis/munich-review-queue.geojson` enthält
+495 Kandidatenpunkte im Münchner Verwaltungsgebiet, keine freigegebenen
+Polygone. Ein Kreuzungskomplex kann mehrere Punkte haben; Vierergrad allein
+schließt falsche T-Komplexe oder Rampen nicht aus. Jeder Kandidat bleibt bis
+zur Polygon- und Fahrbeziehungsprüfung inaktiv. Neue geprüfte Katalogeinträge
+benötigen keine App-Änderung bei unverändertem API-Vertrag.
+
+Siehe [Ausbau und Freigabeverfahren](big-junction-rollout.md).

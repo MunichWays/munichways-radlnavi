@@ -25,6 +25,7 @@ from requests.exceptions import RequestException, Timeout
 
 from src.direct_proxy import DirectRouteProxy
 from src.endpoint_routes import endpoint_route
+from src.big_junctions import add_guidance as add_big_junction_guidance
 from src.shared_routes import router as shared_routes_router
 
 from src.route_analysis import (
@@ -335,6 +336,31 @@ def get_routing_response(url, *, params, auth_context=None, timeout=30):
 
 
 def get_endpoint_routing_response(profile, coordinates, params):
+    """Optional pilot metadata is added after final endpoint-access geometry."""
+    options = dict(params)
+    requested = str(options.get("junction_guidance", "")).lower() == "true"
+    upstream = ({k: v for k, v in params.items() if k != "junction_guidance"}
+        if isinstance(params, dict) else [(k, v) for k, v in params if k != "junction_guidance"])
+    response = _get_endpoint_routing_response(profile, coordinates, upstream)
+    if (not requested or ROUTING_VARIANT != "standard" or profile != "bike"
+        or response.status_code != 200 or options.get("geometries") != "geojson"
+        or options.get("overview") != "full" or options.get("steps") != "true"):
+        return response
+    try:
+        payload = add_big_junction_guidance(response.json())
+        if payload is None:
+            return response
+        enriched = RoutingResponse()
+        enriched.status_code = response.status_code
+        enriched.headers["content-type"] = "application/json"
+        enriched._content = dumps(payload, separators=(",", ":")).encode()
+        return enriched
+    except Exception:
+        logger.exception("Could not add optional big-junction pilot metadata")
+        return response
+
+
+def _get_endpoint_routing_response(profile, coordinates, params):
     auth_context = {}
     response = get_routing_response(
         f"{OSRM_BACKEND_URL}/route/v1/{profile}/{coordinates}", params=params,
@@ -665,6 +691,7 @@ async def route(
     target_lat: float,
     target_lon: float,
     variant: Literal["standard", "direct", "discovery"] | None = None,
+    junction_guidance: bool = False,
 ):
     selected = resolve_variant(variant)
     if selected != ROUTING_VARIANT:
@@ -677,6 +704,7 @@ async def route(
                 "target_lat": target_lat,
                 "target_lon": target_lon,
                 "variant": selected,
+                **({"junction_guidance": "true"} if junction_guidance else {}),
             },
         )
     print("request start")
@@ -688,6 +716,7 @@ async def route(
             "steps": "true",
             "geometries": "geojson",
             "annotations": "true",
+            **({"junction_guidance": "true"} if junction_guidance else {}),
         },
     )
 
@@ -715,6 +744,7 @@ async def route(
         "ok": True,
         "route": {
             **analysis_context,
+            **({"guidance": first_route["guidance"]} if "guidance" in first_route else {}),
             "annotation": osrm_response["routes"][0]["legs"][0]["annotation"],
             "steps": osrm_response["routes"][0]["legs"][0]["steps"],
             "geometry": osrm_response["routes"][0]["geometry"],

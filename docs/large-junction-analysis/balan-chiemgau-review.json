@@ -1,0 +1,2423 @@
+{
+  "polygon": {
+    "type": "Feature",
+    "id": "balan-chiemgau",
+    "properties": {
+      "junction_id": "balan-chiemgau",
+      "name": "Balanstraße / Chiemgaustraße",
+      "status": "draft",
+      "enabled": false,
+      "revision": 1,
+      "created_on": "2026-11-06",
+      "basis": "Manually drafted around the four crossing paths and approach transitions in junction-detail.json.gz; not a surveyed or official boundary.",
+      "osm_crossing_way_ids": [
+        52792925,
+        138347215,
+        147718922,
+        380171576
+      ],
+      "review_required": "Verify all four arms, path sides and permitted movements before activation."
+    },
+    "geometry": {
+      "type": "Polygon",
+      "coordinates": [
+        [
+          [
+            11.60372,
+            48.10876
+          ],
+          [
+            11.60365,
+            48.10865
+          ],
+          [
+            11.60367,
+            48.10836
+          ],
+          [
+            11.60387,
+            48.10828
+          ],
+          [
+            11.60432,
+            48.10834
+          ],
+          [
+            11.60447,
+            48.10848
+          ],
+          [
+            11.60443,
+            48.10875
+          ],
+          [
+            11.60423,
+            48.10887
+          ],
+          [
+            11.60382,
+            48.10882
+          ],
+          [
+            11.60372,
+            48.10876
+          ]
+        ]
+      ]
+    }
+  },
+  "osm": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "primary",
+          "lanes": "5",
+          "name": "Chiemgaustraße",
+          "id": 32854649,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6040707,
+              48.1085586
+            ],
+            [
+              11.6042805,
+              48.1085841
+            ],
+            [
+              11.6043512,
+              48.1085931
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "tertiary",
+          "lanes": "5",
+          "name": "Balanstraße",
+          "id": 32958394,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6040707,
+              48.1085586
+            ],
+            [
+              11.604076,
+              48.1084301
+            ],
+            [
+              11.604081,
+              48.1083592
+            ],
+            [
+              11.6040905,
+              48.1081223
+            ],
+            [
+              11.6040913,
+              48.1079616
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "primary",
+          "lanes": "5",
+          "name": "Chiemgaustraße",
+          "id": 37665849,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6043512,
+              48.1085931
+            ],
+            [
+              11.6047553,
+              48.1086407
+            ],
+            [
+              11.6048209,
+              48.1086482
+            ],
+            [
+              11.6048624,
+              48.1086529
+            ],
+            [
+              11.6050676,
+              48.1086763
+            ],
+            [
+              11.6054524,
+              48.1087202
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "primary",
+          "lanes": "4",
+          "name": "Chiemgaustraße",
+          "id": 38609710,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.603653,
+              48.1085019
+            ],
+            [
+              11.6038029,
+              48.1085235
+            ],
+            [
+              11.6038647,
+              48.1085319
+            ],
+            [
+              11.6040707,
+              48.1085586
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 52792924,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6095452,
+              48.1094595
+            ],
+            [
+              11.6093841,
+              48.1094211
+            ],
+            [
+              11.6090661,
+              48.1093453
+            ],
+            [
+              11.6086477,
+              48.1092455
+            ],
+            [
+              11.6080684,
+              48.1091358
+            ],
+            [
+              11.6076959,
+              48.1090743
+            ],
+            [
+              11.6074558,
+              48.1090401
+            ],
+            [
+              11.6071332,
+              48.1090003
+            ],
+            [
+              11.6066658,
+              48.1089425
+            ],
+            [
+              11.6065584,
+              48.1089303
+            ],
+            [
+              11.6063563,
+              48.1089073
+            ],
+            [
+              11.6054353,
+              48.1088105
+            ],
+            [
+              11.6050439,
+              48.10877
+            ],
+            [
+              11.6047938,
+              48.1087466
+            ],
+            [
+              11.6042694,
+              48.1086977
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "crossing",
+          "footway": "crossing",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 52792925,
+          "crossing": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038952,
+              48.1083953
+            ],
+            [
+              11.604076,
+              48.1084301
+            ],
+            [
+              11.6042504,
+              48.1084636
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 63534658,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.5997835,
+              48.107558
+            ],
+            [
+              11.5998414,
+              48.1075671
+            ],
+            [
+              11.6005557,
+              48.1077278
+            ],
+            [
+              11.6014366,
+              48.1079429
+            ],
+            [
+              11.6022275,
+              48.1081431
+            ],
+            [
+              11.6022937,
+              48.1081598
+            ],
+            [
+              11.602397,
+              48.108186
+            ],
+            [
+              11.6029923,
+              48.1083053
+            ],
+            [
+              11.6032773,
+              48.1083593
+            ],
+            [
+              11.6038236,
+              48.1084234
+            ],
+            [
+              11.6038622,
+              48.1084207
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 63534665,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038673,
+              48.1086387
+            ],
+            [
+              11.6034633,
+              48.1085763
+            ],
+            [
+              11.6033031,
+              48.1085515
+            ],
+            [
+              11.6031999,
+              48.1085342
+            ],
+            [
+              11.6028178,
+              48.1084701
+            ],
+            [
+              11.6026763,
+              48.1084349
+            ],
+            [
+              11.6018437,
+              48.1082453
+            ],
+            [
+              11.6012589,
+              48.1081055
+            ],
+            [
+              11.600795,
+              48.1079961
+            ],
+            [
+              11.600599,
+              48.1079496
+            ],
+            [
+              11.6000646,
+              48.1078227
+            ],
+            [
+              11.599682,
+              48.107736
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 134138908,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6052129,
+              48.1047242
+            ],
+            [
+              11.605174,
+              48.1047905
+            ],
+            [
+              11.6051111,
+              48.1049038
+            ],
+            [
+              11.6050588,
+              48.1049979
+            ],
+            [
+              11.6049959,
+              48.1051113
+            ],
+            [
+              11.6049301,
+              48.1052305
+            ],
+            [
+              11.6048767,
+              48.1053268
+            ],
+            [
+              11.6048135,
+              48.1054429
+            ],
+            [
+              11.604526,
+              48.1062307
+            ],
+            [
+              11.6044136,
+              48.106531
+            ],
+            [
+              11.6043543,
+              48.1067942
+            ],
+            [
+              11.6042838,
+              48.1071061
+            ],
+            [
+              11.6042363,
+              48.1073178
+            ],
+            [
+              11.6042016,
+              48.107648
+            ],
+            [
+              11.604197,
+              48.1078477
+            ],
+            [
+              11.6042477,
+              48.1079334
+            ],
+            [
+              11.604248,
+              48.1079762
+            ],
+            [
+              11.6042695,
+              48.1083737
+            ],
+            [
+              11.6042504,
+              48.1084636
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 138347212,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6042694,
+              48.1086977
+            ],
+            [
+              11.6042412,
+              48.1087059
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "crossing",
+          "footway": "crossing",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 138347215,
+          "crossing": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6042412,
+              48.1087059
+            ],
+            [
+              11.6040556,
+              48.1086861
+            ],
+            [
+              11.6038862,
+              48.1086669
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 138347229,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038952,
+              48.1083953
+            ],
+            [
+              11.6039104,
+              48.1083214
+            ],
+            [
+              11.6039152,
+              48.1082868
+            ],
+            [
+              11.6039439,
+              48.1081036
+            ],
+            [
+              11.6039702,
+              48.1079316
+            ],
+            [
+              11.6039875,
+              48.1078185
+            ],
+            [
+              11.6039889,
+              48.1078037
+            ],
+            [
+              11.6040124,
+              48.1075592
+            ],
+            [
+              11.604037,
+              48.1073847
+            ],
+            [
+              11.6040488,
+              48.107301
+            ],
+            [
+              11.6040514,
+              48.1072875
+            ],
+            [
+              11.6041247,
+              48.1069131
+            ],
+            [
+              11.604177,
+              48.1067094
+            ],
+            [
+              11.6042321,
+              48.1065096
+            ],
+            [
+              11.604328,
+              48.1062003
+            ],
+            [
+              11.6044895,
+              48.1057224
+            ],
+            [
+              11.6045274,
+              48.1056211
+            ],
+            [
+              11.6045774,
+              48.1055
+            ],
+            [
+              11.6046219,
+              48.1053992
+            ],
+            [
+              11.6046462,
+              48.1053462
+            ],
+            [
+              11.6046882,
+              48.1052426
+            ],
+            [
+              11.6047302,
+              48.1051594
+            ],
+            [
+              11.6049913,
+              48.1046785
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 138347230,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6042899,
+              48.1084933
+            ],
+            [
+              11.6043747,
+              48.1085144
+            ],
+            [
+              11.6046333,
+              48.1085445
+            ],
+            [
+              11.6048722,
+              48.1085724
+            ],
+            [
+              11.6049128,
+              48.1085771
+            ],
+            [
+              11.6054577,
+              48.1086344
+            ],
+            [
+              11.6055727,
+              48.1086453
+            ],
+            [
+              11.6055994,
+              48.1086482
+            ],
+            [
+              11.6059982,
+              48.1086921
+            ],
+            [
+              11.6064119,
+              48.1087413
+            ],
+            [
+              11.6066389,
+              48.1087679
+            ],
+            [
+              11.6069913,
+              48.1088068
+            ],
+            [
+              11.6074987,
+              48.1088624
+            ],
+            [
+              11.6077572,
+              48.1088909
+            ],
+            [
+              11.6078298,
+              48.1089019
+            ],
+            [
+              11.6081856,
+              48.1089596
+            ],
+            [
+              11.6089389,
+              48.1091166
+            ],
+            [
+              11.6095383,
+              48.1092612
+            ],
+            [
+              11.6100829,
+              48.1094107
+            ],
+            [
+              11.6106233,
+              48.1095899
+            ],
+            [
+              11.611273,
+              48.1098243
+            ],
+            [
+              11.6115065,
+              48.1099201
+            ],
+            [
+              11.6117775,
+              48.1100272
+            ],
+            [
+              11.6119225,
+              48.1100844
+            ],
+            [
+              11.6122376,
+              48.1102088
+            ],
+            [
+              11.6123815,
+              48.1102656
+            ],
+            [
+              11.6125316,
+              48.1103332
+            ],
+            [
+              11.6127755,
+              48.1104433
+            ],
+            [
+              11.6130313,
+              48.1105586
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "access": "private",
+          "highway": "service",
+          "id": 146276388,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6045413,
+              48.1080165
+            ],
+            [
+              11.6048076,
+              48.1080566
+            ],
+            [
+              11.604841,
+              48.1080724
+            ],
+            [
+              11.6048424,
+              48.1081478
+            ],
+            [
+              11.6048619,
+              48.1082101
+            ],
+            [
+              11.6049066,
+              48.1082576
+            ],
+            [
+              11.6050027,
+              48.1082865
+            ],
+            [
+              11.6053275,
+              48.1083228
+            ],
+            [
+              11.6053749,
+              48.1083423
+            ],
+            [
+              11.6054126,
+              48.1083879
+            ],
+            [
+              11.6054377,
+              48.1084531
+            ],
+            [
+              11.6054512,
+              48.1085601
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "access": "private",
+          "highway": "service",
+          "id": 146276393,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.604841,
+              48.1080724
+            ],
+            [
+              11.6053038,
+              48.1081199
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "footway",
+          "id": 146276398,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6045158,
+              48.1079283
+            ],
+            [
+              11.6053666,
+              48.1080147
+            ],
+            [
+              11.6053709,
+              48.1079993
+            ],
+            [
+              11.605525,
+              48.1074417
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 146276408,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6040913,
+              48.1079616
+            ],
+            [
+              11.604248,
+              48.1079762
+            ],
+            [
+              11.6045018,
+              48.1080104
+            ],
+            [
+              11.6045413,
+              48.1080165
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 146276414,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6045018,
+              48.1080104
+            ],
+            [
+              11.6045158,
+              48.1079283
+            ],
+            [
+              11.6045467,
+              48.1076778
+            ],
+            [
+              11.6042016,
+              48.107648
+            ],
+            [
+              11.6040985,
+              48.1076414
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 147718914,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6042412,
+              48.1087059
+            ],
+            [
+              11.6042131,
+              48.1087321
+            ],
+            [
+              11.6041873,
+              48.1088301
+            ],
+            [
+              11.6041398,
+              48.1090037
+            ],
+            [
+              11.6039917,
+              48.109544
+            ],
+            [
+              11.603872,
+              48.1100145
+            ],
+            [
+              11.6038441,
+              48.1101239
+            ],
+            [
+              11.6036941,
+              48.1106974
+            ],
+            [
+              11.6035655,
+              48.1111335
+            ],
+            [
+              11.6034443,
+              48.1115839
+            ],
+            [
+              11.6031638,
+              48.1124402
+            ],
+            [
+              11.6031419,
+              48.1125131
+            ],
+            [
+              11.6031121,
+              48.112597
+            ],
+            [
+              11.6030675,
+              48.1127225
+            ],
+            [
+              11.603023,
+              48.1128505
+            ],
+            [
+              11.6030009,
+              48.1129099
+            ],
+            [
+              11.6029908,
+              48.1129416
+            ],
+            [
+              11.60298,
+              48.1129755
+            ],
+            [
+              11.6029455,
+              48.1130843
+            ],
+            [
+              11.6027584,
+              48.1136959
+            ],
+            [
+              11.6027269,
+              48.1138153
+            ],
+            [
+              11.6027077,
+              48.1138951
+            ],
+            [
+              11.6026463,
+              48.1141502
+            ],
+            [
+              11.6026378,
+              48.1141877
+            ],
+            [
+              11.6025309,
+              48.1147228
+            ],
+            [
+              11.6024126,
+              48.1154479
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 147718919,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6042504,
+              48.1084636
+            ],
+            [
+              11.6042899,
+              48.1084933
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "crossing",
+          "footway": "crossing",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 147718922,
+          "crossing": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6042899,
+              48.1084933
+            ],
+            [
+              11.6042805,
+              48.1085841
+            ],
+            [
+              11.6042694,
+              48.1086977
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "tertiary",
+          "lanes": "2",
+          "name": "Balanstraße",
+          "id": 260510496,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6040908,
+              48.1078051
+            ],
+            [
+              11.6040985,
+              48.1076414
+            ],
+            [
+              11.6041296,
+              48.1073908
+            ],
+            [
+              11.6041398,
+              48.1073086
+            ],
+            [
+              11.6041912,
+              48.1070346
+            ],
+            [
+              11.6042555,
+              48.1067789
+            ],
+            [
+              11.6043273,
+              48.1065211
+            ],
+            [
+              11.6044251,
+              48.1062153
+            ],
+            [
+              11.6045043,
+              48.1059789
+            ],
+            [
+              11.6045921,
+              48.1057414
+            ],
+            [
+              11.604681,
+              48.1055241
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "tertiary",
+          "lanes": "4",
+          "name": "Balanstraße",
+          "id": 260510499,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6040913,
+              48.1079616
+            ],
+            [
+              11.6040912,
+              48.1079362
+            ],
+            [
+              11.6040908,
+              48.1078051
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "tertiary",
+          "lanes": "5",
+          "name": "Balanstraße",
+          "id": 260510509,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6039848,
+              48.1090774
+            ],
+            [
+              11.6040463,
+              48.1087401
+            ],
+            [
+              11.6040556,
+              48.1086861
+            ],
+            [
+              11.6040707,
+              48.1085586
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "use_sidepath",
+          "highway": "primary",
+          "lanes": "4",
+          "name": "Chiemgaustraße",
+          "id": 260756021,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6029543,
+              48.1083966
+            ],
+            [
+              11.6033412,
+              48.1084549
+            ],
+            [
+              11.603653,
+              48.1085019
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 282771864,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6030832,
+              48.1080974
+            ],
+            [
+              11.603063,
+              48.1081436
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 283680518,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.603063,
+              48.1081436
+            ],
+            [
+              11.6030033,
+              48.1082796
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 283680521,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6030033,
+              48.1082796
+            ],
+            [
+              11.6029923,
+              48.1083053
+            ],
+            [
+              11.6029543,
+              48.1083966
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "highway": "cycleway",
+          "oneway": "yes",
+          "id": 341311854,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038244,
+              48.1093225
+            ],
+            [
+              11.6038544,
+              48.1091844
+            ],
+            [
+              11.6038974,
+              48.1088458
+            ],
+            [
+              11.6038839,
+              48.1087771
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "no",
+          "footway": "sidewalk",
+          "highway": "footway",
+          "id": 341311860,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038244,
+              48.1093225
+            ],
+            [
+              11.6037695,
+              48.1092041
+            ],
+            [
+              11.6038118,
+              48.1090222
+            ],
+            [
+              11.6038396,
+              48.1088642
+            ],
+            [
+              11.6038434,
+              48.1088424
+            ],
+            [
+              11.6038839,
+              48.1087771
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "area": "yes",
+          "highway": "bus_stop",
+          "name": "Balanstraße",
+          "id": 373592112,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6039502,
+              48.1082615
+            ],
+            [
+              11.603967,
+              48.1081169
+            ],
+            [
+              11.603971,
+              48.1080821
+            ],
+            [
+              11.6040067,
+              48.1080839
+            ],
+            [
+              11.6040027,
+              48.1081187
+            ],
+            [
+              11.6039859,
+              48.1082633
+            ],
+            [
+              11.6039502,
+              48.1082615
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "area": "yes",
+          "highway": "bus_stop",
+          "name": "Balanstraße",
+          "id": 373592113,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.603206,
+              48.1085226
+            ],
+            [
+              11.6032125,
+              48.1085042
+            ],
+            [
+              11.603473,
+              48.1085451
+            ],
+            [
+              11.6034665,
+              48.1085636
+            ],
+            [
+              11.603206,
+              48.1085226
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "area": "yes",
+          "highway": "bus_stop",
+          "name": "Balanstraße",
+          "id": 373592115,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6048716,
+              48.108575
+            ],
+            [
+              11.6048722,
+              48.1085724
+            ],
+            [
+              11.6048781,
+              48.1085476
+            ],
+            [
+              11.6046387,
+              48.1085221
+            ],
+            [
+              11.6046333,
+              48.1085445
+            ],
+            [
+              11.6046321,
+              48.1085495
+            ],
+            [
+              11.6048716,
+              48.108575
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 380171573,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038622,
+              48.1084207
+            ],
+            [
+              11.6038952,
+              48.1083953
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 380171574,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038862,
+              48.1086669
+            ],
+            [
+              11.6038673,
+              48.1086387
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "sidepath",
+          "footway": "sidewalk",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 380171575,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038839,
+              48.1087771
+            ],
+            [
+              11.6038862,
+              48.1086669
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "bicycle": "designated",
+          "cycleway": "crossing",
+          "footway": "crossing",
+          "highway": "path",
+          "oneway": "yes",
+          "id": 380171576,
+          "crossing": true
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038673,
+              48.1086387
+            ],
+            [
+              11.6038647,
+              48.1085319
+            ],
+            [
+              11.6038622,
+              48.1084207
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "footway",
+          "id": 389539471,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6039152,
+              48.1082868
+            ],
+            [
+              11.6039822,
+              48.1082909
+            ],
+            [
+              11.6039859,
+              48.1082633
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "footway",
+          "id": 389539472,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6031999,
+              48.1085342
+            ],
+            [
+              11.603206,
+              48.1085226
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "footway",
+          "id": 389539473,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6034633,
+              48.1085763
+            ],
+            [
+              11.6034665,
+              48.1085636
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 922249686,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6048209,
+              48.1086482
+            ],
+            [
+              11.6047938,
+              48.1087466
+            ],
+            [
+              11.6047801,
+              48.1087972
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 922249687,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6050339,
+              48.1088094
+            ],
+            [
+              11.6050439,
+              48.10877
+            ],
+            [
+              11.6050676,
+              48.1086763
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 1527781612,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038242,
+              48.1079261
+            ],
+            [
+              11.6039702,
+              48.1079316
+            ],
+            [
+              11.6040912,
+              48.1079362
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "service",
+          "id": 1527781613,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6038413,
+              48.1078018
+            ],
+            [
+              11.6039889,
+              48.1078037
+            ],
+            [
+              11.6040908,
+              48.1078051
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "highway": "footway",
+          "id": 1531878991,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6037235,
+              48.108851
+            ],
+            [
+              11.6038396,
+              48.1088642
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "access": "private",
+          "highway": "footway",
+          "id": 1531878992,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6036381,
+              48.108841
+            ],
+            [
+              11.6037235,
+              48.108851
+            ]
+          ]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "access": "private",
+          "highway": "footway",
+          "id": 1531878993,
+          "crossing": false
+        },
+        "geometry": {
+          "type": "LineString",
+          "coordinates": [
+            [
+              11.6030287,
+              48.1087468
+            ],
+            [
+              11.6036381,
+              48.108841
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "markers": [
+    {
+      "id": 389437815,
+      "location": [
+        11.6043512,
+        48.1085931
+      ],
+      "kind": "traffic_signals"
+    },
+    {
+      "id": 1523661509,
+      "location": [
+        11.604076,
+        48.1084301
+      ],
+      "kind": "crossing"
+    },
+    {
+      "id": 1523661510,
+      "location": [
+        11.6038647,
+        48.1085319
+      ],
+      "kind": "crossing"
+    },
+    {
+      "id": 1523661511,
+      "location": [
+        11.6042805,
+        48.1085841
+      ],
+      "kind": "crossing"
+    },
+    {
+      "id": 3489914175,
+      "location": [
+        11.604081,
+        48.1083592
+      ],
+      "kind": "traffic_signals"
+    },
+    {
+      "id": 3489914176,
+      "location": [
+        11.6038029,
+        48.1085235
+      ],
+      "kind": "traffic_signals"
+    },
+    {
+      "id": 3489914177,
+      "location": [
+        11.6040463,
+        48.1087401
+      ],
+      "kind": "traffic_signals"
+    },
+    {
+      "id": 3605769247,
+      "location": [
+        11.6040556,
+        48.1086861
+      ],
+      "kind": "crossing"
+    },
+    {
+      "id": 13922323445,
+      "location": [
+        11.6039702,
+        48.1079316
+      ],
+      "kind": "crossing"
+    },
+    {
+      "id": 13922323447,
+      "location": [
+        11.6039889,
+        48.1078037
+      ],
+      "kind": "crossing"
+    }
+  ],
+  "gates": [
+    {
+      "kind": "exit",
+      "location": [
+        11.603915319,
+        48.108286042
+      ],
+      "segmentIndex": 2,
+      "segmentFraction": 0.00413488,
+      "distanceAlongRouteMeters": 12.256718145574755,
+      "osmWayId": 138347229,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G1",
+      "arm": "south"
+    },
+    {
+      "kind": "entry",
+      "location": [
+        11.604267297,
+        48.108332973
+      ],
+      "segmentIndex": 16,
+      "segmentFraction": 0.89754202,
+      "distanceAlongRouteMeters": 412.4774233929945,
+      "osmWayId": 134138908,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G2",
+      "arm": "south"
+    },
+    {
+      "kind": "entry",
+      "location": [
+        11.603666896,
+        48.108405013
+      ],
+      "segmentIndex": 8,
+      "segmentFraction": 0.7131533,
+      "distanceAlongRouteMeters": 304.1342416941917,
+      "osmWayId": 63534658,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G3",
+      "arm": "west"
+    },
+    {
+      "kind": "exit",
+      "location": [
+        11.604463375,
+        48.108524721
+      ],
+      "segmentIndex": 1,
+      "segmentFraction": 0.3429026,
+      "distanceAlongRouteMeters": 13.417309034478379,
+      "osmWayId": 138347230,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G4",
+      "arm": "east"
+    },
+    {
+      "kind": "exit",
+      "location": [
+        11.603653061,
+        48.10860561
+      ],
+      "segmentIndex": 0,
+      "segmentFraction": 0.53029356,
+      "distanceAlongRouteMeters": 16.345003806582046,
+      "osmWayId": 63534665,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G5",
+      "arm": "west"
+    },
+    {
+      "kind": "entry",
+      "location": [
+        11.604435454,
+        48.108713184
+      ],
+      "segmentIndex": 13,
+      "segmentFraction": 0.68334448,
+      "distanceAlongRouteMeters": 389.8288585959517,
+      "osmWayId": 52792924,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G6",
+      "arm": "east"
+    },
+    {
+      "kind": "entry",
+      "location": [
+        11.603894106,
+        48.108829037
+      ],
+      "segmentIndex": 2,
+      "segmentFraction": 0.24399825,
+      "distanceAlongRouteMeters": 55.24441644350247,
+      "osmWayId": 341311854,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G7",
+      "arm": "north"
+    },
+    {
+      "kind": "exit",
+      "location": [
+        11.604178114,
+        48.108863672
+      ],
+      "segmentIndex": 2,
+      "segmentFraction": 0.19338962,
+      "distanceAlongRouteMeters": 18.46313396786863,
+      "osmWayId": 147718914,
+      "directionBasis": "OSM way order; oneway=yes",
+      "id": "G8",
+      "arm": "north"
+    }
+  ],
+  "routes": [
+    {
+      "id": "balan-chiemgau-left",
+      "label": "Links abbiegen",
+      "geometry": {
+        "coordinates": [
+          [
+            11.603804,
+            48.10947
+          ],
+          [
+            11.603809,
+            48.109451
+          ],
+          [
+            11.603824,
+            48.109323
+          ],
+          [
+            11.603854,
+            48.109184
+          ],
+          [
+            11.603897,
+            48.108846
+          ],
+          [
+            11.603884,
+            48.108777
+          ],
+          [
+            11.603886,
+            48.108667
+          ],
+          [
+            11.603867,
+            48.108639
+          ],
+          [
+            11.603865,
+            48.108532
+          ],
+          [
+            11.603862,
+            48.108421
+          ],
+          [
+            11.603895,
+            48.108395
+          ],
+          [
+            11.604076,
+            48.10843
+          ],
+          [
+            11.60425,
+            48.108464
+          ],
+          [
+            11.60429,
+            48.108493
+          ],
+          [
+            11.604375,
+            48.108514
+          ],
+          [
+            11.604633,
+            48.108545
+          ],
+          [
+            11.604872,
+            48.108572
+          ],
+          [
+            11.604913,
+            48.108577
+          ],
+          [
+            11.605458,
+            48.108634
+          ],
+          [
+            11.605573,
+            48.108645
+          ],
+          [
+            11.605599,
+            48.108648
+          ],
+          [
+            11.605998,
+            48.108692
+          ],
+          [
+            11.60609,
+            48.108703
+          ]
+        ],
+        "type": "LineString"
+      },
+      "boundaryCrossings": [
+        {
+          "kind": "entry",
+          "location": [
+            11.603893797,
+            48.108829
+          ],
+          "segmentIndex": 4,
+          "segmentFraction": 0.24638205,
+          "distanceAlongRouteMeters": 71.74,
+          "gateId": "G7"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.60446339,
+            48.10852462
+          ],
+          "segmentIndex": 14,
+          "segmentFraction": 0.3425952,
+          "distanceAlongRouteMeters": 166.59,
+          "gateId": "G4"
+        }
+      ],
+      "maneuvers": [
+        {
+          "location": [
+            11.603862,
+            48.108421
+          ],
+          "type": "turn",
+          "modifier": "left",
+          "at": 117.4
+        },
+        {
+          "location": [
+            11.603895,
+            48.108395
+          ],
+          "type": "turn",
+          "modifier": "left",
+          "at": 121.2
+        },
+        {
+          "location": [
+            11.60429,
+            48.108493
+          ],
+          "type": "turn",
+          "modifier": "slight right",
+          "at": 153.1
+        }
+      ]
+    },
+    {
+      "id": "balan-chiemgau-straight",
+      "label": "Geradeaus",
+      "geometry": {
+        "coordinates": [
+          [
+            11.603804,
+            48.10947
+          ],
+          [
+            11.603809,
+            48.109451
+          ],
+          [
+            11.603824,
+            48.109323
+          ],
+          [
+            11.603854,
+            48.109184
+          ],
+          [
+            11.603897,
+            48.108846
+          ],
+          [
+            11.603884,
+            48.108777
+          ],
+          [
+            11.603886,
+            48.108667
+          ],
+          [
+            11.603867,
+            48.108639
+          ],
+          [
+            11.603865,
+            48.108532
+          ],
+          [
+            11.603862,
+            48.108421
+          ],
+          [
+            11.603895,
+            48.108395
+          ],
+          [
+            11.60391,
+            48.108321
+          ],
+          [
+            11.603915,
+            48.108287
+          ],
+          [
+            11.603944,
+            48.108104
+          ],
+          [
+            11.60397,
+            48.107932
+          ],
+          [
+            11.603988,
+            48.107819
+          ],
+          [
+            11.603989,
+            48.107804
+          ],
+          [
+            11.604012,
+            48.107559
+          ],
+          [
+            11.604014,
+            48.107545
+          ]
+        ],
+        "type": "LineString"
+      },
+      "boundaryCrossings": [
+        {
+          "kind": "entry",
+          "location": [
+            11.603893797,
+            48.108829
+          ],
+          "segmentIndex": 4,
+          "segmentFraction": 0.24638205,
+          "distanceAlongRouteMeters": 71.74,
+          "gateId": "G7"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.603915155,
+            48.108286021
+          ],
+          "segmentIndex": 12,
+          "segmentFraction": 0.00535141,
+          "distanceAlongRouteMeters": 133.53,
+          "gateId": "G1"
+        }
+      ],
+      "maneuvers": [
+        {
+          "location": [
+            11.603862,
+            48.108421
+          ],
+          "type": "turn",
+          "modifier": "left",
+          "at": 117.4
+        },
+        {
+          "location": [
+            11.603895,
+            48.108395
+          ],
+          "type": "turn",
+          "modifier": "slight right",
+          "at": 121.2
+        }
+      ]
+    }
+  ],
+  "areaSquareMetersApprox": 3196,
+  "osmTimestamp": "2026-11-06T10:58:44Z",
+  "closeBounds": [
+    [
+      11.6032,
+      48.10798
+    ],
+    [
+      11.60497,
+      48.10901
+    ]
+  ],
+  "routeBounds": [
+    [
+      11.60315,
+      48.10748
+    ],
+    [
+      11.6062,
+      48.10953
+    ]
+  ]
+}

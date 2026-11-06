@@ -1,0 +1,530 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "balan-chiemgau",
+      "properties": {
+        "junction_id": "balan-chiemgau",
+        "name": "Balanstraße / Chiemgaustraße",
+        "status": "draft",
+        "enabled": false,
+        "revision": 1,
+        "created_on": "2026-11-06",
+        "basis": "Manually drafted around the four crossing paths and approach transitions in junction-detail.json.gz; not a surveyed or official boundary.",
+        "osm_crossing_way_ids": [
+          52792925,
+          138347215,
+          147718922,
+          380171576
+        ],
+        "review_required": "Verify all four arms, path sides and permitted movements before activation."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.60372,
+              48.10876
+            ],
+            [
+              11.60365,
+              48.10865
+            ],
+            [
+              11.60367,
+              48.10836
+            ],
+            [
+              11.60387,
+              48.10828
+            ],
+            [
+              11.60432,
+              48.10834
+            ],
+            [
+              11.60447,
+              48.10848
+            ],
+            [
+              11.60443,
+              48.10875
+            ],
+            [
+              11.60423,
+              48.10887
+            ],
+            [
+              11.60382,
+              48.10882
+            ],
+            [
+              11.60372,
+              48.10876
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          [
+            11.603804,
+            48.10947
+          ],
+          [
+            11.603809,
+            48.109451
+          ],
+          [
+            11.603824,
+            48.109323
+          ],
+          [
+            11.603854,
+            48.109184
+          ],
+          [
+            11.603897,
+            48.108846
+          ],
+          [
+            11.603884,
+            48.108777
+          ],
+          [
+            11.603886,
+            48.108667
+          ],
+          [
+            11.603867,
+            48.108639
+          ],
+          [
+            11.603865,
+            48.108532
+          ],
+          [
+            11.603862,
+            48.108421
+          ],
+          [
+            11.603895,
+            48.108395
+          ],
+          [
+            11.604076,
+            48.10843
+          ],
+          [
+            11.60425,
+            48.108464
+          ],
+          [
+            11.60429,
+            48.108493
+          ],
+          [
+            11.604375,
+            48.108514
+          ],
+          [
+            11.604633,
+            48.108545
+          ],
+          [
+            11.604872,
+            48.108572
+          ],
+          [
+            11.604913,
+            48.108577
+          ],
+          [
+            11.605458,
+            48.108634
+          ],
+          [
+            11.605573,
+            48.108645
+          ],
+          [
+            11.605599,
+            48.108648
+          ],
+          [
+            11.605998,
+            48.108692
+          ],
+          [
+            11.60609,
+            48.108703
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "name": "Links abbiegen",
+        "kind": "example_route",
+        "stroke": "#1565c0",
+        "stroke-width": 4,
+        "status": "draft_review"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          [
+            11.603804,
+            48.10947
+          ],
+          [
+            11.603809,
+            48.109451
+          ],
+          [
+            11.603824,
+            48.109323
+          ],
+          [
+            11.603854,
+            48.109184
+          ],
+          [
+            11.603897,
+            48.108846
+          ],
+          [
+            11.603884,
+            48.108777
+          ],
+          [
+            11.603886,
+            48.108667
+          ],
+          [
+            11.603867,
+            48.108639
+          ],
+          [
+            11.603865,
+            48.108532
+          ],
+          [
+            11.603862,
+            48.108421
+          ],
+          [
+            11.603895,
+            48.108395
+          ],
+          [
+            11.60391,
+            48.108321
+          ],
+          [
+            11.603915,
+            48.108287
+          ],
+          [
+            11.603944,
+            48.108104
+          ],
+          [
+            11.60397,
+            48.107932
+          ],
+          [
+            11.603988,
+            48.107819
+          ],
+          [
+            11.603989,
+            48.107804
+          ],
+          [
+            11.604012,
+            48.107559
+          ],
+          [
+            11.604014,
+            48.107545
+          ]
+        ],
+        "type": "LineString"
+      },
+      "properties": {
+        "name": "Geradeaus",
+        "kind": "example_route",
+        "stroke": "#ef6c00",
+        "stroke-width": 4,
+        "status": "draft_review"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.603915319,
+          48.108286042
+        ]
+      },
+      "properties": {
+        "name": "G1",
+        "kind": "exit",
+        "arm": "south",
+        "osmWayId": 138347229,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.604267297,
+          48.108332973
+        ]
+      },
+      "properties": {
+        "name": "G2",
+        "kind": "entry",
+        "arm": "south",
+        "osmWayId": 134138908,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.603666896,
+          48.108405013
+        ]
+      },
+      "properties": {
+        "name": "G3",
+        "kind": "entry",
+        "arm": "west",
+        "osmWayId": 63534658,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.604463375,
+          48.108524721
+        ]
+      },
+      "properties": {
+        "name": "G4",
+        "kind": "exit",
+        "arm": "east",
+        "osmWayId": 138347230,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.603653061,
+          48.10860561
+        ]
+      },
+      "properties": {
+        "name": "G5",
+        "kind": "exit",
+        "arm": "west",
+        "osmWayId": 63534665,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.604435454,
+          48.108713184
+        ]
+      },
+      "properties": {
+        "name": "G6",
+        "kind": "entry",
+        "arm": "east",
+        "osmWayId": 52792924,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.603894106,
+          48.108829037
+        ]
+      },
+      "properties": {
+        "name": "G7",
+        "kind": "entry",
+        "arm": "north",
+        "osmWayId": 341311854,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          11.604178114,
+          48.108863672
+        ]
+      },
+      "properties": {
+        "name": "G8",
+        "kind": "exit",
+        "arm": "north",
+        "osmWayId": 147718914,
+        "status": "draft",
+        "marker-color": "#7b1fa2"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "bicycle": "designated",
+        "cycleway": "crossing",
+        "footway": "crossing",
+        "highway": "path",
+        "oneway": "yes",
+        "id": 52792925,
+        "crossing": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.6038952,
+            48.1083953
+          ],
+          [
+            11.604076,
+            48.1084301
+          ],
+          [
+            11.6042504,
+            48.1084636
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "bicycle": "designated",
+        "cycleway": "crossing",
+        "footway": "crossing",
+        "highway": "path",
+        "oneway": "yes",
+        "id": 138347215,
+        "crossing": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.6042412,
+            48.1087059
+          ],
+          [
+            11.6040556,
+            48.1086861
+          ],
+          [
+            11.6038862,
+            48.1086669
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "bicycle": "designated",
+        "cycleway": "crossing",
+        "footway": "crossing",
+        "highway": "path",
+        "oneway": "yes",
+        "id": 147718922,
+        "crossing": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.6042899,
+            48.1084933
+          ],
+          [
+            11.6042805,
+            48.1085841
+          ],
+          [
+            11.6042694,
+            48.1086977
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "bicycle": "designated",
+        "cycleway": "crossing",
+        "footway": "crossing",
+        "highway": "path",
+        "oneway": "yes",
+        "id": 380171576,
+        "crossing": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            11.6038673,
+            48.1086387
+          ],
+          [
+            11.6038647,
+            48.1085319
+          ],
+          [
+            11.6038622,
+            48.1084207
+          ]
+        ]
+      }
+    }
+  ]
+}

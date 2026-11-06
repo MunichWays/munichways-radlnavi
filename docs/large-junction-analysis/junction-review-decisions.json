@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "scope": "analysis-only; not loaded by production routing or navigation",
+  "policy": {
+    "activation": "explicitly reviewed allowlist only",
+    "unknownOrAmbiguous": "exclude",
+    "candidatePointMayActivateGuidance": false,
+    "fallback": "existing navigation, announcements and off-route handling",
+    "singleNodeExclusionIsNotComplexExclusion": true
+  },
+  "decisions": [
+    {
+      "junctionId": "am-knie",
+      "referenceNodeId": 5693658006,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": ["mixed_unverified_cycling_approaches"],
+      "evidence": "Four selected carriageway segments, but no verified complete cycling-path ring and no approved entry/exit relationships."
+    },
+    {
+      "junctionId": "gabelsberger-oskar-von-miller",
+      "referenceNodeId": 12878607912,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": ["complex_curved_arms", "motorroad_and_tunnel_transition"],
+      "evidence": "Four local segments include short internal connectors to bicycle=no/motorroad=yes roads near the Altstadtring tunnel."
+    },
+    {
+      "junctionId": "kreiller-els-rosenfeld",
+      "referenceNodeId": 17707826,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": ["t_intersection_with_carriageway_connector"],
+      "evidence": "The apparent fourth direction follows Else-Rosenfeld-Strasse way 37666177 only 18.2 m to node 428737 on the other Kreillerstrasse carriageway."
+    },
+    {
+      "junctionId": "quidde-nawiasky",
+      "referenceNodeId": 15687747,
+      "decision": "exclude",
+      "enabled": false,
+      "reasonCodes": ["motorroad_ramp_complex", "residential_arm_omitted_by_candidate_filter"],
+      "evidence": "Four selected segments versus five total motor-traffic-road segments; Nawiaskystrasse is residential, and the eastern ramp complex reaches trunk_link/motorroad=yes roads."
+    }
+  ]
+}

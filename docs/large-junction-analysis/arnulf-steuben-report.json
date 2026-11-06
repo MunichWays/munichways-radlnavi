@@ -1,0 +1,60 @@
+{
+  "status": "draft-disabled",
+  "movement": "west-to-north-left",
+  "areaSquareMetersApprox": 3352,
+  "boundaryCrossings": [
+    {
+      "kind": "entry",
+      "location": [
+        11.519927399,
+        48.150025514
+      ],
+      "segmentIndex": 2,
+      "segmentFraction": 0.76564517,
+      "distanceAlongRouteMeters": 78.97
+    },
+    {
+      "kind": "exit",
+      "location": [
+        11.520497358,
+        48.150378258
+      ],
+      "segmentIndex": 20,
+      "segmentFraction": 0.38210719,
+      "distanceAlongRouteMeters": 186.22
+    }
+  ],
+  "insideRouteDistanceMetersApprox": 107.2,
+  "maneuvers": [
+    {
+      "type": "end of road",
+      "modifier": "right",
+      "distanceFromStartApiMeters": 92.2
+    },
+    {
+      "type": "continue",
+      "modifier": "left",
+      "distanceFromStartApiMeters": 98.9
+    },
+    {
+      "type": "turn",
+      "modifier": "left",
+      "distanceFromStartApiMeters": 129.0
+    }
+  ],
+  "crossingWayIds": [
+    35218338,
+    35218359,
+    61048819,
+    379393437
+  ],
+  "routeSourceUrl": "https://api.radlnavi.munichways.de/route/v1/bike/11.518913,48.150239;11.520477,48.150871?steps=true&geometries=geojson&overview=full&annotations=nodes%2Cdistance&alternatives=false&continue_straight=default&variant=standard",
+  "routeRetrievedAtUtc": "2026-11-06T10:24:42.972893+00:00",
+  "osmTimestamp": "2026-11-06T10:25:06Z",
+  "limitations": [
+    "No other movement approved",
+    "No 100m advance announcement replay: example starts too close to entry",
+    "No phone, browser or on-site test",
+    "No app/backend pilot behavior implemented"
+  ]
+}

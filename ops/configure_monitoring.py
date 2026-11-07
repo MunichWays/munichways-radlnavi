@@ -13,6 +13,10 @@ from pathlib import Path
 PROJECT = "munichways-radlnavi-prod"
 ROOT = f"projects/{PROJECT}"
 FILTER = 'resource.type="cloud_run_revision" AND resource.labels.service_name=starts_with("munichways-radlnavi-")'
+LATENCY_POLICY = "RadNavi - Antwortzeit p95 nach Dienst"
+LEGACY_LATENCY_POLICY = "RadNavi - Antwortzeit p95 ueber 10 Sekunden"
+ALTERNATIVE_SERVICES = ('("munichways-radlnavi-direct-api", '
+                        '"munichways-radlnavi-discovery-api")')
 
 
 def aggregation(aligner, reducer="REDUCE_MAX"):
@@ -68,6 +72,21 @@ def plan():
                 "Betroffenen Dienst und Revision im Monitoring pruefen, dann Fehlerlogs und Traffic vergleichen. "
                 "Bei Speicherproblemen nach 'Memory limit' suchen. Vor Ressourcenanpassung Parallelitaet und Kosten pruefen. "
                 "Keine automatische Skalierungs- oder Speicheranpassung."}})
+    latency = policies[2]
+    latency["displayName"] = LATENCY_POLICY
+    standard = latency["conditions"][0]
+    standard["displayName"] = "Uebrige Dienste: p95 ueber 10 Sekunden"
+    standard["conditionThreshold"]["filter"] += (
+        f" AND NOT resource.labels.service_name=one_of{ALTERNATIVE_SERVICES}"
+    )
+    alternatives = json.loads(json.dumps(standard))
+    alternatives["displayName"] = "Direct/Discovery API: p95 ueber 30 Sekunden"
+    alternatives["conditionThreshold"]["filter"] = (
+        query("request_latencies", "ALIGN_PERCENTILE_95")["filter"]
+        + f" AND resource.labels.service_name=one_of{ALTERNATIVE_SERVICES}"
+    )
+    alternatives["conditionThreshold"]["thresholdValue"] = 30000
+    latency["conditions"].append(alternatives)
     return dashboard, policies
 
 
@@ -116,7 +135,10 @@ def main():
     existing = api("v3", f"{ROOT}/alertPolicies").get("alertPolicies", [])
     for policy in policies:
         policy["notificationChannels"] = channels
-        match = [p for p in existing if p["displayName"] == policy["displayName"]]
+        names = {policy["displayName"]}
+        if policy["displayName"] == LATENCY_POLICY:
+            names.add(LEGACY_LATENCY_POLICY)
+        match = [p for p in existing if p["displayName"] in names]
         if len(match) > 1:
             raise RuntimeError("Duplicate policy names")
         if match:

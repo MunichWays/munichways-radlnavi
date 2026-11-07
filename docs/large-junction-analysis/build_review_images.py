@@ -128,7 +128,7 @@ def apply_review(site, review):
 
 def status_text(site):
     return {"geometry-draft":"Korrigierter Entwurf – Sichtprüfung offen",
-            "geometry-approved":"Geometrie bestätigt – Fahrbeziehungen noch ungeprüft",
+            "geometry-approved":"Geometrie bestätigt – Freigabestand siehe Prüfbericht",
             "permanently-excluded":"Dauerhaft ausgeschlossen – Fall geschlossen",
             "withheld-needs-technical-review":"Zurückgestellt – technische Klärung offen"}[site["status"]]
 
@@ -348,7 +348,7 @@ def main():
     cards=[]
     summary=review_summary(sites)
     rows=["# Bildprüfung – Runde 1", "", "[Bildergalerie](index.html) · [Gesamtübersicht](overview.png)", "",
-          "Norden oben. Kein neuer Standort ist aktiviert.", "", summary, "",
+          "Norden oben. Diese Galerie dokumentiert die Geometrieprüfung; der aktuelle Freigabestand steht im [Prüfbericht](../review-batch-01-release.md).", "", summary, "",
           "Prüfen: richtige Radwegseite und Pfeilrichtung; alle Querungen, Inseln und Warteplätze innerhalb; keine Nachbarkreuzung eingeschlossen.", "",
           "Rückmeldung beispielsweise: `K05 v2 passt` oder `K06 Entry-2 weiter nach außen`.",
           "Nummern laufen im Uhrzeigersinn ab dem ersten Exit nach Norden. Entry und Exit",
@@ -363,7 +363,7 @@ def main():
         status=f'v{site["version"]} · {status_text(site)}'
         cards.append(f'<article><h2>K{site["number"]:02d} · {html.escape(site["name"])}</h2><p>{status}</p><a href="{name}.png"><img src="{name}.svg" alt="Prüfbild {html.escape(site["name"])}"/></a><p><a href="{name}.png">PNG öffnen</a> · <a href="{name}.svg">SVG vergrößern</a></p></article>')
         rows.append(f'| K{site["number"]:02d} | [{site["name"]}]({name}.png) | {status} | |')
-    page='<!doctype html><html lang="de"><meta charset="utf-8"><title>Kreuzungen – Bildprüfung Runde 1</title><style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px;border:1px solid #ddd}h2{font-size:19px}img{width:100%;height:auto}p{max-width:1000px;line-height:1.5}</style><h1>Bildprüfung Runde 1 · aktualisiert</h1><p>'+html.escape(summary)+'</p><p>Kein neuer Standort ist aktiviert; technische Fahrbeziehungsprüfungen stehen noch aus.</p><p>K05 v2: gemeinsamer Entry-4 am östlichen Verzweigungspunkt; Fläche erweitert, Exit-1 leicht verschoben. K06 v2: Lachnerstraße mit Entry-2 / Exit-3 auf der Fahrbahn; Fläche unverändert, folgende Nummern angepasst.</p><p>In K08 v2 liegen Entry-2 und Exit-3 gemeinsam an der Fahrbahnampel der Hackerbrücke. In K10 v2 liegt der normale Entry-2 weiter nördlich; Wilramstraße ist ausgeschlossen.</p><p>Rückmeldung zum Beispiel: „K05 v2 passt“. Nummern folgen dem Uhrzeigersinn und bezeichnen keine Fahrbeziehungspaare. Ein Klick öffnet das PNG in voller Größe.</p><main>'+''.join(cards)+'</main></html>'
+    page='<!doctype html><html lang="de"><meta charset="utf-8"><title>Kreuzungen – Bildprüfung Runde 1</title><style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px;border:1px solid #ddd}h2{font-size:19px}img{width:100%;height:auto}p{max-width:1000px;line-height:1.5}</style><h1>Bildprüfung Runde 1 · aktualisiert</h1><p>'+html.escape(summary)+'</p><p>Der aktuelle Aktivierungsstand und verbleibende Ausnahmen stehen im <a href="../review-batch-01-release.md">Freigabebericht</a>.</p><p>K05 v2: gemeinsamer Entry-4 am östlichen Verzweigungspunkt; Fläche erweitert, Exit-1 leicht verschoben. K06 v2: Lachnerstraße mit Entry-2 / Exit-3 auf der Fahrbahn; Fläche unverändert, folgende Nummern angepasst.</p><p>In K08 v2 liegen Entry-2 und Exit-3 gemeinsam an der Fahrbahnampel der Hackerbrücke. In K10 v2 liegt der normale Entry-2 weiter nördlich; Wilramstraße ist ausgeschlossen.</p><p>Rückmeldung zum Beispiel: „K05 v2 passt“. Nummern folgen dem Uhrzeigersinn und bezeichnen keine Fahrbeziehungspaare. Ein Klick öffnet das PNG in voller Größe.</p><main>'+''.join(cards)+'</main></html>'
     (OUT/"index.html").write_text(page,encoding="utf-8")
     (OUT/"README.md").write_text("\n".join(rows)+"\n",encoding="utf-8")
 

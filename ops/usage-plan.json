@@ -1,0 +1,461 @@
+{
+  "metrics": [
+    {
+      "name": "radlnavi_routes_standard_usage",
+      "description": "standard route HTTP requests, usage; includes failures; excludes comfort/health. Usage includes manual tests and recalculations, not unique users. Starts at metric creation.",
+      "filter": "resource.type=\"cloud_run_revision\" AND logName=\"projects/munichways-radlnavi-prod/logs/run.googleapis.com%2Frequests\" AND httpRequest.requestMethod=\"GET\" AND httpRequest.requestUrl=~\"/route(/v1/|\\?)\" AND resource.labels.service_name=\"munichways-radlnavi-api\" AND NOT httpRequest.requestUrl=~\"[?&]variant=(direct|discovery)(&|$)\" AND NOT (httpRequest.userAgent:\"Google-Cloud-Scheduler\" OR httpRequest.userAgent:\"GoogleStackdriverMonitoring\" OR httpRequest.userAgent:\"RadlNavi-Route-Check\")",
+      "metricDescriptor": {
+        "metricKind": "DELTA",
+        "valueType": "INT64",
+        "unit": "1"
+      }
+    },
+    {
+      "name": "radlnavi_routes_standard_checks",
+      "description": "standard route HTTP requests, checks; includes failures; excludes comfort/health. Usage includes manual tests and recalculations, not unique users. Starts at metric creation.",
+      "filter": "resource.type=\"cloud_run_revision\" AND logName=\"projects/munichways-radlnavi-prod/logs/run.googleapis.com%2Frequests\" AND httpRequest.requestMethod=\"GET\" AND httpRequest.requestUrl=~\"/route(/v1/|\\?)\" AND resource.labels.service_name=\"munichways-radlnavi-api\" AND NOT httpRequest.requestUrl=~\"[?&]variant=(direct|discovery)(&|$)\" AND (httpRequest.userAgent:\"Google-Cloud-Scheduler\" OR httpRequest.userAgent:\"GoogleStackdriverMonitoring\" OR httpRequest.userAgent:\"RadlNavi-Route-Check\")",
+      "metricDescriptor": {
+        "metricKind": "DELTA",
+        "valueType": "INT64",
+        "unit": "1"
+      }
+    },
+    {
+      "name": "radlnavi_routes_direct_usage",
+      "description": "direct route HTTP requests, usage; includes failures; excludes comfort/health. Usage includes manual tests and recalculations, not unique users. Starts at metric creation.",
+      "filter": "resource.type=\"cloud_run_revision\" AND logName=\"projects/munichways-radlnavi-prod/logs/run.googleapis.com%2Frequests\" AND httpRequest.requestMethod=\"GET\" AND httpRequest.requestUrl=~\"/route(/v1/|\\?)\" AND resource.labels.service_name=\"munichways-radlnavi-direct-api\" AND NOT (httpRequest.userAgent:\"Google-Cloud-Scheduler\" OR httpRequest.userAgent:\"GoogleStackdriverMonitoring\" OR httpRequest.userAgent:\"RadlNavi-Route-Check\")",
+      "metricDescriptor": {
+        "metricKind": "DELTA",
+        "valueType": "INT64",
+        "unit": "1"
+      }
+    },
+    {
+      "name": "radlnavi_routes_direct_checks",
+      "description": "direct route HTTP requests, checks; includes failures; excludes comfort/health. Usage includes manual tests and recalculations, not unique users. Starts at metric creation.",
+      "filter": "resource.type=\"cloud_run_revision\" AND logName=\"projects/munichways-radlnavi-prod/logs/run.googleapis.com%2Frequests\" AND httpRequest.requestMethod=\"GET\" AND httpRequest.requestUrl=~\"/route(/v1/|\\?)\" AND resource.labels.service_name=\"munichways-radlnavi-direct-api\" AND (httpRequest.userAgent:\"Google-Cloud-Scheduler\" OR httpRequest.userAgent:\"GoogleStackdriverMonitoring\" OR httpRequest.userAgent:\"RadlNavi-Route-Check\")",
+      "metricDescriptor": {
+        "metricKind": "DELTA",
+        "valueType": "INT64",
+        "unit": "1"
+      }
+    },
+    {
+      "name": "radlnavi_routes_discovery_usage",
+      "description": "discovery route HTTP requests, usage; includes failures; excludes comfort/health. Usage includes manual tests and recalculations, not unique users. Starts at metric creation.",
+      "filter": "resource.type=\"cloud_run_revision\" AND logName=\"projects/munichways-radlnavi-prod/logs/run.googleapis.com%2Frequests\" AND httpRequest.requestMethod=\"GET\" AND httpRequest.requestUrl=~\"/route(/v1/|\\?)\" AND resource.labels.service_name=\"munichways-radlnavi-discovery-api\" AND NOT (httpRequest.userAgent:\"Google-Cloud-Scheduler\" OR httpRequest.userAgent:\"GoogleStackdriverMonitoring\" OR httpRequest.userAgent:\"RadlNavi-Route-Check\")",
+      "metricDescriptor": {
+        "metricKind": "DELTA",
+        "valueType": "INT64",
+        "unit": "1"
+      }
+    },
+    {
+      "name": "radlnavi_routes_discovery_checks",
+      "description": "discovery route HTTP requests, checks; includes failures; excludes comfort/health. Usage includes manual tests and recalculations, not unique users. Starts at metric creation.",
+      "filter": "resource.type=\"cloud_run_revision\" AND logName=\"projects/munichways-radlnavi-prod/logs/run.googleapis.com%2Frequests\" AND httpRequest.requestMethod=\"GET\" AND httpRequest.requestUrl=~\"/route(/v1/|\\?)\" AND resource.labels.service_name=\"munichways-radlnavi-discovery-api\" AND (httpRequest.userAgent:\"Google-Cloud-Scheduler\" OR httpRequest.userAgent:\"GoogleStackdriverMonitoring\" OR httpRequest.userAgent:\"RadlNavi-Route-Check\")",
+      "metricDescriptor": {
+        "metricKind": "DELTA",
+        "valueType": "INT64",
+        "unit": "1"
+      }
+    }
+  ],
+  "dashboard": {
+    "displayName": "RadNavi - Nutzung und Routenaufrufe",
+    "gridLayout": {
+      "columns": "2",
+      "widgets": [
+        {
+          "title": "Nutzung richtig lesen",
+          "text": {
+            "format": "MARKDOWN",
+            "content": "**Zeitraum oben waehlen: letzte 30 Tage oder benutzerdefiniert der komplette Vormonat.** Summen gelten fuer den gewaehlten Zeitraum. Tagesbalken: 24-Stunden-Intervalle (UTC).\n\n**Routenzaehler starten am 07.11.2026** und schliessen Scheduler/Uptime-Pruefungen aus. Manuelle Tests, Wiederholungen, Navigation-Neuberechnungen und Fehler werden mitgezaehlt; keine Nutzerzahl. Standard zaehlt nur Standard-Routen am Standard-API-Eingang; Direct/Discovery werden jeweils an ihrer eigenen API gezaehlt.\n\n**Oktober 2026 ist fuer exakte Routenzahlen nicht mehr vollstaendig rekonstruierbar:** Request-Logs haben 30 Tage Aufbewahrung. Historische API-Gesamtaufrufe unten bleiben verfuegbar, enthalten aber auch Healthchecks, Komfortanalysen und Pruefungen. Leere Routendiagramme vor dem 07.11. bedeuten fehlende Messung, nicht null Nutzung.\n\n[Kostenbericht](https://console.cloud.google.com/billing?project=munichways-radlnavi-prod) | [Betrieb und Ressourcen](https://console.cloud.google.com/monitoring/dashboards/builder/053c4dbf-5e35-40d8-b61d-9f3d26af3058?project=munichways-radlnavi-prod)\n\nInstanzsekunden sind ein Kostenindikator, keine Euro-Abrechnung. Freikontingente, CPU/RAM, Starts und weitere Dienste beeinflussen die Rechnung; wenig Nutzung bedeutet nicht proportional wenig Kosten."
+          }
+        },
+        {
+          "title": "Letzte 30 Tage: historische Auswertung (Stand 07.11.2026)",
+          "text": {
+            "format": "MARKDOWN",
+            "content": "**Standard: 3762 \u00b7 Direct: 3029 \u00b7 Discovery: 185**\n\nArchivierter Stand: 2026-10-08T07:17:31.2446034+00:00 bis 2026-11-07T07:17:31.2446034+00:00 (UTC), 30 Tage. Ohne automatische Scheduler/Uptime-Pruefungen; inklusive manueller Tests und Fehler. Diese historische Tabelle ist eine Momentaufnahme. Die Diagramme darunter aktualisieren sich automatisch ab dem 07.11.2026. Erster und letzter Tag sind Teil-Tage; nicht aufgefuehrte Tage hatten keine passenden Requests.\n\n| Tag (Europe/Berlin) | Standard | Direct | Discovery |\n|---|---:|---:|---:|\n| 2026-10-08 | 32 | 32 | 0 |\n| 2026-10-09 | 81 | 83 | 0 |\n| 2026-10-10 | 94 | 92 | 0 |\n| 2026-10-11 | 73 | 85 | 0 |\n| 2026-10-12 | 184 | 136 | 0 |\n| 2026-10-13 | 261 | 194 | 0 |\n| 2026-10-14 | 131 | 156 | 0 |\n| 2026-10-15 | 161 | 140 | 0 |\n| 2026-10-16 | 205 | 206 | 0 |\n| 2026-10-17 | 150 | 153 | 0 |\n| 2026-10-18 | 346 | 153 | 0 |\n| 2026-10-19 | 120 | 148 | 0 |\n| 2026-10-20 | 141 | 135 | 0 |\n| 2026-10-21 | 77 | 70 | 0 |\n| 2026-10-22 | 117 | 81 | 0 |\n| 2026-10-23 | 133 | 122 | 0 |\n| 2026-10-24 | 71 | 70 | 0 |\n| 2026-10-25 | 241 | 148 | 0 |\n| 2026-10-26 | 97 | 81 | 0 |\n| 2026-10-27 | 78 | 73 | 0 |\n| 2026-10-28 | 73 | 72 | 0 |\n| 2026-10-29 | 50 | 47 | 0 |\n| 2026-10-30 | 40 | 35 | 0 |\n| 2026-10-31 | 63 | 69 | 0 |\n| 2026-11-01 | 61 | 62 | 0 |\n| 2026-11-02 | 106 | 74 | 68 |\n| 2026-11-03 | 93 | 69 | 46 |\n| 2026-11-04 | 104 | 97 | 38 |\n| 2026-11-05 | 79 | 68 | 21 |\n| 2026-11-06 | 128 | 71 | 7 |\n| 2026-11-07 | 172 | 7 | 5 |"
+          }
+        },
+        {
+          "title": "Standard: Routenaufrufe im Zeitraum (ohne Pruefungen)",
+          "scorecard": {
+            "timeSeriesQuery": {
+              "timeSeriesFilter": {
+                "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_standard_usage\"",
+                "aggregation": {
+                  "alignmentPeriod": "86400s",
+                  "perSeriesAligner": "ALIGN_SUM",
+                  "crossSeriesReducer": "REDUCE_SUM"
+                }
+              },
+              "unitOverride": "1",
+              "outputFullDuration": true
+            }
+          }
+        },
+        {
+          "title": "Standard: Routenaufrufe pro Tag (ohne Pruefungen)",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_standard_usage\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR"
+              }
+            ],
+            "yAxis": {
+              "label": "Routenaufrufe",
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Direct: Routenaufrufe im Zeitraum (ohne Pruefungen)",
+          "scorecard": {
+            "timeSeriesQuery": {
+              "timeSeriesFilter": {
+                "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_direct_usage\"",
+                "aggregation": {
+                  "alignmentPeriod": "86400s",
+                  "perSeriesAligner": "ALIGN_SUM",
+                  "crossSeriesReducer": "REDUCE_SUM"
+                }
+              },
+              "unitOverride": "1",
+              "outputFullDuration": true
+            }
+          }
+        },
+        {
+          "title": "Direct: Routenaufrufe pro Tag (ohne Pruefungen)",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_direct_usage\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR"
+              }
+            ],
+            "yAxis": {
+              "label": "Routenaufrufe",
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Discovery: Routenaufrufe im Zeitraum (ohne Pruefungen)",
+          "scorecard": {
+            "timeSeriesQuery": {
+              "timeSeriesFilter": {
+                "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_discovery_usage\"",
+                "aggregation": {
+                  "alignmentPeriod": "86400s",
+                  "perSeriesAligner": "ALIGN_SUM",
+                  "crossSeriesReducer": "REDUCE_SUM"
+                }
+              },
+              "unitOverride": "1",
+              "outputFullDuration": true
+            }
+          }
+        },
+        {
+          "title": "Discovery: Routenaufrufe pro Tag (ohne Pruefungen)",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_discovery_usage\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR"
+              }
+            ],
+            "yAxis": {
+              "label": "Routenaufrufe",
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Routenaufrufe nach Variante pro Tag",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_standard_usage\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "legendTemplate": "Standard",
+                "plotType": "STACKED_BAR"
+              },
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_direct_usage\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "legendTemplate": "Direct",
+                "plotType": "STACKED_BAR"
+              },
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_discovery_usage\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "legendTemplate": "Discovery",
+                "plotType": "STACKED_BAR"
+              }
+            ],
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Automatische Routenpruefungen pro Tag",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_standard_checks\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "legendTemplate": "Standard",
+                "plotType": "STACKED_BAR"
+              },
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_direct_checks\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "legendTemplate": "Direct",
+                "plotType": "STACKED_BAR"
+              },
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"logging.googleapis.com/user/radlnavi_routes_discovery_checks\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "legendTemplate": "Discovery",
+                "plotType": "STACKED_BAR"
+              }
+            ],
+            "yAxis": {
+              "scale": "LINEAR"
+            }
+          }
+        },
+        {
+          "title": "Standard-API: ALLE HTTP-Aufrufe im Zeitraum",
+          "scorecard": {
+            "timeSeriesQuery": {
+              "timeSeriesFilter": {
+                "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/request_count\" AND resource.labels.service_name=\"munichways-radlnavi-api\"",
+                "aggregation": {
+                  "alignmentPeriod": "86400s",
+                  "perSeriesAligner": "ALIGN_SUM",
+                  "crossSeriesReducer": "REDUCE_SUM"
+                }
+              },
+              "unitOverride": "1",
+              "outputFullDuration": true
+            }
+          }
+        },
+        {
+          "title": "Standard-API: ALLE HTTP-Aufrufe pro Tag",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/request_count\" AND resource.labels.service_name=\"munichways-radlnavi-api\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Standard-API: abrechenbare Instanzsekunden im Zeitraum",
+          "scorecard": {
+            "timeSeriesQuery": {
+              "timeSeriesFilter": {
+                "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/container/billable_instance_time\" AND resource.labels.service_name=\"munichways-radlnavi-api\"",
+                "aggregation": {
+                  "alignmentPeriod": "86400s",
+                  "perSeriesAligner": "ALIGN_SUM",
+                  "crossSeriesReducer": "REDUCE_SUM"
+                }
+              },
+              "unitOverride": "s",
+              "outputFullDuration": true
+            }
+          }
+        },
+        {
+          "title": "Standard-API: abrechenbare Instanzsekunden pro Tag",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/container/billable_instance_time\" AND resource.labels.service_name=\"munichways-radlnavi-api\"",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM"
+                    }
+                  },
+                  "unitOverride": "s",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Alle Dienste: HTTP-Aufrufe pro Tag (inkl. interner Aufrufe)",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/request_count\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\")",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "1",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR",
+                "legendTemplate": "${resource.labels.service_name}"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Alle Dienste: abrechenbare Instanzsekunden pro Tag",
+          "xyChart": {
+            "dataSets": [
+              {
+                "timeSeriesQuery": {
+                  "timeSeriesFilter": {
+                    "filter": "resource.type=\"cloud_run_revision\" AND metric.type=\"run.googleapis.com/container/billable_instance_time\" AND resource.labels.service_name=starts_with(\"munichways-radlnavi-\")",
+                    "aggregation": {
+                      "alignmentPeriod": "86400s",
+                      "perSeriesAligner": "ALIGN_SUM",
+                      "crossSeriesReducer": "REDUCE_SUM",
+                      "groupByFields": [
+                        "resource.labels.service_name"
+                      ]
+                    }
+                  },
+                  "unitOverride": "s",
+                  "outputFullDuration": false
+                },
+                "plotType": "STACKED_BAR",
+                "legendTemplate": "${resource.labels.service_name}"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

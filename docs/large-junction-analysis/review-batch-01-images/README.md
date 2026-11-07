@@ -2,7 +2,7 @@
 
 [Bildergalerie](index.html) · [Gesamtübersicht](overview.png)
 
-Norden oben. Kein neuer Standort ist aktiviert.
+Norden oben. Diese Galerie dokumentiert die Geometrieprüfung; der aktuelle Freigabestand steht im [Prüfbericht](../review-batch-01-release.md).
 
 Geometrisch bestätigt: K01 v1, K02 v1, K03 v1, K04 v1, K05 v2, K06 v2, K08 v2, K10 v2. Zurückgestellt: K07 v1. Dauerhaft ausgeschlossen: K09 v1.
 
@@ -19,13 +19,13 @@ K06 v2: Lachnerstraße auf der Fahrbahn mit Entry-2 / Exit-3 ergänzt; folgende 
 
 | ID | Bild | Status | Deine Rückmeldung |
 | --- | --- | --- | --- |
-| K01 | [Ständlerstraße / Balanstraße](K01-staendler-balan.png) | v1 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
-| K02 | [Fürstenrieder Straße / Agnes-Bernauer-Straße](K02-fuerstenrieder-agnes-bernauer.png) | v1 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
-| K03 | [Fürstenrieder Straße / Gotthardstraße](K03-fuerstenrieder-gotthard.png) | v1 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
-| K04 | [Landsberger Straße / Elsenheimerstraße / Friedenheimer Brücke](K04-landsberger-elsenheimer.png) | v1 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
-| K05 | [Westendstraße / Zschokkestraße / Tübinger Straße](K05-westend-zschokke.png) | v2 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
-| K06 | [Nymphenburger Straße / Waisenhausstraße / Lachnerstraße](K06-nymphenburger-waisenhaus.png) | v2 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
+| K01 | [Ständlerstraße / Balanstraße](K01-staendler-balan.png) | v1 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
+| K02 | [Fürstenrieder Straße / Agnes-Bernauer-Straße](K02-fuerstenrieder-agnes-bernauer.png) | v1 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
+| K03 | [Fürstenrieder Straße / Gotthardstraße](K03-fuerstenrieder-gotthard.png) | v1 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
+| K04 | [Landsberger Straße / Elsenheimerstraße / Friedenheimer Brücke](K04-landsberger-elsenheimer.png) | v1 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
+| K05 | [Westendstraße / Zschokkestraße / Tübinger Straße](K05-westend-zschokke.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
+| K06 | [Nymphenburger Straße / Waisenhausstraße / Lachnerstraße](K06-nymphenburger-waisenhaus.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
 | K07 | [Marsstraße / Pappenheimstraße](K07-mars-pappenheim.png) | v1 · Zurückgestellt – technische Klärung offen | |
-| K08 | [Arnulfstraße / Hackerbrücke / Wredestraße](K08-arnulf-hackerbruecke.png) | v2 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
+| K08 | [Arnulfstraße / Hackerbrücke / Wredestraße](K08-arnulf-hackerbruecke.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
 | K09 | [Landsberger Straße / Barthstraße](K09-landsberger-barth.png) | v1 · Dauerhaft ausgeschlossen – Fall geschlossen | |
-| K10 | [Thomasiusplatz / Balanstraße / Werinherstraße](K10-thomasiusplatz.png) | v2 · Geometrie bestätigt – Fahrbeziehungen noch ungeprüft | |
+| K10 | [Thomasiusplatz / Balanstraße / Werinherstraße](K10-thomasiusplatz.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |

@@ -24,7 +24,8 @@ def main():
         for junction in report['junctions']:
             for item in junction['movements']:
                 if 'url' in item:cases.append(dict(item,junctionId=junction['id'],expectGuidance=item['enabled']))
-        for item in report['rightTurnChecks']:cases.append(dict(item,expectGuidance=False))
+        for item in report['rightTurnChecks']:
+            cases.append(dict(item,id=item.get('id',Path(item['fixture']).stem),expectGuidance=False))
     checked=[]
     for item in cases:
         plain=get(item['url']);enriched=get(item['url']+'&junction_guidance=true')

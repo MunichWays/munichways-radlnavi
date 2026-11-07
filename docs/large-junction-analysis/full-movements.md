@@ -68,3 +68,14 @@ Ein Katalogeintrag genehmigt den gespeicherten geplanten Innenverlauf. Eine
 abweichende tatsächliche Fahrt innerhalb einer bereits zugeordneten Fläche
 wird von der App toleriert; zusätzliche geplante Innenvarianten werden dadurch
 nicht automatisch in den Katalog aufgenommen.
+
+## Mehrziel-Gegenprobe
+
+Eine zusätzlich abgefragte Route durch beide Kreuzungen enthält an einem
+Zwischenziel vor Balan einen Geometriesprung von ungefähr 45 cm zwischen zwei
+Legs. Die vollständige Geometrie lässt sich dort nicht exakt rekonstruieren.
+Sie erhält daher bewusst keine Kreuzungsmetadaten und verwendet die normale
+Navigation. Die unveränderte Antwort samt Quell-URL ist als
+`both-junctions-waypoint-join-mismatch.json` unter den Backend-Fixtures
+gesichert und durch einen negativen Regressionstest abgedeckt. Diese Grenze
+wurde nicht durch eine pauschale Toleranz an Leg-Verknüpfungen gelockert.

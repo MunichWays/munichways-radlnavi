@@ -276,6 +276,19 @@ class FullMovementCatalogTest(unittest.TestCase):
                 self.assertEqual('Ok', value['code'])
                 self.assertIsNone(add_guidance(value))
 
+    def test_real_multi_leg_join_mismatch_keeps_ordinary_navigation(self):
+        path = self.fixtures / 'both-junctions-waypoint-join-mismatch.json'
+        value = json.loads(path.read_text(encoding='utf-8'))
+        saved = deepcopy(value)
+        legs = value['routes'][0]['legs']
+        self.assertEqual(3, len(legs))
+        previous = legs[1]['steps'][-1]['geometry']['coordinates'][-1]
+        following = legs[2]['steps'][0]['geometry']['coordinates'][0]
+        self.assertGreater(meters(previous, following), 0)
+        self.assertLess(meters(previous, following), .75)
+        self.assertIsNone(add_guidance(value))
+        self.assertEqual(saved, value)
+
     def test_straight_routes_without_inner_maneuvers_still_get_guidance(self):
         for movement in ('east-west-straight', 'south-north-straight'):
             original = json.loads((self.fixtures / f'arnulf-steuben-{movement}.json').read_text(encoding='utf-8'))

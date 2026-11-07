@@ -53,6 +53,22 @@ OPTIONS = {"junction_guidance": "true", "geometries": "geojson", "overview": "fu
 
 
 class BigJunctionMatchingTest(unittest.TestCase):
+    def test_real_k04_return_with_walking_destination_preserves_crossing(self):
+        value = json.loads(FIXTURE.with_name("k04-walking-destination-route.json").read_text(encoding="utf-8"))
+        saved = deepcopy(value)
+        result = add_guidance(value)
+        self.assertIsNotNone(result)
+        guidance = result["routes"][0].pop("guidance")
+        self.assertEqual(saved, result)
+        self.assertEqual(saved, value)
+        hit, = guidance["junctions"]
+        self.assertEqual(("landsberger-elsenheimer", "south", "north", "straight"),
+            (hit["id"], hit["entryArm"], hit["exitArm"], hit["movement"]))
+        steps = value["routes"][0]["legs"][0]["steps"]
+        self.assertEqual("pushing bike", steps[-1]["mode"])
+        for index in hit["suppressedStepIndices"]:
+            self.assertEqual("cycling", steps[index]["mode"])
+
     def test_real_k04_walking_access_preserves_later_cycling_crossing(self):
         value = json.loads(FIXTURE.with_name("k04-walking-access-route.json").read_text(encoding="utf-8"))
         saved = deepcopy(value)

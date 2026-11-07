@@ -53,6 +53,25 @@ OPTIONS = {"junction_guidance": "true", "geometries": "geojson", "overview": "fu
 
 
 class BigJunctionMatchingTest(unittest.TestCase):
+    def test_real_k04_walking_access_preserves_later_cycling_crossing(self):
+        value = json.loads(FIXTURE.with_name("k04-walking-access-route.json").read_text(encoding="utf-8"))
+        saved = deepcopy(value)
+        result = add_guidance(value)
+        self.assertIsNotNone(result)
+        guidance = result["routes"][0].pop("guidance")
+        self.assertEqual(saved, result)
+        self.assertEqual(saved, value)
+        hit, = guidance["junctions"]
+        self.assertEqual(("landsberger-elsenheimer", "north", "south", "straight"),
+            (hit["id"], hit["entryArm"], hit["exitArm"], hit["movement"]))
+        steps = value["routes"][0]["legs"][0]["steps"]
+        self.assertEqual("pushing bike", steps[0]["mode"])
+        self.assertNotIn(0, hit["suppressedStepIndices"])
+        for index in hit["suppressedStepIndices"]:
+            bad = deepcopy(value)
+            bad["routes"][0]["legs"][0]["steps"][index]["mode"] = "pushing bike"
+            self.assertIsNone(add_guidance(bad))
+
     def test_catalog_requires_review_and_preserves_explicit_exclusions(self):
         value = deepcopy(catalog())
         self.assertEqual(76, len(approved_movements(value)))

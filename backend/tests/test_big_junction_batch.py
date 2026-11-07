@@ -36,7 +36,8 @@ class BatchCatalogTest(unittest.TestCase):
                     self.assertEqual(saved,result)
                     self.assertEqual(saved,original)
                     bad=deepcopy(original)
-                    bad['routes'][0]['legs'][0]['steps'][0]['mode']='pushing bike'
+                    for step in bad['routes'][0]['legs'][0]['steps']:
+                        step['mode']='pushing bike'
                     self.assertIsNone(add_guidance(bad))
         self.assertEqual(60,verified)
 

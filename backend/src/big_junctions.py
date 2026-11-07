@@ -224,7 +224,7 @@ def corridor_matches(line, reference, tolerance):
 
 def leg_geometry(leg):
     steps = leg.get("steps", [])
-    if not steps or any(step.get("mode") != "cycling" for step in steps):
+    if not steps:
         return None
     line, step_locations, step_distances, distance = [], [], [], 0.0
     for step in steps:
@@ -264,6 +264,15 @@ def match_leg(leg, config, geometry=None):
     total = sum(meters(a, b) for a, b in zip(line, line[1:]))
     matches = []
     for entry, exit in zip(hits[::2], hits[1::2]):
+        # Require cycling throughout the crossing and its direction evidence.
+        # Walking access elsewhere must not disable later safe crossings.
+        evidence_start = entry["distanceAlongLegMeters"] - 10
+        evidence_end = exit["distanceAlongLegMeters"] + 10
+        if any(step.get("mode") != "cycling"
+            and step_distances[i] <= evidence_end
+            and (step_distances[i + 1] if i + 1 < len(step_distances) else total) >= evidence_start
+            for i, step in enumerate(leg["steps"])):
+            continue
         if meters(entry["location"], config["entry"]) > 2.5 or meters(exit["location"], config["exit"]) > 2.5:
             continue
         if entry["distanceAlongLegMeters"] < 10 or total - exit["distanceAlongLegMeters"] < 10:

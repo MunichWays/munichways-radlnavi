@@ -24,7 +24,7 @@ Each active movement has a real API fixture, independently checked directed OSM 
 - Rufinistrasse (K06) and Wilramstrasse (K10) remain excluded approaches.
 - K06: all four candidate movements involving the Lachnerstrasse carriageway remain disabled. The live routing graph snaps to a different adjacent path and fails the directed OSM/gate verification. They keep ordinary navigation; approved drawing alone does not authorize different routing geometry.
 - K05: curved arms use verified 40m approach/departure references. The east-to-west connection is classified as left from its actual directions, not automatically straight from opposite arm labels. Existing runtime heading and corridor tolerances are unchanged.
-- No new App behavior is required to receive this catalog. The generic App code previously used in the successful benchmark is included in the requested App commit/build.
+- App 3.2.2+97 receives the catalog generically. The real v3 replay also exposed small approach offsets blocking the macro: straight continuations and slight turns within 30m before entry are absorbed only when the approach resumes the same direction (maximum 25 degrees). Real turns, forks and way-type changes are preserved. All 76 real references and the targeted preservation controls pass in the App.
 
 ## Reference movements
 

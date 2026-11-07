@@ -11,6 +11,20 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parent
 
 
+def apply_exclusions(features):
+    decisions=json.loads((ROOT / "junction-review-decisions.json").read_text(encoding="utf-8"))["decisions"]
+    for feature in features:
+        lon,lat=feature["geometry"]["coordinates"]
+        for decision in decisions:
+            bounds=decision.get("complexBounds")
+            matches=(feature["properties"]["osmNodeId"]==decision["referenceNodeId"]
+                     or bool(bounds and bounds[0]<=lon<=bounds[2] and bounds[1]<=lat<=bounds[3]))
+            if decision["decision"]=="exclude" and matches:
+                feature["properties"].update(status="permanently-excluded" if decision.get("permanent") else "excluded",
+                    enabled=False, excludedJunctionId=decision["junctionId"], note=decision["evidence"])
+    return features
+
+
 def main():
     query = '''[out:json][timeout:120];
 area[boundary=administrative][admin_level=6][name="München"]->.city;
@@ -35,6 +49,7 @@ way[junction~"^(roundabout|circular)$"] (area.city)->.roundabouts;
         "properties": {"osmNodeId": n["id"], "status": "unreviewed", "enabled": False,
             "note": "Candidate point only; polygon, logical arms and cycling movements require review."}}
         for n in value["elements"] if n["type"] == "node"]
+    apply_exclusions(features)
     (ROOT / "munich-review-queue.geojson").write_text(json.dumps({"type": "FeatureCollection",
         "scope": "Munich administrative boundary; candidate nodes are not junction complexes",
         "attribution": "OpenStreetMap contributors, ODbL", "features": features}, indent=2) + "\n", encoding="utf-8")

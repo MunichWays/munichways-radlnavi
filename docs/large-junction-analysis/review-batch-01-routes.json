@@ -1,0 +1,2470 @@
+{
+  "catalogVersion": "munich-big-junctions-v3",
+  "junctions": [
+    {
+      "id": "staendler-balan",
+      "geometryRevision": 1,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.604945274,
+              48.104763271
+            ],
+            "osmWayId": 138347229,
+            "directionBasis": "yes",
+            "forward": [
+              0.34084981877895765,
+              -0.9401177591335841
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.604738707009709,
+              48.10514373156379
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.605170911,
+              48.104796065
+            ],
+            "osmWayId": 134138908,
+            "directionBasis": "yes",
+            "forward": [
+              -0.3476050390857799,
+              0.9376410490172523
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.604960424166807,
+              48.10517556625101
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.605414722,
+              48.104754809
+            ],
+            "osmWayId": 65015453,
+            "directionBasis": "yes",
+            "forward": [
+              -0.94323053517829,
+              -0.3321387624281104
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.605986309200098,
+              48.104889311809124
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.605519919,
+              48.104524035
+            ],
+            "osmWayId": 134138937,
+            "directionBasis": "yes",
+            "forward": [
+              0.9418687702095805,
+              0.33598098116395286
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.606091727226074,
+              48.10465807489736
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.605415736,
+              48.10437375
+            ],
+            "osmWayId": 1123127653,
+            "directionBasis": "yes",
+            "forward": [
+              -0.27495385367931513,
+              0.9614574240947406
+            ],
+            "label": "Entry-2",
+            "sample": [
+              11.605592806933913,
+              48.10398677498177
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.605148174,
+              48.104327635
+            ],
+            "osmWayId": 946995038,
+            "directionBasis": "yes",
+            "forward": [
+              0.30907123909824946,
+              -0.951038889405829
+            ],
+            "label": "Exit-3",
+            "sample": [
+              11.605378424883424,
+              48.10396288318711
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.604925161,
+              48.104387327
+            ],
+            "osmWayId": 1041805694,
+            "directionBasis": "yes",
+            "forward": [
+              0.9452510301359053,
+              0.3263441282251143
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.604352313365538,
+              48.10425524752142
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.604840681,
+              48.10462535
+            ],
+            "osmWayId": 1041805692,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9455001495666934,
+              -0.3256216626229904
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.604267108200858,
+              48.10449468054928
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "staendler-balan-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604738707,48.105143732;11.606091727,48.104658075?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 89.71,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            134138910,
+            134138912,
+            134138914,
+            134138921,
+            134138937,
+            134138940,
+            138347229
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "staendler-balan-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604738707,48.105143732;11.605378425,48.103962883?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -1.94,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            134138910,
+            134138912,
+            134138940,
+            138347229,
+            946995038
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "staendler-balan-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.605986309,48.104889312;11.605378425,48.103962883?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 89.05,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            65015453,
+            134138910,
+            134138912,
+            134138915,
+            134138922,
+            134138940,
+            946995038
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "staendler-balan-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.605986309,48.104889312;11.604267108,48.104494681?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -0.05,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            65015453,
+            134138912,
+            134138915,
+            134138922,
+            1041805692
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "staendler-balan-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.605592807,48.103986775;11.604267108,48.104494681?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 93.06,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            134138912,
+            134138914,
+            134138915,
+            134138922,
+            134138932,
+            1041805692,
+            1123127653
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "staendler-balan-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.605592807,48.103986775;11.604960424,48.105175566?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 4.54,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            134138908,
+            134138914,
+            134138915,
+            134138932,
+            1123127653
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "staendler-balan-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604352313,48.104255248;11.604960424,48.105175566?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 91.36,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            134138908,
+            134138910,
+            134138914,
+            134138915,
+            134138921,
+            134138932,
+            1041805694
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "staendler-balan-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604352313,48.104255248;11.606091727,48.104658075?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 0.62,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            134138910,
+            134138914,
+            134138921,
+            134138937,
+            1041805694
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuerstenrieder-agnes-bernauer",
+      "geometryRevision": 1,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.50293025,
+              48.139844806
+            ],
+            "osmWayId": 1151568019,
+            "directionBasis": "yes",
+            "forward": [
+              -0.02318592591695138,
+              -0.9997311702849789
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.50294162505706,
+              48.1402494272482
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.503286126,
+              48.139879665
+            ],
+            "osmWayId": 241720930,
+            "directionBasis": "yes",
+            "forward": [
+              0.005812509954433088,
+              0.9999831072213319
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.503289650989585,
+              48.14028435232746
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.503398331,
+              48.139809672
+            ],
+            "osmWayId": 241720942,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9999531752055232,
+              -0.009677158487498965
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.504004753892996,
+              48.13981358834507
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.503411692,
+              48.139557226
+            ],
+            "osmWayId": 432534874,
+            "directionBasis": "yes",
+            "forward": [
+              0.9998030821749002,
+              0.019844315900773016
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.504018020085736,
+              48.13956528400833
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.503301192,
+              48.139483935
+            ],
+            "osmWayId": 1151568020,
+            "directionBasis": "yes",
+            "forward": [
+              0.026061740242181136,
+              0.9996603351616733
+            ],
+            "label": "Entry-2",
+            "sample": [
+              11.503287282458626,
+              48.1390793688253
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.502926071,
+              48.139484654
+            ],
+            "osmWayId": 1112734830,
+            "directionBasis": "yes",
+            "forward": [
+              -0.002116778036861661,
+              -0.9999977596228617
+            ],
+            "label": "Exit-3",
+            "sample": [
+              11.502921482946414,
+              48.139080208764014
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.502817603,
+              48.139557295
+            ],
+            "osmWayId": 1112734829,
+            "directionBasis": "yes",
+            "forward": [
+              0.9999851365981731,
+              -0.005452208977380939
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.502218604085545,
+              48.13959275617011
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.502816408,
+              48.139752919
+            ],
+            "osmWayId": 144271245,
+            "directionBasis": "yes",
+            "forward": [
+              -0.999759570656235,
+              0.02192717221304898
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.502210113515183,
+              48.13976205336409
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502941625,48.140249427;11.504018020,48.139565284?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 92.49,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            212298544,
+            241720945,
+            432534874,
+            1151568019
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502941625,48.140249427;11.502921483,48.139080209?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 3.13,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            241720945,
+            1112734830,
+            1151568019
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.504004754,48.139813588;11.502921483,48.139080209?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 91.05,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            241720942,
+            241720945,
+            343009007,
+            1112734830,
+            1151568019
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.504004754,48.139813588;11.502210114,48.139762053?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -2.02,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            144271245,
+            241720942,
+            343009007
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503287282,48.139079369;11.502210114,48.139762053?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 90.31,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            144271245,
+            212298521,
+            343009007,
+            1151568020
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503287282,48.139079369;11.503289651,48.140284352?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 1.35,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            212298521,
+            241720930,
+            1151568020
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502218604,48.139592756;11.503289651,48.140284352?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 89.92,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            212298521,
+            212298544,
+            241720930,
+            1112734829
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-agnes-bernauer-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502218604,48.139592756;11.504018020,48.139565284?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 1.32,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            212298544,
+            432534874,
+            1112734829
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuerstenrieder-gotthard",
+      "geometryRevision": 1,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.502804231,
+              48.135618165
+            ],
+            "osmWayId": 153024202,
+            "directionBasis": "yes",
+            "forward": [
+              -0.008844880710530358,
+              -0.9999608832775492
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.502768473276449,
+              48.13601441360515
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.503128059,
+              48.135616258
+            ],
+            "osmWayId": 223726236,
+            "directionBasis": "yes",
+            "forward": [
+              0.020576615693475294,
+              0.999788279030417
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.503140536763537,
+              48.136020866481594
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.503307041,
+              48.135483057
+            ],
+            "osmWayId": 679676616,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9999518579987003,
+              0.009812323116720595
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.503896913035481,
+              48.135515001129406
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.503309644,
+              48.135273502
+            ],
+            "osmWayId": 427180289,
+            "directionBasis": "yes",
+            "forward": [
+              0.9998730190582851,
+              -0.01593567567661977
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.503915963211702,
+              48.13526699505889
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.503127342,
+              48.135200946
+            ],
+            "osmWayId": 679676617,
+            "directionBasis": "yes",
+            "forward": [
+              0.011896288383975736,
+              0.9999292366576173
+            ],
+            "label": "Entry-2",
+            "sample": [
+              11.503178152343114,
+              48.13481336420416
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.50280168,
+              48.135199335
+            ],
+            "osmWayId": 380800970,
+            "directionBasis": "yes",
+            "forward": [
+              -0.023279535723744683,
+              -0.9997289948863576
+            ],
+            "label": "Exit-3",
+            "sample": [
+              11.502765502807806,
+              48.134801403704024
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.502639258,
+              48.135270051
+            ],
+            "osmWayId": 152113257,
+            "directionBasis": "yes",
+            "forward": [
+              0.9998090271948136,
+              -0.019542495740324444
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.502032976109485,
+              48.13527795939351
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.502616336,
+              48.135548049
+            ],
+            "osmWayId": 153024210,
+            "directionBasis": "yes",
+            "forward": [
+              -0.999718568131518,
+              0.023723080176643735
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.502010105684443,
+              48.135557649914574
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502768473,48.136014414;11.503915963,48.135266995?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 89.58,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            153024202,
+            153024203,
+            380800970,
+            427180289,
+            427180293
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502768473,48.136014414;11.502765503,48.134801404?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -0.83,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            153024202,
+            153024203,
+            380800970
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503896913,48.135515001;11.502765503,48.134801404?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 80.9,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            153024203,
+            153024210,
+            220851268,
+            380800970,
+            679676616
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503896913,48.135515001;11.502010106,48.135557650?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -9.2,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            153024210,
+            220851268,
+            679676616
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503178152,48.134813364;11.502010106,48.135557650?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 89.54,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            115669203,
+            153024210,
+            220851268,
+            679676617
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503178152,48.134813364;11.503140537,48.136020866?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -0.15,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            115669203,
+            220851268,
+            223726236,
+            679676617
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502032976,48.135277959;11.503140537,48.136020866?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 90.0,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            115669203,
+            152113257,
+            220851268,
+            223726236,
+            427180293
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "fuerstenrieder-gotthard-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502032976,48.135277959;11.503915963,48.135266995?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 0.2,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            152113257,
+            427180289,
+            427180293
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landsberger-elsenheimer",
+      "geometryRevision": 1,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.51864637,
+              48.141596965
+            ],
+            "osmWayId": 61738278,
+            "directionBasis": "yes",
+            "forward": [
+              -0.24601559546142046,
+              -0.9692658700221332
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.518795571272562,
+              48.1419892214895
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.518968552,
+              48.141556311
+            ],
+            "osmWayId": 426957011,
+            "directionBasis": "yes",
+            "forward": [
+              0.17057574806922465,
+              0.9853445662156078
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.519072000923881,
+              48.14195507431949
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.519090496,
+              48.141433687
+            ],
+            "osmWayId": 211464638,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9472798181359511,
+              0.3204074689396604
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.519676185342055,
+              48.1413316173905
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.519033731,
+              48.141170998
+            ],
+            "osmWayId": 432153684,
+            "directionBasis": "yes",
+            "forward": [
+              0.9979202906470814,
+              -0.06446001485296514
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.5196310176828,
+              48.141100902839
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.518836273,
+              48.141105535
+            ],
+            "osmWayId": 211466113,
+            "directionBasis": "yes",
+            "forward": [
+              0.1551101728094689,
+              0.9878971779952692
+            ],
+            "label": "Entry-2",
+            "sample": [
+              11.518731084465827,
+              48.140707000292906
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.518510975,
+              48.141136665
+            ],
+            "osmWayId": 211432907,
+            "directionBasis": "yes",
+            "forward": [
+              -0.19348278860424278,
+              -0.9811036696057791
+            ],
+            "label": "Exit-3",
+            "sample": [
+              11.518409469963885,
+              48.140737709853276
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.518361304,
+              48.141250214
+            ],
+            "osmWayId": 141429267,
+            "directionBasis": "yes",
+            "forward": [
+              0.9860880087835365,
+              -0.16622406243778318
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.517767855684228,
+              48.141324883907
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.518437583,
+              48.141542365
+            ],
+            "osmWayId": 153024209,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9794393344055154,
+              0.2017389159762711
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.517842501029724,
+              48.141606178373216
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.518795571,48.141989221;11.519631018,48.141100903?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 94.29,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            61738264,
+            61738278,
+            342896141,
+            432153684,
+            438950425,
+            938776267
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.518795571,48.141989221;11.518409470,48.140737710?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 3.24,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            61738264,
+            61738278,
+            211432907,
+            438950425,
+            938776267
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.519676185,48.141331617;11.518409470,48.140737710?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 94.15,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            61738264,
+            80880225,
+            211432907,
+            211432911,
+            211464638,
+            438950425
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.519676185,48.141331617;11.517842501,48.141606178?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 3.43,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            80880225,
+            153024209,
+            211432911,
+            211464638
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.518731084,48.140707000;11.517842501,48.141606178?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 87.37,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            80880225,
+            153024209,
+            211432911,
+            211466113,
+            432153685
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.518731084,48.140707000;11.519072001,48.141955074?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -0.77,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            61738281,
+            211432911,
+            211466113,
+            426957011,
+            432153685
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.517767856,48.141324884;11.519072001,48.141955074?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 89.85,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            61738281,
+            141429267,
+            211432911,
+            342896141,
+            426957011,
+            438950425
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "landsberger-elsenheimer-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.517767856,48.141324884;11.519631018,48.141100903?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -0.24,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            141429267,
+            342896141,
+            432153684,
+            438950425
+          ]
+        }
+      ]
+    },
+    {
+      "id": "westend-zschokke",
+      "geometryRevision": 2,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.523277,
+              48.1349661
+            ],
+            "osmWayId": 160643860,
+            "directionBasis": "yes",
+            "forward": [
+              -0.7334060421051806,
+              -0.6797908335683955
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.52372173835602,
+              48.13524120444921
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.523121529,
+              48.13446741
+            ],
+            "osmWayId": 159817915,
+            "directionBasis": "yes",
+            "forward": [
+              0.7093204552957932,
+              0.7048861551335567
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.523560413724573,
+              48.13474647970604
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.52310658,
+              48.134235593
+            ],
+            "osmWayId": 158854309,
+            "directionBasis": "yes",
+            "forward": [
+              -0.6402752654434878,
+              0.7681455490083057
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.523518672996717,
+              48.13393903908273
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.522876046,
+              48.134077363
+            ],
+            "osmWayId": 158854278,
+            "directionBasis": "yes",
+            "forward": [
+              0.6956442843776431,
+              -0.718386406895841
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.523288961741313,
+              48.13378104114802
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.522613248,
+              48.134087227
+            ],
+            "osmWayId": 1160861177,
+            "directionBasis": "yes",
+            "forward": [
+              0.7017757537633418,
+              0.7123979164974399
+            ],
+            "label": "Entry-2",
+            "sample": [
+              11.522187702169745,
+              48.13379892557489
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.522198448,
+              48.134187062
+            ],
+            "osmWayId": 199697582,
+            "directionBasis": "yes",
+            "forward": [
+              -0.6645176003081512,
+              -0.7472726134957016
+            ],
+            "label": "Exit-3",
+            "sample": [
+              11.52178503211696,
+              48.133891097375965
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.522189419,
+              48.134329084
+            ],
+            "osmWayId": 165406773,
+            "directionBasis": "yes",
+            "forward": [
+              0.7221201739219002,
+              -0.6917676303608058
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.521751044169694,
+              48.134608694518185
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.522424501,
+              48.13491071
+            ],
+            "osmWayId": 1524187991,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9895523357572898,
+              -0.14417411278482697
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.521838228159101,
+              48.13493274166963
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "westend-zschokke-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523721738,48.135241204;11.523288962,48.133781041?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 90.21,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            158854278,
+            159817911,
+            172218550,
+            414579410
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "westend-zschokke-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523721738,48.135241204;11.521785032,48.133891097?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 4.29,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            10953445,
+            159817911,
+            172218550,
+            199697582
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "westend-zschokke-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523518673,48.133939039;11.521785032,48.133891097?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 94.41,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            10953445,
+            158854309,
+            159817911,
+            199697582,
+            414579408,
+            414579409
+          ]
+        },
+        {
+          "id": "east-west-left",
+          "enabled": true,
+          "fixture": "westend-zschokke-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523518673,48.133939039;11.521838228,48.134932742?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 45.77,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            158854309,
+            159817921,
+            414579408,
+            414579409,
+            1524187991
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "westend-zschokke-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522187702,48.133798926;11.521838228,48.134932742?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 133.02,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            159817921,
+            199697579,
+            414579408,
+            414579409,
+            1160861177,
+            1524187991
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "westend-zschokke-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522187702,48.133798926;11.523560414,48.134746480?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -2.06,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            159817915,
+            199697579,
+            414579408,
+            1160861177
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "westend-zschokke-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521751044,48.134608695;11.523560414,48.134746480?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 87.18,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            10953445,
+            159817915,
+            165406773,
+            199697579,
+            414579408,
+            414579410
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "westend-zschokke-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521751044,48.134608695;11.523288962,48.133781041?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -3.19,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            10953445,
+            158854278,
+            165406773,
+            414579410
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nymphenburger-waisenhaus",
+      "geometryRevision": 2,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.53106961,
+              48.156792865
+            ],
+            "osmWayId": 1021672866,
+            "directionBasis": "yes",
+            "forward": [
+              -0.5136859146508754,
+              -0.8579783103839476
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.530967786508729,
+              48.15715906624147
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.531390544,
+              48.156791421
+            ],
+            "osmWayId": 1450048141,
+            "directionBasis": "yes",
+            "forward": [
+              0.05358681319114311,
+              0.9985631945210165
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.531196020393745,
+              48.15716368855588
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.531340649,
+              48.156488367
+            ],
+            "osmWayId": 1450048136,
+            "directionBasis": "yes",
+            "forward": [
+              -0.7816378804025319,
+              0.6237324938784552
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.531823838859642,
+              48.156251905063286
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.531154287,
+              48.156345516
+            ],
+            "osmWayId": 1459851764,
+            "directionBasis": "yes",
+            "forward": [
+              0.7687370428190993,
+              -0.6395649763688958
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.531604458600315,
+              48.156076725266466
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.53075166,
+              48.156434307
+            ],
+            "osmWayId": 152093782,
+            "directionBasis": "no",
+            "forward": [
+              0.9087667578379045,
+              0.4173044210750511
+            ],
+            "shared": true,
+            "label": "Entry-2",
+            "sample": [
+              11.530567893173258,
+              48.15637801359398
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.53075166,
+              48.156434307
+            ],
+            "osmWayId": 152093782,
+            "directionBasis": "no",
+            "forward": [
+              -0.9087667578379045,
+              -0.4173044210750511
+            ],
+            "shared": true,
+            "label": "Exit-3",
+            "sample": [
+              11.530567893173258,
+              48.15637801359398
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.530711202,
+              48.156630753
+            ],
+            "osmWayId": 203977597,
+            "directionBasis": "yes",
+            "forward": [
+              0.602831790017045,
+              -0.7978683055146667
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.53024315532202,
+              48.15688786420304
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.530873804,
+              48.156780175
+            ],
+            "osmWayId": 1021672865,
+            "directionBasis": "yes",
+            "forward": [
+              -0.8083379195625667,
+              0.5887187849875877
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.530353770891656,
+              48.15697462951652
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "nymphenburger-waisenhaus-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530967787,48.157159066;11.531604459,48.156076725?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 77.88,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            152093782,
+            874214678,
+            1021672866,
+            1021672867,
+            1380775813,
+            1459851764
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": false,
+          "fixture": "nymphenburger-waisenhaus-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530967787,48.157159066;11.530567893,48.156378014?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "reason": "Inner route lacks legal directed OSM support within 1.25m"
+        },
+        {
+          "id": "east-south-left",
+          "enabled": false,
+          "fixture": "nymphenburger-waisenhaus-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.531823839,48.156251905;11.530567893,48.156378014?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "reason": "Inner route lacks legal directed OSM support within 1.25m"
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "nymphenburger-waisenhaus-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.531823839,48.156251905;11.530353771,48.156974630?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 2.7,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            1021672865,
+            1450048136
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": false,
+          "fixture": "nymphenburger-waisenhaus-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530567893,48.156378014;11.530353771,48.156974630?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "reason": "Inner route lacks legal directed OSM support within 1.25m"
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": false,
+          "fixture": "nymphenburger-waisenhaus-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530567893,48.156378014;11.531196020,48.157163689?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "reason": "Inner route lacks legal directed OSM support within 1.25m"
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "nymphenburger-waisenhaus-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530243155,48.156887864;11.531196020,48.157163689?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 130.83,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            203977597,
+            1140703838,
+            1450048141,
+            1459851764
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "nymphenburger-waisenhaus-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530243155,48.156887864;11.531604459,48.156076725?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 0.48,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            203977597,
+            1459851764
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arnulf-hackerbruecke",
+      "geometryRevision": 2,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.548764867,
+              48.143767765
+            ],
+            "osmWayId": 71822778,
+            "directionBasis": "yes",
+            "forward": [
+              -0.23413326945964538,
+              -0.9722045114748938
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.548906867497918,
+              48.14416121081552
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.548931339,
+              48.143731946
+            ],
+            "osmWayId": 71822746,
+            "directionBasis": "yes",
+            "forward": [
+              0.20127646425990114,
+              0.979534473581728
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.549053411891759,
+              48.14412835807761
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.5490055,
+              48.143617184
+            ],
+            "osmWayId": 294556592,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9423622459289691,
+              0.3345943774896839
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.549583239619924,
+              48.14349420437745
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.548916448,
+              48.143401312
+            ],
+            "osmWayId": 1144621908,
+            "directionBasis": "yes",
+            "forward": [
+              0.9707538155228896,
+              -0.24007713270478617
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.549501520977469,
+              48.14329475115854
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.5487731,
+              48.1433711
+            ],
+            "osmWayId": 316009879,
+            "directionBasis": "no",
+            "forward": [
+              0.12935270475268368,
+              0.9915986475248769
+            ],
+            "shared": true,
+            "label": "Entry-2",
+            "sample": [
+              11.548692777265284,
+              48.14296997525613
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.5487731,
+              48.1433711
+            ],
+            "osmWayId": 316009879,
+            "directionBasis": "no",
+            "forward": [
+              -0.12935270475268368,
+              -0.9915986475248769
+            ],
+            "shared": true,
+            "label": "Exit-3",
+            "sample": [
+              11.548692777265284,
+              48.14296997525613
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.548413896,
+              48.143484713
+            ],
+            "osmWayId": 1144621908,
+            "directionBasis": "yes",
+            "forward": [
+              0.9645559793005021,
+              -0.2638783105820738
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.54783220919839,
+              48.14359922872129
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.54853653,
+              48.143723878
+            ],
+            "osmWayId": 1144621907,
+            "directionBasis": "yes",
+            "forward": [
+              -0.9545400567273883,
+              0.2980826732684649
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.547957534880586,
+              48.143844361798344
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.548906867,48.144161211;11.549501521,48.143294751?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 88.91,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            51733708,
+            71822778,
+            224855185,
+            316009879,
+            1144621908,
+            1386937018
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.548906867,48.144161211;11.548692777,48.142969975?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 6.12,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            51733708,
+            71822778,
+            224855185,
+            316009879,
+            1386937018
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.549583240,48.143494204;11.548692777,48.142969975?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 101.43,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            51733708,
+            93195123,
+            224855185,
+            294556592,
+            316009879
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.549583240,48.143494204;11.547957535,48.143844362?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 1.55,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            294556592,
+            1144621907
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.548692777,48.142969975;11.547957535,48.143844362?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 80.12,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            51733708,
+            93195123,
+            224855185,
+            316009879,
+            1144621907
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.548692777,48.142969975;11.549053412,48.144128358?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -4.07,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            51733708,
+            71822746,
+            224855185,
+            316009879,
+            1386937017
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.547832209,48.143599229;11.549053412,48.144128358?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 94.13,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            51733708,
+            71822746,
+            224855185,
+            316009879,
+            1144621908,
+            1386937017
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "arnulf-hackerbruecke-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.547832209,48.143599229;11.549501521,48.143294751?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 0.99,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            1144621908
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thomasiusplatz",
+      "geometryRevision": 2,
+      "gates": {
+        "north": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.601860728,
+              48.115912449
+            ],
+            "osmWayId": 145178204,
+            "directionBasis": "yes",
+            "forward": [
+              0.32682808462717555,
+              -0.9450838074472188
+            ],
+            "label": "Entry-4",
+            "sample": [
+              11.601662593313307,
+              48.116294914095114
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.602143518,
+              48.116053265
+            ],
+            "osmWayId": 23262477,
+            "directionBasis": "yes",
+            "forward": [
+              -0.3198801768998199,
+              0.9474580056269195
+            ],
+            "label": "Exit-1",
+            "sample": [
+              11.60194689204793,
+              48.116436066546
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.602381931,
+              48.116041248
+            ],
+            "osmWayId": 134140323,
+            "directionBasis": "yes",
+            "forward": [
+              -0.8666725947423974,
+              -0.4988773531866125
+            ],
+            "label": "Entry-1",
+            "sample": [
+              11.602923338191344,
+              48.116220769884315
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.602770042,
+              48.115916715
+            ],
+            "osmWayId": 71390770,
+            "directionBasis": "yes",
+            "forward": [
+              0.8756539462330354,
+              0.48293909185994915
+            ],
+            "label": "Exit-2",
+            "sample": [
+              11.603325082275632,
+              48.116078041832836
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.602409592,
+              48.11556
+            ],
+            "osmWayId": 53108527,
+            "directionBasis": "no",
+            "forward": [
+              -0.017914486617150074,
+              0.9998395227081414
+            ],
+            "shared": false,
+            "scopeNote": "Only the included approach is represented; the opposite movement towards the excluded arm remains outside guidance scope. OSM two-way legality is unchanged.",
+            "label": "Entry-2",
+            "sample": [
+              11.602460053100526,
+              48.11515704418266
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.602159367,
+              48.115407178
+            ],
+            "osmWayId": 134139700,
+            "directionBasis": "yes",
+            "forward": [
+              0.35581274521695294,
+              -0.9345572696957505
+            ],
+            "label": "Exit-3",
+            "sample": [
+              11.602257773403226,
+              48.11500826938089
+            ]
+          }
+        },
+        "west": {
+          "entry": {
+            "kind": "entry",
+            "location": [
+              11.601874895,
+              48.115492454
+            ],
+            "osmWayId": 332562083,
+            "directionBasis": "yes",
+            "forward": [
+              0.9753127869410566,
+              0.2208279140626679
+            ],
+            "label": "Entry-3",
+            "sample": [
+              11.601340016076874,
+              48.11530872044798
+            ]
+          },
+          "exit": {
+            "kind": "exit",
+            "location": [
+              11.601795446,
+              48.115700765
+            ],
+            "osmWayId": 26754058,
+            "directionBasis": "yes",
+            "forward": [
+              -0.7717958232248853,
+              -0.6358704327554645
+            ],
+            "label": "Exit-4",
+            "sample": [
+              11.60126424328178,
+              48.11552393455636
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-north-east-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.603325082,48.116078042?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 99.2,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            53108528,
+            71390768,
+            71390770,
+            90266696,
+            145178204,
+            147719151,
+            147719153,
+            1499366936,
+            1499366937
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-north-south-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -5.52,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            71390768,
+            134139700,
+            145178204,
+            147719151,
+            147719153,
+            1499366936,
+            1499366937
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-east-south-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602923338,48.116220770;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 73.59,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            71390767,
+            71390768,
+            134139700,
+            134140323,
+            147719151,
+            147719153,
+            1499366936,
+            1499366937
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-east-west-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602923338,48.116220770;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 9.15,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            26754058,
+            71390767,
+            134140323,
+            147719151
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-south-west-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602460053,48.115157044;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 127.99,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            26754058,
+            53108527,
+            53108528,
+            71390767,
+            134139701,
+            147719151,
+            1499366933,
+            1499366934
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-south-north-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602460053,48.115157044;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 17.59,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            23262477,
+            53108527,
+            53108528,
+            134139701,
+            1499366933,
+            1499366934
+          ]
+        },
+        {
+          "id": "west-north-left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-west-north-left.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": 78.26,
+          "logicalCandidate": "left",
+          "verifiedCyclingWayIds": [
+            23262477,
+            53108528,
+            90266696,
+            134139701,
+            147719153,
+            332562083,
+            1499366933,
+            1499366934
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-west-east-straight.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.603325082,48.116078042?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "turnDegrees": -2.18,
+          "logicalCandidate": "straight",
+          "verifiedCyclingWayIds": [
+            53108528,
+            71390770,
+            90266696,
+            147719153,
+            332562083
+          ]
+        }
+      ]
+    }
+  ],
+  "rightTurnChecks": [
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "staendler-balan-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604738707,48.105143732;11.604267108,48.104494681?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "staendler-balan"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "staendler-balan-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.605986309,48.104889312;11.604960424,48.105175566?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "staendler-balan"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "staendler-balan-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.605592807,48.103986775;11.606091727,48.104658075?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "staendler-balan"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "staendler-balan-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604352313,48.104255248;11.605378425,48.103962883?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "staendler-balan"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-agnes-bernauer-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502941625,48.140249427;11.502210114,48.139762053?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-agnes-bernauer"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-agnes-bernauer-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.504004754,48.139813588;11.503289651,48.140284352?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-agnes-bernauer"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-agnes-bernauer-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503287282,48.139079369;11.504018020,48.139565284?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-agnes-bernauer"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-agnes-bernauer-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502218604,48.139592756;11.502921483,48.139080209?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-agnes-bernauer"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-gotthard-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502768473,48.136014414;11.502010106,48.135557650?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-gotthard"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-gotthard-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503896913,48.135515001;11.503140537,48.136020866?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-gotthard"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-gotthard-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.503178152,48.134813364;11.503915963,48.135266995?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-gotthard"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "fuerstenrieder-gotthard-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.502032976,48.135277959;11.502765503,48.134801404?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "fuerstenrieder-gotthard"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "landsberger-elsenheimer-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.518795571,48.141989221;11.517842501,48.141606178?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "landsberger-elsenheimer"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "landsberger-elsenheimer-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.519676185,48.141331617;11.519072001,48.141955074?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "landsberger-elsenheimer"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "landsberger-elsenheimer-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.518731084,48.140707000;11.519631018,48.141100903?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "landsberger-elsenheimer"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "landsberger-elsenheimer-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.517767856,48.141324884;11.518409470,48.140737710?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "landsberger-elsenheimer"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "westend-zschokke-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523721738,48.135241204;11.521838228,48.134932742?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "westend-zschokke"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "westend-zschokke-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523518673,48.133939039;11.523560414,48.134746480?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "westend-zschokke"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "westend-zschokke-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522187702,48.133798926;11.523288962,48.133781041?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "westend-zschokke"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "westend-zschokke-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521751044,48.134608695;11.521785032,48.133891097?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "westend-zschokke"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "nymphenburger-waisenhaus-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530967787,48.157159066;11.530353771,48.156974630?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "nymphenburger-waisenhaus"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "nymphenburger-waisenhaus-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.531823839,48.156251905;11.531196020,48.157163689?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "nymphenburger-waisenhaus"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "nymphenburger-waisenhaus-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530567893,48.156378014;11.531604459,48.156076725?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "reason": "Inner route lacks legal directed OSM support within 1.25m",
+      "junctionId": "nymphenburger-waisenhaus"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "nymphenburger-waisenhaus-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.530243155,48.156887864;11.530567893,48.156378014?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "reason": "Inner route lacks legal directed OSM support within 1.25m",
+      "junctionId": "nymphenburger-waisenhaus"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "arnulf-hackerbruecke-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.548906867,48.144161211;11.547957535,48.143844362?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "arnulf-hackerbruecke"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "arnulf-hackerbruecke-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.549583240,48.143494204;11.549053412,48.144128358?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "arnulf-hackerbruecke"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "arnulf-hackerbruecke-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.548692777,48.142969975;11.549501521,48.143294751?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "arnulf-hackerbruecke"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "arnulf-hackerbruecke-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.547832209,48.143599229;11.548692777,48.142969975?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "arnulf-hackerbruecke"
+    },
+    {
+      "id": "north-west-right",
+      "enabled": false,
+      "fixture": "thomasiusplatz-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "thomasiusplatz"
+    },
+    {
+      "id": "east-north-right",
+      "enabled": false,
+      "fixture": "thomasiusplatz-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602923338,48.116220770;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "thomasiusplatz"
+    },
+    {
+      "id": "south-east-right",
+      "enabled": false,
+      "fixture": "thomasiusplatz-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602460053,48.115157044;11.603325082,48.116078042?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "thomasiusplatz"
+    },
+    {
+      "id": "west-south-right",
+      "enabled": false,
+      "fixture": "thomasiusplatz-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "verified": true,
+      "junctionId": "thomasiusplatz"
+    }
+  ]
+}

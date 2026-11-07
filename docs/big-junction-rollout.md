@@ -49,17 +49,31 @@ Ort bereits erfolgreich getestet wurde.
 
 ## Freigabe und weitere Erfassung
 
+Erweiterung auf Katalog v3 / Backend 2.4.3: acht weitere geometrisch bestätigte
+Kreuzungen mit 60 zusätzlich geprüften Fahrbeziehungen. Zusammen mit den beiden
+bisherigen Kreuzungen sind 76 Beziehungen an zehn Kreuzungen aktivierbar.
+K07 bleibt zurückgestellt, K09 dauerhaft ausgeschlossen. Bei K06 bleiben vier
+Beziehungen mit der Lachnerstraße wegen abweichender Routinggeometrie inaktiv.
+Details und Testumfang: [Freigabe Batch 01](large-junction-analysis/review-batch-01-release.md).
+
 Katalogstand 07.11.2026: Arnulfstraße/Steubenplatz und
 Balanstraße/Chiemgaustraße sind mit jeweils vier Links- und vier
 Geradeausbeziehungen freigegeben. Der Nutzer hat beide Polygone bestätigt;
-Arnulf West nach Nord wurde erfolgreich praktisch getestet. Alle 16
-Referenzrouten und acht Rechtsabbiege-Gegenproben sind gespeichert und geprüft.
-Weitere Beziehungen wurden noch nicht alle vor Ort gefahren.
+Arnulfstraße/Steubenplatz wurde anschließend mit vielen Varianten erfolgreich
+praktisch getestet: geradeaus, links, rechts, abweichender Verlauf beim
+Linksabbiegen, Fehlfahrten und lange Ampelwartezeiten. Die Rückmeldung und der
+Prüfumfang sind im [Praxisbenchmark](large-junction-analysis/arnulf-benchmark.md)
+festgehalten. Eine vollständige Liste der vor Ort gefahrenen Armkombinationen
+liegt nicht vor. Alle 16 Referenzrouten und acht Rechtsabbiege-Gegenproben sind
+gespeichert und technisch geprüft; Balan/Chiemgau ist damit nicht automatisch
+vor Ort bestätigt.
 
 Die App unterstützt den erweiterten Katalog bereits ab Build 3.2.2+96.
 Details: [Freigaben und Prüfbericht](large-junction-analysis/full-movements.md).
 
 Die weitere stadtweite Polygonprüfung ist noch offen. Aus den 495 Punkten
 wurden bewusst keine pauschalen aktiven Flächen oder Fahrbeziehungen erzeugt.
+Eine [erste Prüfrunde mit zehn weiteren Standorten](large-junction-analysis/review-batch-01.md)
+liegt als inaktive Vorauswahl mit Kartenlinks und Overpass-Detailabfrage vor.
 
 API-Vertrag und aktuelle Grenzen: [Katalog und API](big-junction-pilot-api.md).

@@ -49,14 +49,15 @@ Ort bereits erfolgreich getestet wurde.
 
 ## Freigabe und weitere Erfassung
 
-Live freigegeben ist ausschließlich Arnulfstraße West → Steubenplatz Nord,
-links, für den geprüften geplanten Routenverlauf. Eine abweichende Fahrt
-innerhalb dieser zugeordneten Fläche wird von der Pilot-App toleriert.
+Katalogstand 07.11.2026: Arnulfstraße/Steubenplatz und
+Balanstraße/Chiemgaustraße sind mit jeweils vier Links- und vier
+Geradeausbeziehungen freigegeben. Der Nutzer hat beide Polygone bestätigt;
+Arnulf West nach Nord wurde erfolgreich praktisch getestet. Alle 16
+Referenzrouten und acht Rechtsabbiege-Gegenproben sind gespeichert und geprüft.
+Weitere Beziehungen wurden noch nicht alle vor Ort gefahren.
 
-Der Nutzer hat den Praxistest am 06.11.2026 erfolgreich abgeschlossen. Die
-Arnulf-Linksbeziehung wird deshalb in der App standardmäßig aktiviert.
-Die passende Testplanung führt weiterhin von 48.150550, 11.517800 nach
-48.150871, 11.520477 (rund 168 Meter bis zur Einfahrt).
+Die App unterstützt den erweiterten Katalog bereits ab Build 3.2.2+96.
+Details: [Freigaben und Prüfbericht](large-junction-analysis/full-movements.md).
 
 Die weitere stadtweite Polygonprüfung ist noch offen. Aus den 495 Punkten
 wurden bewusst keine pauschalen aktiven Flächen oder Fahrbeziehungen erzeugt.

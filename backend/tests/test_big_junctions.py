@@ -21,6 +21,13 @@ def payload():
     return json.loads(FIXTURE.read_text(encoding="utf-8"))
 
 
+def isolated_catalog():
+    value = deepcopy(catalog())
+    value['junctions'] = [value['junctions'][0]]
+    value['junctions'][0]['movements'] = [value['junctions'][0]['movements'][0]]
+    return value
+
+
 def with_line(line):
     result = payload()
     route = result["routes"][0]
@@ -48,7 +55,7 @@ OPTIONS = {"junction_guidance": "true", "geometries": "geojson", "overview": "fu
 class BigJunctionMatchingTest(unittest.TestCase):
     def test_catalog_requires_review_and_preserves_explicit_exclusions(self):
         value = deepcopy(catalog())
-        self.assertEqual(1, len(approved_movements(value)))
+        self.assertEqual(16, len(approved_movements(value)))
         for kind in ("unreviewed_junction", "unreviewed_movement", "duplicate", "excluded", "self_intersection"):
             invalid = deepcopy(value)
             junction = invalid["junctions"][0]
@@ -66,7 +73,18 @@ class BigJunctionMatchingTest(unittest.TestCase):
             with self.subTest(kind=kind), self.assertRaises(ValueError):
                 validate_catalog(invalid)
         value["junctions"][0]["movements"][0]["enabled"] = False
-        self.assertEqual([], approved_movements(value))
+        self.assertEqual(15, len(approved_movements(value)))
+
+    def test_depart_marker_tolerance_does_not_relax_inner_maneuvers(self):
+        value = payload()
+        start = value['routes'][0]['legs'][0]['steps'][0]['maneuver']['location']
+        start[1] += .000004
+        self.assertIsNotNone(add_guidance(value))
+        start[1] += .00001
+        self.assertIsNone(add_guidance(value))
+        value = payload()
+        value['routes'][0]['legs'][0]['steps'][1]['maneuver']['location'][1] += .000004
+        self.assertIsNone(add_guidance(value))
 
     def test_repeated_visits_have_distinct_ids_and_step_intervals(self):
         original = payload()["routes"][0]["geometry"]["coordinates"]
@@ -83,7 +101,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
         self.assertLess(max(hits[0]["suppressedStepIndices"]), min(hits[1]["suppressedStepIndices"]))
 
     def test_multiple_catalog_junctions_in_one_leg(self):
-        data = deepcopy(catalog())
+        data = isolated_catalog()
         second = deepcopy(data["junctions"][0])
         second["id"] = "synthetic-second"
         def move(point):
@@ -108,7 +126,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
         self.assertLess(hits[0]["exit"]["geometrySegmentIndex"], hits[1]["entry"]["geometrySegmentIndex"])
 
     def test_straight_movement_and_ambiguous_catalog_fallback(self):
-        data = deepcopy(catalog())
+        data = isolated_catalog()
         junction = data["junctions"][0]
         junction["id"] = "synthetic-straight"
         ring = [[11.6, 48.15], [11.601, 48.15], [11.601, 48.151], [11.6, 48.151], [11.6, 48.15]]
@@ -217,6 +235,54 @@ class BigJunctionMatchingTest(unittest.TestCase):
         result = add_guidance(payload())
         result["routes"][0]["guidance"]["junctions"][0]["polygon"]["coordinates"][0][0][0] = 0
         self.assertEqual(original, approved_movements()[0])
+
+
+class FullMovementCatalogTest(unittest.TestCase):
+    fixtures = Path(__file__).with_name('fixtures') / 'big-junctions'
+
+    def test_all_four_approaches_have_left_and_straight(self):
+        value = catalog()
+        self.assertEqual('munich-big-junctions-v2', value['version'])
+        self.assertEqual({'arnulf-steuben', 'balan-chiemgau'}, {j['id'] for j in value['junctions']})
+        for junction in value['junctions']:
+            self.assertEqual({(arm, kind) for arm in ('north', 'east', 'south', 'west') for kind in ('left', 'straight')},
+                {(m['entryArm'], m['movement']) for m in junction['movements'] if m['enabled']})
+
+    def test_all_sixteen_real_routes_match_without_changing_routing(self):
+        for config in approved_movements():
+            with self.subTest(junction=config['junctionId'], movement=config['id']):
+                path = self.fixtures / f"{config['junctionId']}-{config['id']}.json"
+                original = json.loads(path.read_text(encoding='utf-8'))
+                saved = deepcopy(original)
+                result = add_guidance(original)
+                guidance = result['routes'][0].pop('guidance')
+                self.assertEqual(saved, result)
+                self.assertEqual(saved, original)
+                hit, = guidance['junctions']
+                self.assertEqual((config['junctionId'], config['movement'], config['entryArm'], config['exitArm']),
+                    (hit['id'], hit['movement'], hit['entryArm'], hit['exitArm']))
+                self.assertLess(meters(config['entry'], hit['entry']['location']), .1)
+                self.assertLess(meters(config['exit'], hit['exit']['location']), .1)
+                bad = deepcopy(original)
+                bad['routes'][0]['legs'][0]['steps'][0]['mode'] = 'pushing bike'
+                self.assertIsNone(add_guidance(bad))
+
+    def test_right_turns_remain_outside_scope(self):
+        files = list(self.fixtures.glob('*-right.json'))
+        self.assertEqual(8, len(files))
+        for path in files:
+            with self.subTest(path=path.name):
+                value = json.loads(path.read_text(encoding='utf-8'))
+                self.assertEqual('Ok', value['code'])
+                self.assertIsNone(add_guidance(value))
+
+    def test_straight_routes_without_inner_maneuvers_still_get_guidance(self):
+        for movement in ('east-west-straight', 'south-north-straight'):
+            original = json.loads((self.fixtures / f'arnulf-steuben-{movement}.json').read_text(encoding='utf-8'))
+            self.assertEqual({'depart', 'arrive'}, {s['maneuver']['type'] for s in original['routes'][0]['legs'][0]['steps']})
+            hit, = add_guidance(original)['routes'][0]['guidance']['junctions']
+            self.assertEqual([], hit['suppressedStepIndices'])
+            self.assertEqual('straight', hit['movement'])
 
 
 class BigJunctionApiTest(unittest.TestCase):

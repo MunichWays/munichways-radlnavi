@@ -233,7 +233,12 @@ def leg_geometry(leg):
             return None
         maneuver = step.get("maneuver", {})
         if maneuver.get("location") != part[0]:
-            return None
+            # A real OSRM depart marker can precede the first retained geometry
+            # point by < 0.75 m. It is outside the crossing and never suppressed.
+            # Keep every internal maneuver and all geometry joins exact.
+            if (line or maneuver.get("type") != "depart"
+                or meters(maneuver["location"], part[0]) > .75):
+                return None
         step_locations.append(part[0])
         step_distances.append(distance)
         distance += sum(meters(a, b) for a, b in zip(part, part[1:]))
@@ -273,7 +278,9 @@ def match_leg(leg, config, geometry=None):
         contained = [i for i, location in enumerate(step_locations)
             if inside(location, ring) and steps_type(leg, i) not in ("depart", "arrive")
             and entry["distanceAlongLegMeters"] <= step_distances[i] <= exit["distanceAlongLegMeters"]]
-        if contained:
+        # Straight crossings can legitimately have only depart/arrive steps.
+        # Their geometry/gates/corridor still require the same full validation.
+        if contained or config["movement"] == "straight":
             matches.append((entry, exit, contained))
     return matches
 

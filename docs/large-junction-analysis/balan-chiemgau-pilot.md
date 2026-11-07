@@ -1,5 +1,11 @@
 # Balanstraße / Chiemgaustraße: Polygonentwurf v1
 
+Fortschritt 07.11.2026: Der Nutzer hat dieses Polygon und alle Tore anhand
+der Diagnosegrafik bestätigt. Alle acht Links-/Geradeausbeziehungen sind
+inzwischen geprüft und im Laufzeitkatalog freigegeben. Der historische
+Entwurfsstand unten bleibt als Beleg erhalten. Aktuelle
+[Fahrbeziehungen und Prüfnachweise](full-movements.md).
+
 Stand: 06.11.2026. **Entwurf zur Sichtprüfung, nicht freigegeben oder aktiviert.**
 Keine Änderung an Routing, Navigation, Rerouting oder produktiven Diensten.
 

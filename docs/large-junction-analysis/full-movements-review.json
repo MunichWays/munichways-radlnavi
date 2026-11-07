@@ -1,0 +1,945 @@
+{
+  "retrievedAt": "2026-11-07T00:49:36.281409+00:00",
+  "apiVersion": {
+    "backend": "2.4.1",
+    "backendCommit": "7b777e0c36584d6e28f512bdf036c1bad449efb0",
+    "routing": "2.4.0",
+    "routingCommit": "a18de0a0eda92cdc412903aae9617f492550781c",
+    "osrm": "26.6.5"
+  },
+  "junctions": [
+    {
+      "id": "arnulf-steuben",
+      "osmSnapshot": "osm-examples.json",
+      "osmTimestamp": "2026-11-06T10:25:06Z",
+      "gates": {
+        "west": {
+          "entry": {
+            "osmWayId": 61048818,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "2.5",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "name": "Arnulfstraße",
+              "name:etymology:wikidata": "Q64956",
+              "oneway:bicycle": "no",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt",
+              "wikidata": "Q16742152"
+            },
+            "location": [
+              11.519927402440036,
+              48.150025457299385
+            ],
+            "sample": [
+              11.5194078581455,
+              48.15012164204646
+            ]
+          },
+          "exit": {
+            "osmWayId": 379393436,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.7",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "name": "Arnulfstraße",
+              "name:etymology:wikidata": "Q64956",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt",
+              "wikidata": "Q16742152"
+            },
+            "location": [
+              11.519910276272894,
+              48.15032516522434
+            ],
+            "sample": [
+              11.51939232033913,
+              48.15042509798147
+            ]
+          }
+        },
+        "north": {
+          "entry": {
+            "osmWayId": 193876093,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "1",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.7",
+              "foot": "designated",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "no",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt",
+              "traffic_sign": "DE:237;DE:1000-31"
+            },
+            "location": [
+              11.520091672722204,
+              48.150441894474945
+            ],
+            "sample": [
+              11.520121777027388,
+              48.150799837296624
+            ]
+          },
+          "exit": {
+            "osmWayId": 71055915,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "1",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.7",
+              "foot": "designated",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.520497204067901,
+              48.15037828171484
+            ],
+            "sample": [
+              11.520474395845733,
+              48.15073766633201
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "osmWayId": 59454508,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.4",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.520669046407006,
+              48.15018757783815
+            ],
+            "sample": [
+              11.521192801942325,
+              48.1501023609348
+            ]
+          },
+          "exit": {
+            "osmWayId": 61900266,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.6",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "name": "Arnulfstraße",
+              "name:etymology:wikidata": "Q64956",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt",
+              "traffic_sign": "DE:241",
+              "wikidata": "Q16742152"
+            },
+            "location": [
+              11.520660090104732,
+              48.14988306356093
+            ],
+            "sample": [
+              11.52118363161067,
+              48.14979707782994
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "osmWayId": 61738273,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "2.2",
+              "foot": "designated",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.520493578947368,
+              48.14979189473684
+            ],
+            "sample": [
+              11.520501113802208,
+              48.149432263349354
+            ]
+          },
+          "exit": {
+            "osmWayId": 193876091,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "2.1",
+              "foot": "designated",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "excellent",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.520095104929982,
+              48.14986253174756
+            ],
+            "sample": [
+              11.520187625272362,
+              48.14951392381211
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "west-north-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.519407858,48.150121642;11.520474396,48.150737666?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-west-north-left.json",
+          "enabled": true,
+          "entry": [
+            11.519927399198206,
+            48.15002551403139
+          ],
+          "exit": [
+            11.520497357856124,
+            48.1503782575912
+          ],
+          "internalMeters": 107.13104416017974,
+          "suppressedSteps": [
+            1,
+            2,
+            3
+          ],
+          "verifiedCyclingWayIds": [
+            35218359,
+            61048818,
+            61048819,
+            71055915,
+            340783848
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.519407858,48.150121642;11.521183632,48.149797078?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-west-east-straight.json",
+          "enabled": true,
+          "entry": [
+            11.519927399198206,
+            48.15002551403139
+          ],
+          "exit": [
+            11.52066009063313,
+            48.149883081526454
+          ],
+          "internalMeters": 64.47265508806616,
+          "suppressedSteps": [
+            1,
+            2
+          ],
+          "verifiedCyclingWayIds": [
+            61048818,
+            61048819,
+            61900266,
+            340783848
+          ]
+        },
+        {
+          "id": "north-east-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520121777,48.150799837;11.521183632,48.149797078?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-north-east-left.json",
+          "enabled": true,
+          "entry": [
+            11.520091513736265,
+            48.15044191941392
+          ],
+          "exit": [
+            11.52066009063313,
+            48.149883081526454
+          ],
+          "internalMeters": 101.96599886228958,
+          "suppressedSteps": [
+            1
+          ],
+          "verifiedCyclingWayIds": [
+            35218338,
+            61048819,
+            61900266,
+            193876093
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520121777,48.150799837;11.520187625,48.149513924?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-north-south-straight.json",
+          "enabled": true,
+          "entry": [
+            11.520091513736265,
+            48.15044191941392
+          ],
+          "exit": [
+            11.520095,
+            48.14986255102041
+          ],
+          "internalMeters": 64.44779707720733,
+          "suppressedSteps": [],
+          "verifiedCyclingWayIds": [
+            35218338,
+            61048819,
+            193876091,
+            193876093
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521192802,48.150102361;11.520187625,48.149513924?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-east-south-left.json",
+          "enabled": true,
+          "entry": [
+            11.520669047148338,
+            48.150187603043506
+          ],
+          "exit": [
+            11.520095,
+            48.14986255102041
+          ],
+          "internalMeters": 96.18505046045055,
+          "suppressedSteps": [
+            1
+          ],
+          "verifiedCyclingWayIds": [
+            35218338,
+            59454508,
+            61048819,
+            193876091,
+            379393437
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521192802,48.150102361;11.519392320,48.150425098?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-east-west-straight.json",
+          "enabled": true,
+          "entry": [
+            11.520669047148338,
+            48.150187603043506
+          ],
+          "exit": [
+            11.519910259521032,
+            48.15032545838194
+          ],
+          "internalMeters": 59.2626741121344,
+          "suppressedSteps": [],
+          "verifiedCyclingWayIds": [
+            59454508,
+            379393436,
+            379393437
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520501114,48.149432263;11.519392320,48.150425098?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-south-west-left.json",
+          "enabled": true,
+          "entry": [
+            11.520493649786019,
+            48.14979193223966
+          ],
+          "exit": [
+            11.519910259521032,
+            48.15032545838194
+          ],
+          "internalMeters": 94.98832858694685,
+          "suppressedSteps": [
+            1
+          ],
+          "verifiedCyclingWayIds": [
+            35218359,
+            61738273,
+            379393436,
+            379393437
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520501114,48.149432263;11.520474396,48.150737666?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "arnulf-steuben-south-north-straight.json",
+          "enabled": true,
+          "entry": [
+            11.520493649786019,
+            48.14979193223966
+          ],
+          "exit": [
+            11.520497357856124,
+            48.1503782575912
+          ],
+          "internalMeters": 65.51609756746852,
+          "suppressedSteps": [],
+          "verifiedCyclingWayIds": [
+            35218359,
+            61738273,
+            71055915
+          ]
+        }
+      ]
+    },
+    {
+      "id": "balan-chiemgau",
+      "osmSnapshot": "junction-detail.json.gz",
+      "osmTimestamp": "2026-11-06T10:58:44Z",
+      "gates": {
+        "west": {
+          "entry": {
+            "osmWayId": 63534658,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.603666895646457,
+              48.10840501312637
+            ],
+            "sample": [
+              11.603139564913667,
+              48.10833320282575
+            ]
+          },
+          "exit": {
+            "osmWayId": 63534665,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.603653061401257,
+              48.10860560968178
+            ],
+            "sample": [
+              11.603128987606516,
+              48.10852230394027
+            ]
+          }
+        },
+        "north": {
+          "entry": {
+            "osmWayId": 341311854,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "foot": "no",
+              "highway": "cycleway",
+              "lit": "yes",
+              "oneway": "yes",
+              "smoothness": "good",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.60389410602357,
+              48.10882903731995
+            ],
+            "sample": [
+              11.603795751747018,
+              48.1094543774579
+            ]
+          },
+          "exit": {
+            "osmWayId": 147718914,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.8",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "asphalt",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "intermediate",
+              "surface": "paved"
+            },
+            "location": [
+              11.60417811399301,
+              48.108863672438176
+            ],
+            "sample": [
+              11.604081187476885,
+              48.10921753083214
+            ]
+          }
+        },
+        "east": {
+          "entry": {
+            "osmWayId": 52792924,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.604435454154824,
+              48.10871318445494
+            ],
+            "sample": [
+              11.604969006662323,
+              48.10876299278648
+            ]
+          },
+          "exit": {
+            "osmWayId": 138347230,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.3",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "good",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.604463374612113,
+              48.10852472136823
+            ],
+            "sample": [
+              11.60499431525431,
+              48.10858567189222
+            ]
+          }
+        },
+        "south": {
+          "entry": {
+            "osmWayId": 134138908,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "cycleway:width": "1.6",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "intermediate",
+              "source:cycleway:width": "ARCore",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.604267297153475,
+              48.1083329729538
+            ],
+            "sample": [
+              11.60424798091666,
+              48.107973477443664
+            ]
+          },
+          "exit": {
+            "osmWayId": 138347229,
+            "tags": {
+              "bicycle": "designated",
+              "class:bicycle": "-1",
+              "cycleway": "sidepath",
+              "cycleway:surface": "asphalt",
+              "foot": "designated",
+              "footway": "sidewalk",
+              "footway:surface": "paving_stones",
+              "highway": "path",
+              "lit": "yes",
+              "oneway": "yes",
+              "segregated": "yes",
+              "smoothness": "intermediate",
+              "surface": "asphalt"
+            },
+            "location": [
+              11.603915318671135,
+              48.10828604248948
+            ],
+            "sample": [
+              11.603970716773231,
+              48.10792822155766
+            ]
+          }
+        }
+      },
+      "movements": [
+        {
+          "id": "west-north-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603139565,48.108333203;11.604081187,48.109217531?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-west-north-left.json",
+          "enabled": true,
+          "entry": [
+            11.603666922643987,
+            48.10840462166219
+          ],
+          "exit": [
+            11.60417791124983,
+            48.1088636477134
+          ],
+          "internalMeters": 93.83500857040568,
+          "suppressedSteps": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "verifiedCyclingWayIds": [
+            52792925,
+            63534658,
+            138347212,
+            147718914,
+            147718919,
+            147718922,
+            380171573
+          ]
+        },
+        {
+          "id": "west-east-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603139565,48.108333203;11.604994315,48.108585672?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-west-east-straight.json",
+          "enabled": true,
+          "entry": [
+            11.603666922643987,
+            48.10840462166219
+          ],
+          "exit": [
+            11.604463389562763,
+            48.10852462045134
+          ],
+          "internalMeters": 63.693195027694195,
+          "suppressedSteps": [
+            1,
+            2,
+            3
+          ],
+          "verifiedCyclingWayIds": [
+            52792925,
+            63534658,
+            138347230,
+            147718919,
+            380171573
+          ]
+        },
+        {
+          "id": "north-east-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603795752,48.109454377;11.604994315,48.108585672?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-north-east-left.json",
+          "enabled": true,
+          "entry": [
+            11.603893797033285,
+            48.108828999638206
+          ],
+          "exit": [
+            11.604463389562763,
+            48.10852462045134
+          ],
+          "internalMeters": 94.74438292994026,
+          "suppressedSteps": [
+            1,
+            2,
+            3
+          ],
+          "verifiedCyclingWayIds": [
+            52792925,
+            138347230,
+            147718919,
+            341311854,
+            380171573,
+            380171574,
+            380171575,
+            380171576
+          ]
+        },
+        {
+          "id": "north-south-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603795752,48.109454377;11.603970717,48.107928222?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-north-south-straight.json",
+          "enabled": true,
+          "entry": [
+            11.603893797033285,
+            48.108828999638206
+          ],
+          "exit": [
+            11.603915155190867,
+            48.10828602069211
+          ],
+          "internalMeters": 61.72310291866981,
+          "suppressedSteps": [
+            1,
+            2
+          ],
+          "verifiedCyclingWayIds": [
+            138347229,
+            341311854,
+            380171573,
+            380171574,
+            380171575,
+            380171576
+          ]
+        },
+        {
+          "id": "east-south-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604969007,48.108762993;11.603970717,48.107928222?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-east-south-left.json",
+          "enabled": true,
+          "entry": [
+            11.604435402825136,
+            48.108713530930345
+          ],
+          "exit": [
+            11.603915155190867,
+            48.10828602069211
+          ],
+          "internalMeters": 85.11154536455379,
+          "suppressedSteps": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "verifiedCyclingWayIds": [
+            52792924,
+            138347212,
+            138347215,
+            138347229,
+            380171573,
+            380171574,
+            380171576
+          ]
+        },
+        {
+          "id": "east-west-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604969007,48.108762993;11.603128988,48.108522304?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-east-west-straight.json",
+          "enabled": true,
+          "entry": [
+            11.604435402825136,
+            48.108713530930345
+          ],
+          "exit": [
+            11.603653059449417,
+            48.108605637983445
+          ],
+          "internalMeters": 61.17855836448607,
+          "suppressedSteps": [
+            1,
+            2,
+            3
+          ],
+          "verifiedCyclingWayIds": [
+            52792924,
+            63534665,
+            138347212,
+            138347215,
+            380171574
+          ]
+        },
+        {
+          "id": "south-west-left",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604247981,48.107973477;11.603128988,48.108522304?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-south-west-left.json",
+          "enabled": true,
+          "entry": [
+            11.604267735403306,
+            48.108333031387104
+          ],
+          "exit": [
+            11.603653059449417,
+            48.108605637983445
+          ],
+          "internalMeters": 90.61147663123009,
+          "suppressedSteps": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "verifiedCyclingWayIds": [
+            63534665,
+            134138908,
+            138347212,
+            138347215,
+            147718919,
+            147718922,
+            380171574
+          ]
+        },
+        {
+          "id": "south-north-straight",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604247981,48.107973477;11.604081187,48.109217531?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "fixture": "balan-chiemgau-south-north-straight.json",
+          "enabled": true,
+          "entry": [
+            11.604267735403306,
+            48.108333031387104
+          ],
+          "exit": [
+            11.60417791124983,
+            48.1088636477134
+          ],
+          "internalMeters": 62.5987401189118,
+          "suppressedSteps": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "verifiedCyclingWayIds": [
+            134138908,
+            138347212,
+            147718914,
+            147718919,
+            147718922
+          ]
+        }
+      ]
+    }
+  ],
+  "rightTurnChecks": [
+    {
+      "fixture": "arnulf-steuben-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.519407858,48.150121642;11.520187625,48.149513924?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "arnulf-steuben-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520121777,48.150799837;11.519392320,48.150425098?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "arnulf-steuben-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521192802,48.150102361;11.520474396,48.150737666?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "arnulf-steuben-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520501114,48.149432263;11.521183632,48.149797078?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "balan-chiemgau-west-south-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603139565,48.108333203;11.603970717,48.107928222?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "balan-chiemgau-north-west-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603795752,48.109454377;11.603128988,48.108522304?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "balan-chiemgau-east-north-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604969007,48.108762993;11.604081187,48.109217531?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    },
+    {
+      "fixture": "balan-chiemgau-south-east-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.604247981,48.107973477;11.604994315,48.108585672?steps=true&overview=full&geometries=geojson&alternatives=false",
+      "guidance": false
+    }
+  ]
+}

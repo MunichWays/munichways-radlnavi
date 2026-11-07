@@ -1,9 +1,11 @@
 # Große Kreuzungen: Katalog und API
 
-Stand: 06.11.2026. Der Arnulf-Praxistest war erfolgreich. Der allgemeine
+Stand: 07.11.2026. Der Arnulf-Praxistest war erfolgreich. Der allgemeine
 Katalog unterstützt mehrere Kreuzungen, links/geradeaus und wiederholte
-Durchfahrten. Aktiv freigegeben: **Arnulfstraße West zum Steubenplatz Nord,
-links**. Die vier schwierigen Fälle bleiben ausgeschlossen.
+Durchfahrten. Katalogfreigabe: **Arnulfstraße/Steubenplatz und
+Balanstraße/Chiemgaustraße, jeweils alle acht Links-/Geradeausbeziehungen**.
+Die vier schwierigen Fälle bleiben ausgeschlossen.
+Siehe [Fahrbeziehungen und Prüfnachweise](large-junction-analysis/full-movements.md).
 
 Neue App-Builds fragen die Zusatzdaten standardmäßig ab. RadlNavis
 Einzelhinweise, Route und Geometrie bleiben unverändert. Der Backend-Endpunkt
@@ -33,7 +35,7 @@ sie unter `routes[i].guidance`, separat für jede Alternative.
 ```json
 {
   "version": "big-junctions-v1",
-  "catalogVersion": "munich-big-junctions-v1",
+  "catalogVersion": "munich-big-junctions-v2",
   "junctions": [{
     "id": "arnulf-steuben",
     "occurrenceId": "arnulf-steuben:west-north-left:leg:0:visit:0",
@@ -97,8 +99,9 @@ Die Zuordnung verlangt:
 - Den geprüften inneren Wegverlauf, beidseitig höchstens 2,5 m Abweichung.
   Die Prüfung tastet den Verlauf in höchstens 2-m-Abständen ab und lehnt
   Rückwärtsverlauf bzw. innere Schleifen ab.
-- Ausschließlich `cycling`-Steps im betroffenen Leg, mindestens einen inneren
-  Hinweis je Durchfahrt und eindeutig gepaarte Grenzübertritte. Wiederholte
+- Ausschließlich `cycling`-Steps im betroffenen Leg und eindeutig gepaarte
+  Grenzübertritte. Geradeausfahrten dürfen ohne inneren Einzelhinweis sein;
+  dann ist `suppressedStepIndices` leer. Wiederholte
   vollständige Durchfahrten erhalten getrennte `occurrenceId`-Werte und
   Step-Intervalle. Mehrere Kreuzungen und Legs werden in Routenreihenfolge
   ausgegeben. Überlappende/mehrdeutige Zuordnungen verwerfen die Zusatzdaten

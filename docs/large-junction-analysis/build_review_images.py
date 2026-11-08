@@ -100,7 +100,7 @@ def apply_review(site, review):
         check_review_fingerprint(site,review)
         return
     site["polygon"]=review["polygon"]
-    site["basis"]="Manual revision following Thomas's annotated v1 review; gate coordinates intersect frozen OSM geometry."
+    site["basis"]=review.get("geometryBasis", "Manual revision following Thomas's annotated v1 review; gate coordinates intersect frozen OSM geometry.")
     lon,lat=site["origin"]
     mx=111320*cos(radians(lat))
     project=lambda a:((a[0]-lon)*mx,(a[1]-lat)*111320)
@@ -366,6 +366,11 @@ def main():
     page='<!doctype html><html lang="de"><meta charset="utf-8"><title>Kreuzungen – Bildprüfung Runde 1</title><style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px;border:1px solid #ddd}h2{font-size:19px}img{width:100%;height:auto}p{max-width:1000px;line-height:1.5}</style><h1>Bildprüfung Runde 1 · aktualisiert</h1><p>'+html.escape(summary)+'</p><p>Der aktuelle Aktivierungsstand und verbleibende Ausnahmen stehen im <a href="../review-batch-01-release.md">Freigabebericht</a>.</p><p>K05 v2: gemeinsamer Entry-4 am östlichen Verzweigungspunkt; Fläche erweitert, Exit-1 leicht verschoben. K06 v2: Lachnerstraße mit Entry-2 / Exit-3 auf der Fahrbahn; Fläche unverändert, folgende Nummern angepasst.</p><p>In K08 v2 liegen Entry-2 und Exit-3 gemeinsam an der Fahrbahnampel der Hackerbrücke. In K10 v2 liegt der normale Entry-2 weiter nördlich; Wilramstraße ist ausgeschlossen.</p><p>Rückmeldung zum Beispiel: „K05 v2 passt“. Nummern folgen dem Uhrzeigersinn und bezeichnen keine Fahrbeziehungspaare. Ein Klick öffnet das PNG in voller Größe.</p><main>'+''.join(cards)+'</main></html>'
     (OUT/"index.html").write_text(page,encoding="utf-8")
     (OUT/"README.md").write_text("\n".join(rows)+"\n",encoding="utf-8")
+    from organize_review_images import main as organize_images
+    organize_images()
+    if (ROOT / "review-reference-cases.json").exists():
+        from review_preflight import main as preflight
+        preflight()
 
 
 if __name__=="__main__":

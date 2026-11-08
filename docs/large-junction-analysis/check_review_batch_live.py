@@ -27,13 +27,14 @@ def main():
         for item in report['rightTurnChecks']:
             cases.append(dict(item,id=item.get('id',Path(item['fixture']).stem),expectGuidance=False))
     checked=[]
+    expected_catalog=json.loads((ROOT.parents[1]/'backend/src/big_junctions.json').read_text(encoding='utf-8'))['version']
     for item in cases:
         plain=get(item['url']);enriched=get(item['url']+'&junction_guidance=true')
         hits=[]
         for route in enriched['routes']:
             if 'guidance' in route:
                 guidance=route.pop('guidance')
-                if guidance['catalogVersion']!='munich-big-junctions-v3':raise ValueError('Wrong catalog revision')
+                if guidance['catalogVersion']!=expected_catalog:raise ValueError('Wrong catalog revision')
                 hits.extend(guidance['junctions'])
         if enriched!=plain:raise ValueError('Guidance changed routing response: '+item['id'])
         if item['expectGuidance']:

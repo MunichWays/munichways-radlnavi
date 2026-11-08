@@ -1,8 +1,14 @@
+param([string]$BatchDirectory = 'review-batch-01-images')
 # Render the same drawing commands as the SVGs, without installing image libraries.
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
-$outputDirectory = Join-Path $PSScriptRoot 'review-batch-01-images'
-foreach ($file in Get-ChildItem -LiteralPath $outputDirectory -Filter '*.drawing.json') {
+$outputDirectory = Join-Path $PSScriptRoot $BatchDirectory
+$reviewDirectory = Join-Path $PSScriptRoot 'kreuzungspruefung'
+$drawingFiles = @(Get-ChildItem -LiteralPath $outputDirectory -Filter '*.drawing.json')
+if (Test-Path -LiteralPath $reviewDirectory) {
+    $drawingFiles += @(Get-ChildItem -LiteralPath $reviewDirectory -Recurse -Filter '*.drawing.json')
+}
+foreach ($file in $drawingFiles) {
     $commands = Get-Content -LiteralPath $file.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
     $bitmap = [System.Drawing.Bitmap]::new(1200, 1100)
     $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
@@ -44,14 +50,16 @@ foreach ($file in Get-ChildItem -LiteralPath $outputDirectory -Filter '*.drawing
                 }
             } finally { $brush.Dispose() }
         }
-        $target = Join-Path $outputDirectory ($file.Name.Replace('.drawing.json','.png'))
+        $target = Join-Path $file.DirectoryName ($file.Name.Replace('.drawing.json','.png'))
         $bitmap.Save($target,[System.Drawing.Imaging.ImageFormat]::Png)
         Write-Output $target
     } finally { $graphics.Dispose(); $bitmap.Dispose() }
 }
 
 # A contact sheet for quickly comparing the complete batch, with full-size files alongside it.
-$files = @(Get-ChildItem -LiteralPath $outputDirectory -Filter 'K*.png' | Sort-Object Name)
+$reviewData = Get-Content -LiteralPath (Join-Path $outputDirectory 'review-data.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+$expectedFiles = @($reviewData.sites | ForEach-Object { 'K{0:00}-{1}.png' -f $_.number,$_.id })
+$files = @(Get-ChildItem -LiteralPath $reviewDirectory -Recurse -Filter 'K*.png' | Where-Object { $_.Name -in $expectedFiles } | Sort-Object Name)
 $sheet = [System.Drawing.Bitmap]::new(1200, [int](550 * [Math]::Ceiling($files.Count / 2)))
 $canvas = [System.Drawing.Graphics]::FromImage($sheet)
 try {

@@ -13,6 +13,21 @@ FIXTURES=Path(__file__).with_name('fixtures')/'big-junctions/batch-01'
 
 
 class BatchCatalogTest(unittest.TestCase):
+    def test_k05_v3_runtime_matches_reviewed_polygon_and_inset_entry(self):
+        data = json.loads((REPORT.parent / 'review-batch-01-images/review-data.json').read_text(encoding='utf-8'))
+        site = next(s for s in data['sites'] if s['id'] == 'westend-zschokke')
+        junction = next(j for j in catalog()['junctions'] if j['id'] == site['id'])
+        self.assertTrue(site['polygonApproved'])
+        self.assertEqual(3, site['version'])
+        self.assertEqual(site['polygon'], junction['polygon']['coordinates'][0])
+        self.assertNotIn('Exit-4', {g['label'] for g in site['gates']})
+        entry = next(g['location'] for g in site['gates'] if g['label'] == 'Entry-4')
+        from src.big_junctions import meters
+        northern = [m for m in junction['movements'] if m['enabled'] and m['entryArm'] == 'north']
+        self.assertEqual(2, len(northern))
+        for movement in northern:
+            self.assertLess(meters(entry, movement['entry']), .5)
+
     def test_positive_and_rejected_real_routes(self):
         report=json.loads(REPORT.read_text(encoding='utf-8'))
         active={(m['junctionId'],m['id']):m for m in approved_movements()}
@@ -39,7 +54,19 @@ class BatchCatalogTest(unittest.TestCase):
                     for step in bad['routes'][0]['legs'][0]['steps']:
                         step['mode']='pushing bike'
                     self.assertIsNone(add_guidance(bad))
-        self.assertEqual(60,verified)
+        self.assertEqual(58,verified)
+
+    def test_k05_withdrawn_zschokke_exit_keeps_standard_guidance(self):
+        junction = next(j for j in catalog()['junctions'] if j['id'] == 'westend-zschokke')
+        self.assertEqual(6, sum(m['enabled'] for m in junction['movements']))
+        self.assertFalse(any(m['enabled'] and m['exitArm'] == 'west' for m in junction['movements']))
+        for filename in ['westend-zschokke-east-west-straight.json', 'westend-zschokke-south-west-left.json']:
+            with self.subTest(fixture=filename):
+                original = json.loads((FIXTURES / filename).read_text(encoding='utf-8'))
+                saved = deepcopy(original)
+                self.assertGreater(len(original['routes'][0]['legs'][0]['steps']), 1)
+                self.assertIsNone(add_guidance(original))
+                self.assertEqual(saved, original)
 
     def test_all_real_right_turn_controls_keep_raw_guidance(self):
         report=json.loads(REPORT.read_text(encoding='utf-8'))

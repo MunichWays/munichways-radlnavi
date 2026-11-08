@@ -33,8 +33,8 @@
     },
     "westend-zschokke": {
       "status": "geometry-approved",
-      "revision": 2,
-      "note": "v2: Entry-4 und Entry-5 am gemeinsamen Knoten weiter im Osten zu Entry-4 zusammengelegt. Polygon bis zur Verzweigung erweitert; Exit-1 dadurch geringfuegig verschoben. Uebrige Nummern unveraendert.",
+      "revision": 3,
+      "note": "K05 v3 von Thomas freigegeben: Exit-4 entfällt, Entry-4 liegt näher zur Kreuzung. Neue Fläche und sechs verbliebene Fahrbeziehungen technisch geprüft; Backend 2.4.5 für Deployment vorbereitet.",
       "polygon": [
         [
           11.52218941861691,
@@ -65,16 +65,16 @@
           48.134419464893995
         ],
         [
-          11.523277,
-          48.1349661
+          11.523157706968163,
+          48.1345834554258
         ],
         [
-          11.52267028138309,
-          48.134985464893994
+          11.52302,
+          48.13477
         ],
         [
-          11.52245491861691,
-          48.134985464893994
+          11.52255,
+          48.13477
         ],
         [
           11.52218941861691,
@@ -86,7 +86,7 @@
         ]
       ],
       "preferredGateWayIds": [
-        160643860
+        172218550
       ],
       "gateLabels": {
         "159817915:exit": "Exit-1",
@@ -95,14 +95,84 @@
         "1160861177:entry": "Entry-2",
         "199697582:exit": "Exit-3",
         "165406773:entry": "Entry-3",
-        "1524187991:exit": "Exit-4",
-        "160643860:entry": "Entry-4"
+        "172218550:entry": "Entry-4"
       },
       "gateLabelMigration": {
-        "Entry-4 / Entry-5": "Entry-4 at common upstream node 364847915; other labels retained"
+        "Exit-4": null,
+        "Entry-4": "Entry-4 on way 172218550; all other labels unchanged"
       },
-      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment.",
-      "reviewedGeometrySha256": "72658c22523d6a629145b8e4c2f91537032e86805b2b48d1881223c109d99ee1"
+      "history": {
+        "revision": 2,
+        "polygon": [
+          [
+            11.52218941861691,
+            48.13418923510601
+          ],
+          [
+            11.52265891861691,
+            48.134076235106
+          ],
+          [
+            11.522874281383091,
+            48.134076235106
+          ],
+          [
+            11.52293668138309,
+            48.134116135106005
+          ],
+          [
+            11.52312598138309,
+            48.134249235106005
+          ],
+          [
+            11.52312598138309,
+            48.134392964894
+          ],
+          [
+            11.52310658138309,
+            48.134419464893995
+          ],
+          [
+            11.523277,
+            48.1349661
+          ],
+          [
+            11.52267028138309,
+            48.134985464893994
+          ],
+          [
+            11.52245491861691,
+            48.134985464893994
+          ],
+          [
+            11.52218941861691,
+            48.134332964894
+          ],
+          [
+            11.52218941861691,
+            48.13418923510601
+          ]
+        ],
+        "gateLabels": {
+          "159817915:exit": "Exit-1",
+          "158854309:entry": "Entry-1",
+          "158854278:exit": "Exit-2",
+          "1160861177:entry": "Entry-2",
+          "199697582:exit": "Exit-3",
+          "165406773:entry": "Entry-3",
+          "172218550:entry": "Entry-4"
+        },
+        "reviewedGeometrySha256": "72658c22523d6a629145b8e4c2f91537032e86805b2b48d1881223c109d99ee1"
+      },
+      "supersedesRevision": 2,
+      "excludedGateWayIds": [
+        1524187991,
+        159817921
+      ],
+      "reviewSource": "Thomas requested option 4 after field test: remove Exit-4, move Entry-4 southwest, restore ordinary guidance to Zschokkestrasse. New polygon is an unapproved draft.",
+      "approvalSource": "Thomas explicitly confirmed and approved K05 v3 and requested commit, push and backend build/deployment from the branch.",
+      "reviewedGeometrySha256": "4ba1b55c8fb0ecfa5c0c6cebf09d89ef376c7f29ff9784cf5da15763f85f0e22",
+      "reuseExistingRouteEndpoints": true
     },
     "nymphenburger-waisenhaus": {
       "status": "geometry-approved",

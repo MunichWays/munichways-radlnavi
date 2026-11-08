@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "munich-big-junctions-v3",
+  "catalogVersion": "munich-big-junctions-v4",
   "junctions": [
     {
       "id": "staendler-balan",
@@ -1113,25 +1113,25 @@
     },
     {
       "id": "westend-zschokke",
-      "geometryRevision": 2,
+      "geometryRevision": 3,
       "gates": {
         "north": {
           "entry": {
             "kind": "entry",
             "location": [
-              11.523277,
-              48.1349661
+              11.52296903,
+              48.13477
             ],
-            "osmWayId": 160643860,
+            "osmWayId": 172218550,
             "directionBasis": "yes",
             "forward": [
-              -0.7334060421051806,
-              -0.6797908335683955
+              -0.6981200203901211,
+              -0.7159807519273803
             ],
             "label": "Entry-4",
             "sample": [
-              11.52372173835602,
-              48.13524120444921
+              11.523409498968512,
+              48.135048063308794
             ]
           },
           "exit": {
@@ -1249,22 +1249,7 @@
             ]
           },
           "exit": {
-            "kind": "exit",
-            "location": [
-              11.522424501,
-              48.13491071
-            ],
-            "osmWayId": 1524187991,
-            "directionBasis": "yes",
-            "forward": [
-              -0.9895523357572898,
-              -0.14417411278482697
-            ],
-            "label": "Exit-4",
-            "sample": [
-              11.521838228159101,
-              48.13493274166963
-            ]
+            "error": "Gate Exit-4 withdrawn by reviewed scope"
           }
         }
       },
@@ -1274,7 +1259,8 @@
           "enabled": true,
           "fixture": "westend-zschokke-north-east-left.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523721738,48.135241204;11.523288962,48.133781041?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
-          "turnDegrees": 90.21,
+          "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
+          "turnDegrees": 89.56,
           "logicalCandidate": "left",
           "verifiedCyclingWayIds": [
             158854278,
@@ -1288,7 +1274,8 @@
           "enabled": true,
           "fixture": "westend-zschokke-north-south-straight.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523721738,48.135241204;11.521785032,48.133891097?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
-          "turnDegrees": 4.29,
+          "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
+          "turnDegrees": 3.64,
           "logicalCandidate": "straight",
           "verifiedCyclingWayIds": [
             10953445,
@@ -1302,6 +1289,7 @@
           "enabled": true,
           "fixture": "westend-zschokke-east-south-left.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523518673,48.133939039;11.521785032,48.133891097?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
           "turnDegrees": 94.41,
           "logicalCandidate": "left",
           "verifiedCyclingWayIds": [
@@ -1315,40 +1303,26 @@
         },
         {
           "id": "east-west-left",
-          "enabled": true,
+          "enabled": false,
           "fixture": "westend-zschokke-east-west-straight.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523518673,48.133939039;11.521838228,48.134932742?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
-          "turnDegrees": 45.77,
-          "logicalCandidate": "straight",
-          "verifiedCyclingWayIds": [
-            158854309,
-            159817921,
-            414579408,
-            414579409,
-            1524187991
-          ]
+          "reason": "The later curve into Zschokkestrasse must not classify the junction crossing as a left turn. All movements to the withdrawn Exit-4 fall back to standard guidance.",
+          "reviewDecision": "use-standard-guidance"
         },
         {
           "id": "south-west-left",
-          "enabled": true,
+          "enabled": false,
           "fixture": "westend-zschokke-south-west-left.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522187702,48.133798926;11.521838228,48.134932742?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
-          "turnDegrees": 133.02,
-          "logicalCandidate": "left",
-          "verifiedCyclingWayIds": [
-            159817921,
-            199697579,
-            414579408,
-            414579409,
-            1160861177,
-            1524187991
-          ]
+          "reason": "The later curve into Zschokkestrasse must not classify the junction crossing as a left turn. All movements to the withdrawn Exit-4 fall back to standard guidance.",
+          "reviewDecision": "use-standard-guidance"
         },
         {
           "id": "south-north-straight",
           "enabled": true,
           "fixture": "westend-zschokke-south-north-straight.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522187702,48.133798926;11.523560414,48.134746480?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
           "turnDegrees": -2.06,
           "logicalCandidate": "straight",
           "verifiedCyclingWayIds": [
@@ -1363,6 +1337,7 @@
           "enabled": true,
           "fixture": "westend-zschokke-west-north-left.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521751044,48.134608695;11.523560414,48.134746480?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
           "turnDegrees": 87.18,
           "logicalCandidate": "left",
           "verifiedCyclingWayIds": [
@@ -1379,6 +1354,7 @@
           "enabled": true,
           "fixture": "westend-zschokke-west-east-straight.json",
           "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521751044,48.134608695;11.523288962,48.133781041?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+          "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
           "turnDegrees": -3.19,
           "logicalCandidate": "straight",
           "verifiedCyclingWayIds": [
@@ -2343,7 +2319,7 @@
       "enabled": false,
       "fixture": "westend-zschokke-north-west-right.json",
       "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523721738,48.135241204;11.521838228,48.134932742?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
-      "verified": true,
+      "reason": "Gate Exit-4 withdrawn by reviewed scope",
       "junctionId": "westend-zschokke"
     },
     {
@@ -2351,6 +2327,7 @@
       "enabled": false,
       "fixture": "westend-zschokke-east-north-right.json",
       "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523518673,48.133939039;11.523560414,48.134746480?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
       "verified": true,
       "junctionId": "westend-zschokke"
     },
@@ -2359,6 +2336,7 @@
       "enabled": false,
       "fixture": "westend-zschokke-south-east-right.json",
       "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522187702,48.133798926;11.523288962,48.133781041?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
       "verified": true,
       "junctionId": "westend-zschokke"
     },
@@ -2367,6 +2345,7 @@
       "enabled": false,
       "fixture": "westend-zschokke-west-south-right.json",
       "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.521751044,48.134608695;11.521785032,48.133891097?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false",
+      "endpointEvidence": "Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon",
       "verified": true,
       "junctionId": "westend-zschokke"
     },

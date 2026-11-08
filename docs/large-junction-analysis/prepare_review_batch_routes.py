@@ -139,13 +139,27 @@ def main():
     data=json.loads((ROOT/"review-batch-01-images/review-data.json").read_text(encoding="utf-8"))
     manifest=json.loads(MANIFEST.read_text(encoding="utf-8")) if MANIFEST.exists() else {}
     FIXTURES.mkdir(parents=True,exist_ok=True)
-    proposed=deepcopy(catalog());proposed["version"]="munich-big-junctions-v3"
+    proposed=deepcopy(catalog());proposed["version"]="munich-big-junctions-v4"
     ids={s["id"] for s in data["sites"]};proposed["junctions"]=[j for j in proposed["junctions"] if j["id"] not in ids]
     decisions=json.loads((ROOT/"junction-review-decisions.json").read_text(encoding="utf-8"))["decisions"]
     proposed["excluded"]=[dict({k:v for k,v in d.items() if k!="junctionId"},id=d["junctionId"]) for d in decisions]
     report={"catalogVersion":proposed["version"],"junctions":[],"rightTurnChecks":[]}
+    previous_path=ROOT/"review-batch-01-routes.json"
+    previous=json.loads(previous_path.read_text(encoding="utf-8")) if previous_path.exists() else {"junctions":[]}
+    prior={(j["id"],*m["id"].split("-")[:2]):m for j in previous["junctions"] for m in j["movements"]}
+    prior.update({(m["junctionId"],*m["id"].split("-")[:2]):m for m in previous.get("rightTurnChecks",[])})
     for site in data["sites"]:
         if site["number"] in {7,9}:continue
+        if not site["polygonApproved"] and site.get("review", {}).get("supersedesRevision"):
+            # An unapproved replacement draft cannot change the active polygon.
+            # Reproduce the archived accepted geometry, then apply withdrawals.
+            from review_preflight import fingerprint
+            references=json.loads((ROOT/"review-reference-cases.json").read_text(encoding="utf-8"))["cases"]
+            reference=next(r for r in references if r["id"]==site["id"])
+            archive=json.loads((ROOT/reference["archive"]).read_text(encoding="utf-8"))
+            if fingerprint(archive)!=reference["geometrySha256"]:
+                raise ValueError("Archived accepted geometry changed")
+            site=dict(site,**archive,review=site["review"]["history"])
         if not site["polygonApproved"]:raise ValueError(f'Geometry not approved: {site["id"]}')
         ring=site["polygon"];gates={g["label"]:g for g in site["gates"]};edges=graph(site["ways"],site.get("onRoadWayIds",[]))
         junction={"id":site["id"],"name":site["name"],"enabled":True,"polygon":{"type":"Polygon","coordinates":[ring]},
@@ -155,6 +169,9 @@ def main():
         for arm,labels in ARMS.items():
             evidence["gates"][arm]={}
             for kind,label in zip(("entry","exit"),labels):
+                if label not in gates:
+                    evidence["gates"][arm][kind]={"error":f"Gate {label} withdrawn by reviewed scope"}
+                    continue
                 g=gates[label]
                 try:evidence["gates"][arm][kind]=dict(g,sample=endpoint(g,edges,kind,ring,
                     15 if site["id"]=="nymphenburger-waisenhaus" and arm=="south" else 45))
@@ -162,12 +179,21 @@ def main():
         for arm in ARMS:
             for kind,target in [("left",LEFT[arm]),("straight",STRAIGHT[arm]),("right",RIGHT[arm])]:
                 identifier=f'{arm}-{target}-{kind}';item={"id":identifier,"enabled":False}
+                retained=prior.get((site["id"],arm,target),{})
+                if site["review"].get("reuseExistingRouteEndpoints") and retained:
+                    item.update({k:retained[k] for k in ("fixture","url") if k in retained})
+                    if retained.get("reviewDecision")=="use-standard-guidance":
+                        identifier=retained["id"];item["id"]=identifier
                 try:
                     before=evidence["gates"][arm]["entry"];after=evidence["gates"][target]["exit"]
                     if "error" in before or "error" in after:raise ValueError(before.get("error",after.get("error")))
                     coord=lambda p:f'{p[0]:.9f},{p[1]:.9f}'
                     url=f'https://api.radlnavi.munichways.de/route/v1/bike/{coord(before["sample"])};{coord(after["sample"])}?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false'
-                    filename=f'{site["id"]}-{identifier}.json';payload=fetch(url,FIXTURES/filename,manifest,args.collect)
+                    filename=f'{site["id"]}-{identifier}.json'
+                    if site["review"].get("reuseExistingRouteEndpoints") and all(k in retained for k in ("fixture","url")):
+                        url=retained["url"];filename=retained["fixture"]
+                        item["endpointEvidence"]="Existing frozen route endpoints retained; full route revalidated against new reviewed gates and polygon"
+                    payload=fetch(url,FIXTURES/filename,manifest,args.collect)
                     item.update(fixture=filename,url=url)
                     if payload.get("code")!="Ok":raise ValueError(f'Routing response {payload.get("code")}')
                     if any(w["distance"]>5 for w in payload["waypoints"]):
@@ -222,6 +248,8 @@ def main():
                 print(f'{site["id"]} {identifier}: {"verified" if item.get("enabled") or item.get("verified") else item.get("reason")}',flush=True)
         junction["enabled"]=any(m["enabled"] for m in junction["movements"])
         proposed["junctions"].append(junction);report["junctions"].append(evidence)
+    from movement_review_policy import apply_exclusions
+    apply_exclusions(proposed, report)
     validate_catalog(proposed)
     # Every real right-turn control must remain without optional guidance.
     for item in report["rightTurnChecks"]:

@@ -1,0 +1,783 @@
+{
+  "version": 1,
+  "scope": "Geometry review only; no runtime activation",
+  "sites": {
+    "wintrich-allacher": {
+      "status": "geometry-approved",
+      "revision": 3,
+      "polygon": [
+        [
+          11.510309844566102,
+          48.169758235106
+        ],
+        [
+          11.510432344566102,
+          48.169702635106006
+        ],
+        [
+          11.5106762445661,
+          48.169592735106
+        ],
+        [
+          11.510793844566102,
+          48.169551335106
+        ],
+        [
+          11.511009355433899,
+          48.169551335106
+        ],
+        [
+          11.511067955433898,
+          48.169639035106
+        ],
+        [
+          11.511191855433898,
+          48.169894635106004
+        ],
+        [
+          11.511216355433898,
+          48.170007835106006
+        ],
+        [
+          11.511216355433898,
+          48.170151564894
+        ],
+        [
+          11.511106028,
+          48.170197765
+        ],
+        [
+          11.5106327,
+          48.170382665
+        ],
+        [
+          11.510436044566102,
+          48.170382664894
+        ],
+        [
+          11.510436044566102,
+          48.170238935106006
+        ],
+        [
+          11.510319044566101,
+          48.170019964893996
+        ],
+        [
+          11.510309844566102,
+          48.169901964893995
+        ],
+        [
+          11.510309844566102,
+          48.169758235106
+        ]
+      ],
+      "excludedGateDirections": {
+        "1564203634": [
+          "entry"
+        ]
+      },
+      "gateLabels": {
+        "169525016:exit": "Exit-1",
+        "178180303:entry": "Entry-1",
+        "1188034688:exit": "Exit-2",
+        "322736488:entry": "Entry-2",
+        "220131872:exit": "Exit-3",
+        "293417132:entry": "Entry-3",
+        "293417132:exit": "Exit-4",
+        "1215459619:entry": "Entry-4",
+        "1564203634:exit": "Exit-5"
+      },
+      "labelMigration": {
+        "Exit-1": null,
+        "Entry-1": null,
+        "Exit-2": "Exit-1",
+        "Entry-2": "Entry-1",
+        "Exit-3": "Exit-2",
+        "Entry-3": "Entry-2",
+        "Exit-4": "Exit-3",
+        "Entry-4": "Entry-3",
+        "Exit-5": "Exit-4",
+        "Entry-5": "Entry-4",
+        "Exit-6": "Exit-5"
+      },
+      "relocatedGateBasis": {
+        "node": 1348200070,
+        "northEntryWay": 1215459619,
+        "westExitWay": 1564203634,
+        "paddingMeters": 8
+      },
+      "note": "Geometrie von Thomas bestätigt. Kante Exit-1 bis Entry-4 geradegezogen; alle Punkte erhalten. Vier Arme, Zweirichtungsradwege berücksichtigt. Fahrbeziehungen noch ungeprüft; nicht aktiviert.",
+      "reviewSource": "Thomas: K11 four arms, preserve indicated points, renumber and relocate northwestern pair. Unchanged points accepted; revised geometry not yet confirmed.",
+      "reviewedGeometrySha256": "664de79e2dd32c75bb09e0529644018435be44ffad8d2cc2db2ea720cc934eee",
+      "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review."
+    },
+    "menzinger-wintrich": {
+      "status": "geometry-approved",
+      "revision": 2,
+      "polygon": [
+        [
+          11.506409957352513,
+          48.163991235106
+        ],
+        [
+          11.506759957352514,
+          48.163541335106004
+        ],
+        [
+          11.506813757352514,
+          48.163525435106
+        ],
+        [
+          11.507029242647487,
+          48.163525435106
+        ],
+        [
+          11.507257042647487,
+          48.163673835106
+        ],
+        [
+          11.507326542647487,
+          48.163723035106
+        ],
+        [
+          11.507326542647487,
+          48.163866764893996
+        ],
+        [
+          11.507242442647486,
+          48.163903564894
+        ],
+        [
+          11.507112042647487,
+          48.163960264893994
+        ],
+        [
+          11.50735,
+          48.16444
+        ],
+        [
+          11.50619,
+          48.1642
+        ],
+        [
+          11.50619,
+          48.16413
+        ],
+        [
+          11.506409957352513,
+          48.163991235106
+        ]
+      ],
+      "onRoadWayIds": [
+        214701269
+      ],
+      "gateLabels": {
+        "322736488:exit": "Exit-1",
+        "904124456:entry": "Entry-1",
+        "157023018:exit": "Exit-2",
+        "214701269:entry": "Entry-2",
+        "214701269:exit": "Exit-3",
+        "157023018:entry": "Entry-3",
+        "322736493:exit": "Exit-4",
+        "220131872:entry": "Entry-4"
+      },
+      "labelMigration": {
+        "Exit-1": "Exit-1",
+        "Entry-1": "Entry-1",
+        "Exit-2": "Exit-2",
+        "Entry-2": "Entry-3",
+        "Exit-3": "Exit-4",
+        "Exit-4": "Exit-4",
+        "Entry-3": "Entry-4",
+        "Entry-4": "Entry-4"
+      },
+      "note": "Geometrie von Thomas bestätigt. Entry-4 vor der nördlichen Verzweigung, Exit-4 hinter der westlichen Zusammenführung. Maria-Ward-Straße: Entry-2 / Exit-3 auf der Fahrbahn. Fahrbeziehungen noch ungeprüft; nicht aktiviert.",
+      "reviewSource": "Thomas requested merged northern entry, merged western exit, Maria-Ward carriageway pair and relabeling.",
+      "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review.",
+      "reviewedGeometrySha256": "a93076f4e99dd1d7fb77e2b951f8254cc6811a61c5b398e0787864be1172f284"
+    },
+    "arnulf-landshuter": {
+      "status": "geometry-approved",
+      "revision": 2,
+      "polygon": [
+        [
+          11.535272993646128,
+          48.146069535106
+        ],
+        [
+          11.53586319364613,
+          48.146013935106005
+        ],
+        [
+          11.536028193646128,
+          48.145999935106005
+        ],
+        [
+          11.536243606353871,
+          48.145999935106005
+        ],
+        [
+          11.536314606353871,
+          48.146079635106005
+        ],
+        [
+          11.536465306353872,
+          48.146256435106004
+        ],
+        [
+          11.5366,
+          48.1464
+        ],
+        [
+          11.53657,
+          48.1465
+        ],
+        [
+          11.53645,
+          48.14654
+        ],
+        [
+          11.53617,
+          48.14667
+        ],
+        [
+          11.53586,
+          48.14667
+        ],
+        [
+          11.535497593646129,
+          48.146495864894
+        ],
+        [
+          11.535272993646128,
+          48.146213264893994
+        ],
+        [
+          11.535272993646128,
+          48.146069535106
+        ]
+      ],
+      "gateLabels": {
+        "27382707:exit": "Exit-1",
+        "1090775894:entry": "Entry-1",
+        "1090775894:exit": "Exit-2",
+        "59603393:exit": "Exit-3",
+        "1090784240:entry": "Entry-2",
+        "1553266007:entry": "Entry-3",
+        "1553266007:exit": "Exit-4",
+        "60004308:entry": "Entry-4",
+        "60004308:exit": "Exit-5",
+        "371718793:exit": "Exit-6",
+        "371718793:entry": "Entry-5",
+        "158910720:entry": "Entry-6"
+      },
+      "excludedArms": [
+        "Schulstrasse"
+      ],
+      "labelMigration": {
+        "Exit-1": "Exit-1",
+        "Entry-1": "Entry-1",
+        "Exit-2": "Exit-2",
+        "Exit-3": "Exit-3",
+        "Entry-2": "Entry-2",
+        "Entry-3": "Entry-3",
+        "Exit-4": "Exit-4",
+        "Entry-4": "Entry-4",
+        "Exit-5": "Exit-5",
+        "Exit-6": "Exit-6",
+        "Entry-5": "Entry-5",
+        "Entry-6": "Entry-6"
+      },
+      "reviewSource": "Thomas accepted basic layout and requested separation of northeastern gates and Entry-6 south of the Schulstrasse junction.",
+      "note": "Geometrie von Thomas bestätigt. Exit-1 nördlicher; Entry-1 / Exit-2 gemeinsam östlicher. Entry-6 südlich vor dem Schulstraßenanschluss; Schulstraße ohne eigenen Kreuzungsarm. Fahrbeziehungen noch ungeprüft; nicht aktiviert.",
+      "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review.",
+      "reviewedGeometrySha256": "af7bfb5aa3f0a831e3d6b4173c1f6002f97914a3d9b093b992dea07e31fe8683"
+    },
+    "dachauer-loth": {
+      "status": "geometry-approved",
+      "revision": 3,
+      "polygon": [
+        [
+          11.553444076988244,
+          48.154518935106005
+        ],
+        [
+          11.553577876988244,
+          48.154124135106
+        ],
+        [
+          11.553715376988245,
+          48.154039135106004
+        ],
+        [
+          11.553930823011756,
+          48.154039135106004
+        ],
+        [
+          11.553989623011756,
+          48.154072635106004
+        ],
+        [
+          11.554140323011755,
+          48.154158635106
+        ],
+        [
+          11.554203023011755,
+          48.15419443510601
+        ],
+        [
+          11.554353823011756,
+          48.154412535106005
+        ],
+        [
+          11.554353823011756,
+          48.154556264894
+        ],
+        [
+          11.55354,
+          48.15469
+        ],
+        [
+          11.553444076988244,
+          48.1546
+        ],
+        [
+          11.553444076988244,
+          48.154518935106005
+        ]
+      ],
+      "onRoadWayIds": [
+        163989143,
+        278513971,
+        1393204543
+      ],
+      "gateLabels": {
+        "1393204543:exit": "Exit-1",
+        "168045896:entry": "Entry-1",
+        "288283592:exit": "Exit-2",
+        "163989143:entry": "Entry-2",
+        "163989143:exit": "Exit-3",
+        "288283592:entry": "Entry-3",
+        "1151403469:exit": "Exit-4",
+        "1393204543:entry": "Entry-5"
+      },
+      "labelMigration": {
+        "Exit-1": "Exit-1",
+        "Entry-1": "Entry-1",
+        "Exit-2": "Exit-2",
+        "Entry-2": "Entry-2",
+        "Exit-3": "Exit-3",
+        "Entry-3": "Entry-3",
+        "Exit-4": "Exit-4",
+        "Entry-4": null,
+        "Exit-5": null,
+        "Entry-5": "Entry-5"
+      },
+      "geometryBasis": "Agent proposal applying reviewed K08/K12 carriageway pattern to frozen OSM way 163989143: residential, bicycle=yes, no bicycle/use_sidepath restriction. Geometry unchanged; all new gates intersect the existing polygon. Not human approved.",
+      "reviewSource": "Thomas requested removal of the northeastern side path and Exit-4 closer to the cycling junction.",
+      "note": "Entry-4 / Exit-5 entfernt: nordöstlicher Nebenweg gehört nicht zur Kreuzung. Exit-4 nach Südosten kurz hinter den Radwegknoten verschoben. Alle übrigen Punkte und Namen erhalten; Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+      "history": {
+        "revision": 2,
+        "polygon": [
+          [
+            11.553444076988244,
+            48.154518935106005
+          ],
+          [
+            11.553577876988244,
+            48.154124135106
+          ],
+          [
+            11.553715376988245,
+            48.154039135106004
+          ],
+          [
+            11.553930823011756,
+            48.154039135106004
+          ],
+          [
+            11.553989623011756,
+            48.154072635106004
+          ],
+          [
+            11.554140323011755,
+            48.154158635106
+          ],
+          [
+            11.554203023011755,
+            48.15419443510601
+          ],
+          [
+            11.554353823011756,
+            48.154412535106005
+          ],
+          [
+            11.554353823011756,
+            48.154556264894
+          ],
+          [
+            11.553669623011755,
+            48.154726564894
+          ],
+          [
+            11.553454176988245,
+            48.154726564894
+          ],
+          [
+            11.553444076988244,
+            48.154662664894
+          ],
+          [
+            11.553444076988244,
+            48.154518935106005
+          ]
+        ],
+        "gateLabels": {
+          "1393204543:exit": "Exit-1",
+          "168045896:entry": "Entry-1",
+          "288283592:exit": "Exit-2",
+          "163989143:entry": "Entry-2",
+          "163989143:exit": "Exit-3",
+          "288283592:entry": "Entry-3",
+          "1151403469:exit": "Exit-4",
+          "272438832:entry": "Entry-4",
+          "272438832:exit": "Exit-5",
+          "1393204543:entry": "Entry-5"
+        },
+        "note": "Lothstraße Südwest: neuer gemeinsamer Entry-2 / Exit-3 auf der Fahrbahn (OSM bicycle=yes), analog K12. Bitte Lage und Straßenführung prüfen. Nordöstliche Streifen nur als Mittellinie; zusätzlicher radfreigegebener Fußweg im Norden bleibt sichtbar."
+      },
+      "excludedGateWayIds": [
+        272438832
+      ],
+      "efficiency": {
+        "firstPassConfirmed": false,
+        "correctionRounds": 1,
+        "reasonCodes": [
+          "excluded-sidepath",
+          "gate-position"
+        ]
+      },
+      "reviewedGeometrySha256": "11c5b60328f2619ca6c575c0e0b78eb4f715e8292e2669e36542228f9b599f8e",
+      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+    },
+    "nymphenburger-landshuter": {
+      "status": "geometry-approved",
+      "revision": 2,
+      "polygon": [
+        [
+          11.536492082144308,
+          48.151902935106
+        ],
+        [
+          11.536497082144308,
+          48.151810635106
+        ],
+        [
+          11.53650558214431,
+          48.151674735106006
+        ],
+        [
+          11.536512482144309,
+          48.151602135106
+        ],
+        [
+          11.536545482144309,
+          48.151592735106
+        ],
+        [
+          11.537065482144309,
+          48.151457635106006
+        ],
+        [
+          11.5371,
+          48.1514
+        ],
+        [
+          11.53731,
+          48.1514
+        ],
+        [
+          11.5374,
+          48.15144
+        ],
+        [
+          11.53752,
+          48.15149
+        ],
+        [
+          11.53752,
+          48.1516
+        ],
+        [
+          11.53743911785569,
+          48.151683164893996
+        ],
+        [
+          11.537438617855692,
+          48.151796164893995
+        ],
+        [
+          11.53743531785569,
+          48.151885664893996
+        ],
+        [
+          11.53728071785569,
+          48.15192496489399
+        ],
+        [
+          11.536731417855691,
+          48.152049164893995
+        ],
+        [
+          11.536515982144309,
+          48.152049164893995
+        ],
+        [
+          11.536492082144308,
+          48.152046664893994
+        ],
+        [
+          11.536492082144308,
+          48.151902935106
+        ]
+      ],
+      "gateLabels": {
+        "288281458:exit": "Exit-1",
+        "850410796:entry": "Entry-1",
+        "371889455:exit": "Exit-2",
+        "1092326093:entry": "Entry-2",
+        "941626412:exit": "Exit-3",
+        "158910720:exit": "Exit-4",
+        "1416716820:entry": "Entry-3",
+        "967098912:exit": "Exit-5",
+        "1460781832:entry": "Entry-4"
+      },
+      "labelMigration": {
+        "Exit-1": "Exit-1",
+        "Entry-1": "Entry-1",
+        "Exit-2": "Exit-2",
+        "Entry-2": "Entry-2",
+        "Exit-3": "Exit-3",
+        "Exit-4": "Exit-4",
+        "Entry-3": "Entry-3",
+        "Exit-5": "Exit-5",
+        "Entry-4": "Entry-4"
+      },
+      "reviewSource": "Thomas confirmed Entry-2 was intended and requested outward separation of Exit-2 / Entry-2 / Exit-3.",
+      "note": "Exit-2 / Entry-2 / Exit-3 im Südosten auf ihren drei Radwegen nach außen versetzt und entzerrt. Entry-1 und alle übrigen Punkte unverändert. Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+      "efficiency": {
+        "firstPassConfirmed": false,
+        "correctionRounds": 1,
+        "reasonCodes": [
+          "gate-spacing"
+        ]
+      },
+      "reviewedGeometrySha256": "7c75f0cbd1cd5f43935fa3402d84bc23dfa4a765aa9d42d6bd20c85226e0eb4a",
+      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+    },
+    "leonrod-landshuter": {
+      "status": "geometry-approved",
+      "revision": 3,
+      "polygon": [
+        [
+          11.536649477341577,
+          48.153755535106
+        ],
+        [
+          11.5366,
+          48.15354
+        ],
+        [
+          11.53684,
+          48.15354
+        ],
+        [
+          11.537299222658424,
+          48.153648535106
+        ],
+        [
+          11.537519222658423,
+          48.153743335106
+        ],
+        [
+          11.53758,
+          48.15397
+        ],
+        [
+          11.53749,
+          48.15406
+        ],
+        [
+          11.53788,
+          48.15438
+        ],
+        [
+          11.538034722658423,
+          48.154406464893995
+        ],
+        [
+          11.537929522658423,
+          48.154445864893994
+        ],
+        [
+          11.537714077341576,
+          48.154445864893994
+        ],
+        [
+          11.537349477341577,
+          48.154440564893996
+        ],
+        [
+          11.536666677341577,
+          48.154112564894
+        ],
+        [
+          11.536649477341577,
+          48.153899264893994
+        ],
+        [
+          11.536649477341577,
+          48.153755535106
+        ]
+      ],
+      "onRoadWayIds": [
+        4288229,
+        160610746,
+        192283557,
+        308784466,
+        95857037
+      ],
+      "gateLabels": {
+        "874212202:exit": "Exit-1",
+        "4288229:entry": "Entry-1",
+        "288281458:entry": "Entry-2",
+        "1460781832:exit": "Exit-3",
+        "93062999:exit": "Exit-4",
+        "1460781832:entry": "Entry-4",
+        "1460781865:exit": "Exit-2",
+        "95857037:entry": "Entry-3"
+      },
+      "labelMigration": {
+        "Exit-1": "Exit-1",
+        "Entry-1": "Entry-1",
+        "Exit-2": "Exit-2",
+        "Entry-2": "Entry-2",
+        "Entry-3": "Entry-3",
+        "Exit-3": "Exit-3",
+        "Exit-4": "Exit-4",
+        "Entry-4": "Entry-4"
+      },
+      "reviewSource": "Thomas clarified Entry-3 belongs on the Leonrodstrasse residential carriageway before the traffic signals, not on the footway.",
+      "geometryBasis": "Thomas explicitly requested the residential right-turn carriageway (way 95857037). Entry-3 intersects frozen way geometry about 5m before traffic-signal node 4669341961 verified by the official OSM API. Other gates preserved.",
+      "note": "Entry-3 auf dem Rechtskurven-Fahrbahnabschnitt der Leonrodstraße (residential), etwa 5 m vor der Ampel. Der bisherige Gehwegpunkt entfällt. Alle übrigen Punkte unverändert; Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+      "efficiency": {
+        "firstPassConfirmed": false,
+        "correctionRounds": 2,
+        "reasonCodes": [
+          "adjacent-junction",
+          "gate-position"
+        ]
+      },
+      "history": {
+        "revision": 2,
+        "polygon": [
+          [
+            11.536649477341577,
+            48.153755535106
+          ],
+          [
+            11.5366,
+            48.15354
+          ],
+          [
+            11.53684,
+            48.15354
+          ],
+          [
+            11.537299222658424,
+            48.153648535106
+          ],
+          [
+            11.537519222658423,
+            48.153743335106
+          ],
+          [
+            11.53758,
+            48.15397
+          ],
+          [
+            11.53749,
+            48.15406
+          ],
+          [
+            11.53788,
+            48.15438
+          ],
+          [
+            11.538034722658423,
+            48.154406464893995
+          ],
+          [
+            11.537929522658423,
+            48.154445864893994
+          ],
+          [
+            11.537714077341576,
+            48.154445864893994
+          ],
+          [
+            11.537349477341577,
+            48.154440564893996
+          ],
+          [
+            11.536666677341577,
+            48.154112564894
+          ],
+          [
+            11.536649477341577,
+            48.153899264893994
+          ],
+          [
+            11.536649477341577,
+            48.153755535106
+          ]
+        ],
+        "gateLabels": {
+          "874212202:exit": "Exit-1",
+          "4288229:entry": "Entry-1",
+          "288281458:entry": "Entry-2",
+          "1460781832:exit": "Exit-3",
+          "93062999:exit": "Exit-4",
+          "1460781832:entry": "Entry-4",
+          "1460781865:exit": "Exit-2",
+          "95857037:entry": "Entry-3"
+        },
+        "needsAccessVerificationWayIds": [
+          218845051
+        ],
+        "note": "Exit-2 vor der Jutastraße auf dem Radweg; Entry-3 am südwestlichen Radwegknoten, Exit-3 kurz südlich dahinter. Entry-3-Anschluss in OSM ohne ausdrückliche Radfreigabe: vor Aktivierung klären."
+      },
+      "signalNode": {
+        "id": 4669341961,
+        "location": [
+          11.5366973,
+          48.1536555
+        ]
+      },
+      "reviewedGeometrySha256": "24bd0cebc532c972066332845d630d55e91174b8bc58bb70ab17818bf5af6ab9",
+      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+    },
+    "dachauer-leonrod": {
+      "status": "geometry-approved",
+      "revision": 1,
+      "reviewedGeometrySha256": "8a457b486e637e91cd647a5003020ed2e3ae36b26238a8b444ed8165d9ed24b9",
+      "approvalSource": "Thomas: K16 perfekt geloest, freigegeben.",
+      "efficiency": {
+        "firstPassConfirmed": true,
+        "correctionRounds": 0,
+        "reasonCodes": []
+      },
+      "note": "Geometrie von Thomas als perfekt bestätigt und freigegeben. Fahrbeziehungen noch ungeprüft; nicht aktiviert."
+    }
+  }
+}

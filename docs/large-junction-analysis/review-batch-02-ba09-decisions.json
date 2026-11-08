@@ -106,10 +106,28 @@
         "westExitWay": 1564203634,
         "paddingMeters": 8
       },
-      "note": "Geometrie von Thomas bestätigt. Kante Exit-1 bis Entry-4 geradegezogen; alle Punkte erhalten. Vier Arme, Zweirichtungsradwege berücksichtigt. Fahrbeziehungen noch ungeprüft; nicht aktiviert.",
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
       "reviewSource": "Thomas: K11 four arms, preserve indicated points, renumber and relocate northwestern pair. Unchanged points accepted; revised geometry not yet confirmed.",
       "reviewedGeometrySha256": "664de79e2dd32c75bb09e0529644018435be44ffad8d2cc2db2ea720cc934eee",
-      "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review."
+      "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review.",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-3",
+          "east-west-straight-entry-1-exit-4",
+          "east-west-straight-entry-1-exit-5",
+          "north-east-left-entry-4-exit-2",
+          "north-south-straight-entry-4-exit-3",
+          "south-north-straight-entry-2-exit-1",
+          "south-west-left-entry-2-exit-4",
+          "south-west-left-entry-2-exit-5",
+          "west-east-straight-entry-3-exit-2",
+          "west-north-left-entry-3-exit-1"
+        ]
+      }
     },
     "menzinger-wintrich": {
       "status": "geometry-approved",
@@ -191,10 +209,26 @@
         "Entry-3": "Entry-4",
         "Entry-4": "Entry-4"
       },
-      "note": "Geometrie von Thomas bestätigt. Entry-4 vor der nördlichen Verzweigung, Exit-4 hinter der westlichen Zusammenführung. Maria-Ward-Straße: Entry-2 / Exit-3 auf der Fahrbahn. Fahrbeziehungen noch ungeprüft; nicht aktiviert.",
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
       "reviewSource": "Thomas requested merged northern entry, merged western exit, Maria-Ward carriageway pair and relabeling.",
       "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review.",
-      "reviewedGeometrySha256": "a93076f4e99dd1d7fb77e2b951f8254cc6811a61c5b398e0787864be1172f284"
+      "reviewedGeometrySha256": "a93076f4e99dd1d7fb77e2b951f8254cc6811a61c5b398e0787864be1172f284",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-3",
+          "east-west-straight-entry-1-exit-4",
+          "north-east-left-entry-4-exit-2",
+          "north-south-straight-entry-4-exit-3",
+          "south-north-straight-entry-2-exit-1",
+          "south-west-left-entry-2-exit-4",
+          "west-east-straight-entry-3-exit-2",
+          "west-north-left-entry-3-exit-1"
+        ]
+      }
     },
     "arnulf-landshuter": {
       "status": "geometry-approved",
@@ -289,17 +323,41 @@
         "Entry-6": "Entry-6"
       },
       "reviewSource": "Thomas accepted basic layout and requested separation of northeastern gates and Entry-6 south of the Schulstrasse junction.",
-      "note": "Geometrie von Thomas bestätigt. Exit-1 nördlicher; Entry-1 / Exit-2 gemeinsam östlicher. Entry-6 südlich vor dem Schulstraßenanschluss; Schulstraße ohne eigenen Kreuzungsarm. Fahrbeziehungen noch ungeprüft; nicht aktiviert.",
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht. GESPERRT: Entry-2 nach Exit-5 und Entry-3 nach Exit-5 (links); hier bleiben Standardhinweise.",
       "approvalSource": "Thomas explicitly approved K11, K12 and K13 in the current review.",
-      "reviewedGeometrySha256": "af7bfb5aa3f0a831e3d6b4173c1f6002f97914a3d9b093b992dea07e31fe8683"
+      "reviewedGeometrySha256": "af7bfb5aa3f0a831e3d6b4173c1f6002f97914a3d9b093b992dea07e31fe8683",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-4",
+          "east-west-straight-entry-1-exit-5",
+          "east-west-straight-entry-1-exit-6",
+          "north-east-left-entry-6-exit-2",
+          "north-east-left-entry-6-exit-3",
+          "north-south-straight-entry-6-exit-4",
+          "south-north-straight-entry-2-exit-1",
+          "south-north-straight-entry-3-exit-1",
+          "south-west-left-entry-2-exit-6",
+          "south-west-left-entry-3-exit-6",
+          "west-east-straight-entry-4-exit-2",
+          "west-east-straight-entry-4-exit-3",
+          "west-east-straight-entry-5-exit-2",
+          "west-east-straight-entry-5-exit-3",
+          "west-north-left-entry-4-exit-1",
+          "west-north-left-entry-5-exit-1"
+        ]
+      }
     },
     "dachauer-loth": {
       "status": "geometry-approved",
-      "revision": 3,
+      "revision": 6,
       "polygon": [
         [
-          11.553444076988244,
-          48.154518935106005
+          11.553511844,
+          48.154318977
         ],
         [
           11.553577876988244,
@@ -334,16 +392,12 @@
           48.154556264894
         ],
         [
-          11.55354,
-          48.15469
+          11.553797314,
+          48.154500388
         ],
         [
-          11.553444076988244,
-          48.1546
-        ],
-        [
-          11.553444076988244,
-          48.154518935106005
+          11.553511844,
+          48.154318977
         ]
       ],
       "onRoadWayIds": [
@@ -374,10 +428,11 @@
         "Entry-5": "Entry-5"
       },
       "geometryBasis": "Agent proposal applying reviewed K08/K12 carriageway pattern to frozen OSM way 163989143: residential, bicycle=yes, no bicycle/use_sidepath restriction. Geometry unchanged; all new gates intersect the existing polygon. Not human approved.",
-      "reviewSource": "Thomas requested removal of the northeastern side path and Exit-4 closer to the cycling junction.",
-      "note": "Entry-4 / Exit-5 entfernt: nordöstlicher Nebenweg gehört nicht zur Kreuzung. Exit-4 nach Südosten kurz hinter den Radwegknoten verschoben. Alle übrigen Punkte und Namen erhalten; Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+      "reviewSource": "Thomas requested a straight polygon edge between unchanged Entry-3 and Exit-4.",
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
       "history": {
-        "revision": 2,
+        "status": "geometry-draft",
+        "revision": 5,
         "polygon": [
           [
             11.553444076988244,
@@ -416,21 +471,22 @@
             48.154556264894
           ],
           [
-            11.553669623011755,
-            48.154726564894
+            11.55383,
+            48.15452
           ],
           [
-            11.553454176988245,
-            48.154726564894
-          ],
-          [
-            11.553444076988244,
-            48.154662664894
+            11.55373,
+            48.15446
           ],
           [
             11.553444076988244,
             48.154518935106005
           ]
+        ],
+        "onRoadWayIds": [
+          163989143,
+          278513971,
+          1393204543
         ],
         "gateLabels": {
           "1393204543:exit": "Exit-1",
@@ -440,11 +496,298 @@
           "163989143:exit": "Exit-3",
           "288283592:entry": "Entry-3",
           "1151403469:exit": "Exit-4",
-          "272438832:entry": "Entry-4",
-          "272438832:exit": "Exit-5",
           "1393204543:entry": "Entry-5"
         },
-        "note": "Lothstraße Südwest: neuer gemeinsamer Entry-2 / Exit-3 auf der Fahrbahn (OSM bicycle=yes), analog K12. Bitte Lage und Straßenführung prüfen. Nordöstliche Streifen nur als Mittellinie; zusätzlicher radfreigegebener Fußweg im Norden bleibt sichtbar."
+        "labelMigration": {
+          "Exit-1": "Exit-1",
+          "Entry-1": "Entry-1",
+          "Exit-2": "Exit-2",
+          "Entry-2": "Entry-2",
+          "Exit-3": "Exit-3",
+          "Entry-3": "Entry-3",
+          "Exit-4": "Exit-4",
+          "Entry-4": null,
+          "Exit-5": null,
+          "Entry-5": "Entry-5"
+        },
+        "geometryBasis": "Agent proposal applying reviewed K08/K12 carriageway pattern to frozen OSM way 163989143: residential, bicycle=yes, no bicycle/use_sidepath restriction. Geometry unchanged; all new gates intersect the existing polygon. Not human approved.",
+        "reviewSource": "Thomas requested Exit-4 substantially farther southeast than v4 along the same cycleway.",
+        "note": "Exit-4 nochmals deutlich nach Südosten entlang des Radwegs verschoben (ca. 19 m gegenüber v4). Alle anderen Punkte bleiben erhalten. Korrigierter Entwurf v5; noch nicht technisch geprüft oder aktiviert.",
+        "history": {
+          "status": "geometry-draft",
+          "revision": 4,
+          "polygon": [
+            [
+              11.553444076988244,
+              48.154518935106005
+            ],
+            [
+              11.553577876988244,
+              48.154124135106
+            ],
+            [
+              11.553715376988245,
+              48.154039135106004
+            ],
+            [
+              11.553930823011756,
+              48.154039135106004
+            ],
+            [
+              11.553989623011756,
+              48.154072635106004
+            ],
+            [
+              11.554140323011755,
+              48.154158635106
+            ],
+            [
+              11.554203023011755,
+              48.15419443510601
+            ],
+            [
+              11.554353823011756,
+              48.154412535106005
+            ],
+            [
+              11.554353823011756,
+              48.154556264894
+            ],
+            [
+              11.55362,
+              48.15463
+            ],
+            [
+              11.55352,
+              48.15457
+            ],
+            [
+              11.553444076988244,
+              48.154518935106005
+            ]
+          ],
+          "onRoadWayIds": [
+            163989143,
+            278513971,
+            1393204543
+          ],
+          "gateLabels": {
+            "1393204543:exit": "Exit-1",
+            "168045896:entry": "Entry-1",
+            "288283592:exit": "Exit-2",
+            "163989143:entry": "Entry-2",
+            "163989143:exit": "Exit-3",
+            "288283592:entry": "Entry-3",
+            "1151403469:exit": "Exit-4",
+            "1393204543:entry": "Entry-5"
+          },
+          "labelMigration": {
+            "Exit-1": "Exit-1",
+            "Entry-1": "Entry-1",
+            "Exit-2": "Exit-2",
+            "Entry-2": "Entry-2",
+            "Exit-3": "Exit-3",
+            "Entry-3": "Entry-3",
+            "Exit-4": "Exit-4",
+            "Entry-4": null,
+            "Exit-5": null,
+            "Entry-5": "Entry-5"
+          },
+          "geometryBasis": "Agent proposal applying reviewed K08/K12 carriageway pattern to frozen OSM way 163989143: residential, bicycle=yes, no bicycle/use_sidepath restriction. Geometry unchanged; all new gates intersect the existing polygon. Not human approved.",
+          "reviewSource": "Thomas requested Exit-4 southeast of the cycleway junction north of Lothstrasse.",
+          "note": "Exit-4 nach Südosten verschoben, ca. 4 m kreuzungsseitig hinter den Radwegknoten nördlich der Lothstraße. Alle anderen Punkte bleiben erhalten. Korrigierter Entwurf v4; technische Prüfung von v3 gilt hier nicht mehr.",
+          "history": {
+            "status": "geometry-approved",
+            "revision": 3,
+            "polygon": [
+              [
+                11.553444076988244,
+                48.154518935106005
+              ],
+              [
+                11.553577876988244,
+                48.154124135106
+              ],
+              [
+                11.553715376988245,
+                48.154039135106004
+              ],
+              [
+                11.553930823011756,
+                48.154039135106004
+              ],
+              [
+                11.553989623011756,
+                48.154072635106004
+              ],
+              [
+                11.554140323011755,
+                48.154158635106
+              ],
+              [
+                11.554203023011755,
+                48.15419443510601
+              ],
+              [
+                11.554353823011756,
+                48.154412535106005
+              ],
+              [
+                11.554353823011756,
+                48.154556264894
+              ],
+              [
+                11.55354,
+                48.15469
+              ],
+              [
+                11.553444076988244,
+                48.1546
+              ],
+              [
+                11.553444076988244,
+                48.154518935106005
+              ]
+            ],
+            "onRoadWayIds": [
+              163989143,
+              278513971,
+              1393204543
+            ],
+            "gateLabels": {
+              "1393204543:exit": "Exit-1",
+              "168045896:entry": "Entry-1",
+              "288283592:exit": "Exit-2",
+              "163989143:entry": "Entry-2",
+              "163989143:exit": "Exit-3",
+              "288283592:entry": "Entry-3",
+              "1151403469:exit": "Exit-4",
+              "1393204543:entry": "Entry-5"
+            },
+            "labelMigration": {
+              "Exit-1": "Exit-1",
+              "Entry-1": "Entry-1",
+              "Exit-2": "Exit-2",
+              "Entry-2": "Entry-2",
+              "Exit-3": "Exit-3",
+              "Entry-3": "Entry-3",
+              "Exit-4": "Exit-4",
+              "Entry-4": null,
+              "Exit-5": null,
+              "Entry-5": "Entry-5"
+            },
+            "geometryBasis": "Agent proposal applying reviewed K08/K12 carriageway pattern to frozen OSM way 163989143: residential, bicycle=yes, no bicycle/use_sidepath restriction. Geometry unchanged; all new gates intersect the existing polygon. Not human approved.",
+            "reviewSource": "Thomas requested removal of the northeastern side path and Exit-4 closer to the cycling junction.",
+            "note": "Entry-4 / Exit-5 entfernt: nordöstlicher Nebenweg gehört nicht zur Kreuzung. Exit-4 nach Südosten kurz hinter den Radwegknoten verschoben. Alle übrigen Punkte und Namen erhalten; Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+            "history": {
+              "revision": 2,
+              "polygon": [
+                [
+                  11.553444076988244,
+                  48.154518935106005
+                ],
+                [
+                  11.553577876988244,
+                  48.154124135106
+                ],
+                [
+                  11.553715376988245,
+                  48.154039135106004
+                ],
+                [
+                  11.553930823011756,
+                  48.154039135106004
+                ],
+                [
+                  11.553989623011756,
+                  48.154072635106004
+                ],
+                [
+                  11.554140323011755,
+                  48.154158635106
+                ],
+                [
+                  11.554203023011755,
+                  48.15419443510601
+                ],
+                [
+                  11.554353823011756,
+                  48.154412535106005
+                ],
+                [
+                  11.554353823011756,
+                  48.154556264894
+                ],
+                [
+                  11.553669623011755,
+                  48.154726564894
+                ],
+                [
+                  11.553454176988245,
+                  48.154726564894
+                ],
+                [
+                  11.553444076988244,
+                  48.154662664894
+                ],
+                [
+                  11.553444076988244,
+                  48.154518935106005
+                ]
+              ],
+              "gateLabels": {
+                "1393204543:exit": "Exit-1",
+                "168045896:entry": "Entry-1",
+                "288283592:exit": "Exit-2",
+                "163989143:entry": "Entry-2",
+                "163989143:exit": "Exit-3",
+                "288283592:entry": "Entry-3",
+                "1151403469:exit": "Exit-4",
+                "272438832:entry": "Entry-4",
+                "272438832:exit": "Exit-5",
+                "1393204543:entry": "Entry-5"
+              },
+              "note": "Lothstraße Südwest: neuer gemeinsamer Entry-2 / Exit-3 auf der Fahrbahn (OSM bicycle=yes), analog K12. Bitte Lage und Straßenführung prüfen. Nordöstliche Streifen nur als Mittellinie; zusätzlicher radfreigegebener Fußweg im Norden bleibt sichtbar."
+            },
+            "excludedGateWayIds": [
+              272438832
+            ],
+            "efficiency": {
+              "firstPassConfirmed": false,
+              "correctionRounds": 1,
+              "reasonCodes": [
+                "excluded-sidepath",
+                "gate-position"
+              ]
+            },
+            "reviewedGeometrySha256": "11c5b60328f2619ca6c575c0e0b78eb4f715e8292e2669e36542228f9b599f8e",
+            "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+          },
+          "excludedGateWayIds": [
+            272438832
+          ],
+          "efficiency": {
+            "firstPassConfirmed": false,
+            "correctionRounds": 1,
+            "reasonCodes": [
+              "excluded-sidepath",
+              "gate-position"
+            ]
+          },
+          "supersedesRevision": 3
+        },
+        "excludedGateWayIds": [
+          272438832
+        ],
+        "efficiency": {
+          "firstPassConfirmed": false,
+          "correctionRounds": 1,
+          "reasonCodes": [
+            "excluded-sidepath",
+            "gate-position"
+          ]
+        },
+        "supersedesRevision": 3
       },
       "excludedGateWayIds": [
         272438832
@@ -457,8 +800,25 @@
           "gate-position"
         ]
       },
-      "reviewedGeometrySha256": "11c5b60328f2619ca6c575c0e0b78eb4f715e8292e2669e36542228f9b599f8e",
-      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+      "supersedesRevision": 3,
+      "reviewedGeometrySha256": "422cb44f684ff15a62e505429809399ce2e9f5cd67aa946ed7d689afbbfbb25f",
+      "approvalSource": "Thomas explicitly approved K17 v6 after straightening Entry-3 to Exit-4.",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-3",
+          "east-west-straight-entry-1-exit-4",
+          "north-east-left-entry-5-exit-2",
+          "north-south-straight-entry-5-exit-3",
+          "south-north-straight-entry-2-exit-1",
+          "south-west-left-entry-2-exit-4",
+          "west-east-straight-entry-3-exit-2",
+          "west-north-left-entry-3-exit-1"
+        ]
+      }
     },
     "nymphenburger-landshuter": {
       "status": "geometry-approved",
@@ -564,7 +924,7 @@
         "Entry-4": "Entry-4"
       },
       "reviewSource": "Thomas confirmed Entry-2 was intended and requested outward separation of Exit-2 / Entry-2 / Exit-3.",
-      "note": "Exit-2 / Entry-2 / Exit-3 im Südosten auf ihren drei Radwegen nach außen versetzt und entzerrt. Entry-1 und alle übrigen Punkte unverändert. Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
       "efficiency": {
         "firstPassConfirmed": false,
         "correctionRounds": 1,
@@ -573,7 +933,25 @@
         ]
       },
       "reviewedGeometrySha256": "7c75f0cbd1cd5f43935fa3402d84bc23dfa4a765aa9d42d6bd20c85226e0eb4a",
-      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review.",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-3",
+          "east-south-left-entry-1-exit-4",
+          "east-west-straight-entry-1-exit-5",
+          "north-east-left-entry-4-exit-2",
+          "north-south-straight-entry-4-exit-3",
+          "north-south-straight-entry-4-exit-4",
+          "south-north-straight-entry-2-exit-1",
+          "south-west-left-entry-2-exit-5",
+          "west-east-straight-entry-3-exit-2",
+          "west-north-left-entry-3-exit-1"
+        ]
+      }
     },
     "leonrod-landshuter": {
       "status": "geometry-approved",
@@ -669,7 +1047,7 @@
       },
       "reviewSource": "Thomas clarified Entry-3 belongs on the Leonrodstrasse residential carriageway before the traffic signals, not on the footway.",
       "geometryBasis": "Thomas explicitly requested the residential right-turn carriageway (way 95857037). Entry-3 intersects frozen way geometry about 5m before traffic-signal node 4669341961 verified by the official OSM API. Other gates preserved.",
-      "note": "Entry-3 auf dem Rechtskurven-Fahrbahnabschnitt der Leonrodstraße (residential), etwa 5 m vor der Ampel. Der bisherige Gehwegpunkt entfällt. Alle übrigen Punkte unverändert; Geometrie von Thomas freigegeben; noch nicht aktiviert.",
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
       "efficiency": {
         "firstPassConfirmed": false,
         "correctionRounds": 2,
@@ -765,7 +1143,23 @@
         ]
       },
       "reviewedGeometrySha256": "24bd0cebc532c972066332845d630d55e91174b8bc58bb70ab17818bf5af6ab9",
-      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review."
+      "approvalSource": "Thomas explicitly approved K14, K15 and K17 in the current review.",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-3",
+          "east-west-straight-entry-1-exit-4",
+          "north-east-left-entry-4-exit-2",
+          "north-south-straight-entry-4-exit-3",
+          "south-north-straight-entry-2-exit-1",
+          "south-west-left-entry-2-exit-4",
+          "west-east-straight-entry-3-exit-2",
+          "west-north-left-entry-3-exit-1"
+        ]
+      }
     },
     "dachauer-leonrod": {
       "status": "geometry-approved",
@@ -777,7 +1171,25 @@
         "correctionRounds": 0,
         "reasonCodes": []
       },
-      "note": "Geometrie von Thomas als perfekt bestätigt und freigegeben. Fahrbeziehungen noch ungeprüft; nicht aktiviert."
+      "note": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
+      "activationReview": {
+        "status": "approved",
+        "targetBackend": "2.4.6",
+        "targetCatalog": "munich-big-junctions-v5",
+        "source": "Thomas explicitly authorized activation of 70 verified movements; two K13 movements remain disabled. Build will be started by Thomas.",
+        "enabledMovementIds": [
+          "east-south-left-entry-1-exit-4",
+          "east-west-straight-entry-1-exit-5",
+          "north-east-left-entry-4-exit-3",
+          "north-south-straight-entry-4-exit-4",
+          "south-north-straight-entry-2-exit-1",
+          "south-north-straight-entry-2-exit-2",
+          "south-west-left-entry-2-exit-5",
+          "west-east-straight-entry-3-exit-3",
+          "west-north-left-entry-3-exit-1",
+          "west-north-left-entry-3-exit-2"
+        ]
+      }
     }
   }
 }

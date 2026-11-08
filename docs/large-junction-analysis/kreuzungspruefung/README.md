@@ -1,6 +1,6 @@
 # Kreuzungsprüfung
 
-Bestätigt bedeutet Geometriefreigabe; die Aktivierung der Fahrbeziehungen wird separat geprüft. Zurückgestellte Fälle bleiben unter Offen. K07 bleibt zurückgestellt; K09 dauerhaft ausgeschlossen.
+Für Praxistests zählt die Spalte Live-Stand. Bestätigt bedeutet Geometriefreigabe. Im Branch aktivierte neue Beziehungen sind erst nach einem weiteren Deployment live. Diese Seite ist eine Momentaufnahme zum angegebenen Serverabgleich. K07 bleibt zurückgestellt; K09 dauerhaft ausgeschlossen.
 
 - [1. Bestätigt (15)](1-bestaetigt/index.html)
 - [2. Offen (1)](2-offen/index.html)

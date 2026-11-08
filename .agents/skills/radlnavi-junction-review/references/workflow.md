@@ -23,6 +23,17 @@ All repository paths below are relative to the root.
 - K07 stays deferred pending its separate OSM recheck. K09 remains permanently excluded.
 - A walking section outside the crossing must not suppress otherwise valid crossing guidance. Walking within the crossing/direction evidence remains a negative runtime case.
 
+## Gate and boundary corrections
+
+K17 required repeated southeast shifts of Exit-4 followed by straightening the edge to Entry-3. K15 similarly required moving a gate back towards the main junction to exclude Jutastrasse. Use these as positioning lessons, not fixed distances or a rule that every exit belongs before a split.
+
+- Identify the exact relevant cycling junction in the frozen OSM graph and rendered map, including any nearby side-path node. Interpret the requested compass direction along the actual cycling way. For an exit, distinguish travel direction from the direction of the requested shift: "southeast" can mean moving upstream towards the main junction.
+- Place the gate in relation to the intended main crossing and its waiting areas. If a side connection is excluded, choose the boundary that keeps that connection outside while retaining the main crossing. Do not treat the first nearby OSM node as the intended target without checking the rest of the geometry.
+- Judge displacement at the image scale. A request to move a point "a whole stretch farther" needs a clearly visible displacement, not another tiny offset. Use a measured, graph-supported position and report the approximate change from the previous revision. If two different junctions remain plausible, ask one specific question identifying them rather than iterating arbitrary offsets.
+- Adapt the adjoining polygon edges in the same revision. Prefer a direct segment between neighbouring gates when it preserves all required crossings and waiting areas. Remove obsolete hull vertices and notches left by moving a gate; do not preserve them merely because they were in the old polygon. An explicit request to straighten the boundary must preserve the gate positions.
+- Compare all gates before and after: unchanged labels, positions and directions stay unchanged unless the requested scope requires otherwise. Check for extra polygon crossings, self-intersections and unintended inclusion/exclusion of side paths. Render and inspect the actual resulting image before presenting it.
+- Preserve the previous approved geometry as a reference, increment the revision and invalidate technical results for changed geometry. Do not transfer approval or activate the revision automatically. Report the actual generated revision; do not invent missing revision numbers from conversational shorthand.
+
 ## Conservative automation
 
 Graph proposals use directed OSM connectivity outside the polygon, up to 50 m, respecting oneway:bicycle/access. They suggest inspecting a common node, not approving the merge. Equal coordinates without shared OSM nodes do not prove connectivity. A missing proposal is not evidence that no split/merge exists.
@@ -31,9 +42,9 @@ District node grouping is preliminary: equal street-name sets within 80 m. Diffe
 
 ## Work assignments, used sequentially by default
 
-Geometry preparation: select new district candidates, resolve graph suggestions, render clear drafts and record precise remaining questions. Preserve runtime files.
+Geometry preparation: select new district candidates, resolve graph suggestions and gate/boundary corrections together, render clear drafts and record precise remaining questions. Preserve runtime files.
 
-Geometry verification: check four arms, road side, direction, shared points, waiting areas, polygon continuity and neighbouring junction boundaries. Use fingerprints and references; never approve on behalf of Thomas.
+Geometry verification: check four arms, road side, direction, shared points, waiting areas, polygon continuity and neighbouring junction boundaries. For moved gates, verify the intended node, visible displacement, clean adjoining edges and unchanged other gates. Use fingerprints and references; never approve on behalf of Thomas.
 
 Movement verification, after geometry approval: legal directed entry/exit paths, left/straight classification, real backend route evidence, right-turn controls, walking/access and wrong-exit controls. Shared gates may require multiple movements per arm. Record unsupported movements individually.
 

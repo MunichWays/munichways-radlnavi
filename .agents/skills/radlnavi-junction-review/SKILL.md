@@ -23,6 +23,8 @@ Before asking Thomas to review:
 3. Review the rendered image yourself. Preserve four logical arms, cycling directions and waiting areas; keep adjacent junctions separate.
 4. Give one concrete question per unresolved site, with its ID and revision. Do not ask Thomas to trace all route variants during geometry review.
 
+For gate repositioning near a split, merge or adjacent side path, follow the gate-and-boundary correction procedure in [the workflow](references/workflow.md#gate-and-boundary-corrections). Resolve the intended cycling junction and polygon edge together before presenting another image.
+
 Preserve labels of unchanged gates. Record explicit migrations and increment the geometry revision when points or polygon change. Approved geometry is fingerprinted; never regenerate approval hashes just to silence a mismatch.
 
 All numbered sheets belong in `kreuzungspruefung/1-bestaetigt`, `2-offen` or `3-ausgeschlossen`; generators maintain this organization. Metadata stays with its source batch. Report changes, checks, remaining questions and activation status concisely.

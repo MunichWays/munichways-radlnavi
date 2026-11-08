@@ -7,6 +7,36 @@ from math import asin, atan2, ceil, cos, degrees, hypot, isfinite, radians, sin,
 from pathlib import Path
 
 
+def reviewed_arm_topology(junction):
+    """Explicit four-arm order classifies a turn; local paths still match travel direction."""
+    if 'armTopology' not in junction:
+        return None
+    topology = junction['armTopology']
+    if not isinstance(topology, dict):
+        raise ValueError('Invalid arm topology')
+    order, gates = topology.get('clockwise', []), topology.get('gates', {})
+    review = topology.get('review', {})
+    if (not isinstance(order, list) or len(order) != 4
+        or not all(isinstance(arm, str) and arm for arm in order) or len(set(order)) != 4
+        or not isinstance(gates, dict) or set(gates) != set(order)
+        or review.get('status') != 'approved' or not review.get('evidence') or not review.get('date')):
+        raise ValueError('Four-arm topology requires explicit review')
+    assigned = []
+    for arm in order:
+        if not isinstance(gates[arm], dict):
+            raise ValueError('Invalid arm gates')
+        for kind in ('entries', 'exits'):
+            locations = gates[arm].get(kind, [])
+            if not isinstance(locations, list) or not locations:
+                raise ValueError('Missing arm gates')
+            for location in locations:
+                points({'type': 'LineString', 'coordinates': [location]})
+                if any(other != arm and meters(location, previous) < .5 for other, previous in assigned):
+                    raise ValueError('Gate belongs to more than one arm')
+                assigned.append((arm, location))
+    return topology
+
+
 def validate_catalog(value):
     """Fail closed: an enabled movement requires explicit review and complete data."""
     if value.get("schemaVersion") != 1 or not isinstance(value.get("version"), str) or not value["version"]:
@@ -34,6 +64,7 @@ def validate_catalog(value):
         high = [max(p[i] for p in ring) for i in (0, 1)]
         if meters(low, high) > 300:
             raise ValueError("Crossing polygon too large")
+        topology = reviewed_arm_topology(junction)
         movement_ids = set()
         for movement in junction["movements"]:
             if not isinstance(movement.get("id"), str) or not movement["id"] or movement["id"] in movement_ids:
@@ -59,7 +90,19 @@ def validate_catalog(value):
             def heading(path):
                 return atan2(path[-1][1] - path[0][1], (path[-1][0] - path[0][0]) * mx)
             turn = (degrees(heading(movement["departure"]) - heading(movement["approach"])) + 180) % 360 - 180
-            if ((movement["movement"] == "straight" and abs(turn) > 30)
+            if topology is not None:
+                order, gates = topology['clockwise'], topology['gates']
+                before, after = movement['entryArm'], movement['exitArm']
+                if before not in order or after not in order:
+                    raise ValueError('Movement has an unknown arm')
+                expected = {1: 'left', 2: 'straight'}.get((order.index(after) - order.index(before)) % 4)
+                if expected != movement['movement']:
+                    raise ValueError('Movement disagrees with reviewed arm order')
+                if (not any(meters(movement['entry'], p) <= .5 for p in gates[before]['entries'])
+                    or not any(meters(movement['exit'], p) <= .5 for p in gates[after]['exits'])
+                    or any(meters(movement[k][0], movement[k][-1]) < 1 for k in ('approach', 'departure'))):
+                    raise ValueError('Movement disagrees with reviewed arm gates')
+            elif ((movement["movement"] == "straight" and abs(turn) > 30)
                 or (movement["movement"] == "left" and not 45 <= turn <= 135)):
                 raise ValueError("Movement disagrees with approach/departure directions")
             if (meters(movement["entry"], movement["corridor"][0]) > .5
@@ -227,7 +270,7 @@ def leg_geometry(leg):
     if not steps:
         return None
     line, step_locations, step_distances, distance = [], [], [], 0.0
-    for step in steps:
+    for index, step in enumerate(steps):
         part = points(step.get("geometry"))
         if not part or (line and line[-1] != part[0]):
             return None
@@ -236,7 +279,13 @@ def leg_geometry(leg):
             # A real OSRM depart marker can precede the first retained geometry
             # point by < 0.75 m. It is outside the crossing and never suppressed.
             # Keep every internal maneuver and all geometry joins exact.
-            if (line or maneuver.get("type") != "depart"
+            depart_offset = not line and maneuver.get('type') == 'depart'
+            # OSRM can place the terminal marker slightly beyond its last
+            # retained coordinate. Only a final, zero-length arrive is allowed.
+            arrive_offset = (index == len(steps) - 1 and maneuver.get('type') == 'arrive'
+                             and len(part) == 1 and step.get('distance', 0) == 0
+                             and step.get('duration', 0) == 0)
+            if (not (depart_offset or arrive_offset)
                 or meters(maneuver["location"], part[0]) > .75):
                 return None
         step_locations.append(part[0])

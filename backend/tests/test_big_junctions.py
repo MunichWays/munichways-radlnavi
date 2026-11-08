@@ -11,7 +11,7 @@ from requests import Response
 from starlette.requests import Request
 
 from test_app import app
-from src.big_junctions import add_guidance, meters, approved_movements, catalog, validate_catalog
+from src.big_junctions import add_guidance, meters, approved_movements, catalog, validate_catalog, leg_geometry
 
 
 FIXTURE = Path(__file__).with_name("fixtures") / "arnulf-steuben-route.json"
@@ -90,7 +90,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
 
     def test_catalog_requires_review_and_preserves_explicit_exclusions(self):
         value = deepcopy(catalog())
-        self.assertEqual(74, len(approved_movements(value)))
+        self.assertEqual(144, len(approved_movements(value)))
         for kind in ("unreviewed_junction", "unreviewed_movement", "duplicate", "excluded", "self_intersection"):
             invalid = deepcopy(value)
             junction = invalid["junctions"][0]
@@ -108,7 +108,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
             with self.subTest(kind=kind), self.assertRaises(ValueError):
                 validate_catalog(invalid)
         value["junctions"][0]["movements"][0]["enabled"] = False
-        self.assertEqual(73, len(approved_movements(value)))
+        self.assertEqual(143, len(approved_movements(value)))
 
     def test_depart_marker_tolerance_does_not_relax_inner_maneuvers(self):
         value = payload()
@@ -120,6 +120,29 @@ class BigJunctionMatchingTest(unittest.TestCase):
         value = payload()
         value['routes'][0]['legs'][0]['steps'][1]['maneuver']['location'][1] += .000004
         self.assertIsNone(add_guidance(value))
+
+    def test_real_k15_terminal_marker_offset_is_narrowly_tolerated(self):
+        path = FIXTURE.parent / 'big-junctions/batch-02/leonrod-landshuter-east-west-straight-entry-1-exit-4.json'
+        value = json.loads(path.read_text(encoding='utf-8'))
+        original = deepcopy(value)
+        leg = value['routes'][0]['legs'][0]
+        self.assertIsNotNone(leg_geometry(leg))
+        self.assertEqual(value, original)
+        for fault in ('offset', 'distance', 'duration', 'internal', 'nonzero_geometry', 'inner_marker'):
+            bad = deepcopy(leg)
+            final = bad['steps'][-1]
+            if fault == 'offset':
+                final['maneuver']['location'][1] += .00001
+            elif fault in ('distance', 'duration'):
+                final[fault] = .1
+            elif fault == 'internal':
+                final['maneuver']['type'] = 'turn'
+            elif fault == 'nonzero_geometry':
+                final['geometry']['coordinates'][-1][1] += .000001
+            else:
+                bad['steps'][1]['maneuver']['location'][1] += .000002
+            with self.subTest(fault=fault):
+                self.assertIsNone(leg_geometry(bad))
 
     def test_repeated_visits_have_distinct_ids_and_step_intervals(self):
         original = payload()["routes"][0]["geometry"]["coordinates"]
@@ -277,8 +300,8 @@ class FullMovementCatalogTest(unittest.TestCase):
 
     def test_all_four_approaches_have_left_and_straight(self):
         value = catalog()
-        self.assertEqual('munich-big-junctions-v4', value['version'])
-        self.assertEqual(10, len(value['junctions']))
+        self.assertEqual('munich-big-junctions-v5', value['version'])
+        self.assertEqual(17, len(value['junctions']))
         for junction in value['junctions']:
             if junction['id'] not in {'arnulf-steuben', 'balan-chiemgau'}:
                 continue

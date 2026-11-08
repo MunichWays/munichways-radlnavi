@@ -13,19 +13,24 @@ def get(url):
     with urlopen(url,timeout=45) as response:return json.load(response)
 
 
-def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--commit',required=True);parser.add_argument('--output',required=True);args=parser.parse_args()
-    version=get('https://api.radlnavi.munichways.de/version')
-    print(json.dumps(version),flush=True)
-    if args.commit not in json.dumps(version):raise ValueError('Live version does not contain expected commit')
+def review_cases():
     cases=[]
-    for name in ['full-movements-review.json','review-batch-01-routes.json']:
+    for name in ['full-movements-review.json','review-batch-01-routes.json','review-batch-02-ba09-routes.json']:
         report=json.loads((ROOT/name).read_text(encoding='utf-8'))
         for junction in report['junctions']:
             for item in junction['movements']:
                 if 'url' in item:cases.append(dict(item,junctionId=junction['id'],expectGuidance=item['enabled']))
-        for item in report['rightTurnChecks']:
+        for item in report.get('rightTurnChecks', []):
             cases.append(dict(item,id=item.get('id',Path(item['fixture']).stem),expectGuidance=False))
+    return cases
+
+
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--commit',required=True);parser.add_argument('--output',required=True);args=parser.parse_args()
+    version=get('https://api.radlnavi.munichways.de/version')
+    print(json.dumps(version),flush=True)
+    if version.get('backendCommit') != args.commit:raise ValueError('Live version does not contain expected commit')
+    cases=review_cases()
     checked=[]
     expected_catalog=json.loads((ROOT.parents[1]/'backend/src/big_junctions.json').read_text(encoding='utf-8'))['version']
     for item in cases:

@@ -113,23 +113,33 @@ def main():
                 and any(site[key] != old[site["id"]][key] for key in ("polygon", "gates"))):
                 raise ValueError(f'Geometry changed for {site["id"]}; create an explicit review revision first.')
     cards, rows = [], []
+    technical_path = ROOT / 'review-batch-02-ba09-routes.json'
+    technical = {s['id']: s for s in json.loads(technical_path.read_text(encoding='utf-8'))['junctions']} if technical_path.exists() else {}
     for site in sites:
         name = f'K{site["number"]:02d}-{site["id"]}'
         commands = draw(site)
         if site["status"] == "geometry-approved":
             for command in commands:
                 if command.get("kind") == "text":
-                    command["text"] = command["text"].replace("Freigabestand siehe Prüfbericht", "Fahrbeziehungen noch ungeprüft")
+                    command["text"] = command["text"].replace("Freigabestand siehe Prüfbericht", "Prüf-/Live-Stand siehe Übersicht")
+                    if site.get('review', {}).get('activationReview', {}).get('status') == 'approved':
+                        command['text'] = command['text'].replace('NICHT AKTIV', 'Für Backend 2.4.6 freigegeben')
+        record = technical.get(site['id'], {})
+        blocked = [m for m in record.get('movements', []) if m['kind'] != 'right' and not m.get('enabled')]
+        if blocked and record.get('geometryRevision') == site['version']:
+            labels = ' / '.join(f'{m["entryLabel"]} → {m["exitLabel"]}' for m in blocked)
+            commands.append({'kind': 'text', 'text': f'GESPERRT: {labels} (links) – Standardhinweise bleiben',
+                             'x': 28, 'y': 81, 'size': 17, 'color': '#b71c1c'})
         (OUT / f"{name}.svg").write_text(svg(commands), encoding="utf-8")
         (OUT / f"{name}.drawing.json").write_text(json.dumps(commands, ensure_ascii=False), encoding="utf-8")
-        status = status_text(site).replace("Freigabestand siehe Prüfbericht", "Fahrbeziehungen noch ungeprüft")
+        status = status_text(site).replace("Freigabestand siehe Prüfbericht", "Prüf-/Live-Stand siehe Übersicht")
         cards.append(f'<article><h2>K{site["number"]:02d} · {html.escape(site["name"])}</h2><p>{status}</p><a href="{name}.png"><img src="{name}.svg" alt="{html.escape(site["name"])}"></a><p><a href="{name}.png">PNG öffnen</a> · <a href="{name}.svg">SVG öffnen</a></p></article>')
         rows.append(f'| K{site["number"]:02d} v{site["version"]} | [{site["name"]}]({name}.png) | {len(site["gates"])} | {status} |')
         print(name, status, len(site["gates"]), "gates")
-    intro = "BA09 Neuhausen-Nymphenburg · sieben neue Kandidaten · keine Aktivierung. Norden oben; Entry/Exit im Uhrzeigersinn. Gleiche Nummern bilden kein Fahrbeziehungspaar. Stern: gemeinsamer Zweirichtungspunkt."
+    intro = "BA09 Neuhausen-Nymphenburg · sieben geometrisch bestätigte Kreuzungen · 70 Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe zentrale Prüfungsübersicht. Norden oben; Entry/Exit im Uhrzeigersinn. Gleiche Nummern bilden kein Fahrbeziehungspaar. Stern: gemeinsamer Zweirichtungspunkt."
     checks = "Bitte Radwegseite, Pfeilrichtung und fehlende Arme prüfen. Alle Querungen, Inseln und Warteflächen müssen innerhalb liegen; benachbarte Kreuzungen außerhalb. Technisch unklare Bilder sind ausdrücklich zurückgestellt, keine vollständigen Vorschläge."
     (OUT / "index.html").write_text('<!doctype html><html lang="de"><meta charset="utf-8"><title>BA09 · Bildprüfung Runde 2</title><style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px}img{width:100%}p{line-height:1.5}</style><h1>BA09 · Bildprüfung Runde 2</h1><p>'+intro+'</p><p>'+checks+'</p><main>'+''.join(cards)+'</main></html>', encoding="utf-8")
-    (OUT / "README.md").write_text("\n".join(["# BA09 · Bildprüfung Runde 2", "", "[Galerie](index.html) · [Übersicht](overview.png)", "", intro, "", checks, "", "Rückmeldung beispielsweise: `K11 v1 passt` oder `K12 Entry-2 fehlt`.", "", "| ID | Kreuzung | Punkte | Status |", "| --- | --- | --- | --- |", *rows, "", "Bereits aktiv: Arnulfstraße/Steubenplatz und Nymphenburger/Waisenhaus/Lachnerstraße (mit bekannten Einschränkungen).", "Nicht neu aufgenommen: Romanplatz (zwei nahe, komplexe Teilknoten), Menzinger/Schragenhofstraße und Schwere-Reiter/Ackermannstraße (Verdacht auf T-Struktur), Dachauer/Landshuter Allee (komplexer Tunnel-/Dreiecksanschluss). Dies sind Zurückstellungen, keine neuen dauerhaften Ausschlüsse.", "K07 bleibt unabhängig davon bis zur gesonderten OSM-Prüfung zurückgestellt.", "", "Bezirkszuordnung: OSM-Relation 54387 (admin_level=9, ref=9); Kandidatenknoten innerhalb dieser Grenze, einschließlich grenznaher Kreuzungen. Zusammengehörige Fahrbahnknoten werden als ein Standort behandelt.", "", "Geometrieentwürfe sind noch nicht freigegeben. Fahrbeziehungen, Einbahnregeln und API-Referenzrouten werden vor jeder Aktivierung separat geprüft. Fahrbahn-Radfahrstreifen sind bei fehlenden Punkten technisch nachzuarbeiten; es wird kein Radverkehrsarm aus acht Punkten allein abgeleitet.", "", "OSM-Nachweise: ../ba09-candidates-osm.json.gz und ../review-batch-02-ba09-osm.json.gz. © OpenStreetMap-Mitwirkende, ODbL.", "", "Offline neu erzeugen: `python docs/large-junction-analysis/prepare_ba09_review.py`.", ""]), encoding="utf-8")
+    (OUT / "README.md").write_text("\n".join(["# BA09 · Bildprüfung Runde 2", "", "[Galerie](index.html) · [Übersicht](overview.png)", "", intro, "", checks, "", "Rückmeldung beispielsweise: `K11 v1 passt` oder `K12 Entry-2 fehlt`.", "", "| ID | Kreuzung | Punkte | Status |", "| --- | --- | --- | --- |", *rows, "", "Aktivierungs- und Live-Stand aller Kreuzungen siehe zentrale Prüfungsübersicht.", "Nicht neu aufgenommen: Romanplatz (zwei nahe, komplexe Teilknoten), Menzinger/Schragenhofstraße und Schwere-Reiter/Ackermannstraße (Verdacht auf T-Struktur), Dachauer/Landshuter Allee (komplexer Tunnel-/Dreiecksanschluss). Dies sind Zurückstellungen, keine neuen dauerhaften Ausschlüsse.", "K07 bleibt unabhängig davon bis zur gesonderten OSM-Prüfung zurückgestellt.", "", "Bezirkszuordnung: OSM-Relation 54387 (admin_level=9, ref=9); Kandidatenknoten innerhalb dieser Grenze, einschließlich grenznaher Kreuzungen. Zusammengehörige Fahrbahnknoten werden als ein Standort behandelt.", "", "Die Geometrien und 70 technisch bestandene Beziehungen sind für Backend 2.4.6 freigegeben; zwei K13-Beziehungen bleiben gesperrt. Fahrbeziehungen, Einbahnregeln und API-Referenzrouten werden vor jeder Aktivierung separat geprüft. Fahrbahn-Radfahrstreifen sind bei fehlenden Punkten technisch nachzuarbeiten; es wird kein Radverkehrsarm aus acht Punkten allein abgeleitet.", "", "OSM-Nachweise: ../ba09-candidates-osm.json.gz und ../review-batch-02-ba09-osm.json.gz. © OpenStreetMap-Mitwirkende, ODbL.", "", "Offline neu erzeugen: `python docs/large-junction-analysis/prepare_ba09_review.py`.", ""]), encoding="utf-8")
     evidence = {"version": 1, "district": "BA09", "enabled": False, "osmRetrievedAt": snapshot["retrievedAt"], "sites": sites}
     (OUT / "review-data.json").write_text(json.dumps(evidence, ensure_ascii=False, separators=(",", ":"))+'\n', encoding="utf-8")
     (ROOT / "review-batch-02-ba09.geojson").write_text(json.dumps({"type": "FeatureCollection", "features": batch}, ensure_ascii=False, indent=2)+'\n', encoding="utf-8")

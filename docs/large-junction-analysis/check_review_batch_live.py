@@ -15,7 +15,7 @@ def get(url):
 
 def review_cases():
     cases=[]
-    for name in ['full-movements-review.json','review-batch-01-routes.json','review-batch-02-ba09-routes.json']:
+    for name in ['full-movements-review.json','review-batch-01-routes.json','review-batch-02-ba09-routes.json','review-batch-03-ba09-routes.json']:
         report=json.loads((ROOT/name).read_text(encoding='utf-8'))
         for junction in report['junctions']:
             for item in junction['movements']:

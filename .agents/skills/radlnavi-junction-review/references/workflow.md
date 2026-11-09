@@ -7,6 +7,11 @@ All repository paths below are relative to the root.
 - `review-batch-01-decisions.json` and `review-batch-02-ba09-decisions.json` in the analysis directory: exact revisions, gate migrations, approval provenance and exceptions.
 - `junction-review-decisions.json`: wider exclusions; retain them when selecting candidates.
 - `review-preflight.json/.md`: current technical suggestions and unresolved questions.
+- `review-batch-02-ba09-routes.json` and `review-batch-02-ba09-technical.md`: per-movement results and diagnostic causes; frozen route fixtures and request manifest make them reproducible.
+- `backend/src/big_junctions.json`: actual branch activation, reviewed arm topology and explicit disabled movements. A proposed catalog is not activation evidence.
+- `review-deployment-state.json`: last verified production version/commit and its exact source catalog; never infer live activation from a build start or local file.
+- `review-field-tests.json`: human-reported field coverage, tied to geometry revisions and backend version. Many tested relationships does not mean all relationships were ridden.
+- `review-supplemental-sites.json`: original pilots and earlier exclusions, included once in overview totals.
 - Frozen OSM snapshots are evidence. No fresh network call is necessary for offline reproduction.
 
 ## Rules learned from reviewed cases
@@ -34,6 +39,38 @@ K17 required repeated southeast shifts of Exit-4 followed by straightening the e
 - Compare all gates before and after: unchanged labels, positions and directions stay unchanged unless the requested scope requires otherwise. Check for extra polygon crossings, self-intersections and unintended inclusion/exclusion of side paths. Render and inspect the actual resulting image before presenting it.
 - Preserve the previous approved geometry as a reference, increment the revision and invalidate technical results for changed geometry. Do not transfer approval or activate the revision automatically. Report the actual generated revision; do not invent missing revision numbers from conversational shorthand.
 
+## Technical lessons from K11-K17
+
+Use the successful BA09 field test as evidence for these reviewed cases, not automatic approval of similar future junctions. Preserve K13 Entry-2 -> Exit-5 and Entry-3 -> Exit-5 as disabled until separately resolved and authorized.
+
+### Classify the instruction separately from matching the ridden path
+
+K13 and K15 have curved/offset approaches. A local tangent can suggest 31-38 degrees for a logical straight crossing, or about 148 degrees for a logical left turn. Do not move correct gates, relabel the instruction from this angle alone or widen global angle tolerances to force acceptance.
+
+Document the four logical arms in clockwise order with their actual entry/exit gate memberships. For reviewed four-arm topology, the production validator can classify left/straight by that order. Local approach/departure vectors, legal directed corridor, gate positions and runtime geometry still determine whether a route matches. Multiple gates and shared two-way points remain allowed. Missing or ambiguous topology must not silently bypass the existing angle checks. Explicit movement exclusions such as K05 override any inferred classification.
+
+### Diagnose failed evidence before rejecting a movement
+
+- Reference sampling: 45 m outside the polygon is a convenient test distance, not a junction acceptance rule. Where a short approach ends at a bend or branch, use an actual legal directed point closer to the gate. The current BA09 helper tries shorter distances down to 12 m, keeping margin above the 10 m runtime direction evidence. Record the chosen distance. Never extrapolate off the graph, cross restrictions or shorten below the runtime evidence requirement merely to obtain a pass.
+- Road support: K17 needed inner way 38349617 as continuation of the reviewed Lothstrasse carriageway. Verify the specific connector, its access/oneway tags and connectivity. Include only evidenced internal segments, without adding gates or admitting every nearby road. The graph's cycleway-oriented filter omitting a segment is different from that segment being prohibited for cycling.
+- Response format: K15 had an approximately 22 cm terminal-marker offset. Reuse the narrow production handling: final point-like arrive step, zero distance/duration, at most 0.75 m offset. Internal maneuvers and geometry joins stay exact; departure handling stays separately bounded. Do not repair or rewrite the original routing response to make guidance fit.
+- Route selection: if the requested real Standard route never traverses the polygon, it is not evidence for the intended movement. Record the exact entry/exit pair and leave it disabled. Do not manufacture a corridor, force another maneuver label or relax the crossing requirement. K13's two retained exclusions are this case.
+
+For each failure record whether it arose during endpoint sampling, snapping, polygon/gate crossing, legal corridor support, classification, response continuity or runtime matching. Resolve reproducible tooling limitations first. Leave unresolved relationships individually disabled so one exception need not block an otherwise verified junction or batch.
+
+### Complete the batch before proposing activation
+
+Reproduce cached real routes offline. Test the complete proposed catalog, not only each movement in isolation: positive classifications, rejected relationships, right-turn controls, walking sections, ambiguous matches, wrong local directions and unchanged raw route data. Re-run applicable backend and review-tool tests after changing runtime matching. Preserve earlier pilot/K05 regressions. Pin failures that must remain disabled in both the catalog and regression tests.
+
+Keep generators repeatable after activation: replace a batch's existing sites instead of appending duplicates, preserve manual exclusions and require an explicit authorized step to copy proposed data into runtime configuration. Report the number of verified and disabled movements before the user decides to activate/deploy. Do not ask Thomas to recheck sound geometry just because a technical check failed.
+
+### Make release and field status reviewable
+
+- Clearly show individual exclusions in the overview and affected review image, identified by stable Entry/Exit labels. An excluded pair does not make its shared gate or entire junction invalid. Standard guidance remains available for excluded pairs.
+- After authorized activation, distinguish branch-ready from live. After deployment, check production version/commit and actual catalog, then refresh the overview. Keep historical live-test reports labelled as historical. A successful build is not a field test, and a reported field test does not replace the production-state check.
+- Record Thomas's field-test statement and actual coverage without expanding it to all movements. Bind it to the tested geometry revision; a later geometry change needs fresh technical evidence and cannot inherit field coverage automatically.
+- Include numbered cases, original pilots and earlier exclusions once in totals. City-wide candidate-node counts are a search inventory, not a count of distinct eligible junction complexes. Do not use a provisional point count or an old estimate as the denominator of a claimed completion percentage.
+
 ## Conservative automation
 
 Graph proposals use directed OSM connectivity outside the polygon, up to 50 m, respecting oneway:bicycle/access. They suggest inspecting a common node, not approving the merge. Equal coordinates without shared OSM nodes do not prove connectivity. A missing proposal is not evidence that no split/merge exists.
@@ -42,11 +79,13 @@ District node grouping is preliminary: equal street-name sets within 80 m. Diffe
 
 ## Work assignments, used sequentially by default
 
-Geometry preparation: select new district candidates, resolve graph suggestions and gate/boundary corrections together, render clear drafts and record precise remaining questions. Preserve runtime files.
+Geometry preparation: select district candidates, use reviewed regular four-arm patterns where supported, resolve graph suggestions and gate/boundary corrections together, and record logical arms alongside gate labels. Park genuinely ambiguous geometry with a precise reason instead of blocking unrelated candidates. Render clear drafts; preserve runtime files.
 
 Geometry verification: check four arms, road side, direction, shared points, waiting areas, polygon continuity and neighbouring junction boundaries. For moved gates, verify the intended node, visible displacement, clean adjoining edges and unchanged other gates. Use fingerprints and references; never approve on behalf of Thomas.
 
-Movement verification, after geometry approval: legal directed entry/exit paths, left/straight classification, real backend route evidence, right-turn controls, walking/access and wrong-exit controls. Shared gates may require multiple movements per arm. Record unsupported movements individually.
+Movement verification, after geometry approval: complete legal directed entry/exit and whole-catalog checks using the technical lessons above. Separate sampling/format limitations from unsafe routes. Preserve reviewed arm semantics, shared gates and explicit pair exclusions; record actionable causes for remaining failures.
+
+Release/overview maintenance: within the user-authorized scope, prepare only verified movements, preserve disabled pairs and identify branch-ready versus verified-live state. Update counts including supplemental cases and record the actual human field coverage. Never trigger a user-reserved build or deployment.
 
 Do not launch additional agents just because these roles exist. Delegate only when the user requests it; sequential use reduces duplicated context and usage.
 

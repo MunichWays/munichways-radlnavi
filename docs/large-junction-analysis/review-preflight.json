@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 16,
+  "referenceCasesChecked": 21,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -669,6 +669,114 @@
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
       "reviewQuestion": "Geometrie und technisch bestandene Beziehungen für Backend 2.4.6 freigegeben. Tatsächlicher Live-Stand siehe Prüfungsübersicht.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "romanplatz-sued",
+      "number": 18,
+      "revision": 3,
+      "status": "geometry-approved",
+      "geometrySha256": "a1fe51389602e3b75c35a5c06aa30cf51a77fe733bac1c760789565eebd178f1",
+      "entries": 5,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-3",
+        "Entry-5",
+        "Exit-3",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Exit-3",
+        "Entry-3"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Geometrie v3 von Thomas freigegeben. Entry-2 bleibt entfernt: reiner Fußweg laut OSM-Korrektur von Thomas. Übrige Punktnamen unverändert. Technische Fahrbeziehungsprüfung ausstehend; noch nicht aktiviert.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "romanplatz-nord",
+      "number": 19,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "5dfa13008c82442c00ec8c909691ea8aadeaae7187d7e643e245af5f868c3709",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-3",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-2",
+        "Entry-3",
+        "Exit-4"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "K19: sechs von acht Links-/Geradeausbeziehungen im Branch für Backend 2.4.7 aktiviert; vier Rechtskontrollen bestanden. GESPERRT: Entry-1 nach Exit-3 und Entry-1 nach Exit-4; Standardhinweise bleiben. Noch nicht deployed.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "menzinger-schragenhof",
+      "number": 20,
+      "revision": 2,
+      "status": "permanently-excluded",
+      "geometrySha256": "b9be27dbaa27d8ab430e6ec9cc8448321dc3f7027cff0356dd56a8d3a9289e08",
+      "entries": 0,
+      "exits": 0,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Von Thomas dauerhaft ausgeschlossen und geschlossen: drei logische Straßenarme.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "schwere-reiter-ackermann",
+      "number": 21,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "1b219108547ca9636eb410271406f973f2a7c8a14153b397e7880726fc66d965",
+      "entries": 4,
+      "exits": 6,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-4",
+        "Exit-2",
+        "Exit-6"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Geometrie v2 von Thomas freigegeben. Technische Fahrbeziehungsprüfung ausstehend; noch nicht aktiviert.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "dachauer-landshuter",
+      "number": 22,
+      "revision": 2,
+      "status": "permanently-excluded",
+      "geometrySha256": "c4576060f588592b670f316d43906d83fef379102586b972330ddeaf100dfee1",
+      "entries": 6,
+      "exits": 6,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-4",
+        "Entry-6",
+        "Exit-2",
+        "Exit-5",
+        "Exit-6"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Von Thomas dauerhaft ausgeschlossen und geschlossen: komplexer Dachauer-/Landshuter-Knoten.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     }
   ],

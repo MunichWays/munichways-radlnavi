@@ -12,8 +12,9 @@ ROOT = Path(__file__).resolve().parent
 
 
 def sites():
-    return [s for batch in ("review-batch-01-images", "review-batch-02-ba09-images")
-        for s in json.loads((ROOT / batch / "review-data.json").read_text(encoding="utf-8"))["sites"]]
+    from organize_review_images import BATCHES
+    return [s for batch in BATCHES
+        for s in json.loads((batch / "review-data.json").read_text(encoding="utf-8"))["sites"]]
 
 
 class ReviewPreflightTest(unittest.TestCase):

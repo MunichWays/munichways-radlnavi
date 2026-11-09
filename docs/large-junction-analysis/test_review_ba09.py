@@ -28,9 +28,11 @@ class BA09MovementTests(unittest.TestCase):
                 self.assertEqual(len(record['movements']), len({m['id'] for m in record['movements']}))
 
     def test_runtime_catalog_matches_release_and_keeps_k13_exclusions(self):
-        self.assertEqual(review.catalog(), self.proposed)
-        self.assertEqual(len(review.catalog()['junctions']), 17)
-        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 144)
+        actual = {j["id"]: j for j in review.catalog()["junctions"]}
+        for junction in self.proposed["junctions"]:
+            self.assertEqual(actual[junction["id"]], junction)
+        self.assertEqual(len(review.catalog()['junctions']), 18)
+        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 150)
         junction = next(j for j in review.catalog()['junctions'] if j['id'] == 'arnulf-landshuter')
         disabled = [m for m in junction['movements'] if not m.get('enabled')]
         self.assertEqual({(m['entryLabel'], m['exitLabel']) for m in disabled},
@@ -41,7 +43,7 @@ class BA09MovementTests(unittest.TestCase):
     def test_post_deployment_check_includes_all_positive_and_negative_cases(self):
         from check_review_batch_live import review_cases
         cases = review_cases()
-        self.assertEqual((len(cases), sum(c['expectGuidance'] for c in cases)), (228, 144))
+        self.assertEqual((len(cases), sum(c['expectGuidance'] for c in cases)), (240, 150))
         k13 = [c for c in cases if c.get('junctionId') == 'arnulf-landshuter' and not c['expectGuidance'] and c['kind'] != 'right']
         self.assertEqual({(c['entryLabel'], c['exitLabel']) for c in k13}, {('Entry-2', 'Exit-5'), ('Entry-3', 'Exit-5')})
 

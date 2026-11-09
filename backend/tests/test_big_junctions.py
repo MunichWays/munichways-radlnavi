@@ -90,7 +90,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
 
     def test_catalog_requires_review_and_preserves_explicit_exclusions(self):
         value = deepcopy(catalog())
-        self.assertEqual(144, len(approved_movements(value)))
+        self.assertEqual(150, len(approved_movements(value)))
         for kind in ("unreviewed_junction", "unreviewed_movement", "duplicate", "excluded", "self_intersection"):
             invalid = deepcopy(value)
             junction = invalid["junctions"][0]
@@ -108,7 +108,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
             with self.subTest(kind=kind), self.assertRaises(ValueError):
                 validate_catalog(invalid)
         value["junctions"][0]["movements"][0]["enabled"] = False
-        self.assertEqual(143, len(approved_movements(value)))
+        self.assertEqual(149, len(approved_movements(value)))
 
     def test_depart_marker_tolerance_does_not_relax_inner_maneuvers(self):
         value = payload()
@@ -300,8 +300,8 @@ class FullMovementCatalogTest(unittest.TestCase):
 
     def test_all_four_approaches_have_left_and_straight(self):
         value = catalog()
-        self.assertEqual('munich-big-junctions-v5', value['version'])
-        self.assertEqual(17, len(value['junctions']))
+        self.assertEqual('munich-big-junctions-v6', value['version'])
+        self.assertEqual(18, len(value['junctions']))
         for junction in value['junctions']:
             if junction['id'] not in {'arnulf-steuben', 'balan-chiemgau'}:
                 continue
@@ -366,8 +366,8 @@ class BigJunctionApiTest(unittest.TestCase):
         cases = (
             ({}, "standard", "bike"),
             ({**OPTIONS, "junction_guidance": "false"}, "standard", "bike"),
-            (OPTIONS, "direct", "bike"),
-            (OPTIONS, "discovery", "bike"),
+            ({**OPTIONS, "junction_guidance": "false"}, "direct", "bike"),
+            ({**OPTIONS, "junction_guidance": "false"}, "discovery", "bike"),
             (OPTIONS, "standard", "foot"),
             ({**OPTIONS, "geometries": "polyline6"}, "standard", "bike"),
             ({**OPTIONS, "overview": "simplified"}, "standard", "bike"),
@@ -390,6 +390,18 @@ class BigJunctionApiTest(unittest.TestCase):
                 self.assertIs(original, app.get_endpoint_routing_response("bike", "coords", OPTIONS))
             original.status_code = 400
             self.assertIs(original, app.get_endpoint_routing_response("bike", "coords", OPTIONS))
+
+    def test_all_variants_enrich_only_matching_routes_without_changing_routing(self):
+        for variant in ('standard', 'direct', 'discovery'):
+            original = response_for(payload())
+            with self.subTest(variant=variant), patch.object(app, 'ROUTING_VARIANT', variant), \
+                patch.object(app, '_get_endpoint_routing_response', return_value=original):
+                enriched = app.get_endpoint_routing_response('bike', 'coords', OPTIONS).json()
+                self.assertIn('guidance', enriched['routes'][0])
+                enriched['routes'][0].pop('guidance')
+                self.assertEqual(enriched, original.json())
+                with patch.object(app, 'add_big_junction_guidance', return_value=None):
+                    self.assertIs(original, app.get_endpoint_routing_response('bike', 'coords', OPTIONS))
 
     def test_legacy_route_exposes_guidance_only_when_requested(self):
         original = response_for(payload())

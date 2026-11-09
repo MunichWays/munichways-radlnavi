@@ -13,6 +13,8 @@ def status_for(site, state, technical=None):
         text, css = f'LIVE: ältere Fläche · {count} Fahrbeziehungen; v{site["version"]} noch nicht deployed', 'older'
     elif site['status'] == 'permanently-excluded':
         text, css = 'Ausgeschlossen · nicht deployed', 'excluded'
+    elif site['status'] == 'excluded':
+        text, css = 'Ausgeschlossen · nicht deployed', 'excluded'
     elif site['status'] == 'geometry-draft':
         text, css = 'Korrigierter Entwurf · nicht deployed', 'pending'
     elif site['status'] != 'geometry-approved':

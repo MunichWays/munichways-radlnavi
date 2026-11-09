@@ -342,7 +342,7 @@ def get_endpoint_routing_response(profile, coordinates, params):
     upstream = ({k: v for k, v in params.items() if k != "junction_guidance"}
         if isinstance(params, dict) else [(k, v) for k, v in params if k != "junction_guidance"])
     response = _get_endpoint_routing_response(profile, coordinates, upstream)
-    if (not requested or ROUTING_VARIANT != "standard" or profile != "bike"
+    if (not requested or ROUTING_VARIANT not in ("standard", "direct", "discovery") or profile != "bike"
         or response.status_code != 200 or options.get("geometries") != "geojson"
         or options.get("overview") != "full" or options.get("steps") != "true"):
         return response

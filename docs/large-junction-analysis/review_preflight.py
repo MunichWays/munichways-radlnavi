@@ -159,8 +159,11 @@ def inventory():
 
 def main():
     sites = []
-    for name in ("review-batch-01-images", "review-batch-02-ba09-images"):
-        sites += json.loads((ROOT / name / "review-data.json").read_text(encoding="utf-8"))["sites"]
+    from organize_review_images import BATCHES
+    for batch in BATCHES:
+        path = batch / 'review-data.json'
+        if path.exists():
+            sites += json.loads(path.read_text(encoding="utf-8"))["sites"]
     references = json.loads((ROOT / "review-reference-cases.json").read_text(encoding="utf-8"))["cases"]
     validate_references(sites, references)
     records = [review(s) for s in sites]

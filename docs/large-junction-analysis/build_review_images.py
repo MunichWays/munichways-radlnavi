@@ -212,7 +212,8 @@ def draw(site):
         line([point(a) for a in site["polygon"]],"#8c269a",2.5,"#efe3f2")
     for w in sorted(site["ways"], key=lambda w: cycling(w) or w["id"] in site.get("onRoadWayIds",[])):
         t = w.get("tags", {})
-        is_bike = cycling(w) or w["id"] in site.get("onRoadWayIds",[])
+        reported_foot_only = w['id'] in site.get('review', {}).get('reportedFootOnlyWayIds', [])
+        is_bike = (cycling(w) and not reported_foot_only) or w["id"] in site.get("onRoadWayIds",[])
         color = "#4e6c66" if is_bike else "#d3d5d7"
         width = 3 if is_bike else (12 if t.get("highway") in MAJOR else 1.4)
         coordinates=[point([v["lon"],v["lat"]]) for v in w.get("geometry",[])]

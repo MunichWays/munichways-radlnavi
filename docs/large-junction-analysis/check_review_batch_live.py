@@ -15,6 +15,8 @@ def get(url):
 
 def review_cases():
     cases=[]
+    catalog=json.loads((ROOT.parents[1]/'backend/src/big_junctions.json').read_text(encoding='utf-8'))
+    active={j['id'] for j in catalog['junctions'] if j.get('enabled')}
     updates=json.loads((ROOT/'review-updates-2026-11-14-routes.json').read_text(encoding='utf-8'))
     replaced={j['id'] for j in updates['junctions']}
     for name in ['full-movements-review.json','review-batch-01-routes.json','review-batch-02-ba09-routes.json','review-batch-03-ba09-routes.json']:
@@ -22,7 +24,7 @@ def review_cases():
         for junction in report['junctions']:
             if junction['id'] in replaced:continue
             for item in junction['movements']:
-                if 'url' in item:cases.append(dict(item,junctionId=junction['id'],expectGuidance=item['enabled']))
+                if 'url' in item:cases.append(dict(item,junctionId=junction['id'],expectGuidance=item['enabled'] and junction['id'] in active))
         for item in report.get('rightTurnChecks', []):
             if item.get('junctionId') in replaced:continue
             cases.append(dict(item,id=item.get('id',Path(item['fixture']).stem),expectGuidance=False))

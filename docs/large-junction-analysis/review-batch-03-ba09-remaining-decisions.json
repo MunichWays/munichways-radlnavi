@@ -738,7 +738,7 @@
         "1091375379:entry": "Entry-4",
         "1091375379:exit": "Exit-6"
       },
-      "note": "Geometrie v2 von Thomas freigegeben. Technische Fahrbeziehungsprüfung ausstehend; noch nicht aktiviert.",
+      "note": "Geometrie v2 freigegeben. Zehn Fahrbeziehungen im Branch aktiviert. Entry-4 / Entry-3 nach Exit-2 bewusst gesperrt: Makroansage nicht eindeutig gegenüber Exit-3; normale Abbiegehinweise beibehalten. Sechs Rechtskontrollen bestanden. Noch nicht deployed.",
       "geometryBasis": "Agent-prepared proposal from frozen official OSM map geometry; no human approval or runtime activation.",
       "reviewSource": "Remaining BA09 preparation, corrected after agent graph and image inspection.",
       "history": {
@@ -847,7 +847,23 @@
         }
       },
       "reviewedGeometrySha256": "1b219108547ca9636eb410271406f973f2a7c8a14153b397e7880726fc66d965",
-      "approvalSource": "Thomas explicitly approved this geometry."
+      "approvalSource": "Thomas explicitly approved this geometry.",
+      "excludedMovements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "reason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance."
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "reason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance."
+        }
+      ],
+      "activationReview": {
+        "status": "approved",
+        "evidence": "Thomas requested activation with ten relationships; Entry-4 and Entry-3 to Exit-2 explicitly excluded."
+      }
     },
     "dachauer-landshuter": {
       "status": "permanently-excluded",

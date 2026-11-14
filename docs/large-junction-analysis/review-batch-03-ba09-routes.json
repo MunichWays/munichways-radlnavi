@@ -283,9 +283,450 @@
           ]
         }
       ]
+    },
+    {
+      "id": "schwere-reiter-ackermann",
+      "number": 21,
+      "geometryRevision": 2,
+      "status": "complete",
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.553167891705002,
+            48.16213447840927
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.553952265263492,
+            48.16160824282107
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.553952265263492,
+            48.16160824282107
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.553793523624368,
+            48.16087569601757
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.554078937966823,
+            48.16127662560195
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.552171174352008,
+            48.16128724901463
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.553358464301038,
+            48.160866389215144
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.552718165764292,
+            48.16213655741369
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-5": {
+          "sample": [
+            11.551997832734747,
+            48.16165166311281
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-6": {
+          "sample": [
+            11.552718165764292,
+            48.16213655741369
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552718166,48.162136557;11.553952265,48.161608243?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            456158814,
+            1023662070,
+            1023662071,
+            1091375379
+          ],
+          "headingEvidenceMeters": 10,
+          "reason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance.",
+          "explicitlyExcluded": true
+        },
+        {
+          "id": "north-east-left-entry-4-exit-3",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-north-east-left-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552718166,48.162136557;11.554078938,48.161276626?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            41053396,
+            51779301,
+            53533143,
+            209315490,
+            1091375379,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-4",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-north-south-straight-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552718166,48.162136557;11.553358464,48.160866389?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            51779301,
+            53533144,
+            1091375379,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-5",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-5",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-north-west-right-entry-4-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552718166,48.162136557;11.551997833,48.161651663?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945071,
+            1091375379
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553952265,48.161608243;11.553167892,48.162134478?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            371866621,
+            456158814,
+            1023662071
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-6",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-6",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-east-north-right-entry-1-exit-6.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553952265,48.161608243;11.552718166,48.162136557?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            456158814,
+            1023662070,
+            1023662071,
+            1091375379
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-4",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-east-south-left-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553952265,48.161608243;11.553358464,48.160866389?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            51779301,
+            53533144,
+            456158814,
+            1023662070,
+            1023662071,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-5",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-east-west-straight-entry-1-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553952265,48.161608243;11.551997833,48.161651663?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945071,
+            456158814,
+            1023662070,
+            1023662071
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553793524,48.160875696;11.553167892,48.162134478?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945107,
+            371866621,
+            456158813,
+            1023662071
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-6",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-6",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-south-north-straight-entry-2-exit-6.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553793524,48.160875696;11.552718166,48.162136557?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945107,
+            51779301,
+            53533143,
+            209315490,
+            1091375379,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553793524,48.160875696;11.553952265,48.161608243?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945107,
+            456158813,
+            456158814
+          ]
+        },
+        {
+          "id": "south-east-right-entry-2-exit-3",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-south-east-right-entry-2-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553793524,48.160875696;11.554078938,48.161276626?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945107,
+            41053396
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-5",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-south-west-left-entry-2-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.553793524,48.160875696;11.551997833,48.161651663?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            40945071,
+            40945107,
+            51779301,
+            53533143,
+            209315490,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552171174,48.161287249;11.553167892,48.162134478?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            51779301,
+            138577304,
+            371866621,
+            1023662070,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-6",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-6",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-west-north-left-entry-3-exit-6.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552171174,48.161287249;11.552718166,48.162136557?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            51779301,
+            138577304,
+            1091375379,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552171174,48.161287249;11.553952265,48.161608243?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            51779301,
+            138577304,
+            456158814,
+            1023662070,
+            1023662071,
+            1454231552
+          ],
+          "headingEvidenceMeters": 10,
+          "reason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance.",
+          "explicitlyExcluded": true
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-3",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "schwere-reiter-ackermann-west-east-straight-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552171174,48.161287249;11.554078938,48.161276626?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            41053396,
+            53533143,
+            138577304,
+            209315490
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-4",
+          "junctionId": "schwere-reiter-ackermann",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "schwere-reiter-ackermann-west-south-right-entry-3-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.552171174,48.161287249;11.553358464,48.160866389?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            53533144,
+            138577304
+          ]
+        }
+      ]
     }
   ],
   "status": "complete",
-  "checkedAt": "2026-11-09T07:03:34.291701+00:00",
+  "checkedAt": "2026-11-14T17:32:10.330192+00:00",
   "runtimeModified": false
 }

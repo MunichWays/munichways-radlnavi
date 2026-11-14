@@ -47,3 +47,11 @@ K07 v2 (acht Beziehungen) und K19 v3 (acht statt sechs Beziehungen) sind zusamme
 
 ### Buildkorrektur 2.4.9: fehlendes Sequenzmodul
 Live-Abgleich: Backend 2.4.8 / c5a1a9c lief tatsächlich; bei allen zwölf K19-Referenzrouten fehlten Kreuzungsmetadaten. Ursache war `junction_sequences.py`, das die explizite COPY-Liste im Produktions-Dockerfile nicht enthielt. Die Katalogprüfung schlug deshalb für alle Kreuzungen fehl. Die Datei wird jetzt kopiert und der tatsächlich paketierte Katalog bereits im Docker-Build validiert. Ein isolierter Paketierungstest reproduziert den Importfehler vor der Korrektur und prüft danach K07, K19 sowie eine Wilram-Sonderfolge mit unveränderter Rohroute. Katalog v8 / 165 Beziehungen bleiben unverändert. Backend 2.4.9 benötigt ein erneutes Deployment und anschließenden Live-Abgleich.
+
+
+### K21 v2 technisch geprüft
+18 echte Standardrouten neu eingefroren: 12/12 Links-/Geradeausbeziehungen und 6/6 Rechtskontrollen bestanden. Ganzer Vorschlagskatalog, unveränderte Rohroute und Schiebekontrollen geprüft. Ergebnis in review-batch-03-ba09-routes.json; separater review-k21-proposed-catalog.json. Runtime-Katalog unverändert, K21 weiterhin nicht aktiviert oder deployed.
+
+
+### K21 v2 aktiviert, zwei Makros ausdrücklich ausgeschlossen
+Auf Wunsch von Thomas zehn Beziehungen aktiviert. Entry-4 nach Exit-2 und Entry-3 nach Exit-2 bleiben mit Begründung gesperrt: Die Makroansage unterscheidet Exit-2 nicht eindeutig von Exit-3. Normale Abbiegehinweise bleiben erhalten; beide Beziehungen zu Exit-3 bleiben aktiviert. Alle 18 Referenzrouten inklusive sechs Rechtskontrollen offline geprüft. Backend 2.4.10, Katalog v9: 20 Kreuzungen / 175 aktive Beziehungen. Noch nicht deployed.

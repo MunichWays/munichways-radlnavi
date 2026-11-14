@@ -53,6 +53,13 @@ def main():
                     manifest[item['fixture']] = {'url': item['url'], 'retrievedAt': retrieved}
                 movement, evidence = check.verify(site, item, payload, base)
                 item.update(evidence)
+                exclusion = next((rule for rule in site['review'].get('excludedMovements', [])
+                                  if (rule['entryLabel'], rule['exitLabel']) ==
+                                  (item['entryLabel'], item['exitLabel'])), None)
+                if exclusion:
+                    item.update(enabled=False, reason=exclusion['reason'], explicitlyExcluded=True)
+                    if movement:
+                        movement.update(enabled=False, disabledReason=exclusion['reason'])
                 if movement:
                     candidate['movements'].append(movement)
             except Exception as error:
@@ -102,7 +109,7 @@ def main():
         path.write_text(json.dumps(value, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     from organize_review_images import main as organize
     organize()
-    print('Verified:', len(candidate['movements']), '; runtime catalog unchanged.')
+    print('Verified enabled:', sum(m['enabled'] for m in candidate['movements']), '; runtime catalog unchanged.')
 
 
 if __name__ == '__main__':

@@ -8,6 +8,41 @@ from organize_review_images import BATCHES
 
 
 class RemainingBA09Tests(unittest.TestCase):
+    def test_k21_frozen_routes_match_runtime_with_two_explicit_exclusions(self):
+        from copy import deepcopy
+        from unittest.mock import patch
+        from src.big_junctions import add_guidance
+        proposed = json.loads((ROOT / 'review-k21-proposed-catalog.json').read_text(encoding='utf-8'))
+        report = json.loads((ROOT / 'review-batch-03-ba09-routes.json').read_text(encoding='utf-8'))
+        record = next(j for j in report['junctions'] if j['number'] == 21)
+        self.assertEqual(record['geometryRevision'], 2)
+        self.assertEqual(next(j for j in catalog()['junctions'] if j['id'] == record['id']), next(j for j in proposed['junctions'] if j['id'] == record['id']))
+        self.assertEqual(len(record['movements']), 18)
+        positives = controls = 0
+        with patch('src.big_junctions.catalog', return_value=catalog()):
+            for item in record['movements']:
+                with self.subTest(movement=item['id']):
+                    payload = json.loads((ROOT.parents[1] / 'backend/tests/fixtures/big-junctions/batch-03' / item['fixture']).read_text(encoding='utf-8'))
+                    result = add_guidance(payload)
+                    self.assertTrue(item['verified'])
+                    self.assertEqual(bool(result), item['enabled'])
+                    if not result:
+                        controls += 1
+                        continue
+                    positives += 1
+                    hit, = result['routes'][0].pop('guidance')['junctions']
+                    self.assertEqual(hit['id'], record['id'])
+                    self.assertEqual(result, payload)
+                    walking = deepcopy(payload)
+                    for leg in walking['routes'][0]['legs']:
+                        for step in leg['steps']:
+                            step['mode'] = 'pushing bike'
+                    self.assertIsNone(add_guidance(walking))
+        self.assertEqual((positives, controls), (10, 8))
+        excluded = {(m['entryLabel'], m['exitLabel']) for m in record['movements'] if m.get('explicitlyExcluded')}
+        self.assertEqual(excluded, {('Entry-4', 'Exit-2'), ('Entry-3', 'Exit-2')})
+        self.assertTrue(all(m['reason'] for m in record['movements'] if m.get('explicitlyExcluded')))
+
     def sites(self):
         return json.loads((OUT / 'review-data.json').read_text(encoding='utf-8'))['sites']
 
@@ -24,7 +59,7 @@ class RemainingBA09Tests(unittest.TestCase):
             with self.subTest(site=site['number']):
                 self.assertFalse(site['enabled'])
                 self.assertEqual(site['polygonApproved'], site['number'] in (18, 19, 21))
-                self.assertEqual(site['id'] in active, site['number'] == 19)
+                self.assertEqual(site['id'] in active, site['number'] in (19, 21))
                 if site['polygon']:
                     self.assertTrue(simple_ring(site['polygon']))
                 else:

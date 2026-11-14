@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "munich-big-junctions-v8",
+  "version": "munich-big-junctions-v9",
   "junctions": [
     {
       "id": "arnulf-steuben",
@@ -19114,6 +19114,1282 @@
             "status": "approved",
             "date": "2026-11-14",
             "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-west-east-straight-entry-3-exit-2.json; runtime checks passed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "schwere-reiter-ackermann",
+      "name": "Schwere-Reiter-Straße / Ackermannstraße / Infanteriestraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.552601861849846,
+              48.161588135106
+            ],
+            [
+              11.552651561849846,
+              48.161451435106
+            ],
+            [
+              11.552830561849845,
+              48.161195135106006
+            ],
+            [
+              11.552961861849846,
+              48.161193535106
+            ],
+            [
+              11.553177338150155,
+              48.161193535106
+            ],
+            [
+              11.553472238150155,
+              48.161193635106
+            ],
+            [
+              11.553472238150155,
+              48.161337364893996
+            ],
+            [
+              11.553428838150154,
+              48.161429964894
+            ],
+            [
+              11.553307538150154,
+              48.161688764893995
+            ],
+            [
+              11.553268938150154,
+              48.161729164894
+            ],
+            [
+              11.552817338150154,
+              48.161731864893994
+            ],
+            [
+              11.552601861849846,
+              48.161731864893994
+            ],
+            [
+              11.552601861849846,
+              48.161588135106
+            ]
+          ]
+        ]
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.55271995,
+                48.161731865
+              ]
+            ],
+            "exits": [
+              [
+                11.553161047,
+                48.16172981
+              ],
+              [
+                11.55271995,
+                48.161731865
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.553345557,
+                48.16160765
+              ]
+            ],
+            "exits": [
+              [
+                11.553345557,
+                48.16160765
+              ],
+              [
+                11.553472238,
+                48.161278229
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.553419167,
+                48.161193617
+              ]
+            ],
+            "exits": [
+              [
+                11.55300328,
+                48.161193535
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.552777405,
+                48.161271247
+              ]
+            ],
+            "exits": [
+              [
+                11.552601862,
+                48.161625758
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-14",
+          "evidence": "Technical four-arm assignment in verify_ba09_movements.ARMS; human-approved gate geometry K21 v2. Arm order determines instruction; real directed local paths determine matching."
+        }
+      },
+      "review": {
+        "status": "approved",
+        "date": "2026-11-14",
+        "evidence": "Human geometry approval K21 v2; focused real route checks."
+      },
+      "movements": [
+        {
+          "id": "east-south-left-entry-1-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.553345392793283,
+            48.161608
+          ],
+          "exit": [
+            11.553003401673925,
+            48.161193535106
+          ],
+          "corridor": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.553003401673925,
+              48.161193535106
+            ]
+          ],
+          "approach": [
+            [
+              11.553480216996677,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "departure": [
+            [
+              11.553003401673925,
+              48.161193535106
+            ],
+            [
+              11.553072240594432,
+              48.16111620919529
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-east-south-left-entry-1-exit-4.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.553345392793283,
+            48.161608
+          ],
+          "exit": [
+            11.552601861849846,
+            48.161625710527254
+          ],
+          "corridor": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552667,
+              48.161637
+            ],
+            [
+              11.552629,
+              48.161629
+            ],
+            [
+              11.552601861849846,
+              48.161625710527254
+            ]
+          ],
+          "approach": [
+            [
+              11.553480216996677,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "departure": [
+            [
+              11.552601861849846,
+              48.161625710527254
+            ],
+            [
+              11.552468093081357,
+              48.16162695569732
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-east-west-straight-entry-1-exit-5.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": false,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "exit": [
+            11.553345392793283,
+            48.161608
+          ],
+          "corridor": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "approach": [
+            [
+              11.552719436006765,
+              48.16182179651513
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "departure": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553480216996677,
+              48.161608
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-north-east-left-entry-4-exit-2.json; logical arm classification preserved."
+          },
+          "disabledReason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance."
+        },
+        {
+          "id": "north-east-left-entry-4-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "exit": [
+            11.553472238150155,
+            48.161278
+          ],
+          "corridor": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.553416,
+              48.161278
+            ],
+            [
+              11.553472238150155,
+              48.161278
+            ]
+          ],
+          "approach": [
+            [
+              11.552719436006765,
+              48.16182179651513
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "departure": [
+            [
+              11.553472238150155,
+              48.161278
+            ],
+            [
+              11.55360706134022,
+              48.161277934532
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-north-east-left-entry-4-exit-3.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "exit": [
+            11.553003401673925,
+            48.161193535106
+          ],
+          "corridor": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.553003401673925,
+              48.161193535106
+            ]
+          ],
+          "approach": [
+            [
+              11.552719436006765,
+              48.16182179651513
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "departure": [
+            [
+              11.553003401673925,
+              48.161193535106
+            ],
+            [
+              11.553072240594432,
+              48.16111620919529
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-north-south-straight-entry-4-exit-4.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.553419490407908,
+            48.16119361721935
+          ],
+          "exit": [
+            11.553161435390665,
+            48.161729807625285
+          ],
+          "corridor": [
+            [
+              11.553419490407908,
+              48.16119361721935
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.553345,
+              48.161308
+            ],
+            [
+              11.553321,
+              48.161358
+            ],
+            [
+              11.553306,
+              48.161392
+            ],
+            [
+              11.5533,
+              48.161403
+            ],
+            [
+              11.553294,
+              48.161416
+            ],
+            [
+              11.553287,
+              48.161432
+            ],
+            [
+              11.55328,
+              48.161446
+            ],
+            [
+              11.553274,
+              48.161459
+            ],
+            [
+              11.553267,
+              48.161474
+            ],
+            [
+              11.553263,
+              48.161483
+            ],
+            [
+              11.553256,
+              48.161498
+            ],
+            [
+              11.55324,
+              48.161529
+            ],
+            [
+              11.55322,
+              48.161574
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553161,
+              48.161703
+            ],
+            [
+              11.553161435390665,
+              48.161729807625285
+            ]
+          ],
+          "approach": [
+            [
+              11.553497048258157,
+              48.16112037525729
+            ],
+            [
+              11.553419490407908,
+              48.16119361721935
+            ]
+          ],
+          "departure": [
+            [
+              11.553161435390665,
+              48.161729807625285
+            ],
+            [
+              11.553162895918081,
+              48.1618197343848
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-south-north-straight-entry-2-exit-1.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-6",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.553419490407908,
+            48.16119361721935
+          ],
+          "exit": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "corridor": [
+            [
+              11.553419490407908,
+              48.16119361721935
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "approach": [
+            [
+              11.553497048258157,
+              48.16112037525729
+            ],
+            [
+              11.553419490407908,
+              48.16119361721935
+            ]
+          ],
+          "departure": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.552719436006765,
+              48.16182179651513
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-south-north-straight-entry-2-exit-6.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.553419490407908,
+            48.16119361721935
+          ],
+          "exit": [
+            11.552601861849846,
+            48.161625710527254
+          ],
+          "corridor": [
+            [
+              11.553419490407908,
+              48.16119361721935
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552667,
+              48.161637
+            ],
+            [
+              11.552629,
+              48.161629
+            ],
+            [
+              11.552601861849846,
+              48.161625710527254
+            ]
+          ],
+          "approach": [
+            [
+              11.553497048258157,
+              48.16112037525729
+            ],
+            [
+              11.553419490407908,
+              48.16119361721935
+            ]
+          ],
+          "departure": [
+            [
+              11.552601861849846,
+              48.161625710527254
+            ],
+            [
+              11.552468093081357,
+              48.16162695569732
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-south-west-left-entry-2-exit-5.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": false,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.553345392793283,
+            48.161608
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553480216996677,
+              48.161608
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-east-straight-entry-3-exit-2.json; logical arm classification preserved."
+          },
+          "disabledReason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance."
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.553472238150155,
+            48.161278
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.553416,
+              48.161278
+            ],
+            [
+              11.553472238150155,
+              48.161278
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.553472238150155,
+              48.161278
+            ],
+            [
+              11.55360706134022,
+              48.161277934532
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-east-straight-entry-3-exit-3.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.553161435390665,
+            48.161729807625285
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553161,
+              48.161703
+            ],
+            [
+              11.553161435390665,
+              48.161729807625285
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.553161435390665,
+              48.161729807625285
+            ],
+            [
+              11.553162895918081,
+              48.1618197343848
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-north-left-entry-3-exit-1.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-6",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.552719436006765,
+              48.16182179651513
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-north-left-entry-3-exit-6.json; logical arm classification preserved."
           }
         }
       ]

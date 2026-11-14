@@ -25,10 +25,20 @@ def status_for(site, state, technical=None):
         text, css = 'Live-Stand noch nicht abgeglichen', 'pending'
     if technical and technical.get('status') == 'in_progress':
         tech = 'Technische Prüfung läuft'
+    elif technical and technical.get('status') == 'draft-technical-check':
+        attempted = [m for m in technical.get('movements', []) if m.get('kind') in ('left', 'straight')]
+        passed = sum(m.get('enabled', False) for m in attempted)
+        tech = f'Entwurf: {passed}/{len(attempted)} Links-/Geradeausbeziehungen offline bestanden; Sichtfreigabe und Aktivierung offen'
     elif technical:
-        attempted = [m for m in technical.get('movements', []) if m.get('kind') != 'right']
+        attempted = [m for m in technical.get('movements', []) if m.get('kind') in ('left', 'straight')]
         passed = sum(m.get('enabled', False) for m in attempted)
         tech = f'{passed}/{len(attempted)} Links-/Geradeausbeziehungen technisch bestanden'
+        pending = sum(m.get('implementationPending', False) for m in technical.get('movements', []))
+        if pending:
+            tech += f'; {pending} Sonderfolgen noch nicht implementiert'
+        sequences = sum(m.get('enabled', False) and m.get('requiresProtocolVersion') == 2 for m in technical.get('movements', []))
+        if sequences:
+            tech += f'; {sequences} Sonderfolgen implementiert/geprüft für neue App (v2)'
     elif matching and live:
         tech = f'{count} aktive Beziehungen im Live-Katalog'
     elif site['status'] == 'geometry-approved':

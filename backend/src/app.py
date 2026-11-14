@@ -152,10 +152,12 @@ async def osrm_route_proxy(
 ) -> Response:
     """Expose the private routing service through an OSRM-compatible API."""
     query_params = list(request.query_params.multi_items())
+    sequence_guidance = request.headers.get('x-junction-guidance-version') == '2'
     variant = resolve_variant(request.query_params.get("variant"))
     if variant != ROUTING_VARIANT:
         return await forward_variant(variant,
-            "GET", f"/route/v1/{profile}/{coordinates}", params=query_params
+            "GET", f"/route/v1/{profile}/{coordinates}", params=query_params,
+            **({'sequence_guidance': True} if sequence_guidance else {}),
         )
     query_params = [(key, value) for key, value in query_params if key != "variant"]
     comfort_requested = any(
@@ -178,7 +180,8 @@ async def osrm_route_proxy(
         requested_annotations.update(("nodes", "distance"))
         upstream_params.append(("annotations", ",".join(sorted(requested_annotations))))
 
-    response = get_endpoint_routing_response(profile, coordinates, upstream_params)
+    response = get_endpoint_routing_response(profile, coordinates, upstream_params,
+        **({'sequence_guidance': True} if sequence_guidance else {}))
     headers = {"x-routing-variant": variant}
     if variant == "standard" and response.status_code == 200:
         # Let clients start direct routing without queuing discovery behind
@@ -335,7 +338,7 @@ def get_routing_response(url, *, params, auth_context=None, timeout=30):
         raise HTTPException(503, "Routing is unavailable") from error
 
 
-def get_endpoint_routing_response(profile, coordinates, params):
+def get_endpoint_routing_response(profile, coordinates, params, *, sequence_guidance=False):
     """Optional pilot metadata is added after final endpoint-access geometry."""
     options = dict(params)
     requested = str(options.get("junction_guidance", "")).lower() == "true"
@@ -347,7 +350,8 @@ def get_endpoint_routing_response(profile, coordinates, params):
         or options.get("overview") != "full" or options.get("steps") != "true"):
         return response
     try:
-        payload = add_big_junction_guidance(response.json())
+        payload = add_big_junction_guidance(response.json(),
+            **({'sequence_guidance': True} if sequence_guidance else {}))
         if payload is None:
             return response
         enriched = RoutingResponse()
@@ -692,7 +696,9 @@ async def route(
     target_lon: float,
     variant: Literal["standard", "direct", "discovery"] | None = None,
     junction_guidance: bool = False,
+    request: Request = None,
 ):
+    sequence_guidance = request is not None and request.headers.get('x-junction-guidance-version') == '2'
     selected = resolve_variant(variant)
     if selected != ROUTING_VARIANT:
         return await forward_variant(selected,
@@ -706,6 +712,7 @@ async def route(
                 "variant": selected,
                 **({"junction_guidance": "true"} if junction_guidance else {}),
             },
+            **({'sequence_guidance': True} if sequence_guidance else {}),
         )
     print("request start")
     response = get_endpoint_routing_response(
@@ -718,6 +725,7 @@ async def route(
             "annotations": "true",
             **({"junction_guidance": "true"} if junction_guidance else {}),
         },
+        **({'sequence_guidance': True} if sequence_guidance else {}),
     )
 
     if response.status_code != 200:

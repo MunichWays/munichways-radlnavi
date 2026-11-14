@@ -1,0 +1,752 @@
+{
+  "status": "complete",
+  "runtimeModified": true,
+  "deploymentChanged": false,
+  "junctions": [
+    {
+      "id": "thomasiusplatz",
+      "number": 10,
+      "geometryRevision": 4,
+      "status": "complete",
+      "fixtureDirectory": "review-updates-2026-11-14",
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.60194689204793,
+            48.116436066546
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.602923338191344,
+            48.116220769884315
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.603144334492002,
+            48.11603132958918
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.602492578504812,
+            48.11495768545228
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.602257773403226,
+            48.11500826938089
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.601340016076874,
+            48.11530872044798
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.60126424328178,
+            48.11552393455636
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.601662593313307,
+            48.116294914095114
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-5": {
+          "sample": [
+            11.603233162762058,
+            48.11539865422171
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-5": {
+          "sample": [
+            11.603233162762058,
+            48.11539865422171
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.603144334,48.116031330?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            53108528,
+            71390768,
+            71390770,
+            90266696,
+            145178204,
+            147719151,
+            147719153,
+            1499366936,
+            1499366937
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            71390768,
+            134139700,
+            145178204,
+            147719151,
+            147719153,
+            1499366936,
+            1499366937
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "thomasiusplatz-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26754058,
+            145178204,
+            147719151
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "thomasiusplatz-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602923338,48.116220770;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            23262477,
+            134140323
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602923338,48.116220770;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            71390767,
+            71390768,
+            134139700,
+            134140323,
+            147719151,
+            147719153,
+            1499366936,
+            1499366937
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602923338,48.116220770;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26754058,
+            71390767,
+            134140323,
+            147719151
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602492579,48.114957685;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            23262477,
+            53108527,
+            53108528,
+            134139701,
+            147718914,
+            1499366933,
+            1499366934
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "thomasiusplatz-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602492579,48.114957685;11.603144334,48.116031330?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            53108527,
+            53108528,
+            71390770,
+            147718914
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.602492579,48.114957685;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26754058,
+            53108527,
+            53108528,
+            71390767,
+            134139701,
+            147718914,
+            147719151,
+            1499366933,
+            1499366934
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "thomasiusplatz-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            23262477,
+            53108528,
+            90266696,
+            134139701,
+            147719153,
+            332562083,
+            1499366933,
+            1499366934
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "thomasiusplatz-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.603144334,48.116031330?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            53108528,
+            71390770,
+            90266696,
+            147719153,
+            332562083
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "thomasiusplatz",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "thomasiusplatz-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "scope": "standard-four-arm",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            134139700,
+            147719153,
+            332562083
+          ]
+        },
+        {
+          "id": "wilram-entry-3-exit-5",
+          "junctionId": "thomasiusplatz",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-5",
+          "kind": "special",
+          "scope": "wilram",
+          "enabled": true,
+          "fixture": "thomasiusplatz-wilram-entry-3-exit-5.json",
+          "requestedGuidance": {
+            "entry": "Entry-3",
+            "exit": "Exit-5",
+            "advance": "An der großen Kreuzung geradeaus, danach sofort rechts, dann links in Wilramstraße.",
+            "internalInstructions": [
+              "Hier rechts.",
+              "Hier links in Wilramstraße."
+            ]
+          },
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601340016,48.115308720;11.603233163,48.115398654?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "geometryVerified": true,
+          "verifiedCyclingWayIds": [
+            53108527,
+            90266696,
+            147719153,
+            332562083,
+            913592181
+          ],
+          "observedInstructions": [
+            {
+              "location": [
+                11.602049,
+                48.115505
+              ],
+              "type": "turn",
+              "modifier": "left",
+              "name": "",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602406,
+                48.11569
+              ],
+              "type": "turn",
+              "modifier": "sharp right",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602413,
+                48.115448
+              ],
+              "type": "turn",
+              "modifier": "left",
+              "name": "Wilramstraße",
+              "mode": "cycling"
+            }
+          ],
+          "implementationPending": false,
+          "reason": "Implemented and regression-tested for v2 clients; field test pending",
+          "verified": true,
+          "requiresProtocolVersion": 2
+        },
+        {
+          "id": "wilram-entry-4-exit-5",
+          "junctionId": "thomasiusplatz",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-5",
+          "kind": "special",
+          "scope": "wilram",
+          "enabled": true,
+          "fixture": "thomasiusplatz-wilram-entry-4-exit-5.json",
+          "requestedGuidance": {
+            "entry": "Entry-4",
+            "exit": "Exit-5",
+            "advance": "An der großen Kreuzung links abbiegen, danach sofort rechts, dann links in Wilramstraße.",
+            "internalInstructions": [
+              "Hier rechts.",
+              "Hier links in Wilramstraße."
+            ],
+            "alternativeCrossing": {
+              "condition": "User quert bereits vorne links; anhand tatsächlich gefahrener Geometrie bestätigen, nicht allein anhand der geplanten Route.",
+              "internalInstructions": [
+                "Hier geradeaus.",
+                "Hier links in Wilramstraße."
+              ]
+            }
+          },
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.601662593,48.116294914;11.603233163,48.115398654?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "geometryVerified": true,
+          "verifiedCyclingWayIds": [
+            53108527,
+            71390768,
+            90266696,
+            145178204,
+            147719151,
+            147719153,
+            913592181,
+            1499366936,
+            1499366937
+          ],
+          "observedInstructions": [
+            {
+              "location": [
+                11.602004,
+                48.115512
+              ],
+              "type": "end of road",
+              "modifier": "left",
+              "name": "",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602049,
+                48.115505
+              ],
+              "type": "turn",
+              "modifier": "left",
+              "name": "",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602406,
+                48.11569
+              ],
+              "type": "turn",
+              "modifier": "sharp right",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602413,
+                48.115448
+              ],
+              "type": "turn",
+              "modifier": "left",
+              "name": "Wilramstraße",
+              "mode": "cycling"
+            }
+          ],
+          "implementationPending": false,
+          "reason": "Implemented and regression-tested for v2 clients; field test pending",
+          "verified": true,
+          "requiresProtocolVersion": 2
+        },
+        {
+          "id": "wilram-entry-5-exit-1",
+          "junctionId": "thomasiusplatz",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-1",
+          "kind": "special",
+          "scope": "wilram",
+          "enabled": true,
+          "fixture": "thomasiusplatz-wilram-entry-5-exit-1.json",
+          "requestedGuidance": {
+            "entry": "Entry-5",
+            "exit": "Exit-1",
+            "advance": "Rechts, danach an der großen Kreuzung geradeaus."
+          },
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603233163,48.115398654;11.601946892,48.116436067?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "geometryVerified": true,
+          "verifiedCyclingWayIds": [
+            23262477,
+            53108527,
+            53108528,
+            134139701,
+            913592181,
+            1499366933,
+            1499366934
+          ],
+          "observedInstructions": [
+            {
+              "location": [
+                11.602413,
+                48.115448
+              ],
+              "type": "turn",
+              "modifier": "right",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602407,
+                48.115696
+              ],
+              "type": "fork",
+              "modifier": "slight left",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            }
+          ],
+          "implementationPending": false,
+          "reason": "Implemented and regression-tested for v2 clients; field test pending",
+          "verified": true,
+          "requiresProtocolVersion": 2
+        },
+        {
+          "id": "wilram-entry-5-exit-4",
+          "junctionId": "thomasiusplatz",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-4",
+          "kind": "special",
+          "scope": "wilram",
+          "enabled": true,
+          "fixture": "thomasiusplatz-wilram-entry-5-exit-4.json",
+          "requestedGuidance": {
+            "entry": "Entry-5",
+            "exit": "Exit-4",
+            "advance": "Rechts, danach an der großen Kreuzung links abbiegen."
+          },
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603233163,48.115398654;11.601264243,48.115523935?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "geometryVerified": true,
+          "verifiedCyclingWayIds": [
+            26754058,
+            53108527,
+            53108528,
+            71390767,
+            134139701,
+            147719151,
+            913592181,
+            1499366933,
+            1499366934
+          ],
+          "observedInstructions": [
+            {
+              "location": [
+                11.602413,
+                48.115448
+              ],
+              "type": "turn",
+              "modifier": "right",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602407,
+                48.115696
+              ],
+              "type": "fork",
+              "modifier": "slight left",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602226,
+                48.115981
+              ],
+              "type": "turn",
+              "modifier": "left",
+              "name": "",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.601899,
+                48.115787
+              ],
+              "type": "turn",
+              "modifier": "right",
+              "name": "Werinherstraße",
+              "mode": "cycling"
+            }
+          ],
+          "implementationPending": false,
+          "reason": "Implemented and regression-tested for v2 clients; field test pending",
+          "verified": true,
+          "requiresProtocolVersion": 2
+        },
+        {
+          "id": "wilram-entry-5-exit-2",
+          "junctionId": "thomasiusplatz",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "scope": "wilram",
+          "enabled": false,
+          "fixture": "thomasiusplatz-wilram-entry-5-exit-2.json",
+          "requestedGuidance": {
+            "entry": "Entry-5",
+            "exit": "Exit-2",
+            "guidance": "standard",
+            "advance": null,
+            "note": "Normales Rechtsabbiegen, ebenso wie Entry-2 nach Exit-2. Keine Kreuzungs-Sonderansage."
+          },
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603233163,48.115398654;11.603144334,48.116031330?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "geometryVerified": true,
+          "bypassesPolygon": true,
+          "verifiedCyclingWayIds": [
+            71390770,
+            90378682,
+            145178206
+          ],
+          "implementationPending": false,
+          "reason": "Legal standard right turn outside the polygon; no macro intended"
+        },
+        {
+          "id": "wilram-entry-5-exit-3",
+          "junctionId": "thomasiusplatz",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "special",
+          "scope": "wilram",
+          "enabled": true,
+          "fixture": "thomasiusplatz-wilram-entry-5-exit-3.json",
+          "requestedGuidance": {
+            "entry": "Entry-5",
+            "exit": "Exit-3",
+            "advance": "Rechts, danach an der großen Kreuzung wenden."
+          },
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603233163,48.115398654;11.602257773,48.115008269?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "geometryVerified": true,
+          "verifiedCyclingWayIds": [
+            53108527,
+            53108528,
+            71390767,
+            71390768,
+            134139700,
+            134139701,
+            147719151,
+            147719153,
+            913592181,
+            1499366933,
+            1499366934,
+            1499366936,
+            1499366937
+          ],
+          "observedInstructions": [
+            {
+              "location": [
+                11.602413,
+                48.115448
+              ],
+              "type": "turn",
+              "modifier": "right",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602407,
+                48.115696
+              ],
+              "type": "fork",
+              "modifier": "slight left",
+              "name": "Balanstraße",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602226,
+                48.115981
+              ],
+              "type": "turn",
+              "modifier": "left",
+              "name": "",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602004,
+                48.115512
+              ],
+              "type": "end of road",
+              "modifier": "left",
+              "name": "",
+              "mode": "cycling"
+            },
+            {
+              "location": [
+                11.602049,
+                48.115505
+              ],
+              "type": "turn",
+              "modifier": "slight right",
+              "name": "",
+              "mode": "cycling"
+            }
+          ],
+          "implementationPending": false,
+          "reason": "Implemented and regression-tested for v2 clients; field test pending",
+          "verified": true,
+          "requiresProtocolVersion": 2
+        }
+      ],
+      "runtimeModified": true,
+      "specialGuidanceImplemented": true,
+      "backendVersion": "2.4.8",
+      "fieldTested": false
+    }
+  ]
+}

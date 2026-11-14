@@ -4,7 +4,7 @@
 
 Norden oben. Diese Galerie dokumentiert die Geometrieprüfung; der aktuelle Freigabestand steht im [Prüfbericht](../review-batch-01-release.md).
 
-Geometrisch bestätigt: K01 v1, K02 v1, K03 v1, K04 v1, K05 v3, K06 v2, K08 v2, K10 v2. Zurückgestellt: K07 v1. Dauerhaft ausgeschlossen: K09 v1.
+Geometrisch bestätigt: K01 v1, K02 v1, K03 v1, K04 v1, K05 v3, K06 v2, K07 v2, K08 v2, K10 v4. Dauerhaft ausgeschlossen: K09 v1.
 
 Prüfen: richtige Radwegseite und Pfeilrichtung; alle Querungen, Inseln und Warteplätze innerhalb; keine Nachbarkreuzung eingeschlossen.
 
@@ -25,7 +25,7 @@ K06 v2: Lachnerstraße auf der Fahrbahn mit Entry-2 / Exit-3 ergänzt; folgende 
 | K04 | [Landsberger Straße / Elsenheimerstraße / Friedenheimer Brücke](../kreuzungspruefung/1-bestaetigt/K04-landsberger-elsenheimer.png) | v1 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
 | K05 | [Westendstraße / Zschokkestraße / Tübinger Straße](../kreuzungspruefung/1-bestaetigt/K05-westend-zschokke.png) | v3 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
 | K06 | [Nymphenburger Straße / Waisenhausstraße / Lachnerstraße](../kreuzungspruefung/1-bestaetigt/K06-nymphenburger-waisenhaus.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
-| K07 | [Marsstraße / Pappenheimstraße](../kreuzungspruefung/2-offen/K07-mars-pappenheim.png) | v1 · Zurückgestellt – technische Klärung offen | |
+| K07 | [Marsstraße / Pappenheimstraße](../kreuzungspruefung/1-bestaetigt/K07-mars-pappenheim.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
 | K08 | [Arnulfstraße / Hackerbrücke / Wredestraße](../kreuzungspruefung/1-bestaetigt/K08-arnulf-hackerbruecke.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
 | K09 | [Landsberger Straße / Barthstraße](../kreuzungspruefung/3-ausgeschlossen/K09-landsberger-barth.png) | v1 · Dauerhaft ausgeschlossen – Fall geschlossen | |
-| K10 | [Thomasiusplatz / Balanstraße / Werinherstraße](../kreuzungspruefung/1-bestaetigt/K10-thomasiusplatz.png) | v2 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |
+| K10 | [Thomasiusplatz / Balanstraße / Werinherstraße](../kreuzungspruefung/1-bestaetigt/K10-thomasiusplatz.png) | v4 · Geometrie bestätigt – Freigabestand siehe Prüfbericht | |

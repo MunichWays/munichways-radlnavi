@@ -122,6 +122,10 @@ def apply_review(site, review):
     for g in site["gates"]:
         key=f'{g["osmWayId"]}:{g["kind"]}'
         g["label"]=review["gateLabels"][key]
+        lane = review.get('laneGateEvidence', {}).get(str(g['osmWayId']))
+        if lane:
+            g['positionBasis'] = 'Explicit OSM cycle lane; gate on carriageway centerline, lateral lane position not surveyed'
+            g['laneEvidence'] = lane
     site["gates"].sort(key=lambda g:(int(g["label"].split("-")[1]),0 if g["kind"]=="exit" else 1))
     check_review_fingerprint(site,review)
 
@@ -205,19 +209,21 @@ def draw(site):
         commands.append({"kind":"polygon" if fill else "line", "points":points, "color":color, "width":width, "fill":fill})
     text(f'K{site["number"]:02d} · {site["name"]}', 28, 24, 21)
     status = status_text(site)
-    text(f'v{site["version"]} · {status} · NICHT AKTIV',28,58,16,"#8b256a")
+    activation = 'IM BRANCH; NICHT DEPLOYED' if (site['number'], site['version']) in ((7, 2), (10, 4), (19, 3)) else 'NICHT AKTIV'
+    text(f'v{site["version"]} · {status} · {activation}',28,58,16,"#8b256a")
     # Clip map content to the central panel so long OSM ways cannot cover the header.
     commands.append({"kind":"clip", "x":180,"y":100,"width":840,"height":800})
     if site["polygon"]:
         line([point(a) for a in site["polygon"]],"#8c269a",2.5,"#efe3f2")
-    for w in sorted(site["ways"], key=lambda w: cycling(w) or w["id"] in site.get("onRoadWayIds",[])):
+    drawing_roads = set(site.get("onRoadWayIds", [])) | set(site.get("review", {}).get("internalRoadWayIds", []))
+    for w in sorted(site["ways"], key=lambda w: cycling(w) or w["id"] in drawing_roads):
         t = w.get("tags", {})
         reported_foot_only = w['id'] in site.get('review', {}).get('reportedFootOnlyWayIds', [])
-        is_bike = (cycling(w) and not reported_foot_only) or w["id"] in site.get("onRoadWayIds",[])
+        is_bike = (cycling(w) and not reported_foot_only) or w["id"] in drawing_roads
         color = "#4e6c66" if is_bike else "#d3d5d7"
         width = 3 if is_bike else (12 if t.get("highway") in MAJOR else 1.4)
         coordinates=[point([v["lon"],v["lat"]]) for v in w.get("geometry",[])]
-        if w["id"] in site.get("onRoadWayIds",[]):
+        if w["id"] in drawing_roads:
             line(coordinates,"#d3d5d7",12)
         line(coordinates,color,width)
     if site["polygon"]:
@@ -264,7 +270,10 @@ def draw(site):
             edge=1023 if side=="right" else 173
             line([[x,y],[edge,label_y+9]],color,1)
             commands.append({"kind":"circle","x":x,"y":y,"radius":6,"color":color,"fill":"#ffffff"})
-            text(g["label"]+(" *" if g.get("shared") else ""),label_x,label_y,17,color)
+            alias = site.get('review', {}).get('gateAliases', {}).get(g['label'])
+            lane = bool(g.get('laneEvidence'))
+            label = g["label"] + (' (Wilram)' if alias else ' (Streifen)' if lane else '') + (" *" if g.get("shared") else "")
+            text(label,label_x,label_y,15 if alias or lane else 17,color)
             dx,dy=g["forward"][0],-g["forward"][1]
             # The arrow follows OSM way order, including oneway:bicycle overrides.
             ax,ay=x+dx*20,y+dy*20
@@ -308,7 +317,20 @@ def main():
     OUT.mkdir(exist_ok=True)
     snapshot=json.loads(gzip.decompress((ROOT/"review-batch-01-osm.json.gz").read_bytes()))
     batch=json.loads((ROOT/"review-batch-01.geojson").read_text(encoding="utf-8"))
-    sites=[prepare_site(f,snapshot["response"]["elements"]) for f in batch["features"]]
+    decisions=json.loads((ROOT/"review-batch-01-decisions.json").read_text(encoding="utf-8"))["sites"]
+    sites=[]
+    for feature in batch['features']:
+        review = decisions.get(feature['properties']['id'], {})
+        source = snapshot
+        if review.get('osmSnapshot'):
+            path = (ROOT / review['osmSnapshot']).resolve()
+            if not path.is_relative_to(ROOT.resolve()):
+                raise ValueError('Site snapshot must remain inside the analysis directory')
+            source = json.loads(gzip.decompress(path.read_bytes()))
+        site = prepare_site(feature, source['response']['elements'])
+        if source is not snapshot:
+            site.update(osmRetrievedAt=source['retrievedAt'], osmSource=source['sourceUrl'])
+        sites.append(site)
     baseline=ROOT/"review-batch-01-v1-geometry.json"
     if not baseline.exists():
         baseline.write_text(json.dumps({"revision":1,"osmRetrievedAt":snapshot["retrievedAt"],
@@ -364,7 +386,7 @@ def main():
         status=f'v{site["version"]} · {status_text(site)}'
         cards.append(f'<article><h2>K{site["number"]:02d} · {html.escape(site["name"])}</h2><p>{status}</p><a href="{name}.png"><img src="{name}.svg" alt="Prüfbild {html.escape(site["name"])}"/></a><p><a href="{name}.png">PNG öffnen</a> · <a href="{name}.svg">SVG vergrößern</a></p></article>')
         rows.append(f'| K{site["number"]:02d} | [{site["name"]}]({name}.png) | {status} | |')
-    page='<!doctype html><html lang="de"><meta charset="utf-8"><title>Kreuzungen – Bildprüfung Runde 1</title><style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px;border:1px solid #ddd}h2{font-size:19px}img{width:100%;height:auto}p{max-width:1000px;line-height:1.5}</style><h1>Bildprüfung Runde 1 · aktualisiert</h1><p>'+html.escape(summary)+'</p><p>Der aktuelle Aktivierungsstand und verbleibende Ausnahmen stehen im <a href="../review-batch-01-release.md">Freigabebericht</a>.</p><p>K05 v2: gemeinsamer Entry-4 am östlichen Verzweigungspunkt; Fläche erweitert, Exit-1 leicht verschoben. K06 v2: Lachnerstraße mit Entry-2 / Exit-3 auf der Fahrbahn; Fläche unverändert, folgende Nummern angepasst.</p><p>In K08 v2 liegen Entry-2 und Exit-3 gemeinsam an der Fahrbahnampel der Hackerbrücke. In K10 v2 liegt der normale Entry-2 weiter nördlich; Wilramstraße ist ausgeschlossen.</p><p>Rückmeldung zum Beispiel: „K05 v2 passt“. Nummern folgen dem Uhrzeigersinn und bezeichnen keine Fahrbeziehungspaare. Ein Klick öffnet das PNG in voller Größe.</p><main>'+''.join(cards)+'</main></html>'
+    page='<!doctype html><html lang="de"><meta charset="utf-8"><title>Kreuzungen – Bildprüfung Runde 1</title><style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px;border:1px solid #ddd}h2{font-size:19px}img{width:100%;height:auto}p{max-width:1000px;line-height:1.5}</style><h1>Bildprüfung Runde 1 · aktualisiert</h1><p>'+html.escape(summary)+'</p><p>Der aktuelle Aktivierungsstand und verbleibende Ausnahmen stehen im <a href="../review-batch-01-release.md">Freigabebericht</a>.</p><p>K05 v2: gemeinsamer Entry-4 am östlichen Verzweigungspunkt; Fläche erweitert, Exit-1 leicht verschoben. K06 v2: Lachnerstraße mit Entry-2 / Exit-3 auf der Fahrbahn; Fläche unverändert, folgende Nummern angepasst.</p><p>In K08 v2 liegen Entry-2 und Exit-3 gemeinsam an der Fahrbahnampel der Hackerbrücke. K10: neuer Entwurf mit Wilramstraße (Entry-5/Exit-5); Sonderansagen noch nicht implementiert. Die bisherige Runtime-Fläche v2 bleibt unverändert.</p><p>Rückmeldung zum Beispiel: „K05 v2 passt“. Nummern folgen dem Uhrzeigersinn und bezeichnen keine Fahrbeziehungspaare. Ein Klick öffnet das PNG in voller Größe.</p><main>'+''.join(cards)+'</main></html>'
     (OUT/"index.html").write_text(page,encoding="utf-8")
     (OUT/"README.md").write_text("\n".join(rows)+"\n",encoding="utf-8")
     from organize_review_images import main as organize_images

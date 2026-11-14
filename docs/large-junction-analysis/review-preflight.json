@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 21,
+  "referenceCasesChecked": 22,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -458,17 +458,22 @@
     {
       "id": "mars-pappenheim",
       "number": 7,
-      "revision": 1,
-      "status": "withheld-needs-technical-review",
-      "geometrySha256": "46d268a52120da11debe4c6dd90f2dc79678f1c56705166ad89e11a1451228b7",
-      "entries": 2,
-      "exits": 2,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "0a7bfd4e0b4d60b87f69f8d88803683485e860d96586c69767dafffd848cd05d",
+      "entries": 4,
+      "exits": 4,
       "sharedGates": [],
-      "carriagewayGates": [],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-2",
+        "Exit-3",
+        "Entry-4"
+      ],
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "K07 bleibt zurückgestellt. Radfahrstreifen fehlen in der bisherigen Erfassung. Thomas hat das Mapping in OSM korrigiert; der eingefrorene Datensatz enthält diese Änderung noch nicht nachweislich.",
+      "reviewQuestion": "v2 von Thomas freigegeben. Technisch 8/8 Links-/Geradeausbeziehungen und 4/4 Rechtskontrollen bestanden, einschließlich der Radfahrstreifen. Noch nicht in Runtime aktiviert oder deployed.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -512,17 +517,23 @@
     {
       "id": "thomasiusplatz",
       "number": 10,
-      "revision": 2,
+      "revision": 4,
       "status": "geometry-approved",
-      "geometrySha256": "177a93baf42e31802439cdfe7bab1b689f2ed67668f6d5d8755884365402a90c",
-      "entries": 4,
-      "exits": 4,
-      "sharedGates": [],
-      "carriagewayGates": [],
+      "geometrySha256": "1a3bb6e4aca7761b662cc9dd9a15ecaca59a8fdb7b66a2232ed4f56941189bf5",
+      "entries": 5,
+      "exits": 5,
+      "sharedGates": [
+        "Entry-5",
+        "Exit-5"
+      ],
+      "carriagewayGates": [
+        "Exit-5",
+        "Entry-5"
+      ],
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "v2: normaler südlicher Entry-2 weiter nördlich. Wilramstraße ausgeschlossen; der kurze Zweirichtungsweg bildet keinen eigenen Arm. Nach Entfernen der Zusatzpunkte neu nummeriert; Geometrie von Thomas bestaetigt.",
+      "reviewQuestion": "v4 freigegeben. Im Branch für Backend 2.4.8: 8 reguläre Beziehungen und 5 Wilram-Sonderfolgen implementiert/geprüft. Sonderansagen benötigen neue App mit Protokoll v2. Interne ortsgebundene Hinweise, richtungsbestätigtes rechts/geradeaus und Wenden unterstützt. Noch nicht deployed; Praxistest offen. Wilram nach Exit-2 bleibt Standardrouting außerhalb.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -692,15 +703,15 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "Geometrie v3 von Thomas freigegeben. Entry-2 bleibt entfernt: reiner Fußweg laut OSM-Korrektur von Thomas. Übrige Punktnamen unverändert. Technische Fahrbeziehungsprüfung ausstehend; noch nicht aktiviert.",
+      "reviewQuestion": "v3 bleibt unverändert. WIEDERVORLAGE 16.11.2026: Thomas hat OSM erneut korrigiert; zusätzlichen Guntherstraßen-Entry-2 aus v2 nach neuer OSM-Prüfung wieder aufnehmen. Bis dahin keine Geometrieänderung/technische Aktivierung.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
       "id": "romanplatz-nord",
       "number": 19,
-      "revision": 2,
+      "revision": 3,
       "status": "geometry-approved",
-      "geometrySha256": "5dfa13008c82442c00ec8c909691ea8aadeaae7187d7e643e245af5f868c3709",
+      "geometrySha256": "0c5a7c35ea2bc6c79cc1c918084b9bc42a3fd06fc72f0caf0d6194b7770eba5f",
       "entries": 4,
       "exits": 4,
       "sharedGates": [
@@ -716,7 +727,7 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "K19: sechs von acht Links-/Geradeausbeziehungen im Branch für Backend 2.4.7 aktiviert; vier Rechtskontrollen bestanden. GESPERRT: Entry-1 nach Exit-3 und Entry-1 nach Exit-4; Standardhinweise bleiben. Noch nicht deployed.",
+      "reviewQuestion": "v3 von Thomas freigegeben. Technisch alle 8 Links-/Geradeausbeziehungen und 4 Rechtskontrollen bestanden. Entry-1 nach Exit-3/Exit-4 jetzt im neuen Vorschlag belegt. Bisherige Runtime v2 mit 6 Beziehungen unverändert; v3 noch nicht aktiviert oder deployed.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {

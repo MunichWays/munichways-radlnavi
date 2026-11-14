@@ -56,6 +56,15 @@ def main():
         path = ROOT / filename
         if path.exists():
             technical.update({s["id"]: s for s in json.loads(path.read_text(encoding="utf-8"))["junctions"]})
+    for path in ROOT.glob('review-k*-v*-draft-technical.json'):
+        record = json.loads(path.read_text(encoding='utf-8'))
+        technical[record['id']] = record
+    updates = ROOT / 'review-updates-2026-11-14-routes.json'
+    if updates.exists():
+        technical.update({s['id']: s for s in json.loads(updates.read_text(encoding='utf-8'))['junctions']})
+    sequences = ROOT / 'review-wilram-sequences-implementation.json'
+    if sequences.exists():
+        technical.update({s['id']: s for s in json.loads(sequences.read_text(encoding='utf-8'))['junctions']})
     groups = {key: [] for key in GROUPS}
     for batch in BATCHES:
         data_path = batch / "review-data.json"
@@ -93,7 +102,7 @@ def main():
     add_supplemental_sites(groups, prepared, json.loads((ROOT / 'review-supplemental-sites.json').read_text(encoding='utf-8'))['sites'])
     counts, scope = review_counts(groups), city_scope()
     style = '<style>body{font:17px Arial;margin:24px;color:#263238;background:#f3f4f5}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px}img{width:100%}p{line-height:1.5}table{border-collapse:collapse;width:100%;background:white}td,th{padding:12px;text-align:left;border-bottom:1px solid #ddd}.badge{font-weight:bold;padding:5px 8px;display:inline-block}.live{background:#d5efdf;color:#145a32}.pending,.older{background:#fff0c2;color:#764c00}.excluded{background:#eee;color:#444}small{display:block;margin-top:7px}</style>'
-    intro = 'Für Praxistests zählt die Spalte Live-Stand. Bestätigt bedeutet Geometriefreigabe. Im Branch aktivierte neue Beziehungen sind erst nach einem weiteren Deployment live. Diese Seite ist eine Momentaufnahme zum angegebenen Serverabgleich. K07 bleibt zurückgestellt; K09 dauerhaft ausgeschlossen.'
+    intro = 'Für Praxistests zählt die Spalte Live-Stand. Bestätigt bedeutet Geometriefreigabe. Im Branch aktivierte neue Beziehungen sind erst nach einem weiteren Deployment live. Diese Seite ist eine Momentaufnahme zum angegebenen Serverabgleich. K07 und K19 sind im Branch aktiviert; K09 bleibt dauerhaft ausgeschlossen.'
     index = ['<!doctype html><html lang="de"><meta charset="utf-8"><title>Kreuzungsprüfung</title>', style, '<h1>Kreuzungsprüfung</h1>']
     index.insert(3, '<p><b>'+html.escape(f'Erfasste Fälle gesamt: {counts["total"]} · davon bestätigt: {counts["1-bestaetigt"]} · offen: {counts["2-offen"]} · ausgeschlossen: {counts["3-ausgeschlossen"]}')+'</b></p>')
     index.insert(4, '<p>'+html.escape(f'Münchenweiter Suchumfang: {scope["candidatePoints"]} OSM-Kandidatenpunkte (Datenstand {scope["date"]}); Hauptstraßen bis einschließlich tertiary, ohne Kreisverkehre. Dies ist noch keine bereinigte Kreuzungszahl: getrennte Fahrbahnen erzeugen Mehrfachpunkte, komplexe/T-Kreuzungen können den Filter passieren und einzelne geeignete Fälle fehlen. Die Gesamtzahl tatsächlich geeigneter Münchner Kreuzungen ist noch nicht bestimmt.')+'</p>')
@@ -145,20 +154,30 @@ def main():
                 for movement in record.get('movements', []):
                     if movement['kind'] == 'right':
                         continue
-                    direction = {'left': 'links', 'straight': 'geradeaus'}[movement['kind']]
+                    direction = {'left': 'links', 'straight': 'geradeaus', 'special': 'Sonderfolge'}[movement['kind']]
                     live_site = next((j for j in state.get('junctions', []) if j['id'] == site['id'] and j.get('enabled')), {})
                     deployed = phase['geometryMatches'] and any(m.get('enabled') and m['id'] == movement['id'] for m in live_site.get('movements', []))
                     outcome = ('bestanden; live' if deployed else 'bestanden; noch nicht live') if movement.get('enabled') else 'gesperrt: '+movement.get('reason', 'Prüfung offen')
+                    if movement.get('implementationPending'):
+                        outcome = 'Routenführung geprüft; Sonderansage noch nicht implementiert, nicht aktiviert'
+                    elif movement.get('requiresProtocolVersion') == 2:
+                        outcome = 'implementiert/geprüft für neue App (Protokoll v2); noch nicht deployed'
                     items.append('<li>'+html.escape(f'{movement["entryLabel"]} → {movement["exitLabel"]}: {direction} — {outcome}')+'</li>')
                 details = '<details><summary>Fahrbeziehungen anzeigen</summary><ul>'+''.join(items)+'</ul></details>'
             branch_site = next((j for j in prepared['junctions'] if j['id'] == site['id'] and j.get('enabled')), {})
             branch_count = sum(m.get('enabled', False) for m in branch_site.get('movements', []))
             branch_note = f'<small>Im Branch für Backend {html.escape(target_version)} aktiviert: {branch_count}</small>' if branch_count else ''
+            sequences = sum(bool(m.get('sequence')) for m in branch_site.get('movements', []) if m.get('enabled'))
+            if sequences:
+                branch_note += f'<small>Davon {sequences} Sonderfolgen nur mit neuer App (Protokoll v2).</small>'
+            if branch_count and branch_site['polygon']['coordinates'][0] != site['polygon']:
+                branch_note = f'<small>Bisherige Branch-Fläche unverändert: {branch_count} aktive Beziehungen; v{site["version"]} nicht aktiviert.</small>'
             if site.get('textOnly'):
                 index.append(f'<tr><td>{label}<small>{html.escape(site["note"])}</small></td><td>{html.escape(phase["technical"])}</td><td>{badge}</td></tr>')
                 cards.append(f'<article><h2>{label}</h2><p>{badge}<small>{html.escape(phase["technical"])}</small></p><p>{html.escape(site["note"])}</p></article>')
             else:
-                index.append(f'<tr><td><a href="{group}/{name}.png">{label}</a></td><td>{html.escape(phase["technical"])}{field_note}{branch_note}{blocked_notice}{details}</td><td>{badge}</td></tr>')
+                change_note = '<small>'+html.escape(site['note'])+'</small>' if site['status'] == 'geometry-draft' or site.get('review', {}).get('pendingChange') else ''
+                index.append(f'<tr><td><a href="{group}/{name}.png">{label}</a>{change_note}</td><td>{html.escape(phase["technical"])}{field_note}{branch_note}{blocked_notice}{details}</td><td>{badge}</td></tr>')
                 gallery_notice = blocked_notice.replace('color:#b71c1c;background:#fffa63', 'color:#fffa63;background:#ffebee')
                 cards.append(f'<article><h2>{label}</h2><p>{badge}<small>{html.escape(phase["technical"])}</small>{field_note}{branch_note}</p>{gallery_notice}<p>{html.escape(site["note"])}</p><a href="{name}.png"><img src="{name}.svg" alt="{label}"></a><p><a href="{name}.png">PNG öffnen</a></p></article>')
         index.append('</table>')

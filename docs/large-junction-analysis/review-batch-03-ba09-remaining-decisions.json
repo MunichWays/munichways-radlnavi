@@ -73,7 +73,7 @@
         "1151568798:entry": "Entry-5",
         "1353387501:entry": "Entry-6"
       },
-      "note": "Geometrie v3 von Thomas freigegeben. Entry-2 bleibt entfernt: reiner Fußweg laut OSM-Korrektur von Thomas. Übrige Punktnamen unverändert. Technische Fahrbeziehungsprüfung ausstehend; noch nicht aktiviert.",
+      "note": "v3 bleibt unverändert. WIEDERVORLAGE 16.11.2026: Thomas hat OSM erneut korrigiert; zusätzlichen Guntherstraßen-Entry-2 aus v2 nach neuer OSM-Prüfung wieder aufnehmen. Bis dahin keine Geometrieänderung/technische Aktivierung.",
       "geometryBasis": "Agent-prepared proposal from frozen official OSM map geometry; no human approval or runtime activation.",
       "reviewSource": "Remaining BA09 preparation, corrected after agent graph and image inspection.",
       "history": {
@@ -300,11 +300,19 @@
         "Entry-2": null
       },
       "reviewedGeometrySha256": "a1fe51389602e3b75c35a5c06aa30cf51a77fe733bac1c760789565eebd178f1",
-      "approvalSource": "Thomas explicitly approved K18 v3 after removing the foot-only approach Entry-2."
+      "approvalSource": "Thomas explicitly approved K18 v3 after removing the foot-only approach Entry-2.",
+      "pendingChange": {
+        "status": "deferred-osm-refresh",
+        "notBefore": "2026-11-16",
+        "requestedAt": "2026-11-14",
+        "entryLabel": "Entry-2",
+        "sourceWayId": 1391209196,
+        "instruction": "OSM nach der erneuten Korrektur neu abrufen. Kurzes Radwegstück am Gehweg in Guntherstraße zwischen Exit-2 und Entry/Exit-3 prüfen; Entry-2 aus v2 wiederherstellen, nur soweit aktuelle gerichtete OSM-Geometrie dies belegt. Bis dahin v3 nicht ändern oder aktivieren."
+      }
     },
     "romanplatz-nord": {
       "status": "geometry-approved",
-      "revision": 2,
+      "revision": 3,
       "polygon": [
         [
           11.510993874101,
@@ -339,8 +347,24 @@
           48.155821564894
         ],
         [
-          11.511834374101001,
-          48.155821564894
+          11.511935325,
+          48.155821565
+        ],
+        [
+          11.51186,
+          48.1559
+        ],
+        [
+          11.51142,
+          48.1559
+        ],
+        [
+          11.51115,
+          48.1558
+        ],
+        [
+          11.511098776,
+          48.155729057
         ],
         [
           11.510993874101,
@@ -366,54 +390,171 @@
         "4623552:entry": "Entry-3",
         "172447524:entry": "Entry-4"
       },
-      "note": "K19: sechs von acht Links-/Geradeausbeziehungen im Branch für Backend 2.4.7 aktiviert; vier Rechtskontrollen bestanden. GESPERRT: Entry-1 nach Exit-3 und Entry-1 nach Exit-4; Standardhinweise bleiben. Noch nicht deployed.",
-      "geometryBasis": "Agent-prepared proposal from frozen official OSM map geometry; no human approval or runtime activation.",
+      "note": "v3 von Thomas freigegeben. Technisch alle 8 Links-/Geradeausbeziehungen und 4 Rechtskontrollen bestanden. Entry-1 nach Exit-3/Exit-4 jetzt im neuen Vorschlag belegt. Bisherige Runtime v2 mit 6 Beziehungen unverändert; v3 noch nicht aktiviert oder deployed.",
+      "geometryBasis": "User-requested northward boundary correction, frozen OSM curve and gate locations; draft, no inherited approval.",
       "reviewSource": "Remaining BA09 preparation, corrected after agent graph and image inspection.",
       "history": {
-        "revision": 1,
+        "status": "geometry-approved",
+        "revision": 2,
         "polygon": [
           [
-            11.511553273969776,
-            48.155355635106005
+            11.510993874101,
+            48.155572135106006
           ],
           [
-            11.511639773969776,
+            11.511013074101001,
+            48.155430435106005
+          ],
+          [
+            11.511111474101,
+            48.155416735106
+          ],
+          [
+            11.511639774101,
             48.155343635106
           ],
           [
-            11.511855226030224,
+            11.511855225899,
             48.155343635106
           ],
           [
-            11.512023926030224,
+            11.512023925899,
             48.155530035106004
           ],
           [
-            11.512049826030225,
+            11.512049825899,
             48.155677835106005
           ],
           [
-            11.512049826030225,
+            11.512049825899,
             48.155821564894
           ],
           [
-            11.511834373969776,
+            11.511834374101001,
             48.155821564894
           ],
           [
-            11.511553273969776,
-            48.155499364894
+            11.510993874101,
+            48.155715864894
           ],
           [
-            11.511553273969776,
-            48.155355635106005
+            11.510993874101,
+            48.155572135106006
           ]
+        ],
+        "onRoadWayIds": [
+          4623552,
+          1176949329,
+          1176949330
         ],
         "gateLabels": {
           "218732850:exit": "Exit-1",
-          "35379850:entry": "Entry-1",
-          "758751429:entry": "Entry-2",
-          "758751429:exit": "Exit-2"
+          "1176949330:entry": "Entry-1",
+          "1176949329:exit": "Exit-2",
+          "35379850:entry": "Entry-2",
+          "1353387501:exit": "Exit-3",
+          "4623552:exit": "Exit-4",
+          "4623552:entry": "Entry-3",
+          "172447524:entry": "Entry-4"
+        },
+        "note": "K19: sechs von acht Links-/Geradeausbeziehungen im Branch für Backend 2.4.7 aktiviert; vier Rechtskontrollen bestanden. GESPERRT: Entry-1 nach Exit-3 und Entry-1 nach Exit-4; Standardhinweise bleiben. Noch nicht deployed.",
+        "geometryBasis": "Agent-prepared proposal from frozen official OSM map geometry; no human approval or runtime activation.",
+        "reviewSource": "Remaining BA09 preparation, corrected after agent graph and image inspection.",
+        "history": {
+          "revision": 1,
+          "polygon": [
+            [
+              11.511553273969776,
+              48.155355635106005
+            ],
+            [
+              11.511639773969776,
+              48.155343635106
+            ],
+            [
+              11.511855226030224,
+              48.155343635106
+            ],
+            [
+              11.512023926030224,
+              48.155530035106004
+            ],
+            [
+              11.512049826030225,
+              48.155677835106005
+            ],
+            [
+              11.512049826030225,
+              48.155821564894
+            ],
+            [
+              11.511834373969776,
+              48.155821564894
+            ],
+            [
+              11.511553273969776,
+              48.155499364894
+            ],
+            [
+              11.511553273969776,
+              48.155355635106005
+            ]
+          ],
+          "gateLabels": {
+            "218732850:exit": "Exit-1",
+            "35379850:entry": "Entry-1",
+            "758751429:entry": "Entry-2",
+            "758751429:exit": "Exit-2"
+          }
+        },
+        "proposedLogicalArms": {
+          "north": {
+            "entries": [
+              "Entry-4"
+            ],
+            "exits": [
+              "Exit-1"
+            ]
+          },
+          "east": {
+            "entries": [
+              "Entry-1"
+            ],
+            "exits": [
+              "Exit-2"
+            ]
+          },
+          "south": {
+            "entries": [
+              "Entry-2"
+            ],
+            "exits": [
+              "Exit-3"
+            ]
+          },
+          "west": {
+            "entries": [
+              "Entry-3"
+            ],
+            "exits": [
+              "Exit-4"
+            ]
+          }
+        },
+        "reviewedGeometrySha256": "5dfa13008c82442c00ec8c909691ea8aadeaae7187d7e643e245af5f868c3709",
+        "approvalSource": "Thomas explicitly approved this geometry.",
+        "activationReview": {
+          "status": "approved",
+          "targetBackend": "2.4.7",
+          "source": "Thomas requested activating more approved junctions before deployment; six real-route relationships verified.",
+          "enabledMovementIds": [
+            "north-east-left-entry-4-exit-2",
+            "north-south-straight-entry-4-exit-3",
+            "south-north-straight-entry-2-exit-1",
+            "south-west-left-entry-2-exit-4",
+            "west-east-straight-entry-3-exit-2",
+            "west-north-left-entry-3-exit-1"
+          ]
         }
       },
       "proposedLogicalArms": {
@@ -450,21 +591,14 @@
           ]
         }
       },
-      "reviewedGeometrySha256": "5dfa13008c82442c00ec8c909691ea8aadeaae7187d7e643e245af5f868c3709",
-      "approvalSource": "Thomas explicitly approved this geometry.",
-      "activationReview": {
-        "status": "approved",
-        "targetBackend": "2.4.7",
-        "source": "Thomas requested activating more approved junctions before deployment; six real-route relationships verified.",
-        "enabledMovementIds": [
-          "north-east-left-entry-4-exit-2",
-          "north-south-straight-entry-4-exit-3",
-          "south-north-straight-entry-2-exit-1",
-          "south-west-left-entry-2-exit-4",
-          "west-east-straight-entry-3-exit-2",
-          "west-north-left-entry-3-exit-1"
-        ]
-      }
+      "supersedesRevision": 2,
+      "internalRoadWayIds": [
+        51404470,
+        398429730,
+        398429729
+      ],
+      "reviewedGeometrySha256": "0c5a7c35ea2bc6c79cc1c918084b9bc42a3fd06fc72f0caf0d6194b7770eba5f",
+      "approvalSource": "Thomas explicitly approved K19 v3 on 2026-11-14 and requested technical movement checks."
     },
     "menzinger-schragenhof": {
       "status": "permanently-excluded",

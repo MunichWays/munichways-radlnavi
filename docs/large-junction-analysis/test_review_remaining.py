@@ -52,7 +52,7 @@ class RemainingBA09Tests(unittest.TestCase):
         references = json.loads((ROOT / 'review-reference-cases.json').read_text(encoding='utf-8'))['cases']
         validate_references(sites, references)
 
-    def test_k19_real_routes_match_only_six_approved_relationships(self):
+    def test_k19_prior_real_routes_match_all_eight_approved_relationships(self):
         from src.big_junctions import add_guidance
         report = json.loads((ROOT / 'review-batch-03-ba09-routes.json').read_text(encoding='utf-8'))
         record = next(j for j in report['junctions'] if j['number'] == 19)
@@ -61,9 +61,35 @@ class RemainingBA09Tests(unittest.TestCase):
             payload = json.loads((ROOT.parents[1] / 'backend/tests/fixtures/big-junctions/batch-03' / item['fixture']).read_text(encoding='utf-8'))
             with self.subTest(movement=item['id']):
                 result = add_guidance(payload)
-                self.assertEqual(bool(result), bool(item.get('enabled')))
+                self.assertEqual(bool(result), item['kind'] in ('left', 'straight'))
                 if result:
                     positives += 1
                     result['routes'][0].pop('guidance')
                     self.assertEqual(result, payload)
-        self.assertEqual(positives, 6)
+        self.assertEqual(positives, 8)
+
+    def test_k19_northern_curve_preserves_prior_runtime_and_approved_gates(self):
+        import verify_ba09_movements as check
+        site = next(s for s in self.sites() if s['number'] == 19)
+        self.assertEqual((site['version'], site['status']), (3, 'geometry-approved'))
+        old = json.loads((ROOT / 'review-reference-archives/k19-v2.json').read_text(encoding='utf-8'))
+        self.assertEqual(site['gates'], old['gates'])
+        check.ARMS[19] = {arm: (value['entries'], value['exits']) for arm, value in site['review']['proposedLogicalArms'].items()}
+        self.assertEqual(len(check.plan(site)[0]), 12)
+        report = json.loads((ROOT / 'review-k19-v3-draft-technical.json').read_text(encoding='utf-8'))
+        self.assertFalse(report['runtimeModified'])
+        self.assertFalse(report['geometryApproved'])
+        for item in report['movements']:
+            payload = json.loads((ROOT.parents[1] / 'backend/tests/fixtures/big-junctions/batch-03' / item['fixture']).read_text(encoding='utf-8'))
+            movement, evidence = check.verify(site, item, payload, catalog())
+            self.assertTrue(evidence['verified'], item['id'])
+            self.assertEqual(bool(movement), item['kind'] != 'right')
+        self.assertEqual(sum(item.get('enabled', False) for item in report['movements']), 8)
+
+    def test_k18_osm_change_is_deferred_without_changing_approved_geometry(self):
+        site = next(s for s in self.sites() if s['number'] == 18)
+        pending = site['review']['pendingChange']
+        self.assertEqual(pending['notBefore'], '2026-11-16')
+        self.assertEqual((pending['entryLabel'], pending['sourceWayId']), ('Entry-2', 1391209196))
+        self.assertEqual(site['version'], 3)
+        self.assertNotIn('Entry-2', {g['label'] for g in site['gates']})

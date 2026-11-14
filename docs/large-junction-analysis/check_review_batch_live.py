@@ -15,13 +15,21 @@ def get(url):
 
 def review_cases():
     cases=[]
+    updates=json.loads((ROOT/'review-updates-2026-11-14-routes.json').read_text(encoding='utf-8'))
+    replaced={j['id'] for j in updates['junctions']}
     for name in ['full-movements-review.json','review-batch-01-routes.json','review-batch-02-ba09-routes.json','review-batch-03-ba09-routes.json']:
         report=json.loads((ROOT/name).read_text(encoding='utf-8'))
         for junction in report['junctions']:
+            if junction['id'] in replaced:continue
             for item in junction['movements']:
                 if 'url' in item:cases.append(dict(item,junctionId=junction['id'],expectGuidance=item['enabled']))
         for item in report.get('rightTurnChecks', []):
+            if item.get('junctionId') in replaced:continue
             cases.append(dict(item,id=item.get('id',Path(item['fixture']).stem),expectGuidance=False))
+    for junction in updates['junctions']:
+        for item in junction['movements']:
+            if item['kind'] == 'special':continue  # v2 sequences have separate contract tests.
+            cases.append(dict(item,junctionId=junction['id'],expectGuidance=item['enabled']))
     return cases
 
 

@@ -31,7 +31,12 @@ ARMS = {
 ORDER = ['north', 'east', 'south', 'west']
 # Frozen OSM: continuation of the reviewed Lothstrasse carriageway inside K17.
 # This supports corridors only; it creates no additional entry/exit gates.
-INTERNAL_ROADS = {17: [38349617]}
+INTERNAL_ROADS = {
+    17: [38349617],
+    # K19 v3: reviewed request includes the northern one-way road curve.
+    # All segments must stay inside the proposal; these create no new gates.
+    19: [51404470, 398429730, 398429729],
+}
 
 
 def corridor_graph(site):
@@ -75,8 +80,8 @@ def arm_topology(site):
                    'Arm order determines instruction; real directed local paths determine matching.'}}
 
 
-def plan(site):
-    if not site['polygonApproved']:
+def plan(site, *, draft=False):
+    if not site['polygonApproved'] and not (draft and site['status'] == 'geometry-draft'):
         raise ValueError('Human geometry approval required')
     gates = {g['label']: g for g in site['gates']}
     arms = ARMS[site['number']]

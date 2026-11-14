@@ -58,8 +58,12 @@ Hackerbrücke und Lachnerstraße ergänzt. An der Hackerbrücke liegen Entry-2 u
 an Ampelnode 4696310002. Für K07 sind vor einer erneuten Prüfung zusätzlich
 `cycleway=lane` sowie `cycleway:left/right/both=lane` zu berücksichtigen. Die vom
 Nutzer gemeldete OSM-Korrektur ist im eingefrorenen Datensatz noch nicht belegt.
-Wilramstraße in K10 und Rufinistraße in K06 bleiben ausdrücklich ohne eigene
-Guidance-Beziehungen. Das ändert keine OSM-Zugangs- oder Einbahnregel.
+Rufinistraße in K06 bleibt ausdrücklich ohne eigene Guidance-Beziehungen.
+K10 v2 schloss Wilramstraße aus. Seit 14.11.2026 ist K10 v3 als neuer Entwurf
+mit Wilram-Anschluss vorbereitet; die bisherige Runtime bleibt unverändert.
+Die sechs gewünschten Sonderabläufe stehen in `review-k10-wilram-plan.json`.
+Interne Hinweise und Wenden sind eine noch nicht implementierte Erweiterung
+des Backend-/App-Protokolls. Das ändert keine OSM-Zugangs- oder Einbahnregel.
 
 K05 v2 umfasst den gemeinsamen Verzweigungsknoten 364847915. Die beiden alten
 Entries werden durch Entry-4 auf dem gemeinsamen ankommenden Weg 160643860
@@ -86,3 +90,7 @@ python docs/large-junction-analysis/collect_review_batch.py
 python docs/large-junction-analysis/build_review_images.py
 powershell -NoProfile -ExecutionPolicy Bypass -File docs/large-junction-analysis/render_review_images.ps1
 ```
+
+## K07: erneute OSM-Prüfung am 14.11.2026
+
+Die frühere Zurückstellung ist durch den neuen v2-Entwurf ersetzt. Der lokale Snapshot `review-k07-osm-2026-11-14.json.gz` gilt ausschließlich für K07; andere freigegebene Geometrien bleiben am bisherigen OSM-Stand. Pappenheimstraße: nur ankommender linker Fahrstreifen auf Fahrbahnachse, ausgehend separater Radweg. Wredestraße: nur ausgehender rechter Fahrstreifen auf Fahrbahnachse, ankommend separater Radweg. Marsstraße: Fahrstreifen auf beiden getrennten Richtungsfahrbahnen. Vier logische Arme und insgesamt acht Gates; noch keine Sichtfreigabe oder Aktivierung.

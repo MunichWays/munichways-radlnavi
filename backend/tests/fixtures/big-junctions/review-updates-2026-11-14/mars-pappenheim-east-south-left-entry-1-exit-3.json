@@ -1,0 +1,349 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1386432495,
+              8266983457,
+              8266983469,
+              21326677,
+              363189,
+              715297484,
+              8266983456,
+              21632175,
+              12522877644
+            ],
+            "distance": [
+              45.6948715,
+              7.978467996,
+              7.698483816,
+              10.79023988,
+              8.693780563,
+              9.932010663,
+              5.242212684,
+              31.27190612
+            ]
+          },
+          "duration": 72.6,
+          "summary": "Marsstraße, Wredestraße",
+          "weight": 188,
+          "distance": 127.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    290
+                  ],
+                  "location": [
+                    11.550413,
+                    48.145855
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.550413,
+                    48.145855
+                  ],
+                  [
+                    11.549837,
+                    48.145997
+                  ],
+                  [
+                    11.549736,
+                    48.146021
+                  ],
+                  [
+                    11.549639,
+                    48.146045
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 290,
+                "bearing_before": 0,
+                "location": [
+                  11.550413,
+                  48.145855
+                ],
+                "type": "depart"
+              },
+              "name": "Marsstraße",
+              "mode": "cycling",
+              "weight": 109,
+              "duration": 43.7,
+              "distance": 61.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285,
+                    315
+                  ],
+                  "location": [
+                    11.549639,
+                    48.146045
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    255,
+                    285
+                  ],
+                  "location": [
+                    11.549603,
+                    48.145951
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.54957,
+                    48.145876
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.549508,
+                    48.145746
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549639,
+                    48.146045
+                  ],
+                  [
+                    11.549603,
+                    48.145951
+                  ],
+                  [
+                    11.54957,
+                    48.145876
+                  ],
+                  [
+                    11.549529,
+                    48.145791
+                  ],
+                  [
+                    11.549508,
+                    48.145746
+                  ],
+                  [
+                    11.54942,
+                    48.145471
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 194,
+                "bearing_before": 289,
+                "location": [
+                  11.549639,
+                  48.146045
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Pappenheimstraße",
+              "mode": "cycling",
+              "weight": 79,
+              "duration": 28.9,
+              "distance": 65.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    12
+                  ],
+                  "location": [
+                    11.54942,
+                    48.145471
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.54942,
+                    48.145471
+                  ],
+                  [
+                    11.54942,
+                    48.145471
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 192,
+                "location": [
+                  11.54942,
+                  48.145471
+                ],
+                "type": "arrive"
+              },
+              "name": "Wredestraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.550413,
+            48.145855
+          ],
+          [
+            11.549837,
+            48.145997
+          ],
+          [
+            11.549736,
+            48.146021
+          ],
+          [
+            11.549639,
+            48.146045
+          ],
+          [
+            11.549603,
+            48.145951
+          ],
+          [
+            11.54957,
+            48.145876
+          ],
+          [
+            11.549529,
+            48.145791
+          ],
+          [
+            11.549508,
+            48.145746
+          ],
+          [
+            11.54942,
+            48.145471
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 188,
+      "duration": 72.6,
+      "distance": 127.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "SM4ggP___38TAAAAegAAAF8AAADgAQAAC1EJQYzHNkL1pyhCnE__QA8AAABiAAAATAAAAPUAAAC9AgAAzT6wAL-l3gLNPrAAv6XeAgIALxIAAAAA",
+      "location": [
+        11.550413,
+        48.145855
+      ],
+      "name": "Marsstraße",
+      "distance": 0
+    },
+    {
+      "hint": "S84ggOPOIIBGAAAAuAAAAAAAAAAAAAAA3Sz6Qa5OgkIAAAAAAAAAADgAAAB2AAAAAAAAAAAAAAC9AgAA7DqwAD-k3gLsOrAAP6TeAgAADwwAAAAA",
+      "location": [
+        11.54942,
+        48.145471
+      ],
+      "name": "Wredestraße",
+      "distance": 0
+    }
+  ]
+}

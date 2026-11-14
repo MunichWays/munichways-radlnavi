@@ -74,11 +74,12 @@ def validate_catalog(value):
                 continue
             if movement.get("review", {}).get("status") != "approved" or not movement["review"].get("evidence"):
                 raise ValueError("Movement requires review")
-            if movement["movement"] not in ("left", "straight"):
+            sequence = movement.get('sequence')
+            if movement["movement"] not in (("left", "straight", "uturn") if sequence else ("left", "straight")):
                 raise ValueError("Unsupported movement")
             if not all(isinstance(movement[k], str) and movement[k] for k in ("entryArm", "exitArm")):
                 raise ValueError("Missing arms")
-            if movement["entryArm"] == movement["exitArm"]:
+            if movement["entryArm"] == movement["exitArm"] and not sequence:
                 raise ValueError("Identical arms")
             for key in ("corridor", "approach", "departure"):
                 path = points({"type": "LineString", "coordinates": movement[key]})
@@ -90,7 +91,10 @@ def validate_catalog(value):
             def heading(path):
                 return atan2(path[-1][1] - path[0][1], (path[-1][0] - path[0][0]) * mx)
             turn = (degrees(heading(movement["departure"]) - heading(movement["approach"])) + 180) % 360 - 180
-            if topology is not None:
+            if sequence is not None:
+                from .junction_sequences import validate_sequence
+                validate_sequence(sequence, movement, ring)
+            elif topology is not None:
                 order, gates = topology['clockwise'], topology['gates']
                 before, after = movement['entryArm'], movement['exitArm']
                 if before not in order or after not in order:
@@ -347,7 +351,7 @@ def steps_type(leg, index):
     return leg["steps"][index]["maneuver"].get("type")
 
 
-def add_guidance(payload):
+def add_guidance(payload, *, sequence_guidance=False):
     """Return an enriched copy, or None; the caller retains the raw response."""
     if payload.get("code") != "Ok":
         return None
@@ -375,6 +379,8 @@ def add_guidance(payload):
                 geometry = leg_geometry(leg)
                 if geometry is not None:
                     for config in configs:
+                        if config.get('sequence') and not sequence_guidance:
+                            continue
                         for visit, (entry, exit, contained) in enumerate(match_leg(leg, config, geometry)):
                             for hit in (entry, exit):
                                 hit["geometrySegmentIndex"] += offset
@@ -385,6 +391,10 @@ def add_guidance(payload):
                                 "entryArm": config["entryArm"], "exitArm": config["exitArm"],
                                 "entry": entry, "exit": exit, "polygon": deepcopy(config["polygon"]),
                                 "suppressedStepIndices": contained})
+                            if config.get('sequence'):
+                                from .junction_sequences import route_sequence
+                                matches[-1]['sequence'] = route_sequence(config['sequence'], geometry[0], offset, distance,
+                                    entry['distanceAlongLegMeters'], exit['distanceAlongLegMeters'])
                 reconstructed.extend(line if not reconstructed else line[1:])
                 offset += len(line) - 1
                 distance += sum(meters(a, b) for a, b in zip(line, line[1:]))
@@ -399,6 +409,7 @@ def add_guidance(payload):
             continue
         if result is None:
             result = deepcopy(payload)
-        result["routes"][route_index]["guidance"] = {"version": "big-junctions-v1",
+        version = 'big-junctions-v2' if any(m.get('sequence') for m in matches) else 'big-junctions-v1'
+        result["routes"][route_index]["guidance"] = {"version": version,
             "catalogVersion": data["version"], "junctions": matches}
     return result

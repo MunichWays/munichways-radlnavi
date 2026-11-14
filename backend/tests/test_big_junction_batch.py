@@ -78,7 +78,7 @@ class BatchCatalogTest(unittest.TestCase):
 
     def test_deferred_and_permanent_exclusions(self):
         value=catalog()
-        self.assertNotIn('mars-pappenheim',{j['id'] for j in value['junctions']})
+        self.assertEqual(8, sum(m['enabled'] for j in value['junctions'] if j['id'] == 'mars-pappenheim' for m in j['movements']))
         self.assertNotIn('landsberger-barth',{j['id'] for j in value['junctions']})
         excluded={e['id']:e for e in value['excluded']}
         self.assertTrue(excluded['landsberger-barth']['permanent'])
@@ -87,7 +87,9 @@ class BatchCatalogTest(unittest.TestCase):
         nymphenburger=junctions['nymphenburger-waisenhaus']
         self.assertEqual(4,sum(m['enabled'] for m in nymphenburger['movements']))
         self.assertEqual(['Rufinistraße'],nymphenburger['excludedApproaches'])
-        self.assertEqual(['Wilramstraße'],junctions['thomasiusplatz']['excludedApproaches'])
+        wilram = [m for m in junctions['thomasiusplatz']['movements'] if m.get('sequence')]
+        self.assertEqual(len(wilram), 5)
+        self.assertEqual(sum(m['enabled'] for m in junctions['thomasiusplatz']['movements']), 13)
 
 
 if __name__=='__main__':unittest.main()

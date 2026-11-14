@@ -1,0 +1,73 @@
+{
+  "junctionId": "thomasiusplatz",
+  "requestedAt": "2026-11-14",
+  "status": "implemented-protocol-v2-branch-not-deployed",
+  "geometryRevision": 4,
+  "runtimeUnchanged": false,
+  "gateAliases": {
+    "Entry-5": "Entry-Wilramstraße",
+    "Exit-5": "Exit-Wilramstraße"
+  },
+  "relationships": [
+    {
+      "entry": "Entry-3",
+      "exit": "Exit-5",
+      "advance": "An der großen Kreuzung geradeaus, danach sofort rechts, dann links in Wilramstraße.",
+      "internalInstructions": [
+        "Hier rechts.",
+        "Hier links in Wilramstraße."
+      ]
+    },
+    {
+      "entry": "Entry-4",
+      "exit": "Exit-5",
+      "advance": "An der großen Kreuzung links abbiegen, danach sofort rechts, dann links in Wilramstraße.",
+      "internalInstructions": [
+        "Hier rechts.",
+        "Hier links in Wilramstraße."
+      ],
+      "alternativeCrossing": {
+        "condition": "User quert bereits vorne links; anhand tatsächlich gefahrener Geometrie bestätigen, nicht allein anhand der geplanten Route.",
+        "internalInstructions": [
+          "Hier geradeaus.",
+          "Hier links in Wilramstraße."
+        ]
+      }
+    },
+    {
+      "entry": "Entry-5",
+      "exit": "Exit-1",
+      "advance": "Rechts, danach an der großen Kreuzung geradeaus."
+    },
+    {
+      "entry": "Entry-5",
+      "exit": "Exit-4",
+      "advance": "Rechts, danach an der großen Kreuzung links abbiegen."
+    },
+    {
+      "entry": "Entry-5",
+      "exit": "Exit-2",
+      "guidance": "standard",
+      "advance": null,
+      "note": "Normales Rechtsabbiegen, ebenso wie Entry-2 nach Exit-2. Keine Kreuzungs-Sonderansage."
+    },
+    {
+      "entry": "Entry-5",
+      "exit": "Exit-3",
+      "advance": "Rechts, danach an der großen Kreuzung wenden."
+    }
+  ],
+  "implementationConstraints": [
+    "Generic reviewed sequence metadata with localized advance/display text and ordered route-anchored checkpoints.",
+    "Original routing and raw maneuvers remain unchanged; v2-capable apps explicitly request sequence metadata by HTTP header. Legacy clients keep ordinary guidance for these five movements.",
+    "Checkpoint speech requires <=15m GPS accuracy, confirmed recent movement and an approaching heading. The first Entry-4 outbound checkpoint can select straight only when actual motion aligns with its outgoing direction. At the corner stale direction is rejected.",
+    "Ordinary internal maneuvers and rerouting remain suppressed inside the approved area. Only the reviewed checkpoint instructions may speak. No time-based TTS sequence or late catch-up.",
+    "Wilram to Exit-2 stays a legal standard right turn outside the polygon.",
+    "Both languages, walking controls, repeated visits, malformed metadata, resets, wrong direction and poor GPS are covered by regression tests. Field test still pending."
+  ],
+  "technicalReport": "review-updates-2026-11-14-routes.json",
+  "alternativeCrossingVerification": "Direction-dependent straight/right selection implemented and checked with synthetic actual GPS fixes. Physical alternative crossing has not yet been field-tested.",
+  "deploymentUnchanged": true,
+  "protocol": "big-junctions-v2; X-Junction-Guidance-Version: 2",
+  "backendVersion": "2.4.8"
+}

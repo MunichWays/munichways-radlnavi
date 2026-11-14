@@ -30,20 +30,34 @@ class BA09MovementTests(unittest.TestCase):
     def test_runtime_catalog_matches_release_and_keeps_k13_exclusions(self):
         actual = {j["id"]: j for j in review.catalog()["junctions"]}
         for junction in self.proposed["junctions"]:
+            if junction['id'] == 'romanplatz-nord':
+                from verify_review_updates import ROOT
+                approved = json.loads((ROOT / 'review-updates-2026-11-14-proposed-catalog.json').read_text(encoding='utf-8'))
+                self.assertEqual(actual[junction['id']], next(j for j in approved['junctions'] if j['id'] == junction['id']))
+                continue
+            if junction['id'] == 'thomasiusplatz':
+                # K10 now has separately approved v4 geometry and protocol-v2 sequences.
+                current = actual[junction['id']]
+                classic = [m for m in current['movements'] if not m.get('sequence')]
+                sequences = [m for m in current['movements'] if m.get('sequence')]
+                self.assertEqual({m['id'] for m in classic}, {m['id'] for m in junction['movements']})
+                self.assertEqual((len(classic), len(sequences)), (8, 5))
+                self.assertTrue(all(m.get('enabled') for m in sequences))
+                continue
             self.assertEqual(actual[junction["id"]], junction)
-        self.assertEqual(len(review.catalog()['junctions']), 18)
-        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 150)
+        self.assertEqual(len(review.catalog()['junctions']), 19)
+        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 165)
         junction = next(j for j in review.catalog()['junctions'] if j['id'] == 'arnulf-landshuter')
         disabled = [m for m in junction['movements'] if not m.get('enabled')]
         self.assertEqual({(m['entryLabel'], m['exitLabel']) for m in disabled},
                          {('Entry-2', 'Exit-5'), ('Entry-3', 'Exit-5')})
         self.assertTrue(all(m['disabledReason'] for m in disabled))
-        self.assertTrue({'mars-pappenheim', 'landsberger-barth'}.isdisjoint(j['id'] for j in review.catalog()['junctions']))
+        self.assertNotIn('landsberger-barth', actual)
 
     def test_post_deployment_check_includes_all_positive_and_negative_cases(self):
         from check_review_batch_live import review_cases
         cases = review_cases()
-        self.assertEqual((len(cases), sum(c['expectGuidance'] for c in cases)), (240, 150))
+        self.assertEqual((len(cases), sum(c['expectGuidance'] for c in cases)), (253, 160))
         k13 = [c for c in cases if c.get('junctionId') == 'arnulf-landshuter' and not c['expectGuidance'] and c['kind'] != 'right']
         self.assertEqual({(c['entryLabel'], c['exitLabel']) for c in k13}, {('Entry-2', 'Exit-5'), ('Entry-3', 'Exit-5')})
 

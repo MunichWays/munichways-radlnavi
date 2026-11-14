@@ -13,17 +13,21 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--number', type=int, default=19)
     parser.add_argument('--collect', action='store_true')
+    parser.add_argument('--draft', action='store_true',
+                        help='Offline proposal diagnostics only; preserve approved reports and catalog')
     args = parser.parse_args()
     root = check.ROOT
     site = next(s for s in json.loads((root / 'review-batch-03-ba09-remaining-images/review-data.json').read_text(encoding='utf-8'))['sites'] if s['number'] == args.number)
-    if not site['polygonApproved']:
+    if args.draft and (args.collect or site['status'] != 'geometry-draft'):
+        raise ValueError('Draft diagnostics require a draft and cached routes only')
+    if not site['polygonApproved'] and not args.draft:
         raise ValueError('Only explicitly approved geometry may be tested for activation')
     check.ARMS[site['number']] = {arm: (g['entries'], g['exits']) for arm, g in site['review']['proposedLogicalArms'].items()}
     check.FIXTURES = root.parents[1] / 'backend/tests/fixtures/big-junctions/batch-03'
     check.FIXTURES.mkdir(parents=True, exist_ok=True)
     manifest_path = root / 'review-batch-03-ba09-route-requests.json'
     manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if manifest_path.exists() else {}
-    tasks, samples = check.plan(site)
+    tasks, samples = check.plan(site, draft=args.draft)
     base = deepcopy(check.catalog())
     base['junctions'] = [j for j in base['junctions'] if j['id'] != site['id']]
     candidate = {'id': site['id'], 'name': site['name'], 'enabled': True,
@@ -81,6 +85,14 @@ def main():
                     raise ValueError('Walking control triggered guidance')
     record = {'id': site['id'], 'number': site['number'], 'geometryRevision': site['version'],
               'status': 'complete', 'gateEvidence': samples, 'movements': tasks}
+    if args.draft:
+        record.update(status='draft-technical-check', runtimeModified=False,
+                      geometryApproved=False,
+                      note='Offline simulation only; no human approval or activation. Approved report remains unchanged.')
+        path = root / f'review-k{site["number"]}-v{site["version"]}-draft-technical.json'
+        path.write_text(json.dumps(record, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+        print('Draft verified:', len(candidate['movements']), '; approved report and runtime unchanged.')
+        return
     report_path = root / 'review-batch-03-ba09-routes.json'
     report = json.loads(report_path.read_text(encoding='utf-8')) if report_path.exists() else {'junctions': []}
     report['junctions'] = [j for j in report['junctions'] if j['id'] != site['id']] + [record]

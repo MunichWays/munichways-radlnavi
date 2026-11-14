@@ -1,0 +1,358 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1659974608,
+              1659974455,
+              363189,
+              715297484,
+              8266983456,
+              21632175,
+              12522877644
+            ],
+            "distance": [
+              38.55609543,
+              14.74030772,
+              8.693780563,
+              9.932010663,
+              5.242212684,
+              31.27190612
+            ]
+          },
+          "duration": 45.4,
+          "summary": "Pappenheimstraße, Wredestraße",
+          "weight": 85.7,
+          "distance": 108.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    107
+                  ],
+                  "location": [
+                    11.548913,
+                    48.14603
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.548913,
+                    48.14603
+                  ],
+                  [
+                    11.549408,
+                    48.145928
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 107,
+                "bearing_before": 0,
+                "location": [
+                  11.548913,
+                  48.14603
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 18.6,
+              "duration": 8.5,
+              "distance": 38.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    75,
+                    120,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.549408,
+                    48.145928
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549408,
+                    48.145928
+                  ],
+                  [
+                    11.549603,
+                    48.145951
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 78,
+                "bearing_before": 105,
+                "location": [
+                  11.549408,
+                  48.145928
+                ],
+                "modifier": "slight left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 20.5,
+              "duration": 9.9,
+              "distance": 14.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    255,
+                    285
+                  ],
+                  "location": [
+                    11.549603,
+                    48.145951
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.54957,
+                    48.145876
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.549508,
+                    48.145746
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549603,
+                    48.145951
+                  ],
+                  [
+                    11.54957,
+                    48.145876
+                  ],
+                  [
+                    11.549529,
+                    48.145791
+                  ],
+                  [
+                    11.549508,
+                    48.145746
+                  ],
+                  [
+                    11.54942,
+                    48.145471
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 195,
+                "bearing_before": 78,
+                "location": [
+                  11.549603,
+                  48.145951
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Pappenheimstraße",
+              "mode": "cycling",
+              "weight": 46.6,
+              "duration": 27,
+              "distance": 55.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    12
+                  ],
+                  "location": [
+                    11.54942,
+                    48.145471
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.54942,
+                    48.145471
+                  ],
+                  [
+                    11.54942,
+                    48.145471
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 192,
+                "location": [
+                  11.54942,
+                  48.145471
+                ],
+                "type": "arrive"
+              },
+              "name": "Wredestraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.548913,
+            48.14603
+          ],
+          [
+            11.549408,
+            48.145928
+          ],
+          [
+            11.549603,
+            48.145951
+          ],
+          [
+            11.54957,
+            48.145876
+          ],
+          [
+            11.549529,
+            48.145791
+          ],
+          [
+            11.549508,
+            48.145746
+          ],
+          [
+            11.54942,
+            48.145471
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 85.7,
+      "duration": 45.4,
+      "distance": 108.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "rM4ggP___38WAwAAwgMAABEAAAAAAAAAgtkxQ3E5GkKQ7nRAAAAAAGMBAACxAQAACAAAAAAAAAC9AgAA8TiwAG6m3gLxOLAAbqbeAgIAvwYAAAAA",
+      "location": [
+        11.548913,
+        48.14603
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "S84ggOPOIIBGAAAAuAAAAAAAAAAAAAAA3Sz6Qa5OgkIAAAAAAAAAADgAAAB2AAAAAAAAAAAAAAC9AgAA7DqwAD-k3gLsOrAAP6TeAgAADwwAAAAA",
+      "location": [
+        11.54942,
+        48.145471
+      ],
+      "name": "Wredestraße",
+      "distance": 0
+    }
+  ]
+}

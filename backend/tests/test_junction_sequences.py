@@ -23,6 +23,21 @@ def proposed():
 
 
 class JunctionSequenceTests(unittest.TestCase):
+    def test_shared_vertex_keeps_earlier_segment_despite_roundoff(self):
+        from math import hypot
+        from src.junction_sequences import anchor_on_line
+        line = [[11.5, 48.0], [11.5001, 48.0001], [11.5002, 48.0]]
+        for noise in (0, 1e-9, -1e-9):
+            calls = 0
+            def rounded_hypot(x, y):
+                nonlocal calls
+                calls += 1
+                return max(0, hypot(x, y) + (noise if calls == 2 else 0))
+            with self.subTest(noise=noise), patch('src.junction_sequences.hypot', side_effect=rounded_hypot):
+                anchor = anchor_on_line(line, line[1])
+            self.assertEqual(anchor['geometrySegmentIndex'], 0)
+            self.assertAlmostEqual(anchor['segmentFraction'], 1)
+
     def test_repeated_sequence_visits_use_their_own_checkpoint_indices(self):
         original = json.loads((RAW / 'thomasiusplatz-wilram-entry-3-exit-5.json').read_text(encoding='utf-8'))
         line = original['routes'][0]['geometry']['coordinates']

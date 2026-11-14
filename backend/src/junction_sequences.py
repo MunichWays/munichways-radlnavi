@@ -18,9 +18,16 @@ def anchor_on_line(line, location, minimum=0, maximum=float('inf')):
         dx, dy = (b[0]-a[0])*mx, (b[1]-a[1])*111320
         length = hypot(dx, dy)
         fraction = max(0, min(1, -(ax*dx+ay*dy)/(length*length))) if length else 0
+        if fraction < 1e-12:
+            fraction = 0
+        elif fraction > 1 - 1e-12:
+            fraction = 1
         gap = hypot(ax+fraction*dx, ay+fraction*dy)
         station = distance+fraction*meters(a, b)
-        if minimum <= station <= maximum and (best is None or gap < best[0]):
+        # At a shared vertex both adjacent segments describe the same anchor.
+        # Keep the earlier segment for sub-micrometre ties: platform libm
+        # rounding must not select the next segment instead.
+        if minimum <= station <= maximum and (best is None or gap < best[0] - 1e-7):
             best = (gap, dict(location=list(location), geometrySegmentIndex=index,
                 segmentFraction=fraction, distanceAlongLegMeters=station))
         distance += meters(a, b)

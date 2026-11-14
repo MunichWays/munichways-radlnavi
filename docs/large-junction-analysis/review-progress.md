@@ -43,3 +43,7 @@ BA09: K11–K17 sind bestätigt, live und praxiserprobt. K18/K19/K21 sind geomet
 
 ### Aktivierung K07 / K19 am 14.11.2026
 K07 v2 (acht Beziehungen) und K19 v3 (acht statt sechs Beziehungen) sind zusammen mit K10 v4 im Runtime-Katalog v8, Backend 2.4.8, aktiviert: 19 Kreuzungen, 165 aktive Beziehungen. Die beiden K13-Sperren bleiben unverändert. Deployment erfolgt durch Thomas; die Live-Momentaufnahme bleibt bis zur Serverprüfung unverändert. K18 wartet weiterhin bis Montag, 16.11.2026, auf die erneute OSM-Prüfung.
+
+
+### Buildkorrektur 2.4.9: fehlendes Sequenzmodul
+Live-Abgleich: Backend 2.4.8 / c5a1a9c lief tatsächlich; bei allen zwölf K19-Referenzrouten fehlten Kreuzungsmetadaten. Ursache war `junction_sequences.py`, das die explizite COPY-Liste im Produktions-Dockerfile nicht enthielt. Die Katalogprüfung schlug deshalb für alle Kreuzungen fehl. Die Datei wird jetzt kopiert und der tatsächlich paketierte Katalog bereits im Docker-Build validiert. Ein isolierter Paketierungstest reproduziert den Importfehler vor der Korrektur und prüft danach K07, K19 sowie eine Wilram-Sonderfolge mit unveränderter Rohroute. Katalog v8 / 165 Beziehungen bleiben unverändert. Backend 2.4.9 benötigt ein erneutes Deployment und anschließenden Live-Abgleich.

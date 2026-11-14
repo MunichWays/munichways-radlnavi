@@ -1,0 +1,871 @@
+{
+  "version": 1,
+  "scope": "Geometry review only; no runtime activation or movement approval",
+  "source": "Thomas's manual review of batch 01 v1 images",
+  "sites": {
+    "staendler-balan": {
+      "status": "geometry-approved",
+      "revision": 1,
+      "note": "Thomas: K01 sieht perfekt aus. Geometrie bestätigt; aktive Fahrbeziehungen siehe Freigabebericht.",
+      "reviewedGeometrySha256": "9c0549a7cb6b82f8869c6caa02eea4fcf4e52a8bd02f69a55aec047f55c1b258",
+      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment."
+    },
+    "fuerstenrieder-agnes-bernauer": {
+      "status": "geometry-approved",
+      "revision": 1,
+      "note": "Thomas: K02 sieht perfekt aus. Geometrie bestätigt; aktive Fahrbeziehungen siehe Freigabebericht.",
+      "reviewedGeometrySha256": "f552e853b27bbd622930e47c1a3d708f81108ff24942c07048f9d6acbb028d1f",
+      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment."
+    },
+    "fuerstenrieder-gotthard": {
+      "status": "geometry-approved",
+      "revision": 1,
+      "note": "Thomas: K03 sieht perfekt aus. Geometrie bestätigt; aktive Fahrbeziehungen siehe Freigabebericht.",
+      "reviewedGeometrySha256": "bc1994022412b087736a00b5b3055b7fa567cc14a9c7e6e0746eafa7879fe8a9",
+      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment."
+    },
+    "landsberger-elsenheimer": {
+      "status": "geometry-approved",
+      "revision": 1,
+      "note": "Thomas: K04 sieht perfekt aus. Geometrie bestätigt; aktive Fahrbeziehungen siehe Freigabebericht.",
+      "reviewedGeometrySha256": "6711467f10b0e6363a3b5a4035a9b1a50398ab5852acbf659a8fd7d6db3af8eb",
+      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment."
+    },
+    "westend-zschokke": {
+      "status": "geometry-approved",
+      "revision": 3,
+      "note": "K05 v3 von Thomas freigegeben: Exit-4 entfällt, Entry-4 liegt näher zur Kreuzung. Neue Fläche und sechs verbliebene Fahrbeziehungen technisch geprüft; Backend 2.4.5 für Deployment vorbereitet.",
+      "polygon": [
+        [
+          11.52218941861691,
+          48.13418923510601
+        ],
+        [
+          11.52265891861691,
+          48.134076235106
+        ],
+        [
+          11.522874281383091,
+          48.134076235106
+        ],
+        [
+          11.52293668138309,
+          48.134116135106005
+        ],
+        [
+          11.52312598138309,
+          48.134249235106005
+        ],
+        [
+          11.52312598138309,
+          48.134392964894
+        ],
+        [
+          11.52310658138309,
+          48.134419464893995
+        ],
+        [
+          11.523157706968163,
+          48.1345834554258
+        ],
+        [
+          11.52302,
+          48.13477
+        ],
+        [
+          11.52255,
+          48.13477
+        ],
+        [
+          11.52218941861691,
+          48.134332964894
+        ],
+        [
+          11.52218941861691,
+          48.13418923510601
+        ]
+      ],
+      "preferredGateWayIds": [
+        172218550
+      ],
+      "gateLabels": {
+        "159817915:exit": "Exit-1",
+        "158854309:entry": "Entry-1",
+        "158854278:exit": "Exit-2",
+        "1160861177:entry": "Entry-2",
+        "199697582:exit": "Exit-3",
+        "165406773:entry": "Entry-3",
+        "172218550:entry": "Entry-4"
+      },
+      "gateLabelMigration": {
+        "Exit-4": null,
+        "Entry-4": "Entry-4 on way 172218550; all other labels unchanged"
+      },
+      "history": {
+        "revision": 2,
+        "polygon": [
+          [
+            11.52218941861691,
+            48.13418923510601
+          ],
+          [
+            11.52265891861691,
+            48.134076235106
+          ],
+          [
+            11.522874281383091,
+            48.134076235106
+          ],
+          [
+            11.52293668138309,
+            48.134116135106005
+          ],
+          [
+            11.52312598138309,
+            48.134249235106005
+          ],
+          [
+            11.52312598138309,
+            48.134392964894
+          ],
+          [
+            11.52310658138309,
+            48.134419464893995
+          ],
+          [
+            11.523277,
+            48.1349661
+          ],
+          [
+            11.52267028138309,
+            48.134985464893994
+          ],
+          [
+            11.52245491861691,
+            48.134985464893994
+          ],
+          [
+            11.52218941861691,
+            48.134332964894
+          ],
+          [
+            11.52218941861691,
+            48.13418923510601
+          ]
+        ],
+        "gateLabels": {
+          "159817915:exit": "Exit-1",
+          "158854309:entry": "Entry-1",
+          "158854278:exit": "Exit-2",
+          "1160861177:entry": "Entry-2",
+          "199697582:exit": "Exit-3",
+          "165406773:entry": "Entry-3",
+          "172218550:entry": "Entry-4"
+        },
+        "reviewedGeometrySha256": "72658c22523d6a629145b8e4c2f91537032e86805b2b48d1881223c109d99ee1"
+      },
+      "supersedesRevision": 2,
+      "excludedGateWayIds": [
+        1524187991,
+        159817921
+      ],
+      "reviewSource": "Thomas requested option 4 after field test: remove Exit-4, move Entry-4 southwest, restore ordinary guidance to Zschokkestrasse. New polygon is an unapproved draft.",
+      "approvalSource": "Thomas explicitly confirmed and approved K05 v3 and requested commit, push and backend build/deployment from the branch.",
+      "reviewedGeometrySha256": "4ba1b55c8fb0ecfa5c0c6cebf09d89ef376c7f29ff9784cf5da15763f85f0e22",
+      "reuseExistingRouteEndpoints": true
+    },
+    "nymphenburger-waisenhaus": {
+      "status": "geometry-approved",
+      "revision": 2,
+      "excludedApproaches": [
+        "Rufinistraße"
+      ],
+      "note": "v2: Lachnerstrasse mit gemeinsamem Entry-2 und Exit-3 auf der Fahrbahn vor der Ampel ergaenzt. Polygon unveraendert, Rufinistrasse ausgeschlossen. Nach Einfuegen des Punktepaares folgende Nummern im Uhrzeigersinn angepasst.",
+      "polygon": [
+        [
+          11.530698672360822,
+          48.156474835106
+        ],
+        [
+          11.530779472360823,
+          48.156413035106006
+        ],
+        [
+          11.530929472360823,
+          48.156338635106
+        ],
+        [
+          11.531144927639177,
+          48.156338635106
+        ],
+        [
+          11.531194027639177,
+          48.156374735106006
+        ],
+        [
+          11.531292027639177,
+          48.156450635106005
+        ],
+        [
+          11.531356327639177,
+          48.156500535106005
+        ],
+        [
+          11.531481227639178,
+          48.156647235106
+        ],
+        [
+          11.531481227639178,
+          48.15679096489399
+        ],
+        [
+          11.531103327639178,
+          48.156792864893994
+        ],
+        [
+          11.530887872360823,
+          48.156792864893994
+        ],
+        [
+          11.530750072360823,
+          48.156668564894
+        ],
+        [
+          11.530698672360822,
+          48.156618564893996
+        ],
+        [
+          11.530698672360822,
+          48.156474835106
+        ]
+      ],
+      "onRoadWayIds": [
+        152093782
+      ],
+      "gateLabels": {
+        "1450048141:exit": "Exit-1",
+        "1450048136:entry": "Entry-1",
+        "1459851764:exit": "Exit-2",
+        "152093782:entry": "Entry-2",
+        "152093782:exit": "Exit-3",
+        "203977597:entry": "Entry-3",
+        "1021672865:exit": "Exit-4",
+        "1021672866:entry": "Entry-4"
+      },
+      "gateLabelMigration": {
+        "new Entry-2 / Exit-3": "Lachnerstrasse carriageway before traffic lights",
+        "Entry-2": "Entry-3",
+        "Exit-3": "Exit-4",
+        "Entry-3": "Entry-4"
+      },
+      "signalNode": {
+        "id": 11209620540,
+        "location": [
+          11.5308166,
+          48.1564542
+        ],
+        "evidence": "lachner-signal-evidence.json",
+        "position": "Stop signal after the approach gate when entering from Lachnerstrasse"
+      },
+      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment.",
+      "reviewedGeometrySha256": "e645acab4c42162b615c950c9f082db0dec12e86771929287b875a7fddcf8c56"
+    },
+    "mars-pappenheim": {
+      "status": "geometry-approved",
+      "revision": 2,
+      "history": {
+        "status": "withheld-needs-technical-review",
+        "revision": 1,
+        "requiredNextSteps": [
+          "Radfahrstreifen an Straßen berücksichtigen: cycleway=lane und cycleway:left/right/both=lane",
+          "OSM-Korrektur in der Wredestraße nach Aktualisierung erneut abrufen",
+          "Fehlende Straßen-Entry/Exit-Punkte vor neuer Bildprüfung ergänzen"
+        ],
+        "note": "K07 bleibt zurückgestellt. Radfahrstreifen fehlen in der bisherigen Erfassung. Thomas hat das Mapping in OSM korrigiert; der eingefrorene Datensatz enthält diese Änderung noch nicht nachweislich."
+      },
+      "osmSnapshot": "review-k07-osm-2026-11-14.json.gz",
+      "polygon": [
+        [
+          11.549494894542606,
+          48.145879535106005
+        ],
+        [
+          11.549581394542606,
+          48.14585903510601
+        ],
+        [
+          11.549796805457394,
+          48.14585903510601
+        ],
+        [
+          11.549843905457394,
+          48.145949535106006
+        ],
+        [
+          11.549843905457394,
+          48.146093264894
+        ],
+        [
+          11.549747105457394,
+          48.146116664893995
+        ],
+        [
+          11.549531694542607,
+          48.146116664893995
+        ],
+        [
+          11.549494894542606,
+          48.146023264894
+        ],
+        [
+          11.549494894542606,
+          48.145879535106005
+        ]
+      ],
+      "onRoadWayIds": [
+        71822768,
+        93195136,
+        100177587,
+        313579587,
+        313579592,
+        313579600,
+        776715808,
+        776715810,
+        1331965616
+      ],
+      "gateLabels": {
+        "1331965615:exit": "Exit-1",
+        "313579592:entry": "Entry-1",
+        "313579600:exit": "Exit-2",
+        "372004858:entry": "Entry-2",
+        "71822768:exit": "Exit-3",
+        "892400611:entry": "Entry-3",
+        "892400610:exit": "Exit-4",
+        "1331965616:entry": "Entry-4"
+      },
+      "excludedGateDirections": {
+        "1331965616": [
+          "exit"
+        ],
+        "71822768": [
+          "entry"
+        ]
+      },
+      "laneGateEvidence": {
+        "313579592": {
+          "name": "Marsstraße",
+          "osmTag": "cycleway:right=lane",
+          "direction": "OSM forward; one-way road",
+          "kind": "entry"
+        },
+        "313579600": {
+          "name": "Marsstraße",
+          "osmTag": "cycleway:right=lane",
+          "direction": "OSM forward; one-way road",
+          "kind": "exit"
+        },
+        "1331965616": {
+          "name": "Pappenheimstraße",
+          "osmTag": "cycleway:left=lane; cycleway:right=separate",
+          "direction": "Against OSM way direction; separate outbound cycleway retained",
+          "kind": "entry"
+        },
+        "71822768": {
+          "name": "Wredestraße",
+          "osmTag": "cycleway:right=lane; cycleway:left=separate",
+          "direction": "OSM forward; separate inbound cycleway retained",
+          "kind": "exit"
+        }
+      },
+      "labelMigration": {
+        "Exit-1": "Exit-1",
+        "Entry-1": "Entry-2",
+        "Entry-2": "Entry-3",
+        "Exit-2": "Exit-4"
+      },
+      "proposedLogicalArms": {
+        "north": {
+          "entries": [
+            "Entry-4"
+          ],
+          "exits": [
+            "Exit-1"
+          ]
+        },
+        "east": {
+          "entries": [
+            "Entry-1"
+          ],
+          "exits": [
+            "Exit-2"
+          ]
+        },
+        "south": {
+          "entries": [
+            "Entry-2"
+          ],
+          "exits": [
+            "Exit-3"
+          ]
+        },
+        "west": {
+          "entries": [
+            "Entry-3"
+          ],
+          "exits": [
+            "Exit-4"
+          ]
+        }
+      },
+      "geometryBasis": "K07-only official OSM API refresh requested by Thomas; frozen 2026-11-14. Lane evidence is directional; carriageway centerline is not a surveyed physical lane position.",
+      "note": "v2 von Thomas freigegeben. Technisch 8/8 Links-/Geradeausbeziehungen und 4/4 Rechtskontrollen bestanden, einschließlich der Radfahrstreifen. Noch nicht in Runtime aktiviert oder deployed.",
+      "reviewedGeometrySha256": "0a7bfd4e0b4d60b87f69f8d88803683485e860d96586c69767dafffd848cd05d",
+      "approvalSource": "Thomas explicitly approved K07 v2 on 2026-11-14 and requested technical movement checks."
+    },
+    "arnulf-hackerbruecke": {
+      "status": "geometry-approved",
+      "revision": 2,
+      "onRoadWayIds": [
+        316009879
+      ],
+      "excludedGateWayIds": [
+        1185357375,
+        1185357376,
+        661137256
+      ],
+      "gateLabels": {
+        "71822746:exit": "Exit-1",
+        "294556592:entry": "Entry-1",
+        "1144621908:exit": "Exit-2",
+        "316009879:entry": "Entry-2",
+        "316009879:exit": "Exit-3",
+        "1144621908:entry": "Entry-3",
+        "1144621907:exit": "Exit-4",
+        "71822778:entry": "Entry-4"
+      },
+      "gateLabelMigration": {
+        "Entry-2 / Entry-3 / Exit-3 / Exit-4": "ersetzt durch Entry-2 und Exit-3 am gemeinsamen Fahrbahnpunkt",
+        "Entry-4": "Entry-3",
+        "Exit-5": "Exit-4",
+        "Entry-5": "Entry-4"
+      },
+      "roadGateNode": {
+        "id": 4696310002,
+        "location": [
+          11.5487731,
+          48.1433711
+        ],
+        "tags": {
+          "highway": "traffic_signals",
+          "traffic_signals:direction": "forward"
+        },
+        "verifiedOsmBase": "2026-11-07T10:25:28Z"
+      },
+      "note": "v2: Hackerbrücke auf der Fahrbahn; Entry-2 und Exit-3 gemeinsam an der Ampel. Bisherige Gehwegpunkte entfernt. Wegen geänderter Punktstruktur neu nummeriert; Geometrie von Thomas bestaetigt.",
+      "polygon": [
+        [
+          11.548900577867572,
+          48.1433711
+        ],
+        [
+          11.549005500276198,
+          48.143570835106004
+        ],
+        [
+          11.549005500276198,
+          48.143714564894
+        ],
+        [
+          11.548778500276198,
+          48.143767764893994
+        ],
+        [
+          11.548563099723802,
+          48.143767764893994
+        ],
+        [
+          11.548422399723803,
+          48.143535364894
+        ],
+        [
+          11.548394822951334,
+          48.1433711
+        ],
+        [
+          11.548900577867572,
+          48.1433711
+        ]
+      ],
+      "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment.",
+      "reviewedGeometrySha256": "24bed2b8183ac6d3cffd69c07c3595e74f33287642d44cbf967f6f4b404fa226"
+    },
+    "landsberger-barth": {
+      "status": "permanently-excluded",
+      "revision": 1,
+      "closed": true,
+      "note": "Thomas: klassische große T-Kreuzung. Dauerhaft ausgeschlossen, Fall geschlossen; keine erneute Freigabeprüfung."
+    },
+    "thomasiusplatz": {
+      "status": "geometry-approved",
+      "revision": 4,
+      "excludedApproaches": [],
+      "excludedGateWayIds": [
+        23982939
+      ],
+      "gateLabels": {
+        "23262477:exit": "Exit-1",
+        "134140323:entry": "Entry-1",
+        "71390770:exit": "Exit-2",
+        "134139700:exit": "Exit-3",
+        "332562083:entry": "Entry-3",
+        "26754058:exit": "Exit-4",
+        "145178204:entry": "Entry-4",
+        "147718914:entry": "Entry-2",
+        "913592181:entry": "Entry-5",
+        "913592181:exit": "Exit-5"
+      },
+      "gateLabelMigration": {
+        "Entry-2 / Entry-3 / Exit-3": "ersetzt durch normalen Entry-2 weiter nördlich",
+        "Exit-4": "Exit-3",
+        "Entry-4": "Entry-3",
+        "Exit-5": "Exit-4",
+        "Entry-5": "Entry-4"
+      },
+      "note": "v4 freigegeben. Im Branch für Backend 2.4.8: 8 reguläre Beziehungen und 5 Wilram-Sonderfolgen implementiert/geprüft. Sonderansagen benötigen neue App mit Protokoll v2. Interne ortsgebundene Hinweise, richtungsbestätigtes rechts/geradeaus und Wenden unterstützt. Noch nicht deployed; Praxistest offen. Wilram nach Exit-2 bleibt Standardrouting außerhalb.",
+      "polygon": [
+        [
+          11.601789457954938,
+          48.115728635106
+        ],
+        [
+          11.601791357954937,
+          48.115714635106
+        ],
+        [
+          11.601812257954938,
+          48.115643735106005
+        ],
+        [
+          11.601896557954937,
+          48.115440135106006
+        ],
+        [
+          11.601940957954938,
+          48.115433035106
+        ],
+        [
+          11.60222,
+          48.1154
+        ],
+        [
+          11.60236,
+          48.11536
+        ],
+        [
+          11.6026,
+          48.11536
+        ],
+        [
+          11.602629767,
+          48.11543712
+        ],
+        [
+          11.602607386648065,
+          48.115846458359044
+        ],
+        [
+          11.6026,
+          48.11596
+        ],
+        [
+          11.602381931,
+          48.116041248
+        ],
+        [
+          11.602333842045063,
+          48.116053264894
+        ],
+        [
+          11.602118557954938,
+          48.116053264894
+        ],
+        [
+          11.601956057954938,
+          48.115966064893996
+        ],
+        [
+          11.601789457954938,
+          48.115872364893995
+        ],
+        [
+          11.601789457954938,
+          48.115728635106
+        ]
+      ],
+      "history": {
+        "status": "geometry-draft",
+        "revision": 3,
+        "excludedApproaches": [],
+        "excludedGateWayIds": [
+          23982939
+        ],
+        "gateLabels": {
+          "23262477:exit": "Exit-1",
+          "134140323:entry": "Entry-1",
+          "71390770:exit": "Exit-2",
+          "134139700:exit": "Exit-3",
+          "332562083:entry": "Entry-3",
+          "26754058:exit": "Exit-4",
+          "145178204:entry": "Entry-4",
+          "147718914:entry": "Entry-2",
+          "913592181:entry": "Entry-5",
+          "913592181:exit": "Exit-5"
+        },
+        "gateLabelMigration": {
+          "Entry-2 / Entry-3 / Exit-3": "ersetzt durch normalen Entry-2 weiter nördlich",
+          "Exit-4": "Exit-3",
+          "Entry-4": "Entry-3",
+          "Exit-5": "Exit-4",
+          "Entry-5": "Entry-4"
+        },
+        "note": "v3 ENTWURF: Wilramstraße einbeziehen; Entry-2 nach Süden auf den zuführenden Balanstraßen-Radweg verschoben. Entry-5/Exit-5 = Entry-/Exit-Wilramstraße auf der Fahrradstraße. Sonderansagen und interne Rechts-/Links-Hinweise sind noch nicht implementiert; bisheriger Runtime-Stand v2 bleibt unverändert.",
+        "polygon": [
+          [
+            11.601789457954938,
+            48.115728635106
+          ],
+          [
+            11.601791357954937,
+            48.115714635106
+          ],
+          [
+            11.601812257954938,
+            48.115643735106005
+          ],
+          [
+            11.601896557954937,
+            48.115440135106006
+          ],
+          [
+            11.601940957954938,
+            48.115433035106
+          ],
+          [
+            11.60222,
+            48.1154
+          ],
+          [
+            11.60236,
+            48.11536
+          ],
+          [
+            11.6026,
+            48.11536
+          ],
+          [
+            11.602770042045062,
+            48.115800535106004
+          ],
+          [
+            11.602770042045062,
+            48.115944264894
+          ],
+          [
+            11.602333842045063,
+            48.116053264894
+          ],
+          [
+            11.602118557954938,
+            48.116053264894
+          ],
+          [
+            11.601956057954938,
+            48.115966064893996
+          ],
+          [
+            11.601789457954938,
+            48.115872364893995
+          ],
+          [
+            11.601789457954938,
+            48.115728635106
+          ]
+        ],
+        "history": {
+          "status": "geometry-approved",
+          "revision": 2,
+          "excludedApproaches": [
+            "Wilramstraße"
+          ],
+          "excludedGateWayIds": [
+            23982939,
+            147718914
+          ],
+          "gateLabels": {
+            "23262477:exit": "Exit-1",
+            "134140323:entry": "Entry-1",
+            "71390770:exit": "Exit-2",
+            "134139700:exit": "Exit-3",
+            "332562083:entry": "Entry-3",
+            "26754058:exit": "Exit-4",
+            "145178204:entry": "Entry-4",
+            "53108527:entry": "Entry-2"
+          },
+          "gateLabelMigration": {
+            "Entry-2 / Entry-3 / Exit-3": "ersetzt durch normalen Entry-2 weiter nördlich",
+            "Exit-4": "Exit-3",
+            "Entry-4": "Entry-3",
+            "Exit-5": "Exit-4",
+            "Entry-5": "Entry-4"
+          },
+          "note": "v2: normaler südlicher Entry-2 weiter nördlich. Wilramstraße ausgeschlossen; der kurze Zweirichtungsweg bildet keinen eigenen Arm. Nach Entfernen der Zusatzpunkte neu nummeriert; Geometrie von Thomas bestaetigt.",
+          "polygon": [
+            [
+              11.601789457954938,
+              48.115728635106
+            ],
+            [
+              11.601791357954937,
+              48.115714635106
+            ],
+            [
+              11.601812257954938,
+              48.115643735106005
+            ],
+            [
+              11.601896557954937,
+              48.115440135106006
+            ],
+            [
+              11.601940957954938,
+              48.115433035106
+            ],
+            [
+              11.60222,
+              48.1154
+            ],
+            [
+              11.60236,
+              48.11556
+            ],
+            [
+              11.6026,
+              48.11556
+            ],
+            [
+              11.602770042045062,
+              48.115800535106004
+            ],
+            [
+              11.602770042045062,
+              48.115944264894
+            ],
+            [
+              11.602333842045063,
+              48.116053264894
+            ],
+            [
+              11.602118557954938,
+              48.116053264894
+            ],
+            [
+              11.601956057954938,
+              48.115966064893996
+            ],
+            [
+              11.601789457954938,
+              48.115872364893995
+            ],
+            [
+              11.601789457954938,
+              48.115728635106
+            ]
+          ],
+          "excludedGateDirections": {
+            "53108527": [
+              "exit"
+            ]
+          },
+          "approvalSource": "Thomas explicitly approved all corrected images and requested implementation, commit, push, build and deployment.",
+          "reviewedGeometrySha256": "177a93baf42e31802439cdfe7bab1b689f2ed67668f6d5d8755884365402a90c"
+        },
+        "supersedesRevision": 2,
+        "onRoadWayIds": [
+          913592181
+        ],
+        "gateAliases": {
+          "Entry-5": "Entry-Wilramstraße",
+          "Exit-5": "Exit-Wilramstraße"
+        },
+        "geometryBasis": "User-requested Wilram approach expansion; draft based on frozen legal bicycle-road ways, pending visual and movement review.",
+        "specialGuidancePlan": "review-k10-wilram-plan.json"
+      },
+      "supersedesRevision": 2,
+      "onRoadWayIds": [
+        913592181
+      ],
+      "gateAliases": {
+        "Entry-5": "Entry-Wilramstraße",
+        "Exit-5": "Exit-Wilramstraße"
+      },
+      "geometryBasis": "User-requested Wilram approach expansion; draft based on frozen legal bicycle-road ways, pending visual and movement review.",
+      "specialGuidancePlan": "review-k10-wilram-plan.json",
+      "exit2BoundaryCorrection": {
+        "source": "Thomas 2026-11-14: Thomasiusplatz side street is outside junction scope",
+        "sourceWayId": 71390770,
+        "excludedSideStreetWayId": 145178206,
+        "junctionNodeId": 506771454,
+        "junctionNodeLocation": [
+          11.6026624,
+          48.1158724
+        ],
+        "upstreamMeters": 5,
+        "previousGate": [
+          11.602770042,
+          48.115916715
+        ],
+        "newGate": [
+          11.602607386648065,
+          48.115846458359044
+        ],
+        "draftArchive": "review-draft-archives/k10-v3.json"
+      },
+      "reviewedGeometrySha256": "1a3bb6e4aca7761b662cc9dd9a15ecaca59a8fdb7b66a2232ed4f56941189bf5",
+      "approvalSource": "Thomas explicitly approved K10 v4 on 2026-11-14 and requested technical movement checks.",
+      "proposedLogicalArms": {
+        "north": {
+          "entries": [
+            "Entry-4"
+          ],
+          "exits": [
+            "Exit-1"
+          ]
+        },
+        "east": {
+          "entries": [
+            "Entry-1"
+          ],
+          "exits": [
+            "Exit-2"
+          ]
+        },
+        "south": {
+          "entries": [
+            "Entry-2"
+          ],
+          "exits": [
+            "Exit-3"
+          ]
+        },
+        "west": {
+          "entries": [
+            "Entry-3"
+          ],
+          "exits": [
+            "Exit-4"
+          ]
+        }
+      }
+    }
+  }
+}

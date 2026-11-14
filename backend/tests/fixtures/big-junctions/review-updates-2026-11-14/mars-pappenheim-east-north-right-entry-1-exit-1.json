@@ -1,0 +1,398 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1386432495,
+              8266983457,
+              8266983469,
+              1659974501,
+              12323822099,
+              12323822098,
+              6771373160,
+              6771373159,
+              6771373161,
+              12323822097,
+              3700240481
+            ],
+            "distance": [
+              45.6948715,
+              7.978467996,
+              7.892415935,
+              9.523809679,
+              7.788878191,
+              2.959270632,
+              3.697849318,
+              3.891908452,
+              10.2870886,
+              9.309005237
+            ]
+          },
+          "duration": 48.4,
+          "summary": "Marsstraße, Pappenheimstraße",
+          "weight": 85.5,
+          "distance": 109,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    290
+                  ],
+                  "location": [
+                    11.550413,
+                    48.145855
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.550413,
+                    48.145855
+                  ],
+                  [
+                    11.549837,
+                    48.145997
+                  ],
+                  [
+                    11.549736,
+                    48.146021
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 290,
+                "bearing_before": 0,
+                "location": [
+                  11.550413,
+                  48.145855
+                ],
+                "type": "depart"
+              },
+              "name": "Marsstraße",
+              "mode": "cycling",
+              "weight": 66.3,
+              "duration": 36.8,
+              "distance": 53.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.549736,
+                    48.146021
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549736,
+                    48.146021
+                  ],
+                  [
+                    11.549771,
+                    48.146088
+                  ],
+                  [
+                    11.549796,
+                    48.146172
+                  ],
+                  [
+                    11.549835,
+                    48.146237
+                  ],
+                  [
+                    11.549855,
+                    48.14626
+                  ],
+                  [
+                    11.549884,
+                    48.146287
+                  ],
+                  [
+                    11.549919,
+                    48.146313
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 16,
+                "bearing_before": 289,
+                "location": [
+                  11.549736,
+                  48.146021
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 12.7,
+              "duration": 7.5,
+              "distance": 35.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    60,
+                    210
+                  ],
+                  "location": [
+                    11.549919,
+                    48.146313
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549919,
+                    48.146313
+                  ],
+                  [
+                    11.549966,
+                    48.1464
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 19,
+                "bearing_before": 36,
+                "location": [
+                  11.549919,
+                  48.146313
+                ],
+                "modifier": "straight",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 4.4,
+              "duration": 2.4,
+              "distance": 10.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    195,
+                    225
+                  ],
+                  "location": [
+                    11.549966,
+                    48.1464
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549966,
+                    48.1464
+                  ],
+                  [
+                    11.550064,
+                    48.146452
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 50,
+                "bearing_before": 19,
+                "location": [
+                  11.549966,
+                  48.1464
+                ],
+                "modifier": "straight",
+                "type": "turn"
+              },
+              "name": "Pappenheimstraße",
+              "mode": "cycling",
+              "weight": 2.1,
+              "duration": 1.7,
+              "distance": 9.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    232
+                  ],
+                  "location": [
+                    11.550064,
+                    48.146452
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.550064,
+                    48.146452
+                  ],
+                  [
+                    11.550064,
+                    48.146452
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 52,
+                "location": [
+                  11.550064,
+                  48.146452
+                ],
+                "type": "arrive"
+              },
+              "name": "Pappenheimstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.550413,
+            48.145855
+          ],
+          [
+            11.549837,
+            48.145997
+          ],
+          [
+            11.549736,
+            48.146021
+          ],
+          [
+            11.549771,
+            48.146088
+          ],
+          [
+            11.549796,
+            48.146172
+          ],
+          [
+            11.549835,
+            48.146237
+          ],
+          [
+            11.549855,
+            48.14626
+          ],
+          [
+            11.549884,
+            48.146287
+          ],
+          [
+            11.549919,
+            48.146313
+          ],
+          [
+            11.549966,
+            48.1464
+          ],
+          [
+            11.550064,
+            48.146452
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 85.5,
+      "duration": 48.4,
+      "distance": 109
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "SM4ggP___38TAAAAegAAAF8AAADgAQAAC1EJQYzHNkL1pyhCnE__QA8AAABiAAAATAAAAPUAAAC9AgAAzT6wAL-l3gLNPrAAv6XeAgIALxIAAAAA",
+      "location": [
+        11.550413,
+        48.145855
+      ],
+      "name": "Marsstraße",
+      "distance": 0
+    },
+    {
+      "hint": "xMwggHEJBIAPAAAAFQAAAP4AAAAAAAAAXorYQK_xFEHi7eFCAAAAAAwAAAARAAAAzAAAAAAAAAC9AgAAcD2wABSo3gJwPbAAFKjeAggAfw4AAAAA",
+      "location": [
+        11.550064,
+        48.146452
+      ],
+      "name": "Pappenheimstraße",
+      "distance": 0
+    }
+  ]
+}

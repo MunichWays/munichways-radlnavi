@@ -31,9 +31,12 @@ RUN wget https://download.geofabrik.de/europe/germany/bayern/oberbayern-latest.o
     rm ../geo/oberbayern-latest.osm.pbf && \
     rm geo_store.py
 
-COPY src/app.py src/route_analysis.py src/cycling_attributes.py src/direct_proxy.py src/endpoint_access.py src/endpoint_routes.py src/shared_routes.py src/__init__.py /opt/app/src/
+COPY src/app.py src/route_analysis.py src/cycling_attributes.py src/direct_proxy.py src/endpoint_access.py src/endpoint_routes.py src/shared_routes.py src/big_junctions.py src/junction_sequences.py src/big_junctions.json src/__init__.py /opt/app/src/
 
 WORKDIR /opt/app
+
+# Validate the actual packaged catalog, including optional sequence imports.
+RUN /opt/app/.venv/bin/python -c "from src.big_junctions import catalog; catalog()"
 
 ENV PORT 8000
 

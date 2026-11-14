@@ -2,6 +2,11 @@
 
 ## Routing- und Ansageanalyse
 
+Die [Analyse zu großen Kreuzungen](../docs/large-junction-analysis/README.md)
+vergleicht Flächen und gerichtete Ein-/Ausgänge anhand von sechs gesicherten
+Münchner Routen. Sie schlägt eine zentrale Kreuzungszuordnung im Backend und
+eine kleine Erweiterung der App-Ansagen vor; noch keine Verhaltensänderung.
+
 Die [Analyse zur OSRM-Standardbasis](../docs/osrm-standard-guidance-plan.md)
 dokumentiert konkrete Münchner Problemstellen und die Zuständigkeiten von
 Routing und App. Für die [Bergmannstraße/Landsberger Straße](../docs/bergmann-landsberger-guidance-analysis-2026-10-13.md)

@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "balan-chiemgau",
+      "properties": {
+        "junction_id": "balan-chiemgau",
+        "name": "Balanstraße / Chiemgaustraße",
+        "status": "draft",
+        "enabled": false,
+        "revision": 1,
+        "created_on": "2026-11-06",
+        "basis": "Manually drafted around the four crossing paths and approach transitions in junction-detail.json.gz; not a surveyed or official boundary.",
+        "osm_crossing_way_ids": [52792925, 138347215, 147718922, 380171576],
+        "review_required": "Verify all four arms, path sides and permitted movements before activation."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [11.60372, 48.10876],
+          [11.60365, 48.10865],
+          [11.60367, 48.10836],
+          [11.60387, 48.10828],
+          [11.60432, 48.10834],
+          [11.60447, 48.10848],
+          [11.60443, 48.10875],
+          [11.60423, 48.10887],
+          [11.60382, 48.10882],
+          [11.60372, 48.10876]
+        ]]
+      }
+    }
+  ]
+}

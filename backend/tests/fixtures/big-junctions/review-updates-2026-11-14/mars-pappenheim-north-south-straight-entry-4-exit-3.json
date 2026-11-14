@@ -1,0 +1,350 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3700240481,
+              12323822097,
+              1643342632,
+              1643342631,
+              1906058182,
+              818083375,
+              21326677,
+              363189,
+              715297484,
+              8266983456,
+              21632175,
+              12522877644
+            ],
+            "distance": [
+              5.583322737,
+              11.07549726,
+              15.50984146,
+              6.286231065,
+              7.799174942,
+              7.074316606,
+              10.79023988,
+              8.693780563,
+              9.932010663,
+              5.242212684,
+              31.27190612
+            ]
+          },
+          "duration": 78.8,
+          "summary": "Pappenheimstraße, Wredestraße",
+          "weight": 201.5,
+          "distance": 119.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    232
+                  ],
+                  "location": [
+                    11.550025,
+                    48.146431
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285,
+                    315
+                  ],
+                  "location": [
+                    11.549639,
+                    48.146045
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    255,
+                    285
+                  ],
+                  "location": [
+                    11.549603,
+                    48.145951
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.54957,
+                    48.145876
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.549508,
+                    48.145746
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.550025,
+                    48.146431
+                  ],
+                  [
+                    11.549966,
+                    48.1464
+                  ],
+                  [
+                    11.549852,
+                    48.146336
+                  ],
+                  [
+                    11.549722,
+                    48.146227
+                  ],
+                  [
+                    11.549697,
+                    48.146173
+                  ],
+                  [
+                    11.549666,
+                    48.146106
+                  ],
+                  [
+                    11.549639,
+                    48.146045
+                  ],
+                  [
+                    11.549603,
+                    48.145951
+                  ],
+                  [
+                    11.54957,
+                    48.145876
+                  ],
+                  [
+                    11.549529,
+                    48.145791
+                  ],
+                  [
+                    11.549508,
+                    48.145746
+                  ],
+                  [
+                    11.54942,
+                    48.145471
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 232,
+                "bearing_before": 0,
+                "location": [
+                  11.550025,
+                  48.146431
+                ],
+                "type": "depart"
+              },
+              "name": "Pappenheimstraße",
+              "mode": "cycling",
+              "weight": 201.5,
+              "duration": 78.8,
+              "distance": 119.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    12
+                  ],
+                  "location": [
+                    11.54942,
+                    48.145471
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.54942,
+                    48.145471
+                  ],
+                  [
+                    11.54942,
+                    48.145471
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 192,
+                "location": [
+                  11.54942,
+                  48.145471
+                ],
+                "type": "arrive"
+              },
+              "name": "Wredestraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.550025,
+            48.146431
+          ],
+          [
+            11.549966,
+            48.1464
+          ],
+          [
+            11.549852,
+            48.146336
+          ],
+          [
+            11.549722,
+            48.146227
+          ],
+          [
+            11.549697,
+            48.146173
+          ],
+          [
+            11.549666,
+            48.146106
+          ],
+          [
+            11.549639,
+            48.146045
+          ],
+          [
+            11.549603,
+            48.145951
+          ],
+          [
+            11.54957,
+            48.145876
+          ],
+          [
+            11.549529,
+            48.145791
+          ],
+          [
+            11.549508,
+            48.145746
+          ],
+          [
+            11.54942,
+            48.145471
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 201.5,
+      "duration": 78.8,
+      "distance": 119.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "xMwggHEJBIAXAAAADQAAAP4AAAAAAAAAMOInQZSqskDi7eFCAAAAABIAAAALAAAAzAAAAAAAAAC9AgAAST2wAP-n3gJJPbAA_6feAggAfw4AAAAA",
+      "location": [
+        11.550025,
+        48.146431
+      ],
+      "name": "Pappenheimstraße",
+      "distance": 0
+    },
+    {
+      "hint": "S84ggOPOIIBGAAAAuAAAAAAAAAAAAAAA3Sz6Qa5OgkIAAAAAAAAAADgAAAB2AAAAAAAAAAAAAAC9AgAA7DqwAD-k3gLsOrAAP6TeAgAADwwAAAAA",
+      "location": [
+        11.54942,
+        48.145471
+      ],
+      "name": "Wredestraße",
+      "distance": 0
+    }
+  ]
+}

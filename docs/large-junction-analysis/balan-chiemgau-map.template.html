@@ -1,0 +1,164 @@
+<div id="balan-junction-review">
+  <style>
+    #balan-junction-review { display: grid; gap: calc(var(--font-size-base) * .75); color: var(--foreground); }
+    #balan-junction-review .map-container { width: 100%; min-width: 0; }
+    #balan-junction-review .junction-map { display: block; width: 100%; overflow: hidden; }
+    #balan-junction-review .legend { display: flex; flex-wrap: wrap; gap: calc(var(--font-size-base) * .75); align-items: center; }
+    #balan-junction-review .legend span { display: inline-flex; gap: calc(var(--font-size-base) * .35); align-items: center; }
+    #balan-junction-review .swatch { display: inline-block; width: 24px; height: 0; border-top: 3px solid var(--viz-series-1); }
+    #balan-junction-review .swatch.straight { border-top-color: var(--viz-series-2); border-top-style: dashed; }
+    #balan-junction-review .swatch.area { border-top-color: var(--viz-series-3); }
+    #balan-junction-review .swatch.crossing { border-top-color: var(--muted-foreground); border-top-style: dotted; }
+    #balan-junction-review .junction-map text { fill: var(--foreground); font-size: 12px; font-weight: 400; }
+    #balan-junction-review .junction-map .gate-label { font-weight: 500; paint-order: stroke; stroke: var(--background); stroke-width: 3px; }
+    #balan-junction-review .junction-map .street-label { paint-order: stroke; stroke: var(--background); stroke-width: 3px; }
+  </style>
+  <h2>Balanstraße / Chiemgaustraße · Flächenentwurf</h2>
+  <div class="viz-controls">
+    <label class="form-label">Route
+      <select class="form-select" data-route>
+        <option value="both">Beide Beispielrouten</option>
+        <option value="left">Links abbiegen</option>
+        <option value="straight">Geradeaus</option>
+      </select>
+    </label>
+    <label class="form-label">Ausschnitt
+      <select class="form-select" data-view>
+        <option value="close">Kreuzung</option>
+        <option value="routes">Gesamte Beispielrouten</option>
+      </select>
+    </label>
+  </div>
+  <div class="map-container">
+    <svg class="junction-map" role="img" aria-label="OSM-Wege der Kreuzung mit Polygonentwurf, Ein- und Ausgängen und den beiden Beispielrouten"></svg>
+  </div>
+  <div class="legend text-small" aria-label="Legende">
+    <span><i class="swatch" aria-hidden="true"></i>Links</span>
+    <span><i class="swatch straight" aria-hidden="true"></i>Geradeaus</span>
+    <span><i class="swatch area" aria-hidden="true"></i>Flächenentwurf</span>
+    <span><i class="swatch crossing" aria-hidden="true"></i>Querungswege</span>
+    <span>△ Einfahrt · ○ Ausfahrt</span>
+    <span>● Ampel</span>
+  </div>
+  <div class="text-small" data-detail aria-live="polite"></div>
+  <div class="text-small text-muted">Entwurf v1 · noch nicht freigegeben · OSM © OpenStreetMap contributors · Datenstand 06.11.2026</div>
+  <script type="application/json" data-pilot>__PILOT_DATA__</script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script>
+    (() => {
+      const root = document.getElementById('balan-junction-review');
+      const data = JSON.parse(root.querySelector('[data-pilot]').textContent);
+      const routeControl = root.querySelector('[data-route]');
+      const viewControl = root.querySelector('[data-view]');
+      const detail = root.querySelector('[data-detail]');
+      const container = root.querySelector('.map-container');
+      const svg = d3.select(root.querySelector('.junction-map'));
+      let selection = 'both', view = 'close';
+      const validSelection = value => ['both', 'left', 'straight'].includes(value);
+      const applyState = state => {
+        const saved = state?.privateContent;
+        if (validSelection(saved?.route)) selection = saved.route;
+        if (['close', 'routes'].includes(saved?.view)) view = saved.view;
+        routeControl.value = selection;
+        viewControl.value = view;
+      };
+      applyState(window.openai?.widgetState);
+      const saveState = () => {
+        window.openai?.setWidgetState?.({
+          modelContent: {junction: 'balan-chiemgau', draftRevision: 1, selectedRoute: selection},
+          privateContent: {route: selection, view}
+        })?.catch(() => {});
+      };
+      function draw() {
+        const width = Math.max(280, container.clientWidth);
+        const height = Math.max(360, Math.min(590, width * .80));
+        svg.selectAll('*').remove();
+        svg.attr('viewBox', `0 0 ${width} ${height}`).attr('height', height);
+        svg.append('title').text('Kreuzungsfläche Balanstraße / Chiemgaustraße, Entwurf v1');
+        svg.append('desc').text('Geografische Darstellung aus gesicherten OSM-Wegen. Acht gerichtete Radweg-Grenzübertritte, vier Querungswege und zwei Beispielrouten. Das Polygon ist noch nicht aktiviert.');
+        const bounds = view === 'close' ? data.closeBounds : data.routeBounds;
+        const projection = d3.geoMercator().fitExtent([[20, 25], [width - 20, height - 25]], {type: 'MultiPoint', coordinates: bounds});
+        const path = d3.geoPath(projection);
+        svg.append('defs').append('clipPath').attr('id', 'balan-review-clip').append('rect').attr('width', width).attr('height', height);
+        const map = svg.append('g').attr('clip-path', 'url(#balan-review-clip)');
+        map.append('g').selectAll('path').data(data.osm.features).join('path')
+          .attr('d', path).attr('fill', 'none')
+          .attr('stroke', f => ['primary', 'secondary', 'tertiary'].includes(f.properties.highway) ? 'var(--muted)' : 'var(--muted-foreground)')
+          .attr('stroke-width', f => ['primary', 'secondary', 'tertiary'].includes(f.properties.highway) ? Math.max(8, Number(f.properties.lanes || 2) * 3) : 1.8)
+          .attr('stroke-opacity', f => ['primary', 'secondary', 'tertiary'].includes(f.properties.highway) ? 1 : .6)
+          .attr('data-tooltip', f => `${f.properties.name || f.properties.highway} · OSM ${f.properties.id}`);
+        const ring = data.polygon.geometry.coordinates[0];
+        const points = ring.map(projection).map(p => p.join(',')).join(' ');
+        map.append('polygon').attr('points', points).attr('fill', 'var(--viz-series-3)').attr('fill-opacity', .12)
+          .attr('stroke', 'var(--viz-series-3)').attr('stroke-width', 2)
+          .attr('data-tooltip', 'Kreuzungsfläche: Entwurf v1, nicht aktiviert');
+        map.append('g').selectAll('path').data(data.osm.features.filter(f => f.properties.crossing)).join('path')
+          .attr('d', path).attr('fill', 'none').attr('stroke', 'var(--muted-foreground)').attr('stroke-width', 3)
+          .attr('stroke-dasharray', '2 4');
+        const shown = data.routes.filter(route => selection === 'both' || route.id.endsWith(selection));
+        shown.forEach(route => {
+          const left = route.id.endsWith('left');
+          map.append('path').datum(route.geometry).attr('d', path).attr('fill', 'none')
+            .attr('stroke', left ? 'var(--viz-series-1)' : 'var(--viz-series-2)')
+            .attr('stroke-width', left ? 5 : 3).attr('stroke-dasharray', left ? null : '7 5')
+            .attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+          route.maneuvers.forEach((maneuver, index) => {
+            const [x, y] = projection(maneuver.location);
+            map.append('circle').attr('cx', x).attr('cy', y).attr('r', left ? 4 : 2.5)
+              .attr('fill', left ? 'var(--viz-series-1)' : 'var(--viz-series-2)')
+              .attr('data-tooltip', `${route.label}: API-Hinweis ${index + 1}, ${maneuver.type}/${maneuver.modifier}`);
+          });
+        });
+        data.markers.filter(marker => marker.kind === 'traffic_signals').forEach(marker => {
+          const [x, y] = projection(marker.location);
+          map.append('circle').attr('cx', x).attr('cy', y).attr('r', 3).attr('fill', 'var(--foreground)')
+            .attr('data-tooltip', `Ampel · OSM ${marker.id}`);
+        });
+        data.gates.forEach(gate => {
+          const [x, y] = projection(gate.location);
+          const group = map.append('g').attr('transform', `translate(${x},${y})`)
+            .attr('data-tooltip', `${gate.id}: ${gate.kind === 'entry' ? 'Einfahrt' : 'Ausfahrt'} gemäß OSM-Einbahnrichtung · Weg ${gate.osmWayId}`);
+          if (gate.kind === 'entry') group.append('path').attr('d', 'M 0 -6 L 5 4 L -5 4 Z');
+          else group.append('circle').attr('r', 5);
+          group.select('path,circle').attr('fill', 'var(--background)').attr('stroke', 'var(--foreground)').attr('stroke-width', 1.8);
+          const center = projection([11.60407, 48.10856]);
+          group.append('text').attr('class', 'gate-label').attr('x', x < center[0] ? -9 : 9).attr('y', 4)
+            .attr('text-anchor', x < center[0] ? 'end' : 'start').text(gate.id);
+        });
+        const streetLabel = (location, text, rotate = 0) => {
+          const [x,y] = projection(location);
+          map.append('text').attr('class','street-label').attr('transform',`translate(${x},${y}) rotate(${rotate})`)
+            .attr('text-anchor','middle').text(text);
+        };
+        if (view === 'close') {
+          streetLabel([11.60402,48.10897], 'Balanstraße');
+          streetLabel([11.60467,48.10863], 'Chiemgaustraße', -11);
+        } else {
+          streetLabel([11.60402,48.10938], 'Balanstraße');
+          streetLabel([11.60525,48.10884], 'Chiemgaustraße', -11);
+        }
+        svg.append('text').attr('x', 20).attr('y', 22).text('↑ N');
+        const metersPerLongitudeDegree = 111320 * Math.cos(48.10856 * Math.PI / 180);
+        const length = Math.abs(projection([11.60407 + 20 / metersPerLongitudeDegree,48.10856])[0] - projection([11.60407,48.10856])[0]);
+        const scale = svg.append('g').attr('transform', `translate(20,${height - 20})`);
+        scale.append('line').attr('x2',length).attr('stroke','var(--foreground)').attr('stroke-width',2);
+        scale.append('text').attr('x',length / 2).attr('y',-7).attr('text-anchor','middle').text('20 m');
+        if (selection === 'both') {
+          const a = data.routes[0].boundaryCrossings, b = data.routes[1].boundaryCrossings;
+          detail.textContent = `Einfahrt ${a[0].gateId} · links: Ausfahrt ${a[1].gateId} · geradeaus: Ausfahrt ${b[1].gateId} · 8 Radweg-Grenzübertritte`;
+        } else {
+          const route = shown[0], [entry, exit] = route.boundaryCrossings;
+          const within = Math.round(exit.distanceAlongRouteMeters - entry.distanceAlongRouteMeters);
+          detail.textContent = `${route.label}: ${entry.gateId} → ${exit.gateId} · Einfahrt nach ca. ${Math.round(entry.distanceAlongRouteMeters)} m ab Beispielstart · ca. ${within} m innerhalb der Fläche`;
+        }
+      }
+      routeControl.addEventListener('change', () => {selection = routeControl.value; draw(); saveState();});
+      viewControl.addEventListener('change', () => {view = viewControl.value; draw(); saveState();});
+      window.addEventListener('openai:set_globals', event => {
+        if (event.detail?.globals?.widgetState) {applyState(event.detail.globals.widgetState); draw();}
+      });
+      new ResizeObserver(draw).observe(container);
+      draw();
+    })();
+  </script>
+</div>

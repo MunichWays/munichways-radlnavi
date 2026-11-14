@@ -1,0 +1,19 @@
+[out:json][timeout:30];
+(
+  way[highway](48.1151,11.6013,48.1165,11.6031);
+  node[highway=traffic_signals](48.1151,11.6013,48.1165,11.6031);
+  nwr[junction=yes](48.1151,11.6013,48.1165,11.6031);
+  way[highway](48.1079,11.6032,48.1089,11.6050);
+  node[highway=traffic_signals](48.1079,11.6032,48.1089,11.6050);
+  nwr[junction=yes](48.1079,11.6032,48.1089,11.6050);
+  way[highway](48.1495,11.5195,48.1506,11.5212);
+  node[highway=traffic_signals](48.1495,11.5195,48.1506,11.5212);
+  nwr[junction=yes](48.1495,11.5195,48.1506,11.5212);
+  way[highway](48.1039,11.6045,48.1050,11.6060);
+  node[highway=traffic_signals](48.1039,11.6045,48.1050,11.6060);
+  nwr[junction=yes](48.1039,11.6045,48.1050,11.6060);
+  way[highway](48.0917,11.6444,48.0925,11.6457);
+  node[highway=traffic_signals](48.0917,11.6444,48.0925,11.6457);
+  nwr[junction=yes](48.0917,11.6444,48.0925,11.6457);
+);
+out body geom;

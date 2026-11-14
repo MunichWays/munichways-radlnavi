@@ -1,0 +1,600 @@
+{
+  "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.603497,48.104066;11.60761,48.104964?steps=true&geometries=geojson&overview=full&annotations=nodes%2Cdistance&alternatives=false&continue_straight=default&variant=standard",
+  "retrieved_at_utc": "2026-11-06T10:24:43.084994+00:00",
+  "response": {
+    "code": "Ok",
+    "routes": [
+      {
+        "legs": [
+          {
+            "annotation": {
+              "nodes": [
+                773216225,
+                1716022779,
+                773216250,
+                1434811272,
+                773216229,
+                773216254,
+                773216261,
+                1242326194,
+                2867357825,
+                2867357846,
+                2875174261,
+                2867357793,
+                1312813809,
+                1275819221
+              ],
+              "distance": [
+                54.28725176,
+                13.6253421,
+                54.25398058,
+                4.918850528,
+                11.26026012,
+                9.675495955,
+                4.642444637,
+                40.7055385,
+                25.44933018,
+                12.10705559,
+                20.33120122,
+                32.75587277,
+                40.23904998
+              ]
+            },
+            "duration": 79.4,
+            "summary": "Ständlerstraße",
+            "weight": 174.1,
+            "distance": 324.3,
+            "steps": [
+              {
+                "intersections": [
+                  {
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "out": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      72
+                    ],
+                    "location": [
+                      11.603498,
+                      48.104064
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255,
+                      345
+                    ],
+                    "location": [
+                      11.60419,
+                      48.104218
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255,
+                      345
+                    ],
+                    "location": [
+                      11.604363,
+                      48.104258
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 1,
+                    "entry": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "bearings": [
+                      120,
+                      255,
+                      345
+                    ],
+                    "location": [
+                      11.605052,
+                      48.104417
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.603498,
+                      48.104064
+                    ],
+                    [
+                      11.60419,
+                      48.104218
+                    ],
+                    [
+                      11.604363,
+                      48.104258
+                    ],
+                    [
+                      11.605052,
+                      48.104417
+                    ],
+                    [
+                      11.605113,
+                      48.1044
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 72,
+                  "bearing_before": 0,
+                  "location": [
+                    11.603498,
+                    48.104064
+                  ],
+                  "type": "depart"
+                },
+                "name": "Ständlerstraße",
+                "mode": "cycling",
+                "weight": 61.8,
+                "duration": 28.1,
+                "distance": 127.1
+              },
+              {
+                "intersections": [
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      300
+                    ],
+                    "location": [
+                      11.605113,
+                      48.1044
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255,
+                      345
+                    ],
+                    "location": [
+                      11.605256,
+                      48.104433
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      false,
+                      false
+                    ],
+                    "bearings": [
+                      30,
+                      165,
+                      255
+                    ],
+                    "location": [
+                      11.605378,
+                      48.104463
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.605113,
+                      48.1044
+                    ],
+                    [
+                      11.605256,
+                      48.104433
+                    ],
+                    [
+                      11.605378,
+                      48.104463
+                    ],
+                    [
+                      11.605412,
+                      48.104498
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 70,
+                  "bearing_before": 112,
+                  "location": [
+                    11.605113,
+                    48.1044
+                  ],
+                  "modifier": "left",
+                  "type": "turn"
+                },
+                "name": "Ständlerstraße",
+                "mode": "cycling",
+                "weight": 27.6,
+                "duration": 13.2,
+                "distance": 25.6
+              },
+              {
+                "intersections": [
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 1,
+                    "entry": [
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      75,
+                      210,
+                      345
+                    ],
+                    "location": [
+                      11.605412,
+                      48.104498
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255,
+                      345
+                    ],
+                    "location": [
+                      11.605927,
+                      48.104621
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255
+                    ],
+                    "location": [
+                      11.606251,
+                      48.104694
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false,
+                      true
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255,
+                      345
+                    ],
+                    "location": [
+                      11.606405,
+                      48.104729
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      75,
+                      165,
+                      255
+                    ],
+                    "location": [
+                      11.606664,
+                      48.104787
+                    ]
+                  },
+                  {
+                    "out": 0,
+                    "classes": [
+                      "cycleway"
+                    ],
+                    "in": 2,
+                    "entry": [
+                      true,
+                      true,
+                      false
+                    ],
+                    "bearings": [
+                      75,
+                      150,
+                      255
+                    ],
+                    "location": [
+                      11.607081,
+                      48.104881
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.605412,
+                      48.104498
+                    ],
+                    [
+                      11.605927,
+                      48.104621
+                    ],
+                    [
+                      11.606251,
+                      48.104694
+                    ],
+                    [
+                      11.606405,
+                      48.104729
+                    ],
+                    [
+                      11.606664,
+                      48.104787
+                    ],
+                    [
+                      11.607081,
+                      48.104881
+                    ],
+                    [
+                      11.607593,
+                      48.104997
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 70,
+                  "bearing_before": 32,
+                  "location": [
+                    11.605412,
+                    48.104498
+                  ],
+                  "modifier": "slight right",
+                  "type": "turn"
+                },
+                "name": "Ständlerstraße",
+                "mode": "cycling",
+                "weight": 84.7,
+                "duration": 38.1,
+                "distance": 171.6
+              },
+              {
+                "intersections": [
+                  {
+                    "in": 0,
+                    "entry": [
+                      true
+                    ],
+                    "bearings": [
+                      251
+                    ],
+                    "location": [
+                      11.607593,
+                      48.104997
+                    ]
+                  }
+                ],
+                "driving_side": "right",
+                "geometry": {
+                  "coordinates": [
+                    [
+                      11.607593,
+                      48.104997
+                    ],
+                    [
+                      11.607593,
+                      48.104997
+                    ]
+                  ],
+                  "type": "LineString"
+                },
+                "maneuver": {
+                  "bearing_after": 0,
+                  "bearing_before": 71,
+                  "location": [
+                    11.607593,
+                    48.104997
+                  ],
+                  "type": "arrive"
+                },
+                "name": "Ständlerstraße",
+                "mode": "cycling",
+                "weight": 0,
+                "duration": 0,
+                "distance": 0
+              }
+            ]
+          }
+        ],
+        "weight_name": "cyclability",
+        "geometry": {
+          "coordinates": [
+            [
+              11.603498,
+              48.104064
+            ],
+            [
+              11.60419,
+              48.104218
+            ],
+            [
+              11.604363,
+              48.104258
+            ],
+            [
+              11.605052,
+              48.104417
+            ],
+            [
+              11.605113,
+              48.1044
+            ],
+            [
+              11.605256,
+              48.104433
+            ],
+            [
+              11.605378,
+              48.104463
+            ],
+            [
+              11.605412,
+              48.104498
+            ],
+            [
+              11.605927,
+              48.104621
+            ],
+            [
+              11.606251,
+              48.104694
+            ],
+            [
+              11.606405,
+              48.104729
+            ],
+            [
+              11.606664,
+              48.104787
+            ],
+            [
+              11.607081,
+              48.104881
+            ],
+            [
+              11.607593,
+              48.104997
+            ]
+          ],
+          "type": "LineString"
+        },
+        "weight": 174.1,
+        "duration": 79.4,
+        "distance": 324.3
+      }
+    ],
+    "waypoints": [
+      {
+        "hint": "nZIAgP___38hAAAAEgEAAAAAAAAAAAAAMlTuQCUmWUIAAAAAAAAAAA4AAAB7AAAAAAAAAAAAAADCAgAAKg6xAIAC3gIpDrEAggLeAgAAfwQAAAAA",
+        "location": [
+          11.603498,
+          48.104064
+        ],
+        "name": "Ständlerstraße",
+        "distance": 0.234515154
+      },
+      {
+        "hint": "JqsZgP___3_GAAAASwIAAAAAAAAAAAAAyvQgQnFtnUIAAAAAAAAAAFkAAAAIAQAAAAAAAAAAAADCAgAAKR6xACUG3gI6HrEABAbeAgAAfwQAAAAA",
+        "location": [
+          11.607593,
+          48.104997
+        ],
+        "name": "Ständlerstraße",
+        "distance": 3.881476494
+      }
+    ]
+  }
+}

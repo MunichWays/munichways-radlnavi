@@ -1,0 +1,259 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              12522877646,
+              853545461,
+              1659974444,
+              8266983460,
+              1386432487
+            ],
+            "distance": [
+              42.03075364,
+              2.968776401,
+              8.594780482,
+              55.35050827
+            ]
+          },
+          "duration": 24.7,
+          "summary": "Marsstraße",
+          "weight": 43.6,
+          "distance": 108.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    13
+                  ],
+                  "location": [
+                    11.549504,
+                    48.145466
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.549647,
+                    48.145859
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549504,
+                    48.145466
+                  ],
+                  [
+                    11.549633,
+                    48.145834
+                  ],
+                  [
+                    11.549647,
+                    48.145859
+                  ],
+                  [
+                    11.549689,
+                    48.145931
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 13,
+                "bearing_before": 0,
+                "location": [
+                  11.549504,
+                  48.145466
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 21.5,
+              "duration": 14.8,
+              "distance": 53.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.549689,
+                    48.145931
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549689,
+                    48.145931
+                  ],
+                  [
+                    11.550391,
+                    48.145767
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 108,
+                "bearing_before": 21,
+                "location": [
+                  11.549689,
+                  48.145931
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Marsstraße",
+              "mode": "cycling",
+              "weight": 22.1,
+              "duration": 9.9,
+              "distance": 55.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    289
+                  ],
+                  "location": [
+                    11.550391,
+                    48.145767
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.550391,
+                    48.145767
+                  ],
+                  [
+                    11.550391,
+                    48.145767
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 109,
+                "location": [
+                  11.550391,
+                  48.145767
+                ],
+                "type": "arrive"
+              },
+              "name": "Marsstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.549504,
+            48.145466
+          ],
+          [
+            11.549633,
+            48.145834
+          ],
+          [
+            11.549647,
+            48.145859
+          ],
+          [
+            11.549689,
+            48.145931
+          ],
+          [
+            11.550391,
+            48.145767
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 43.6,
+      "duration": 24.7,
+      "distance": 108.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "584ggP___3-lAAAADwEAAAAAAAAHAAAA94KEQn4fKEIAAAAAbwA-QIQAAADZAAAAAAAAAAYAAAC9AgAAQDuwADqk3gI_O7AAOqTeAgAA3wAAAAAA",
+      "location": [
+        11.549504,
+        48.145466
+      ],
+      "name": "",
+      "distance": 0.07444490293
+    },
+    {
+      "hint": "0c4ggP___3_dAAAA5wAAAAAAAADDAAAA7GZdQnnfG0AAAAAAXFpDQmMAAABoAAAAAAAAAFgAAAC9AgAAtz6wAGel3gK3PrAAZ6XeAgAA3wYAAAAA",
+      "location": [
+        11.550391,
+        48.145767
+      ],
+      "name": "Marsstraße",
+      "distance": 0
+    }
+  ]
+}

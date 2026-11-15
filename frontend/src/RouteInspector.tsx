@@ -3,12 +3,15 @@ import { Button, Paper, Portal, TextField } from '@mui/material';
 // The package ships without TypeScript declarations.
 // @ts-ignore
 import textInstructions from 'osrm-text-instructions';
+import { appGuidancePreview } from './appGuidancePreview';
 
 const examples = [
   { name: 'Birketweg', start: '48.145395, 11.520751', end: '48.145413, 11.522572' },
   { name: 'Schrammerstraße', start: '48.139050, 11.576817', end: '48.138800, 11.577644' },
   { name: 'Waisenhausstraße', start: '48.161527, 11.529508', end: '48.162217, 11.529328' },
   { name: 'Lenbachplatz', start: '48.140563, 11.568148', end: '48.140709, 11.570143' },
+  { name: 'K19 Romanplatz Nord', start: '48.155764, 11.512648', end: '48.155630, 11.510657' },
+  { name: 'K10 Wilramstraße', start: '48.116295, 11.601662', end: '48.115399, 11.603233' },
 ];
 
 export function parseCoordinates(value: string): number[] {
@@ -60,7 +63,7 @@ export function listSteps(route: any) {
     previousWayType = step.mode === 'cycling' && Array.isArray(intersections) && intersections.length
       ? intersectionWayType(intersections[intersections.length - 1]) : null;
     return { step, at, baseInstruction, detectedWayType,
-      instruction: withWayType(baseInstruction, detectedWayType), legIndex, stepIndex };
+      instruction: baseInstruction, legIndex, stepIndex };
     });
   });
 }
@@ -127,11 +130,13 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
   }, [open, stopSpeech]);
 
   const selectedRoute = snapshot?.response.routes?.[0] || snapshot?.response.route;
-  const rows = listSteps(selectedRoute).map((row: any) => {
+  const rawRows = listSteps(selectedRoute).map((row: any) => {
     const override = wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`];
     return override ? { ...row, instruction: withWayType(row.baseInstruction,
       override === 'none' ? null : override) } : row;
   });
+  const preview = appGuidancePreview(selectedRoute, rawRows);
+  const rows = preview.rows;
 
   const calculate = useCallback(async (from: string, to: string) => {
     request.current?.abort();
@@ -145,10 +150,12 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
     try {
       const coordinates = [parseCoordinates(from), parseCoordinates(to)].map(p => p.join(',')).join(';');
       const query = new URLSearchParams({ steps: 'true', geometries: 'geojson', overview: 'full',
-        annotations: 'nodes,distance', alternatives: 'false', continue_straight: 'default', variant });
+        annotations: 'nodes,distance', alternatives: 'false', continue_straight: 'default', variant,
+        junction_guidance: 'true' });
       const url = `${process.env.REACT_APP_BACKEND_URL || ''}/route/v1/bike/${coordinates}?${query}`;
       setLoading(true);
-      const response = await fetch(url, { signal: controller.signal });
+      const response = await fetch(url, { signal: controller.signal,
+        headers: { 'X-Junction-Guidance-Version': '2' } });
       if (!response.ok) throw new Error(`Die Route konnte nicht geladen werden (HTTP ${response.status}).`);
       const payload = await response.json();
       if (payload.code !== 'Ok' || !payload.routes?.[0]?.legs?.length) {
@@ -183,13 +190,14 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
     }
   }, [open, sourceStart, sourceEnd, calculate, stopSpeech]);
 
-  function speak(index: number, all: boolean) {
+  function speak(index: number, all: boolean, app = false) {
     stop();
     const run = speechRun.current;
     const next = (i: number) => {
+      while (i < rows.length && (app ? !rows[i].appSpeech : !!rows[i].previewKey)) i++;
       if (run !== speechRun.current || i >= rows.length) { setSpeaking(null); return; }
       setSpeaking(i);
-      const utterance = new SpeechSynthesisUtterance(rows[i].instruction);
+      const utterance = new SpeechSynthesisUtterance(app ? rows[i].appSpeech! : rows[i].instruction);
       utterance.lang = 'de-DE';
       utterance.onend = () => {
         if (run !== speechRun.current) return;
@@ -246,10 +254,10 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
     </div>
     <div hidden={minimized} style={{ overflow: 'auto', flex: 1, padding: minimized ? 0 : 16 }}>
       <p>Am Titel verschieben, an der unteren rechten Ecke die Größe ändern. Die Karte bleibt bedienbar.</p>
-      <p>Alle von RadlNavi gelieferten Manöver, einschließlich Start und Ziel. Die deutschen Texte
-        werden im Browser erzeugt. Wegwechsel-Zusätze aus OSRM-Klassen werden angezeigt;
-        pro Hinweis kann der Zusatz auch ohne neue Serverdaten simuliert werden.
-        Das Vorlesen ist eine Textvorschau; Filter und Zeitpunkt der Flutter-App werden hier nicht simuliert.</p>
+      <p>RadlNavi: bisherige deutsche Manövertexte. App: Textvorschau für die geplante Fahrt,
+        mit geprüften Kreuzungsansagen bei 120/40 m und unterdrückten Einzelhinweisen.
+        Normale Manöver sind angenähert; GPS, Startansagen, Versatzfilter, Fahrtverlauf und tatsächlicher
+        Sprechzeitpunkt werden nicht vollständig simuliert. Sonderhinweise zeigen mögliche Anfahrtsvarianten.</p>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
         {examples.map(example => <Button key={example.name} onClick={() => {
           setStart(example.start); setEnd(example.end);
@@ -264,7 +272,7 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
             captured_at_utc: new Date().toISOString(), response: { route } });
         }}>Aktuelle Kartenroute übernehmen</Button>
       </div>
-      <p>Variante: {variant === 'direct' ? 'Direkt' : 'Standard'}</p>
+      <p>Variante: {variant === 'direct' ? 'Direkt' : variant === 'discovery' ? 'Entdeckertour' : 'Standard'}</p>
       {loading && <p role="status">Route wird geladen …</p>}
       {error && <p role="alert">{error}</p>}
       {snapshot && <>
@@ -272,41 +280,48 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
         {snapshot.url && <details><summary>Abfrage und Zeitpunkt</summary>
           <p>{snapshot.retrieved_at_utc}</p><code style={{ overflowWrap: 'anywhere' }}>{snapshot.url}</code>
         </details>}
+        <p>{preview.junctionCount} große Kreuzungen in den geprüften Routendaten.
+          {!preview.junctionCount && ' Keine passende aktive Kreuzungsbeziehung geliefert; normale Hinweise bleiben.'}</p>
+        {preview.invalidMetadata && <p role="alert">Kreuzungsmetadaten unvollständig oder ungültig: keine Makro-Vorschau.</p>}
         <Button onClick={download}>Rohantwort herunterladen</Button>
-        <Button disabled={!canSpeak || !rows.length} onClick={() => speak(0, true)}>Alle Hinweise vorlesen</Button>
+        <Button disabled={!canSpeak || !rows.length} onClick={() => speak(0, true)}>RadlNavi: Alle Hinweise vorlesen</Button>
+        <Button disabled={!canSpeak || !rows.some(row => row.appSpeech)} onClick={() => speak(0, true, true)}>App: Alle Hinweise vorlesen</Button>
         <Button disabled={speaking === null} onClick={stop}>Vorlesen stoppen</Button>
         {!canSpeak && <p>Dieser Browser unterstützt das Vorlesen nicht.</p>}
         {!rows.length && <p>Diese Antwort enthält keine Manöver.</p>}
         <ol style={{ paddingLeft: 28 }}>
-          {rows.map((row: any, index: number) => <li key={`${row.legIndex}-${row.stepIndex}`}
+          {rows.map((row: any, index: number) => <li key={row.previewKey || `${row.legIndex}-${row.stepIndex}`}
             style={{ padding: 12, marginBottom: 8, border: '1px solid #ccc', borderRadius: 6,
               background: speaking === index ? '#e3f5ff' : undefined }}>
-            <strong>{row.instruction}</strong>
+            <strong>RadlNavi: {row.instruction}</strong>
+            <p><strong>App:</strong> {row.appInstruction}</p>
+            {row.appDisplay && <p>App-Anzeige: {row.appDisplay}</p>}
+            {row.context && <p>{row.context}</p>}
             <p>Bei {Math.round(row.at)} m ab Start · Abschnitt {row.legIndex + 1} · danach {Math.round(row.step.distance)} m</p>
             <p>Straße: {row.step.name || 'ohne Namen'} · Manöver: <code>{row.step.maneuver?.type} / {row.step.maneuver?.modifier || '—'}</code></p>
-            <label>Wegwechsel-Zusatz für Hinweis {index + 1}{' '}
+            {!row.previewKey && <label>Wegwechsel-Zusatz für Hinweis {index + 1}{' '}
               <select aria-label={`Wegwechsel-Zusatz für Hinweis ${index + 1}`}
                 disabled={row.step.maneuver?.type === 'depart' || row.step.maneuver?.type === 'arrive'}
-                value={wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`] || 'auto'}
+                value={wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`] || 'none'}
                 onChange={event => {
                   stop();
                   const key = `${row.legIndex}-${row.stepIndex}`;
                   const value = event.target.value;
                   setWayTypeOverrides(previous => {
                     const next = { ...previous };
-                    if (value === 'auto') delete next[key];
+                    if (value === 'none') delete next[key];
                     else next[key] = value as WayTypeOverride;
                     return next;
                   });
                 }}>
-                <option value="auto">Automatisch aus Routendaten</option>
                 <option value="cycleway">auf Radweg simulieren</option>
                 <option value="road">auf Straße simulieren</option>
                 <option value="none">Kein Zusatz</option>
               </select>
-            </label>
+            </label>}
             {row.detectedWayType && <span> · OSRM: {row.detectedWayType === 'cycleway' ? 'Radweg' : 'Straße'}</span>}
-            <Button disabled={!canSpeak} onClick={() => speak(index, false)}>Hinweis {index + 1} vorlesen</Button>
+            <Button disabled={!canSpeak || !!row.previewKey} onClick={() => speak(index, false)}>Hinweis {index + 1} vorlesen</Button>
+            <Button disabled={!canSpeak || !row.appSpeech} onClick={() => speak(index, false, true)}>App vorlesen</Button>
             <Button disabled={!row.step.maneuver?.location} onClick={() => {
               stop(); onMap(row.step);
             }}>Hinweis {index + 1} auf Karte</Button>

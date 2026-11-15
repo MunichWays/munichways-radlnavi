@@ -8,6 +8,12 @@ inaktiv. Die Bildfreigabe ist eine
 Geometriefreigabe; zulässige Routen und einzelne Fahrbeziehungen werden danach
 getrennt geprüft.
 
+## Eindeutige Ansagen vor Vollständigkeit
+
+Neue Kreuzungsansagen nur für eindeutige Fahrbeziehungen ergänzen. Wenn dieselbe Links-/Geradeausansage zu mehreren plausiblen Ausgängen führt oder Zweifel bleiben, einzelne Fahrbeziehungen ausschließen und die normalen Abbiegehinweise beibehalten. Teilweise aktivierte Kreuzungen sind ausdrücklich in Ordnung. Technisch korrekte Geometrie und legale Route allein reichen nicht zur Ansagenfreigabe.
+
+Ausschluss mit Entry/Exit und Grund dauerhaft dokumentieren, bei erneuten Prüfungen erhalten und im Runtime-Katalog sowie in der Übersicht kenntlich machen. Beispiel K21: Entry-4 / Entry-3 nach Exit-2 ausgeschlossen, die Beziehungen nach Exit-3 bleiben aktiv.
+
 ## Prüfung durch Thomas
 
 Pro vorbereitetem Bild nur drei Fragen:

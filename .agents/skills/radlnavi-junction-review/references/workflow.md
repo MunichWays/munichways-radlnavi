@@ -14,6 +14,14 @@ All repository paths below are relative to the root.
 - `review-supplemental-sites.json`: original pilots and earlier exclusions, included once in overview totals.
 - Frozen OSM snapshots are evidence. No fresh network call is necessary for offline reproduction.
 
+## Instruction clarity and partial coverage
+
+Thomas explicitly prioritizes unambiguous junction instructions over complete movement coverage. Passing geometry, legality and matching checks does not establish that a spoken macro identifies the intended exit clearly. Compare exits that share the same left/straight classification from each entry. If a rider could reasonably choose another exit, exclude the individual movement and keep ordinary turn-by-turn guidance. Do not assume those ordinary instructions are perfect, but they are the established fallback; a special sequence is not required just to avoid a coverage gap.
+
+Partial activation is acceptable: keep other clear movements active. Preserve each exclusion with its entry/exit labels and reason in decisions, generated proposals and runtime configuration; reproduce it during later checks and make it visible in the overview. Test excluded routes for absence of macro metadata and unchanged ordinary steps.
+
+K21 example: Entry-4 to Exit-2 and Entry-3 to Exit-2 are excluded because the same left/straight macro could lead to Exit-3; the corresponding Exit-3 movements remain enabled.
+
 ## Rules learned from reviewed cases
 
 - K11: two-way cycleways may share entry/exit locations, and an arm can have multiple valid exits. Do not require exactly eight gates. Internal diagonal connections cease to be external gates when the polygon contains their whole connection.

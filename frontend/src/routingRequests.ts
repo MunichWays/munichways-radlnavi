@@ -1,6 +1,6 @@
 /** Reject API errors before they can enter React route state. */
 export async function fetchRoute(url: string, signal: AbortSignal) {
-  const response = await fetch(url, { signal });
+  const response = await fetch(url, { signal, headers: { 'X-Junction-Guidance-Version': '2' } });
   if (!response.ok) {
     throw new Error(`Routing HTTP ${response.status}`);
   }

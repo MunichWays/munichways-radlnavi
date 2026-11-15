@@ -2,6 +2,8 @@ import React from 'react';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RouteInspector, { listSteps, parseCoordinates, withWayType } from './RouteInspector';
+import wilram from './testFixtures/wilram-sequence.json';
+import { appGuidancePreview } from './appGuidancePreview';
 
 const step = (type: string, modifier: string | undefined, distance: number) => ({
   maneuver: { type, modifier, location: [11.52138, 48.145394], bearing_after: 90, bearing_before: 0 },
@@ -39,8 +41,9 @@ test('adds the way-type suffix after the named street and only at known changes'
   const before = JSON.stringify(route);
   const rows = listSteps(route);
   expect(rows[0].detectedWayType).toBeNull();
-  expect(rows[1].instruction).toContain('Bodenstedtstraße, auf Radweg');
-  expect(rows[2].instruction).toContain('auf Straße');
+  expect(rows[1].instruction).toContain('Bodenstedtstraße');
+  expect(rows[1].instruction).not.toContain('auf Radweg');
+  expect(rows[2].detectedWayType).toBe('road');
   expect(rows[3].detectedWayType).toBeNull();
   expect(rows[4].detectedWayType).toBeNull();
   expect(JSON.stringify(route)).toBe(before);
@@ -60,7 +63,7 @@ test('simulates and clears a suffix without changing raw route steps', () => {
   expect(screen.getByText(/Bodenstedtstraße, auf Straße/)).toBeInTheDocument();
   fireEvent.change(select, { target: { value: 'none' } });
   expect(screen.queryByText(/Bodenstedtstraße, auf (Radweg|Straße)/)).not.toBeInTheDocument();
-  fireEvent.change(select, { target: { value: 'auto' } });
+  fireEvent.change(select, { target: { value: 'none' } });
   expect(JSON.stringify(route)).toBe(raw);
 });
 
@@ -69,6 +72,25 @@ test('accepts user coordinate order and rejects missing or invalid coordinates',
   for (const value of ['48,', 'foo, 11', '91, 11', '48, 181', '48, 11, 2']) {
     expect(() => parseCoordinates(value)).toThrow();
   }
+});
+
+test('shows paired raw/app instructions, quiet steps and alternative Wilram guidance', () => {
+  const onMap = jest.fn();
+  const route = wilram.routes[0];
+  const before = JSON.stringify(route);
+  render(<RouteInspector open onClose={jest.fn()} onMap={onMap} route={route} variant="discovery" />);
+  fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
+  expect(screen.queryByRole('option', { name: 'Automatisch aus Routendaten' })).not.toBeInTheDocument();
+  expect(screen.getByText('Variante: Entdeckertour')).toBeInTheDocument();
+  expect(screen.getAllByText(/^RadlNavi:/).length).toBeGreaterThan(1);
+  expect(screen.getAllByText(/Keine Einzelansage/).length).toBeGreaterThan(0);
+  const checkpoint = screen.getByText(/Alternative Anfahrt: Hier geradeaus/);
+  const item = checkpoint.closest('li')!;
+  const mapButton = Array.from(item.querySelectorAll('button')).find(b => b.textContent?.includes('auf Karte'))!;
+  fireEvent.click(mapButton);
+  expect(onMap.mock.calls[0][0].maneuver.location).toEqual(
+    (route.guidance.junctions[0] as any).sequence.checkpoints[0].anchor.location);
+  expect(JSON.stringify(route)).toBe(before);
 });
 
 test('loads raw maneuvers, recovers from request errors and passes exact step to map', async () => {
@@ -86,6 +108,8 @@ test('loads raw maneuvers, recovers from request errors and passes exact step to
     await screen.findByText('continue / left');
     expect(screen.getByText('turn / right')).toBeInTheDocument();
     expect(global.fetch).toHaveBeenLastCalledWith(expect.stringContaining('11.520751,48.145395;11.522572,48.145413'), expect.anything());
+    expect((global.fetch as jest.Mock).mock.calls[1][0]).toContain('junction_guidance=true');
+    expect((global.fetch as jest.Mock).mock.calls[1][1].headers['X-Junction-Guidance-Version']).toBe('2');
     fireEvent.click(screen.getByText('Hinweis 2 auf Karte'));
     expect(onMap).toHaveBeenCalledWith(steps[1]);
     expect(onClose).not.toHaveBeenCalled();
@@ -98,10 +122,10 @@ test('reads simulated instructions in order and stops the sequence on close', ()
   const originalSpeech = window.speechSynthesis;
   const originalUtterance = window.SpeechSynthesisUtterance;
   const spoken: any[] = [];
-  Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: {
+  Object.defineProperty(window, 'speechSynthesis', { configurable: true, writable: true, value: {
     cancel: jest.fn(), speak: (utterance: any) => spoken.push(utterance),
   } });
-  Object.defineProperty(window, 'SpeechSynthesisUtterance', { configurable: true,
+  Object.defineProperty(window, 'SpeechSynthesisUtterance', { configurable: true, writable: true,
     value: class { text: string; constructor(text: string) { this.text = text; } } });
   const props = { onClose: jest.fn(), onMap: jest.fn(), route: { steps, distance: 147.2 }, variant: 'standard' };
   try {
@@ -109,7 +133,7 @@ test('reads simulated instructions in order and stops the sequence on close', ()
     fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
     fireEvent.change(screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 2'),
       { target: { value: 'cycleway' } });
-    fireEvent.click(screen.getByText('Alle Hinweise vorlesen'));
+    fireEvent.click(screen.getByText('RadlNavi: Alle Hinweise vorlesen'));
     expect(spoken).toHaveLength(1);
     act(() => spoken[0].onend());
     expect(spoken[1].text).toMatch(/links/i);
@@ -122,8 +146,42 @@ test('reads simulated instructions in order and stops the sequence on close', ()
     expect(window.speechSynthesis.cancel).toHaveBeenCalled();
     view.unmount();
   } finally {
-    Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: originalSpeech });
-    Object.defineProperty(window, 'SpeechSynthesisUtterance', { configurable: true, value: originalUtterance });
+    if (originalSpeech === undefined) delete (window as any).speechSynthesis;
+    else Object.defineProperty(window, 'speechSynthesis', { configurable: true, writable: true, value: originalSpeech });
+    if (originalUtterance === undefined) delete (window as any).SpeechSynthesisUtterance;
+    else Object.defineProperty(window, 'SpeechSynthesisUtterance', { configurable: true, writable: true, value: originalUtterance });
+  }
+});
+
+test('app playback reads macro and checkpoint speech, skipping quiet raw steps', () => {
+  const originalSpeech = window.speechSynthesis;
+  const originalUtterance = window.SpeechSynthesisUtterance;
+  const spoken: any[] = [];
+  Object.defineProperty(window, 'speechSynthesis', { configurable: true, writable: true, value: {
+    cancel: jest.fn(), speak: (utterance: any) => spoken.push(utterance),
+  } });
+  Object.defineProperty(window, 'SpeechSynthesisUtterance', { configurable: true, writable: true,
+    value: class { text: string; constructor(text: string) { this.text = text; } } });
+  const route = wilram.routes[0];
+  try {
+    render(<RouteInspector open onClose={jest.fn()} onMap={jest.fn()} route={route} variant="standard" />);
+    fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
+    expect(window.speechSynthesis).toBeDefined();
+    expect(screen.getByText('App: Alle Hinweise vorlesen')).toBeEnabled();
+    fireEvent.click(screen.getByText('App: Alle Hinweise vorlesen'));
+    const expected = appGuidancePreview(route, listSteps(route)).rows.filter(r => r.appSpeech).map(r => r.appSpeech);
+    for (let i = 0; i < expected.length; i++) {
+      expect(spoken.map(s => s.text)).toEqual(expected.slice(0, i + 1));
+      expect(spoken[i].text).toBe(expected[i]);
+      act(() => spoken[i].onend());
+    }
+    expect(spoken).toHaveLength(expected.length);
+    expect(spoken.some(s => s.text.includes('Keine Einzelansage'))).toBe(false);
+  } finally {
+    if (originalSpeech === undefined) delete (window as any).speechSynthesis;
+    else Object.defineProperty(window, 'speechSynthesis', { configurable: true, writable: true, value: originalSpeech });
+    if (originalUtterance === undefined) delete (window as any).SpeechSynthesisUtterance;
+    else Object.defineProperty(window, 'SpeechSynthesisUtterance', { configurable: true, writable: true, value: originalUtterance });
   }
 });
 

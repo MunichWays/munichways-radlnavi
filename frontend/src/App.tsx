@@ -692,7 +692,7 @@ function App() {
   const calculateRoute = useCallback(async (startPosition, endPosition, stops, signal: AbortSignal) => {
     try {
       const nextRoute = await fetchRoute(
-        `${process.env.REACT_APP_BACKEND_URL || ''}/route/v1/bike/${[startPosition, ...stops, endPosition].map(p => `${p.lon},${p.lat}`).join(';')}?variant=${routingVariant}&steps=true&overview=full&geometries=geojson&annotations=nodes,distance&alternatives=false&continue_straight=default`,
+        `${process.env.REACT_APP_BACKEND_URL || ''}/route/v1/bike/${[startPosition, ...stops, endPosition].map(p => `${p.lon},${p.lat}`).join(';')}?variant=${routingVariant}&steps=true&overview=full&geometries=geojson&annotations=nodes,distance&alternatives=false&continue_straight=default&junction_guidance=true`,
         signal);
       if (signal.aborted) return;
       setRoute(nextRoute);

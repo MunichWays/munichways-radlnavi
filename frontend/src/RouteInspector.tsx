@@ -1,31 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Button, Paper, Portal, TextField } from '@mui/material';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { Button, Paper, Portal } from '@mui/material';
 // The package ships without TypeScript declarations.
 // @ts-ignore
 import textInstructions from 'osrm-text-instructions';
 import { appGuidancePreview } from './appGuidancePreview';
 
-const examples = [
-  { name: 'Birketweg', start: '48.145395, 11.520751', end: '48.145413, 11.522572' },
-  { name: 'Schrammerstraße', start: '48.139050, 11.576817', end: '48.138800, 11.577644' },
-  { name: 'Waisenhausstraße', start: '48.161527, 11.529508', end: '48.162217, 11.529328' },
-  { name: 'Lenbachplatz', start: '48.140563, 11.568148', end: '48.140709, 11.570143' },
-  { name: 'K19 Romanplatz Nord', start: '48.155764, 11.512648', end: '48.155630, 11.510657' },
-  { name: 'K10 Wilramstraße', start: '48.116295, 11.601662', end: '48.115399, 11.603233' },
-];
-
-export function parseCoordinates(value: string): number[] {
-  const values = value.replaceAll('[', '').replaceAll(']', '').split(',').map(part => part.trim());
-  const [lat, lon] = values.map(Number);
-  if (values.length !== 2 || values.some(part => !part) || !Number.isFinite(lat) ||
-      !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) {
-    throw new Error('Koordinaten bitte als Breite, Länge eingeben, z. B. 48.145395, 11.520751.');
-  }
-  return [lon, lat];
-}
-
 type WayType = 'cycleway' | 'road';
-type WayTypeOverride = WayType | 'none';
 
 function intersectionWayType(intersection: any): WayType | null {
   const classes = intersection?.classes;
@@ -34,13 +14,6 @@ function intersectionWayType(intersection: any): WayType | null {
   const road = classes.includes('road');
   if (cycleway === road) return null;
   return cycleway ? 'cycleway' : 'road';
-}
-
-export function withWayType(instruction: string, wayType: WayType | null): string {
-  if (!wayType) return instruction;
-  const ending = /[.!?]$/.test(instruction) ? instruction.slice(-1) : '';
-  const main = ending ? instruction.slice(0, -1) : instruction;
-  return `${main}, auf ${wayType === 'cycleway' ? 'Radweg' : 'Straße'}${ending}`;
 }
 
 export function listSteps(route: any) {
@@ -74,18 +47,14 @@ type Props = {
   route: any;
   variant: string;
   onMap: (step: any) => void;
-  startPosition?: { lat: string | number; lon: string | number } | null;
-  endPosition?: { lat: string | number; lon: string | number } | null;
 };
 
-export default function RouteInspector({ open, onClose, route, variant, onMap, startPosition, endPosition }: Props) {
-  const [start, setStart] = useState(examples[0].start);
-  const [end, setEnd] = useState(examples[0].end);
-  const [snapshot, setSnapshot] = useState<any>(null);
-  const [wayTypeOverrides, setWayTypeOverrides] = useState<Record<string, WayTypeOverride>>({});
+export default function RouteInspector({ open, onClose, route, variant, onMap }: Props) {
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-  const request = useRef<AbortController | null>(null);
+  const snapshot = useMemo(() => route ? {
+    source: 'Aktuelle Kartenroute', variant, captured_at_utc: new Date().toISOString(),
+    response: route.response || { route },
+  } : null, [route, variant]);
   const panel = useRef<HTMLDivElement | null>(null);
   const drag = useRef<{ x: number; y: number; left: number; top: number } | null>(null);
   const [position, setPosition] = useState({ x: window.innerWidth > 960 ? 380 : 8, y: 16 });
@@ -117,78 +86,19 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
     setSpeaking(null);
   };
   useEffect(() => {
-    if (!open) {
-      request.current?.abort();
-      stopSpeech();
-      setSpeaking(null);
-      setLoading(false);
-    }
-    return () => {
-      request.current?.abort();
-      stopSpeech();
-    };
-  }, [open, stopSpeech]);
-
-  const selectedRoute = snapshot?.response.routes?.[0] || snapshot?.response.route;
-  const rawRows = listSteps(selectedRoute).map((row: any) => {
-    const override = wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`];
-    return override ? { ...row, instruction: withWayType(row.baseInstruction,
-      override === 'none' ? null : override) } : row;
-  });
-  const preview = appGuidancePreview(selectedRoute, rawRows);
-  const rows = preview.rows;
-
-  const calculate = useCallback(async (from: string, to: string) => {
-    request.current?.abort();
     stopSpeech();
     setSpeaking(null);
     setError('');
-    setSnapshot(null);
-    setWayTypeOverrides({});
-    const controller = new AbortController();
-    request.current = controller;
-    try {
-      const coordinates = [parseCoordinates(from), parseCoordinates(to)].map(p => p.join(',')).join(';');
-      const query = new URLSearchParams({ steps: 'true', geometries: 'geojson', overview: 'full',
-        annotations: 'nodes,distance', alternatives: 'false', continue_straight: 'default', variant,
-        junction_guidance: 'true' });
-      const url = `${process.env.REACT_APP_BACKEND_URL || ''}/route/v1/bike/${coordinates}?${query}`;
-      setLoading(true);
-      const response = await fetch(url, { signal: controller.signal,
-        headers: { 'X-Junction-Guidance-Version': '2' } });
-      if (!response.ok) throw new Error(`Die Route konnte nicht geladen werden (HTTP ${response.status}).`);
-      const payload = await response.json();
-      if (payload.code !== 'Ok' || !payload.routes?.[0]?.legs?.length) {
-        throw new Error('RadlNavi hat keine Route mit Manövern geliefert.');
-      }
-      if (!controller.signal.aborted) setSnapshot({ url, variant,
-        retrieved_at_utc: new Date().toISOString(), source: 'OSRM-kompatible RadlNavi-API', response: payload });
-    } catch (failure) {
-      if (!controller.signal.aborted) setError(failure instanceof Error ? failure.message : 'Abruf fehlgeschlagen.');
-    } finally {
-      if (!controller.signal.aborted) setLoading(false);
-    }
-  }, [variant, stopSpeech]);
-
-  const sourceStart = startPosition ? `${startPosition.lat}, ${startPosition.lon}` : '';
-  const sourceEnd = endPosition ? `${endPosition.lat}, ${endPosition.lon}` : '';
+    return stopSpeech;
+  }, [open, route, stopSpeech]);
   useEffect(() => {
-    if (!open) return;
-    setMinimized(false);
-    if (sourceStart || sourceEnd) {
-      setStart(sourceStart);
-      setEnd(sourceEnd);
-    }
-    if (sourceStart && sourceEnd) void calculate(sourceStart, sourceEnd);
-    else if (sourceStart || sourceEnd) {
-      request.current?.abort();
-      stopSpeech();
-      setSpeaking(null);
-      setLoading(false);
-      setSnapshot(null);
-      setError('Bitte Start und Ziel ergänzen.');
-    }
-  }, [open, sourceStart, sourceEnd, calculate, stopSpeech]);
+    if (open) setMinimized(false);
+  }, [open]);
+
+  const selectedRoute = route?.response?.routes?.[0] || route;
+  const rawRows = listSteps(selectedRoute);
+  const preview = appGuidancePreview(selectedRoute, rawRows);
+  const rows = preview.rows;
 
   function speak(index: number, all: boolean, app = false) {
     stop();
@@ -258,28 +168,17 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
         mit geprüften Kreuzungsansagen bei 120/40 m und unterdrückten Einzelhinweisen.
         Normale Manöver sind angenähert; GPS, Startansagen, Versatzfilter, Fahrtverlauf und tatsächlicher
         Sprechzeitpunkt werden nicht vollständig simuliert. Sonderhinweise zeigen mögliche Anfahrtsvarianten.</p>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
-        {examples.map(example => <Button key={example.name} onClick={() => {
-          setStart(example.start); setEnd(example.end);
-        }}>{example.name}</Button>)}
-      </div>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, margin: '16px 0' }}>
-        <TextField label="Start: Breite, Länge" value={start} onChange={e => setStart(e.target.value)} />
-        <TextField label="Ziel: Breite, Länge" value={end} onChange={e => setEnd(e.target.value)} />
-        <Button variant="contained" onClick={() => calculate(start, end)} disabled={loading}>Route prüfen</Button>
-        <Button disabled={!route || loading} onClick={() => {
-          stop(); setError(''); setWayTypeOverrides({}); setSnapshot({ source: 'Aktuelle Kartenroute aus RadlNavi /route', variant,
-            captured_at_utc: new Date().toISOString(), response: { route } });
-        }}>Aktuelle Kartenroute übernehmen</Button>
-      </div>
       <p>Variante: {variant === 'direct' ? 'Direkt' : variant === 'discovery' ? 'Entdeckertour' : 'Standard'}</p>
-      {loading && <p role="status">Route wird geladen …</p>}
       {error && <p role="alert">{error}</p>}
+      <details><summary>Abfrage und Zeitpunkt</summary>
+        <p>Quelle: aktuelle Kartenroute; automatische Aktualisierung nach jeder Neuberechnung.</p>
+        {snapshot && <p>In die Prüfansicht übernommen: {snapshot.captured_at_utc}</p>}
+      </details>
+      <p><a href="/docs/large-junction-analysis/kreuzungspruefung/index.html"
+        target="_blank" rel="noopener noreferrer">Kreuzungsübersicht</a></p>
+      {!snapshot && <p>Bitte zuerst eine Route auf der Karte berechnen.</p>}
       {snapshot && <>
         <p>{Math.round(selectedRoute.distance)} m · {rows.length} Manöver · {snapshot.source}</p>
-        {snapshot.url && <details><summary>Abfrage und Zeitpunkt</summary>
-          <p>{snapshot.retrieved_at_utc}</p><code style={{ overflowWrap: 'anywhere' }}>{snapshot.url}</code>
-        </details>}
         <p>{preview.junctionCount} große Kreuzungen in den geprüften Routendaten.
           {!preview.junctionCount && ' Keine passende aktive Kreuzungsbeziehung geliefert; normale Hinweise bleiben.'}</p>
         {preview.invalidMetadata && <p role="alert">Kreuzungsmetadaten unvollständig oder ungültig: keine Makro-Vorschau.</p>}
@@ -294,32 +193,13 @@ export default function RouteInspector({ open, onClose, route, variant, onMap, s
             style={{ padding: 12, marginBottom: 8, border: '1px solid #ccc', borderRadius: 6,
               background: speaking === index ? '#e3f5ff' : undefined }}>
             <strong>RadlNavi: {row.instruction}</strong>
-            <p><strong>App:</strong> {row.appInstruction}</p>
-            {row.appDisplay && <p>App-Anzeige: {row.appDisplay}</p>}
-            {row.context && <p>{row.context}</p>}
+            <p><strong>{row.appDisplay ? 'App-Anzeige:' : 'App:'}</strong>{' '}
+              {row.appDisplay || row.appInstruction}
+              {row.context && <> · {row.context}</>}
+              {row.appDisplay && row.stepIndex === -1 && <> · Ansage: {row.appInstruction}</>}
+            </p>
             <p>Bei {Math.round(row.at)} m ab Start · Abschnitt {row.legIndex + 1} · danach {Math.round(row.step.distance)} m</p>
             <p>Straße: {row.step.name || 'ohne Namen'} · Manöver: <code>{row.step.maneuver?.type} / {row.step.maneuver?.modifier || '—'}</code></p>
-            {!row.previewKey && <label>Wegwechsel-Zusatz für Hinweis {index + 1}{' '}
-              <select aria-label={`Wegwechsel-Zusatz für Hinweis ${index + 1}`}
-                disabled={row.step.maneuver?.type === 'depart' || row.step.maneuver?.type === 'arrive'}
-                value={wayTypeOverrides[`${row.legIndex}-${row.stepIndex}`] || 'none'}
-                onChange={event => {
-                  stop();
-                  const key = `${row.legIndex}-${row.stepIndex}`;
-                  const value = event.target.value;
-                  setWayTypeOverrides(previous => {
-                    const next = { ...previous };
-                    if (value === 'none') delete next[key];
-                    else next[key] = value as WayTypeOverride;
-                    return next;
-                  });
-                }}>
-                <option value="cycleway">auf Radweg simulieren</option>
-                <option value="road">auf Straße simulieren</option>
-                <option value="none">Kein Zusatz</option>
-              </select>
-            </label>}
-            {row.detectedWayType && <span> · OSRM: {row.detectedWayType === 'cycleway' ? 'Radweg' : 'Straße'}</span>}
             <Button disabled={!canSpeak || !!row.previewKey} onClick={() => speak(index, false)}>Hinweis {index + 1} vorlesen</Button>
             <Button disabled={!canSpeak || !row.appSpeech} onClick={() => speak(index, false, true)}>App vorlesen</Button>
             <Button disabled={!row.step.maneuver?.location} onClick={() => {

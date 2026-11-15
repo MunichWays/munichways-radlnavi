@@ -4,16 +4,16 @@ import wilram from './testFixtures/wilram-sequence.json';
 import k19 from './testFixtures/k19-crossing.json';
 import excluded from './testFixtures/k21-excluded.json';
 
-test('real v1 crossing supplies both advance prompts and suppresses only reviewed steps', () => {
+test('real v1 crossing summarizes advance prompts and suppresses only reviewed steps', () => {
   const route: any = k19.routes[0];
   const original = JSON.stringify(route);
   const result = appGuidancePreview(route, listSteps(route));
   expect(result.junctionCount).toBe(1);
   const prompts = result.rows.filter(r => r.previewKey);
-  expect(prompts).toHaveLength(2);
+  expect(prompts).toHaveLength(1);
   expect(prompts[0].appSpeech).toBe('An der großen Kreuzung geradeaus fahren.');
-  expect(prompts[1].appSpeech).toBe(prompts[0].appSpeech);
-  expect(prompts[1].context).toContain('40 m');
+  expect(prompts[0].appDisplay).toBe('120/40 m große Kreuzung geradeaus');
+  expect(prompts[0].context).toContain('120/40 m');
   const j = route.guidance.junctions[0];
   j.suppressedStepIndices.forEach((i: number) => {
     const row = result.rows.find(r => r.legIndex === j.legIndex && r.stepIndex === i)!;
@@ -28,11 +28,11 @@ test('real Wilram sequence includes planned internal turns and the alternative a
   const route: any = wilram.routes[0];
   const result = appGuidancePreview(route, listSteps(route));
   const prompts = result.rows.filter(r => r.previewKey);
-  expect(prompts).toHaveLength(4);
+  expect(prompts).toHaveLength(3);
   expect(prompts[0].appSpeech).toContain('danach sofort rechts');
-  expect(prompts[2].appSpeech).toBe('Hier rechts.');
-  expect(prompts[2].appInstruction).toContain('Alternative Anfahrt: Hier geradeaus.');
-  expect(prompts[3].appSpeech).toBe('Hier links in Wilramstraße.');
+  expect(prompts[1].appSpeech).toBe('Hier rechts.');
+  expect(prompts[1].appInstruction).toContain('Alternative Anfahrt: Hier geradeaus.');
+  expect(prompts[2].appSpeech).toBe('Hier links in Wilramstraße.');
   expect(prompts.every(r => r.step.maneuver.location.length === 2)).toBe(true);
 });
 
@@ -57,10 +57,10 @@ test.each(['version', 'steps', 'sequence'])('invalid %s metadata falls back with
   expect(result.rows.some(r => r.appInstruction?.includes('innerhalb'))).toBe(false);
 });
 
-test('long approach places the two prompts at entry minus 120 and 40 metres', () => {
+test('long approach shows one summary at the first advance position', () => {
   const route: any = JSON.parse(JSON.stringify(k19.routes[0]));
   route.guidance.junctions[0].entry.distanceAlongRouteMeters = 200;
   route.guidance.junctions[0].exit.distanceAlongRouteMeters = 300;
   const result = appGuidancePreview(route, listSteps(route));
-  expect(result.rows.filter(r => r.previewKey).map(r => r.at)).toEqual([80, 160]);
+  expect(result.rows.filter(r => r.previewKey).map(r => r.at)).toEqual([80]);
 });

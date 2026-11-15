@@ -108,7 +108,7 @@ export function appGuidancePreview(route: any, raw: PreviewRow[]) {
       const next = maneuvers[maneuvers.indexOf(row) + 1];
       const close = next && next.at > row.at && next.at - row.at <= 35;
       speech = `Hier ${action(row, !!close)}${close ? `, danach sofort ${action(next, true)}` : ''}.`;
-      text = speech;
+      text = `60 m / hier ${speech.slice('Hier '.length)}`;
     }
     return { ...row, appInstruction: text, appSpeech: speech };
   });
@@ -125,11 +125,8 @@ export function appGuidancePreview(route: any, raw: PreviewRow[]) {
     };
     const firstAt = Math.max(previousExit, entry - 120);
     const display = j.sequence?.display.de || `große Kreuzung ${j.movement === 'straight' ? 'geradeaus' : 'links'}`;
-    const card = (remaining: number) => `${Math.max(10, Math.round(remaining / 10) * 10)} m ${display}`;
-    add('120', firstAt, j.entry.location, advance, entry - firstAt < 120
-      ? (firstAt === 0 ? 'Bei Routenstart (Kreuzung bereits näher als 120 m)'
-        : 'Nach Verlassen der vorherigen Kreuzung') : '120 m vor Beginn der Kreuzung', undefined, card(entry - firstAt));
-    if (entry - firstAt > 40) add('40', entry - 40, j.entry.location, advance, '40 m vor Beginn der Kreuzung', undefined, card(40));
+    add('advance', firstAt, j.entry.location, advance, '120/40 m vor Beginn der Kreuzung',
+      undefined, `120/40 m ${display}`);
     j.sequence?.checkpoints.forEach((cp: any) => add(cp.id, cp.anchor.distanceAlongRouteMeters,
       cp.anchor.location, cp.instruction.de, 'Interner Sonderhinweis; geplant bis 12 m vor der Stelle, GPS-/richtungsabhängig',
       cp.alignedInstruction?.de));

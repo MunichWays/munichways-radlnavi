@@ -1608,7 +1608,6 @@ function App() {
         <DialogActions><Button onClick={() => setPendingImport(null)}>Abbrechen</Button><Button onClick={applyImport}>Übernehmen</Button></DialogActions>
       </Dialog>
       <RouteInspector open={showRouteInspector} onClose={() => setShowRouteInspector(false)}
-        startPosition={startPosition} endPosition={endPosition}
         route={route} variant={routingVariant} onMap={step => {
           setInspectedStep(step);
           setGpsMode('gps_off');

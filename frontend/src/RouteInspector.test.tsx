@@ -1,7 +1,7 @@
 import React from 'react';
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import RouteInspector, { listSteps, parseCoordinates, withWayType } from './RouteInspector';
+import RouteInspector, { listSteps } from './RouteInspector';
 import wilram from './testFixtures/wilram-sequence.json';
 import { appGuidancePreview } from './appGuidancePreview';
 
@@ -27,9 +27,7 @@ test('preserves close opposite maneuvers and accumulates distances across legs w
   expect(JSON.stringify(route)).toBe(before);
 });
 
-test('adds the way-type suffix after the named street and only at known changes', () => {
-  expect(withWayType('Rechts abbiegen auf Bodenstedtstraße.', 'cycleway'))
-    .toBe('Rechts abbiegen auf Bodenstedtstraße, auf Radweg.');
+test('detects way changes for the app preview without altering raw instructions', () => {
   const route = { legs: [{ steps: [
     { ...step('depart', undefined, 60), intersections: [{ classes: ['road'] }] },
     { ...step('turn', 'right', 60), name: 'Bodenstedtstraße',
@@ -49,37 +47,11 @@ test('adds the way-type suffix after the named street and only at known changes'
   expect(JSON.stringify(route)).toBe(before);
 });
 
-test('simulates and clears a suffix without changing raw route steps', () => {
-  const named = { ...step('turn', 'right', 80), name: 'Bodenstedtstraße' };
-  const route = { steps: [step('depart', undefined, 60), named, step('arrive', undefined, 0)], distance: 140 };
-  const raw = JSON.stringify(route);
-  render(<RouteInspector open onClose={jest.fn()} onMap={jest.fn()} route={route} variant="standard" />);
-  fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
-  expect(screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 1')).toBeDisabled();
-  const select = screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 2');
-  fireEvent.change(select, { target: { value: 'cycleway' } });
-  expect(screen.getByText(/Bodenstedtstraße, auf Radweg/)).toBeInTheDocument();
-  fireEvent.change(select, { target: { value: 'road' } });
-  expect(screen.getByText(/Bodenstedtstraße, auf Straße/)).toBeInTheDocument();
-  fireEvent.change(select, { target: { value: 'none' } });
-  expect(screen.queryByText(/Bodenstedtstraße, auf (Radweg|Straße)/)).not.toBeInTheDocument();
-  fireEvent.change(select, { target: { value: 'none' } });
-  expect(JSON.stringify(route)).toBe(raw);
-});
-
-test('accepts user coordinate order and rejects missing or invalid coordinates', () => {
-  expect(parseCoordinates('[48.145395, 11.520751]')).toEqual([11.520751, 48.145395]);
-  for (const value of ['48,', 'foo, 11', '91, 11', '48, 181', '48, 11, 2']) {
-    expect(() => parseCoordinates(value)).toThrow();
-  }
-});
-
 test('shows paired raw/app instructions, quiet steps and alternative Wilram guidance', () => {
   const onMap = jest.fn();
   const route = wilram.routes[0];
   const before = JSON.stringify(route);
   render(<RouteInspector open onClose={jest.fn()} onMap={onMap} route={route} variant="discovery" />);
-  fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
   expect(screen.queryByRole('option', { name: 'Automatisch aus Routendaten' })).not.toBeInTheDocument();
   expect(screen.getByText('Variante: Entdeckertour')).toBeInTheDocument();
   expect(screen.getAllByText(/^RadlNavi:/).length).toBeGreaterThan(1);
@@ -93,32 +65,24 @@ test('shows paired raw/app instructions, quiet steps and alternative Wilram guid
   expect(JSON.stringify(route)).toBe(before);
 });
 
-test('loads raw maneuvers, recovers from request errors and passes exact step to map', async () => {
-  const originalFetch = global.fetch;
+test('uses the map route immediately and passes its exact step to the map', () => {
   const onMap = jest.fn();
   const onClose = jest.fn();
-  global.fetch = jest.fn()
-    .mockResolvedValueOnce({ ok: false, status: 503 })
-    .mockResolvedValueOnce({ ok: true, json: async () => ({ code: 'Ok', routes: [{ distance: 147.2, legs: [{ steps }] }] }) });
-  try {
-    render(<RouteInspector open onClose={onClose} onMap={onMap} route={null} variant="standard" />);
-    fireEvent.click(screen.getByText('Route prüfen'));
-    expect(await screen.findByRole('alert')).toHaveTextContent('503');
-    fireEvent.click(screen.getByText('Route prüfen'));
-    await screen.findByText('continue / left');
-    expect(screen.getByText('turn / right')).toBeInTheDocument();
-    expect(global.fetch).toHaveBeenLastCalledWith(expect.stringContaining('11.520751,48.145395;11.522572,48.145413'), expect.anything());
-    expect((global.fetch as jest.Mock).mock.calls[1][0]).toContain('junction_guidance=true');
-    expect((global.fetch as jest.Mock).mock.calls[1][1].headers['X-Junction-Guidance-Version']).toBe('2');
-    fireEvent.click(screen.getByText('Hinweis 2 auf Karte'));
-    expect(onMap).toHaveBeenCalledWith(steps[1]);
-    expect(onClose).not.toHaveBeenCalled();
-    expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'false');
-    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
-  } finally { global.fetch = originalFetch; }
+  render(<RouteInspector open onClose={onClose} onMap={onMap}
+    route={{ distance: 147.2, legs: [{ steps }] }} variant="standard" />);
+  expect(screen.getByText('continue / left')).toBeInTheDocument();
+  expect(screen.getByText('turn / right')).toBeInTheDocument();
+  expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
+  expect(screen.queryByText('Aktuelle Kartenroute \u00fcbernehmen')).not.toBeInTheDocument();
+  expect(screen.getByRole('link', { name: 'Kreuzungs\u00fcbersicht' })).toHaveAttribute(
+    'href', '/docs/large-junction-analysis/kreuzungspruefung/index.html');
+  fireEvent.click(screen.getByText('Hinweis 2 auf Karte'));
+  expect(onMap).toHaveBeenCalledWith(steps[1]);
+  expect(onClose).not.toHaveBeenCalled();
+  expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'false');
 });
 
-test('reads simulated instructions in order and stops the sequence on close', () => {
+test('reads instructions in order and stops the old sequence when the map route changes', () => {
   const originalSpeech = window.speechSynthesis;
   const originalUtterance = window.SpeechSynthesisUtterance;
   const spoken: any[] = [];
@@ -130,17 +94,13 @@ test('reads simulated instructions in order and stops the sequence on close', ()
   const props = { onClose: jest.fn(), onMap: jest.fn(), route: { steps, distance: 147.2 }, variant: 'standard' };
   try {
     const view = render(<RouteInspector {...props} open />);
-    fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
-    fireEvent.change(screen.getByLabelText('Wegwechsel-Zusatz für Hinweis 2'),
-      { target: { value: 'cycleway' } });
-    fireEvent.click(screen.getByText('RadlNavi: Alle Hinweise vorlesen'));
+      fireEvent.click(screen.getByText('RadlNavi: Alle Hinweise vorlesen'));
     expect(spoken).toHaveLength(1);
     act(() => spoken[0].onend());
     expect(spoken[1].text).toMatch(/links/i);
-    expect(spoken[1].text).toContain('auf Radweg');
     act(() => spoken[1].onend());
     expect(spoken[2].text).toMatch(/rechts/i);
-    view.rerender(<RouteInspector {...props} open={false} />);
+    view.rerender(<RouteInspector {...props} open route={{ ...props.route, distance: 200 }} />);
     act(() => spoken[2].onend());
     expect(spoken).toHaveLength(3);
     expect(window.speechSynthesis.cancel).toHaveBeenCalled();
@@ -165,8 +125,7 @@ test('app playback reads macro and checkpoint speech, skipping quiet raw steps',
   const route = wilram.routes[0];
   try {
     render(<RouteInspector open onClose={jest.fn()} onMap={jest.fn()} route={route} variant="standard" />);
-    fireEvent.click(screen.getByText('Aktuelle Kartenroute übernehmen'));
-    expect(window.speechSynthesis).toBeDefined();
+      expect(window.speechSynthesis).toBeDefined();
     expect(screen.getByText('App: Alle Hinweise vorlesen')).toBeEnabled();
     fireEvent.click(screen.getByText('App: Alle Hinweise vorlesen'));
     const expected = appGuidancePreview(route, listSteps(route)).rows.filter(r => r.appSpeech).map(r => r.appSpeech);
@@ -185,33 +144,28 @@ test('app playback reads macro and checkpoint speech, skipping quiet raw steps',
   }
 });
 
-test('uses current map endpoints on opening and ignores an older pending response', async () => {
+test('follows map route replacements, removal and reopening without a separate request', () => {
   const originalFetch = global.fetch;
-  let finishOld: (response: any) => void = () => {};
-  global.fetch = jest.fn()
-    .mockImplementationOnce(() => new Promise(resolve => { finishOld = resolve; }))
-    .mockResolvedValueOnce({ ok: true, json: async () => ({ code: 'Ok', routes: [{ distance: 160, legs: [{ steps }] }] }) });
-  const props = { onClose: jest.fn(), onMap: jest.fn(), route: null, variant: 'standard',
-    startPosition: { lat: '48.139050', lon: '11.576817' }, endPosition: { lat: '48.138800', lon: '11.577644' } };
+  global.fetch = jest.fn();
+  const props = { onClose: jest.fn(), onMap: jest.fn(), variant: 'standard' };
+  const first = { distance: 147.2, legs: [{ steps }] };
+  const nextStep = { ...step('turn', 'left', 160), name: 'Neue Beispielstra\u00dfe' };
+  const next = { distance: 160, legs: [{ steps: [nextStep] }] };
   try {
-    const view = render(<RouteInspector {...props} open={false} />);
+    const view = render(<RouteInspector {...props} open route={first} />);
+    expect(screen.getByText(/^147 m .*Manöver/)).toBeInTheDocument();
+    view.rerender(<RouteInspector {...props} open route={next} />);
+    expect(screen.getByText(/^160 m .*Manöver/)).toBeInTheDocument();
+    expect(screen.queryByText('turn / right')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Hinweis 1 auf Karte'));
+    expect(props.onMap).toHaveBeenCalledWith(nextStep);
+    view.rerender(<RouteInspector {...props} open route={null} />);
+    expect(screen.queryByText(/^160 m .*Manöver/)).not.toBeInTheDocument();
+    expect(screen.getByText('Bitte zuerst eine Route auf der Karte berechnen.')).toBeInTheDocument();
+    view.rerender(<RouteInspector {...props} open={false} route={next} />);
+    view.rerender(<RouteInspector {...props} open route={next} />);
+    expect(screen.getByText(/^160 m .*Manöver/)).toBeInTheDocument();
     expect(global.fetch).not.toHaveBeenCalled();
-    view.rerender(<RouteInspector {...props} open />);
-    expect(screen.getByLabelText('Start: Breite, Länge')).toHaveValue('48.139050, 11.576817');
-    expect(screen.getByLabelText('Ziel: Breite, Länge')).toHaveValue('48.138800, 11.577644');
-    expect(global.fetch).toHaveBeenLastCalledWith(expect.stringContaining('11.576817,48.13905;11.577644,48.1388'), expect.anything());
-    const firstSignal = (global.fetch as jest.Mock).mock.calls[0][1].signal;
-    view.rerender(<RouteInspector {...props} open={false} />);
-    expect(firstSignal.aborted).toBe(true);
-    view.rerender(<RouteInspector {...props} open startPosition={{ lat: '48.140563', lon: '11.568148' }}
-      endPosition={{ lat: '48.140709', lon: '11.570143' }} />);
-    await screen.findByText(/160 m · 4 Manöver/);
-    await act(async () => finishOld({ ok: true, json: async () => ({ code: 'Ok', routes: [{ distance: 999, legs: [{ steps }] }] }) }));
-    expect(screen.queryByText(/999 m ·/)).not.toBeInTheDocument();
-    expect(screen.getByLabelText('Start: Breite, Länge')).toHaveValue('48.140563, 11.568148');
-    fireEvent.change(screen.getByLabelText('Start: Breite, Länge'), { target: { value: '48.1, 11.5' } });
-    expect(global.fetch).toHaveBeenCalledTimes(2);
-    view.unmount();
   } finally { global.fetch = originalFetch; }
 });
 
@@ -224,8 +178,8 @@ test('window can be moved with the keyboard and minimized without closing', () =
   expect(parseInt(dialog.style.left, 10)).toBe(previousLeft + 20);
   expect(dialog.style.resize).toBe('both');
   fireEvent.click(screen.getByText('Verkleinern'));
-  expect(screen.getByLabelText('Start: Breite, Länge')).not.toBeVisible();
+  expect(screen.getByText('Bitte zuerst eine Route auf der Karte berechnen.')).not.toBeVisible();
   expect(onClose).not.toHaveBeenCalled();
   fireEvent.click(screen.getByText('Öffnen'));
-  expect(screen.getByLabelText('Start: Breite, Länge')).toBeVisible();
+  expect(screen.getByText('Bitte zuerst eine Route auf der Karte berechnen.')).toBeVisible();
 });

@@ -1,0 +1,445 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1230460572,
+              11253961631,
+              11253961630,
+              11253961632,
+              1241277590,
+              3490636397,
+              1241277595,
+              1241277612,
+              1241277594,
+              340093064,
+              1230460107,
+              11262969676,
+              11262969677,
+              297832828,
+              3844615372,
+              8071854439,
+              1230460425,
+              1230460834
+            ],
+            "distance": [
+              1.798701263,
+              6.263129541,
+              7.573819132,
+              7.953746451,
+              4.724974073,
+              4.280005955,
+              1.422881142,
+              2.850398647,
+              3.976873225,
+              2.546342956,
+              8.256428377,
+              10.77782533,
+              13.20430977,
+              3.829580213,
+              2.017326156,
+              35.65118502,
+              6.696658766
+            ]
+          },
+          "duration": 66,
+          "summary": "Lindwurmstraße",
+          "weight": 113.9,
+          "distance": 123.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    60
+                  ],
+                  "location": [
+                    11.566055,
+                    48.133134
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566055,
+                    48.133134
+                  ],
+                  [
+                    11.566076,
+                    48.133142
+                  ],
+                  [
+                    11.566149,
+                    48.13317
+                  ],
+                  [
+                    11.566238,
+                    48.133203
+                  ],
+                  [
+                    11.566332,
+                    48.133237
+                  ],
+                  [
+                    11.566388,
+                    48.133257
+                  ],
+                  [
+                    11.566438,
+                    48.133276
+                  ],
+                  [
+                    11.566454,
+                    48.133283
+                  ],
+                  [
+                    11.566487,
+                    48.133296
+                  ],
+                  [
+                    11.566534,
+                    48.133313
+                  ],
+                  [
+                    11.566564,
+                    48.133324
+                  ],
+                  [
+                    11.566661,
+                    48.13336
+                  ],
+                  [
+                    11.56679,
+                    48.133404
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 60,
+                "bearing_before": 0,
+                "location": [
+                  11.566055,
+                  48.133134
+                ],
+                "type": "depart"
+              },
+              "name": "Lindwurmstraße",
+              "mode": "cycling",
+              "weight": 98.3,
+              "duration": 52.5,
+              "distance": 62.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    105,
+                    165,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.56679,
+                    48.133404
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.56679,
+                    48.133404
+                  ],
+                  [
+                    11.566962,
+                    48.133375
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 104,
+                "bearing_before": 61,
+                "location": [
+                  11.56679,
+                  48.133404
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 6,
+              "duration": 3.9,
+              "distance": 13.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    285,
+                    330
+                  ],
+                  "location": [
+                    11.566962,
+                    48.133375
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    150,
+                    240
+                  ],
+                  "location": [
+                    11.567009,
+                    48.133389
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566962,
+                    48.133375
+                  ],
+                  [
+                    11.567009,
+                    48.133389
+                  ],
+                  [
+                    11.567034,
+                    48.133396
+                  ],
+                  [
+                    11.567475,
+                    48.133521
+                  ],
+                  [
+                    11.567553,
+                    48.133551
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 64,
+                "bearing_before": 104,
+                "location": [
+                  11.566962,
+                  48.133375
+                ],
+                "modifier": "slight left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 9.6,
+              "duration": 9.6,
+              "distance": 48.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    240
+                  ],
+                  "location": [
+                    11.567553,
+                    48.133551
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567553,
+                    48.133551
+                  ],
+                  [
+                    11.567553,
+                    48.133551
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 60,
+                "location": [
+                  11.567553,
+                  48.133551
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.566055,
+            48.133134
+          ],
+          [
+            11.566076,
+            48.133142
+          ],
+          [
+            11.566149,
+            48.13317
+          ],
+          [
+            11.566238,
+            48.133203
+          ],
+          [
+            11.566332,
+            48.133237
+          ],
+          [
+            11.566388,
+            48.133257
+          ],
+          [
+            11.566438,
+            48.133276
+          ],
+          [
+            11.566454,
+            48.133283
+          ],
+          [
+            11.566487,
+            48.133296
+          ],
+          [
+            11.566534,
+            48.133313
+          ],
+          [
+            11.566564,
+            48.133324
+          ],
+          [
+            11.566661,
+            48.13336
+          ],
+          [
+            11.56679,
+            48.133404
+          ],
+          [
+            11.566962,
+            48.133375
+          ],
+          [
+            11.567009,
+            48.133389
+          ],
+          [
+            11.567034,
+            48.133396
+          ],
+          [
+            11.567475,
+            48.133521
+          ],
+          [
+            11.567553,
+            48.133551
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 113.9,
+      "duration": 66,
+      "distance": 123.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "VTMhgP___38GAAAACwAAAAAAAACCAwAAYUBCQNg75j8AAAAAYl4mQgUAAAAJAAAAAAAAAN4BAAC9AgAA53uwAA503gLne7AADXTeAgAAvwMAAAAA",
+      "location": [
+        11.566055,
+        48.133134
+      ],
+      "name": "Lindwurmstraße",
+      "distance": 0.1111927533
+    },
+    {
+      "hint": "DBcEgP___38NAAAAEgAAAEsAAAAAAAAAB0vWQLrNHkCOrBZCAAAAAA0AAAASAAAASwAAAAAAAAC9AgAAwYGwAK913gLBgbAAr3XeAgQAzwMAAAAA",
+      "location": [
+        11.567553,
+        48.133551
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

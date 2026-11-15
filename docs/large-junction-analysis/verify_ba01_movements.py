@@ -17,6 +17,9 @@ REPORT = ROOT / 'review-batch-04-ba01-routes.json'
 MANIFEST = ROOT / 'review-batch-04-ba01-route-requests.json'
 PROPOSAL = ROOT / 'review-batch-04-ba01-proposed-catalog.json'
 NUMBERS = {23, 25, 28}
+SOURCE = ROOT / 'review-batch-04-ba01-radlring-images/review-data.json'
+SUMMARY = ROOT / 'review-batch-04-ba01-technical.md'
+TITLE = 'K23, K25, K28'
 
 
 def read(path):
@@ -38,10 +41,10 @@ def configure(sites):
 
 
 def run(collect=False):
-    sites = [s for s in read(ROOT / 'review-batch-04-ba01-radlring-images/review-data.json')['sites']
+    sites = [s for s in read(SOURCE)['sites']
              if s['number'] in NUMBERS]
-    if len(sites) != 3 or any(not s['polygonApproved'] for s in sites):
-        raise ValueError('Exact human geometry approval required for all three sites')
+    if len(sites) != len(NUMBERS) or any(not s['polygonApproved'] for s in sites):
+        raise ValueError('Exact human geometry approval required for all selected sites')
     configure(sites)
     FIXTURES.mkdir(exist_ok=True)
     manifest = read(MANIFEST) if MANIFEST.exists() else {}
@@ -54,11 +57,11 @@ def run(collect=False):
         topology = check.arm_topology(site)
         topology['review']['evidence'] = (
             f'Thomas approved K{site["number"]} v{site["version"]}; clockwise gate membership '
-            'in review-batch-04-ba01-radlring-drafts.json; verified Standard routes.')
+            f'in {SOURCE.parent.name}; verified Standard routes.')
         candidate = dict(id=site['id'], name=site['name'], enabled=False,
             polygon={'type': 'Polygon', 'coordinates': [site['polygon']]},
             armTopology=topology, movements=[], review=dict(status='approved', date='2026-11-15',
-            evidence=f'Thomas approved K{site["number"]} v{site["version"]}; review-batch-04-ba01-routes.json'))
+            evidence=f'Thomas approved K{site["number"]} v{site["version"]}; {REPORT.name}'))
         record = dict(id=site['id'], number=site['number'], geometryRevision=site['version'],
             status='complete', fixtureDirectory='batch-04', classificationBasis='reviewed-arm-order',
             logicalArms=site['proposedLogicalArms'], gateEvidence=samples, movements=tasks)
@@ -84,7 +87,7 @@ def run(collect=False):
                     if movement:
                         movement['review'] = dict(status='approved', date='2026-11-15',
                             evidence=f'Thomas approved K{site["number"]} v{site["version"]}; '
-                            f'legal directed frozen OSM corridor, batch-04/{item["fixture"]}; '
+                            f'legal directed frozen OSM corridor, {FIXTURES.name}/{item["fixture"]}; '
                             'unchanged Standard response passes production matching.')
                         candidate['movements'].append(movement)
                 except Exception as error:
@@ -101,7 +104,7 @@ def run(collect=False):
         records.append(record)
         write(MANIFEST, manifest)
         write(REPORT, dict(version=1, status='in_progress', runtimeModified=False, junctions=records))
-    proposal = dict(base, version='munich-big-junctions-v10', junctions=base['junctions']+candidates)
+    proposal = dict(base, junctions=base['junctions']+candidates)
     check.validate_catalog(proposal)
     positive = right = walking = 0
     with patch('src.big_junctions.catalog', return_value=proposal):
@@ -135,7 +138,7 @@ def run(collect=False):
         runtimeModified=False, junctions=records, fullCatalogChecks=dict(
             positive=positive, rightTurnControls=right, walkingControls=walking))
     write(REPORT, report)
-    lines = ['# BA01 · Technische Prüfung K23, K25, K28', '',
+    lines = ['# BA01 · Technische Prüfung '+TITLE, '',
         'Echte Standardrouten, unveränderte freigegebene Flächen, gerichtete OSM-Korridore und '
         'Laufzeitprüfung. Aktivierungs-/Live-Stand siehe zentrale Übersicht.', '',
         '| Fall | Links/geradeaus bestanden | Rechtskontrollen |', '| --- | --- | --- |']
@@ -152,7 +155,7 @@ def run(collect=False):
                 lines.append(f'- K{record["number"]} {item["entryLabel"]} → {item["exitLabel"]}: {item.get("reason", "offen")}')
     if all(item.get('verified') for record in records for item in record['movements']):
         lines.append('Keine; alle geprüften Beziehungen bestanden.')
-    (ROOT / 'review-batch-04-ba01-technical.md').write_text('\n'.join(lines)+'\n', encoding='utf-8')
+    SUMMARY.write_text('\n'.join(lines)+'\n', encoding='utf-8')
     print(f'Proposal: {positive} active movements; {right} right controls; {walking} walking controls. Runtime unchanged.')
 
 

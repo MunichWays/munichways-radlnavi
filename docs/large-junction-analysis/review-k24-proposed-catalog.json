@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "munich-big-junctions-v10",
+  "version": "munich-big-junctions-v11",
   "junctions": [
     {
       "id": "arnulf-steuben",
@@ -22591,7 +22591,7 @@
         "review": {
           "status": "approved",
           "date": "2026-11-15",
-          "evidence": "K24 draft clockwise arm membership; target-side semantics explicitly clarified by Thomas."
+          "evidence": "Human-reviewed clockwise arm membership; only left-side against-traffic exits use special templates."
         }
       },
       "movements": [
@@ -22674,7 +22674,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -22756,7 +22756,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -22850,7 +22850,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           },
           "instructionTemplate": "two-way-straight-opposite",
           "targetCyclingSide": "left-against-traffic",
@@ -22959,7 +22959,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23053,7 +23053,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           },
           "instructionTemplate": "two-way-straight-opposite",
           "targetCyclingSide": "left-against-traffic",
@@ -23142,7 +23142,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23224,7 +23224,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           },
           "instructionTemplate": "two-way-left-near",
           "targetCyclingSide": "left-against-traffic",
@@ -23321,7 +23321,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23399,7 +23399,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23493,7 +23493,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23599,7 +23599,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           },
           "instructionTemplate": "two-way-straight-opposite",
           "targetCyclingSide": "left-against-traffic",
@@ -23700,7 +23700,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23802,7 +23802,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         },
         {
@@ -23872,7 +23872,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           },
           "instructionTemplate": "two-way-left-near",
           "targetCyclingSide": "left-against-traffic",
@@ -23949,14 +23949,14 @@
           "review": {
             "status": "approved",
             "date": "2026-11-15",
-            "evidence": "Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation."
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
           }
         }
       ],
       "review": {
         "status": "approved",
         "date": "2026-11-15",
-        "evidence": "Technical test proposal only; geometry/activation approval pending."
+        "evidence": "Human geometry and activation approval by Thomas; 15 directed Standard routes verified."
       }
     }
   ],
@@ -24091,6 +24091,6 @@
       "id": "blumen-papa-schmid"
     }
   ],
-  "activationApproved": false,
-  "scope": "K24 technical test proposal only; human geometry/activation approval pending"
+  "activationApproved": true,
+  "scope": "K24 approved activation; runtime catalog maintained separately"
 }

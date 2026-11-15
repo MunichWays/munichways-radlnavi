@@ -2,12 +2,12 @@
 
 [Galerie](index.html) · [Kontaktübersicht](overview.png)
 
-Altstadt-Radlring: 3 geometrisch bestätigt, 1 Entwürfe offen, 3 dauerhaft ausgeschlossen/zurückgestellt. Aktivierungs-/Live-Stand siehe Gesamtübersicht. Bitte Umfang, Radwegseite, Pfeile und fehlende Anschlüsse prüfen. Querungen und Warteflächen gehören hinein, benachbarte Einmündungen bleiben draußen. Strecken müssen noch nicht abgefahren werden. Gemeinsame Zweirichtungspunkte sind zulässig; Entry/Exit gleicher Nummer bilden kein Paar. Fahrbahnpunkte liegen auf der OSM-Mittellinie, nicht auf einer vermessenen Radfahrstreifenkante.
+Altstadt-Radlring: 4 geometrisch bestätigt, 0 Entwürfe offen, 3 dauerhaft ausgeschlossen/zurückgestellt. Aktivierungs-/Live-Stand siehe Gesamtübersicht. Bitte Umfang, Radwegseite, Pfeile und fehlende Anschlüsse prüfen. Querungen und Warteflächen gehören hinein, benachbarte Einmündungen bleiben draußen. Strecken müssen noch nicht abgefahren werden. Gemeinsame Zweirichtungspunkte sind zulässig; Entry/Exit gleicher Nummer bilden kein Paar. Fahrbahnpunkte liegen auf der OSM-Mittellinie, nicht auf einer vermessenen Radfahrstreifenkante.
 
 | Fall | Kreuzung | Punkte |
 | --- | --- | --- |
 | K23 v1 | [Ludwigstraße / Von-der-Tann-Straße / Oskar-von-Miller-Ring](../kreuzungspruefung/1-bestaetigt/K23-ludwig-tann.png) | 8 |
-| K24 v1 | [Maximilianstraße / Karl-Scharnagl-Ring / Thomas-Wimmer-Ring](../kreuzungspruefung/2-offen/K24-maximilian-ring.png) | 11 |
+| K24 v1 | [Maximilianstraße / Karl-Scharnagl-Ring / Thomas-Wimmer-Ring](../kreuzungspruefung/1-bestaetigt/K24-maximilian-ring.png) | 11 |
 | K25 v1 | [Brienner Straße / Maximiliansplatz / Oskar-von-Miller-Ring](../kreuzungspruefung/1-bestaetigt/K25-maximilians-brienner.png) | 8 |
 | K26 v2 | [Sonnenstraße / Schwanthalerstraße](../kreuzungspruefung/3-ausgeschlossen/K26-sonnen-schwanthaler.png) | 7 |
 | K27 v2 | [Sonnenstraße / Landwehrstraße / Josephspitalstraße](../kreuzungspruefung/3-ausgeschlossen/K27-sonnen-landwehr.png) | 9 |

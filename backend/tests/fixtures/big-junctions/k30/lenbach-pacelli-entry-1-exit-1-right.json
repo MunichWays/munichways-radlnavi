@@ -1,0 +1,312 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              19471658,
+              637837435,
+              1239217052,
+              1239216991,
+              1230460308,
+              1230460803,
+              2489934099,
+              11047655804
+            ],
+            "distance": [
+              55.52517767,
+              5.701191387,
+              14.81506833,
+              14.66522364,
+              16.20993679,
+              12.04913103,
+              47.6773443
+            ]
+          },
+          "duration": 61.5,
+          "summary": "Lenbachplatz, Maximiliansplatz",
+          "weight": 129.6,
+          "distance": 166.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    284
+                  ],
+                  "location": [
+                    11.57047,
+                    48.140658
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    105,
+                    285,
+                    315
+                  ],
+                  "location": [
+                    11.569746,
+                    48.140778
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.57047,
+                    48.140658
+                  ],
+                  [
+                    11.569746,
+                    48.140778
+                  ],
+                  [
+                    11.569685,
+                    48.140809
+                  ],
+                  [
+                    11.569533,
+                    48.140895
+                  ],
+                  [
+                    11.569372,
+                    48.140971
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 284,
+                "bearing_before": 0,
+                "location": [
+                  11.57047,
+                  48.140658
+                ],
+                "type": "depart"
+              },
+              "name": "Pacellistraße",
+              "mode": "cycling",
+              "weight": 114.5,
+              "duration": 46.4,
+              "distance": 90.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    135,
+                    240,
+                    300
+                  ],
+                  "location": [
+                    11.569372,
+                    48.140971
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.569563,
+                    48.141041
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.569372,
+                    48.140971
+                  ],
+                  [
+                    11.569563,
+                    48.141041
+                  ],
+                  [
+                    11.569705,
+                    48.141093
+                  ],
+                  [
+                    11.570289,
+                    48.141269
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 60,
+                "bearing_before": 306,
+                "location": [
+                  11.569372,
+                  48.140971
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Lenbachplatz",
+              "mode": "cycling",
+              "weight": 15.1,
+              "duration": 15.1,
+              "distance": 75.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    246
+                  ],
+                  "location": [
+                    11.570289,
+                    48.141269
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.570289,
+                    48.141269
+                  ],
+                  [
+                    11.570289,
+                    48.141269
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 66,
+                "location": [
+                  11.570289,
+                  48.141269
+                ],
+                "type": "arrive"
+              },
+              "name": "Maximiliansplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.57047,
+            48.140658
+          ],
+          [
+            11.569746,
+            48.140778
+          ],
+          [
+            11.569685,
+            48.140809
+          ],
+          [
+            11.569533,
+            48.140895
+          ],
+          [
+            11.569372,
+            48.140971
+          ],
+          [
+            11.569563,
+            48.141041
+          ],
+          [
+            11.569705,
+            48.141093
+          ],
+          [
+            11.570289,
+            48.141269
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 129.6,
+      "duration": 61.5,
+      "distance": 166.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "RQ0EgGwNBIAkAAAAkQEAAAAAAAAAAAAAu1akQMgZXkIAAAAAAAAAAAkAAABkAAAAAAAAAAAAAAC9AgAAJo2wAHKR3gImjbAAcpHeAgAAvxEAAAAA",
+      "location": [
+        11.57047,
+        48.140658
+      ],
+      "name": "Pacellistraße",
+      "distance": 0
+    },
+    {
+      "hint": "Sg0EgP___39fAAAAaAAAABgAAACZAAAAmrU-QgZViEA-yUBBQiWZQl8AAABoAAAAGAAAAJkAAAC9AgAAcYywANWT3gJwjLAA1pPeAgIAHwQAAAAA",
+      "location": [
+        11.570289,
+        48.141269
+      ],
+      "name": "Maximiliansplatz",
+      "distance": 0.1338128244
+    }
+  ]
+}

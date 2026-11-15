@@ -35,7 +35,7 @@ class BA01ReviewTests(unittest.TestCase):
         self.assertEqual([s['number'] for s in self.sites], list(range(23, 30)))
         for site in self.sites:
             self.assertFalse(site['enabled'])
-            approved = site['number'] in (23, 25, 28)
+            approved = site['number'] in (23, 24, 25, 28)
             self.assertEqual(site['polygonApproved'], approved)
             self.assertEqual(site['status'], 'geometry-approved' if approved else
                              'permanently-excluded' if site['number'] in (26, 27, 29) else 'geometry-draft')

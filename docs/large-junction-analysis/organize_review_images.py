@@ -12,7 +12,8 @@ OUT = ROOT / "kreuzungspruefung"
 GROUPS = {"1-bestaetigt": "1. Bestätigt", "2-offen": "2. Offen", "3-ausgeschlossen": "3. Ausgeschlossen"}
 BATCHES = [ROOT / "review-batch-01-images", ROOT / "review-batch-02-ba09-images",
            ROOT / "review-batch-03-ba09-remaining-images",
-           ROOT / "review-batch-04-ba01-radlring-images"]
+           ROOT / "review-batch-04-ba01-radlring-images",
+           ROOT / "review-batch-05-ba01-remaining-images"]
 
 
 def add_supplemental_sites(groups, catalog, records):
@@ -54,7 +55,7 @@ def main():
     field_tests = json.loads((ROOT / 'review-field-tests.json').read_text(encoding='utf-8'))['tests']
     technical = {}
     for filename in ("review-batch-02-ba09-routes.json", "review-batch-03-ba09-routes.json",
-                     "review-batch-04-ba01-routes.json"):
+                     "review-batch-04-ba01-routes.json", "review-batch-05-k33-routes.json"):
         path = ROOT / filename
         if path.exists():
             technical.update({s["id"]: s for s in json.loads(path.read_text(encoding="utf-8"))["junctions"]})
@@ -112,6 +113,8 @@ def main():
     remaining_gallery = ROOT / 'review-batch-03-ba09-remaining-images/index.html'
     if remaining_gallery.exists():
         index.append('<p><a href="../review-batch-03-ba09-remaining-images/index.html"><b>BA09-Prüfrunde K18–K22: aktueller Prüfstand</b></a></p>')
+    if (ROOT / 'review-batch-05-ba01-remaining-images/index.html').exists():
+        index.append('<p><a href="../review-batch-05-ba01-remaining-images/index.html"><b>BA01 · Weitere Kreuzungen · K30–K33: Bildprüfung und Freigabestand</b></a></p>')
     if (ROOT / 'review-batch-04-ba01-radlring-images/index.html').exists():
         index.append('<p><a href="../review-batch-04-ba01-radlring-images/index.html"><b>BA01 · Altstadt-Radlring · K23–K29: Prüf- und Aktivierungsstand</b></a></p>')
     total = sum(m.get('enabled', False) for j in prepared['junctions'] if j.get('enabled') for m in j['movements'])
@@ -152,8 +155,8 @@ def main():
                 blocked = [m for m in record.get('movements', []) if m['kind'] != 'right' and not m.get('enabled')]
                 if blocked:
                     labels = ' / '.join(f'{m["entryLabel"]} → {m["exitLabel"]}' for m in blocked)
-                    blocked_notice = '<p style="color:#b71c1c;background:#fffa63;padding:8px"><b>'+html.escape(
-                        f'GESPERRT: {labels}. Keine große-Kreuzung-Ansage; Standardhinweise bleiben.')+'</b></p>'
+                    blocked_notice = '<p style="color:#616161;font-size:0.9em">'+html.escape(
+                        f'Ohne Kreuzungsansage: {labels}. Standardhinweise bleiben.')+'</p>'
                 items = []
                 for movement in record.get('movements', []):
                     if movement['kind'] == 'right':
@@ -182,7 +185,7 @@ def main():
             else:
                 change_note = '<small>'+html.escape(site['note'])+'</small>' if site['status'] in {'geometry-draft', 'permanently-excluded'} or site.get('review', {}).get('pendingChange') else ''
                 index.append(f'<tr><td><a href="{group}/{name}.png">{label}</a>{change_note}</td><td>{html.escape(phase["technical"])}{field_note}{branch_note}{blocked_notice}{details}</td><td>{badge}</td></tr>')
-                gallery_notice = blocked_notice.replace('color:#b71c1c;background:#fffa63', 'color:#fffa63;background:#ffebee')
+                gallery_notice = blocked_notice
                 cards.append(f'<article><h2>{label}</h2><p>{badge}<small>{html.escape(phase["technical"])}</small>{field_note}{branch_note}</p>{gallery_notice}<p>{html.escape(site["note"])}</p><a href="{name}.png"><img src="{name}.svg" alt="{label}"></a><p><a href="{name}.png">PNG öffnen</a></p></article>')
         index.append('</table>')
         (OUT / group / "index.html").write_text('<!doctype html><html lang="de"><meta charset="utf-8">'+style+f'<h1>{title}</h1><p><a href="../index.html">Alle Ordner</a></p><main>'+''.join(cards)+'</main></html>', encoding="utf-8")

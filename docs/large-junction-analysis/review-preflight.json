@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 25,
+  "referenceCasesChecked": 30,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -810,7 +810,7 @@
       "id": "maximilian-ring",
       "number": 24,
       "revision": 1,
-      "status": "geometry-draft",
+      "status": "geometry-approved",
       "geometrySha256": "79e653495f5e9a2f787c42558603989fbe134e20150175f5a036adae34b7e113",
       "entries": 5,
       "exits": 6,
@@ -969,6 +969,107 @@
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
       "reviewQuestion": "Dauerhaft zurückgestellt: Drei große Kreuzungen folgen dicht aufeinander. Normale Ansagen bleiben; einzelne Fahrbeziehungen erst bei konkret festgestellten Praxisproblemen erneut prüfen.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lenbach-pacelli",
+      "number": 30,
+      "revision": 3,
+      "status": "geometry-approved",
+      "geometrySha256": "eaa0f5127c4eb8c0bb8da244f7fe00fe3635e24f91481b9f2184d92c5405cb6c",
+      "entries": 3,
+      "exits": 3,
+      "sharedGates": [
+        "Entry-1",
+        "Exit-2"
+      ],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-2"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Geometrie v3 bestätigt; drei Fahrbeziehungen technisch bestanden und im Branch aktiviert. Entry-4 nach Exit-3 ohne Kreuzungsansage (geradeaus ohne Ampel). Ottostraße und Exit-5 bleiben ausgeschlossen. Interner Radweganschluss zur Pacellistraße durch aktuellen OSM-Beleg geprüft; Fläche und Punkte unverändert.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "maximilians-max-joseph",
+      "number": 31,
+      "revision": 1,
+      "status": "permanently-excluded",
+      "geometrySha256": "314369c993a80e3dafb85dd6487a1b3f4d47a2a859fdf9b3194d7c0775661fc7",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-3",
+        "Exit-2",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-2",
+        "Entry-3",
+        "Exit-4"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Dauerhaft ausgeschlossen: Keine zusammenhängende Kreuzung, sondern getrennte einzelne Fahrbeziehungen. Normale Ansagen bleiben.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "ring-hofgarten-christoph",
+      "number": 32,
+      "revision": 1,
+      "status": "permanently-excluded",
+      "geometrySha256": "eaf9f76a994b15b4b6d1916799edb49e6371112c4f13cd4f3de8530292bb88a7",
+      "entries": 6,
+      "exits": 6,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-2",
+        "Entry-3",
+        "Entry-4",
+        "Entry-5",
+        "Entry-6",
+        "Exit-1",
+        "Exit-2",
+        "Exit-3",
+        "Exit-4",
+        "Exit-5",
+        "Exit-6"
+      ],
+      "carriagewayGates": [
+        "Entry-2",
+        "Exit-2",
+        "Entry-5",
+        "Exit-5"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Dauerhaft ausgeschlossen: Komplexe Fahrbeziehungen mit vielen Zweirichtungsradwegen und zwei Wegemöglichkeiten in der Hofgartenstraße. Im v1-Bild fehlt der Entry von Norden aus Richtung Staatskanzlei; keine vollständige Geometrie. Normale Ansagen bleiben.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "sendlinger-tor",
+      "number": 33,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "ac7b6eeb697b22896f7b108167e7ce4a70a415a3ea51c92bfd75704611b6610e",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [
+        "Entry-2",
+        "Entry-3"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Geometrie v2 von Thomas bestätigt. Acht Links-/Geradeausbeziehungen technisch bestanden und aktiviert; Rechtsabbiegungen behalten Standardhinweise. Entry-3 und Exit-3 unverändert, übrige Punkte näher an der Kreuzung. Nußbaumstraße, Pettenkoferstraße und östlicher Platzbereich bleiben außerhalb.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     }
   ],

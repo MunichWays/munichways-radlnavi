@@ -210,6 +210,22 @@
           "Entry-4",
           "Exit-5"
         ]
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "reviewer": "Thomas",
+        "date": "2026-11-15",
+        "evidence": "Explicit human approval and activation of K24 with reviewed left-side against-traffic templates.",
+        "geometrySha256": "79e653495f5e9a2f787c42558603989fbe134e20150175f5a036adae34b7e113",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "reviewer": "Thomas",
+          "technicalReport": "review-k24-v1-draft-technical.json",
+          "activeMovements": 15,
+          "backendVersion": "2.4.13",
+          "evidence": "15 directed Standard routes verified; 7 right-turn controls excluded; activation explicitly authorized."
+        }
       }
     },
     {

@@ -1,0 +1,401 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              283000398,
+              11049691534,
+              11062411594,
+              11062411592,
+              11049691533,
+              2489934210,
+              11049691532,
+              1635744302,
+              1635744283,
+              11049691538,
+              11049691537,
+              11049691536,
+              11049691535,
+              1230460211,
+              1230460533
+            ],
+            "distance": [
+              7.341919626,
+              8.166394281,
+              2.062780223,
+              4.335970512,
+              3.969919119,
+              2.967878742,
+              34.01163877,
+              29.41325499,
+              5.202062481,
+              5.5729847,
+              26.23789349,
+              6.511954879,
+              6.986744981,
+              7.721699715
+            ]
+          },
+          "duration": 30.2,
+          "summary": "Maximiliansplatz, Lenbachplatz",
+          "weight": 32.4,
+          "distance": 150.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    246
+                  ],
+                  "location": [
+                    11.569476,
+                    48.14182
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.569288,
+                    48.14176
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.569476,
+                    48.14182
+                  ],
+                  [
+                    11.569386,
+                    48.141793
+                  ],
+                  [
+                    11.569288,
+                    48.14176
+                  ],
+                  [
+                    11.569263,
+                    48.141752
+                  ],
+                  [
+                    11.569213,
+                    48.141732
+                  ],
+                  [
+                    11.569171,
+                    48.14171
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 246,
+                "bearing_before": 0,
+                "location": [
+                  11.569476,
+                  48.14182
+                ],
+                "type": "depart"
+              },
+              "name": "Maximiliansplatz",
+              "mode": "cycling",
+              "weight": 5.7,
+              "duration": 5.4,
+              "distance": 25.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.569171,
+                    48.14171
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225
+                  ],
+                  "location": [
+                    11.568847,
+                    48.141458
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225
+                  ],
+                  "location": [
+                    11.568585,
+                    48.14126
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.569171,
+                    48.14171
+                  ],
+                  [
+                    11.569143,
+                    48.141691
+                  ],
+                  [
+                    11.568847,
+                    48.141458
+                  ],
+                  [
+                    11.568585,
+                    48.14126
+                  ],
+                  [
+                    11.568537,
+                    48.141226
+                  ],
+                  [
+                    11.568473,
+                    48.1412
+                  ],
+                  [
+                    11.568224,
+                    48.141033
+                  ],
+                  [
+                    11.568181,
+                    48.140982
+                  ],
+                  [
+                    11.568114,
+                    48.140938
+                  ],
+                  [
+                    11.568035,
+                    48.140893
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 220,
+                "bearing_before": 236,
+                "location": [
+                  11.569171,
+                  48.14171
+                ],
+                "modifier": "straight",
+                "type": "new name"
+              },
+              "name": "Lenbachplatz",
+              "mode": "cycling",
+              "weight": 26.7,
+              "duration": 24.8,
+              "distance": 124.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    50
+                  ],
+                  "location": [
+                    11.568035,
+                    48.140893
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.568035,
+                    48.140893
+                  ],
+                  [
+                    11.568035,
+                    48.140893
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 230,
+                "location": [
+                  11.568035,
+                  48.140893
+                ],
+                "type": "arrive"
+              },
+              "name": "Lenbachplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.569476,
+            48.14182
+          ],
+          [
+            11.569386,
+            48.141793
+          ],
+          [
+            11.569288,
+            48.14176
+          ],
+          [
+            11.569263,
+            48.141752
+          ],
+          [
+            11.569213,
+            48.141732
+          ],
+          [
+            11.569171,
+            48.14171
+          ],
+          [
+            11.569143,
+            48.141691
+          ],
+          [
+            11.568847,
+            48.141458
+          ],
+          [
+            11.568585,
+            48.14126
+          ],
+          [
+            11.568537,
+            48.141226
+          ],
+          [
+            11.568473,
+            48.1412
+          ],
+          [
+            11.568224,
+            48.141033
+          ],
+          [
+            11.568181,
+            48.140982
+          ],
+          [
+            11.568114,
+            48.140938
+          ],
+          [
+            11.568035,
+            48.140893
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 32.4,
+      "duration": 30.2,
+      "distance": 150.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "dVshgP___38iAAAAMQAAAAAAAAAQAAAAUmqJQQHx6kAAAAAAjakCQSIAAAAxAAAAAAAAABAAAAC9AgAARImwAPyV3gJEibAA_JXeAgAAXw8AAAAA",
+      "location": [
+        11.569476,
+        48.14182
+      ],
+      "name": "Maximiliansplatz",
+      "distance": 0
+    },
+    {
+      "hint": "4PIggP___38iAAAAnQAAAGQAAAAAAAAAKhj3QGdE3EHrC0pCAAAAAA8AAABHAAAAZAAAAAAAAAC9AgAAo4OwAF2S3gKjg7AAXZLeAgoAXw4AAAAA",
+      "location": [
+        11.568035,
+        48.140893
+      ],
+      "name": "Lenbachplatz",
+      "distance": 0
+    }
+  ]
+}

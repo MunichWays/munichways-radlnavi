@@ -5,7 +5,7 @@ from pathlib import Path
 import unittest
 from unittest.mock import patch
 
-from src.big_junctions import add_guidance, validate_catalog
+from src.big_junctions import add_guidance, validate_catalog, catalog
 from starlette.requests import Request
 from test_big_junctions import app, response_for, OPTIONS
 
@@ -19,6 +19,14 @@ def proposal():
 
 
 class JunctionInstructionTests(unittest.TestCase):
+    def test_approved_k24_is_enabled_in_runtime_catalog(self):
+        actual = next(j for j in catalog()['junctions'] if j['id'] == 'maximilian-ring')
+        expected = next(j for j in proposal()['junctions'] if j['id'] == actual['id'])
+        self.assertEqual(actual, expected)
+        self.assertTrue(actual['enabled'])
+        self.assertEqual(len(actual['movements']), 15)
+        self.assertEqual(sum(bool(m.get('instructionTemplate')) for m in actual['movements']), 5)
+
     def test_real_k24_routes_templates_and_legacy_fallback(self):
         data = proposal()
         validate_catalog(data)

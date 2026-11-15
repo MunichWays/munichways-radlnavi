@@ -55,6 +55,12 @@ def prepare(record, ways):
         if lane:
             gate['laneEvidence'] = lane
         gate['positionBasis'] = 'OSM carriageway centerline; lateral lane position unverified'
+    excluded = record.get('excludedGateDirections', {})
+    site['gates'] = [g for g in site['gates'] if g['kind'] not in excluded.get(str(g['osmWayId']), [])]
+    for gate in site['gates']:
+        if str(gate['osmWayId']) in excluded:
+            gate['shared'] = False
+            gate['scopeNote'] = 'Opposite exit excluded by Thomas; legal OSM cycling directions unchanged.'
     if site['status'] == 'geometry-approved':
         from review_preflight import fingerprint
         if fingerprint(site) != site['review'].get('geometrySha256'):

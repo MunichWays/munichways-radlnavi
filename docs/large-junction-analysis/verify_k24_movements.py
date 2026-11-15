@@ -1,4 +1,4 @@
-"""Technical K24 draft with agreed left-side templates; never activates runtime data."""
+"""Verify approved K24 with agreed left-side templates; never writes runtime data."""
 import argparse
 from concurrent.futures import ThreadPoolExecutor
 from copy import deepcopy
@@ -46,8 +46,8 @@ def run(collect=False):
         polygon={'type': 'Polygon', 'coordinates': [site['polygon']]},
         armTopology=check.arm_topology(site), movements=[],
         review=dict(status='approved', date='2026-11-15',
-                    evidence='Technical test proposal only; geometry/activation approval pending.'))
-    candidate['armTopology']['review']['evidence'] = 'K24 draft clockwise arm membership; target-side semantics explicitly clarified by Thomas.'
+                    evidence='Human geometry and activation approval by Thomas; 15 directed Standard routes verified.'))
+    candidate['armTopology']['review']['evidence'] = 'Human-reviewed clockwise arm membership; only left-side against-traffic exits use special templates.'
     manifest = read(MANIFEST) if MANIFEST.exists() else {}
     def fetch(item):
         try:
@@ -68,7 +68,7 @@ def run(collect=False):
                 item.update(evidence)
                 if movement:
                     movement['review'] = dict(status='approved', date='2026-11-15', evidence=
-                        'Technical draft: legal directed Standard route; agreed target-side semantics; no runtime activation.')
+                        'Legal directed Standard route verified; target-side semantics and activation approved by Thomas.')
                     if item['exitLabel'] in REVERSE_SIDE_EXITS:
                         movement.update(instructionTemplate='two-way-left-near' if item['kind'] == 'left'
                             else 'two-way-straight-opposite', targetCyclingSide='left-against-traffic',
@@ -79,8 +79,8 @@ def run(collect=False):
                 item['reason'] = str(error)
             print(item['entryLabel'], '->', item['exitLabel'], item['kind'],
                   'PASS' if item.get('verified') else item.get('reason'), flush=True)
-    proposal = dict(base, junctions=base['junctions']+[candidate], activationApproved=False,
-                    scope='K24 technical test proposal only; human geometry/activation approval pending')
+    proposal = dict(base, junctions=base['junctions']+[candidate], activationApproved=True,
+                    scope='K24 approved activation; runtime catalog maintained separately')
     check.validate_catalog(proposal)
     with patch('src.big_junctions.catalog', return_value=proposal):
         for item in tasks:
@@ -104,9 +104,9 @@ def run(collect=False):
     write(MANIFEST, manifest)
     write(PROPOSAL, proposal)
     write(REPORT, dict(id=site['id'], number=24, geometryRevision=site['version'],
-        status='draft-technical-check', runtimeModified=False, checkedAt=datetime.now(timezone.utc).isoformat(),
+        status='complete', runtimeModified=False, checkedAt=datetime.now(timezone.utc).isoformat(),
         gateEvidence=samples, fixtureDirectory='k24-two-way', movements=tasks))
-    print('K24 draft:', sum(bool(m.get('enabled')) for m in tasks), 'passed; runtime unchanged.')
+    print('K24 approved:', sum(bool(m.get('enabled')) for m in tasks), 'passed; runtime unchanged.')
 
 
 if __name__ == '__main__':

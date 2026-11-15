@@ -49,7 +49,7 @@ class BA01JunctionTests(unittest.TestCase):
         for identifier in SITES:
             self.assertTrue(junctions[identifier]['enabled'])
             self.assertEqual(sum(bool(m.get('enabled')) for m in junctions[identifier]['movements']), 8)
-        self.assertFalse({'maximilian-ring', 'sonnen-schwanthaler', 'sonnen-landwehr',
+        self.assertFalse({'sonnen-schwanthaler', 'sonnen-landwehr',
                           'blumen-papa-schmid'} & junctions.keys())
 
 

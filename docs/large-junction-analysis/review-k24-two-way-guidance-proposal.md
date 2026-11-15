@@ -1,6 +1,6 @@
 # K24 v1 · Vorschlag für Ansagen an Zweirichtungsradwegen
 
-Stand: Analyse nach Thomas' Anfrage vom 15.11.2026. Keine Geometriefreigabe, technische Fahrbeziehungsfreigabe oder Aktivierung abgeleitet. K24 bleibt als technisch geprüfter Entwurf offen; der Runtime-Katalog v10 mit 23 Kreuzungen und 199 Beziehungen bleibt unverändert. Die Implementierung ist für Backend 2.4.12 / Frontend 2.4.2 und App-Branch `feature/two-way-junction-instructions` vorbereitet.
+Stand: K24 v1 von Thomas freigegeben und im Branch für Backend 2.4.13 aktiviert: 15 Fahrbeziehungen (zehn Standard, fünf Sonderansagen). Katalog v11 umfasst 24 Kreuzungen und 214 Beziehungen. Live ist derzeit Backend 2.4.12 mit Katalog v10; K24 benötigt ein neues Backend-Deployment. Die Sonderansagen erfordern die App mit Protokoll v3.
 
 ## Sprachvorschlag
 
@@ -40,4 +40,4 @@ Die Vorlagen `two-way-straight-opposite` und `two-way-left-near` liefern geprüf
 
 22 echte K24-Standardrouten sind eingefroren: 15 Links-/Geradeausbeziehungen technisch bestanden, davon zehn Standard und fünf Sonderbeziehungen; sieben Rechtskontrollen ohne Makro. Die freigegebene Semantik Entry-4 nach Exit-1 bleibt Standard links, nach Exit-6 gilt vorne links. Für Entry-4 nach Exit-6 wurden legale Referenzpunkte 25 m außerhalb gewählt: Bei 45 m startet die Route vor der Herzog-Rudolf-Straße und umfährt K24. Der ursprüngliche Umweg bleibt als negative Regression gespeichert. Keine Flächenverschiebung oder Toleranzerweiterung.
 
-Die exakten neuen API-Antworten werden gemeinsam in Backend-, Web- und App-Tests verwendet. Die bestehenden Ansageabstände, Ruhefläche und Route-verlassen-Logik der App bleiben bestehen. K24 ist noch nicht im Runtime-Katalog aktiviert; die konkrete Freigabe der K24-Fläche und Fahrbeziehungen erfolgt separat.
+Die exakten neuen API-Antworten werden gemeinsam in Backend-, Web- und App-Tests verwendet. Die bestehenden Ansageabstände, Ruhefläche und Route-verlassen-Logik der App bleiben bestehen. K24 ist nach ausdrücklicher Freigabe mit unveränderter Geometrie im Runtime-Katalog aktiviert; das Deployment steht noch aus.

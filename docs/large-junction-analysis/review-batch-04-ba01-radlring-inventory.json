@@ -35,14 +35,6 @@
       "reason": "Mehrteiliger Platz mit versetzten Zufahrten und Tram; separat abgrenzen, keine gemeinsame Fläche auf Verdacht."
     },
     {
-      "name": "Lenbachplatz / Pacellistraße / Ottostraße",
-      "reason": "Versetzte Verzweigungen und mehrere Zweirichtungswege; logische Arme vor einem gemeinsamen Entwurf klären."
-    },
-    {
-      "name": "Maximiliansplatz / Max-Joseph-Straße / Prannerstraße",
-      "reason": "Versetzte Einmündungen an den Platzseiten; eigenen Umfang klären."
-    },
-    {
       "name": "Brienner Straße / Odeonsplatz / Ludwigstraße",
       "reason": "Radverkehrsarme am Fußgängerbereich und Platzübergang separat klären."
     },
@@ -51,32 +43,19 @@
       "reason": "Gekrümmter Tunnelanschluss und versetzte Zufahrten; keine einfache Vierarmigkeit belegt."
     },
     {
-      "name": "Franz-Josef-Strauß-Ring / Karl-Scharnagl-Ring / Hofgartenstraße / Christophstraße",
-      "reason": "Versetzte Seitenstraßen und Hauptstraßenbogen; separat abgrenzen."
-    },
-    {
       "name": "Isartorplatz / Tal / Zweibrückenstraße",
       "reason": "Mehrere nahe Teilknoten, Tram und weitere Zufahrten; getrennte Kreuzungsflächen untersuchen."
     },
     {
       "name": "Frauenstraße / Reichenbachstraße",
       "reason": "Drei Straßenarme; gegenüberliegender Viktualienmarkt in OSM bicycle=no. Kein belegter vierter Radverkehrsarm, deshalb zunächst kein Entwurf."
-    },
-    {
-      "name": "Sendlinger-Tor-Platz",
-      "reason": "Großer mehrteiliger Platz mit zusätzlichen Seitenstraßen; separat abgrenzen."
     }
   ],
   "preservedExclusions": [
     "gabelsberger-oskar-von-miller"
   ],
-  "activation": "none; existing human exclusions and all runtime movements remain unchanged",
-  "open": [
-    "ludwig-tann",
-    "maximilian-ring",
-    "maximilians-brienner",
-    "blumen-cornelius"
-  ],
+  "activation": "See runtime catalog and verified deployment state in kreuzungspruefung/index.html; this inventory tracks geometry only.",
+  "open": [],
   "closed": [
     {
       "id": "sonnen-schwanthaler",
@@ -93,5 +72,38 @@
       "disposition": "permanently-deferred",
       "reason": "Dauerhaft zurückgestellt: Drei große Kreuzungen folgen dicht aufeinander. Normale Ansagen bleiben; einzelne Fahrbeziehungen erst bei konkret festgestellten Praxisproblemen erneut prüfen."
     }
-  ]
+  ],
+  "geometryApproved": [
+    "ludwig-tann",
+    "maximilian-ring",
+    "maximilians-brienner",
+    "blumen-cornelius"
+  ],
+  "followUpBatch": {
+    "source": "review-batch-05-ba01-remaining-drafts.json",
+    "numbers": [
+      30,
+      31,
+      32,
+      33
+    ],
+    "sites": [
+      {
+        "name": "Lenbachplatz / Pacellistraße / Ottostraße",
+        "reason": "Versetzte Verzweigungen und mehrere Zweirichtungswege; logische Arme vor einem gemeinsamen Entwurf klären."
+      },
+      {
+        "name": "Maximiliansplatz / Max-Joseph-Straße / Prannerstraße",
+        "reason": "Versetzte Einmündungen an den Platzseiten; eigenen Umfang klären."
+      },
+      {
+        "name": "Franz-Josef-Strauß-Ring / Karl-Scharnagl-Ring / Hofgartenstraße / Christophstraße",
+        "reason": "Versetzte Seitenstraßen und Hauptstraßenbogen; separat abgrenzen."
+      },
+      {
+        "name": "Sendlinger-Tor-Platz",
+        "reason": "Großer mehrteiliger Platz mit zusätzlichen Seitenstraßen; separat abgrenzen."
+      }
+    ]
+  }
 }

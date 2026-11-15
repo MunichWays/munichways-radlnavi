@@ -63,7 +63,7 @@ def run(collect=False):
             armTopology=topology, movements=[], review=dict(status='approved', date='2026-11-15',
             evidence=f'Thomas approved K{site["number"]} v{site["version"]}; {REPORT.name}'))
         record = dict(id=site['id'], number=site['number'], geometryRevision=site['version'],
-            status='complete', fixtureDirectory='batch-04', classificationBasis='reviewed-arm-order',
+            status='complete', fixtureDirectory=FIXTURES.name, classificationBasis='reviewed-arm-order',
             logicalArms=site['proposedLogicalArms'], gateEvidence=samples, movements=tasks)
 
         def fetch(item):

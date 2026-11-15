@@ -1,5 +1,26 @@
 # Stand der Kreuzungsprüfung
 
+Stand: 15.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html), der verifizierte Produktionsstand und die Live-Prüfungen.
+
+| Kategorie | Anzahl |
+| --- | --- |
+| Erfasste Standorte einschließlich Piloten und früherer Ausschlüsse | 39 |
+| Geometrisch bestätigt | 27 |
+| Offen | 0 |
+| Ausgeschlossen / dauerhaft zurückgestellt | 12 |
+| Aktive Kreuzungen live | 26 |
+| Aktive Fahrbeziehungen im Live-Katalog | 225 |
+
+Backend **2.4.15**, Commit `701896122a18dcf2cbf279adf0a581bf8bab859a`, Katalog `munich-big-junctions-v13` ist nachgewiesen live. Der Backend-Workflow 43758056013 ist erfolgreich abgeschlossen, einschließlich Direct und Entdeckertour. K24 (15 Beziehungen), K30 (3) und K33 (8) sind jetzt live.
+
+45 Live-Prüfungen für K24/K30/K33 bestanden, einschließlich Rechtskontrollen, ausgeschlossener Beziehungen und Legacy-Rückfall. Die optionalen Kreuzungsdaten ändern die normale Live-Route nicht. [Live-Belege](review-release-2.4.15-live-checks.json). 168 Backend-Tests und 57 Review-Prüfungen bestanden. Das ersetzt keine Praxistest-Freigabe der neuen Kreuzungen.
+
+K30 Entry-4 nach Exit-3 bleibt ausdrücklich ohne Kreuzungsansage. K31 und K32 sind dauerhaft ausgeschlossen; die bestehenden Ausschlüsse K13/K21 bleiben erhalten. Einzelne ausgesparte Fahrbeziehungen verwenden weiterhin Standardhinweise.
+
+## Historischer Verlauf vor diesem Release
+
+Die folgenden Einträge dokumentieren frühere Zwischenstände; aktuelle Zahlen und Deployment-Nachweise stehen oben.
+
 Stand: 08.11.2026. Gezählt werden eindeutig benannte Standorte aus Prüfrunden und Backendkatalog; Kandidatenpunkte sind keine weiteren geprüften Fälle.
 
 | Kategorie | Anzahl |

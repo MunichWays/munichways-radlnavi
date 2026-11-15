@@ -86,6 +86,9 @@ def main():
             if old and old.get('polygonApproved') and not site['polygonApproved']:
                 raise ValueError('Existing BA01 geometry approval cannot be dropped')
     cards, rows = [], []
+    from review_deployment_status import status_for
+    state_path = ROOT / 'review-deployment-state.json'
+    state = json.loads(state_path.read_text(encoding='utf-8')) if state_path.exists() else {}
     for site in sites:
         name = f'K{site["number"]:02d}-{site["id"]}'
         commands = draw(site)
@@ -97,7 +100,9 @@ def main():
                     command['text'] = command['text'].replace('Dauerhaft ausgeschlossen – Fall geschlossen',
                         'Dauerhaft zurückgestellt – nur bei Praxisproblem neu prüfen')
                 if site.get('review', {}).get('activationReview', {}).get('status') == 'approved':
-                    command['text'] = command['text'].replace('NICHT AKTIV', 'IM BRANCH · NOCH NICHT DEPLOYED')
+                    phase = status_for(site, state)
+                    activation = phase['text'] if phase['css'] == 'live' else 'IM BRANCH · NOCH NICHT DEPLOYED'
+                    command['text'] = command['text'].replace('NICHT AKTIV', activation)
         (OUT / f'{name}.drawing.json').write_text(json.dumps(commands, ensure_ascii=False), encoding='utf-8')
         (OUT / f'{name}.svg').write_text(svg(commands), encoding='utf-8')
         label = html.escape(f'K{site["number"]:02d} v{site["version"]} · {site["name"]}')

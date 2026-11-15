@@ -1,0 +1,303 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3816866487,
+              3903212231,
+              1725815561,
+              10568232908,
+              3690605439,
+              3816866503,
+              3903212232,
+              6280421490,
+              6280421491
+            ],
+            "distance": [
+              16.31088307,
+              5.862847725,
+              16.07554505,
+              12.08254471,
+              5.548079853,
+              11.149683,
+              18.16855602,
+              50.78059948
+            ]
+          },
+          "duration": 52.9,
+          "summary": "Corneliusstraße",
+          "weight": 98.3,
+          "distance": 136,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    316
+                  ],
+                  "location": [
+                    11.574208,
+                    48.133064
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.574208,
+                    48.133064
+                  ],
+                  [
+                    11.574055,
+                    48.133169
+                  ],
+                  [
+                    11.574002,
+                    48.133208
+                  ],
+                  [
+                    11.573852,
+                    48.133312
+                  ],
+                  [
+                    11.573739,
+                    48.13339
+                  ],
+                  [
+                    11.573689,
+                    48.133427
+                  ],
+                  [
+                    11.573553,
+                    48.133469
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 316,
+                "bearing_before": 0,
+                "location": [
+                  11.574208,
+                  48.133064
+                ],
+                "type": "depart"
+              },
+              "name": "Corneliusstraße",
+              "mode": "cycling",
+              "weight": 80.1,
+              "duration": 38.8,
+              "distance": 67
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    255,
+                    315
+                  ],
+                  "location": [
+                    11.573553,
+                    48.133469
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    135,
+                    225
+                  ],
+                  "location": [
+                    11.573316,
+                    48.13343
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573553,
+                    48.133469
+                  ],
+                  [
+                    11.573316,
+                    48.13343
+                  ],
+                  [
+                    11.572803,
+                    48.133129
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 255,
+                "bearing_before": 313,
+                "location": [
+                  11.573553,
+                  48.133469
+                ],
+                "modifier": "slight left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 18.2,
+              "duration": 14.1,
+              "distance": 68.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    49
+                  ],
+                  "location": [
+                    11.572803,
+                    48.133129
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572803,
+                    48.133129
+                  ],
+                  [
+                    11.572803,
+                    48.133129
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 229,
+                "location": [
+                  11.572803,
+                  48.133129
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.574208,
+            48.133064
+          ],
+          [
+            11.574055,
+            48.133169
+          ],
+          [
+            11.574002,
+            48.133208
+          ],
+          [
+            11.573852,
+            48.133312
+          ],
+          [
+            11.573739,
+            48.13339
+          ],
+          [
+            11.573689,
+            48.133427
+          ],
+          [
+            11.573553,
+            48.133469
+          ],
+          [
+            11.573316,
+            48.13343
+          ],
+          [
+            11.572803,
+            48.133129
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 98.3,
+      "duration": 52.9,
+      "distance": 136
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "Tr4ggP___38JAAAASwAAAAAAAABXAAAAJgceQLB8gkEAAAAA1IGvQQQAAAAiAAAAAAAAACgAAAC9AgAAwJuwAMhz3gLAm7AAyHPeAgAAvxMAAAAA",
+      "location": [
+        11.574208,
+        48.133064
+      ],
+      "name": "Corneliusstraße",
+      "distance": 0
+    },
+    {
+      "hint": "UcEAgP___39-AAAARAIAAAAAAAAAAAAAVR9LQtY4NUMAAAAAAAAAAGUAAADQAQAAAAAAAAAAAAC9AgAAQ5awAAl03gJDlrAACXTeAgAATw4AAAAA",
+      "location": [
+        11.572803,
+        48.133129
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

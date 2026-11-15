@@ -1,0 +1,333 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2489935146,
+              2489934992,
+              2489934895,
+              12073835619,
+              1955476,
+              2489934605,
+              11753115977,
+              312391014
+            ],
+            "distance": [
+              15.66588771,
+              27.13635559,
+              10.91556436,
+              13.21204952,
+              16.73143901,
+              17.07650588,
+              6.438413761
+            ]
+          },
+          "duration": 24.9,
+          "summary": "Oskar-von-Miller-Ring, Brienner Straße",
+          "weight": 34.2,
+          "distance": 107.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    198
+                  ],
+                  "location": [
+                    11.573747,
+                    48.143927
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.573682,
+                    48.143793
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.573552,
+                    48.143565
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573747,
+                    48.143927
+                  ],
+                  [
+                    11.573682,
+                    48.143793
+                  ],
+                  [
+                    11.573552,
+                    48.143565
+                  ],
+                  [
+                    11.573497,
+                    48.143474
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 198,
+                "bearing_before": 0,
+                "location": [
+                  11.573747,
+                  48.143927
+                ],
+                "type": "depart"
+              },
+              "name": "Oskar-von-Miller-Ring",
+              "mode": "cycling",
+              "weight": 22.1,
+              "duration": 15.1,
+              "distance": 53.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.573497,
+                    48.143474
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.572913,
+                    48.143635
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573497,
+                    48.143474
+                  ],
+                  [
+                    11.573334,
+                    48.143521
+                  ],
+                  [
+                    11.573126,
+                    48.143578
+                  ],
+                  [
+                    11.572913,
+                    48.143635
+                  ],
+                  [
+                    11.572833,
+                    48.143657
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 291,
+                "bearing_before": 201,
+                "location": [
+                  11.573497,
+                  48.143474
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 12.1,
+              "duration": 9.8,
+              "distance": 53.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    112
+                  ],
+                  "location": [
+                    11.572828,
+                    48.143658
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572833,
+                    48.143657
+                  ],
+                  [
+                    11.572833,
+                    48.143657
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 292,
+                "location": [
+                  11.572828,
+                  48.143658
+                ],
+                "type": "arrive"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.573747,
+            48.143927
+          ],
+          [
+            11.573682,
+            48.143793
+          ],
+          [
+            11.573552,
+            48.143565
+          ],
+          [
+            11.573497,
+            48.143474
+          ],
+          [
+            11.573334,
+            48.143521
+          ],
+          [
+            11.573126,
+            48.143578
+          ],
+          [
+            11.572913,
+            48.143635
+          ],
+          [
+            11.572833,
+            48.143657
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 34.2,
+      "duration": 24.9,
+      "distance": 107.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "VT8hgP___3-BAAAAqQAAAAAAAAAAAAAAjHFQQnqnekEAAAAAAAAAAGgAAACIAAAAAAAAAAAAAAC9AgAA85mwADee3gLzmbAAN57eAgAAXwwAAAAA",
+      "location": [
+        11.573747,
+        48.143927
+      ],
+      "name": "Oskar-von-Miller-Ring",
+      "distance": 0
+    },
+    {
+      "hint": "ocUAgBk_IYAnAAAAAQAAADMCAAAAAAAAfQyKQYzmxj4Et35CAAAAAB8AAAABAAAAHQEAAAAAAAC9AgAAXJawACqd3gJclrAAK53eAggA_wYAAAAA",
+      "location": [
+        11.572828,
+        48.143658
+      ],
+      "name": "Brienner Straße",
+      "distance": 0.1111927533
+    }
+  ]
+}

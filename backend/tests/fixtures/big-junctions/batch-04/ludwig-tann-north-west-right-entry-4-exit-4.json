@@ -1,0 +1,249 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              372797906,
+              1078841373,
+              361056739,
+              583278621
+            ],
+            "distance": [
+              45.90144552,
+              7.604257347,
+              55.35052679
+            ]
+          },
+          "duration": 25.6,
+          "summary": "Ludwigstraße, Oskar-von-Miller-Ring",
+          "weight": 45.6,
+          "distance": 108.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    197
+                  ],
+                  "location": [
+                    11.578942,
+                    48.145885
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    15,
+                    195
+                  ],
+                  "location": [
+                    11.578758,
+                    48.145491
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.578942,
+                    48.145885
+                  ],
+                  [
+                    11.578758,
+                    48.145491
+                  ],
+                  [
+                    11.578722,
+                    48.145427
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 197,
+                "bearing_before": 0,
+                "location": [
+                  11.578942,
+                  48.145885
+                ],
+                "type": "depart"
+              },
+              "name": "Ludwigstraße",
+              "mode": "cycling",
+              "weight": 31.8,
+              "duration": 14.6,
+              "distance": 53.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.578722,
+                    48.145427
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.578722,
+                    48.145427
+                  ],
+                  [
+                    11.578014,
+                    48.145579
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 286,
+                "bearing_before": 199,
+                "location": [
+                  11.578722,
+                  48.145427
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Oskar-von-Miller-Ring",
+              "mode": "cycling",
+              "weight": 13.8,
+              "duration": 11,
+              "distance": 55.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    108
+                  ],
+                  "location": [
+                    11.578014,
+                    48.145579
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.578014,
+                    48.145579
+                  ],
+                  [
+                    11.578014,
+                    48.145579
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 288,
+                "location": [
+                  11.578014,
+                  48.145579
+                ],
+                "type": "arrive"
+              },
+              "name": "Oskar-von-Miller-Ring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.578942,
+            48.145885
+          ],
+          [
+            11.578758,
+            48.145491
+          ],
+          [
+            11.578722,
+            48.145427
+          ],
+          [
+            11.578014,
+            48.145579
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 45.6,
+      "duration": 25.6,
+      "distance": 108.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "RzchgP___39VAAAAIgEAAAAAAAAAAAAA8Z6aQRWbN0IAAAAAAAAAACYAAACCAAAAAAAAAAAAAAC9AgAAPq6wAN2l3gI-rrAA3aXeAgAAXwwAAAAA",
+      "location": [
+        11.578942,
+        48.145885
+      ],
+      "name": "Ludwigstraße",
+      "distance": 0
+    },
+    {
+      "hint": "QTchgP___3-KAAAA1wAAAAAAAAA1AAAA8GZdQsn980EAAAAAmU6oQW4AAACsAAAAAAAAACoAAAC9AgAAnqqwAKuk3gKeqrAAq6TeAgAA_xEAAAAA",
+      "location": [
+        11.578014,
+        48.145579
+      ],
+      "name": "Oskar-von-Miller-Ring",
+      "distance": 0
+    }
+  ]
+}

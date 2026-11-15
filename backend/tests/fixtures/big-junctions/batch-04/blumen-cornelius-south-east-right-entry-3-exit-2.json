@@ -1,0 +1,280 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3903212230,
+              9101747777,
+              9211785877,
+              3690605437,
+              7072438198,
+              3903212232,
+              3816866500,
+              1725815556,
+              3816866482
+            ],
+            "distance": [
+              20.64231643,
+              25.38173704,
+              0.7433115388,
+              3.02062919,
+              16.54797788,
+              12.04690325,
+              39.00853539,
+              15.99553412
+            ]
+          },
+          "duration": 51.2,
+          "summary": "Blumenstraße, Corneliusstraße",
+          "weight": 99.8,
+          "distance": 133.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    49
+                  ],
+                  "location": [
+                    11.572891,
+                    48.13307
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572891,
+                    48.13307
+                  ],
+                  [
+                    11.5731,
+                    48.133192
+                  ],
+                  [
+                    11.573357,
+                    48.133342
+                  ],
+                  [
+                    11.573365,
+                    48.133346
+                  ],
+                  [
+                    11.573394,
+                    48.133365
+                  ],
+                  [
+                    11.573553,
+                    48.133469
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 49,
+                "bearing_before": 0,
+                "location": [
+                  11.572891,
+                  48.13307
+                ],
+                "type": "depart"
+              },
+              "name": "Blumenstraße",
+              "mode": "cycling",
+              "weight": 73.1,
+              "duration": 39.2,
+              "distance": 66.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    255,
+                    315
+                  ],
+                  "location": [
+                    11.573553,
+                    48.133469
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573553,
+                    48.133469
+                  ],
+                  [
+                    11.573622,
+                    48.133371
+                  ],
+                  [
+                    11.573985,
+                    48.133118
+                  ],
+                  [
+                    11.574138,
+                    48.133017
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 133,
+                "bearing_before": 45,
+                "location": [
+                  11.573553,
+                  48.133469
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Corneliusstraße",
+              "mode": "cycling",
+              "weight": 26.7,
+              "duration": 12,
+              "distance": 67.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    315
+                  ],
+                  "location": [
+                    11.574138,
+                    48.133017
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.574138,
+                    48.133017
+                  ],
+                  [
+                    11.574138,
+                    48.133017
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 135,
+                "location": [
+                  11.574138,
+                  48.133017
+                ],
+                "type": "arrive"
+              },
+              "name": "Corneliusstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.572891,
+            48.13307
+          ],
+          [
+            11.5731,
+            48.133192
+          ],
+          [
+            11.573357,
+            48.133342
+          ],
+          [
+            11.573365,
+            48.133346
+          ],
+          [
+            11.573394,
+            48.133365
+          ],
+          [
+            11.573553,
+            48.133469
+          ],
+          [
+            11.573622,
+            48.133371
+          ],
+          [
+            11.573985,
+            48.133118
+          ],
+          [
+            11.574138,
+            48.133017
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 99.8,
+      "duration": 51.2,
+      "distance": 133.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "Xb4ggHW-IIC3AAAAaAAAAAAAAABHAAAAHhA3QncjpUEAAAAAzA3LQVIAAAAmAAAAAAAAAC4AAAC9AgAAm5awAM5z3gKblrAAznPeAgAADwMAAAAA",
+      "location": [
+        11.572891,
+        48.13307
+      ],
+      "name": "Blumenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "U74ggP___38_AAAASwAAAJwAAAAAAAAAte1_QRSKNUC-CBxCAAAAABwAAAAiAAAARgAAAAAAAAC9AgAAepuwAJlz3gJ6m7AAmXPeAgIAbwgAAAAA",
+      "location": [
+        11.574138,
+        48.133017
+      ],
+      "name": "Corneliusstraße",
+      "distance": 0
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 22,
+  "referenceCasesChecked": 25,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -788,6 +788,187 @@
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
       "reviewQuestion": "Von Thomas dauerhaft ausgeschlossen und geschlossen: komplexer Dachauer-/Landshuter-Knoten.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "ludwig-tann",
+      "number": 23,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "3c521d3ffd4f2200c96e28a4006d6c1a2b672dddc3c4ae026cb4976dc6c95b48",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Vier Arme mit getrennten Radwegen. Bitte Lage der acht Punkte und Einschluss aller Querungen/Warteflächen prüfen; Galeriestraße im Süden bleibt außerhalb.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "maximilian-ring",
+      "number": 24,
+      "revision": 1,
+      "status": "geometry-draft",
+      "geometrySha256": "79e653495f5e9a2f787c42558603989fbe134e20150175f5a036adae34b7e113",
+      "entries": 5,
+      "exits": 6,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-3",
+        "Entry-4",
+        "Entry-5",
+        "Exit-1",
+        "Exit-3",
+        "Exit-5",
+        "Exit-6"
+      ],
+      "carriagewayGates": [
+        "Entry-2",
+        "Exit-2",
+        "Entry-4",
+        "Exit-5"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Zweirichtungswege am Ring und Fahrbahn/Radfahrstreifen in der Maximilianstraße. Bitte insbesondere die gemeinsamen Punkte am westlichen Maximilian-Arm bestätigen; getrennte Ring-Richtungen bleiben sichtbar.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "maximilians-brienner",
+      "number": 25,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "e3dc932716a4960c42d832f88f445e423bf4c7862eac4c1577a97c317f4e73ca",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-3",
+        "Exit-2",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-2",
+        "Exit-4",
+        "Entry-3"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Brienner Straße mit Radfahrstreifen auf der Fahrbahn; die beiden Ringseiten als getrennte Radwege. Bitte bestätigen, dass alle vier Arme innerhalb dieser kompakten Fläche zusammengehören.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "sonnen-schwanthaler",
+      "number": 26,
+      "revision": 2,
+      "status": "permanently-excluded",
+      "geometrySha256": "68846b65afd9e685c445d0ead8cdd95da072b62774d1559cbbd6b31594fd9192",
+      "entries": 4,
+      "exits": 3,
+      "sharedGates": [
+        "Entry-3",
+        "Entry-4",
+        "Exit-3",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Exit-4",
+        "Entry-4"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Dauerhaft ausgeschlossen: Herzogspitalstraße aus der Fläche entfernt; Sonnenstraße / Schwanthalerstraße separat abgegrenzt. Normale Ansagen bleiben.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "sonnen-landwehr",
+      "number": 27,
+      "revision": 2,
+      "status": "permanently-excluded",
+      "geometrySha256": "25677c249de7921eb8c38bae97dc7f838bb81fcff330b2bbe16b2093f7f3b78c",
+      "entries": 4,
+      "exits": 5,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-3",
+        "Entry-4",
+        "Exit-3",
+        "Exit-4",
+        "Exit-5"
+      ],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-5",
+        "Exit-3",
+        "Entry-3"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Dauerhaft ausgeschlossen: Schräge, versetzte Querung mit Zweirichtungsradweg Sonnenstraße. Einzelne Fahrbeziehungen nur bei konkret festgestellten Problemen der normalen Ansagen erneut prüfen.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "blumen-cornelius",
+      "number": 28,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "e3a6d8dc979ae1908c3e3bd2760c3ea6592448b170d508a012b6635affdb6f80",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-4",
+        "Exit-1",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Exit-1",
+        "Entry-1",
+        "Entry-2",
+        "Exit-2",
+        "Entry-3",
+        "Entry-4",
+        "Exit-4"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Vier Arme, teilweise auf der Fahrbahn. Bitte Flächengröße und Übergang zum südwestlichen Blumen-Radweg prüfen. Prälat-Zistl-Straße im Nordwesten bleibt außerhalb.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "blumen-papa-schmid",
+      "number": 29,
+      "revision": 2,
+      "status": "permanently-excluded",
+      "geometrySha256": "035426a2f4a178efd6732663a57395b452fdc874ae7ed3594574e61d2d28e3a9",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-3",
+        "Exit-2",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Exit-1",
+        "Exit-2",
+        "Entry-1",
+        "Entry-2",
+        "Exit-4",
+        "Entry-3"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Dauerhaft zurückgestellt: Drei große Kreuzungen folgen dicht aufeinander. Normale Ansagen bleiben; einzelne Fahrbeziehungen erst bei konkret festgestellten Praxisproblemen erneut prüfen.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     }
   ],

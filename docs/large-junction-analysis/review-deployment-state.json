@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-11-08T18:51:49.405861+00:00",
+  "checkedAt": "2026-11-15T13:09:38.836959+00:00",
   "version": {
-    "backend": "2.4.6",
-    "backendCommit": "d3c8b55c6ed69368faea619c97cfebad353d64cb",
+    "backend": "2.4.10",
+    "backendCommit": "84dadecac2eeee5498b9bd25e80ba6c94288afc2",
     "routing": "2.4.0",
-    "routingCommit": "a18de0a0eda92cdc412903aae9617f492550781c",
+    "routingCommit": "5292ac46a92a285bba36fbb96f08a5f385affb21",
     "osrm": "26.6.5"
   },
-  "catalogVersion": "munich-big-junctions-v5",
+  "catalogVersion": "munich-big-junctions-v9",
   "source": "Production /version plus catalog from exact backendCommit",
   "junctions": [
     {
@@ -6672,19 +6672,27 @@
             ],
             [
               11.60236,
-              48.11556
+              48.11536
             ],
             [
               11.6026,
-              48.11556
+              48.11536
             ],
             [
-              11.602770042045062,
-              48.115800535106004
+              11.602629767,
+              48.11543712
             ],
             [
-              11.602770042045062,
-              48.115944264894
+              11.602607386648065,
+              48.115846458359044
+            ],
+            [
+              11.6026,
+              48.11596
+            ],
+            [
+              11.602381931,
+              48.116041248
             ],
             [
               11.602333842045063,
@@ -6721,8 +6729,8 @@
             48.11591234466544
           ],
           "exit": [
-            11.602770042045062,
-            48.11591675555667
+            11.602607379185406,
+            48.11584657306907
           ],
           "corridor": [
             [
@@ -6782,16 +6790,8 @@
               48.115818
             ],
             [
-              11.602662,
-              48.115872
-            ],
-            [
-              11.602768,
-              48.115916
-            ],
-            [
-              11.602770042045062,
-              48.11591675555667
+              11.602607379185406,
+              48.11584657306907
             ]
           ],
           "approach": [
@@ -6806,18 +6806,18 @@
           ],
           "departure": [
             [
-              11.602770042045062,
-              48.11591675555667
+              11.602607379185406,
+              48.11584657306907
             ],
             [
-              11.602888648861912,
-              48.11595930937447
+              11.60271984691433,
+              48.1158960119267
             ]
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-north-east-left.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-north-east-left-entry-4-exit-2.json; runtime checks passed."
           }
         },
         {
@@ -6910,8 +6910,8 @@
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-north-south-straight.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-north-south-straight-entry-4-exit-3.json; runtime checks passed."
           }
         },
         {
@@ -6921,8 +6921,8 @@
           "entryArm": "east",
           "exitArm": "south",
           "entry": [
-            11.602382363948243,
-            48.11604113998009
+            11.602382293573145,
+            48.11604111291275
           ],
           "exit": [
             11.60215921282868,
@@ -6930,8 +6930,8 @@
           ],
           "corridor": [
             [
-              11.602382363948243,
-              48.11604113998009
+              11.602382293573145,
+              48.11604111291275
             ],
             [
               11.602226,
@@ -6988,12 +6988,12 @@
           ],
           "approach": [
             [
-              11.602499084953214,
-              48.11608603267431
+              11.602499014578116,
+              48.11608600560697
             ],
             [
-              11.602382363948243,
-              48.11604113998009
+              11.602382293573145,
+              48.11604111291275
             ]
           ],
           "departure": [
@@ -7008,8 +7008,8 @@
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-east-south-left.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-east-south-left-entry-1-exit-3.json; runtime checks passed."
           }
         },
         {
@@ -7019,8 +7019,8 @@
           "entryArm": "east",
           "exitArm": "west",
           "entry": [
-            11.602382363948243,
-            48.11604113998009
+            11.602382293573145,
+            48.11604111291275
           ],
           "exit": [
             11.601795601471741,
@@ -7028,8 +7028,8 @@
           ],
           "corridor": [
             [
-              11.602382363948243,
-              48.11604113998009
+              11.602382293573145,
+              48.11604111291275
             ],
             [
               11.602226,
@@ -7062,12 +7062,12 @@
           ],
           "approach": [
             [
-              11.602499084953214,
-              48.11608603267431
+              11.602499014578116,
+              48.11608600560697
             ],
             [
-              11.602382363948243,
-              48.11604113998009
+              11.602382293573145,
+              48.11604111291275
             ]
           ],
           "departure": [
@@ -7082,110 +7082,8 @@
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-east-west-straight.json."
-          }
-        },
-        {
-          "id": "south-west-left",
-          "enabled": true,
-          "movement": "left",
-          "entryArm": "south",
-          "exitArm": "west",
-          "entry": [
-            11.602409760330579,
-            48.11556
-          ],
-          "exit": [
-            11.601795601471741,
-            48.115700239635125
-          ],
-          "corridor": [
-            [
-              11.602409760330579,
-              48.11556
-            ],
-            [
-              11.602406,
-              48.11569
-            ],
-            [
-              11.602407,
-              48.115696
-            ],
-            [
-              11.602384,
-              48.115764
-            ],
-            [
-              11.602351,
-              48.115808
-            ],
-            [
-              11.60233,
-              48.11584
-            ],
-            [
-              11.602319,
-              48.115856
-            ],
-            [
-              11.602295,
-              48.11589
-            ],
-            [
-              11.602226,
-              48.115981
-            ],
-            [
-              11.602064,
-              48.115894
-            ],
-            [
-              11.601897,
-              48.115801
-            ],
-            [
-              11.601899,
-              48.115787
-            ],
-            [
-              11.601848,
-              48.115736
-            ],
-            [
-              11.601797,
-              48.115701
-            ],
-            [
-              11.601795601471741,
-              48.115700239635125
-            ]
-          ],
-          "approach": [
-            [
-              11.60241236118554,
-              48.11547008472851
-            ],
-            [
-              11.602409760330579,
-              48.11556
-            ]
-          ],
-          "departure": [
-            [
-              11.601795601471741,
-              48.115700239635125
-            ],
-            [
-              11.601691059302462,
-              48.11564352965123
-            ]
-          ],
-          "review": {
-            "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-south-west-left.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-east-west-straight-entry-1-exit-4.json; runtime checks passed."
           }
         },
         {
@@ -7195,8 +7093,8 @@
           "entryArm": "south",
           "exitArm": "north",
           "entry": [
-            11.602409760330579,
-            48.11556
+            11.60242736734694,
+            48.11536
           ],
           "exit": [
             11.602143686415802,
@@ -7204,8 +7102,12 @@
           ],
           "corridor": [
             [
-              11.602409760330579,
-              48.11556
+              11.60242736734694,
+              48.11536
+            ],
+            [
+              11.602413,
+              48.115448
             ],
             [
               11.602406,
@@ -7250,12 +7152,12 @@
           ],
           "approach": [
             [
-              11.60241236118554,
-              48.11547008472851
+              11.602441963672355,
+              48.11527059750683
             ],
             [
-              11.602409760330579,
-              48.11556
+              11.60242736734694,
+              48.11536
             ]
           ],
           "departure": [
@@ -7270,8 +7172,114 @@
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-south-north-straight.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-south-north-straight-entry-2-exit-1.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "south-west-left",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.60242736734694,
+            48.11536
+          ],
+          "exit": [
+            11.601795601471741,
+            48.115700239635125
+          ],
+          "corridor": [
+            [
+              11.60242736734694,
+              48.11536
+            ],
+            [
+              11.602413,
+              48.115448
+            ],
+            [
+              11.602406,
+              48.11569
+            ],
+            [
+              11.602407,
+              48.115696
+            ],
+            [
+              11.602384,
+              48.115764
+            ],
+            [
+              11.602351,
+              48.115808
+            ],
+            [
+              11.60233,
+              48.11584
+            ],
+            [
+              11.602319,
+              48.115856
+            ],
+            [
+              11.602295,
+              48.11589
+            ],
+            [
+              11.602226,
+              48.115981
+            ],
+            [
+              11.602064,
+              48.115894
+            ],
+            [
+              11.601897,
+              48.115801
+            ],
+            [
+              11.601899,
+              48.115787
+            ],
+            [
+              11.601848,
+              48.115736
+            ],
+            [
+              11.601797,
+              48.115701
+            ],
+            [
+              11.601795601471741,
+              48.115700239635125
+            ]
+          ],
+          "approach": [
+            [
+              11.602441963672355,
+              48.11527059750683
+            ],
+            [
+              11.60242736734694,
+              48.11536
+            ]
+          ],
+          "departure": [
+            [
+              11.601795601471741,
+              48.115700239635125
+            ],
+            [
+              11.601691059302462,
+              48.11564352965123
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-south-west-left-entry-2-exit-4.json; runtime checks passed."
           }
         },
         {
@@ -7368,8 +7376,8 @@
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-west-north-left.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-west-north-left-entry-3-exit-1.json; runtime checks passed."
           }
         },
         {
@@ -7383,8 +7391,8 @@
             48.11549282006241
           ],
           "exit": [
-            11.602770042045062,
-            48.11591675555667
+            11.602607379185406,
+            48.11584657306907
           ],
           "corridor": [
             [
@@ -7416,16 +7424,8 @@
               48.115818
             ],
             [
-              11.602662,
-              48.115872
-            ],
-            [
-              11.602768,
-              48.115916
-            ],
-            [
-              11.602770042045062,
-              48.11591675555667
+              11.602607379185406,
+              48.11584657306907
             ]
           ],
           "approach": [
@@ -7440,18 +7440,830 @@
           ],
           "departure": [
             [
-              11.602770042045062,
-              48.11591675555667
+              11.602607379185406,
+              48.11584657306907
             ],
             [
-              11.602888648861912,
-              48.11595930937447
+              11.60271984691433,
+              48.1158960119267
             ]
           ],
           "review": {
             "status": "approved",
-            "date": "2026-11-07",
-            "evidence": "Reviewed geometry and legal directed OSM corridor; real route batch-01/thomasiusplatz-west-east-straight.json."
+            "date": "2026-11-14",
+            "evidence": "Human-approved K10 v4; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/thomasiusplatz-west-east-straight-entry-3-exit-2.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "wilram-entry-3-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "wilram",
+          "entry": [
+            11.601874743898826,
+            48.11549282006241
+          ],
+          "exit": [
+            11.602629753066232,
+            48.1154373748497
+          ],
+          "corridor": [
+            [
+              11.601874743898826,
+              48.11549282006241
+            ],
+            [
+              11.602004,
+              48.115512
+            ],
+            [
+              11.602049,
+              48.115505
+            ],
+            [
+              11.602211,
+              48.115583
+            ],
+            [
+              11.602406,
+              48.11569
+            ],
+            [
+              11.602413,
+              48.115448
+            ],
+            [
+              11.602629753066232,
+              48.1154373748497
+            ]
+          ],
+          "approach": [
+            [
+              11.601703293269,
+              48.11542357875628
+            ],
+            [
+              11.601874743898826,
+              48.11549282006241
+            ]
+          ],
+          "departure": [
+            [
+              11.602629753066232,
+              48.1154373748497
+            ],
+            [
+              11.602830999944377,
+              48.11542546404087
+            ]
+          ],
+          "sequence": {
+            "version": 1,
+            "advance": {
+              "de": "an der großen Kreuzung geradeaus, danach sofort rechts, dann links in Wilramstraße",
+              "en": "continue straight at the large junction, then immediately right, then left into Wilramstraße"
+            },
+            "display": {
+              "de": "große Kreuzung geradeaus",
+              "en": "large junction straight"
+            },
+            "checkpoints": [
+              {
+                "id": "turn-1",
+                "location": [
+                  11.602406,
+                  48.11569
+                ],
+                "instruction": {
+                  "de": "Hier rechts.",
+                  "en": "Turn right here."
+                },
+                "modifier": "right",
+                "approach": [
+                  [
+                    11.602249901906555,
+                    48.115604346174365
+                  ],
+                  [
+                    11.602406,
+                    48.11569
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602406,
+                    48.11569
+                  ],
+                  [
+                    11.60240990128244,
+                    48.11555512709276
+                  ]
+                ]
+              },
+              {
+                "id": "turn-2",
+                "location": [
+                  11.602413,
+                  48.115448
+                ],
+                "instruction": {
+                  "de": "Hier links in Wilramstraße.",
+                  "en": "Turn left here into Wilramstraße."
+                },
+                "modifier": "left",
+                "approach": [
+                  [
+                    11.60240909871756,
+                    48.11558287290724
+                  ],
+                  [
+                    11.602413,
+                    48.115448
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602413,
+                    48.115448
+                  ],
+                  [
+                    11.602614512081626,
+                    48.115438121956785
+                  ]
+                ]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "date": "2026-11-14",
+              "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+            }
+          },
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+          }
+        },
+        {
+          "id": "wilram-entry-4-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "wilram",
+          "entry": [
+            11.601860542585909,
+            48.11591234466544
+          ],
+          "exit": [
+            11.602629753066232,
+            48.1154373748497
+          ],
+          "corridor": [
+            [
+              11.601860542585909,
+              48.11591234466544
+            ],
+            [
+              11.601869,
+              48.115896
+            ],
+            [
+              11.601897,
+              48.115801
+            ],
+            [
+              11.601899,
+              48.115787
+            ],
+            [
+              11.60192,
+              48.115716
+            ],
+            [
+              11.601935,
+              48.115682
+            ],
+            [
+              11.601943,
+              48.115663
+            ],
+            [
+              11.601961,
+              48.115616
+            ],
+            [
+              11.602004,
+              48.115512
+            ],
+            [
+              11.602049,
+              48.115505
+            ],
+            [
+              11.602211,
+              48.115583
+            ],
+            [
+              11.602406,
+              48.11569
+            ],
+            [
+              11.602413,
+              48.115448
+            ],
+            [
+              11.602629753066232,
+              48.1154373748497
+            ]
+          ],
+          "approach": [
+            [
+              11.601794566564939,
+              48.116039848885734
+            ],
+            [
+              11.601860542585909,
+              48.11591234466544
+            ]
+          ],
+          "departure": [
+            [
+              11.602629753066232,
+              48.1154373748497
+            ],
+            [
+              11.602830999944377,
+              48.11542546404087
+            ]
+          ],
+          "sequence": {
+            "version": 1,
+            "advance": {
+              "de": "an der großen Kreuzung links abbiegen, danach sofort rechts, dann links in Wilramstraße",
+              "en": "turn left at the large junction, then immediately right, then left into Wilramstraße"
+            },
+            "display": {
+              "de": "große Kreuzung links",
+              "en": "large junction left"
+            },
+            "checkpoints": [
+              {
+                "id": "turn-1",
+                "location": [
+                  11.602406,
+                  48.11569
+                ],
+                "instruction": {
+                  "de": "Hier rechts.",
+                  "en": "Turn right here."
+                },
+                "modifier": "right",
+                "approach": [
+                  [
+                    11.602249901906555,
+                    48.115604346174365
+                  ],
+                  [
+                    11.602406,
+                    48.11569
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602406,
+                    48.11569
+                  ],
+                  [
+                    11.60240990128244,
+                    48.11555512709276
+                  ]
+                ],
+                "alignedInstruction": {
+                  "de": "Hier geradeaus.",
+                  "en": "Continue straight here."
+                }
+              },
+              {
+                "id": "turn-2",
+                "location": [
+                  11.602413,
+                  48.115448
+                ],
+                "instruction": {
+                  "de": "Hier links in Wilramstraße.",
+                  "en": "Turn left here into Wilramstraße."
+                },
+                "modifier": "left",
+                "approach": [
+                  [
+                    11.60240909871756,
+                    48.11558287290724
+                  ],
+                  [
+                    11.602413,
+                    48.115448
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602413,
+                    48.115448
+                  ],
+                  [
+                    11.602614512081626,
+                    48.115438121956785
+                  ]
+                ]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "date": "2026-11-14",
+              "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+            }
+          },
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+          }
+        },
+        {
+          "id": "wilram-entry-5-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "wilram",
+          "exitArm": "north",
+          "entry": [
+            11.602629753066232,
+            48.1154373748497
+          ],
+          "exit": [
+            11.602143686415802,
+            48.116053264894
+          ],
+          "corridor": [
+            [
+              11.602629753066232,
+              48.1154373748497
+            ],
+            [
+              11.602413,
+              48.115448
+            ],
+            [
+              11.602406,
+              48.11569
+            ],
+            [
+              11.602407,
+              48.115696
+            ],
+            [
+              11.602384,
+              48.115764
+            ],
+            [
+              11.602351,
+              48.115808
+            ],
+            [
+              11.60233,
+              48.11584
+            ],
+            [
+              11.602319,
+              48.115856
+            ],
+            [
+              11.602295,
+              48.11589
+            ],
+            [
+              11.602226,
+              48.115981
+            ],
+            [
+              11.602157,
+              48.116027
+            ],
+            [
+              11.602143686415802,
+              48.116053264894
+            ]
+          ],
+          "approach": [
+            [
+              11.602830999944377,
+              48.11542546404087
+            ],
+            [
+              11.602629753066232,
+              48.1154373748497
+            ]
+          ],
+          "departure": [
+            [
+              11.602143686415802,
+              48.116053264894
+            ],
+            [
+              11.60207891549006,
+              48.116181044271315
+            ]
+          ],
+          "sequence": {
+            "version": 1,
+            "advance": {
+              "de": "rechts, danach an der großen Kreuzung geradeaus",
+              "en": "turn right, then continue straight at the large junction"
+            },
+            "display": {
+              "de": "rechts, dann Kreuzung geradeaus",
+              "en": "right, then junction straight"
+            },
+            "checkpoints": [
+              {
+                "id": "turn-1",
+                "location": [
+                  11.602413,
+                  48.115448
+                ],
+                "instruction": {
+                  "de": "Hier rechts.",
+                  "en": "Turn right here."
+                },
+                "modifier": "right",
+                "approach": [
+                  [
+                    11.602614512081626,
+                    48.115438121956785
+                  ],
+                  [
+                    11.602413,
+                    48.115448
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602413,
+                    48.115448
+                  ],
+                  [
+                    11.60240909871756,
+                    48.11558287290724
+                  ]
+                ]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "date": "2026-11-14",
+              "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+            }
+          },
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+          }
+        },
+        {
+          "id": "wilram-entry-5-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "wilram",
+          "exitArm": "west",
+          "entry": [
+            11.602629753066232,
+            48.1154373748497
+          ],
+          "exit": [
+            11.601795601471741,
+            48.115700239635125
+          ],
+          "corridor": [
+            [
+              11.602629753066232,
+              48.1154373748497
+            ],
+            [
+              11.602413,
+              48.115448
+            ],
+            [
+              11.602406,
+              48.11569
+            ],
+            [
+              11.602407,
+              48.115696
+            ],
+            [
+              11.602384,
+              48.115764
+            ],
+            [
+              11.602351,
+              48.115808
+            ],
+            [
+              11.60233,
+              48.11584
+            ],
+            [
+              11.602319,
+              48.115856
+            ],
+            [
+              11.602295,
+              48.11589
+            ],
+            [
+              11.602226,
+              48.115981
+            ],
+            [
+              11.602064,
+              48.115894
+            ],
+            [
+              11.601897,
+              48.115801
+            ],
+            [
+              11.601899,
+              48.115787
+            ],
+            [
+              11.601848,
+              48.115736
+            ],
+            [
+              11.601797,
+              48.115701
+            ],
+            [
+              11.601795601471741,
+              48.115700239635125
+            ]
+          ],
+          "approach": [
+            [
+              11.602830999944377,
+              48.11542546404087
+            ],
+            [
+              11.602629753066232,
+              48.1154373748497
+            ]
+          ],
+          "departure": [
+            [
+              11.601795601471741,
+              48.115700239635125
+            ],
+            [
+              11.601637149922047,
+              48.115616574961024
+            ]
+          ],
+          "sequence": {
+            "version": 1,
+            "advance": {
+              "de": "rechts, danach an der großen Kreuzung links abbiegen",
+              "en": "turn right, then turn left at the large junction"
+            },
+            "display": {
+              "de": "rechts, dann Kreuzung links",
+              "en": "right, then junction left"
+            },
+            "checkpoints": [
+              {
+                "id": "turn-1",
+                "location": [
+                  11.602413,
+                  48.115448
+                ],
+                "instruction": {
+                  "de": "Hier rechts.",
+                  "en": "Turn right here."
+                },
+                "modifier": "right",
+                "approach": [
+                  [
+                    11.602614512081626,
+                    48.115438121956785
+                  ],
+                  [
+                    11.602413,
+                    48.115448
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602413,
+                    48.115448
+                  ],
+                  [
+                    11.60240909871756,
+                    48.11558287290724
+                  ]
+                ]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "date": "2026-11-14",
+              "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+            }
+          },
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+          }
+        },
+        {
+          "id": "wilram-entry-5-exit-3",
+          "enabled": true,
+          "movement": "uturn",
+          "entryArm": "wilram",
+          "exitArm": "south",
+          "entry": [
+            11.602629753066232,
+            48.1154373748497
+          ],
+          "exit": [
+            11.60215921282868,
+            48.11540719644471
+          ],
+          "corridor": [
+            [
+              11.602629753066232,
+              48.1154373748497
+            ],
+            [
+              11.602413,
+              48.115448
+            ],
+            [
+              11.602406,
+              48.11569
+            ],
+            [
+              11.602407,
+              48.115696
+            ],
+            [
+              11.602384,
+              48.115764
+            ],
+            [
+              11.602351,
+              48.115808
+            ],
+            [
+              11.60233,
+              48.11584
+            ],
+            [
+              11.602319,
+              48.115856
+            ],
+            [
+              11.602295,
+              48.11589
+            ],
+            [
+              11.602226,
+              48.115981
+            ],
+            [
+              11.602064,
+              48.115894
+            ],
+            [
+              11.601897,
+              48.115801
+            ],
+            [
+              11.601899,
+              48.115787
+            ],
+            [
+              11.60192,
+              48.115716
+            ],
+            [
+              11.601935,
+              48.115682
+            ],
+            [
+              11.601943,
+              48.115663
+            ],
+            [
+              11.601961,
+              48.115616
+            ],
+            [
+              11.602004,
+              48.115512
+            ],
+            [
+              11.602049,
+              48.115505
+            ],
+            [
+              11.602113,
+              48.115471
+            ],
+            [
+              11.602144,
+              48.115434
+            ],
+            [
+              11.60215921282868,
+              48.11540719644471
+            ]
+          ],
+          "approach": [
+            [
+              11.602830999944377,
+              48.11542546404087
+            ],
+            [
+              11.602629753066232,
+              48.1154373748497
+            ]
+          ],
+          "departure": [
+            [
+              11.60215921282868,
+              48.11540719644471
+            ],
+            [
+              11.60219984827746,
+              48.11527531163004
+            ]
+          ],
+          "sequence": {
+            "version": 1,
+            "advance": {
+              "de": "rechts, danach an der großen Kreuzung wenden",
+              "en": "turn right, then make a U-turn at the large junction"
+            },
+            "display": {
+              "de": "rechts, dann Kreuzung wenden",
+              "en": "right, then junction U-turn"
+            },
+            "checkpoints": [
+              {
+                "id": "turn-1",
+                "location": [
+                  11.602413,
+                  48.115448
+                ],
+                "instruction": {
+                  "de": "Hier rechts.",
+                  "en": "Turn right here."
+                },
+                "modifier": "right",
+                "approach": [
+                  [
+                    11.602614512081626,
+                    48.115438121956785
+                  ],
+                  [
+                    11.602413,
+                    48.115448
+                  ]
+                ],
+                "departure": [
+                  [
+                    11.602413,
+                    48.115448
+                  ],
+                  [
+                    11.60240909871756,
+                    48.11558287290724
+                  ]
+                ]
+              }
+            ],
+            "review": {
+              "status": "approved",
+              "date": "2026-11-14",
+              "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
+            }
+          },
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Thomas requested these six Wilram cases and approved K10 v4. Direction-confirmed aligned instruction is limited to the first Entry-4 outbound checkpoint."
           }
         }
       ]
@@ -15767,6 +16579,2879 @@
             "status": "approved",
             "date": "2026-11-08",
             "evidence": "Human-reviewed geometry v6; legal directed OSM corridor and real standard route batch-02/dachauer-loth-west-north-left-entry-3-exit-1.json; logical arm classification preserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "romanplatz-nord",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.510993874101,
+              48.155572135106006
+            ],
+            [
+              11.511013074101001,
+              48.155430435106005
+            ],
+            [
+              11.511111474101,
+              48.155416735106
+            ],
+            [
+              11.511639774101,
+              48.155343635106
+            ],
+            [
+              11.511855225899,
+              48.155343635106
+            ],
+            [
+              11.512023925899,
+              48.155530035106004
+            ],
+            [
+              11.512049825899,
+              48.155677835106005
+            ],
+            [
+              11.512049825899,
+              48.155821564894
+            ],
+            [
+              11.511935325,
+              48.155821565
+            ],
+            [
+              11.51186,
+              48.1559
+            ],
+            [
+              11.51142,
+              48.1559
+            ],
+            [
+              11.51115,
+              48.1558
+            ],
+            [
+              11.511098776,
+              48.155729057
+            ],
+            [
+              11.510993874101,
+              48.155715864894
+            ],
+            [
+              11.510993874101,
+              48.155572135106006
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.511098486798488,
+            48.155729020631
+          ],
+          "exit": [
+            11.512037154859298,
+            48.15560552701072
+          ],
+          "corridor": [
+            [
+              11.511098486798488,
+              48.155729020631
+            ],
+            [
+              11.5111,
+              48.155698
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.511109,
+              48.155575
+            ],
+            [
+              11.511121,
+              48.155502
+            ],
+            [
+              11.511219,
+              48.155489
+            ],
+            [
+              11.511309,
+              48.155476
+            ],
+            [
+              11.511347,
+              48.155471
+            ],
+            [
+              11.511426,
+              48.15546
+            ],
+            [
+              11.51151,
+              48.155449
+            ],
+            [
+              11.511515,
+              48.155448
+            ],
+            [
+              11.511524,
+              48.155447
+            ],
+            [
+              11.511569,
+              48.15544
+            ],
+            [
+              11.511661,
+              48.155428
+            ],
+            [
+              11.511748,
+              48.155416
+            ],
+            [
+              11.511791,
+              48.155465
+            ],
+            [
+              11.511827,
+              48.155505
+            ],
+            [
+              11.511883,
+              48.155541
+            ],
+            [
+              11.5119,
+              48.155567
+            ],
+            [
+              11.51191,
+              48.155586
+            ],
+            [
+              11.511916,
+              48.155602
+            ],
+            [
+              11.511986,
+              48.155604
+            ],
+            [
+              11.512037154859298,
+              48.15560552701072
+            ]
+          ],
+          "approach": [
+            [
+              11.51110403231343,
+              48.15581855510446
+            ],
+            [
+              11.511098486798488,
+              48.155729020631
+            ]
+          ],
+          "departure": [
+            [
+              11.512037154859298,
+              48.15560552701072
+            ],
+            [
+              11.512171872938389,
+              48.155608808022166
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-north-east-left-entry-4-exit-2.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.511098486798488,
+            48.155729020631
+          ],
+          "exit": [
+            11.511120108663462,
+            48.15541554035583
+          ],
+          "corridor": [
+            [
+              11.511098486798488,
+              48.155729020631
+            ],
+            [
+              11.5111,
+              48.155698
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.511109,
+              48.155575
+            ],
+            [
+              11.511121,
+              48.155502
+            ],
+            [
+              11.511120108663462,
+              48.15541554035583
+            ]
+          ],
+          "approach": [
+            [
+              11.51110403231343,
+              48.15581855510446
+            ],
+            [
+              11.511098486798488,
+              48.155729020631
+            ]
+          ],
+          "departure": [
+            [
+              11.511120108663462,
+              48.15541554035583
+            ],
+            [
+              11.511119,
+              48.15532561194016
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-north-south-straight-entry-4-exit-3.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.512049825899,
+            48.15574709362918
+          ],
+          "exit": [
+            11.511120108663462,
+            48.15541554035583
+          ],
+          "corridor": [
+            [
+              11.512049825899,
+              48.15574709362918
+            ],
+            [
+              11.512047,
+              48.155747
+            ],
+            [
+              11.511999,
+              48.155747
+            ],
+            [
+              11.511942,
+              48.15575
+            ],
+            [
+              11.51189,
+              48.155752
+            ],
+            [
+              11.511876,
+              48.155753
+            ],
+            [
+              11.511864,
+              48.155754
+            ],
+            [
+              11.511852,
+              48.155756
+            ],
+            [
+              11.511841,
+              48.155759
+            ],
+            [
+              11.511831,
+              48.155762
+            ],
+            [
+              11.511814,
+              48.155769
+            ],
+            [
+              11.511797,
+              48.155777
+            ],
+            [
+              11.511757,
+              48.155796
+            ],
+            [
+              11.511711,
+              48.155818
+            ],
+            [
+              11.511663,
+              48.155835
+            ],
+            [
+              11.511627,
+              48.155845
+            ],
+            [
+              11.511591,
+              48.155852
+            ],
+            [
+              11.511551,
+              48.155856
+            ],
+            [
+              11.511523,
+              48.155855
+            ],
+            [
+              11.511492,
+              48.155852
+            ],
+            [
+              11.511465,
+              48.155848
+            ],
+            [
+              11.511437,
+              48.155842
+            ],
+            [
+              11.511383,
+              48.155825
+            ],
+            [
+              11.511283,
+              48.15579
+            ],
+            [
+              11.511279,
+              48.155788
+            ],
+            [
+              11.511195,
+              48.155759
+            ],
+            [
+              11.511194,
+              48.155746
+            ],
+            [
+              11.511194,
+              48.155703
+            ],
+            [
+              11.511197,
+              48.155646
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.511109,
+              48.155575
+            ],
+            [
+              11.511121,
+              48.155502
+            ],
+            [
+              11.511120108663462,
+              48.15541554035583
+            ]
+          ],
+          "approach": [
+            [
+              11.512184468755233,
+              48.15575155468767
+            ],
+            [
+              11.512049825899,
+              48.15574709362918
+            ]
+          ],
+          "departure": [
+            [
+              11.511120108663462,
+              48.15541554035583
+            ],
+            [
+              11.511119,
+              48.15532561194016
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-east-south-left-entry-1-exit-3.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.512049825899,
+            48.15574709362918
+          ],
+          "exit": [
+            11.510993874101,
+            48.15564051206778
+          ],
+          "corridor": [
+            [
+              11.512049825899,
+              48.15574709362918
+            ],
+            [
+              11.512047,
+              48.155747
+            ],
+            [
+              11.511999,
+              48.155747
+            ],
+            [
+              11.511942,
+              48.15575
+            ],
+            [
+              11.51189,
+              48.155752
+            ],
+            [
+              11.511876,
+              48.155753
+            ],
+            [
+              11.511864,
+              48.155754
+            ],
+            [
+              11.511852,
+              48.155756
+            ],
+            [
+              11.511841,
+              48.155759
+            ],
+            [
+              11.511831,
+              48.155762
+            ],
+            [
+              11.511814,
+              48.155769
+            ],
+            [
+              11.511797,
+              48.155777
+            ],
+            [
+              11.511757,
+              48.155796
+            ],
+            [
+              11.511711,
+              48.155818
+            ],
+            [
+              11.511663,
+              48.155835
+            ],
+            [
+              11.511627,
+              48.155845
+            ],
+            [
+              11.511591,
+              48.155852
+            ],
+            [
+              11.511551,
+              48.155856
+            ],
+            [
+              11.511523,
+              48.155855
+            ],
+            [
+              11.511492,
+              48.155852
+            ],
+            [
+              11.511465,
+              48.155848
+            ],
+            [
+              11.511437,
+              48.155842
+            ],
+            [
+              11.511383,
+              48.155825
+            ],
+            [
+              11.511283,
+              48.15579
+            ],
+            [
+              11.511279,
+              48.155788
+            ],
+            [
+              11.511195,
+              48.155759
+            ],
+            [
+              11.511194,
+              48.155746
+            ],
+            [
+              11.511194,
+              48.155703
+            ],
+            [
+              11.511197,
+              48.155646
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.510993874101,
+              48.15564051206778
+            ]
+          ],
+          "approach": [
+            [
+              11.512184468755233,
+              48.15575155468767
+            ],
+            [
+              11.512049825899,
+              48.15574709362918
+            ]
+          ],
+          "departure": [
+            [
+              11.510993874101,
+              48.15564051206778
+            ],
+            [
+              11.510859231493365,
+              48.15563605255015
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-east-west-straight-entry-1-exit-4.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.511727,
+            48.155343635106
+          ],
+          "exit": [
+            11.511935013244772,
+            48.1558218896269
+          ],
+          "corridor": [
+            [
+              11.511727,
+              48.155343635106
+            ],
+            [
+              11.511727,
+              48.15535
+            ],
+            [
+              11.511733,
+              48.155371
+            ],
+            [
+              11.511748,
+              48.155416
+            ],
+            [
+              11.511791,
+              48.155465
+            ],
+            [
+              11.511827,
+              48.155505
+            ],
+            [
+              11.511883,
+              48.155541
+            ],
+            [
+              11.5119,
+              48.155567
+            ],
+            [
+              11.51191,
+              48.155586
+            ],
+            [
+              11.511916,
+              48.155602
+            ],
+            [
+              11.511926,
+              48.155632
+            ],
+            [
+              11.511934,
+              48.155657
+            ],
+            [
+              11.511938,
+              48.15567
+            ],
+            [
+              11.511942,
+              48.155707
+            ],
+            [
+              11.511942,
+              48.155725
+            ],
+            [
+              11.511942,
+              48.15575
+            ],
+            [
+              11.511941,
+              48.155772
+            ],
+            [
+              11.511935013244772,
+              48.1558218896269
+            ]
+          ],
+          "approach": [
+            [
+              11.511724245542817,
+              48.15525372933241
+            ],
+            [
+              11.511727,
+              48.155343635106
+            ]
+          ],
+          "departure": [
+            [
+              11.511935013244772,
+              48.1558218896269
+            ],
+            [
+              11.511911201070525,
+              48.15591015416068
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-south-north-straight-entry-2-exit-1.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.511727,
+            48.155343635106
+          ],
+          "exit": [
+            11.510993874101,
+            48.15564051206778
+          ],
+          "corridor": [
+            [
+              11.511727,
+              48.155343635106
+            ],
+            [
+              11.511727,
+              48.15535
+            ],
+            [
+              11.511733,
+              48.155371
+            ],
+            [
+              11.511748,
+              48.155416
+            ],
+            [
+              11.511661,
+              48.155428
+            ],
+            [
+              11.511569,
+              48.15544
+            ],
+            [
+              11.511524,
+              48.155447
+            ],
+            [
+              11.511515,
+              48.155448
+            ],
+            [
+              11.51151,
+              48.155449
+            ],
+            [
+              11.511426,
+              48.15546
+            ],
+            [
+              11.511347,
+              48.155471
+            ],
+            [
+              11.511309,
+              48.155476
+            ],
+            [
+              11.511219,
+              48.155489
+            ],
+            [
+              11.511121,
+              48.155502
+            ],
+            [
+              11.511109,
+              48.155575
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.510993874101,
+              48.15564051206778
+            ]
+          ],
+          "approach": [
+            [
+              11.511724245542817,
+              48.15525372933241
+            ],
+            [
+              11.511727,
+              48.155343635106
+            ]
+          ],
+          "departure": [
+            [
+              11.510993874101,
+              48.15564051206778
+            ],
+            [
+              11.510859231493365,
+              48.15563605255015
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-south-west-left-entry-2-exit-4.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.510993874101,
+            48.15564051206778
+          ],
+          "exit": [
+            11.511935013244772,
+            48.1558218896269
+          ],
+          "corridor": [
+            [
+              11.510993874101,
+              48.15564051206778
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.511109,
+              48.155575
+            ],
+            [
+              11.511121,
+              48.155502
+            ],
+            [
+              11.511219,
+              48.155489
+            ],
+            [
+              11.511309,
+              48.155476
+            ],
+            [
+              11.511347,
+              48.155471
+            ],
+            [
+              11.511426,
+              48.15546
+            ],
+            [
+              11.51151,
+              48.155449
+            ],
+            [
+              11.511515,
+              48.155448
+            ],
+            [
+              11.511524,
+              48.155447
+            ],
+            [
+              11.511569,
+              48.15544
+            ],
+            [
+              11.511661,
+              48.155428
+            ],
+            [
+              11.511748,
+              48.155416
+            ],
+            [
+              11.511791,
+              48.155465
+            ],
+            [
+              11.511827,
+              48.155505
+            ],
+            [
+              11.511883,
+              48.155541
+            ],
+            [
+              11.5119,
+              48.155567
+            ],
+            [
+              11.51191,
+              48.155586
+            ],
+            [
+              11.511916,
+              48.155602
+            ],
+            [
+              11.511926,
+              48.155632
+            ],
+            [
+              11.511934,
+              48.155657
+            ],
+            [
+              11.511938,
+              48.15567
+            ],
+            [
+              11.511942,
+              48.155707
+            ],
+            [
+              11.511942,
+              48.155725
+            ],
+            [
+              11.511942,
+              48.15575
+            ],
+            [
+              11.511941,
+              48.155772
+            ],
+            [
+              11.511935013244772,
+              48.1558218896269
+            ]
+          ],
+          "approach": [
+            [
+              11.510859231493365,
+              48.15563605255015
+            ],
+            [
+              11.510993874101,
+              48.15564051206778
+            ]
+          ],
+          "departure": [
+            [
+              11.511935013244772,
+              48.1558218896269
+            ],
+            [
+              11.511911201070525,
+              48.15591015416068
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-west-north-left-entry-3-exit-1.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.510993874101,
+            48.15564051206778
+          ],
+          "exit": [
+            11.512037154859298,
+            48.15560552701072
+          ],
+          "corridor": [
+            [
+              11.510993874101,
+              48.15564051206778
+            ],
+            [
+              11.511102,
+              48.155644
+            ],
+            [
+              11.511109,
+              48.155575
+            ],
+            [
+              11.511121,
+              48.155502
+            ],
+            [
+              11.511219,
+              48.155489
+            ],
+            [
+              11.511309,
+              48.155476
+            ],
+            [
+              11.511347,
+              48.155471
+            ],
+            [
+              11.511426,
+              48.15546
+            ],
+            [
+              11.51151,
+              48.155449
+            ],
+            [
+              11.511515,
+              48.155448
+            ],
+            [
+              11.511524,
+              48.155447
+            ],
+            [
+              11.511569,
+              48.15544
+            ],
+            [
+              11.511661,
+              48.155428
+            ],
+            [
+              11.511748,
+              48.155416
+            ],
+            [
+              11.511791,
+              48.155465
+            ],
+            [
+              11.511827,
+              48.155505
+            ],
+            [
+              11.511883,
+              48.155541
+            ],
+            [
+              11.5119,
+              48.155567
+            ],
+            [
+              11.51191,
+              48.155586
+            ],
+            [
+              11.511916,
+              48.155602
+            ],
+            [
+              11.511986,
+              48.155604
+            ],
+            [
+              11.512037154859298,
+              48.15560552701072
+            ]
+          ],
+          "approach": [
+            [
+              11.510859231493365,
+              48.15563605255015
+            ],
+            [
+              11.510993874101,
+              48.15564051206778
+            ]
+          ],
+          "departure": [
+            [
+              11.512037154859298,
+              48.15560552701072
+            ],
+            [
+              11.512171872938389,
+              48.155608808022166
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K19 v3; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/romanplatz-nord-west-east-straight-entry-3-exit-2.json; runtime checks passed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "mars-pappenheim",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.549494894542606,
+              48.145879535106005
+            ],
+            [
+              11.549581394542606,
+              48.14585903510601
+            ],
+            [
+              11.549796805457394,
+              48.14585903510601
+            ],
+            [
+              11.549843905457394,
+              48.145949535106006
+            ],
+            [
+              11.549843905457394,
+              48.146093264894
+            ],
+            [
+              11.549747105457394,
+              48.146116664893995
+            ],
+            [
+              11.549531694542607,
+              48.146116664893995
+            ],
+            [
+              11.549494894542606,
+              48.146023264894
+            ],
+            [
+              11.549494894542606,
+              48.145879535106005
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.54967093450319,
+            48.146116664893995
+          ],
+          "exit": [
+            11.549818512291862,
+            48.14590074356714
+          ],
+          "corridor": [
+            [
+              11.54967093450319,
+              48.146116664893995
+            ],
+            [
+              11.549666,
+              48.146106
+            ],
+            [
+              11.549639,
+              48.146045
+            ],
+            [
+              11.549603,
+              48.145951
+            ],
+            [
+              11.549689,
+              48.145931
+            ],
+            [
+              11.549818512291862,
+              48.14590074356714
+            ]
+          ],
+          "approach": [
+            [
+              11.54971070076734,
+              48.146202593657456
+            ],
+            [
+              11.54967093450319,
+              48.146116664893995
+            ]
+          ],
+          "departure": [
+            [
+              11.549818512291862,
+              48.14590074356714
+            ],
+            [
+              11.549945723089719,
+              48.145871024805245
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-north-east-left-entry-4-exit-2.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.54967093450319,
+            48.146116664893995
+          ],
+          "exit": [
+            11.549563825352923,
+            48.145863198902404
+          ],
+          "corridor": [
+            [
+              11.54967093450319,
+              48.146116664893995
+            ],
+            [
+              11.549666,
+              48.146106
+            ],
+            [
+              11.549639,
+              48.146045
+            ],
+            [
+              11.549603,
+              48.145951
+            ],
+            [
+              11.54957,
+              48.145876
+            ],
+            [
+              11.549563825352923,
+              48.145863198902404
+            ]
+          ],
+          "approach": [
+            [
+              11.54971070076734,
+              48.146202593657456
+            ],
+            [
+              11.54967093450319,
+              48.146116664893995
+            ]
+          ],
+          "departure": [
+            [
+              11.549563825352923,
+              48.145863198902404
+            ],
+            [
+              11.54952272377712,
+              48.145777550950974
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-north-south-straight-entry-4-exit-3.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.549843905457394,
+            48.145995297612934
+          ],
+          "exit": [
+            11.549563825352923,
+            48.145863198902404
+          ],
+          "corridor": [
+            [
+              11.549843905457394,
+              48.145995297612934
+            ],
+            [
+              11.549837,
+              48.145997
+            ],
+            [
+              11.549736,
+              48.146021
+            ],
+            [
+              11.549639,
+              48.146045
+            ],
+            [
+              11.549603,
+              48.145951
+            ],
+            [
+              11.54957,
+              48.145876
+            ],
+            [
+              11.549563825352923,
+              48.145863198902404
+            ]
+          ],
+          "approach": [
+            [
+              11.549970334829613,
+              48.145964129260754
+            ],
+            [
+              11.549843905457394,
+              48.145995297612934
+            ]
+          ],
+          "departure": [
+            [
+              11.549563825352923,
+              48.145863198902404
+            ],
+            [
+              11.54952272377712,
+              48.145777550950974
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-east-south-left-entry-1-exit-3.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.549843905457394,
+            48.145995297612934
+          ],
+          "exit": [
+            11.549527434885423,
+            48.14610585369886
+          ],
+          "corridor": [
+            [
+              11.549843905457394,
+              48.145995297612934
+            ],
+            [
+              11.549837,
+              48.145997
+            ],
+            [
+              11.549736,
+              48.146021
+            ],
+            [
+              11.549639,
+              48.146045
+            ],
+            [
+              11.549527434885423,
+              48.14610585369886
+            ]
+          ],
+          "approach": [
+            [
+              11.549970334829613,
+              48.145964129260754
+            ],
+            [
+              11.549843905457394,
+              48.145995297612934
+            ]
+          ],
+          "departure": [
+            [
+              11.549527434885423,
+              48.14610585369886
+            ],
+            [
+              11.549405756630382,
+              48.14614098207365
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-east-west-straight-entry-1-exit-4.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.549647020478503,
+            48.14585903510601
+          ],
+          "exit": [
+            11.549777354917975,
+            48.14610935252439
+          ],
+          "corridor": [
+            [
+              11.549647020478503,
+              48.14585903510601
+            ],
+            [
+              11.549689,
+              48.145931
+            ],
+            [
+              11.549736,
+              48.146021
+            ],
+            [
+              11.549771,
+              48.146088
+            ],
+            [
+              11.549777354917975,
+              48.14610935252439
+            ]
+          ],
+          "approach": [
+            [
+              11.549611425770616,
+              48.14577245491152
+            ],
+            [
+              11.549647020478503,
+              48.14585903510601
+            ]
+          ],
+          "departure": [
+            [
+              11.549777354917975,
+              48.14610935252439
+            ],
+            [
+              11.549810516668757,
+              48.146196194447924
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-south-north-straight-entry-2-exit-1.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.549647020478503,
+            48.14585903510601
+          ],
+          "exit": [
+            11.549527434885423,
+            48.14610585369886
+          ],
+          "corridor": [
+            [
+              11.549647020478503,
+              48.14585903510601
+            ],
+            [
+              11.549689,
+              48.145931
+            ],
+            [
+              11.549736,
+              48.146021
+            ],
+            [
+              11.549639,
+              48.146045
+            ],
+            [
+              11.549527434885423,
+              48.14610585369886
+            ]
+          ],
+          "approach": [
+            [
+              11.549611425770616,
+              48.14577245491152
+            ],
+            [
+              11.549647020478503,
+              48.14585903510601
+            ]
+          ],
+          "departure": [
+            [
+              11.549527434885423,
+              48.14610585369886
+            ],
+            [
+              11.549405756630382,
+              48.14614098207365
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-south-west-left-entry-2-exit-4.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.549494894542606,
+            48.14593824909989
+          ],
+          "exit": [
+            11.549777354917975,
+            48.14610935252439
+          ],
+          "corridor": [
+            [
+              11.549494894542606,
+              48.14593824909989
+            ],
+            [
+              11.549603,
+              48.145951
+            ],
+            [
+              11.549689,
+              48.145931
+            ],
+            [
+              11.549736,
+              48.146021
+            ],
+            [
+              11.549771,
+              48.146088
+            ],
+            [
+              11.549777354917975,
+              48.14610935252439
+            ]
+          ],
+          "approach": [
+            [
+              11.549363530999818,
+              48.14593716330913
+            ],
+            [
+              11.549494894542606,
+              48.14593824909989
+            ]
+          ],
+          "departure": [
+            [
+              11.549777354917975,
+              48.14610935252439
+            ],
+            [
+              11.549810516668757,
+              48.146196194447924
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-west-north-left-entry-3-exit-1.json; runtime checks passed."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.549494894542606,
+            48.14593824909989
+          ],
+          "exit": [
+            11.549818512291862,
+            48.14590074356714
+          ],
+          "corridor": [
+            [
+              11.549494894542606,
+              48.14593824909989
+            ],
+            [
+              11.549603,
+              48.145951
+            ],
+            [
+              11.549689,
+              48.145931
+            ],
+            [
+              11.549818512291862,
+              48.14590074356714
+            ]
+          ],
+          "approach": [
+            [
+              11.549363530999818,
+              48.14593716330913
+            ],
+            [
+              11.549494894542606,
+              48.14593824909989
+            ]
+          ],
+          "departure": [
+            [
+              11.549818512291862,
+              48.14590074356714
+            ],
+            [
+              11.549945723089719,
+              48.145871024805245
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-14",
+            "evidence": "Human-approved K7 v2; directed legal corridor and unchanged real Standard response review-updates-2026-11-14/mars-pappenheim-west-east-straight-entry-3-exit-2.json; runtime checks passed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "schwere-reiter-ackermann",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.552601861849846,
+              48.161588135106
+            ],
+            [
+              11.552651561849846,
+              48.161451435106
+            ],
+            [
+              11.552830561849845,
+              48.161195135106006
+            ],
+            [
+              11.552961861849846,
+              48.161193535106
+            ],
+            [
+              11.553177338150155,
+              48.161193535106
+            ],
+            [
+              11.553472238150155,
+              48.161193635106
+            ],
+            [
+              11.553472238150155,
+              48.161337364893996
+            ],
+            [
+              11.553428838150154,
+              48.161429964894
+            ],
+            [
+              11.553307538150154,
+              48.161688764893995
+            ],
+            [
+              11.553268938150154,
+              48.161729164894
+            ],
+            [
+              11.552817338150154,
+              48.161731864893994
+            ],
+            [
+              11.552601861849846,
+              48.161731864893994
+            ],
+            [
+              11.552601861849846,
+              48.161588135106
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "east-south-left-entry-1-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.553345392793283,
+            48.161608
+          ],
+          "exit": [
+            11.553003401673925,
+            48.161193535106
+          ],
+          "corridor": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.553003401673925,
+              48.161193535106
+            ]
+          ],
+          "approach": [
+            [
+              11.553480216996677,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "departure": [
+            [
+              11.553003401673925,
+              48.161193535106
+            ],
+            [
+              11.553072240594432,
+              48.16111620919529
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-east-south-left-entry-1-exit-4.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.553345392793283,
+            48.161608
+          ],
+          "exit": [
+            11.552601861849846,
+            48.161625710527254
+          ],
+          "corridor": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552667,
+              48.161637
+            ],
+            [
+              11.552629,
+              48.161629
+            ],
+            [
+              11.552601861849846,
+              48.161625710527254
+            ]
+          ],
+          "approach": [
+            [
+              11.553480216996677,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "departure": [
+            [
+              11.552601861849846,
+              48.161625710527254
+            ],
+            [
+              11.552468093081357,
+              48.16162695569732
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-east-west-straight-entry-1-exit-5.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": false,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "exit": [
+            11.553345392793283,
+            48.161608
+          ],
+          "corridor": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "approach": [
+            [
+              11.552719436006765,
+              48.16182179651513
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "departure": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553480216996677,
+              48.161608
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-north-east-left-entry-4-exit-2.json; logical arm classification preserved."
+          },
+          "disabledReason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance."
+        },
+        {
+          "id": "north-east-left-entry-4-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "exit": [
+            11.553472238150155,
+            48.161278
+          ],
+          "corridor": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.553416,
+              48.161278
+            ],
+            [
+              11.553472238150155,
+              48.161278
+            ]
+          ],
+          "approach": [
+            [
+              11.552719436006765,
+              48.16182179651513
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "departure": [
+            [
+              11.553472238150155,
+              48.161278
+            ],
+            [
+              11.55360706134022,
+              48.161277934532
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-north-east-left-entry-4-exit-3.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "exit": [
+            11.553003401673925,
+            48.161193535106
+          ],
+          "corridor": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.553003401673925,
+              48.161193535106
+            ]
+          ],
+          "approach": [
+            [
+              11.552719436006765,
+              48.16182179651513
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "departure": [
+            [
+              11.553003401673925,
+              48.161193535106
+            ],
+            [
+              11.553072240594432,
+              48.16111620919529
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-north-south-straight-entry-4-exit-4.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.553419490407908,
+            48.16119361721935
+          ],
+          "exit": [
+            11.553161435390665,
+            48.161729807625285
+          ],
+          "corridor": [
+            [
+              11.553419490407908,
+              48.16119361721935
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.553345,
+              48.161308
+            ],
+            [
+              11.553321,
+              48.161358
+            ],
+            [
+              11.553306,
+              48.161392
+            ],
+            [
+              11.5533,
+              48.161403
+            ],
+            [
+              11.553294,
+              48.161416
+            ],
+            [
+              11.553287,
+              48.161432
+            ],
+            [
+              11.55328,
+              48.161446
+            ],
+            [
+              11.553274,
+              48.161459
+            ],
+            [
+              11.553267,
+              48.161474
+            ],
+            [
+              11.553263,
+              48.161483
+            ],
+            [
+              11.553256,
+              48.161498
+            ],
+            [
+              11.55324,
+              48.161529
+            ],
+            [
+              11.55322,
+              48.161574
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553161,
+              48.161703
+            ],
+            [
+              11.553161435390665,
+              48.161729807625285
+            ]
+          ],
+          "approach": [
+            [
+              11.553497048258157,
+              48.16112037525729
+            ],
+            [
+              11.553419490407908,
+              48.16119361721935
+            ]
+          ],
+          "departure": [
+            [
+              11.553161435390665,
+              48.161729807625285
+            ],
+            [
+              11.553162895918081,
+              48.1618197343848
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-south-north-straight-entry-2-exit-1.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-6",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.553419490407908,
+            48.16119361721935
+          ],
+          "exit": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "corridor": [
+            [
+              11.553419490407908,
+              48.16119361721935
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "approach": [
+            [
+              11.553497048258157,
+              48.16112037525729
+            ],
+            [
+              11.553419490407908,
+              48.16119361721935
+            ]
+          ],
+          "departure": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.552719436006765,
+              48.16182179651513
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-south-north-straight-entry-2-exit-6.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.553419490407908,
+            48.16119361721935
+          ],
+          "exit": [
+            11.552601861849846,
+            48.161625710527254
+          ],
+          "corridor": [
+            [
+              11.553419490407908,
+              48.16119361721935
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552667,
+              48.161637
+            ],
+            [
+              11.552629,
+              48.161629
+            ],
+            [
+              11.552601861849846,
+              48.161625710527254
+            ]
+          ],
+          "approach": [
+            [
+              11.553497048258157,
+              48.16112037525729
+            ],
+            [
+              11.553419490407908,
+              48.16119361721935
+            ]
+          ],
+          "departure": [
+            [
+              11.552601861849846,
+              48.161625710527254
+            ],
+            [
+              11.552468093081357,
+              48.16162695569732
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-south-west-left-entry-2-exit-5.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": false,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.553345392793283,
+            48.161608
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.5532,
+              48.161617
+            ],
+            [
+              11.553295,
+              48.161608
+            ],
+            [
+              11.553345392793283,
+              48.161608
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.553345392793283,
+              48.161608
+            ],
+            [
+              11.553480216996677,
+              48.161608
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-east-straight-entry-3-exit-2.json; logical arm classification preserved."
+          },
+          "disabledReason": "Human exclusion: macro instruction cannot distinguish Exit-2 from Exit-3 on the same logical arm; keep ordinary turn-by-turn guidance."
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.553472238150155,
+            48.161278
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.55307,
+              48.161265
+            ],
+            [
+              11.55321,
+              48.161268
+            ],
+            [
+              11.553365,
+              48.161266
+            ],
+            [
+              11.553416,
+              48.161278
+            ],
+            [
+              11.553472238150155,
+              48.161278
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.553472238150155,
+              48.161278
+            ],
+            [
+              11.55360706134022,
+              48.161277934532
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-east-straight-entry-3-exit-3.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.553161435390665,
+            48.161729807625285
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.552844,
+              48.161658
+            ],
+            [
+              11.553055,
+              48.161658
+            ],
+            [
+              11.553161,
+              48.161657
+            ],
+            [
+              11.553161,
+              48.161703
+            ],
+            [
+              11.553161435390665,
+              48.161729807625285
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.553161435390665,
+              48.161729807625285
+            ],
+            [
+              11.553162895918081,
+              48.1618197343848
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-north-left-entry-3-exit-1.json; logical arm classification preserved."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-6",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.55277744752897,
+            48.16127118650511
+          ],
+          "exit": [
+            11.552719845718023,
+            48.161731864893994
+          ],
+          "corridor": [
+            [
+              11.55277744752897,
+              48.16127118650511
+            ],
+            [
+              11.552938,
+              48.161267
+            ],
+            [
+              11.552889,
+              48.161344
+            ],
+            [
+              11.55282,
+              48.161437
+            ],
+            [
+              11.552806,
+              48.161455
+            ],
+            [
+              11.552797,
+              48.161469
+            ],
+            [
+              11.552759,
+              48.161523
+            ],
+            [
+              11.5527,
+              48.161604
+            ],
+            [
+              11.55271,
+              48.16166
+            ],
+            [
+              11.55272,
+              48.161698
+            ],
+            [
+              11.552719845718023,
+              48.161731864893994
+            ]
+          ],
+          "approach": [
+            [
+              11.552642727093826,
+              48.16127469942389
+            ],
+            [
+              11.55277744752897,
+              48.16127118650511
+            ]
+          ],
+          "departure": [
+            [
+              11.552719845718023,
+              48.161731864893994
+            ],
+            [
+              11.552719436006765,
+              48.16182179651513
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-08",
+            "evidence": "Human-reviewed geometry v2; legal directed OSM corridor and real standard route batch-02/schwere-reiter-ackermann-west-north-left-entry-3-exit-6.json; logical arm classification preserved."
           }
         }
       ]

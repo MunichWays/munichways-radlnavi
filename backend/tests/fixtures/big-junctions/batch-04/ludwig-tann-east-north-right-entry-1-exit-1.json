@@ -1,0 +1,360 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2836183774,
+              380211818,
+              1078841399,
+              1078841395,
+              1078841364,
+              1078841384,
+              1078841381,
+              2580966520
+            ],
+            "distance": [
+              53.50683281,
+              8.722060065,
+              16.87683995,
+              5.829610404,
+              12.40587209,
+              5.00358439,
+              6.461079106
+            ]
+          },
+          "duration": 26.4,
+          "summary": "Von-der-Tann-Straße, Ludwigstraße",
+          "weight": 44.7,
+          "distance": 108.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    287
+                  ],
+                  "location": [
+                    11.579703,
+                    48.145232
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.579703,
+                    48.145232
+                  ],
+                  [
+                    11.579014,
+                    48.145369
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 287,
+                "bearing_before": 0,
+                "location": [
+                  11.579703,
+                  48.145232
+                ],
+                "type": "depart"
+              },
+              "name": "Von-der-Tann-Straße",
+              "mode": "cycling",
+              "weight": 18.9,
+              "duration": 14.8,
+              "distance": 53.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.579014,
+                    48.145369
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    30,
+                    195
+                  ],
+                  "location": [
+                    11.579043,
+                    48.145445
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.579014,
+                    48.145369
+                  ],
+                  [
+                    11.579043,
+                    48.145445
+                  ],
+                  [
+                    11.57911,
+                    48.14559
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 14,
+                "bearing_before": 285,
+                "location": [
+                  11.579014,
+                  48.145369
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Ludwigstraße",
+              "mode": "cycling",
+              "weight": 12.1,
+              "duration": 5.4,
+              "distance": 25.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    45,
+                    195
+                  ],
+                  "location": [
+                    11.57911,
+                    48.14559
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    180,
+                    195
+                  ],
+                  "location": [
+                    11.579194,
+                    48.14576
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.57911,
+                    48.14559
+                  ],
+                  [
+                    11.579178,
+                    48.145616
+                  ],
+                  [
+                    11.57923,
+                    48.145722
+                  ],
+                  [
+                    11.579194,
+                    48.14576
+                  ],
+                  [
+                    11.579222,
+                    48.145815
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 42,
+                "bearing_before": 16,
+                "location": [
+                  11.57911,
+                  48.14559
+                ],
+                "modifier": "slight right",
+                "type": "continue"
+              },
+              "name": "Ludwigstraße",
+              "mode": "cycling",
+              "weight": 13.7,
+              "duration": 6.2,
+              "distance": 29.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    199
+                  ],
+                  "location": [
+                    11.579222,
+                    48.145815
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.579222,
+                    48.145815
+                  ],
+                  [
+                    11.579222,
+                    48.145815
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 19,
+                "location": [
+                  11.579222,
+                  48.145815
+                ],
+                "type": "arrive"
+              },
+              "name": "Ludwigstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.579703,
+            48.145232
+          ],
+          [
+            11.579014,
+            48.145369
+          ],
+          [
+            11.579043,
+            48.145445
+          ],
+          [
+            11.57911,
+            48.14559
+          ],
+          [
+            11.579178,
+            48.145616
+          ],
+          [
+            11.57923,
+            48.145722
+          ],
+          [
+            11.579194,
+            48.14576
+          ],
+          [
+            11.579222,
+            48.145815
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 44.7,
+      "duration": 26.4,
+      "distance": 108.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "mzchgP___38sAAAAmAAAAAAAAAAAAAAAxtuyQf8GVkIAAAAAAAAAACwAAACYAAAAAAAAAAAAAAC9AgAAN7GwAFCj3gI3sbAAUKPeAgAA7xEAAAAA",
+      "location": [
+        11.579703,
+        48.145232
+      ],
+      "name": "Von-der-Tann-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "eDchgP___38cAAAAcgAAAAAAAAATAAAAKcHOQKn_mEEAAAAAoHWKQAwAAAAzAAAAAAAAAAkAAAC9AgAAVq-wAJel3gJWr7AAl6XeAgAALwEAAAAA",
+      "location": [
+        11.579222,
+        48.145815
+      ],
+      "name": "Ludwigstraße",
+      "distance": 0
+    }
+  ]
+}

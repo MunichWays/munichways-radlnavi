@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "district": "BA01",
+  "districtRelationId": 56391,
+  "scope": "First review batch on the Altstadt-Radlring including boundary approaches; not a complete BA01 inventory. Road-node degree alone cannot establish four cycling arms.",
+  "ringSource": "https://muenchenunterwegs.de/radentscheid/altstadt-radlring",
+  "ringStreets": [
+    "Sonnenstraße",
+    "Lenbachplatz",
+    "Maximiliansplatz",
+    "Brienner Straße",
+    "Odeonsplatz",
+    "Ludwigstraße",
+    "Von-der-Tann-Straße",
+    "Franz-Josef-Strauß-Ring",
+    "Karl-Scharnagl-Ring",
+    "Thomas-Wimmer-Ring",
+    "Isartorplatz",
+    "Frauenstraße",
+    "Blumenstraße",
+    "Sendlinger-Tor-Platz"
+  ],
+  "prepared": [
+    "ludwig-tann",
+    "maximilian-ring",
+    "maximilians-brienner",
+    "sonnen-schwanthaler",
+    "sonnen-landwehr",
+    "blumen-cornelius",
+    "blumen-papa-schmid"
+  ],
+  "deferred": [
+    {
+      "name": "Stachus / Karlsplatz",
+      "reason": "Mehrteiliger Platz mit versetzten Zufahrten und Tram; separat abgrenzen, keine gemeinsame Fläche auf Verdacht."
+    },
+    {
+      "name": "Lenbachplatz / Pacellistraße / Ottostraße",
+      "reason": "Versetzte Verzweigungen und mehrere Zweirichtungswege; logische Arme vor einem gemeinsamen Entwurf klären."
+    },
+    {
+      "name": "Maximiliansplatz / Max-Joseph-Straße / Prannerstraße",
+      "reason": "Versetzte Einmündungen an den Platzseiten; eigenen Umfang klären."
+    },
+    {
+      "name": "Brienner Straße / Odeonsplatz / Ludwigstraße",
+      "reason": "Radverkehrsarme am Fußgängerbereich und Platzübergang separat klären."
+    },
+    {
+      "name": "Von-der-Tann-Straße / Franz-Josef-Strauß-Ring / Prinzregentenstraße",
+      "reason": "Gekrümmter Tunnelanschluss und versetzte Zufahrten; keine einfache Vierarmigkeit belegt."
+    },
+    {
+      "name": "Franz-Josef-Strauß-Ring / Karl-Scharnagl-Ring / Hofgartenstraße / Christophstraße",
+      "reason": "Versetzte Seitenstraßen und Hauptstraßenbogen; separat abgrenzen."
+    },
+    {
+      "name": "Isartorplatz / Tal / Zweibrückenstraße",
+      "reason": "Mehrere nahe Teilknoten, Tram und weitere Zufahrten; getrennte Kreuzungsflächen untersuchen."
+    },
+    {
+      "name": "Frauenstraße / Reichenbachstraße",
+      "reason": "Drei Straßenarme; gegenüberliegender Viktualienmarkt in OSM bicycle=no. Kein belegter vierter Radverkehrsarm, deshalb zunächst kein Entwurf."
+    },
+    {
+      "name": "Sendlinger-Tor-Platz",
+      "reason": "Großer mehrteiliger Platz mit zusätzlichen Seitenstraßen; separat abgrenzen."
+    }
+  ],
+  "preservedExclusions": [
+    "gabelsberger-oskar-von-miller"
+  ],
+  "activation": "none; existing human exclusions and all runtime movements remain unchanged",
+  "open": [
+    "ludwig-tann",
+    "maximilian-ring",
+    "maximilians-brienner",
+    "blumen-cornelius"
+  ],
+  "closed": [
+    {
+      "id": "sonnen-schwanthaler",
+      "disposition": "permanently-excluded",
+      "reason": "Dauerhaft ausgeschlossen: Herzogspitalstraße aus der Fläche entfernt; Sonnenstraße / Schwanthalerstraße separat abgegrenzt. Normale Ansagen bleiben."
+    },
+    {
+      "id": "sonnen-landwehr",
+      "disposition": "permanently-excluded",
+      "reason": "Dauerhaft ausgeschlossen: Schräge, versetzte Querung mit Zweirichtungsradweg Sonnenstraße. Einzelne Fahrbeziehungen nur bei konkret festgestellten Problemen der normalen Ansagen erneut prüfen."
+    },
+    {
+      "id": "blumen-papa-schmid",
+      "disposition": "permanently-deferred",
+      "reason": "Dauerhaft zurückgestellt: Drei große Kreuzungen folgen dicht aufeinander. Normale Ansagen bleiben; einzelne Fahrbeziehungen erst bei konkret festgestellten Praxisproblemen erneut prüfen."
+    }
+  ]
+}

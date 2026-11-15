@@ -20,7 +20,7 @@ class OverviewCountsTests(unittest.TestCase):
     def test_complete_counts_include_pilots_and_previous_exclusions_once(self):
         groups, _, _ = self.groups()
         self.assertEqual(review_counts(groups), {
-            'total': 28, '1-bestaetigt': 21, '2-offen': 0, '3-ausgeschlossen': 7})
+            'total': 35, '1-bestaetigt': 24, '2-offen': 1, '3-ausgeschlossen': 10})
 
     def test_wilram_draft_preserves_other_gates_and_records_special_guidance(self):
         groups, catalog, _ = self.groups()

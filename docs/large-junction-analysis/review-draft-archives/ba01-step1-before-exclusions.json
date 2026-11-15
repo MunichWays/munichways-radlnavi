@@ -1,0 +1,567 @@
+{
+  "scope": "Geometry before Thomas BA01 step 1 exclusions; no activation or approval.",
+  "sites": [
+    {
+      "id": "sonnen-schwanthaler",
+      "name": "Sonnenstraße / Schwanthalerstraße / Herzogspitalstraße",
+      "number": 26,
+      "version": 1,
+      "polygon": [
+        [
+          11.56435302463097,
+          48.13717757021201
+        ],
+        [
+          11.564783775369031,
+          48.13717757021201
+        ],
+        [
+          11.56559967536903,
+          48.13720827021201
+        ],
+        [
+          11.56559967536903,
+          48.13749572978799
+        ],
+        [
+          11.565556787684516,
+          48.137979464893995
+        ],
+        [
+          11.565341412315485,
+          48.137979464893995
+        ],
+        [
+          11.56436942463097,
+          48.137536029787995
+        ],
+        [
+          11.56435302463097,
+          48.137465029788
+        ],
+        [
+          11.56435302463097,
+          48.13717757021201
+        ]
+      ],
+      "gates": [
+        {
+          "kind": "exit",
+          "location": [
+            11.565461497,
+            48.137979465
+          ],
+          "osmWayId": 107023506,
+          "directionBasis": "yes",
+          "forward": [
+            0.11967234231002206,
+            0.9928134419346027
+          ],
+          "label": "Exit-1"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.565563653,
+            48.137902031
+          ],
+          "osmWayId": 342008589,
+          "directionBasis": "no",
+          "forward": [
+            0.9940005940809541,
+            -0.10937467241875574
+          ],
+          "shared": true,
+          "label": "Exit-2",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.565563653,
+            48.137902031
+          ],
+          "osmWayId": 342008589,
+          "directionBasis": "no",
+          "forward": [
+            -0.9940005940809541,
+            0.10937467241875574
+          ],
+          "shared": true,
+          "label": "Entry-1",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.565357531,
+            48.137199159
+          ],
+          "osmWayId": 107023506,
+          "directionBasis": "yes",
+          "forward": [
+            0.11608947227020053,
+            0.9932387600310544
+          ],
+          "label": "Entry-2"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.564544295,
+            48.13717757
+          ],
+          "osmWayId": 116514208,
+          "directionBasis": "no",
+          "forward": [
+            -0.10238932425927832,
+            -0.994744402486251
+          ],
+          "shared": true,
+          "label": "Exit-3"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.564544295,
+            48.13717757
+          ],
+          "osmWayId": 116514208,
+          "directionBasis": "no",
+          "forward": [
+            0.10238932425927832,
+            0.994744402486251
+          ],
+          "shared": true,
+          "label": "Entry-3"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.564353025,
+            48.137393067
+          ],
+          "osmWayId": 146800313,
+          "directionBasis": "no",
+          "forward": [
+            -0.9999965845189215,
+            0.0026136087105040552
+          ],
+          "shared": true,
+          "label": "Exit-4",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.564353025,
+            48.137393067
+          ],
+          "osmWayId": 146800313,
+          "directionBasis": "no",
+          "forward": [
+            0.9999965845189215,
+            -0.0026136087105040552
+          ],
+          "shared": true,
+          "label": "Entry-4",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.564666454,
+            48.137671539
+          ],
+          "osmWayId": 994031435,
+          "directionBasis": "yes",
+          "forward": [
+            -0.10232804302334156,
+            -0.9947507082736926
+          ],
+          "label": "Entry-5"
+        }
+      ],
+      "proposedLogicalArms": {
+        "Sonnen Nord": [
+          "Entry-5",
+          "Exit-1"
+        ],
+        "Herzogspital Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Sonnen Sued": [
+          "Entry-2",
+          "Entry-3",
+          "Exit-3"
+        ],
+        "Schwanthaler West": [
+          "Entry-4",
+          "Exit-4"
+        ]
+      }
+    },
+    {
+      "id": "sonnen-landwehr",
+      "name": "Sonnenstraße / Landwehrstraße / Josephspitalstraße",
+      "number": 27,
+      "version": 1,
+      "polygon": [
+        [
+          11.564415714350009,
+          48.136252735106005
+        ],
+        [
+          11.564631085649992,
+          48.136252735106005
+        ],
+        [
+          11.565377785649991,
+          48.136611335106004
+        ],
+        [
+          11.565377785649991,
+          48.136755064894
+        ],
+        [
+          11.565162414350008,
+          48.136755064894
+        ],
+        [
+          11.564415714350009,
+          48.136396464894
+        ],
+        [
+          11.564415714350009,
+          48.136252735106005
+        ]
+      ],
+      "gates": [
+        {
+          "kind": "exit",
+          "location": [
+            11.565280174,
+            48.136755065
+          ],
+          "osmWayId": 107023506,
+          "directionBasis": "yes",
+          "forward": [
+            0.11578509546932611,
+            0.9932742882342013
+          ],
+          "label": "Exit-1"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.565377786,
+            48.136674926
+          ],
+          "osmWayId": 144135870,
+          "directionBasis": "yes",
+          "forward": [
+            -0.9935899225856705,
+            0.11304452988181804
+          ],
+          "label": "Entry-1",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.56523512,
+            48.13654282
+          ],
+          "osmWayId": 107023506,
+          "directionBasis": "yes",
+          "forward": [
+            0.1640410160742299,
+            0.9864535189482241
+          ],
+          "label": "Entry-2"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.564560062,
+            48.136252735
+          ],
+          "osmWayId": 116514203,
+          "directionBasis": "yes",
+          "forward": [
+            0.3222862364337607,
+            -0.946642267071021
+          ],
+          "label": "Exit-2"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.564415714,
+            48.136325162
+          ],
+          "osmWayId": 151304010,
+          "directionBasis": "no",
+          "forward": [
+            -0.9999778245408395,
+            0.006659611593027833
+          ],
+          "shared": true,
+          "label": "Exit-3",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.564415714,
+            48.136325162
+          ],
+          "osmWayId": 151304010,
+          "directionBasis": "no",
+          "forward": [
+            0.9999778245408395,
+            -0.006659611593027833
+          ],
+          "shared": true,
+          "label": "Entry-3",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.564478956,
+            48.136426836
+          ],
+          "osmWayId": 116514208,
+          "directionBasis": "no",
+          "forward": [
+            0.12965328063347725,
+            -0.9915593914743468
+          ],
+          "shared": true,
+          "label": "Entry-4"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.564478956,
+            48.136426836
+          ],
+          "osmWayId": 116514208,
+          "directionBasis": "no",
+          "forward": [
+            -0.12965328063347725,
+            0.9915593914743468
+          ],
+          "shared": true,
+          "label": "Exit-4"
+        }
+      ],
+      "proposedLogicalArms": {
+        "Sonnen Nord": [
+          "Entry-4",
+          "Exit-4",
+          "Exit-1"
+        ],
+        "Josephspital Ost": [
+          "Entry-1"
+        ],
+        "Sonnen Sued": [
+          "Entry-2",
+          "Exit-2"
+        ],
+        "Landwehr West": [
+          "Entry-3",
+          "Exit-3"
+        ]
+      }
+    },
+    {
+      "id": "blumen-papa-schmid",
+      "name": "Blumenstraße / Papa-Schmid-Straße / An der Hauptfeuerwache",
+      "number": 29,
+      "version": 2,
+      "polygon": [
+        [
+          11.570510052887341,
+          48.131996864894
+        ],
+        [
+          11.570631188426338,
+          48.132104662235
+        ],
+        [
+          11.571021514051996,
+          48.132104662235
+        ],
+        [
+          11.571021514051996,
+          48.131817202659
+        ],
+        [
+          11.570510052887341,
+          48.131781270212
+        ],
+        [
+          11.570510052887341,
+          48.131996864894
+        ]
+      ],
+      "gates": [
+        {
+          "kind": "exit",
+          "location": [
+            11.571021514,
+            48.132005649
+          ],
+          "osmWayId": 51109540,
+          "directionBasis": "yes",
+          "forward": [
+            0.7876063006992851,
+            0.6161788012409932
+          ],
+          "label": "Exit-1",
+          "laneEvidence": {
+            "cycleway:right": "lane"
+          },
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.57099552,
+            48.131815376
+          ],
+          "osmWayId": 719482346,
+          "directionBasis": "no",
+          "forward": [
+            0.620806766557501,
+            -0.7839636207098007
+          ],
+          "shared": true,
+          "label": "Exit-2",
+          "laneEvidence": {
+            "cycleway:both": "lane"
+          },
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.57099552,
+            48.131815376
+          ],
+          "osmWayId": 719482346,
+          "directionBasis": "no",
+          "forward": [
+            -0.620806766557501,
+            0.7839636207098007
+          ],
+          "shared": true,
+          "label": "Entry-1",
+          "laneEvidence": {
+            "cycleway:both": "lane"
+          },
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.570510053,
+            48.13184527
+          ],
+          "osmWayId": 148877272,
+          "directionBasis": "yes",
+          "forward": [
+            0.9834505441622271,
+            0.18117678434893256
+          ],
+          "label": "Entry-2",
+          "laneEvidence": {
+            "cycleway:right": "lane"
+          },
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.570510053,
+            48.131911819
+          ],
+          "osmWayId": 990568705,
+          "directionBasis": "yes",
+          "forward": [
+            -0.9610924689461102,
+            -0.27622683818751276
+          ],
+          "label": "Exit-3"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.570611303,
+            48.132086967
+          ],
+          "osmWayId": 144456135,
+          "directionBasis": "no",
+          "forward": [
+            -0.7885240087005935,
+            0.6150039737292323
+          ],
+          "shared": true,
+          "label": "Exit-4",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.570611303,
+            48.132086967
+          ],
+          "osmWayId": 144456135,
+          "directionBasis": "no",
+          "forward": [
+            0.7885240087005935,
+            -0.6150039737292323
+          ],
+          "shared": true,
+          "label": "Entry-3",
+          "positionBasis": "OSM carriageway centerline; lateral lane position unverified"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.571021514,
+            48.132083789
+          ],
+          "osmWayId": 670660843,
+          "directionBasis": "yes",
+          "forward": [
+            -0.7510851301112869,
+            -0.6602053675377922
+          ],
+          "label": "Entry-4"
+        }
+      ],
+      "proposedLogicalArms": {
+        "Blumen Nordost": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Papa-Schmid Suedost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Blumen Suedwest": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Hauptfeuerwache Nordwest": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      }
+    }
+  ]
+}

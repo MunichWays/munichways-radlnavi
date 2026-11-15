@@ -1,0 +1,324 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3690605445,
+              3690605443,
+              13282928158,
+              254039278,
+              3690605441,
+              7072438197,
+              3903212232,
+              6280421490,
+              6280421491
+            ],
+            "distance": [
+              13.86178971,
+              5.980604815,
+              3.869097247,
+              26.30015067,
+              3.395335691,
+              12.86880786,
+              18.16855602,
+              50.78059948
+            ]
+          },
+          "duration": 56.3,
+          "summary": "Sankt-Jakobs-Platz, Fritz-Neuland-Straße",
+          "weight": 93.7,
+          "distance": 135.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    138
+                  ],
+                  "location": [
+                    11.572929,
+                    48.133893
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    315
+                  ],
+                  "location": [
+                    11.573153,
+                    48.133742
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572929,
+                    48.133893
+                  ],
+                  [
+                    11.573053,
+                    48.1338
+                  ],
+                  [
+                    11.573114,
+                    48.133765
+                  ],
+                  [
+                    11.573153,
+                    48.133742
+                  ],
+                  [
+                    11.573409,
+                    48.133579
+                  ],
+                  [
+                    11.573439,
+                    48.133556
+                  ],
+                  [
+                    11.573553,
+                    48.133469
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 138,
+                "bearing_before": 0,
+                "location": [
+                  11.572929,
+                  48.133893
+                ],
+                "type": "depart"
+              },
+              "name": "Sankt-Jakobs-Platz",
+              "mode": "cycling",
+              "weight": 75.5,
+              "duration": 42.2,
+              "distance": 66.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    255,
+                    315
+                  ],
+                  "location": [
+                    11.573553,
+                    48.133469
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    135,
+                    225
+                  ],
+                  "location": [
+                    11.573316,
+                    48.13343
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573553,
+                    48.133469
+                  ],
+                  [
+                    11.573316,
+                    48.13343
+                  ],
+                  [
+                    11.572803,
+                    48.133129
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 255,
+                "bearing_before": 137,
+                "location": [
+                  11.573553,
+                  48.133469
+                ],
+                "modifier": "sharp right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 18.2,
+              "duration": 14.1,
+              "distance": 68.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    49
+                  ],
+                  "location": [
+                    11.572803,
+                    48.133129
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572803,
+                    48.133129
+                  ],
+                  [
+                    11.572803,
+                    48.133129
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 229,
+                "location": [
+                  11.572803,
+                  48.133129
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.572929,
+            48.133893
+          ],
+          [
+            11.573053,
+            48.1338
+          ],
+          [
+            11.573114,
+            48.133765
+          ],
+          [
+            11.573153,
+            48.133742
+          ],
+          [
+            11.573409,
+            48.133579
+          ],
+          [
+            11.573439,
+            48.133556
+          ],
+          [
+            11.573553,
+            48.133469
+          ],
+          [
+            11.573316,
+            48.13343
+          ],
+          [
+            11.572803,
+            48.133129
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 93.7,
+      "duration": 56.3,
+      "distance": 135.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "8DAhgBMxIYAeAAAAFwAAABYAAAANAAAA5MldQbExHkFhmB1Bohm_QBkAAAASAAAAEgAAAAsAAAC9AgAAwZawAAV33gLBlrAABXfeAgQA7xMAAAAA",
+      "location": [
+        11.572929,
+        48.133893
+      ],
+      "name": "Sankt-Jakobs-Platz",
+      "distance": 0
+    },
+    {
+      "hint": "UcEAgP___39-AAAARAIAAAAAAAAAAAAAVR9LQtY4NUMAAAAAAAAAAGUAAADQAQAAAAAAAAAAAAC9AgAAQ5awAAl03gJDlrAACXTeAgAATw4AAAAA",
+      "location": [
+        11.572803,
+        48.133129
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

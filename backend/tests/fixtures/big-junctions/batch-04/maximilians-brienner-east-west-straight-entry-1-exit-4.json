@@ -1,0 +1,323 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              10288042807,
+              2489934487,
+              1627302698,
+              6381927934,
+              277937476,
+              629662019,
+              618178354,
+              12073835619,
+              1955476,
+              2489934605,
+              11753115977,
+              312391014
+            ],
+            "distance": [
+              2.930619003,
+              43.02785474,
+              7.698483816,
+              8.000675625,
+              6.323000985,
+              3.902373461,
+              7.820378431,
+              13.21204952,
+              16.73143901,
+              17.07650588,
+              6.438413761
+            ]
+          },
+          "duration": 47.2,
+          "summary": "Brienner Straße",
+          "weight": 79.4,
+          "distance": 133.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    290
+                  ],
+                  "location": [
+                    11.574498,
+                    48.143223
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.573716,
+                    48.143405
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.573594,
+                    48.143447
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.572913,
+                    48.143635
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.574498,
+                    48.143223
+                  ],
+                  [
+                    11.574461,
+                    48.143232
+                  ],
+                  [
+                    11.573912,
+                    48.143353
+                  ],
+                  [
+                    11.573815,
+                    48.143377
+                  ],
+                  [
+                    11.573716,
+                    48.143405
+                  ],
+                  [
+                    11.573639,
+                    48.143429
+                  ],
+                  [
+                    11.573594,
+                    48.143447
+                  ],
+                  [
+                    11.573497,
+                    48.143474
+                  ],
+                  [
+                    11.573334,
+                    48.143521
+                  ],
+                  [
+                    11.573126,
+                    48.143578
+                  ],
+                  [
+                    11.572913,
+                    48.143635
+                  ],
+                  [
+                    11.572833,
+                    48.143657
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 290,
+                "bearing_before": 0,
+                "location": [
+                  11.574498,
+                  48.143223
+                ],
+                "type": "depart"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 79.4,
+              "duration": 47.2,
+              "distance": 133.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    112
+                  ],
+                  "location": [
+                    11.572828,
+                    48.143658
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572833,
+                    48.143657
+                  ],
+                  [
+                    11.572833,
+                    48.143657
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 292,
+                "location": [
+                  11.572828,
+                  48.143658
+                ],
+                "type": "arrive"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.574498,
+            48.143223
+          ],
+          [
+            11.574461,
+            48.143232
+          ],
+          [
+            11.573912,
+            48.143353
+          ],
+          [
+            11.573815,
+            48.143377
+          ],
+          [
+            11.573716,
+            48.143405
+          ],
+          [
+            11.573639,
+            48.143429
+          ],
+          [
+            11.573594,
+            48.143447
+          ],
+          [
+            11.573497,
+            48.143474
+          ],
+          [
+            11.573334,
+            48.143521
+          ],
+          [
+            11.573126,
+            48.143578
+          ],
+          [
+            11.572913,
+            48.143635
+          ],
+          [
+            11.572833,
+            48.143657
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 79.4,
+      "duration": 47.2,
+      "distance": 133.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "IcMAgKnFAIAeAAAABwAAALQBAADIAQAA2etUQUOPO0B3hCVCxedKQhcAAAAGAAAA9gAAAAYBAAC9AgAA4pywAHeb3gLinLAAeJveAggAHxIAAAAA",
+      "location": [
+        11.574498,
+        48.143223
+      ],
+      "name": "Brienner Straße",
+      "distance": 0.1111927533
+    },
+    {
+      "hint": "ocUAgBk_IYAnAAAAAQAAADMCAAAAAAAAfQyKQYzmxj4Et35CAAAAAB8AAAABAAAAHQEAAAAAAAC9AgAAXJawACqd3gJclrAAK53eAggA_wYAAAAA",
+      "location": [
+        11.572828,
+        48.143658
+      ],
+      "name": "Brienner Straße",
+      "distance": 0.1111927533
+    }
+  ]
+}

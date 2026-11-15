@@ -81,6 +81,12 @@ Keep generators repeatable after activation: replace a batch's existing sites in
 
 ## Conservative automation
 
+### Bicycle direction overrides and closed cases
+
+For every approach, evaluate `oneway:bicycle` before `oneway`: `oneway:bicycle=no` permits both cycling directions even with `oneway=yes`. Follow the complete approach across all OSM way segments; the exception on an outer segment does not automatically apply to an inner segment missing that tag. Keep frozen source tags unchanged. Record a human-confirmed correction with exact way IDs and provenance; do not silently patch OSM evidence or invent a direction. Preserve existing gate labels when adding a missing reverse direction.
+
+BA01 step 1: K26 excludes Herzogspitalstrasse from its area and remains permanently excluded. K27 remains excluded because of the skewed, offset crossing and two-way Sonnenstrasse cycleway. K29 remains permanently deferred because three large crossings follow closely. Revisit individual K27/K29 movements only after a concrete field problem with ordinary guidance and an explicit review, not merely because their geometry looks eligible.
+
 Graph proposals use directed OSM connectivity outside the polygon, up to 50 m, respecting oneway:bicycle/access. They suggest inspecting a common node, not approving the merge. Equal coordinates without shared OSM nodes do not prove connectivity. A missing proposal is not evidence that no split/merge exists.
 
 District node grouping is preliminary: equal street-name sets within 80 m. Different-name groups can still be one complex. Candidate nodes and preliminary groups are not a verified count of Munich's large junctions.

@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "kreuzungspruefung"
 GROUPS = {"1-bestaetigt": "1. Bestätigt", "2-offen": "2. Offen", "3-ausgeschlossen": "3. Ausgeschlossen"}
 BATCHES = [ROOT / "review-batch-01-images", ROOT / "review-batch-02-ba09-images",
-           ROOT / "review-batch-03-ba09-remaining-images"]
+           ROOT / "review-batch-03-ba09-remaining-images",
+           ROOT / "review-batch-04-ba01-radlring-images"]
 
 
 def add_supplemental_sites(groups, catalog, records):
@@ -52,7 +53,8 @@ def main():
     state = json.loads(state_path.read_text(encoding="utf-8")) if state_path.exists() else {}
     field_tests = json.loads((ROOT / 'review-field-tests.json').read_text(encoding='utf-8'))['tests']
     technical = {}
-    for filename in ("review-batch-02-ba09-routes.json", "review-batch-03-ba09-routes.json"):
+    for filename in ("review-batch-02-ba09-routes.json", "review-batch-03-ba09-routes.json",
+                     "review-batch-04-ba01-routes.json"):
         path = ROOT / filename
         if path.exists():
             technical.update({s["id"]: s for s in json.loads(path.read_text(encoding="utf-8"))["junctions"]})
@@ -110,6 +112,8 @@ def main():
     remaining_gallery = ROOT / 'review-batch-03-ba09-remaining-images/index.html'
     if remaining_gallery.exists():
         index.append('<p><a href="../review-batch-03-ba09-remaining-images/index.html"><b>BA09-Prüfrunde K18–K22: aktueller Prüfstand</b></a></p>')
+    if (ROOT / 'review-batch-04-ba01-radlring-images/index.html').exists():
+        index.append('<p><a href="../review-batch-04-ba01-radlring-images/index.html"><b>BA01 · Altstadt-Radlring · K23–K29: Prüf- und Aktivierungsstand</b></a></p>')
     total = sum(m.get('enabled', False) for j in prepared['junctions'] if j.get('enabled') for m in j['movements'])
     if state and state['version']['backend'] == target_version and state['catalogVersion'] == prepared['version']:
         live_total = sum(m.get('enabled', False) for j in state['junctions'] if j.get('enabled') for m in j['movements'])
@@ -176,7 +180,7 @@ def main():
                 index.append(f'<tr><td>{label}<small>{html.escape(site["note"])}</small></td><td>{html.escape(phase["technical"])}</td><td>{badge}</td></tr>')
                 cards.append(f'<article><h2>{label}</h2><p>{badge}<small>{html.escape(phase["technical"])}</small></p><p>{html.escape(site["note"])}</p></article>')
             else:
-                change_note = '<small>'+html.escape(site['note'])+'</small>' if site['status'] == 'geometry-draft' or site.get('review', {}).get('pendingChange') else ''
+                change_note = '<small>'+html.escape(site['note'])+'</small>' if site['status'] in {'geometry-draft', 'permanently-excluded'} or site.get('review', {}).get('pendingChange') else ''
                 index.append(f'<tr><td><a href="{group}/{name}.png">{label}</a>{change_note}</td><td>{html.escape(phase["technical"])}{field_note}{branch_note}{blocked_notice}{details}</td><td>{badge}</td></tr>')
                 gallery_notice = blocked_notice.replace('color:#b71c1c;background:#fffa63', 'color:#fffa63;background:#ffebee')
                 cards.append(f'<article><h2>{label}</h2><p>{badge}<small>{html.escape(phase["technical"])}</small>{field_note}{branch_note}</p>{gallery_notice}<p>{html.escape(site["note"])}</p><a href="{name}.png"><img src="{name}.svg" alt="{label}"></a><p><a href="{name}.png">PNG öffnen</a></p></article>')

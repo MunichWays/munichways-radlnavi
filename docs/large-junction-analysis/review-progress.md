@@ -55,3 +55,8 @@ Live-Abgleich: Backend 2.4.8 / c5a1a9c lief tatsächlich; bei allen zwölf K19-R
 
 ### K21 v2 aktiviert, zwei Makros ausdrücklich ausgeschlossen
 Auf Wunsch von Thomas zehn Beziehungen aktiviert. Entry-4 nach Exit-2 und Entry-3 nach Exit-2 bleiben mit Begründung gesperrt: Die Makroansage unterscheidet Exit-2 nicht eindeutig von Exit-3. Normale Abbiegehinweise bleiben erhalten; beide Beziehungen zu Exit-3 bleiben aktiviert. Alle 18 Referenzrouten inklusive sechs Rechtskontrollen offline geprüft. Backend 2.4.10, Katalog v9: 20 Kreuzungen / 175 aktive Beziehungen. Noch nicht deployed.
+
+
+### BA01 Altstadt-Radlring, 15.11.2026
+
+Thomas hat K23 v1, K25 v1 und K28 v1 als Standard freigegeben und die Aktivierung nach technischer Prüfung autorisiert. Alle 24 Links-/Geradeausbeziehungen, zwölf Rechtskontrollen und 24 Fußkontrollen im Gesamtkatalog bestanden; 36 reale Standardrouten eingefroren und offline reproduziert. Backend 2.4.11 / Katalog v10: 23 aktive Kreuzungen, 199 aktive Fahrbeziehungen. Alle bisherigen 20 Katalogeinträge unverändert, einschließlich K13-/K21-Sperren. K24 bleibt offen; K26/K27 dauerhaft ausgeschlossen, K29 dauerhaft zurückgestellt bis zu konkreten Praxisproblemen. Geprüfte Gesamtfälle: 35, davon 24 geometrisch bestätigt, ein Fall offen, zehn ausgeschlossen/zurückgestellt. Neue Beziehungen im Branch aktiviert, noch nicht deployed; Backend-Workflow startet Thomas.

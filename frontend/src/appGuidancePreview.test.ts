@@ -3,6 +3,27 @@ import { listSteps } from './RouteInspector';
 import wilram from './testFixtures/wilram-sequence.json';
 import k19 from './testFixtures/k19-crossing.json';
 import excluded from './testFixtures/k21-excluded.json';
+import k24Left from './testFixtures/k24-west-north-left-entry-4-exit-6.json';
+import k24Standard from './testFixtures/k24-west-north-left-entry-4-exit-1.json';
+import k24Straight from './testFixtures/k24-north-south-straight-entry-1-exit-3.json';
+
+test('K24 reverse-side templates use backend text while right-side left remains standard', () => {
+  for (const data of [k24Left, k24Straight]) {
+    const route: any = data.routes[0];
+    const result = appGuidancePreview(route, listSteps(route));
+    expect(result.junctionCount).toBe(1);
+    const macro = result.rows.find(r => r.previewKey)!;
+    expect(macro.appSpeech).toBe(route.guidance.junctions[0].instruction.advance.de);
+    expect(macro.appDisplay).toBe('120/40 m '+route.guidance.junctions[0].instruction.display.de);
+    expect(result.rows.filter(r => r.previewKey)).toHaveLength(1);
+  }
+  const standard: any = k24Standard.routes[0];
+  const result = appGuidancePreview(standard, listSteps(standard));
+  expect(result.rows.find(r => r.previewKey)!.appSpeech).toBe('An der großen Kreuzung links abbiegen.');
+  const invalid = JSON.parse(JSON.stringify(k24Left.routes[0]));
+  invalid.guidance.junctions[0].instruction.templateId = 'opposite-left';
+  expect(appGuidancePreview(invalid, listSteps(invalid)).invalidMetadata).toBe(true);
+});
 
 test('real v1 crossing summarizes advance prompts and suppresses only reviewed steps', () => {
   const route: any = k19.routes[0];

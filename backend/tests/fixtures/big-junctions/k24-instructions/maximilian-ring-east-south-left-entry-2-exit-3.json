@@ -1,0 +1,508 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1646051404,
+              3213267616,
+              6816832592,
+              2254774702,
+              1239147736,
+              1239147715,
+              254047165,
+              2214481157,
+              1493146690,
+              4427901401,
+              11922487183,
+              11922487185,
+              11922487184
+            ],
+            "distance": [
+              2.790755462,
+              49.74494287,
+              9.833030508,
+              4.114131883,
+              3.002204348,
+              3.224589854,
+              7.119839868,
+              8.344654773,
+              15.96110606,
+              16.05922283,
+              12.55062316,
+              17.24473418
+            ]
+          },
+          "duration": 69.7,
+          "summary": "Maximilianstraße, Thomas-Wimmer-Ring",
+          "weight": 128.6,
+          "distance": 150,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    286
+                  ],
+                  "location": [
+                    11.585578,
+                    48.138091
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.585578,
+                    48.138091
+                  ],
+                  [
+                    11.585542,
+                    48.138098
+                  ],
+                  [
+                    11.584904,
+                    48.138231
+                  ],
+                  [
+                    11.584775,
+                    48.13825
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 286,
+                "bearing_before": 0,
+                "location": [
+                  11.585578,
+                  48.138091
+                ],
+                "type": "depart"
+              },
+              "name": "Maximilianstraße",
+              "mode": "cycling",
+              "weight": 94.7,
+              "duration": 46.2,
+              "distance": 62.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.584775,
+                    48.13825
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.584775,
+                    48.138157
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    195
+                  ],
+                  "location": [
+                    11.584772,
+                    48.138093
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.584746,
+                    48.13802
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195
+                  ],
+                  "location": [
+                    11.584682,
+                    48.137883
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584775,
+                    48.13825
+                  ],
+                  [
+                    11.584775,
+                    48.138213
+                  ],
+                  [
+                    11.584775,
+                    48.138186
+                  ],
+                  [
+                    11.584775,
+                    48.138157
+                  ],
+                  [
+                    11.584772,
+                    48.138093
+                  ],
+                  [
+                    11.584746,
+                    48.13802
+                  ],
+                  [
+                    11.584682,
+                    48.137883
+                  ],
+                  [
+                    11.584629,
+                    48.137743
+                  ],
+                  [
+                    11.58458,
+                    48.137635
+                  ],
+                  [
+                    11.584534,
+                    48.137483
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 180,
+                "bearing_before": 285,
+                "location": [
+                  11.584775,
+                  48.13825
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 33.9,
+              "duration": 23.5,
+              "distance": 87.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    11
+                  ],
+                  "location": [
+                    11.584534,
+                    48.137483
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584534,
+                    48.137483
+                  ],
+                  [
+                    11.584534,
+                    48.137483
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 191,
+                "location": [
+                  11.584534,
+                  48.137483
+                ],
+                "type": "arrive"
+              },
+              "name": "Thomas-Wimmer-Ring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.585578,
+            48.138091
+          ],
+          [
+            11.585542,
+            48.138098
+          ],
+          [
+            11.584904,
+            48.138231
+          ],
+          [
+            11.584775,
+            48.13825
+          ],
+          [
+            11.584775,
+            48.138213
+          ],
+          [
+            11.584775,
+            48.138186
+          ],
+          [
+            11.584775,
+            48.138157
+          ],
+          [
+            11.584772,
+            48.138093
+          ],
+          [
+            11.584746,
+            48.13802
+          ],
+          [
+            11.584682,
+            48.137883
+          ],
+          [
+            11.584629,
+            48.137743
+          ],
+          [
+            11.58458,
+            48.137635
+          ],
+          [
+            11.584534,
+            48.137483
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 128.6,
+      "duration": 69.7,
+      "distance": 150,
+      "guidance": {
+        "version": "big-junctions-v3",
+        "catalogVersion": "munich-big-junctions-v10",
+        "junctions": [
+          {
+            "id": "maximilian-ring",
+            "occurrenceId": "maximilian-ring:east-south-left-entry-2-exit-3:leg:0:visit:0",
+            "legIndex": 0,
+            "movement": "left",
+            "entryArm": "east",
+            "exitArm": "south",
+            "entry": {
+              "location": [
+                11.584998648936446,
+                48.13821126910886
+              ],
+              "geometrySegmentIndex": 1,
+              "segmentFraction": 0.8516474350379301,
+              "distanceAlongLegMeters": 45.02301292981232,
+              "distanceAlongRouteMeters": 45.02301292981232
+            },
+            "exit": {
+              "location": [
+                11.58467937658026,
+                48.13787607021201
+              ],
+              "geometrySegmentIndex": 9,
+              "segmentFraction": 0.04949848566518375,
+              "distanceAlongLegMeters": 104.73992783346515,
+              "distanceAlongRouteMeters": 104.73992783346515
+            },
+            "polygon": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    11.584095721484655,
+                    48.138326970212006
+                  ],
+                  [
+                    11.584099121484654,
+                    48.138142770212006
+                  ],
+                  [
+                    11.584110921484655,
+                    48.137958970212004
+                  ],
+                  [
+                    11.584530621484655,
+                    48.13787607021201
+                  ],
+                  [
+                    11.584961378515347,
+                    48.13787607021201
+                  ],
+                  [
+                    11.584989978515345,
+                    48.138013670212004
+                  ],
+                  [
+                    11.584999978515347,
+                    48.13824157021201
+                  ],
+                  [
+                    11.584999978515347,
+                    48.138529029787996
+                  ],
+                  [
+                    11.584890378515347,
+                    48.13854882978799
+                  ],
+                  [
+                    11.584526478515347,
+                    48.13861442978799
+                  ],
+                  [
+                    11.584095721484655,
+                    48.13861442978799
+                  ],
+                  [
+                    11.584095721484655,
+                    48.138326970212006
+                  ]
+                ]
+              ]
+            },
+            "suppressedStepIndices": [
+              1
+            ],
+            "instruction": {
+              "version": 1,
+              "templateId": "two-way-left-near",
+              "advance": {
+                "de": "An der großen Kreuzung vorne links auf den Zweirichtungsradweg abbiegen.",
+                "en": "At the large junction, turn left onto the two-way cycle path on this side."
+              },
+              "display": {
+                "de": "große Kreuzung vorne links",
+                "en": "large junction near left"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "1QgEgP___393AQAAgwEAAAAAAABEAgAAEL-7Qr2bMkAAAAAA2E9uQqgAAACuAAAAAAAAABcBAAC9AgAAKsiwAGuH3gIqyLAAa4feAgAA7xEAAAAA",
+      "location": [
+        11.585578,
+        48.138091
+      ],
+      "name": "Maximilianstraße",
+      "distance": 0
+    },
+    {
+      "hint": "zAgEgD3PIIADAAAAIwAAAA0AAAA5AAAA8L3aPzf1iUEY8stA9-DkQQMAAAAjAAAADQAAADkAAAC9AgAAFsSwAAuF3gIVxLAAC4XeAgIAvwAAAAAA",
+      "location": [
+        11.584534,
+        48.137483
+      ],
+      "name": "Thomas-Wimmer-Ring",
+      "distance": 0.0744449028
+    }
+  ]
+}

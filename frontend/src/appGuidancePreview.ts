@@ -15,7 +15,7 @@ const localized = (s: any): boolean => typeof s?.de === 'string' && !!s.de.trim(
 
 function junctions(route: any): any[] {
   const guidance = route?.guidance;
-  if (!['big-junctions-v1', 'big-junctions-v2'].includes(guidance?.version) ||
+  if (!['big-junctions-v1', 'big-junctions-v2', 'big-junctions-v3'].includes(guidance?.version) ||
       !Array.isArray(guidance?.junctions)) return [];
   const result: any[] = [];
   const ids = new Set<string>();
@@ -28,9 +28,20 @@ function junctions(route: any): any[] {
         !point(j.entry.location) || !point(j.exit.location) ||
         !Array.isArray(j.suppressedStepIndices) || j.suppressedStepIndices.some((i: any) =>
           !Number.isInteger(i) || i < 0 || i >= steps.length)) return [];
+    if (j.instruction != null) {
+      const i = j.instruction;
+      const expected = j.movement === 'left' ? 'two-way-left-near' :
+        j.movement === 'straight' ? 'two-way-straight-opposite' : undefined;
+      if (guidance.version !== 'big-junctions-v3' || j.sequence || i.version !== 1 ||
+          i.templateId !== expected || !expected || !localized(i.advance) || !localized(i.display) ||
+          Object.keys(i.advance).sort().join(',') !== 'de,en' ||
+          Object.keys(i.display).sort().join(',') !== 'de,en' ||
+          Object.values(i.advance).some(t => typeof t !== 'string' || t.length > 240) ||
+          Object.values(i.display).some(t => typeof t !== 'string' || t.length > 80)) return [];
+    }
     if (j.sequence) {
       const s = j.sequence;
-      if (guidance.version !== 'big-junctions-v2' || s.version !== 1 || !localized(s.advance) || !localized(s.display) ||
+      if (!['big-junctions-v2', 'big-junctions-v3'].includes(guidance.version) || s.version !== 1 || !localized(s.advance) || !localized(s.display) ||
           !Array.isArray(s.checkpoints) || !s.checkpoints.length || s.checkpoints.length > 6) return [];
       let previous = j.entry.distanceAlongRouteMeters - 5;
       const checkpoints = new Set<string>();
@@ -114,7 +125,7 @@ export function appGuidancePreview(route: any, raw: PreviewRow[]) {
   });
   let previousExit = 0;
   approved.sort((a, b) => a.entry.distanceAlongRouteMeters - b.entry.distanceAlongRouteMeters).forEach(j => {
-    const advance = sentence(j.sequence?.advance.de || (j.movement === 'straight'
+    const advance = sentence(j.instruction?.advance.de || j.sequence?.advance.de || (j.movement === 'straight'
       ? 'an der großen Kreuzung geradeaus fahren' : 'an der großen Kreuzung links abbiegen'));
     const entry = j.entry.distanceAlongRouteMeters;
     const add = (key: string, at: number, location: number[], speech: string, context: string, alternative?: string, display?: string) => {
@@ -124,7 +135,7 @@ export function appGuidancePreview(route: any, raw: PreviewRow[]) {
         context, appDisplay: display });
     };
     const firstAt = Math.max(previousExit, entry - 120);
-    const display = j.sequence?.display.de || `große Kreuzung ${j.movement === 'straight' ? 'geradeaus' : 'links'}`;
+    const display = j.instruction?.display.de || j.sequence?.display.de || `große Kreuzung ${j.movement === 'straight' ? 'geradeaus' : 'links'}`;
     add('advance', firstAt, j.entry.location, advance, '120/40 m vor Beginn der Kreuzung',
       undefined, `120/40 m ${display}`);
     j.sequence?.checkpoints.forEach((cp: any) => add(cp.id, cp.anchor.distanceAlongRouteMeters,

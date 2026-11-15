@@ -1,0 +1,471 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              6816832595,
+              18290985,
+              1239147719,
+              2214481206,
+              3955447236,
+              2471124415,
+              2471124421,
+              2320891646,
+              13713839708,
+              2471124460,
+              1955026,
+              2471124483,
+              2471124495,
+              9554189058,
+              347267253,
+              254082860,
+              1079065369,
+              1079065382,
+              11922487177,
+              11922487176,
+              11922487181
+            ],
+            "distance": [
+              16.00863541,
+              1.694265061,
+              5.058750535,
+              1.33638817,
+              14.75276803,
+              15.98468883,
+              14.01315582,
+              10.90976412,
+              10.10006266,
+              11.32960274,
+              13.04200796,
+              12.35688511,
+              14.41050144,
+              31.4940557,
+              51.27155229,
+              7.318595631,
+              12.13576144,
+              10.4550611,
+              7.562573037,
+              6.90840576
+            ]
+          },
+          "duration": 59.7,
+          "summary": "Herzog-Rudolf-Straße, Karl-Scharnagl-Ring",
+          "weight": 96.1,
+          "distance": 269.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    286
+                  ],
+                  "location": [
+                    11.583512,
+                    48.138441
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.583512,
+                    48.138441
+                  ],
+                  [
+                    11.583305,
+                    48.13848
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 286,
+                "bearing_before": 0,
+                "location": [
+                  11.583512,
+                  48.138441
+                ],
+                "type": "depart"
+              },
+              "name": "Maximilianstraße",
+              "mode": "cycling",
+              "weight": 13.5,
+              "duration": 6.3,
+              "distance": 16
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.583305,
+                    48.13848
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.583305,
+                    48.13848
+                  ],
+                  [
+                    11.583309,
+                    48.138495
+                  ],
+                  [
+                    11.583319,
+                    48.13854
+                  ],
+                  [
+                    11.58332,
+                    48.138552
+                  ],
+                  [
+                    11.58334,
+                    48.138684
+                  ],
+                  [
+                    11.583362,
+                    48.138827
+                  ],
+                  [
+                    11.583403,
+                    48.13895
+                  ],
+                  [
+                    11.583445,
+                    48.139044
+                  ],
+                  [
+                    11.583484,
+                    48.139131
+                  ],
+                  [
+                    11.583535,
+                    48.139227
+                  ],
+                  [
+                    11.58361,
+                    48.139333
+                  ],
+                  [
+                    11.583691,
+                    48.13943
+                  ],
+                  [
+                    11.583798,
+                    48.139538
+                  ],
+                  [
+                    11.584049,
+                    48.139766
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 7,
+                "bearing_before": 285,
+                "location": [
+                  11.583305,
+                  48.13848
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Herzog-Rudolf-Straße",
+              "mode": "cycling",
+              "weight": 63.3,
+              "duration": 34.1,
+              "distance": 156.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    210,
+                    330
+                  ],
+                  "location": [
+                    11.584049,
+                    48.139766
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    330
+                  ],
+                  "location": [
+                    11.584495,
+                    48.139335
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584049,
+                    48.139766
+                  ],
+                  [
+                    11.584462,
+                    48.139397
+                  ],
+                  [
+                    11.584495,
+                    48.139335
+                  ],
+                  [
+                    11.584553,
+                    48.139233
+                  ],
+                  [
+                    11.584582,
+                    48.139141
+                  ],
+                  [
+                    11.584584,
+                    48.139073
+                  ],
+                  [
+                    11.584578,
+                    48.139011
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 142,
+                "bearing_before": 35,
+                "location": [
+                  11.584049,
+                  48.139766
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Karl-Scharnagl-Ring",
+              "mode": "cycling",
+              "weight": 19.3,
+              "duration": 19.3,
+              "distance": 96.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    4
+                  ],
+                  "location": [
+                    11.584575,
+                    48.139003
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584578,
+                    48.139011
+                  ],
+                  [
+                    11.584578,
+                    48.139011
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 184,
+                "location": [
+                  11.584575,
+                  48.139003
+                ],
+                "type": "arrive"
+              },
+              "name": "Karl-Scharnagl-Ring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.583512,
+            48.138441
+          ],
+          [
+            11.583305,
+            48.13848
+          ],
+          [
+            11.583309,
+            48.138495
+          ],
+          [
+            11.583319,
+            48.13854
+          ],
+          [
+            11.58332,
+            48.138552
+          ],
+          [
+            11.58334,
+            48.138684
+          ],
+          [
+            11.583362,
+            48.138827
+          ],
+          [
+            11.583403,
+            48.13895
+          ],
+          [
+            11.583445,
+            48.139044
+          ],
+          [
+            11.583484,
+            48.139131
+          ],
+          [
+            11.583535,
+            48.139227
+          ],
+          [
+            11.58361,
+            48.139333
+          ],
+          [
+            11.583691,
+            48.13943
+          ],
+          [
+            11.583798,
+            48.139538
+          ],
+          [
+            11.584049,
+            48.139766
+          ],
+          [
+            11.584462,
+            48.139397
+          ],
+          [
+            11.584495,
+            48.139335
+          ],
+          [
+            11.584553,
+            48.139233
+          ],
+          [
+            11.584582,
+            48.139141
+          ],
+          [
+            11.584584,
+            48.139073
+          ],
+          [
+            11.584578,
+            48.139011
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 96.1,
+      "duration": 59.7,
+      "distance": 269.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "pQgEgMEIBIBAAAAAzgAAAAAAAACBAQAArxGAQWM1TkIAAAAANhsqQRwAAABeAAAAAAAAAL4AAAC9AgAAGMCwAMmI3gIYwLAAyIjeAgAAnwYAAAAA",
+      "location": [
+        11.583512,
+        48.138441
+      ],
+      "name": "Maximilianstraße",
+      "distance": 0.1111927533
+    },
+    {
+      "hint": "zwgEgHzPIIABAAAAFwAAAEoAAABDAAAAUcpqP5zRMUFJPxRC27AEQgEAAAAXAAAASgAAAEMAAAC9AgAAP8SwAPuK3gI_xLAA-4reAggAHwwAAAAA",
+      "location": [
+        11.584575,
+        48.139003
+      ],
+      "name": "Karl-Scharnagl-Ring",
+      "distance": 0
+    }
+  ]
+}

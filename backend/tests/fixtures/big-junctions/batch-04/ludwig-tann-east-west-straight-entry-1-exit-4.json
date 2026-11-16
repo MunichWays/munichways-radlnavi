@@ -1,0 +1,255 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2836183774,
+              380211818,
+              766912223,
+              361056739,
+              583278621
+            ],
+            "distance": [
+              53.50683281,
+              9.002090261,
+              13.69217833,
+              55.35052679
+            ]
+          },
+          "duration": 32.8,
+          "summary": "Von-der-Tann-Straße, Oskar-von-Miller-Ring",
+          "weight": 45.7,
+          "distance": 131.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    287
+                  ],
+                  "location": [
+                    11.579703,
+                    48.145232
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.579014,
+                    48.145369
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.5789,
+                    48.145396
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.578722,
+                    48.145427
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.579703,
+                    48.145232
+                  ],
+                  [
+                    11.579014,
+                    48.145369
+                  ],
+                  [
+                    11.5789,
+                    48.145396
+                  ],
+                  [
+                    11.578722,
+                    48.145427
+                  ],
+                  [
+                    11.578014,
+                    48.145579
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 287,
+                "bearing_before": 0,
+                "location": [
+                  11.579703,
+                  48.145232
+                ],
+                "type": "depart"
+              },
+              "name": "Von-der-Tann-Straße",
+              "mode": "cycling",
+              "weight": 45.7,
+              "duration": 32.8,
+              "distance": 131.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    108
+                  ],
+                  "location": [
+                    11.578014,
+                    48.145579
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.578014,
+                    48.145579
+                  ],
+                  [
+                    11.578014,
+                    48.145579
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 288,
+                "location": [
+                  11.578014,
+                  48.145579
+                ],
+                "type": "arrive"
+              },
+              "name": "Oskar-von-Miller-Ring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.579703,
+            48.145232
+          ],
+          [
+            11.579014,
+            48.145369
+          ],
+          [
+            11.5789,
+            48.145396
+          ],
+          [
+            11.578722,
+            48.145427
+          ],
+          [
+            11.578014,
+            48.145579
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 45.7,
+      "duration": 32.8,
+      "distance": 131.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "mzchgP___38sAAAAmAAAAAAAAAAAAAAAxtuyQf8GVkIAAAAAAAAAACwAAACYAAAAAAAAAAAAAAC9AgAAN7GwAFCj3gI3sbAAUKPeAgAA7xEAAAAA",
+      "location": [
+        11.579703,
+        48.145232
+      ],
+      "name": "Von-der-Tann-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "QTchgP___3-KAAAA1wAAAAAAAAA1AAAA8GZdQsn980EAAAAAmU6oQW4AAACsAAAAAAAAACoAAAC9AgAAnqqwAKuk3gKeqrAAq6TeAgAA_xEAAAAA",
+      "location": [
+        11.578014,
+        48.145579
+      ],
+      "name": "Oskar-von-Miller-Ring",
+      "distance": 0
+    }
+  ]
+}

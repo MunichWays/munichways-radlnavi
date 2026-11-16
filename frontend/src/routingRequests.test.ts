@@ -54,5 +54,5 @@ test("cancellation reaches fetch and is not converted to a successful route", as
   const controller = new AbortController();
   controller.abort();
   await expect(fetchRoute("/route", controller.signal)).rejects.toBe(error);
-  expect(fetch).toHaveBeenCalledWith("/route", { signal: controller.signal });
+  expect(fetch).toHaveBeenCalledWith("/route", { signal: controller.signal, headers: { 'X-Junction-Guidance-Version': '3' } });
 });

@@ -39,6 +39,9 @@ def status_for(site, state, technical=None):
         sequences = sum(m.get('enabled', False) and m.get('requiresProtocolVersion') == 2 for m in technical.get('movements', []))
         if sequences:
             tech += f'; {sequences} Sonderfolgen implementiert/geprüft für neue App (v2)'
+        templates = sum(bool(m.get('instructionTemplate')) and m.get('enabled', False) for m in technical.get('movements', []))
+        if templates:
+            tech += f'; {templates} Zweirichtungsradweg-Sonderansagen für neue App (v3)'
     elif matching and live:
         tech = f'{count} aktive Beziehungen im Live-Katalog'
     elif site['status'] == 'geometry-approved':

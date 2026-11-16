@@ -95,6 +95,74 @@
         "complex_junction"
       ],
       "evidence": "Thomas explicitly confirmed permanent exclusion and closure."
+    },
+    {
+      "junctionId": "sonnen-schwanthaler",
+      "referenceNodeId": 361799,
+      "referenceNodeIds": [
+        361799,
+        18291200
+      ],
+      "decision": "exclude",
+      "enabled": false,
+      "permanent": true,
+      "closed": true,
+      "reasonCodes": [
+        "user_confirmed_permanent_exclusion"
+      ],
+      "evidence": "Dauerhaft ausgeschlossen: Herzogspitalstraße aus der Fläche entfernt; Sonnenstraße / Schwanthalerstraße separat abgegrenzt. Normale Ansagen bleiben.",
+      "reopenWhen": "Only explicit user reconsideration.",
+      "complexBounds": [
+        11.56435302463097,
+        48.13717757021201,
+        11.56559967536903,
+        48.13775
+      ]
+    },
+    {
+      "junctionId": "sonnen-landwehr",
+      "referenceNodeId": 361794,
+      "referenceNodeIds": [
+        361794,
+        18929527
+      ],
+      "decision": "exclude",
+      "enabled": false,
+      "permanent": true,
+      "closed": true,
+      "reasonCodes": [
+        "user_confirmed_permanent_exclusion"
+      ],
+      "evidence": "Dauerhaft ausgeschlossen: Schräge, versetzte Querung mit Zweirichtungsradweg Sonnenstraße. Einzelne Fahrbeziehungen nur bei konkret festgestellten Problemen der normalen Ansagen erneut prüfen.",
+      "reopenWhen": "Only explicit reconsideration of individual movements after a concrete field problem with ordinary guidance.",
+      "complexBounds": [
+        11.564415714350009,
+        48.136252735106005,
+        11.565377785649991,
+        48.136755064894
+      ]
+    },
+    {
+      "junctionId": "blumen-papa-schmid",
+      "referenceNodeId": 3607037937,
+      "referenceNodeIds": [
+        3607037937
+      ],
+      "decision": "exclude",
+      "enabled": false,
+      "permanent": true,
+      "closed": true,
+      "reasonCodes": [
+        "user_confirmed_permanent_deferral"
+      ],
+      "evidence": "Dauerhaft zurückgestellt: Drei große Kreuzungen folgen dicht aufeinander. Normale Ansagen bleiben; einzelne Fahrbeziehungen erst bei konkret festgestellten Praxisproblemen erneut prüfen.",
+      "reopenWhen": "Only explicit reconsideration of individual movements after a concrete field problem with ordinary guidance.",
+      "complexBounds": [
+        11.570510052887341,
+        48.131781270212,
+        11.571021514051996,
+        48.132104662235
+      ]
     }
   ]
 }

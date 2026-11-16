@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "enabled": false,
+  "sourceSnapshot": "review-batch-04-ba01-radlring-osm.json.gz",
+  "scope": "Unapproved BA01 follow-up geometry; no runtime activation.",
+  "sites": [
+    {
+      "id": "lenbach-pacelli",
+      "number": 30,
+      "version": 3,
+      "name": "Lenbachplatz / Pacellistraße",
+      "origin": [
+        11.56905,
+        48.14125
+      ],
+      "polygon": [
+        [
+          11.568450380508867,
+          48.1411704688825
+        ],
+        [
+          11.568896180508867,
+          48.1407568688825
+        ],
+        [
+          11.569611780508867,
+          48.1406878688825
+        ],
+        [
+          11.569881019491133,
+          48.1406878688825
+        ],
+        [
+          11.569881019491133,
+          48.1408675311175
+        ],
+        [
+          11.569441178617817,
+          48.14158
+        ],
+        [
+          11.56874945008805,
+          48.14158
+        ],
+        [
+          11.568450380508867,
+          48.1413501311175
+        ],
+        [
+          11.568450380508867,
+          48.1411704688825
+        ]
+      ],
+      "onRoadWayIds": [
+        67562511,
+        27715893,
+        144457687
+      ],
+      "candidateNodeIds": [
+        1635744283,
+        1230460037,
+        637837435
+      ],
+      "note": "Geometrie v3 bestätigt; drei Fahrbeziehungen technisch bestanden und im Branch aktiviert. Entry-4 nach Exit-3 ohne Kreuzungsansage (geradeaus ohne Ampel). Ottostraße und Exit-5 bleiben ausgeschlossen. Interner Radweganschluss zur Pacellistraße durch aktuellen OSM-Beleg geprüft; Fläche und Punkte unverändert.",
+      "proposedLogicalArms": {
+        "Ring Nordost": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Pacellistrasse": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Lenbachplatz Suedwest": [
+          "Entry-2",
+          "Exit-3"
+        ]
+      },
+      "preservedLabels": {
+        "241324148:exit": "Exit-1",
+        "144457687:entry": "Entry-1",
+        "144457687:exit": "Exit-2",
+        "1127704280:entry": "Entry-2",
+        "71804691:exit": "Exit-3",
+        "303437709:entry": "Entry-4",
+        "303437709:exit": "Exit-5"
+      },
+      "excludedMovements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "reason": "Geradeaus ohne Ampel; normale Hinweise beibehalten.",
+          "reviewer": "Thomas"
+        }
+      ],
+      "gateMigration": {
+        "removed": [
+          "Exit-5"
+        ],
+        "moved": [
+          "Entry-4"
+        ],
+        "added": [],
+        "reason": "Entry-4 northeast on path between Ottostrasse and cycling junction; opposite exit explicitly excluded by Thomas."
+      },
+      "excludedGateDirections": {
+        "303437709": [
+          "exit"
+        ]
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-15",
+        "reviewer": "Thomas",
+        "geometrySha256": "eaa0f5127c4eb8c0bb8da244f7fe00fe3635e24f91481b9f2184d92c5405cb6c",
+        "evidence": "Thomas approved exact K30 v3 geometry and authorized activation only after successful technical checks.",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "reviewer": "Thomas",
+          "activeMovements": 3,
+          "backendVersion": "2.4.14",
+          "technicalReport": "review-k30-v3-draft-technical.json",
+          "evidence": "Conditional activation authorized by Thomas; all three relevant routes and two right controls passed. Entry-4 to Exit-3 explicitly excluded."
+        }
+      }
+    },
+    {
+      "id": "maximilians-max-joseph",
+      "number": 31,
+      "version": 1,
+      "name": "Maximiliansplatz / Max-Joseph-Straße / Prannerstraße",
+      "origin": [
+        11.57113,
+        48.14198
+      ],
+      "polygon": [
+        [
+          11.570748878594467,
+          48.1421727688825
+        ],
+        [
+          11.571222278594465,
+          48.1415063688825
+        ],
+        [
+          11.571491521405534,
+          48.1415063688825
+        ],
+        [
+          11.571668221405535,
+          48.1415582688825
+        ],
+        [
+          11.571668221405535,
+          48.1417379311175
+        ],
+        [
+          11.571616921405534,
+          48.1418101311175
+        ],
+        [
+          11.571018121405535,
+          48.1423524311175
+        ],
+        [
+          11.570748878594467,
+          48.1423524311175
+        ],
+        [
+          11.570748878594467,
+          48.1421727688825
+        ]
+      ],
+      "onRoadWayIds": [
+        856731643,
+        349190920,
+        144928575
+      ],
+      "candidateNodeIds": [
+        2489934376,
+        18668563,
+        18668562,
+        11872083157,
+        1635744315,
+        10100915681
+      ],
+      "note": "Dauerhaft ausgeschlossen: Keine zusammenhängende Kreuzung, sondern getrennte einzelne Fahrbeziehungen. Normale Ansagen bleiben.",
+      "proposedLogicalArms": {
+        "Maximiliansplatz NO": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Prannerstrasse SO": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Maximiliansplatz SW": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Max-Joseph-Strasse NW": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "reviewDecision": {
+        "status": "permanently-excluded",
+        "reviewer": "Thomas",
+        "date": "2026-11-15",
+        "evidence": "Dauerhaft ausgeschlossen: Keine zusammenhängende Kreuzung, sondern getrennte einzelne Fahrbeziehungen. Normale Ansagen bleiben."
+      }
+    },
+    {
+      "id": "ring-hofgarten-christoph",
+      "number": 32,
+      "version": 1,
+      "name": "Karl-Scharnagl-Ring / Hofgartenstraße / Christophstraße",
+      "origin": [
+        11.58304,
+        48.1412
+      ],
+      "polygon": [
+        [
+          11.582624580639987,
+          48.1411763688825
+        ],
+        [
+          11.582639480639987,
+          48.141080868882504
+        ],
+        [
+          11.582665180639987,
+          48.1409467688825
+        ],
+        [
+          11.582934419360013,
+          48.1409467688825
+        ],
+        [
+          11.583367919360013,
+          48.1409706688825
+        ],
+        [
+          11.583367919360013,
+          48.1411503311175
+        ],
+        [
+          11.583361119360013,
+          48.1414104311175
+        ],
+        [
+          11.583091880639987,
+          48.1414104311175
+        ],
+        [
+          11.582624580639987,
+          48.141356031117496
+        ],
+        [
+          11.582624580639987,
+          48.1411763688825
+        ]
+      ],
+      "onRoadWayIds": [
+        4662372,
+        34240121,
+        27350221,
+        27350260,
+        1416056342
+      ],
+      "candidateNodeIds": [
+        300245956,
+        300245969,
+        300245964,
+        300245962,
+        254082803,
+        300245963
+      ],
+      "note": "Dauerhaft ausgeschlossen: Komplexe Fahrbeziehungen mit vielen Zweirichtungsradwegen und zwei Wegemöglichkeiten in der Hofgartenstraße. Im v1-Bild fehlt der Entry von Norden aus Richtung Staatskanzlei; keine vollständige Geometrie. Normale Ansagen bleiben.",
+      "proposedLogicalArms": {
+        "Ring Nord": [
+          "Entry-1",
+          "Exit-1"
+        ],
+        "Christophstrasse Ost": [
+          "Entry-2",
+          "Exit-2"
+        ],
+        "Ring Sued": [
+          "Entry-3",
+          "Exit-3",
+          "Entry-4",
+          "Exit-4"
+        ],
+        "Hofgartenstrasse West": [
+          "Entry-5",
+          "Exit-5",
+          "Entry-6",
+          "Exit-6"
+        ]
+      },
+      "reviewDecision": {
+        "status": "permanently-excluded",
+        "reviewer": "Thomas",
+        "date": "2026-11-15",
+        "evidence": "Dauerhaft ausgeschlossen: Komplexe Fahrbeziehungen mit vielen Zweirichtungsradwegen und zwei Wegemöglichkeiten in der Hofgartenstraße. Im v1-Bild fehlt der Entry von Norden aus Richtung Staatskanzlei; keine vollständige Geometrie. Normale Ansagen bleiben."
+      }
+    },
+    {
+      "id": "sendlinger-tor",
+      "number": 33,
+      "version": 2,
+      "name": "Sendlinger-Tor-Platz / Sonnenstraße / Lindwurmstraße / Blumenstraße",
+      "origin": [
+        11.56665,
+        48.13346
+      ],
+      "polygon": [
+        [
+          11.56621,
+          48.1332
+        ],
+        [
+          11.5667,
+          48.1332
+        ],
+        [
+          11.56678,
+          48.13328
+        ],
+        [
+          11.567,
+          48.13328
+        ],
+        [
+          11.567,
+          48.13363
+        ],
+        [
+          11.5663,
+          48.13363
+        ],
+        [
+          11.5663,
+          48.13334
+        ],
+        [
+          11.56621,
+          48.1332
+        ]
+      ],
+      "onRoadWayIds": [
+        315202576,
+        1215605884,
+        30825292,
+        1215605883
+      ],
+      "candidateNodeIds": [
+        618785000,
+        1230460107,
+        11262969677,
+        29030748
+      ],
+      "note": "Geometrie v2 von Thomas bestätigt. Acht Links-/Geradeausbeziehungen technisch bestanden und aktiviert; Rechtsabbiegungen behalten Standardhinweise. Entry-3 und Exit-3 unverändert, übrige Punkte näher an der Kreuzung. Nußbaumstraße, Pettenkoferstraße und östlicher Platzbereich bleiben außerhalb.",
+      "proposedLogicalArms": {
+        "Sonnenstrasse Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Sendlinger-Tor-Platz Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Blumenstrasse Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Lindwurmstrasse Suedwest": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "preservedLabels": {
+        "1215613272:exit": "Exit-1",
+        "1185968235:entry": "Entry-1",
+        "1215613279:exit": "Exit-2",
+        "30825292:entry": "Entry-2",
+        "1215613269:exit": "Exit-3",
+        "315202576:entry": "Entry-3",
+        "116526679:exit": "Exit-4",
+        "1233479450:entry": "Entry-4"
+      },
+      "gateMigration": {
+        "unchanged": [
+          "Entry-3",
+          "Exit-3"
+        ],
+        "moved": [
+          "Entry-1",
+          "Entry-2",
+          "Entry-4",
+          "Exit-1",
+          "Exit-2",
+          "Exit-4"
+        ],
+        "reason": "Thomas requested all other gates closer to main crossing; contiguous polygon adjusted."
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "reviewer": "Thomas",
+        "date": "2026-11-15",
+        "geometrySha256": "ac7b6eeb697b22896f7b108167e7ce4a70a415a3ea51c92bfd75704611b6610e",
+        "evidence": "Thomas explicitly approved exact K33 v2 geometry and authorized activation after successful technical checks.",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "backendVersion": "2.4.15",
+          "technicalReport": "review-batch-05-k33-routes.json",
+          "evidence": "Conditional activation authorized by Thomas; 8 movements, 4 right controls and 8 walking controls passed."
+        }
+      }
+    }
+  ]
+}

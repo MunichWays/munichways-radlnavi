@@ -1,0 +1,177 @@
+{
+  "id": "lenbach-pacelli",
+  "number": 30,
+  "geometryRevision": 3,
+  "status": "complete",
+  "checkedAt": "2026-11-15T20:14:13.016598+00:00",
+  "runtimeModified": false,
+  "fixtureDirectory": "k30",
+  "classificationBasis": "existing-approach-departure-angle-checks",
+  "gateEvidence": {
+    "Exit-1": {
+      "sample": [
+        11.570288363215273,
+        48.14126950317028
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-1": {
+      "sample": [
+        11.570469749928966,
+        48.14065834593001
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-2": {
+      "sample": [
+        11.570469749928966,
+        48.14065834593001
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-2": {
+      "sample": [
+        11.568310772496533,
+        48.14062030684947
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-3": {
+      "sample": [
+        11.568034943164278,
+        48.14089260103462
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-4": {
+      "sample": [
+        11.569476446039408,
+        48.1418200165764
+      ],
+      "distanceMeters": 45
+    }
+  },
+  "movements": [
+    {
+      "id": "entry-1-exit-3-left",
+      "kind": "left",
+      "entryLabel": "Entry-1",
+      "exitLabel": "Exit-3",
+      "entryArm": "Pacellistrasse",
+      "exitArm": "Lenbachplatz Suedwest",
+      "enabled": true,
+      "fixture": "lenbach-pacelli-entry-1-exit-3-left.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.570469750,48.140658346;11.568034943,48.140892601?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verifiedCyclingWayIds": [
+        27715893,
+        71804691,
+        107023494,
+        144457687,
+        301695126,
+        301695127
+      ],
+      "verified": true,
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "entry-2-exit-1-straight",
+      "kind": "straight",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-1",
+      "entryArm": "Lenbachplatz Suedwest",
+      "exitArm": "Ring Nordost",
+      "enabled": true,
+      "fixture": "lenbach-pacelli-entry-2-exit-1-straight.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.568310772,48.140620307;11.570288363,48.141269503?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verifiedCyclingWayIds": [
+        107023490,
+        241324148,
+        1127704280
+      ],
+      "verified": true,
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "entry-4-exit-2-left",
+      "kind": "left",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-2",
+      "entryArm": "Ring Nordost",
+      "exitArm": "Pacellistrasse",
+      "enabled": true,
+      "fixture": "lenbach-pacelli-entry-4-exit-2-left.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.569476446,48.141820017;11.570469750,48.140658346?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verifiedCyclingWayIds": [
+        67562511,
+        71804691,
+        144457687,
+        150686294,
+        303437709,
+        1127704280,
+        1265305106
+      ],
+      "verified": true,
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "entry-1-exit-1-right",
+      "kind": "right",
+      "entryLabel": "Entry-1",
+      "exitLabel": "Exit-1",
+      "entryArm": "Pacellistrasse",
+      "exitArm": "Ring Nordost",
+      "enabled": false,
+      "fixture": "lenbach-pacelli-entry-1-exit-1-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.570469750,48.140658346;11.570288363,48.141269503?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verifiedCyclingWayIds": [
+        27715893,
+        107023490,
+        144457687,
+        241324148
+      ],
+      "verified": true
+    },
+    {
+      "id": "entry-2-exit-2-right",
+      "kind": "right",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-2",
+      "entryArm": "Lenbachplatz Suedwest",
+      "exitArm": "Pacellistrasse",
+      "enabled": false,
+      "fixture": "lenbach-pacelli-entry-2-exit-2-right.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.568310772,48.140620307;11.570469750,48.140658346?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verifiedCyclingWayIds": [
+        67562511,
+        144457687,
+        1127704280,
+        1265305106
+      ],
+      "verified": true
+    },
+    {
+      "id": "entry-4-exit-3-straight",
+      "kind": "straight",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-3",
+      "entryArm": "Ring Nordost",
+      "exitArm": "Lenbachplatz Suedwest",
+      "enabled": false,
+      "fixture": "lenbach-pacelli-entry-4-exit-3-straight.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.569476446,48.141820017;11.568034943,48.140892601?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "reason": "Geradeaus ohne Ampel; normale Hinweise beibehalten.",
+      "explicitlyExcluded": true
+    }
+  ],
+  "connectorEvidence": {
+    "snapshot": "review-k30-internal-connector-osm.json.gz",
+    "retrievedAt": "2026-11-15T20:12:45.046137+00:00",
+    "replacedWayIds": [
+      67562511,
+      1127704280,
+      1265305106,
+      1265305108
+    ],
+    "scope": "Current internal cycling connector; approved polygon and gates unchanged."
+  }
+}

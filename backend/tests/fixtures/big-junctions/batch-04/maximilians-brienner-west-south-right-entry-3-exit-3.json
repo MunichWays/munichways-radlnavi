@@ -1,0 +1,403 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              312391014,
+              11753115977,
+              2489934605,
+              1955476,
+              12073835619,
+              13930555808,
+              11896385776,
+              13930555809,
+              13930555807,
+              13930555806,
+              13620576001,
+              2489934479,
+              13620576025,
+              13930555802,
+              2489934463
+            ],
+            "distance": [
+              6.438413761,
+              17.07650588,
+              16.73143901,
+              13.21204952,
+              6.264594229,
+              5.521497848,
+              2.00550541,
+              2.527657751,
+              7.198293991,
+              7.617251812,
+              7.311766767,
+              4.240876957,
+              10.10251927,
+              2.967878742
+            ]
+          },
+          "duration": 24.5,
+          "summary": "Brienner Straße, Maximiliansplatz",
+          "weight": 30.5,
+          "distance": 109.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    112
+                  ],
+                  "location": [
+                    11.572828,
+                    48.143658
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.572913,
+                    48.143635
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572833,
+                    48.143657
+                  ],
+                  [
+                    11.572913,
+                    48.143635
+                  ],
+                  [
+                    11.573126,
+                    48.143578
+                  ],
+                  [
+                    11.573334,
+                    48.143521
+                  ],
+                  [
+                    11.573497,
+                    48.143474
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 112,
+                "bearing_before": 0,
+                "location": [
+                  11.572828,
+                  48.143658
+                ],
+                "type": "depart"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 19.4,
+              "duration": 13.4,
+              "distance": 53.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.573497,
+                    48.143474
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    120,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.573258,
+                    48.143173
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.573221,
+                    48.143144
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573497,
+                    48.143474
+                  ],
+                  [
+                    11.573473,
+                    48.14342
+                  ],
+                  [
+                    11.573454,
+                    48.143372
+                  ],
+                  [
+                    11.573445,
+                    48.143355
+                  ],
+                  [
+                    11.573432,
+                    48.143334
+                  ],
+                  [
+                    11.573381,
+                    48.143279
+                  ],
+                  [
+                    11.57332,
+                    48.143224
+                  ],
+                  [
+                    11.573258,
+                    48.143173
+                  ],
+                  [
+                    11.573221,
+                    48.143144
+                  ],
+                  [
+                    11.573131,
+                    48.143076
+                  ],
+                  [
+                    11.573103,
+                    48.143057
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 195,
+                "bearing_before": 111,
+                "location": [
+                  11.573497,
+                  48.143474
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Maximiliansplatz",
+              "mode": "cycling",
+              "weight": 11.1,
+              "duration": 11.1,
+              "distance": 55.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    45
+                  ],
+                  "location": [
+                    11.573103,
+                    48.143057
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573103,
+                    48.143057
+                  ],
+                  [
+                    11.573103,
+                    48.143057
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 225,
+                "location": [
+                  11.573103,
+                  48.143057
+                ],
+                "type": "arrive"
+              },
+              "name": "Maximiliansplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.572833,
+            48.143657
+          ],
+          [
+            11.572913,
+            48.143635
+          ],
+          [
+            11.573126,
+            48.143578
+          ],
+          [
+            11.573334,
+            48.143521
+          ],
+          [
+            11.573497,
+            48.143474
+          ],
+          [
+            11.573473,
+            48.14342
+          ],
+          [
+            11.573454,
+            48.143372
+          ],
+          [
+            11.573445,
+            48.143355
+          ],
+          [
+            11.573432,
+            48.143334
+          ],
+          [
+            11.573381,
+            48.143279
+          ],
+          [
+            11.57332,
+            48.143224
+          ],
+          [
+            11.573258,
+            48.143173
+          ],
+          [
+            11.573221,
+            48.143144
+          ],
+          [
+            11.573131,
+            48.143076
+          ],
+          [
+            11.573103,
+            48.143057
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 30.5,
+      "duration": 24.5,
+      "distance": 109.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ocUAgBk_IYAnAAAAAQAAADMCAAAAAAAAfQyKQYzmxj4Et35CAAAAAB8AAAABAAAAHQEAAAAAAAC9AgAAXJawACqd3gJclrAAK53eAggA_wYAAAAA",
+      "location": [
+        11.572828,
+        48.143658
+      ],
+      "name": "Brienner Straße",
+      "distance": 0.1111927533
+    },
+    {
+      "hint": "B1whgP___38GAAAAEgAAABQAAAAAAAAAuvE9QJRtu0DroyFBAAAAAAYAAAASAAAAFAAAAAAAAAC9AgAAb5ewANGa3gJul7AA0preAgIAHw4AAAAA",
+      "location": [
+        11.573103,
+        48.143057
+      ],
+      "name": "Maximiliansplatz",
+      "distance": 0.1338128249
+    }
+  ]
+}

@@ -14,6 +14,14 @@ All repository paths below are relative to the root.
 - `review-supplemental-sites.json`: original pilots and earlier exclusions, included once in overview totals.
 - Frozen OSM snapshots are evidence. No fresh network call is necessary for offline reproduction.
 
+## Instruction clarity and partial coverage
+
+Thomas explicitly prioritizes unambiguous junction instructions over complete movement coverage. Passing geometry, legality and matching checks does not establish that a spoken macro identifies the intended exit clearly. Compare exits that share the same left/straight classification from each entry. If a rider could reasonably choose another exit, exclude the individual movement and keep ordinary turn-by-turn guidance. Do not assume those ordinary instructions are perfect, but they are the established fallback; a special sequence is not required just to avoid a coverage gap.
+
+Partial activation is acceptable: keep other clear movements active. Preserve each exclusion with its entry/exit labels and reason in decisions, generated proposals and runtime configuration; reproduce it during later checks and make it visible in the overview. Test excluded routes for absence of macro metadata and unchanged ordinary steps.
+
+K21 example: Entry-4 to Exit-2 and Entry-3 to Exit-2 are excluded because the same left/straight macro could lead to Exit-3; the corresponding Exit-3 movements remain enabled.
+
 ## Rules learned from reviewed cases
 
 - K11: two-way cycleways may share entry/exit locations, and an arm can have multiple valid exits. Do not require exactly eight gates. Internal diagonal connections cease to be external gates when the polygon contains their whole connection.
@@ -72,6 +80,14 @@ Keep generators repeatable after activation: replace a batch's existing sites in
 - Include numbered cases, original pilots and earlier exclusions once in totals. City-wide candidate-node counts are a search inventory, not a count of distinct eligible junction complexes. Do not use a provisional point count or an old estimate as the denominator of a claimed completion percentage.
 
 ## Conservative automation
+
+### Bicycle direction overrides and closed cases
+
+K24 two-way guidance: only use special wording for a permitted two-way cycleway on the left side against the adjacent normal road traffic flow. A two-way path used on the right side with normal traffic remains standard. Entry-4 to Exit-1 is standard left; Entry-4 to Exit-6 is near-left on the reverse-side path. Do not introduce an opposite-left template for the normal right-side exit. Encode reviewed target-side semantics per movement; do not infer the special case from a shared gate or oneway:bicycle=no alone.
+
+For every approach, evaluate `oneway:bicycle` before `oneway`: `oneway:bicycle=no` permits both cycling directions even with `oneway=yes`. Follow the complete approach across all OSM way segments; the exception on an outer segment does not automatically apply to an inner segment missing that tag. Keep frozen source tags unchanged. Record a human-confirmed correction with exact way IDs and provenance; do not silently patch OSM evidence or invent a direction. Preserve existing gate labels when adding a missing reverse direction.
+
+BA01 step 1: K26 excludes Herzogspitalstrasse from its area and remains permanently excluded. K27 remains excluded because of the skewed, offset crossing and two-way Sonnenstrasse cycleway. K29 remains permanently deferred because three large crossings follow closely. Revisit individual K27/K29 movements only after a concrete field problem with ordinary guidance and an explicit review, not merely because their geometry looks eligible.
 
 Graph proposals use directed OSM connectivity outside the polygon, up to 50 m, respecting oneway:bicycle/access. They suggest inspecting a common node, not approving the merge. Equal coordinates without shared OSM nodes do not prove connectivity. A missing proposal is not evidence that no split/merge exists.
 

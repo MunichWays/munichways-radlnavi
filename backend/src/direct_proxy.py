@@ -27,20 +27,26 @@ class DirectRouteProxy:
     async def close(self):
         await self.client.aclose()
 
-    async def request(self, method, path, *, params=None, json=None, sequence_guidance=False):
+    async def request(self, method, path, *, params=None, json=None,
+                      sequence_guidance=False, instruction_guidance=False):
         try:
             await asyncio.wait_for(self.slots.acquire(), timeout=0.1)
         except TimeoutError as error:
             raise HTTPException(503, f"{self.variant.title()} routing capacity is busy") from error
         try:
-            return await self._request(method, path, params=params, json=json, sequence_guidance=sequence_guidance)
+            return await self._request(method, path, params=params, json=json,
+                                       sequence_guidance=sequence_guidance,
+                                       instruction_guidance=instruction_guidance)
         finally:
             self.slots.release()
 
-    async def _request(self, method, path, *, params=None, json=None, sequence_guidance=False):
+    async def _request(self, method, path, *, params=None, json=None,
+                       sequence_guidance=False, instruction_guidance=False):
         try:
             headers = dict(await run_in_threadpool(self.auth_headers))
-            if sequence_guidance:
+            if instruction_guidance:
+                headers['x-junction-guidance-version'] = '3'
+            elif sequence_guidance:
                 headers['x-junction-guidance-version'] = '2'
             upstream = await self.client.request(
                 method, self.url + path, params=params, json=json, headers=headers

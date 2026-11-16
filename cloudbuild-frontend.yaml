@@ -24,9 +24,15 @@ steps:
         api_url="$$(gcloud run services describe '${_API_SERVICE}' --region '${_REGION}' --format='value(status.url)')"
         printf '%s' "$${api_url}" > /workspace/api-url
 
+  - name: node:20-alpine
+    id: prepare-junction-review
+    waitFor: [checkout-source]
+    dir: source/frontend
+    args: [node, build_junction_review.mjs]
+
   - name: gcr.io/cloud-builders/docker
     id: build-frontend
-    waitFor: [checkout-source, resolve-api-url]
+    waitFor: [checkout-source, resolve-api-url, prepare-junction-review]
     dir: source
     entrypoint: bash
     args:

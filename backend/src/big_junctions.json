@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "munich-big-junctions-v9",
+  "version": "munich-big-junctions-v13",
   "junctions": [
     {
       "id": "arnulf-steuben",
@@ -20393,6 +20393,4786 @@
           }
         }
       ]
+    },
+    {
+      "id": "ludwig-tann",
+      "name": "Ludwigstraße / Von-der-Tann-Straße / Oskar-von-Miller-Ring",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.578535695888544,
+              48.14519993510601
+            ],
+            [
+              11.578717895888543,
+              48.145161735106
+            ],
+            [
+              11.578833995888543,
+              48.145138035106
+            ],
+            [
+              11.579049404111457,
+              48.145138035106
+            ],
+            [
+              11.579099604111457,
+              48.145245435106006
+            ],
+            [
+              11.579121904111457,
+              48.145297135106006
+            ],
+            [
+              11.579121904111457,
+              48.145440864894
+            ],
+            [
+              11.579007404111456,
+              48.145467564894
+            ],
+            [
+              11.578829904111457,
+              48.145498864893995
+            ],
+            [
+              11.578614495888543,
+              48.145498864893995
+            ],
+            [
+              11.578550495888543,
+              48.145378264894
+            ],
+            [
+              11.578535695888544,
+              48.145343664894
+            ],
+            [
+              11.578535695888544,
+              48.14519993510601
+            ]
+          ]
+        ]
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.578761237,
+                48.145498865
+              ]
+            ],
+            "exits": [
+              [
+                11.579049363,
+                48.145457781
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.579121904,
+                48.1453476
+              ]
+            ],
+            "exits": [
+              [
+                11.579070391,
+                48.145182936
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.578904839,
+                48.145138035
+              ]
+            ],
+            "exits": [
+              [
+                11.57861063,
+                48.145184224
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.578535696,
+                48.145292716
+              ]
+            ],
+            "exits": [
+              [
+                11.578591309,
+                48.145455172
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "evidence": "Thomas approved K23 v1; clockwise gate membership in review-batch-04-ba01-radlring-drafts.json; verified Standard routes."
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.578761672945419,
+            48.145498864893995
+          ],
+          "exit": [
+            11.57907041057445,
+            48.14518297722006
+          ],
+          "corridor": [
+            [
+              11.578761672945419,
+              48.145498864893995
+            ],
+            [
+              11.578758,
+              48.145491
+            ],
+            [
+              11.578722,
+              48.145427
+            ],
+            [
+              11.578705,
+              48.145393
+            ],
+            [
+              11.578658,
+              48.145306
+            ],
+            [
+              11.578643,
+              48.145272
+            ],
+            [
+              11.578826,
+              48.145234
+            ],
+            [
+              11.578942,
+              48.14521
+            ],
+            [
+              11.57907041057445,
+              48.14518297722006
+            ]
+          ],
+          "approach": [
+            [
+              11.57880177009628,
+              48.14558472509747
+            ],
+            [
+              11.578761672945419,
+              48.145498864893995
+            ]
+          ],
+          "departure": [
+            [
+              11.57907041057445,
+              48.14518297722006
+            ],
+            [
+              11.579198950215515,
+              48.145155927279276
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-north-east-left-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.578761672945419,
+            48.145498864893995
+          ],
+          "exit": [
+            11.578610890076122,
+            48.145184169914096
+          ],
+          "corridor": [
+            [
+              11.578761672945419,
+              48.145498864893995
+            ],
+            [
+              11.578758,
+              48.145491
+            ],
+            [
+              11.578722,
+              48.145427
+            ],
+            [
+              11.578705,
+              48.145393
+            ],
+            [
+              11.578658,
+              48.145306
+            ],
+            [
+              11.578643,
+              48.145272
+            ],
+            [
+              11.578610890076122,
+              48.145184169914096
+            ]
+          ],
+          "approach": [
+            [
+              11.57880177009628,
+              48.14558472509747
+            ],
+            [
+              11.578761672945419,
+              48.145498864893995
+            ]
+          ],
+          "departure": [
+            [
+              11.578610890076122,
+              48.145184169914096
+            ],
+            [
+              11.578579431312118,
+              48.145096721911976
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-north-south-straight-entry-4-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.579121904111457,
+            48.1453475444655
+          ],
+          "exit": [
+            11.578610890076122,
+            48.145184169914096
+          ],
+          "corridor": [
+            [
+              11.579121904111457,
+              48.1453475444655
+            ],
+            [
+              11.579014,
+              48.145369
+            ],
+            [
+              11.5789,
+              48.145396
+            ],
+            [
+              11.578722,
+              48.145427
+            ],
+            [
+              11.578705,
+              48.145393
+            ],
+            [
+              11.578658,
+              48.145306
+            ],
+            [
+              11.578643,
+              48.145272
+            ],
+            [
+              11.578610890076122,
+              48.145184169914096
+            ]
+          ],
+          "approach": [
+            [
+              11.57925107211464,
+              48.14532186084223
+            ],
+            [
+              11.579121904111457,
+              48.1453475444655
+            ]
+          ],
+          "departure": [
+            [
+              11.578610890076122,
+              48.145184169914096
+            ],
+            [
+              11.578579431312118,
+              48.145096721911976
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-east-south-left-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.579121904111457,
+            48.1453475444655
+          ],
+          "exit": [
+            11.578591254620484,
+            48.1454550696295
+          ],
+          "corridor": [
+            [
+              11.579121904111457,
+              48.1453475444655
+            ],
+            [
+              11.579014,
+              48.145369
+            ],
+            [
+              11.5789,
+              48.145396
+            ],
+            [
+              11.578722,
+              48.145427
+            ],
+            [
+              11.578591254620484,
+              48.1454550696295
+            ]
+          ],
+          "approach": [
+            [
+              11.57925107211464,
+              48.14532186084223
+            ],
+            [
+              11.579121904111457,
+              48.1453475444655
+            ]
+          ],
+          "departure": [
+            [
+              11.578591254620484,
+              48.1454550696295
+            ],
+            [
+              11.578462950675048,
+              48.14548261510931
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-east-west-straight-entry-1-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.578904904693815,
+            48.145138035106
+          ],
+          "exit": [
+            11.579048950014641,
+            48.14545787689736
+          ],
+          "corridor": [
+            [
+              11.578904904693815,
+              48.145138035106
+            ],
+            [
+              11.578942,
+              48.14521
+            ],
+            [
+              11.578956,
+              48.14524
+            ],
+            [
+              11.578992,
+              48.145317
+            ],
+            [
+              11.579014,
+              48.145369
+            ],
+            [
+              11.579043,
+              48.145445
+            ],
+            [
+              11.579048950014641,
+              48.14545787689736
+            ]
+          ],
+          "approach": [
+            [
+              11.578864671993406,
+              48.145052218743956
+            ],
+            [
+              11.578904904693815,
+              48.145138035106
+            ]
+          ],
+          "departure": [
+            [
+              11.579048950014641,
+              48.14545787689736
+            ],
+            [
+              11.579088660306784,
+              48.145543817081844
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-south-north-straight-entry-2-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.578904904693815,
+            48.145138035106
+          ],
+          "exit": [
+            11.578591254620484,
+            48.1454550696295
+          ],
+          "corridor": [
+            [
+              11.578904904693815,
+              48.145138035106
+            ],
+            [
+              11.578942,
+              48.14521
+            ],
+            [
+              11.578956,
+              48.14524
+            ],
+            [
+              11.578992,
+              48.145317
+            ],
+            [
+              11.579014,
+              48.145369
+            ],
+            [
+              11.5789,
+              48.145396
+            ],
+            [
+              11.578722,
+              48.145427
+            ],
+            [
+              11.578591254620484,
+              48.1454550696295
+            ]
+          ],
+          "approach": [
+            [
+              11.578864671993406,
+              48.145052218743956
+            ],
+            [
+              11.578904904693815,
+              48.145138035106
+            ]
+          ],
+          "departure": [
+            [
+              11.578591254620484,
+              48.1454550696295
+            ],
+            [
+              11.578462950675048,
+              48.14548261510931
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-south-west-left-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.578535695888544,
+            48.145293095751484
+          ],
+          "exit": [
+            11.579048950014641,
+            48.14545787689736
+          ],
+          "corridor": [
+            [
+              11.578535695888544,
+              48.145293095751484
+            ],
+            [
+              11.578546,
+              48.145291
+            ],
+            [
+              11.578643,
+              48.145272
+            ],
+            [
+              11.578826,
+              48.145234
+            ],
+            [
+              11.578942,
+              48.14521
+            ],
+            [
+              11.578956,
+              48.14524
+            ],
+            [
+              11.578992,
+              48.145317
+            ],
+            [
+              11.579014,
+              48.145369
+            ],
+            [
+              11.579043,
+              48.145445
+            ],
+            [
+              11.579048950014641,
+              48.14545787689736
+            ]
+          ],
+          "approach": [
+            [
+              11.578406770962651,
+              48.14531931777031
+            ],
+            [
+              11.578535695888544,
+              48.145293095751484
+            ]
+          ],
+          "departure": [
+            [
+              11.579048950014641,
+              48.14545787689736
+            ],
+            [
+              11.579088660306784,
+              48.145543817081844
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-west-north-left-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.578535695888544,
+            48.145293095751484
+          ],
+          "exit": [
+            11.57907041057445,
+            48.14518297722006
+          ],
+          "corridor": [
+            [
+              11.578535695888544,
+              48.145293095751484
+            ],
+            [
+              11.578546,
+              48.145291
+            ],
+            [
+              11.578643,
+              48.145272
+            ],
+            [
+              11.578826,
+              48.145234
+            ],
+            [
+              11.578942,
+              48.14521
+            ],
+            [
+              11.57907041057445,
+              48.14518297722006
+            ]
+          ],
+          "approach": [
+            [
+              11.578406770962651,
+              48.14531931777031
+            ],
+            [
+              11.578535695888544,
+              48.145293095751484
+            ]
+          ],
+          "departure": [
+            [
+              11.57907041057445,
+              48.14518297722006
+            ],
+            [
+              11.579198950215515,
+              48.145155927279276
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K23 v1; legal directed frozen OSM corridor, batch-04/ludwig-tann-west-east-straight-entry-3-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-15",
+        "evidence": "Thomas approved K23 v1; review-batch-04-ba01-routes.json"
+      }
+    },
+    {
+      "id": "maximilians-brienner",
+      "name": "Brienner Straße / Maximiliansplatz / Oskar-von-Miller-Ring",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.573389499833329,
+              48.143402435106005
+            ],
+            [
+              11.57370719983333,
+              48.143305135106004
+            ],
+            [
+              11.573922600166672,
+              48.143305135106004
+            ],
+            [
+              11.573922600166672,
+              48.143448864894
+            ],
+            [
+              11.573604900166671,
+              48.143546164894
+            ],
+            [
+              11.573389499833329,
+              48.143546164894
+            ],
+            [
+              11.573389499833329,
+              48.143402435106005
+            ]
+          ]
+        ]
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.573540526,
+                48.143546165
+              ]
+            ],
+            "exits": [
+              [
+                11.57385101,
+                48.14347079
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.5739226,
+                48.143350757
+              ]
+            ],
+            "exits": [
+              [
+                11.5739226,
+                48.143350757
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.57378724,
+                48.143305135
+              ]
+            ],
+            "exits": [
+              [
+                11.573457542,
+                48.143381596
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.5733895,
+                48.143505308
+              ]
+            ],
+            "exits": [
+              [
+                11.5733895,
+                48.143505308
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "evidence": "Thomas approved K25 v1; clockwise gate membership in review-batch-04-ba01-radlring-drafts.json; verified Standard routes."
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.573540616144722,
+            48.143546164894
+          ],
+          "exit": [
+            11.573922600166672,
+            48.14335066371554
+          ],
+          "corridor": [
+            [
+              11.573540616144722,
+              48.143546164894
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573594,
+              48.143447
+            ],
+            [
+              11.573639,
+              48.143429
+            ],
+            [
+              11.573716,
+              48.143405
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573912,
+              48.143353
+            ],
+            [
+              11.573922600166672,
+              48.14335066371554
+            ]
+          ],
+          "approach": [
+            [
+              11.573589102700872,
+              48.143630072429225
+            ],
+            [
+              11.573540616144722,
+              48.143546164894
+            ]
+          ],
+          "departure": [
+            [
+              11.573922600166672,
+              48.14335066371554
+            ],
+            [
+              11.574050575888757,
+              48.14332245777315
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-north-east-left-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.573540616144722,
+            48.143546164894
+          ],
+          "exit": [
+            11.573457770782607,
+            48.14338152618764
+          ],
+          "corridor": [
+            [
+              11.573540616144722,
+              48.143546164894
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573473,
+              48.14342
+            ],
+            [
+              11.573457770782607,
+              48.14338152618764
+            ]
+          ],
+          "approach": [
+            [
+              11.573589102700872,
+              48.143630072429225
+            ],
+            [
+              11.573540616144722,
+              48.143546164894
+            ]
+          ],
+          "departure": [
+            [
+              11.573457770782607,
+              48.14338152618764
+            ],
+            [
+              11.573400988043067,
+              48.14330055573272
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-north-south-straight-entry-4-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.573922600166672,
+            48.14335066371554
+          ],
+          "exit": [
+            11.573457770782607,
+            48.14338152618764
+          ],
+          "corridor": [
+            [
+              11.573922600166672,
+              48.14335066371554
+            ],
+            [
+              11.573912,
+              48.143353
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573716,
+              48.143405
+            ],
+            [
+              11.573639,
+              48.143429
+            ],
+            [
+              11.573594,
+              48.143447
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573473,
+              48.14342
+            ],
+            [
+              11.573457770782607,
+              48.14338152618764
+            ]
+          ],
+          "approach": [
+            [
+              11.574050575888757,
+              48.14332245777315
+            ],
+            [
+              11.573922600166672,
+              48.14335066371554
+            ]
+          ],
+          "departure": [
+            [
+              11.573457770782607,
+              48.14338152618764
+            ],
+            [
+              11.573400988043067,
+              48.14330055573272
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-east-south-left-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.573922600166672,
+            48.14335066371554
+          ],
+          "exit": [
+            11.573389499833329,
+            48.143504996980575
+          ],
+          "corridor": [
+            [
+              11.573922600166672,
+              48.14335066371554
+            ],
+            [
+              11.573912,
+              48.143353
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573716,
+              48.143405
+            ],
+            [
+              11.573639,
+              48.143429
+            ],
+            [
+              11.573594,
+              48.143447
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573389499833329,
+              48.143504996980575
+            ]
+          ],
+          "approach": [
+            [
+              11.574050575888757,
+              48.14332245777315
+            ],
+            [
+              11.573922600166672,
+              48.14335066371554
+            ]
+          ],
+          "departure": [
+            [
+              11.573389499833329,
+              48.143504996980575
+            ],
+            [
+              11.573265254947833,
+              48.143539838788335
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-east-west-straight-entry-1-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.573787409013912,
+            48.143305135106004
+          ],
+          "exit": [
+            11.57385139680431,
+            48.143470671904254
+          ],
+          "corridor": [
+            [
+              11.573787409013912,
+              48.143305135106004
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573846,
+              48.143457
+            ],
+            [
+              11.57385139680431,
+              48.143470671904254
+            ]
+          ],
+          "approach": [
+            [
+              11.573756868831568,
+              48.14321756174222
+            ],
+            [
+              11.573787409013912,
+              48.143305135106004
+            ]
+          ],
+          "departure": [
+            [
+              11.57385139680431,
+              48.143470671904254
+            ],
+            [
+              11.573888321232563,
+              48.14355715580408
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-south-north-straight-entry-2-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.573787409013912,
+            48.143305135106004
+          ],
+          "exit": [
+            11.573389499833329,
+            48.143504996980575
+          ],
+          "corridor": [
+            [
+              11.573787409013912,
+              48.143305135106004
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573716,
+              48.143405
+            ],
+            [
+              11.573639,
+              48.143429
+            ],
+            [
+              11.573594,
+              48.143447
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573389499833329,
+              48.143504996980575
+            ]
+          ],
+          "approach": [
+            [
+              11.573756868831568,
+              48.14321756174222
+            ],
+            [
+              11.573787409013912,
+              48.143305135106004
+            ]
+          ],
+          "departure": [
+            [
+              11.573389499833329,
+              48.143504996980575
+            ],
+            [
+              11.573265254947833,
+              48.143539838788335
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-south-west-left-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.573389499833329,
+            48.143504996980575
+          ],
+          "exit": [
+            11.57385139680431,
+            48.143470671904254
+          ],
+          "corridor": [
+            [
+              11.573389499833329,
+              48.143504996980575
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573594,
+              48.143447
+            ],
+            [
+              11.573639,
+              48.143429
+            ],
+            [
+              11.573716,
+              48.143405
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573846,
+              48.143457
+            ],
+            [
+              11.57385139680431,
+              48.143470671904254
+            ]
+          ],
+          "approach": [
+            [
+              11.573265254947833,
+              48.143539838788335
+            ],
+            [
+              11.573389499833329,
+              48.143504996980575
+            ]
+          ],
+          "departure": [
+            [
+              11.57385139680431,
+              48.143470671904254
+            ],
+            [
+              11.573888321232563,
+              48.14355715580408
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-west-north-left-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.573389499833329,
+            48.143504996980575
+          ],
+          "exit": [
+            11.573922600166672,
+            48.14335066371554
+          ],
+          "corridor": [
+            [
+              11.573389499833329,
+              48.143504996980575
+            ],
+            [
+              11.573497,
+              48.143474
+            ],
+            [
+              11.573594,
+              48.143447
+            ],
+            [
+              11.573639,
+              48.143429
+            ],
+            [
+              11.573716,
+              48.143405
+            ],
+            [
+              11.573815,
+              48.143377
+            ],
+            [
+              11.573912,
+              48.143353
+            ],
+            [
+              11.573922600166672,
+              48.14335066371554
+            ]
+          ],
+          "approach": [
+            [
+              11.573265254947833,
+              48.143539838788335
+            ],
+            [
+              11.573389499833329,
+              48.143504996980575
+            ]
+          ],
+          "departure": [
+            [
+              11.573922600166672,
+              48.14335066371554
+            ],
+            [
+              11.574050575888757,
+              48.14332245777315
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K25 v1; legal directed frozen OSM corridor, batch-04/maximilians-brienner-west-east-straight-entry-3-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-15",
+        "evidence": "Thomas approved K25 v1; review-batch-04-ba01-routes.json"
+      }
+    },
+    {
+      "id": "blumen-cornelius",
+      "name": "Blumenstraße / Corneliusstraße / Fritz-Neuland-Straße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.573553,
+              48.1337382933525
+            ],
+            [
+              11.573956797269776,
+              48.1334688
+            ],
+            [
+              11.573553,
+              48.133199306647505
+            ],
+            [
+              11.573149202730225,
+              48.1334688
+            ],
+            [
+              11.573553,
+              48.1337382933525
+            ]
+          ]
+        ]
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.573761795,
+                48.133598944
+              ]
+            ],
+            "exits": [
+              [
+                11.573761795,
+                48.133598944
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.573787982,
+                48.133356133
+              ]
+            ],
+            "exits": [
+              [
+                11.573713925,
+                48.133306708
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.573347658,
+                48.133336351
+              ]
+            ],
+            "exits": [
+              [
+                11.573258271,
+                48.133396008
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.573360471,
+                48.1336098
+              ]
+            ],
+            "exits": [
+              [
+                11.573360471,
+                48.1336098
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "evidence": "Thomas approved K28 v1; clockwise gate membership in review-batch-04-ba01-radlring-drafts.json; verified Standard routes."
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-1-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.573761622898152,
+            48.13359905891869
+          ],
+          "exit": [
+            11.573714088771764,
+            48.13330681691665
+          ],
+          "corridor": [
+            [
+              11.573761622898152,
+              48.13359905891869
+            ],
+            [
+              11.573749,
+              48.133591
+            ],
+            [
+              11.573691,
+              48.133554
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573622,
+              48.133371
+            ],
+            [
+              11.573714088771764,
+              48.13330681691665
+            ]
+          ],
+          "approach": [
+            [
+              11.573858995235566,
+              48.13366122497124
+            ],
+            [
+              11.573761622898152,
+              48.13359905891869
+            ]
+          ],
+          "departure": [
+            [
+              11.573714088771764,
+              48.13330681691665
+            ],
+            [
+              11.573807284328973,
+              48.13324186243738
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-north-east-left-entry-1-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-1-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.573761622898152,
+            48.13359905891869
+          ],
+          "exit": [
+            11.573258175535067,
+            48.13339607180517
+          ],
+          "corridor": [
+            [
+              11.573761622898152,
+              48.13359905891869
+            ],
+            [
+              11.573749,
+              48.133591
+            ],
+            [
+              11.573691,
+              48.133554
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573316,
+              48.13343
+            ],
+            [
+              11.573258175535067,
+              48.13339607180517
+            ]
+          ],
+          "approach": [
+            [
+              11.573858995235566,
+              48.13366122497124
+            ],
+            [
+              11.573761622898152,
+              48.13359905891869
+            ]
+          ],
+          "departure": [
+            [
+              11.573258175535067,
+              48.13339607180517
+            ],
+            [
+              11.573156974371532,
+              48.13333669256497
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-north-south-straight-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-2-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.5737880234917,
+            48.13335616077564
+          ],
+          "exit": [
+            11.573258175535067,
+            48.13339607180517
+          ],
+          "corridor": [
+            [
+              11.5737880234917,
+              48.13335616077564
+            ],
+            [
+              11.573739,
+              48.13339
+            ],
+            [
+              11.573689,
+              48.133427
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573316,
+              48.13343
+            ],
+            [
+              11.573258175535067,
+              48.13339607180517
+            ]
+          ],
+          "approach": [
+            [
+              11.573881619919364,
+              48.133291463522575
+            ],
+            [
+              11.5737880234917,
+              48.13335616077564
+            ]
+          ],
+          "departure": [
+            [
+              11.573258175535067,
+              48.13339607180517
+            ],
+            [
+              11.573156974371532,
+              48.13333669256497
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-east-south-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-2-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.5737880234917,
+            48.13335616077564
+          ],
+          "exit": [
+            11.573360547201462,
+            48.133609850805314
+          ],
+          "corridor": [
+            [
+              11.5737880234917,
+              48.13335616077564
+            ],
+            [
+              11.573739,
+              48.13339
+            ],
+            [
+              11.573689,
+              48.133427
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573439,
+              48.133556
+            ],
+            [
+              11.573409,
+              48.133579
+            ],
+            [
+              11.573360547201462,
+              48.133609850805314
+            ]
+          ],
+          "approach": [
+            [
+              11.573881619919364,
+              48.133291463522575
+            ],
+            [
+              11.5737880234917,
+              48.13335616077564
+            ]
+          ],
+          "departure": [
+            [
+              11.573360547201462,
+              48.133609850805314
+            ],
+            [
+              11.57326304963486,
+              48.13367192933405
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-east-west-straight-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-3-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.573347501289696,
+            48.13333645600566
+          ],
+          "exit": [
+            11.573761622898152,
+            48.13359905891869
+          ],
+          "corridor": [
+            [
+              11.573347501289696,
+              48.13333645600566
+            ],
+            [
+              11.573357,
+              48.133342
+            ],
+            [
+              11.573365,
+              48.133346
+            ],
+            [
+              11.573394,
+              48.133365
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573691,
+              48.133554
+            ],
+            [
+              11.573749,
+              48.133591
+            ],
+            [
+              11.573761622898152,
+              48.13359905891869
+            ]
+          ],
+          "approach": [
+            [
+              11.573246067828958,
+              48.13327725359667
+            ],
+            [
+              11.573347501289696,
+              48.13333645600566
+            ]
+          ],
+          "departure": [
+            [
+              11.573761622898152,
+              48.13359905891869
+            ],
+            [
+              11.573858995235566,
+              48.13366122497124
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-south-north-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-3-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.573347501289696,
+            48.13333645600566
+          ],
+          "exit": [
+            11.573360547201462,
+            48.133609850805314
+          ],
+          "corridor": [
+            [
+              11.573347501289696,
+              48.13333645600566
+            ],
+            [
+              11.573357,
+              48.133342
+            ],
+            [
+              11.573365,
+              48.133346
+            ],
+            [
+              11.573394,
+              48.133365
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573439,
+              48.133556
+            ],
+            [
+              11.573409,
+              48.133579
+            ],
+            [
+              11.573360547201462,
+              48.133609850805314
+            ]
+          ],
+          "approach": [
+            [
+              11.573246067828958,
+              48.13327725359667
+            ],
+            [
+              11.573347501289696,
+              48.13333645600566
+            ]
+          ],
+          "departure": [
+            [
+              11.573360547201462,
+              48.133609850805314
+            ],
+            [
+              11.57326304963486,
+              48.13367192933405
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-south-west-left-entry-3-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-4-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.573360547201462,
+            48.133609850805314
+          ],
+          "exit": [
+            11.573761622898152,
+            48.13359905891869
+          ],
+          "corridor": [
+            [
+              11.573360547201462,
+              48.133609850805314
+            ],
+            [
+              11.573409,
+              48.133579
+            ],
+            [
+              11.573439,
+              48.133556
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573691,
+              48.133554
+            ],
+            [
+              11.573749,
+              48.133591
+            ],
+            [
+              11.573761622898152,
+              48.13359905891869
+            ]
+          ],
+          "approach": [
+            [
+              11.57326304963486,
+              48.13367192933405
+            ],
+            [
+              11.573360547201462,
+              48.133609850805314
+            ]
+          ],
+          "departure": [
+            [
+              11.573761622898152,
+              48.13359905891869
+            ],
+            [
+              11.573858995235566,
+              48.13366122497124
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-west-north-left-entry-4-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-4-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.573360547201462,
+            48.133609850805314
+          ],
+          "exit": [
+            11.573714088771764,
+            48.13330681691665
+          ],
+          "corridor": [
+            [
+              11.573360547201462,
+              48.133609850805314
+            ],
+            [
+              11.573409,
+              48.133579
+            ],
+            [
+              11.573439,
+              48.133556
+            ],
+            [
+              11.573553,
+              48.133469
+            ],
+            [
+              11.573622,
+              48.133371
+            ],
+            [
+              11.573714088771764,
+              48.13330681691665
+            ]
+          ],
+          "approach": [
+            [
+              11.57326304963486,
+              48.13367192933405
+            ],
+            [
+              11.573360547201462,
+              48.133609850805314
+            ]
+          ],
+          "departure": [
+            [
+              11.573714088771764,
+              48.13330681691665
+            ],
+            [
+              11.573807284328973,
+              48.13324186243738
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K28 v1; legal directed frozen OSM corridor, batch-04/blumen-cornelius-west-east-straight-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-15",
+        "evidence": "Thomas approved K28 v1; review-batch-04-ba01-routes.json"
+      }
+    },
+    {
+      "id": "maximilian-ring",
+      "name": "Maximilianstraße / Karl-Scharnagl-Ring / Thomas-Wimmer-Ring",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.584095721484655,
+              48.138326970212006
+            ],
+            [
+              11.584099121484654,
+              48.138142770212006
+            ],
+            [
+              11.584110921484655,
+              48.137958970212004
+            ],
+            [
+              11.584530621484655,
+              48.13787607021201
+            ],
+            [
+              11.584961378515347,
+              48.13787607021201
+            ],
+            [
+              11.584989978515345,
+              48.138013670212004
+            ],
+            [
+              11.584999978515347,
+              48.13824157021201
+            ],
+            [
+              11.584999978515347,
+              48.138529029787996
+            ],
+            [
+              11.584890378515347,
+              48.13854882978799
+            ],
+            [
+              11.584526478515347,
+              48.13861442978799
+            ],
+            [
+              11.584095721484655,
+              48.13861442978799
+            ],
+            [
+              11.584095721484655,
+              48.138326970212006
+            ]
+          ]
+        ]
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.58479715,
+                48.138565636
+              ],
+              [
+                11.584409391,
+                48.13861443
+              ]
+            ],
+            "exits": [
+              [
+                11.58479715,
+                48.138565636
+              ],
+              [
+                11.584409391,
+                48.13861443
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.584998629,
+                48.138210823
+              ]
+            ],
+            "exits": [
+              [
+                11.584994457,
+                48.138115724
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.584678884,
+                48.13787607
+              ]
+            ],
+            "exits": [
+              [
+                11.584678884,
+                48.13787607
+              ],
+              [
+                11.584310464,
+                48.137919556
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.584095721,
+                48.138329397
+              ]
+            ],
+            "exits": [
+              [
+                11.584095721,
+                48.138329397
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "evidence": "Human-reviewed clockwise arm membership; only left-side against-traffic exits use special templates."
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-1-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.584797191131784,
+            48.13856562861284
+          ],
+          "exit": [
+            11.584994442221436,
+            48.13811539807379
+          ],
+          "corridor": [
+            [
+              11.584797191131784,
+              48.13856562861284
+            ],
+            [
+              11.584785,
+              48.138537
+            ],
+            [
+              11.584792,
+              48.138456
+            ],
+            [
+              11.584785,
+              48.138385
+            ],
+            [
+              11.584782,
+              48.138319
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584994442221436,
+              48.13811539807379
+            ]
+          ],
+          "approach": [
+            [
+              11.584834029008675,
+              48.13865213553723
+            ],
+            [
+              11.584797191131784,
+              48.13856562861284
+            ]
+          ],
+          "departure": [
+            [
+              11.584994442221436,
+              48.13811539807379
+            ],
+            [
+              11.585124075188052,
+              48.138090822214714
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "north-east-left-entry-5-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.58440918683473,
+            48.13861442978799
+          ],
+          "exit": [
+            11.584994442221436,
+            48.13811539807379
+          ],
+          "corridor": [
+            [
+              11.58440918683473,
+              48.13861442978799
+            ],
+            [
+              11.584311,
+              48.138471
+            ],
+            [
+              11.584293,
+              48.138402
+            ],
+            [
+              11.584311,
+              48.138302
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584527,
+              48.138233
+            ],
+            [
+              11.584633,
+              48.138187
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584994442221436,
+              48.13811539807379
+            ]
+          ],
+          "approach": [
+            [
+              11.584450736792846,
+              48.138699798886734
+            ],
+            [
+              11.58440918683473,
+              48.13861442978799
+            ]
+          ],
+          "departure": [
+            [
+              11.584994442221436,
+              48.13811539807379
+            ],
+            [
+              11.585124075188052,
+              48.138090822214714
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-1-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.584797191131784,
+            48.13856562861284
+          ],
+          "exit": [
+            11.58467937658026,
+            48.13787607021201
+          ],
+          "corridor": [
+            [
+              11.584797191131784,
+              48.13856562861284
+            ],
+            [
+              11.584785,
+              48.138537
+            ],
+            [
+              11.584792,
+              48.138456
+            ],
+            [
+              11.584785,
+              48.138385
+            ],
+            [
+              11.584782,
+              48.138319
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584772,
+              48.138093
+            ],
+            [
+              11.584746,
+              48.13802
+            ],
+            [
+              11.584682,
+              48.137883
+            ],
+            [
+              11.58467937658026,
+              48.13787607021201
+            ]
+          ],
+          "approach": [
+            [
+              11.584834029008675,
+              48.13865213553723
+            ],
+            [
+              11.584797191131784,
+              48.13856562861284
+            ]
+          ],
+          "departure": [
+            [
+              11.58467937658026,
+              48.13787607021201
+            ],
+            [
+              11.584646367977289,
+              48.13778887767586
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          },
+          "instructionTemplate": "two-way-straight-opposite",
+          "targetCyclingSide": "left-against-traffic",
+          "targetWayType": "two-way-cycleway"
+        },
+        {
+          "id": "north-south-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.584797191131784,
+            48.13856562861284
+          ],
+          "exit": [
+            11.584310786436669,
+            48.13791949247905
+          ],
+          "corridor": [
+            [
+              11.584797191131784,
+              48.13856562861284
+            ],
+            [
+              11.584785,
+              48.138537
+            ],
+            [
+              11.584792,
+              48.138456
+            ],
+            [
+              11.584785,
+              48.138385
+            ],
+            [
+              11.584782,
+              48.138319
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584648,
+              48.138264
+            ],
+            [
+              11.584535,
+              48.13826
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584317,
+              48.138274
+            ],
+            [
+              11.58433,
+              48.138178
+            ],
+            [
+              11.584326,
+              48.138103
+            ],
+            [
+              11.584314,
+              48.137933
+            ],
+            [
+              11.584312,
+              48.137924
+            ],
+            [
+              11.584310786436669,
+              48.13791949247905
+            ]
+          ],
+          "approach": [
+            [
+              11.584834029008675,
+              48.13865213553723
+            ],
+            [
+              11.584797191131784,
+              48.13856562861284
+            ]
+          ],
+          "departure": [
+            [
+              11.584310786436669,
+              48.13791949247905
+            ],
+            [
+              11.584278415110878,
+              48.13783225628771
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-5-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.58440918683473,
+            48.13861442978799
+          ],
+          "exit": [
+            11.58467937658026,
+            48.13787607021201
+          ],
+          "corridor": [
+            [
+              11.58440918683473,
+              48.13861442978799
+            ],
+            [
+              11.584311,
+              48.138471
+            ],
+            [
+              11.584293,
+              48.138402
+            ],
+            [
+              11.584311,
+              48.138302
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584527,
+              48.138233
+            ],
+            [
+              11.584633,
+              48.138187
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584772,
+              48.138093
+            ],
+            [
+              11.584746,
+              48.13802
+            ],
+            [
+              11.584682,
+              48.137883
+            ],
+            [
+              11.58467937658026,
+              48.13787607021201
+            ]
+          ],
+          "approach": [
+            [
+              11.584450736792846,
+              48.138699798886734
+            ],
+            [
+              11.58440918683473,
+              48.13861442978799
+            ]
+          ],
+          "departure": [
+            [
+              11.58467937658026,
+              48.13787607021201
+            ],
+            [
+              11.584646367977289,
+              48.13778887767586
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          },
+          "instructionTemplate": "two-way-straight-opposite",
+          "targetCyclingSide": "left-against-traffic",
+          "targetWayType": "two-way-cycleway"
+        },
+        {
+          "id": "north-south-straight-entry-5-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.58440918683473,
+            48.13861442978799
+          ],
+          "exit": [
+            11.584310786436669,
+            48.13791949247905
+          ],
+          "corridor": [
+            [
+              11.58440918683473,
+              48.13861442978799
+            ],
+            [
+              11.584311,
+              48.138471
+            ],
+            [
+              11.584293,
+              48.138402
+            ],
+            [
+              11.584311,
+              48.138302
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584317,
+              48.138274
+            ],
+            [
+              11.58433,
+              48.138178
+            ],
+            [
+              11.584326,
+              48.138103
+            ],
+            [
+              11.584314,
+              48.137933
+            ],
+            [
+              11.584312,
+              48.137924
+            ],
+            [
+              11.584310786436669,
+              48.13791949247905
+            ]
+          ],
+          "approach": [
+            [
+              11.584450736792846,
+              48.138699798886734
+            ],
+            [
+              11.58440918683473,
+              48.13861442978799
+            ]
+          ],
+          "departure": [
+            [
+              11.584310786436669,
+              48.13791949247905
+            ],
+            [
+              11.584278415110878,
+              48.13783225628771
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "east-south-left-entry-2-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.584998648936446,
+            48.13821126910886
+          ],
+          "exit": [
+            11.58467937658026,
+            48.13787607021201
+          ],
+          "corridor": [
+            [
+              11.584998648936446,
+              48.13821126910886
+            ],
+            [
+              11.584904,
+              48.138231
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584772,
+              48.138093
+            ],
+            [
+              11.584746,
+              48.13802
+            ],
+            [
+              11.584682,
+              48.137883
+            ],
+            [
+              11.58467937658026,
+              48.13787607021201
+            ]
+          ],
+          "approach": [
+            [
+              11.58512728148596,
+              48.13818445385951
+            ],
+            [
+              11.584998648936446,
+              48.13821126910886
+            ]
+          ],
+          "departure": [
+            [
+              11.58467937658026,
+              48.13787607021201
+            ],
+            [
+              11.584646367977289,
+              48.13778887767586
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          },
+          "instructionTemplate": "two-way-left-near",
+          "targetCyclingSide": "left-against-traffic",
+          "targetWayType": "two-way-cycleway"
+        },
+        {
+          "id": "east-south-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.584998648936446,
+            48.13821126910886
+          ],
+          "exit": [
+            11.584310786436669,
+            48.13791949247905
+          ],
+          "corridor": [
+            [
+              11.584998648936446,
+              48.13821126910886
+            ],
+            [
+              11.584904,
+              48.138231
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584648,
+              48.138264
+            ],
+            [
+              11.584535,
+              48.13826
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584317,
+              48.138274
+            ],
+            [
+              11.58433,
+              48.138178
+            ],
+            [
+              11.584326,
+              48.138103
+            ],
+            [
+              11.584314,
+              48.137933
+            ],
+            [
+              11.584312,
+              48.137924
+            ],
+            [
+              11.584310786436669,
+              48.13791949247905
+            ]
+          ],
+          "approach": [
+            [
+              11.58512728148596,
+              48.13818445385951
+            ],
+            [
+              11.584998648936446,
+              48.13821126910886
+            ]
+          ],
+          "departure": [
+            [
+              11.584310786436669,
+              48.13791949247905
+            ],
+            [
+              11.584278415110878,
+              48.13783225628771
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-2-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.584998648936446,
+            48.13821126910886
+          ],
+          "exit": [
+            11.584095721484655,
+            48.13832968974692
+          ],
+          "corridor": [
+            [
+              11.584998648936446,
+              48.13821126910886
+            ],
+            [
+              11.584904,
+              48.138231
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584648,
+              48.138264
+            ],
+            [
+              11.584535,
+              48.13826
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584178,
+              48.138314
+            ],
+            [
+              11.584095721484655,
+              48.13832968974692
+            ]
+          ],
+          "approach": [
+            [
+              11.58512728148596,
+              48.13818445385951
+            ],
+            [
+              11.584998648936446,
+              48.13821126910886
+            ]
+          ],
+          "departure": [
+            [
+              11.584095721484655,
+              48.13832968974692
+            ],
+            [
+              11.583966144678868,
+              48.138354398837514
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-3-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.58467937658026,
+            48.13787607021201
+          ],
+          "exit": [
+            11.584797191131784,
+            48.13856562861284
+          ],
+          "corridor": [
+            [
+              11.58467937658026,
+              48.13787607021201
+            ],
+            [
+              11.584682,
+              48.137883
+            ],
+            [
+              11.584746,
+              48.13802
+            ],
+            [
+              11.584772,
+              48.138093
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584782,
+              48.138319
+            ],
+            [
+              11.584785,
+              48.138385
+            ],
+            [
+              11.584792,
+              48.138456
+            ],
+            [
+              11.584785,
+              48.138537
+            ],
+            [
+              11.584797191131784,
+              48.13856562861284
+            ]
+          ],
+          "approach": [
+            [
+              11.584646367977289,
+              48.13778887767586
+            ],
+            [
+              11.58467937658026,
+              48.13787607021201
+            ]
+          ],
+          "departure": [
+            [
+              11.584797191131784,
+              48.13856562861284
+            ],
+            [
+              11.584834029008675,
+              48.13865213553723
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-3-exit-6",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.58467937658026,
+            48.13787607021201
+          ],
+          "exit": [
+            11.58440918683473,
+            48.13861442978799
+          ],
+          "corridor": [
+            [
+              11.58467937658026,
+              48.13787607021201
+            ],
+            [
+              11.584682,
+              48.137883
+            ],
+            [
+              11.584746,
+              48.13802
+            ],
+            [
+              11.584772,
+              48.138093
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584648,
+              48.138264
+            ],
+            [
+              11.584535,
+              48.13826
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584311,
+              48.138302
+            ],
+            [
+              11.584293,
+              48.138402
+            ],
+            [
+              11.584311,
+              48.138471
+            ],
+            [
+              11.58440918683473,
+              48.13861442978799
+            ]
+          ],
+          "approach": [
+            [
+              11.584646367977289,
+              48.13778887767586
+            ],
+            [
+              11.58467937658026,
+              48.13787607021201
+            ]
+          ],
+          "departure": [
+            [
+              11.58440918683473,
+              48.13861442978799
+            ],
+            [
+              11.584450736792846,
+              48.138699798886734
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          },
+          "instructionTemplate": "two-way-straight-opposite",
+          "targetCyclingSide": "left-against-traffic",
+          "targetWayType": "two-way-cycleway"
+        },
+        {
+          "id": "south-west-left-entry-3-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.58467937658026,
+            48.13787607021201
+          ],
+          "exit": [
+            11.584095721484655,
+            48.13832968974692
+          ],
+          "corridor": [
+            [
+              11.58467937658026,
+              48.13787607021201
+            ],
+            [
+              11.584682,
+              48.137883
+            ],
+            [
+              11.584746,
+              48.13802
+            ],
+            [
+              11.584772,
+              48.138093
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584648,
+              48.138264
+            ],
+            [
+              11.584535,
+              48.13826
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584178,
+              48.138314
+            ],
+            [
+              11.584095721484655,
+              48.13832968974692
+            ]
+          ],
+          "approach": [
+            [
+              11.584646367977289,
+              48.13778887767586
+            ],
+            [
+              11.58467937658026,
+              48.13787607021201
+            ]
+          ],
+          "departure": [
+            [
+              11.584095721484655,
+              48.13832968974692
+            ],
+            [
+              11.583966144678868,
+              48.138354398837514
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "west-north-left-entry-4-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.584095721484655,
+            48.13832968974692
+          ],
+          "exit": [
+            11.584797191131784,
+            48.13856562861284
+          ],
+          "corridor": [
+            [
+              11.584095721484655,
+              48.13832968974692
+            ],
+            [
+              11.584178,
+              48.138314
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584527,
+              48.138233
+            ],
+            [
+              11.584633,
+              48.138187
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584775,
+              48.138186
+            ],
+            [
+              11.584775,
+              48.138213
+            ],
+            [
+              11.584775,
+              48.13825
+            ],
+            [
+              11.584782,
+              48.138319
+            ],
+            [
+              11.584785,
+              48.138385
+            ],
+            [
+              11.584792,
+              48.138456
+            ],
+            [
+              11.584785,
+              48.138537
+            ],
+            [
+              11.584797191131784,
+              48.13856562861284
+            ]
+          ],
+          "approach": [
+            [
+              11.583966144678868,
+              48.138354398837514
+            ],
+            [
+              11.584095721484655,
+              48.13832968974692
+            ]
+          ],
+          "departure": [
+            [
+              11.584797191131784,
+              48.13856562861284
+            ],
+            [
+              11.584834029008675,
+              48.13865213553723
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        },
+        {
+          "id": "west-north-left-entry-4-exit-6",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.584095721484655,
+            48.138329604546016
+          ],
+          "exit": [
+            11.58440918683473,
+            48.13861442978799
+          ],
+          "corridor": [
+            [
+              11.584095721484655,
+              48.138329604546016
+            ],
+            [
+              11.584178,
+              48.138314
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584311,
+              48.138302
+            ],
+            [
+              11.584293,
+              48.138402
+            ],
+            [
+              11.584311,
+              48.138471
+            ],
+            [
+              11.58440918683473,
+              48.13861442978799
+            ]
+          ],
+          "approach": [
+            [
+              11.583966091731176,
+              48.13835418949926
+            ],
+            [
+              11.584095721484655,
+              48.138329604546016
+            ]
+          ],
+          "departure": [
+            [
+              11.58440918683473,
+              48.13861442978799
+            ],
+            [
+              11.584450724255564,
+              48.13869980127205
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          },
+          "instructionTemplate": "two-way-left-near",
+          "targetCyclingSide": "left-against-traffic",
+          "targetWayType": "two-way-cycleway"
+        },
+        {
+          "id": "west-east-straight-entry-4-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.584095721484655,
+            48.13832968974692
+          ],
+          "exit": [
+            11.584994442221436,
+            48.13811539807379
+          ],
+          "corridor": [
+            [
+              11.584095721484655,
+              48.13832968974692
+            ],
+            [
+              11.584178,
+              48.138314
+            ],
+            [
+              11.584315,
+              48.138287
+            ],
+            [
+              11.584468,
+              48.138257
+            ],
+            [
+              11.584527,
+              48.138233
+            ],
+            [
+              11.584633,
+              48.138187
+            ],
+            [
+              11.584775,
+              48.138157
+            ],
+            [
+              11.584994442221436,
+              48.13811539807379
+            ]
+          ],
+          "approach": [
+            [
+              11.583966144678868,
+              48.138354398837514
+            ],
+            [
+              11.584095721484655,
+              48.13832968974692
+            ]
+          ],
+          "departure": [
+            [
+              11.584994442221436,
+              48.13811539807379
+            ],
+            [
+              11.585124075188052,
+              48.138090822214714
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Legal directed Standard route verified; target-side semantics and activation approved by Thomas."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-15",
+        "evidence": "Human geometry and activation approval by Thomas; 15 directed Standard routes verified."
+      }
+    },
+    {
+      "id": "lenbach-pacelli",
+      "name": "Lenbachplatz / Pacellistraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.568450380508867,
+              48.1411704688825
+            ],
+            [
+              11.568896180508867,
+              48.1407568688825
+            ],
+            [
+              11.569611780508867,
+              48.1406878688825
+            ],
+            [
+              11.569881019491133,
+              48.1406878688825
+            ],
+            [
+              11.569881019491133,
+              48.1408675311175
+            ],
+            [
+              11.569441178617817,
+              48.14158
+            ],
+            [
+              11.56874945008805,
+              48.14158
+            ],
+            [
+              11.568450380508867,
+              48.1413501311175
+            ],
+            [
+              11.568450380508867,
+              48.1411704688825
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "entry-1-exit-3-left",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "Pacellistrasse",
+          "exitArm": "Lenbachplatz Suedwest",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "entry": [
+            11.569881019491133,
+            48.14075562107882
+          ],
+          "exit": [
+            11.568450380508867,
+            48.14118482949792
+          ],
+          "corridor": [
+            [
+              11.569881019491133,
+              48.14075562107882
+            ],
+            [
+              11.569746,
+              48.140778
+            ],
+            [
+              11.569685,
+              48.140809
+            ],
+            [
+              11.569533,
+              48.140895
+            ],
+            [
+              11.569372,
+              48.140971
+            ],
+            [
+              11.569352,
+              48.14098
+            ],
+            [
+              11.569322,
+              48.141032
+            ],
+            [
+              11.569261,
+              48.141064
+            ],
+            [
+              11.56919,
+              48.141119
+            ],
+            [
+              11.569109,
+              48.141199
+            ],
+            [
+              11.569036,
+              48.141297
+            ],
+            [
+              11.568999,
+              48.141369
+            ],
+            [
+              11.56894,
+              48.141402
+            ],
+            [
+              11.568847,
+              48.141458
+            ],
+            [
+              11.568585,
+              48.14126
+            ],
+            [
+              11.568537,
+              48.141226
+            ],
+            [
+              11.568473,
+              48.1412
+            ],
+            [
+              11.568450380508867,
+              48.14118482949792
+            ]
+          ],
+          "approach": [
+            [
+              11.570011814602495,
+              48.140733942331075
+            ],
+            [
+              11.569881019491133,
+              48.14075562107882
+            ]
+          ],
+          "departure": [
+            [
+              11.568450380508867,
+              48.14118482949792
+            ],
+            [
+              11.568355324824024,
+              48.141121077291615
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "K30 v3 human approval; legal frozen OSM corridor and real Standard route; unchanged angle validation."
+          }
+        },
+        {
+          "id": "entry-2-exit-1-straight",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "Lenbachplatz Suedwest",
+          "exitArm": "Ring Nordost",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "entry": [
+            11.568858637345054,
+            48.14079170031487
+          ],
+          "exit": [
+            11.569736049994232,
+            48.1411023575325
+          ],
+          "corridor": [
+            [
+              11.568858637345054,
+              48.14079170031487
+            ],
+            [
+              11.569031,
+              48.140847
+            ],
+            [
+              11.569118,
+              48.140879
+            ],
+            [
+              11.569129,
+              48.140882
+            ],
+            [
+              11.569166,
+              48.140896
+            ],
+            [
+              11.569233,
+              48.140922
+            ],
+            [
+              11.569276,
+              48.140938
+            ],
+            [
+              11.569372,
+              48.140971
+            ],
+            [
+              11.569563,
+              48.141041
+            ],
+            [
+              11.569705,
+              48.141093
+            ],
+            [
+              11.569736049994232,
+              48.1411023575325
+            ]
+          ],
+          "approach": [
+            [
+              11.5687341922101,
+              48.140757705776814
+            ],
+            [
+              11.568858637345054,
+              48.14079170031487
+            ]
+          ],
+          "departure": [
+            [
+              11.569736049994232,
+              48.1411023575325
+            ],
+            [
+              11.56985887523447,
+              48.141139373358335
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "K30 v3 human approval; legal frozen OSM corridor and real Standard route; unchanged angle validation."
+          }
+        },
+        {
+          "id": "entry-4-exit-2-left",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "Ring Nordost",
+          "exitArm": "Pacellistrasse",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "entry": [
+            11.569001987124459,
+            48.14158
+          ],
+          "exit": [
+            11.569881019491133,
+            48.14075562107882
+          ],
+          "corridor": [
+            [
+              11.569001987124459,
+              48.14158
+            ],
+            [
+              11.568847,
+              48.141458
+            ],
+            [
+              11.568585,
+              48.14126
+            ],
+            [
+              11.568664,
+              48.141208
+            ],
+            [
+              11.568705,
+              48.141178
+            ],
+            [
+              11.568831,
+              48.141059
+            ],
+            [
+              11.568871,
+              48.141017
+            ],
+            [
+              11.568881,
+              48.141006
+            ],
+            [
+              11.568909,
+              48.140977
+            ],
+            [
+              11.56892,
+              48.140965
+            ],
+            [
+              11.568932,
+              48.140954
+            ],
+            [
+              11.568955,
+              48.140927
+            ],
+            [
+              11.568975,
+              48.140904
+            ],
+            [
+              11.569009,
+              48.140869
+            ],
+            [
+              11.569031,
+              48.140847
+            ],
+            [
+              11.569118,
+              48.140879
+            ],
+            [
+              11.569176,
+              48.140845
+            ],
+            [
+              11.569353,
+              48.140825
+            ],
+            [
+              11.569441,
+              48.140811
+            ],
+            [
+              11.569638,
+              48.140788
+            ],
+            [
+              11.569746,
+              48.140778
+            ],
+            [
+              11.569881019491133,
+              48.14075562107882
+            ]
+          ],
+          "approach": [
+            [
+              11.56908913550977,
+              48.141648599911406
+            ],
+            [
+              11.569001987124459,
+              48.14158
+            ]
+          ],
+          "departure": [
+            [
+              11.569881019491133,
+              48.14075562107882
+            ],
+            [
+              11.570011814602495,
+              48.140733942331075
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "K30 v3 human approval; legal frozen OSM corridor and real Standard route; unchanged angle validation."
+          }
+        },
+        {
+          "id": "entry-4-exit-3-straight",
+          "enabled": false,
+          "movement": "straight",
+          "entryArm": "Ring Nordost",
+          "exitArm": "Lenbachplatz Suedwest",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "disabledReason": "Geradeaus ohne Ampel; normale Hinweise beibehalten."
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-15",
+        "evidence": "Thomas approved K30 v3; real Standard routes and unchanged production angle checks."
+      }
+    },
+    {
+      "id": "sendlinger-tor",
+      "name": "Sendlinger-Tor-Platz / Sonnenstraße / Lindwurmstraße / Blumenstraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.56621,
+              48.1332
+            ],
+            [
+              11.5667,
+              48.1332
+            ],
+            [
+              11.56678,
+              48.13328
+            ],
+            [
+              11.567,
+              48.13328
+            ],
+            [
+              11.567,
+              48.13363
+            ],
+            [
+              11.5663,
+              48.13363
+            ],
+            [
+              11.5663,
+              48.13334
+            ],
+            [
+              11.56621,
+              48.1332
+            ]
+          ]
+        ]
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.56639908,
+                48.13363
+              ]
+            ],
+            "exits": [
+              [
+                11.566728202,
+                48.13363
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.567,
+                48.133593758
+              ]
+            ],
+            "exits": [
+              [
+                11.567,
+                48.133386232
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.566865873,
+                48.13328
+              ]
+            ],
+            "exits": [
+              [
+                11.566633594,
+                48.1332
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.566230476,
+                48.1332
+              ]
+            ],
+            "exits": [
+              [
+                11.5663,
+                48.133374012
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-15",
+          "evidence": "Thomas approved K33 v2; clockwise gate membership in review-batch-05-ba01-remaining-images; verified Standard routes."
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.566399192307694,
+            48.13363
+          ],
+          "exit": [
+            11.567,
+            48.13338631914894
+          ],
+          "corridor": [
+            [
+              11.566399192307694,
+              48.13363
+            ],
+            [
+              11.566412,
+              48.133593
+            ],
+            [
+              11.566478,
+              48.133489
+            ],
+            [
+              11.566504,
+              48.133447
+            ],
+            [
+              11.566523,
+              48.133405
+            ],
+            [
+              11.566564,
+              48.133324
+            ],
+            [
+              11.566661,
+              48.13336
+            ],
+            [
+              11.56679,
+              48.133404
+            ],
+            [
+              11.566962,
+              48.133375
+            ],
+            [
+              11.567,
+              48.13338631914894
+            ]
+          ],
+          "approach": [
+            [
+              11.566352372398763,
+              48.13371416586052
+            ],
+            [
+              11.566399192307694,
+              48.13363
+            ]
+          ],
+          "departure": [
+            [
+              11.567,
+              48.13338631914894
+            ],
+            [
+              11.567124002728319,
+              48.13342151097741
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-north-east-left-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.566399192307694,
+            48.13363
+          ],
+          "exit": [
+            11.566633482758618,
+            48.1332
+          ],
+          "corridor": [
+            [
+              11.566399192307694,
+              48.13363
+            ],
+            [
+              11.566412,
+              48.133593
+            ],
+            [
+              11.566478,
+              48.133489
+            ],
+            [
+              11.566504,
+              48.133447
+            ],
+            [
+              11.566523,
+              48.133405
+            ],
+            [
+              11.566564,
+              48.133324
+            ],
+            [
+              11.566604,
+              48.133245
+            ],
+            [
+              11.566633482758618,
+              48.1332
+            ]
+          ],
+          "approach": [
+            [
+              11.566352372398763,
+              48.13371416586052
+            ],
+            [
+              11.566399192307694,
+              48.13363
+            ]
+          ],
+          "departure": [
+            [
+              11.566633482758618,
+              48.1332
+            ],
+            [
+              11.566686799337507,
+              48.1331174159435
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-north-south-straight-entry-4-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.567,
+            48.13359346175638
+          ],
+          "exit": [
+            11.566633482758618,
+            48.1332
+          ],
+          "corridor": [
+            [
+              11.567,
+              48.13359346175638
+            ],
+            [
+              11.566896,
+              48.133564
+            ],
+            [
+              11.566847,
+              48.133551
+            ],
+            [
+              11.566792,
+              48.133536
+            ],
+            [
+              11.56672,
+              48.133516
+            ],
+            [
+              11.566597,
+              48.133477
+            ],
+            [
+              11.566504,
+              48.133447
+            ],
+            [
+              11.566523,
+              48.133405
+            ],
+            [
+              11.566564,
+              48.133324
+            ],
+            [
+              11.566604,
+              48.133245
+            ],
+            [
+              11.566633482758618,
+              48.1332
+            ]
+          ],
+          "approach": [
+            [
+              11.56712403909789,
+              48.13362860031102
+            ],
+            [
+              11.567,
+              48.13359346175638
+            ]
+          ],
+          "departure": [
+            [
+              11.566633482758618,
+              48.1332
+            ],
+            [
+              11.566686799337507,
+              48.1331174159435
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-east-south-left-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.567,
+            48.13359346175638
+          ],
+          "exit": [
+            11.5663,
+            48.13337366666667
+          ],
+          "corridor": [
+            [
+              11.567,
+              48.13359346175638
+            ],
+            [
+              11.566896,
+              48.133564
+            ],
+            [
+              11.566847,
+              48.133551
+            ],
+            [
+              11.566792,
+              48.133536
+            ],
+            [
+              11.56672,
+              48.133516
+            ],
+            [
+              11.566597,
+              48.133477
+            ],
+            [
+              11.566504,
+              48.133447
+            ],
+            [
+              11.566412,
+              48.133414
+            ],
+            [
+              11.566379,
+              48.133403
+            ],
+            [
+              11.566348,
+              48.133391
+            ],
+            [
+              11.566304,
+              48.133375
+            ],
+            [
+              11.5663,
+              48.13337366666667
+            ]
+          ],
+          "approach": [
+            [
+              11.56712403909789,
+              48.13362860031102
+            ],
+            [
+              11.567,
+              48.13359346175638
+            ]
+          ],
+          "departure": [
+            [
+              11.5663,
+              48.13337366666667
+            ],
+            [
+              11.56618136416762,
+              48.13333103225478
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-east-west-straight-entry-1-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.566866487179487,
+            48.13328
+          ],
+          "exit": [
+            11.566728659574471,
+            48.13363
+          ],
+          "corridor": [
+            [
+              11.566866487179487,
+              48.13328
+            ],
+            [
+              11.566837,
+              48.133326
+            ],
+            [
+              11.56679,
+              48.133404
+            ],
+            [
+              11.566746,
+              48.133477
+            ],
+            [
+              11.566792,
+              48.133536
+            ],
+            [
+              11.56673,
+              48.133628
+            ],
+            [
+              11.566728659574471,
+              48.13363
+            ]
+          ],
+          "approach": [
+            [
+              11.566919306369549,
+              48.13319726552769
+            ],
+            [
+              11.566866487179487,
+              48.13328
+            ]
+          ],
+          "departure": [
+            [
+              11.566728659574471,
+              48.13363
+            ],
+            [
+              11.566673639261126,
+              48.13371209380086
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-south-north-straight-entry-2-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.566866487179487,
+            48.13328
+          ],
+          "exit": [
+            11.5663,
+            48.13337366666667
+          ],
+          "corridor": [
+            [
+              11.566866487179487,
+              48.13328
+            ],
+            [
+              11.566837,
+              48.133326
+            ],
+            [
+              11.56679,
+              48.133404
+            ],
+            [
+              11.566746,
+              48.133477
+            ],
+            [
+              11.566792,
+              48.133536
+            ],
+            [
+              11.56672,
+              48.133516
+            ],
+            [
+              11.566597,
+              48.133477
+            ],
+            [
+              11.566504,
+              48.133447
+            ],
+            [
+              11.566412,
+              48.133414
+            ],
+            [
+              11.566379,
+              48.133403
+            ],
+            [
+              11.566348,
+              48.133391
+            ],
+            [
+              11.566304,
+              48.133375
+            ],
+            [
+              11.5663,
+              48.13337366666667
+            ]
+          ],
+          "approach": [
+            [
+              11.566919306369549,
+              48.13319726552769
+            ],
+            [
+              11.566866487179487,
+              48.13328
+            ]
+          ],
+          "departure": [
+            [
+              11.5663,
+              48.13337366666667
+            ],
+            [
+              11.56618136416762,
+              48.13333103225478
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-south-west-left-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.56622990909091,
+            48.1332
+          ],
+          "exit": [
+            11.566728659574471,
+            48.13363
+          ],
+          "corridor": [
+            [
+              11.56622990909091,
+              48.1332
+            ],
+            [
+              11.566238,
+              48.133203
+            ],
+            [
+              11.566332,
+              48.133237
+            ],
+            [
+              11.566388,
+              48.133257
+            ],
+            [
+              11.566438,
+              48.133276
+            ],
+            [
+              11.566454,
+              48.133283
+            ],
+            [
+              11.566487,
+              48.133296
+            ],
+            [
+              11.566534,
+              48.133313
+            ],
+            [
+              11.566564,
+              48.133324
+            ],
+            [
+              11.566661,
+              48.13336
+            ],
+            [
+              11.56679,
+              48.133404
+            ],
+            [
+              11.566746,
+              48.133477
+            ],
+            [
+              11.566792,
+              48.133536
+            ],
+            [
+              11.56673,
+              48.133628
+            ],
+            [
+              11.566728659574471,
+              48.13363
+            ]
+          ],
+          "approach": [
+            [
+              11.56611241854838,
+              48.13315596875828
+            ],
+            [
+              11.56622990909091,
+              48.1332
+            ]
+          ],
+          "departure": [
+            [
+              11.566728659574471,
+              48.13363
+            ],
+            [
+              11.566673639261126,
+              48.13371209380086
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-west-north-left-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.56622990909091,
+            48.1332
+          ],
+          "exit": [
+            11.567,
+            48.13338631914894
+          ],
+          "corridor": [
+            [
+              11.56622990909091,
+              48.1332
+            ],
+            [
+              11.566238,
+              48.133203
+            ],
+            [
+              11.566332,
+              48.133237
+            ],
+            [
+              11.566388,
+              48.133257
+            ],
+            [
+              11.566438,
+              48.133276
+            ],
+            [
+              11.566454,
+              48.133283
+            ],
+            [
+              11.566487,
+              48.133296
+            ],
+            [
+              11.566534,
+              48.133313
+            ],
+            [
+              11.566564,
+              48.133324
+            ],
+            [
+              11.566661,
+              48.13336
+            ],
+            [
+              11.56679,
+              48.133404
+            ],
+            [
+              11.566962,
+              48.133375
+            ],
+            [
+              11.567,
+              48.13338631914894
+            ]
+          ],
+          "approach": [
+            [
+              11.56611241854838,
+              48.13315596875828
+            ],
+            [
+              11.56622990909091,
+              48.1332
+            ]
+          ],
+          "departure": [
+            [
+              11.567,
+              48.13338631914894
+            ],
+            [
+              11.567124002728319,
+              48.13342151097741
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-15",
+            "evidence": "Thomas approved K33 v2; legal directed frozen OSM corridor, k33/sendlinger-tor-west-east-straight-entry-3-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-15",
+        "evidence": "Thomas approved K33 v2; review-batch-05-k33-routes.json"
+      }
     }
   ],
   "excluded": [
@@ -20456,6 +25236,74 @@
       ],
       "evidence": "Four selected segments versus five total motor-traffic-road segments; Nawiaskystrasse is residential, and the eastern ramp complex reaches trunk_link/motorroad=yes roads.",
       "id": "quidde-nawiasky"
+    },
+    {
+      "referenceNodeId": 361799,
+      "referenceNodeIds": [
+        361799,
+        18291200
+      ],
+      "decision": "exclude",
+      "enabled": false,
+      "permanent": true,
+      "closed": true,
+      "reasonCodes": [
+        "user_confirmed_permanent_exclusion"
+      ],
+      "evidence": "Dauerhaft ausgeschlossen: Herzogspitalstraße aus der Fläche entfernt; Sonnenstraße / Schwanthalerstraße separat abgegrenzt. Normale Ansagen bleiben.",
+      "reopenWhen": "Only explicit user reconsideration.",
+      "complexBounds": [
+        11.56435302463097,
+        48.13717757021201,
+        11.56559967536903,
+        48.13775
+      ],
+      "id": "sonnen-schwanthaler"
+    },
+    {
+      "referenceNodeId": 361794,
+      "referenceNodeIds": [
+        361794,
+        18929527
+      ],
+      "decision": "exclude",
+      "enabled": false,
+      "permanent": true,
+      "closed": true,
+      "reasonCodes": [
+        "user_confirmed_permanent_exclusion"
+      ],
+      "evidence": "Dauerhaft ausgeschlossen: Schräge, versetzte Querung mit Zweirichtungsradweg Sonnenstraße. Einzelne Fahrbeziehungen nur bei konkret festgestellten Problemen der normalen Ansagen erneut prüfen.",
+      "reopenWhen": "Only explicit reconsideration of individual movements after a concrete field problem with ordinary guidance.",
+      "complexBounds": [
+        11.564415714350009,
+        48.136252735106005,
+        11.565377785649991,
+        48.136755064894
+      ],
+      "id": "sonnen-landwehr"
+    },
+    {
+      "referenceNodeId": 3607037937,
+      "referenceNodeIds": [
+        3607037937
+      ],
+      "decision": "exclude",
+      "enabled": false,
+      "permanent": true,
+      "closed": true,
+      "reasonCodes": [
+        "user_confirmed_permanent_deferral"
+      ],
+      "evidence": "Dauerhaft zurückgestellt: Drei große Kreuzungen folgen dicht aufeinander. Normale Ansagen bleiben; einzelne Fahrbeziehungen erst bei konkret festgestellten Praxisproblemen erneut prüfen.",
+      "reopenWhen": "Only explicit reconsideration of individual movements after a concrete field problem with ordinary guidance.",
+      "complexBounds": [
+        11.570510052887341,
+        48.131781270212,
+        11.571021514051996,
+        48.132104662235
+      ],
+      "id": "blumen-papa-schmid"
     }
   ]
 }

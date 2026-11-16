@@ -1,5 +1,21 @@
 # US #35: Umsetzung und Betrieb der V20-Streckendetails
 
+## Automatische Übernahme neuer V20-Daten
+
+Der Workflow `Deploy frontend` prüft täglich um 08:23 UTC (09:23 MEZ / 10:23
+MESZ) die veröffentlichte Oberbayern-V20-Datei gegen den Snapshot im produktiven
+RadlNavi. Damit wird der wöchentliche Export von Sonntag auf Montag automatisch
+übernommen; spätere Veröffentlichungen werden beim nächsten Tageslauf erkannt.
+Nur ein geänderter Inhalt oder eine neue Aufbereitungsversion löst einen
+Frontend-Build samt Deployment aus. Der Vergleich verwendet dieselbe Validierung
+und SHA-256-Berechnung wie der Build, nicht nur den HTTP-Zeitstempel. Ungültige
+oder nicht erreichbare Daten lassen die Prüfung fehlschlagen und ersetzen den
+bisherigen Stand nicht. Manuelle Frontend-Deployments bleiben jederzeit möglich.
+Der vorhandene `STREET_DETAILS_BUILD_ID` erzwingt dabei den erneuten V20-Download.
+Nach erfolgreichem Deployment und Neuladen der Seite verwenden Bewertungen,
+RadlVorrang-Netz und Streckendetails den neuen V20-Snapshot. Die separaten
+OSM-Kacheln und der Routing-Graph haben weiterhin eigene Datenimporte.
+
 Frontendversion: **2.3.8**. User Story: [#35](https://github.com/MunichWays/munichways-radlnavi/issues/35).
 Die [ursprüngliche Analyse](README.md) bleibt als Entscheidungsgrundlage erhalten.
 

@@ -1,0 +1,570 @@
+{
+  "id": "maximilian-ring",
+  "number": 24,
+  "geometryRevision": 1,
+  "status": "complete",
+  "runtimeModified": false,
+  "checkedAt": "2026-11-15T18:25:49.886875+00:00",
+  "gateEvidence": {
+    "Exit-1": {
+      "sample": [
+        11.584962738204396,
+        48.13895495173891
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-1": {
+      "sample": [
+        11.584962738204396,
+        48.13895495173891
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-2": {
+      "sample": [
+        11.58557784393328,
+        48.138090962698094
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-2": {
+      "sample": [
+        11.58557779182075,
+        48.13800510229531
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-3": {
+      "sample": [
+        11.584533468133207,
+        48.13748345319803
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-3": {
+      "sample": [
+        11.584533468133207,
+        48.13748345319803
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-4": {
+      "sample": [
+        11.584164062154228,
+        48.13752693879828
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-4": {
+      "sample": [
+        11.583512432412533,
+        48.13844013699659
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-5": {
+      "sample": [
+        11.583512432412533,
+        48.13844013699659
+      ],
+      "distanceMeters": 45
+    },
+    "Entry-5": {
+      "sample": [
+        11.584575079923516,
+        48.13900339423257
+      ],
+      "distanceMeters": 45
+    },
+    "Exit-6": {
+      "sample": [
+        11.584575079923516,
+        48.13900339423257
+      ],
+      "distanceMeters": 45
+    }
+  },
+  "fixtureDirectory": "k24-two-way",
+  "movements": [
+    {
+      "id": "north-east-left-entry-1-exit-2",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "east",
+      "entryLabel": "Entry-1",
+      "exitLabel": "Exit-2",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-north-east-left-entry-1-exit-2.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584962738,48.138954952;11.585577792,48.138005102?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38333187,
+        151767205,
+        211456774,
+        372013733
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "north-east-left-entry-5-exit-2",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "east",
+      "entryLabel": "Entry-5",
+      "exitLabel": "Exit-2",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-north-east-left-entry-5-exit-2.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584575080,48.139003394;11.585577792,48.138005102?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        31019214,
+        38332822,
+        38333187,
+        145571048,
+        211432915,
+        372013734
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "north-south-straight-entry-1-exit-3",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "south",
+      "entryLabel": "Entry-1",
+      "exitLabel": "Exit-3",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-north-south-straight-entry-1-exit-3.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584962738,48.138954952;11.584533468,48.137483453?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        91874690,
+        151767205,
+        211456774,
+        372013733
+      ],
+      "headingEvidenceMeters": 10,
+      "instructionTemplate": "two-way-straight-opposite"
+    },
+    {
+      "id": "north-south-straight-entry-1-exit-4",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "south",
+      "entryLabel": "Entry-1",
+      "exitLabel": "Exit-4",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-north-south-straight-entry-1-exit-4.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584962738,48.138954952;11.584164062,48.137526939?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38332822,
+        136064113,
+        151767203,
+        151767205,
+        211432914,
+        211432915,
+        211456774,
+        216110865,
+        372013733
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "north-south-straight-entry-5-exit-3",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "south",
+      "entryLabel": "Entry-5",
+      "exitLabel": "Exit-3",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-north-south-straight-entry-5-exit-3.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584575080,48.139003394;11.584533468,48.137483453?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        31019214,
+        38332822,
+        91874690,
+        145571048,
+        151767205,
+        211432915,
+        372013734
+      ],
+      "headingEvidenceMeters": 10,
+      "instructionTemplate": "two-way-straight-opposite"
+    },
+    {
+      "id": "north-south-straight-entry-5-exit-4",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "south",
+      "entryLabel": "Entry-5",
+      "exitLabel": "Exit-4",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-north-south-straight-entry-5-exit-4.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584575080,48.139003394;11.584164062,48.137526939?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        136064113,
+        211432914,
+        211432915,
+        372013734
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "north-west-right-entry-1-exit-5",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "west",
+      "entryLabel": "Entry-1",
+      "exitLabel": "Exit-5",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-north-west-right-entry-1-exit-5.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584962738,48.138954952;11.583512432,48.138440137?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38332821,
+        38332822,
+        151767203,
+        151767205,
+        211456774,
+        216110865,
+        372013733
+      ]
+    },
+    {
+      "id": "north-west-right-entry-5-exit-5",
+      "junctionId": "maximilian-ring",
+      "entryArm": "north",
+      "exitArm": "west",
+      "entryLabel": "Entry-5",
+      "exitLabel": "Exit-5",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-north-west-right-entry-5-exit-5.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584575080,48.139003394;11.583512432,48.138440137?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        38332821,
+        211432915,
+        372013734
+      ]
+    },
+    {
+      "id": "east-north-right-entry-2-exit-1",
+      "junctionId": "maximilian-ring",
+      "entryArm": "east",
+      "exitArm": "north",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-1",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-east-north-right-entry-2-exit-1.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585577844,48.138090963;11.584962738,48.138954952?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        151767205,
+        211456774,
+        315220263,
+        372013733
+      ]
+    },
+    {
+      "id": "east-north-right-entry-2-exit-6",
+      "junctionId": "maximilian-ring",
+      "entryArm": "east",
+      "exitArm": "north",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-6",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-east-north-right-entry-2-exit-6.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585577844,48.138090963;11.584575080,48.139003394?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        38332822,
+        151767203,
+        211432915,
+        216110865,
+        315220263,
+        372013734
+      ]
+    },
+    {
+      "id": "east-south-left-entry-2-exit-3",
+      "junctionId": "maximilian-ring",
+      "entryArm": "east",
+      "exitArm": "south",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-3",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-east-south-left-entry-2-exit-3.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585577844,48.138090963;11.584533468,48.137483453?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        91874690,
+        151767205,
+        315220263
+      ],
+      "headingEvidenceMeters": 10,
+      "instructionTemplate": "two-way-left-near"
+    },
+    {
+      "id": "east-south-left-entry-2-exit-4",
+      "junctionId": "maximilian-ring",
+      "entryArm": "east",
+      "exitArm": "south",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-4",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-east-south-left-entry-2-exit-4.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585577844,48.138090963;11.584164062,48.137526939?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38332822,
+        136064113,
+        151767203,
+        211432914,
+        211432915,
+        216110865,
+        315220263
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "east-west-straight-entry-2-exit-5",
+      "junctionId": "maximilian-ring",
+      "entryArm": "east",
+      "exitArm": "west",
+      "entryLabel": "Entry-2",
+      "exitLabel": "Exit-5",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-east-west-straight-entry-2-exit-5.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585577844,48.138090963;11.583512432,48.138440137?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38332821,
+        38332822,
+        151767203,
+        216110865,
+        315220263
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "south-north-straight-entry-3-exit-1",
+      "junctionId": "maximilian-ring",
+      "entryArm": "south",
+      "exitArm": "north",
+      "entryLabel": "Entry-3",
+      "exitLabel": "Exit-1",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-south-north-straight-entry-3-exit-1.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584533468,48.137483453;11.584962738,48.138954952?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        91874690,
+        151767205,
+        211456774,
+        372013733
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "south-north-straight-entry-3-exit-6",
+      "junctionId": "maximilian-ring",
+      "entryArm": "south",
+      "exitArm": "north",
+      "entryLabel": "Entry-3",
+      "exitLabel": "Exit-6",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-south-north-straight-entry-3-exit-6.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584533468,48.137483453;11.584575080,48.139003394?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        38332822,
+        91874690,
+        151767203,
+        151767205,
+        211432915,
+        216110865,
+        372013734
+      ],
+      "headingEvidenceMeters": 10,
+      "instructionTemplate": "two-way-straight-opposite"
+    },
+    {
+      "id": "south-east-right-entry-3-exit-2",
+      "junctionId": "maximilian-ring",
+      "entryArm": "south",
+      "exitArm": "east",
+      "entryLabel": "Entry-3",
+      "exitLabel": "Exit-2",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-south-east-right-entry-3-exit-2.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584533468,48.137483453;11.585577792,48.138005102?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38333187,
+        91874690,
+        151767205
+      ]
+    },
+    {
+      "id": "south-west-left-entry-3-exit-5",
+      "junctionId": "maximilian-ring",
+      "entryArm": "south",
+      "exitArm": "west",
+      "entryLabel": "Entry-3",
+      "exitLabel": "Exit-5",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-south-west-left-entry-3-exit-5.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584533468,48.137483453;11.583512432,48.138440137?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38332821,
+        38332822,
+        91874690,
+        151767203,
+        151767205,
+        216110865
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "west-north-left-entry-4-exit-1",
+      "junctionId": "maximilian-ring",
+      "entryArm": "west",
+      "exitArm": "north",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-1",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-west-north-left-entry-4-exit-1.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583512432,48.138440137;11.584962738,48.138954952?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        31019214,
+        38332821,
+        38332822,
+        145571048,
+        151767205,
+        211456774,
+        372013733
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "west-north-left-entry-4-exit-6",
+      "junctionId": "maximilian-ring",
+      "entryArm": "west",
+      "exitArm": "north",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-6",
+      "kind": "left",
+      "enabled": true,
+      "fixture": "maximilian-ring-west-north-left-entry-4-exit-6.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583771672,48.138390919;11.584506648,48.138829459?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "rejectedReference": {
+        "fixture": "k24-two-way-detours/maximilian-ring-west-north-left-entry-4-exit-6.json",
+        "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583512432,48.138440137;11.584575080,48.139003394?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+        "reason": "45m reference route bypasses K24 via Herzog-Rudolf-Strasse; retained as a negative control."
+      },
+      "sampleDistanceMeters": {
+        "entry": 25,
+        "exit": 25
+      },
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        27350219,
+        38332821,
+        211432915,
+        372013734
+      ],
+      "headingEvidenceMeters": 10,
+      "instructionTemplate": "two-way-left-near"
+    },
+    {
+      "id": "west-east-straight-entry-4-exit-2",
+      "junctionId": "maximilian-ring",
+      "entryArm": "west",
+      "exitArm": "east",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-2",
+      "kind": "straight",
+      "enabled": true,
+      "fixture": "maximilian-ring-west-east-straight-entry-4-exit-2.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583512432,48.138440137;11.585577792,48.138005102?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        31019214,
+        38332821,
+        38332822,
+        38333187,
+        145571048
+      ],
+      "headingEvidenceMeters": 10
+    },
+    {
+      "id": "west-south-right-entry-4-exit-3",
+      "junctionId": "maximilian-ring",
+      "entryArm": "west",
+      "exitArm": "south",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-3",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-west-south-right-entry-4-exit-3.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583512432,48.138440137;11.584533468,48.137483453?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        31019214,
+        38332821,
+        38332822,
+        91874690,
+        145571048,
+        151767205
+      ]
+    },
+    {
+      "id": "west-south-right-entry-4-exit-4",
+      "junctionId": "maximilian-ring",
+      "entryArm": "west",
+      "exitArm": "south",
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-4",
+      "kind": "right",
+      "enabled": false,
+      "fixture": "maximilian-ring-west-south-right-entry-4-exit-4.json",
+      "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583512432,48.138440137;11.584164062,48.137526939?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+      "verified": true,
+      "verifiedCyclingWayIds": [
+        38332821,
+        136064113,
+        211432914,
+        211432915
+      ]
+    }
+  ]
+}

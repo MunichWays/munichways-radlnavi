@@ -1,0 +1,331 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3903212230,
+              9101747777,
+              9211785877,
+              3690605437,
+              7072438198,
+              3903212232,
+              7072438197,
+              3690605441,
+              254039278,
+              13282928158,
+              3690605443,
+              3690605445
+            ],
+            "distance": [
+              20.64231643,
+              25.38173704,
+              0.7433115388,
+              3.02062919,
+              16.54797788,
+              12.86880786,
+              3.395335691,
+              26.30015067,
+              3.869097247,
+              5.980604815,
+              13.86178971
+            ]
+          },
+          "duration": 71.9,
+          "summary": "Blumenstraße, Fritz-Neuland-Straße",
+          "weight": 159.4,
+          "distance": 132.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    49
+                  ],
+                  "location": [
+                    11.572891,
+                    48.13307
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572891,
+                    48.13307
+                  ],
+                  [
+                    11.5731,
+                    48.133192
+                  ],
+                  [
+                    11.573357,
+                    48.133342
+                  ],
+                  [
+                    11.573365,
+                    48.133346
+                  ],
+                  [
+                    11.573394,
+                    48.133365
+                  ],
+                  [
+                    11.573553,
+                    48.133469
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 49,
+                "bearing_before": 0,
+                "location": [
+                  11.572891,
+                  48.13307
+                ],
+                "type": "depart"
+              },
+              "name": "Blumenstraße",
+              "mode": "cycling",
+              "weight": 110.4,
+              "duration": 42.9,
+              "distance": 66.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    255,
+                    315
+                  ],
+                  "location": [
+                    11.573553,
+                    48.133469
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    315
+                  ],
+                  "location": [
+                    11.573153,
+                    48.133742
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573553,
+                    48.133469
+                  ],
+                  [
+                    11.573439,
+                    48.133556
+                  ],
+                  [
+                    11.573409,
+                    48.133579
+                  ],
+                  [
+                    11.573153,
+                    48.133742
+                  ],
+                  [
+                    11.573114,
+                    48.133765
+                  ],
+                  [
+                    11.573053,
+                    48.1338
+                  ],
+                  [
+                    11.572929,
+                    48.133893
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 317,
+                "bearing_before": 45,
+                "location": [
+                  11.573553,
+                  48.133469
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Fritz-Neuland-Straße",
+              "mode": "cycling",
+              "weight": 49,
+              "duration": 29,
+              "distance": 66.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    138
+                  ],
+                  "location": [
+                    11.572929,
+                    48.133893
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.572929,
+                    48.133893
+                  ],
+                  [
+                    11.572929,
+                    48.133893
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 318,
+                "location": [
+                  11.572929,
+                  48.133893
+                ],
+                "type": "arrive"
+              },
+              "name": "Sankt-Jakobs-Platz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.572891,
+            48.13307
+          ],
+          [
+            11.5731,
+            48.133192
+          ],
+          [
+            11.573357,
+            48.133342
+          ],
+          [
+            11.573365,
+            48.133346
+          ],
+          [
+            11.573394,
+            48.133365
+          ],
+          [
+            11.573553,
+            48.133469
+          ],
+          [
+            11.573439,
+            48.133556
+          ],
+          [
+            11.573409,
+            48.133579
+          ],
+          [
+            11.573153,
+            48.133742
+          ],
+          [
+            11.573114,
+            48.133765
+          ],
+          [
+            11.573053,
+            48.1338
+          ],
+          [
+            11.572929,
+            48.133893
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 159.4,
+      "duration": 71.9,
+      "distance": 132.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "Xb4ggHW-IIC3AAAAaAAAAAAAAABHAAAAHhA3QncjpUEAAAAAzA3LQVIAAAAmAAAAAAAAAC4AAAC9AgAAm5awAM5z3gKblrAAznPeAgAADwMAAAAA",
+      "location": [
+        11.572891,
+        48.13307
+      ],
+      "name": "Blumenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "8DAhgBMxIYAeAAAAFwAAABYAAAANAAAA5MldQbExHkFhmB1Bohm_QBkAAAASAAAAEgAAAAsAAAC9AgAAwZawAAV33gLBlrAABXfeAgQA7xMAAAAA",
+      "location": [
+        11.572929,
+        48.133893
+      ],
+      "name": "Sankt-Jakobs-Platz",
+      "distance": 0
+    }
+  ]
+}

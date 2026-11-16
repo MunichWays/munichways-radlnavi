@@ -1,0 +1,544 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1230460721,
+              1230460853,
+              1230460606,
+              11263024921,
+              1230460783,
+              1388965166,
+              618785000,
+              1230460576,
+              1230460107,
+              11262969676,
+              11262969677,
+              297832828,
+              3844615372,
+              8071854439,
+              1230460425,
+              1230460834
+            ],
+            "distance": [
+              7.603698379,
+              22.74891977,
+              12.94707801,
+              5.935268676,
+              12.56456566,
+              5.055315504,
+              4.879597433,
+              9.509745197,
+              8.256428377,
+              10.77782533,
+              13.20430977,
+              3.829580213,
+              2.017326156,
+              35.65118502,
+              6.696658766
+            ]
+          },
+          "duration": 55.2,
+          "summary": "Sonnenstraße, Lindwurmstraße",
+          "weight": 84.8,
+          "distance": 161.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    151
+                  ],
+                  "location": [
+                    11.566163,
+                    48.134002
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    150,
+                    315,
+                    345
+                  ],
+                  "location": [
+                    11.566412,
+                    48.133593
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.566504,
+                    48.133447
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566163,
+                    48.134002
+                  ],
+                  [
+                    11.566212,
+                    48.133942
+                  ],
+                  [
+                    11.566329,
+                    48.133753
+                  ],
+                  [
+                    11.566394,
+                    48.133645
+                  ],
+                  [
+                    11.566412,
+                    48.133593
+                  ],
+                  [
+                    11.566478,
+                    48.133489
+                  ],
+                  [
+                    11.566504,
+                    48.133447
+                  ],
+                  [
+                    11.566523,
+                    48.133405
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 151,
+                "bearing_before": 0,
+                "location": [
+                  11.566163,
+                  48.134002
+                ],
+                "type": "depart"
+              },
+              "name": "Sonnenstraße",
+              "mode": "cycling",
+              "weight": 27,
+              "duration": 19.4,
+              "distance": 71.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.566523,
+                    48.133405
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.566564,
+                    48.133324
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566523,
+                    48.133405
+                  ],
+                  [
+                    11.566564,
+                    48.133324
+                  ],
+                  [
+                    11.566661,
+                    48.13336
+                  ],
+                  [
+                    11.56679,
+                    48.133404
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 160,
+                "bearing_before": 163,
+                "location": [
+                  11.566523,
+                  48.133405
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Lindwurmstraße",
+              "mode": "cycling",
+              "weight": 42.2,
+              "duration": 22.3,
+              "distance": 28.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    105,
+                    165,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.56679,
+                    48.133404
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.56679,
+                    48.133404
+                  ],
+                  [
+                    11.566962,
+                    48.133375
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 104,
+                "bearing_before": 61,
+                "location": [
+                  11.56679,
+                  48.133404
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 6,
+              "duration": 3.9,
+              "distance": 13.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    285,
+                    330
+                  ],
+                  "location": [
+                    11.566962,
+                    48.133375
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    150,
+                    240
+                  ],
+                  "location": [
+                    11.567009,
+                    48.133389
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566962,
+                    48.133375
+                  ],
+                  [
+                    11.567009,
+                    48.133389
+                  ],
+                  [
+                    11.567034,
+                    48.133396
+                  ],
+                  [
+                    11.567475,
+                    48.133521
+                  ],
+                  [
+                    11.567553,
+                    48.133551
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 64,
+                "bearing_before": 104,
+                "location": [
+                  11.566962,
+                  48.133375
+                ],
+                "modifier": "slight left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 9.6,
+              "duration": 9.6,
+              "distance": 48.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    240
+                  ],
+                  "location": [
+                    11.567553,
+                    48.133551
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567553,
+                    48.133551
+                  ],
+                  [
+                    11.567553,
+                    48.133551
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 60,
+                "location": [
+                  11.567553,
+                  48.133551
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.566163,
+            48.134002
+          ],
+          [
+            11.566212,
+            48.133942
+          ],
+          [
+            11.566329,
+            48.133753
+          ],
+          [
+            11.566394,
+            48.133645
+          ],
+          [
+            11.566412,
+            48.133593
+          ],
+          [
+            11.566478,
+            48.133489
+          ],
+          [
+            11.566504,
+            48.133447
+          ],
+          [
+            11.566523,
+            48.133405
+          ],
+          [
+            11.566564,
+            48.133324
+          ],
+          [
+            11.566661,
+            48.13336
+          ],
+          [
+            11.56679,
+            48.133404
+          ],
+          [
+            11.566962,
+            48.133375
+          ],
+          [
+            11.567009,
+            48.133389
+          ],
+          [
+            11.567034,
+            48.133396
+          ],
+          [
+            11.567475,
+            48.133521
+          ],
+          [
+            11.567553,
+            48.133551
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 84.8,
+      "duration": 55.2,
+      "distance": 161.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "STMhgP___38BAAAAHwAAALAAAABLAAAAOwaJPn9R80BCyS9Ca4YmQgAAAAAOAAAATwAAAEsAAAC9AgAAU3ywAHJ33gJTfLAAcnfeAgwAfwkAAAAA",
+      "location": [
+        11.566163,
+        48.134002
+      ],
+      "name": "Sonnenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "DBcEgP___38NAAAAEgAAAEsAAAAAAAAAB0vWQLrNHkCOrBZCAAAAAA0AAAASAAAASwAAAAAAAAC9AgAAwYGwAK913gLBgbAAr3XeAgQAzwMAAAAA",
+      "location": [
+        11.567553,
+        48.133551
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

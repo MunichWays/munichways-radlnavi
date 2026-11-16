@@ -64,19 +64,38 @@ local function date_range_is_active(start_date, end_date, current_date)
   return current_date >= start_date or current_date <= end_date
 end
 
+local function full_date(value)
+  if not value then return nil end
+  local year, month, day = string.match(value, "^(%d%d%d%d)%-(%d%d)%-(%d%d)$")
+  if not year then return nil end
+  year, month, day = tonumber(year), tonumber(month), tonumber(day)
+  if year < 1 or not numeric_month_day(month, day) then return nil end
+  if month == 2 and day == 29 and
+      (year % 4 ~= 0 or (year % 100 == 0 and year % 400 ~= 0)) then
+    return nil
+  end
+  return year * 10000 + month * 100 + day
+end
+
+function conditional_access.routing_date()
+  return full_date(os.getenv("RADLNAVI_ROUTING_DATE")) or
+    full_date(os.date("%Y-%m-%d"))
+end
+
+-- OSM event elements remain mapped between events. Their tags only apply
+-- within their dated lifetime; unknown/partial dates keep existing behavior.
+function conditional_access.element_is_inactive(element, current_date)
+  local start_date = full_date(element:get_value_by_key("start_date"))
+  local end_date = full_date(element:get_value_by_key("end_date"))
+  if start_date and end_date and start_date > end_date then return false end
+  current_date = current_date or conditional_access.routing_date()
+  return (end_date ~= nil and current_date > end_date) or
+    (start_date ~= nil and current_date < start_date)
+end
+
 function conditional_access.routing_month_day()
   -- The override makes imports reproducible and permits boundary tests.
-  local routing_date = os.getenv("RADLNAVI_ROUTING_DATE")
-  if routing_date then
-    local month, day = string.match(routing_date, "^%d%d%d%d%-(%d%d)%-(%d%d)$")
-    local parsed_date = month and numeric_month_day(month, day)
-    if parsed_date then
-      return parsed_date
-    end
-  end
-
-  local now = os.date("*t")
-  return now.month * 100 + now.day
+  return conditional_access.routing_date() % 10000
 end
 
 function conditional_access.bicycle_is_forbidden(value, current_date)

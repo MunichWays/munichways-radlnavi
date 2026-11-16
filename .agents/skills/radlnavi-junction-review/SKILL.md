@@ -9,6 +9,8 @@ Work from the repository root. Read [the workflow and reference lessons](referen
 
 Keep geometry approval, technical movement validation and deployment separate. Human confirmation of an image approves its exact geometry, not every legal route or production activation. Preserve explicit exclusions and deferrals. Do not infer additional authorization for commit, push or deployment.
 
+Activate a junction macro only when its spoken instruction clearly identifies the intended exit. If uncertain, exclude that individual movement and retain ordinary turn-by-turn guidance; partial junction coverage is acceptable. See the instruction-clarity rule in [the workflow](references/workflow.md#instruction-clarity-and-partial-coverage).
+
 Use the maintained scripts in `docs/large-junction-analysis`:
 - Rebuild round 1: `python docs/large-junction-analysis/build_review_images.py`.
 - Rebuild BA09: `python docs/large-junction-analysis/prepare_ba09_review.py`.

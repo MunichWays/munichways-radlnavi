@@ -7,6 +7,22 @@ from math import asin, atan2, ceil, cos, degrees, hypot, isfinite, radians, sin,
 from pathlib import Path
 
 
+JUNCTION_INSTRUCTIONS = {
+    'two-way-straight-opposite': {
+        'movement': 'straight',
+        'advance': {'de': 'An der großen Kreuzung geradeaus auf den Zweirichtungsradweg gegenüber fahren.',
+                    'en': 'At the large junction, continue straight onto the two-way cycle path opposite.'},
+        'display': {'de': 'große Kreuzung gegenüber geradeaus', 'en': 'large junction straight opposite'},
+    },
+    'two-way-left-near': {
+        'movement': 'left',
+        'advance': {'de': 'An der großen Kreuzung vorne links auf den Zweirichtungsradweg abbiegen.',
+                    'en': 'At the large junction, turn left onto the two-way cycle path on this side.'},
+        'display': {'de': 'große Kreuzung vorne links', 'en': 'large junction near left'},
+    },
+}
+
+
 def reviewed_arm_topology(junction):
     """Explicit four-arm order classifies a turn; local paths still match travel direction."""
     if 'armTopology' not in junction:
@@ -75,6 +91,12 @@ def validate_catalog(value):
             if movement.get("review", {}).get("status") != "approved" or not movement["review"].get("evidence"):
                 raise ValueError("Movement requires review")
             sequence = movement.get('sequence')
+            template = movement.get('instructionTemplate')
+            if template is not None and (not isinstance(template, str) or template not in JUNCTION_INSTRUCTIONS or sequence is not None
+                or JUNCTION_INSTRUCTIONS[template]['movement'] != movement['movement']
+                or movement.get('targetCyclingSide') != 'left-against-traffic'
+                or movement.get('targetWayType') != 'two-way-cycleway'):
+                raise ValueError('Instruction requires a reviewed left-side two-way cycling movement')
             if movement["movement"] not in (("left", "straight", "uturn") if sequence else ("left", "straight")):
                 raise ValueError("Unsupported movement")
             if not all(isinstance(movement[k], str) and movement[k] for k in ("entryArm", "exitArm")):
@@ -351,7 +373,7 @@ def steps_type(leg, index):
     return leg["steps"][index]["maneuver"].get("type")
 
 
-def add_guidance(payload, *, sequence_guidance=False):
+def add_guidance(payload, *, sequence_guidance=False, instruction_guidance=False):
     """Return an enriched copy, or None; the caller retains the raw response."""
     if payload.get("code") != "Ok":
         return None
@@ -379,7 +401,9 @@ def add_guidance(payload, *, sequence_guidance=False):
                 geometry = leg_geometry(leg)
                 if geometry is not None:
                     for config in configs:
-                        if config.get('sequence') and not sequence_guidance:
+                        if config.get('sequence') and not (sequence_guidance or instruction_guidance):
+                            continue
+                        if config.get('instructionTemplate') and not instruction_guidance:
                             continue
                         for visit, (entry, exit, contained) in enumerate(match_leg(leg, config, geometry)):
                             for hit in (entry, exit):
@@ -395,6 +419,10 @@ def add_guidance(payload, *, sequence_guidance=False):
                                 from .junction_sequences import route_sequence
                                 matches[-1]['sequence'] = route_sequence(config['sequence'], geometry[0], offset, distance,
                                     entry['distanceAlongLegMeters'], exit['distanceAlongLegMeters'])
+                            if config.get('instructionTemplate'):
+                                template = config['instructionTemplate']
+                                matches[-1]['instruction'] = dict(version=1, templateId=template,
+                                    **deepcopy({k: JUNCTION_INSTRUCTIONS[template][k] for k in ('advance', 'display')}))
                 reconstructed.extend(line if not reconstructed else line[1:])
                 offset += len(line) - 1
                 distance += sum(meters(a, b) for a, b in zip(line, line[1:]))
@@ -409,7 +437,8 @@ def add_guidance(payload, *, sequence_guidance=False):
             continue
         if result is None:
             result = deepcopy(payload)
-        version = 'big-junctions-v2' if any(m.get('sequence') for m in matches) else 'big-junctions-v1'
+        version = ('big-junctions-v3' if any(m.get('instruction') for m in matches) else
+                   'big-junctions-v2' if any(m.get('sequence') for m in matches) else 'big-junctions-v1')
         result["routes"][route_index]["guidance"] = {"version": version,
             "catalogVersion": data["version"], "junctions": matches}
     return result

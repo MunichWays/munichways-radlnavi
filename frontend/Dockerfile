@@ -11,6 +11,7 @@ ARG REGION="europe/germany/bayern/oberbayern"
 COPY package.json package.json
 COPY package-lock.json package-lock.json
 COPY tsconfig.json tsconfig.json
+COPY build_junction_review.mjs build_junction_review.mjs
 
 RUN npm install --verbose --force
 

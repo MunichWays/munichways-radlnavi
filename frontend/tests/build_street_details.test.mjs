@@ -5,6 +5,33 @@ import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { prepareSnapshot, buildSnapshot } from '../build_street_details.mjs';
+import { hasStreetDetailsUpdate } from '../check_street_details_update.mjs';
+
+test('weekly V20 check compares content with the deployed processor snapshot', async () => {
+  const raw = Buffer.from(JSON.stringify({ type: 'FeatureCollection', features: [feature('8069545', { osm_class_bicycle: '-1' })] }));
+  const current = prepareSnapshot(raw, {}).manifest;
+  for (const [snapshot, expected] of [[current.snapshot, false], ['0'.repeat(64), true]]) {
+    const calls = [];
+    const changed = await hasStreetDetailsUpdate({ fetchImpl: async (url, options) => {
+      calls.push({ url, options });
+      return new Response(calls.length === 1 ? raw : JSON.stringify({ schemaVersion: 1, snapshot }));
+    } });
+    assert.equal(changed, expected);
+    assert.equal(calls.length, 2);
+    assert.ok(calls[0].url.endsWith('/IST_RadlVorrangNetz_Oberbayern_V20.geojson'));
+    assert.equal(calls[1].url, 'https://radlnavi.munichways.de/street-details/manifest.json');
+    assert.ok(calls.every(call => call.options.cache === 'no-store'));
+  }
+});
+
+test('weekly V20 check fails on unavailable or invalid data instead of deploying', async () => {
+  await assert.rejects(hasStreetDetailsUpdate({ fetchImpl: async () => new Response('', { status: 503 }) }), /HTTP 503/);
+  await assert.rejects(hasStreetDetailsUpdate({ fetchImpl: async () => new Response('{"type":"FeatureCollection","features":[]}') }), /nonempty FeatureCollection/);
+  const raw = JSON.stringify({ type: 'FeatureCollection', features: [feature()] });
+  let calls = 0;
+  await assert.rejects(hasStreetDetailsUpdate({ fetchImpl: async () =>
+    new Response(++calls === 1 ? raw : '{"snapshot":"invalid"}') }), /Invalid deployed V20 manifest/);
+});
 
 const feature = (id = '123', properties = {}) => ({ type: 'Feature', properties: { osm_id: id,
   osm_name: 'Testweg', munichways_id: 'shared', munichways_current: 'Text', ...properties },

@@ -70,6 +70,17 @@ see [fixture provenance](tests/fixtures/README.md#cycleway-attribute-examples).
 
 ## Seasonal bicycle access
 
+Node tags apply only within the element's `start_date`/`end_date` lifetime
+(full `YYYY-MM-DD` dates, inclusive). Expired event entrances, such as the
+former Wiesn entrance OW 1 on Straße 5 (node 2467612892), therefore no longer
+block cycling through their old `bicycle=no` tag. Future event nodes are also
+inactive until `start_date`. The elements can remain in OSM and have their
+dates advanced for the next event. Missing, partial or invalid dates do not
+disable a node; reversed date ranges retain the existing node behavior.
+This is evaluated at graph extraction time and requires rebuilding the routing
+datasets after a boundary or tag change. Standard, Direct and Discovery share
+this node handling.
+
 The bicycle profile observes recurring seasonal prohibitions such as
 `bicycle:conditional=no @ (Jul 01 - Oct 22)`. This example applies to the
 Theresienwiese, which is closed to bicycle traffic in connection with the

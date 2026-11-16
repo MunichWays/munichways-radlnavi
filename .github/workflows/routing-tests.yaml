@@ -33,6 +33,7 @@ jobs:
           python -m pip install lupa==2.6 osmium==3.7.0
           python routing/tests/test_guidance_way_type.py
           python routing/tests/test_cycling_attributes.py
+          python routing/tests/test_dated_nodes.py
       - run: |
           docker build -t profile-standard -f routing/tests/Dockerfile routing
           docker build --build-arg ROUTING_PROFILE=direct -t profile-direct -f routing/tests/Dockerfile routing

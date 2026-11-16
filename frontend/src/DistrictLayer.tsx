@@ -87,7 +87,7 @@ export default function DistrictLayer({ map, visible, streetSelection }: {
       pane.style.zIndex = '350'; pane.style.pointerEvents = 'none';
       renderer = leaflet.svg({ pane: 'district-boundaries' });
       boundaries = leaflet.geoJSON(collection, { renderer, pane: 'district-boundaries', interactive: false,
-        style: { color: '#656D7A', weight: 1.5, opacity: 0.8, dashArray: '5 5', fill: false } });
+        style: { color: '#800080', weight: 4, opacity: 0.95, dashArray: '5 5', fill: false } });
       boundaries.addTo(map!);
       markers.current = collection.features.map((feature: District) => {
         const p = feature.properties;

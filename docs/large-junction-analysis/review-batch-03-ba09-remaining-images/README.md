@@ -1,6 +1,6 @@
 # BA09 · Restliche Kandidaten K18–K22
 
-Restliche BA09-Kandidaten aus der bisherigen Abfrage: fünf Standorte. Alle 32 Kandidatenpunkte sind entweder einem vorhandenen Prüffall oder einem dieser fünf Standorte zugeordnet. Aktuelle Freigaben und dauerhafte Ausschlüsse stehen an den Bildern. Keine Aktivierung.
+Restliche BA09-Kandidaten aus der bisherigen Abfrage: fünf Standorte. Alle 32 Kandidatenpunkte sind entweder einem vorhandenen Prüffall oder einem dieser fünf Standorte zugeordnet. Aktuelle Freigaben und dauerhafte Ausschlüsse stehen an den Bildern; der nachgewiesene Live-Stand steht in der Gesamtübersicht.
 
 [Prüfungsübersicht](../kreuzungspruefung/index.html)
 

@@ -1,19 +1,27 @@
 # Stand der Kreuzungsprüfung
 
-Stand: 16.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html), der verifizierte Produktionsstand und die Live-Prüfungen.
+Stand: 16.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html) und der verifizierte Produktionsstand.
 
 | Kategorie | Anzahl |
 | --- | --- |
-| Erfasste Standorte einschließlich Piloten und früherer Ausschlüsse | 98 |
+| Erfasste Standorte | 98 |
 | Geometrisch bestätigt | 34 |
 | Offen | 51 |
 | Ausgeschlossen / dauerhaft zurückgestellt | 13 |
-| Aktive Kreuzungen live | 26 |
-| Aktive Fahrbeziehungen im Live-Katalog | 225 |
+| Aktive Kreuzungen live | 34 |
+| Aktive Fahrbeziehungen live | 281 |
 
-Aktueller Release vorbereitet: Backend **2.4.16**, Katalog **v16**, **34 aktive Kreuzungen / 281 Beziehungen**. K18 v5 mit acht Beziehungen sowie K34–K38/K40/K41 eingeschlossen. K39 bleibt dauerhaft ausgeschlossen; beide K18-Entry-3- und K41-Entry-1-Ausnahmen bleiben deaktiviert. 173 Backend-Tests, 68 Review-Tests und sieben Frontend-Routingtests bestanden. Deployment/Live-Abgleich folgen.
+Backend **2.4.16**, Commit `2916970044ff07df03edb21694b71ea641aae565`, Katalog **munich-big-junctions-v16** ist nachgewiesen live. [Backend-Workflow 43912335393](https://github.com/MunichWays/munichways-radlnavi/actions/runs/43912335393) erfolgreich, einschließlich Direct und Entdeckertour.
 
-### Bisheriger verifizierter Live-Stand und Arbeitsverlauf
+K18 v5 (8 Beziehungen), K34 (8), K35 West (5), K36 (8), K37 Ost (5), K38 (8), K40 (8), K41 (6) sind jetzt live. K39 dauerhaft ausgeschlossen; die beiden K18-Entry-3- und K41-Entry-1-Ausnahmen sowie K13/K21 bleiben deaktiviert. Standardhinweise bleiben für diese Beziehungen erhalten. Entry-5 bei K18 ist ausgeschlossen, Exit-4 erhalten.
+
+91 Live-Referenzrouten des neuen Rollouts bestanden, einschließlich kombinierter K35/K37-Routen und unveränderter Standardrouten. Zusätzlich 45 bisherige Live-/Legacy-Kontrollen bestanden. [Rollout-Belege](review-release-2.4.16-rollout-live-checks.json) · [Bisherige Kontrollen](review-release-2.4.16-live-checks.json). 173 Backend-Tests, 69 Review-Tests und sieben Frontend-Routingtests bestanden. Dies ersetzt keine Praxistest-Freigabe.
+
+51 weitere Kandidaten stehen als reine Texteinträge ohne Geometrie/Bildlink offen. Die 145 uneindeutigen Kontaktgruppen bleiben im Rohinventar und sind keine bestätigten Vierarmknoten. [Priorität nach Fahrspuren](outgoing-lanes-munich.html).
+
+## Historischer Stand und Arbeitsverlauf vor dem Release 2.4.16
+
+Die nachfolgenden Zwischenstände sind historisch; aktuelle Zahlen stehen oben.
 
 Backend **2.4.15**, Commit `701896122a18dcf2cbf279adf0a581bf8bab859a`, Katalog `munich-big-junctions-v13` ist nachgewiesen live. Der Backend-Workflow 43758056013 ist erfolgreich abgeschlossen, einschließlich Direct und Entdeckertour. K24 (15 Beziehungen), K30 (3) und K33 (8) sind jetzt live.
 

@@ -102,7 +102,7 @@ def main(collect_source=False):
         cards.append(f'<article><h2>{label}</h2><p>{html.escape(site["note"])}</p><a href="{name}.png"><img src="{name}.svg" alt="{label}"></a></article>')
     (OUT/'index.html').write_text('<!doctype html><html lang="de"><meta charset="utf-8"><title>K38–K41 · Fahrspuren</title>'
         '<style>body{font:17px Arial;margin:24px;background:#f3f4f5}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px}img{width:100%}</style>'
-        '<h1>K38–K41 · Größte neue Kandidaten nach Fahrspuren</h1><p>K38 und K40 mit je acht, K41 mit sechs Beziehungen technisch geprüft und im Branch aktiviert. K41 Entry-1 nach Exit-3/Exit-4 bleiben dauerhaft ausgeschlossen. K39 dauerhaft ausgeschlossen (komplexe Zweirichtungsradwege, Umbau 2026). Noch nicht deployed.</p>'
+        '<h1>K38–K41 · Größte neue Kandidaten nach Fahrspuren</h1><p>K38 und K40 mit je acht, K41 mit sechs Beziehungen technisch geprüft und im Branch aktiviert. K41 Entry-1 nach Exit-3/Exit-4 bleiben dauerhaft ausgeschlossen. K39 dauerhaft ausgeschlossen (komplexe Zweirichtungsradwege, Umbau 2026). Live-Stand siehe Gesamtübersicht.</p>'
         '<p><a href="../kreuzungspruefung/index.html">Gesamtübersicht</a> · <a href="overview.png">Kontaktübersicht</a></p><main>'+''.join(cards)+
         '</main><p>OSM '+snapshot['retrievedAt'][:10]+' · © OpenStreetMap-Mitwirkende, ODbL.</p></html>',encoding='utf-8')
     write(data,dict(version=1,enabled=False,osmRetrievedAt=snapshot['retrievedAt'],sites=sites))

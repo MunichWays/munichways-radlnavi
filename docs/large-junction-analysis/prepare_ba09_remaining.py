@@ -148,7 +148,7 @@ def main():
     (ROOT / 'review-batch-03-ba09-remaining-inventory.json').write_text(json.dumps(inventory, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     intro = ('Restliche BA09-Kandidaten aus der bisherigen Abfrage: fünf Standorte. '
              'Alle 32 Kandidatenpunkte sind entweder einem vorhandenen Prüffall oder einem dieser fünf Standorte zugeordnet. '
-             'Aktuelle Freigaben und dauerhafte Ausschlüsse stehen an den Bildern. Keine Aktivierung.')
+             'Aktuelle Freigaben und dauerhafte Ausschlüsse stehen an den Bildern; der nachgewiesene Live-Stand steht in der Gesamtübersicht.')
     cards = []
     for site in sites:
         group = '1-bestaetigt' if site['status'] == 'geometry-approved' else (

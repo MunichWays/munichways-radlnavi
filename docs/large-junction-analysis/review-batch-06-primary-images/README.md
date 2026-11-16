@@ -2,7 +2,7 @@
 
 [Galerie](index.html) · [Kontaktübersicht](overview.png)
 
-K34 bis K37 sind geometrisch freigegeben und technisch geprüft. Im lokalen Branch für Backend 2.4.16 aktiviert; noch nicht deployed. K35 West und K37 Ost bilden zwei getrennte Flächen. Brückenfahrbahnen, Kfz-Rampen und Tunnel bleiben ausgeschlossen. Bei K36 liegt der nördliche Exit auf einem Radfahrstreifen; dessen Punkt zeigt die OSM-Fahrbahnmittellinie. Entry/Exit gleicher Nummer bilden kein Fahrbeziehungspaar.
+K34 bis K37 sind geometrisch freigegeben und technisch geprüft. Im lokalen Branch für Backend 2.4.16 aktiviert; Live-Stand siehe Gesamtübersicht. K35 West und K37 Ost bilden zwei getrennte Flächen. Brückenfahrbahnen, Kfz-Rampen und Tunnel bleiben ausgeschlossen. Bei K36 liegt der nördliche Exit auf einem Radfahrstreifen; dessen Punkt zeigt die OSM-Fahrbahnmittellinie. Entry/Exit gleicher Nummer bilden kein Fahrbeziehungspaar.
 
 | Fall | Kreuzung | Punkte |
 | --- | --- | --- |

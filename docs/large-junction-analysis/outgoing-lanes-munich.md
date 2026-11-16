@@ -8,9 +8,9 @@ Die Zahlen sind OSM-Angaben, keine Vor-Ort-Bestätigung. Fehlende Richtungsangab
 
 | Ausgehende Fahrspuren | Kandidaten mit vollständigen Spurangaben | Davon noch ohne Prüfungszuordnung |
 | --- | --- | --- |
-| 12 | 1 | 1 |
-| 11 | 1 | 1 |
-| 10 | 3 | 2 |
+| 12 | 1 | 0 |
+| 11 | 1 | 0 |
+| 10 | 3 | 0 |
 | 9 | 8 | 5 |
 | 8 | 12 | 10 |
 | 7 | 8 | 8 |
@@ -23,20 +23,20 @@ Die Zahlen sind OSM-Angaben, keine Vor-Ort-Bestätigung. Fehlende Richtungsangab
 
 | Kreuzung | Ausgehende Spuren | Prüfstand |
 | --- | --- | --- |
-| Dachauer Straße / Georg-Brauchle-Ring / Wintrichring | 3 + 3 + 3 + 3 | noch nicht zugeordnet |
+| Dachauer Straße / Georg-Brauchle-Ring / Wintrichring | 3 + 3 + 3 + 3 | K38 live |
 
 ## 11 ausgehende Fahrspuren
 
 | Kreuzung | Ausgehende Spuren | Prüfstand |
 | --- | --- | --- |
-| Fürstenrieder Straße / Landsberger Straße / Wotanstraße | 2 + 3 + 3 + 3 | noch nicht zugeordnet |
+| Fürstenrieder Straße / Landsberger Straße / Wotanstraße | 2 + 3 + 3 + 3 | K39 permanently-excluded |
 
 ## 10 ausgehende Fahrspuren
 
 | Kreuzung | Ausgehende Spuren | Prüfstand |
 | --- | --- | --- |
-| Bad-Schachener-Straße / Innsbrucker Ring | 2 + 2 + 3 + 3 | noch nicht zugeordnet |
-| Candidstraße / Grünwalder Straße / Tegernseer Landstraße | 2 + 3 + 3 + 2 | noch nicht zugeordnet |
+| Bad-Schachener-Straße / Innsbrucker Ring | 2 + 2 + 3 + 3 | K40 live |
+| Candidstraße / Grünwalder Straße / Tegernseer Landstraße | 2 + 3 + 3 + 2 | K41 live |
 | Dachauer Straße / Landshuter Allee | 3 + 2 + 3 + 2 | K22 permanently-excluded |
 
 ## 9 ausgehende Fahrspuren
@@ -48,9 +48,9 @@ Die Zahlen sind OSM-Angaben, keine Vor-Ort-Bestätigung. Fehlende Richtungsangab
 | Bülowstraße / Effnerplatz / Effnerstraße / Richard-Strauss-Straße | 2 + 2 + 3 + 2 | noch nicht zugeordnet |
 | Frankfurter Ring / Föhringer Ring / Ungererstraße | 3 + 2 + 2 + 2 | noch nicht zugeordnet |
 | Lerchenauer Straße / Moosacher Straße | 3 + 2 + 2 + 2 | noch nicht zugeordnet |
-| Dachauer Straße / Leonrodstraße / Schwere-Reiter-Straße | 2 + 3 + 2 + 2 | K16 aktiv im Branch |
+| Dachauer Straße / Leonrodstraße / Schwere-Reiter-Straße | 2 + 3 + 2 + 2 | K16 live |
 | Gabelsbergerstraße / Oskar-von-Miller-Ring | 2 + 1 + 3 + 2 + 1 | Früherer Ausschluss ausgeschlossen |
-| Landshuter Allee / Nymphenburger Straße | 2 + 2 + 2 + 3 | K14 aktiv im Branch |
+| Landshuter Allee / Nymphenburger Straße | 2 + 2 + 2 + 3 | K14 live |
 
 ## 8 ausgehende Fahrspuren
 
@@ -66,8 +66,8 @@ Die Zahlen sind OSM-Angaben, keine Vor-Ort-Bestätigung. Fehlende Richtungsangab
 | Frauenstraße / Isartorplatz | 3 + 3 + 2 | noch nicht zugeordnet |
 | Heinrich-Wieland-Straße / Ständlerstraße | 2 + 2 + 2 + 2 | noch nicht zugeordnet |
 | Marsstraße / Seidlstraße | 2 + 2 + 2 + 2 | noch nicht zugeordnet |
-| Agnes-Bernauer-Straße / Fürstenrieder Straße | 3 + 3 + 1 + 1 | K02 aktiv im Branch |
-| Frankfurter Ring / Ingolstädter Straße | 2 + 3 + 1 + 2 | K34 aktiv im Branch |
+| Agnes-Bernauer-Straße / Fürstenrieder Straße | 3 + 3 + 1 + 1 | K02 live |
+| Frankfurter Ring / Ingolstädter Straße | 2 + 3 + 1 + 2 | K34 live |
 
 ## 7 ausgehende Fahrspuren
 
@@ -94,7 +94,7 @@ Die Zahlen sind OSM-Angaben, keine Vor-Ort-Bestätigung. Fehlende Richtungsangab
 | Orleansstraße / Rosenheimer Straße | 2 + 2 + 2 | noch nicht zugeordnet |
 | Prinzregentenstraße / Widenmayerstraße | 2 + 2 + 2 | noch nicht zugeordnet |
 | Sankt-Bonifatius-Straße / Tegernseer Landstraße | 2 + 1 + 2 + 1 | noch nicht zugeordnet |
-| Arnulfstraße / Romanplatz / Wotanstraße | 2 + 1 + 2 + 1 | K18 geometry-approved |
+| Arnulfstraße / Romanplatz / Wotanstraße | 2 + 1 + 2 + 1 | K18 live |
 
 ## 5 ausgehende Fahrspuren
 

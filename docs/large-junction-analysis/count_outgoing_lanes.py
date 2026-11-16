@@ -167,11 +167,14 @@ def reviewed_sites():
     result = []
     runtime = json.loads((ROOT.parents[1]/'backend/src/big_junctions.json').read_text(encoding='utf-8'))
     active = {j['id'] for j in runtime['junctions'] if j.get('enabled')}
+    state = json.loads((ROOT/'review-deployment-state.json').read_text(encoding='utf-8'))
+    live = {j['id']:j for j in state['junctions'] if j.get('enabled')}
     for path in ROOT.glob('review-batch-*-images/review-data.json'):
         for site in json.loads(path.read_text(encoding='utf-8'))['sites']:
             result.append(dict(id=site['id'], label=f'K{site["number"]:02d}', name=site['name'],
                 polygon=site['polygon'], nodes=site.get('candidateNodeIds', []),
-                status='aktiv im Branch' if site['id'] in active else site['status']))
+                status='live' if site['id'] in live and live[site['id']]['polygon']['coordinates'][0] == site['polygon']
+                else 'aktiv im Branch' if site['id'] in active else site['status']))
     known = {s['id'] for s in result}
     supplemental = json.loads((ROOT/'review-supplemental-sites.json').read_text(encoding='utf-8'))['sites']
     decisions = json.loads((ROOT/'junction-review-decisions.json').read_text(encoding='utf-8'))['decisions']
@@ -183,7 +186,7 @@ def reviewed_sites():
         result.append(dict(id=site['id'], label='Pilot' if junction else 'Früherer Ausschluss', name=site['name'],
             polygon=junction['polygon']['coordinates'][0] if junction else [],
             nodes=[decision['referenceNodeId']] if 'referenceNodeId' in decision else [],
-            status='aktiv im Branch' if junction else 'ausgeschlossen'))
+            status='live' if site['id'] in live else 'aktiv im Branch' if junction else 'ausgeschlossen'))
     return result
 
 

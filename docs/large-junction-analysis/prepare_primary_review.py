@@ -37,7 +37,7 @@ def main():
             if old and old.get('polygonApproved') and not site['polygonApproved']:
                 raise ValueError('Existing approval cannot be dropped')
     intro = ('K34 bis K37 sind geometrisch freigegeben und technisch geprüft. '
-             'Im lokalen Branch für Backend 2.4.16 aktiviert; noch nicht deployed. '
+             'Im lokalen Branch für Backend 2.4.16 aktiviert; Live-Stand siehe Gesamtübersicht. '
              'K35 West und K37 Ost bilden zwei getrennte Flächen. '
              'Brückenfahrbahnen, Kfz-Rampen und Tunnel bleiben ausgeschlossen. '
              'Bei K36 liegt der nördliche Exit auf einem Radfahrstreifen; '

@@ -292,6 +292,10 @@ local function parse_maxspeed(source)
 end
 
 function process_node(profile, node, result)
+  -- Ignore expired or not-yet-active event entrances without deleting them
+  -- from OSM. In particular, an old bicycle=no must not split a public way.
+  if conditional_access.element_is_inactive(node) then return end
+
   -- parse access and barrier tags
   local highway = node:get_value_by_key("highway")
   local is_crossing = highway and highway == "crossing"

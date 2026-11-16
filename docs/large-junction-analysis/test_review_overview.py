@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from organize_review_images import ROOT, GROUPS, BATCHES, add_supplemental_sites, review_counts, city_scope
+from organize_review_images import ROOT, GROUPS, BATCHES, add_supplemental_sites, review_counts, city_scope, add_lane_queue
 
 
 class OverviewCountsTests(unittest.TestCase):
@@ -15,12 +15,13 @@ class OverviewCountsTests(unittest.TestCase):
         catalog = json.loads((ROOT.parents[1] / 'backend/src/big_junctions.json').read_text(encoding='utf-8'))
         records = json.loads((ROOT / 'review-supplemental-sites.json').read_text(encoding='utf-8'))['sites']
         add_supplemental_sites(groups, catalog, records)
+        add_lane_queue(groups)
         return groups, catalog, records
 
     def test_complete_counts_include_pilots_and_previous_exclusions_once(self):
         groups, _, _ = self.groups()
         self.assertEqual(review_counts(groups), {
-            'total': 39, '1-bestaetigt': 27, '2-offen': 0, '3-ausgeschlossen': 12})
+            'total': 98, '1-bestaetigt': 34, '2-offen': 51, '3-ausgeschlossen': 13})
 
     def test_wilram_draft_preserves_other_gates_and_records_special_guidance(self):
         groups, catalog, _ = self.groups()
@@ -63,7 +64,7 @@ class OverviewCountsTests(unittest.TestCase):
         line = [[p['lon'], p['lat']] for p in street['geometry']]
         self.assertEqual(crossings(line, site['polygon']), [])
         self.assertFalse(any(inside(p, site['polygon']) for p in line))
-        self.assertEqual(sum(s.get('textOnly', False) for items in groups.values() for s in items), 6)
+        self.assertEqual(sum(s.get('textOnly', False) for items in groups.values() for s in items), 57)
 
     def test_duplicate_records_cannot_inflate_totals(self):
         groups, catalog, records = self.groups()

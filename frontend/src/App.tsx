@@ -1274,6 +1274,9 @@ function App() {
                   onChange={(e, newValue) => {
                     console.log("selected", newValue);
                     setStartPosition(newValue);
+                    if (newValue) {
+                      map?.setView([Number(newValue.lat), Number(newValue.lon)], Math.max(map.getZoom(), 16));
+                    }
                     if (newValue == null) {
                       setRoute(null);
                       setRouteMetadata(null);
@@ -1314,6 +1317,9 @@ function App() {
                   onChange={(e, newValue) => {
                     console.log("selected", newValue);
                     setEndPosition(newValue);
+                    if (newValue) {
+                      map?.setView([Number(newValue.lat), Number(newValue.lon)], Math.max(map.getZoom(), 16));
+                    }
                     if (newValue == null) {
                       setRoute(null);
                       setRouteMetadata(null);

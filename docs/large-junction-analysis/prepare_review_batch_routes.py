@@ -15,6 +15,7 @@ import sys
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from unittest.mock import patch
+from cycling_direction import bicycle_direction
 
 ROOT=Path(__file__).resolve().parent
 BACKEND=ROOT.parents[1]/"backend"
@@ -44,7 +45,7 @@ def graph(ways, road_ids):
     edges=[]
     for w in ways:
         if not allowed(w,road_ids):continue
-        direction=w["tags"].get("oneway:bicycle",w["tags"].get("oneway","no"))
+        direction=bicycle_direction(w['tags'])
         points=[[v["lon"],v["lat"]] for v in w["geometry"]]
         for a,b in zip(points,points[1:]):
             if meters(a,b)<.01:continue

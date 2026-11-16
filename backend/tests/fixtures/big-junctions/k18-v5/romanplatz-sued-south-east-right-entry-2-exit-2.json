@@ -1,0 +1,259 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              12877620752,
+              915009866,
+              915009917,
+              915009890,
+              915009904
+            ],
+            "distance": [
+              32.98393468,
+              25.86992696,
+              15.94319268,
+              13.82546094
+            ]
+          },
+          "duration": 23.9,
+          "summary": "Arnulfstraße",
+          "weight": 51.8,
+          "distance": 88.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    4
+                  ],
+                  "location": [
+                    11.511523,
+                    48.153905
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.511523,
+                    48.153905
+                  ],
+                  [
+                    11.511552,
+                    48.154201
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 4,
+                "bearing_before": 0,
+                "location": [
+                  11.511523,
+                  48.153905
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 27.1,
+              "duration": 12.8,
+              "distance": 33
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.511552,
+                    48.154201
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    108,
+                    278,
+                    289
+                  ],
+                  "location": [
+                    11.512076,
+                    48.154065
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.511552,
+                    48.154201
+                  ],
+                  [
+                    11.511874,
+                    48.154113
+                  ],
+                  [
+                    11.512076,
+                    48.154065
+                  ],
+                  [
+                    11.512253,
+                    48.154027
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 112,
+                "bearing_before": 2,
+                "location": [
+                  11.511552,
+                  48.154201
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Arnulfstraße",
+              "mode": "cycling",
+              "weight": 24.7,
+              "duration": 11.1,
+              "distance": 55.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    288
+                  ],
+                  "location": [
+                    11.512253,
+                    48.154027
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.512253,
+                    48.154027
+                  ],
+                  [
+                    11.512253,
+                    48.154027
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 108,
+                "location": [
+                  11.512253,
+                  48.154027
+                ],
+                "type": "arrive"
+              },
+              "name": "Arnulfstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.511523,
+            48.153905
+          ],
+          [
+            11.511552,
+            48.154201
+          ],
+          [
+            11.511874,
+            48.154113
+          ],
+          [
+            11.512076,
+            48.154065
+          ],
+          [
+            11.512253,
+            48.154027
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 51.8,
+      "duration": 23.9,
+      "distance": 88.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "31IsgEtTLICSAAAAGQAAAAAAAAAAAAAAje8DQuPBrkAAAAAAAAAAAEIAAAALAAAAAAAAAAAAAAC9AgAA46avADHF3gLjpq8AMcXeAgAAfwsAAAAA",
+      "location": [
+        11.511523,
+        48.153905
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "PhIBgP___389AAAAVQAAAAAAAAA-AQAAFzVdQQJUqUAAAAAAnNGOQhsAAAAmAAAAAAAAAI4AAAC9AgAAvamvAKvF3gK9qa8ArMXeAgAAvwYAAAAA",
+      "location": [
+        11.512253,
+        48.154027
+      ],
+      "name": "Arnulfstraße",
+      "distance": 0.1111937254
+    }
+  ]
+}

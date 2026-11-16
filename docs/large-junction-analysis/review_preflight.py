@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT.parents[1] / "backend"))
 from src.big_junctions import inside, meters, crossings
 from build_review_images import cycling
+from cycling_direction import bicycle_direction
 
 
 def fingerprint(site):
@@ -30,7 +31,7 @@ def outside_graph(site, reverse=False):
             continue
         nodes = way["nodes"]
         positions.update({node: [p["lon"], p["lat"]] for node, p in zip(nodes, way["geometry"])})
-        direction = tags.get("oneway:bicycle", tags.get("oneway", "no"))
+        direction = bicycle_direction(tags)
         for a, b in zip(nodes, nodes[1:]):
             edges = [(a, b)] if direction in {"yes", "1"} else ([(b, a)] if direction == "-1" else [(a, b), (b, a)])
             for u, v in edges:

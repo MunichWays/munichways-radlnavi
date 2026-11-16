@@ -1,0 +1,300 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              915009898,
+              915009915,
+              915009864,
+              12258048106,
+              915009879,
+              13680430043,
+              2939382352
+            ],
+            "distance": [
+              38.92373209,
+              16.71281777,
+              15.44139025,
+              6.339917944,
+              4.679602048,
+              19.82389795
+            ]
+          },
+          "duration": 40.2,
+          "summary": "Arnulfstraße, Guntherstraße",
+          "weight": 80.9,
+          "distance": 101.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    92
+                  ],
+                  "location": [
+                    11.510403,
+                    48.154276
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.51115,
+                    48.154251
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.511355,
+                    48.154229
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.510403,
+                    48.154276
+                  ],
+                  [
+                    11.510926,
+                    48.154263
+                  ],
+                  [
+                    11.51115,
+                    48.154251
+                  ],
+                  [
+                    11.511355,
+                    48.154229
+                  ],
+                  [
+                    11.511438,
+                    48.154216
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 92,
+                "bearing_before": 0,
+                "location": [
+                  11.510403,
+                  48.154276
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 41.2,
+              "duration": 18.8,
+              "distance": 77.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.511438,
+                    48.154216
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.511438,
+                    48.154216
+                  ],
+                  [
+                    11.511434,
+                    48.154174
+                  ],
+                  [
+                    11.511419,
+                    48.153996
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 182,
+                "bearing_before": 102,
+                "location": [
+                  11.511438,
+                  48.154216
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Guntherstraße",
+              "mode": "cycling",
+              "weight": 39.7,
+              "duration": 21.4,
+              "distance": 24.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    3
+                  ],
+                  "location": [
+                    11.511419,
+                    48.153996
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.511419,
+                    48.153996
+                  ],
+                  [
+                    11.511419,
+                    48.153996
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 183,
+                "location": [
+                  11.511419,
+                  48.153996
+                ],
+                "type": "arrive"
+              },
+              "name": "Guntherstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.510403,
+            48.154276
+          ],
+          [
+            11.510926,
+            48.154263
+          ],
+          [
+            11.51115,
+            48.154251
+          ],
+          [
+            11.511355,
+            48.154229
+          ],
+          [
+            11.511438,
+            48.154216
+          ],
+          [
+            11.511434,
+            48.154174
+          ],
+          [
+            11.511419,
+            48.153996
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 80.9,
+      "duration": 40.2,
+      "distance": 101.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "tlksgP___38YAAAAxgAAAAcAAABKAAAA16KyQOexG0LX7L4_2rOFQQsAAABZAAAAAwAAACEAAAC9AgAAg6KvAKTG3gKDoq8ApMbeAgIAzwUAAAAA",
+      "location": [
+        11.510403,
+        48.154276
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "4VIsgABTLIAsAAAABgAAAGEBAAAAAAAAWJeeQU2_FUBNv5VAAAAAACMAAAAFAAAAswAAAAAAAAC9AgAAe6avAIzF3gJ7pq8AjMXeAgIAfwsAAAAA",
+      "location": [
+        11.511419,
+        48.153996
+      ],
+      "name": "Guntherstraße",
+      "distance": 0
+    }
+  ]
+}

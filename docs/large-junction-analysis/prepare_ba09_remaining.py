@@ -100,8 +100,14 @@ def main():
     for number, identifier, name, lon, lat, nodes, question in SELECTION:
         feature = {'geometry': {'type': 'Point', 'coordinates': [lon, lat]},
                    'properties': {'id': identifier, 'name': name, 'reviewOrder': number, 'nextCheck': question}}
-        site = prepare_site(feature, ways)
+        review = decisions.get(identifier, {})
+        site_ways = ways
+        if review.get('osmSnapshot'):
+            site_ways = load_snapshot(review['osmSnapshot'])['response']['elements']
+        site = prepare_site(feature, site_ways)
         site.update(district='BA09', candidateNodeIds=nodes)
+        if review.get('osmSnapshot'):
+            site['osmRetrievedAt'] = load_snapshot(review['osmSnapshot'])['retrievedAt']
         if identifier in decisions:
             apply_review(site, decisions[identifier])
         else:

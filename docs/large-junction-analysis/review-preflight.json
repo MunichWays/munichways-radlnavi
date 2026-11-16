@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 30,
+  "referenceCasesChecked": 38,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -685,16 +685,14 @@
     {
       "id": "romanplatz-sued",
       "number": 18,
-      "revision": 3,
+      "revision": 5,
       "status": "geometry-approved",
-      "geometrySha256": "a1fe51389602e3b75c35a5c06aa30cf51a77fe733bac1c760789565eebd178f1",
+      "geometrySha256": "328d1bb9527470be5bc382ece0e5aee61a2cd4eea34d3e23393831292061bdac",
       "entries": 5,
       "exits": 4,
       "sharedGates": [
         "Entry-3",
-        "Entry-5",
-        "Exit-3",
-        "Exit-4"
+        "Exit-3"
       ],
       "carriagewayGates": [
         "Exit-3",
@@ -703,7 +701,7 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "v3 bleibt unverändert. WIEDERVORLAGE 16.11.2026: Thomas hat OSM erneut korrigiert; zusätzlichen Guntherstraßen-Entry-2 aus v2 nach neuer OSM-Prüfung wieder aufnehmen. Bis dahin keine Geometrieänderung/technische Aktivierung.",
+      "reviewQuestion": "v5: Entry-2 und Entry-3 gehoeren beide zur Guntherstrasse und erhalten dieselben Geradeaus-/Linksansagen. Entry-5 ausgeschlossen: nur Rechtsabbiegen (Thomas); Exit-4 unveraendert erhalten. Geometrie freigegeben; acht gepruefte Beziehungen im Branch aktiviert. Entry-3 geradeaus/links noch nicht nachgewiesen und ohne Kreuzungsansage. Noch nicht deployed.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -1070,6 +1068,144 @@
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
       "reviewQuestion": "Geometrie v2 von Thomas bestätigt. Acht Links-/Geradeausbeziehungen technisch bestanden und aktiviert; Rechtsabbiegungen behalten Standardhinweise. Entry-3 und Exit-3 unverändert, übrige Punkte näher an der Kreuzung. Nußbaumstraße, Pettenkoferstraße und östlicher Platzbereich bleiben außerhalb.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "frankfurter-ingolstaedter",
+      "number": 34,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "330325ee7035efa81bd652bd476a8fce80b3e08647bd974e73da9500a37061ac",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Vierarmiger oberirdischer Radweg-Knoten. Geometrie freigegeben. Die Brückenfahrbahn des Frankfurter Rings liefert keinen zusätzlichen Radverkehrsarm. Benachbarte Zufahrten bleiben außerhalb.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "landsberger-trappentreu",
+      "number": 35,
+      "revision": 3,
+      "status": "geometry-approved",
+      "geometrySha256": "2fcc0b2686403bdea41f614b97b4bb7b2307b40883c2c0c1bca1fe1119531f69",
+      "entries": 3,
+      "exits": 3,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Westlicher Teil von K35 v1. Getrennte Flaeche; Verbindung zu K37 oben westwaerts (Entry-5), unten ostwaerts (Exit-5). Drei Entries und drei Exits. Aeussere Punktnamen bleiben erhalten. Geometrie freigegeben; technische Pruefung bestanden. Innere Grenze und Verbindungspunkte um etwa 12 m zur eigenen Teilkreuzung verschoben; Abstand der Flaechen jetzt etwa 36 m.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "berg-am-laim-leuchtenberg",
+      "number": 36,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "f8c78e51257cb0832e0b406b41b448cff84626de5ccaa5fa1de82d68c1744b4b",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [
+        "Exit-1"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Nur oberirdischer Radverkehrsknoten; Innsbrucker-Ring-Tunnel ausgeschlossen. Ausgang nach Norden: separater Radweg geht in Radfahrstreifen auf Leuchtenbergring über. Geometrie freigegeben. Riedgaustraße und Annabrunner Straße bleiben außerhalb.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "landsberger-trappentreu-ost",
+      "number": 37,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "1d6b9d86e7dad3608729c85e7a1c157101135edf634e7d0505958f1eddacbedb",
+      "entries": 3,
+      "exits": 3,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Oestlicher Teil von K35 v1, neue Nummer K37. Verbindung zu K35 oben westwaerts (Exit-5), unten ostwaerts (Entry-5). Drei Entries und drei Exits. Aeussere Punktnamen bleiben erhalten. Geometrie freigegeben; technische Pruefung bestanden. Innere Grenze und Verbindungspunkte um etwa 12 m zur eigenen Teilkreuzung verschoben; Abstand der Flaechen jetzt etwa 36 m.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "dachauer-georg-brauchle",
+      "number": 38,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "c60191490fc81a6becb9ea303608f88431da7bf872378ac51ea8ed863f1038b6",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "12 ausgehende Kfz-Fahrspuren laut OSM. Flaeche umfasst die sechs nachgewiesenen Radweg-Aufteilungen/Zusammenfuehrungen an den Ecken; Punkte liegen jeweils davor/dahinter. Bitte vier Arme und Wartebereiche pruefen. Geometrie freigegeben; technische Pruefung bestanden. Im Branch aktiviert, noch nicht deployed.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "landsberger-fuerstenrieder",
+      "number": 39,
+      "revision": 1,
+      "status": "permanently-excluded",
+      "geometrySha256": "40f8c9176c590cda4fbac110b71f030548d7edcb7e7808b8b168a66f9c9cb523",
+      "entries": 5,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-3",
+        "Entry-4",
+        "Exit-3",
+        "Exit-4"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Sonderfall mit komplexen Wegebeziehungen und Zweirichtungsradwegen; 2026 im Umbau. Von Thomas dauerhaft ausgeschlossen. Normale Ansagen bleiben; Fall geschlossen.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "innsbrucker-bad-schachener",
+      "number": 40,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "8a16423d8e075aa53141d7181d0465f1d0e986092c58ffe16e168154778c8839",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "10 ausgehende Kfz-Fahrspuren laut OSM. Flächenentwurf; noch keine Freigabe oder Aktivierung.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "candid-gruenwalder",
+      "number": 41,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "8ce45b253da13f94c8b4e531f484a15d6fdafe8964e1d913b79ec22acd66cb4c",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [
+        "Entry-1",
+        "Exit-2"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "10 ausgehende Kfz-Fahrspuren laut OSM. Suedoestlicher Arm Tegernseer Landstrasse ohne durchgehenden Radweg: Entry/Exit auf der erlaubten Fahrbahn (OSM-Mittellinie). Kurze Radweganschluesse und gerichtete Verbindung muessen technisch noch geprueft werden. Candidtunnel/Kraftfahrstrasse ausgeschlossen. Dauerhaft ohne Kreuzungsansage: Entry-1 nach Exit-3 und Exit-4 wegen class:bicycle=-3 auf der Zufahrt (Thomas). Normale Ansagen bleiben.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     }
   ],

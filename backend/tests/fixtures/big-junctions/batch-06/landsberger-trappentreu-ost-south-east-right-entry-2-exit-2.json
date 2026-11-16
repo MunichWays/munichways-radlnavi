@@ -1,0 +1,348 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1038158461,
+              3883875889,
+              3758777557,
+              3883876267,
+              1038152038,
+              769270768,
+              1717584306
+            ],
+            "distance": [
+              30.13654657,
+              3.892458337,
+              12.89857425,
+              6.116054539,
+              6.995493175,
+              53.20016138
+            ]
+          },
+          "duration": 27.5,
+          "summary": "Trappentreustraße, Landsberger Straße",
+          "weight": 60.4,
+          "distance": 113.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    359
+                  ],
+                  "location": [
+                    11.534855,
+                    48.139331
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.534849,
+                    48.139602
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.534849,
+                    48.139753
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.534855,
+                    48.139331
+                  ],
+                  [
+                    11.534849,
+                    48.139602
+                  ],
+                  [
+                    11.534848,
+                    48.139637
+                  ],
+                  [
+                    11.534849,
+                    48.139753
+                  ],
+                  [
+                    11.53485,
+                    48.139808
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 359,
+                "bearing_before": 0,
+                "location": [
+                  11.534855,
+                  48.139331
+                ],
+                "type": "depart"
+              },
+              "name": "Trappentreustraße",
+              "mode": "cycling",
+              "weight": 29.2,
+              "duration": 13.4,
+              "distance": 53
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.53485,
+                    48.139808
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.53485,
+                    48.139808
+                  ],
+                  [
+                    11.534926,
+                    48.139845
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 53,
+                "bearing_before": 0,
+                "location": [
+                  11.53485,
+                  48.139808
+                ],
+                "modifier": "right",
+                "type": "end of road"
+              },
+              "name": "Landsberger Straße",
+              "mode": "cycling",
+              "weight": 5,
+              "duration": 2.3,
+              "distance": 7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    240
+                  ],
+                  "location": [
+                    11.534926,
+                    48.139845
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.534926,
+                    48.139845
+                  ],
+                  [
+                    11.53564,
+                    48.139825
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 91,
+                "bearing_before": 53,
+                "location": [
+                  11.534926,
+                  48.139845
+                ],
+                "modifier": "slight right",
+                "type": "continue"
+              },
+              "name": "Landsberger Straße",
+              "mode": "cycling",
+              "weight": 26.2,
+              "duration": 11.8,
+              "distance": 53.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    272
+                  ],
+                  "location": [
+                    11.53564,
+                    48.139825
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.53564,
+                    48.139825
+                  ],
+                  [
+                    11.53564,
+                    48.139825
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 92,
+                "location": [
+                  11.53564,
+                  48.139825
+                ],
+                "type": "arrive"
+              },
+              "name": "Landsberger Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.534855,
+            48.139331
+          ],
+          [
+            11.534849,
+            48.139602
+          ],
+          [
+            11.534848,
+            48.139637
+          ],
+          [
+            11.534849,
+            48.139753
+          ],
+          [
+            11.53485,
+            48.139808
+          ],
+          [
+            11.534926,
+            48.139845
+          ],
+          [
+            11.53564,
+            48.139825
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 60.4,
+      "duration": 27.5,
+      "distance": 113.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "v9sFgP___39IAgAA3QIAABQAAAAAAAAAXKbsQqYX8UGwjH9AAAAAAAcBAABKAQAACQAAAAAAAAC9AgAABwKwAEOM3gIHArAAQ4zeAgIAfxYAAAAA",
+      "location": [
+        11.534855,
+        48.139331
+      ],
+      "name": "Trappentreustraße",
+      "distance": 0
+    },
+    {
+      "hint": "4wcvgP___38GAQAAQQIAAAAAAAAAAAAA98xUQiHYfkIAAAAAAAAAAHYAAAAEAQAAAAAAAAAAAAC9AgAAGAWwADGO3gIYBbAAMI7eAgAAzwUAAAAA",
+      "location": [
+        11.53564,
+        48.139825
+      ],
+      "name": "Landsberger Straße",
+      "distance": 0.1111927541
+    }
+  ]
+}

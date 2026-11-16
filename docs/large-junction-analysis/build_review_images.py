@@ -14,6 +14,7 @@ from math import atan2, cos, degrees, hypot, radians
 from pathlib import Path
 
 from build_balan_pilot import visits
+from cycling_direction import bicycle_direction
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "review-batch-01-images"
@@ -63,7 +64,7 @@ def extract_gates(ways, polygon, project, road_way_ids=(), excluded=()):
         if w["id"] in excluded or not (cycling(w) or w["id"] in road_way_ids):
             continue
         points=[[v["lon"],v["lat"]] for v in w["geometry"]]
-        direction=w["tags"].get("oneway:bicycle",w["tags"].get("oneway","no"))
+        direction=bicycle_direction(w['tags'])
         if direction=="-1": points.reverse()
         for hit in visits(points,polygon,project):
             a,b=(project(points[hit["segmentIndex"]+j]) for j in (0,1))

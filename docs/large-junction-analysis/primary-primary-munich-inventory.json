@@ -1,0 +1,173 @@
+{
+  "sourceRetrievedAt": "2026-11-16T12:56:11.795860+00:00",
+  "rawNodes": 45,
+  "namedContactNodes": 12,
+  "namedComplexCandidates": 4,
+  "alreadyLive": 1,
+  "newCandidates": 3,
+  "omittedNodesWithoutTwoNamedPrimaryRoads": [
+    236836,
+    245372,
+    245397,
+    277395,
+    295576,
+    472171,
+    13665683,
+    13665733,
+    13888060,
+    16479924,
+    21092097,
+    21133358,
+    21151027,
+    21151028,
+    21411422,
+    29186798,
+    34485602,
+    87316096,
+    87316105,
+    158152767,
+    275450870,
+    417790816,
+    429610685,
+    444572754,
+    533923117,
+    743187977,
+    1561488418,
+    1816857266,
+    2000044329,
+    2000044335,
+    3499356779,
+    3605639961,
+    4635028628
+  ],
+  "policy": "Strict highway=primary; primary_link and trunk excluded. At least two distinct named primary roads; nearby contacts sharing two names grouped within 80m. Splits, unnamed connectors and ramps are not named crossings. Four cycling arms, grade separation and suitability require individual review. No completeness claim for unnamed primary roads.",
+  "candidates": [
+    {
+      "roadNames": [
+        "Menzinger Straße",
+        "Wintrichring"
+      ],
+      "locations": [
+        [
+          11.5070978,
+          48.1637759
+        ],
+        [
+          11.5069067,
+          48.1636653
+        ],
+        [
+          11.506969,
+          48.1638333
+        ]
+      ],
+      "nodeIds": [
+        245415,
+        564080,
+        11840625
+      ],
+      "origin": [
+        11.506991166666666,
+        48.16375816666667
+      ],
+      "nearbyCatalogIds": [
+        "menzinger-wintrich"
+      ],
+      "alreadyLive": true
+    },
+    {
+      "roadNames": [
+        "Landsberger Straße",
+        "Trappentreustraße"
+      ],
+      "locations": [
+        [
+          11.5340183,
+          48.1401475
+        ],
+        [
+          11.534072,
+          48.1399433
+        ]
+      ],
+      "nodeIds": [
+        295156,
+        286516174
+      ],
+      "origin": [
+        11.53404515,
+        48.1400454
+      ],
+      "nearbyCatalogIds": [],
+      "alreadyLive": false
+    },
+    {
+      "roadNames": [
+        "Ampfingstraße",
+        "Berg-am-Laim-Straße",
+        "Leuchtenbergring"
+      ],
+      "locations": [
+        [
+          11.6159103,
+          48.1310225
+        ],
+        [
+          11.6158441,
+          48.1308565
+        ],
+        [
+          11.6155742,
+          48.1310702
+        ]
+      ],
+      "nodeIds": [
+        428750,
+        17707821,
+        18327579
+      ],
+      "origin": [
+        11.615776199999999,
+        48.130983066666666
+      ],
+      "nearbyCatalogIds": [],
+      "alreadyLive": false
+    },
+    {
+      "roadNames": [
+        "Frankfurter Ring",
+        "Ingolstädter Straße"
+      ],
+      "locations": [
+        [
+          11.5843038,
+          48.1879547
+        ],
+        [
+          11.5843086,
+          48.1878078
+        ],
+        [
+          11.5844786,
+          48.187961
+        ],
+        [
+          11.584487,
+          48.1878135
+        ]
+      ],
+      "nodeIds": [
+        13665681,
+        13665748,
+        19369002,
+        19369004
+      ],
+      "origin": [
+        11.5843945,
+        48.187884249999996
+      ],
+      "nearbyCatalogIds": [],
+      "alreadyLive": false
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2725681467,
+              2036137355,
+              10222093844,
+              10222093852,
+              10222093845,
+              10222093846,
+              1597784325,
+              1597784319,
+              2816483011,
+              2816483012
+            ],
+            "distance": [
+              53.45174433,
+              2.996644319,
+              2.946993019,
+              1.978268779,
+              1.745031732,
+              2.155372382,
+              23.82520076,
+              22.62267127,
+              1.417447933
+            ]
+          },
+          "duration": 24.1,
+          "summary": "Ingolstädter Straße, Frankfurter Ring",
+          "weight": 53.5,
+          "distance": 113.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    357
+                  ],
+                  "location": [
+                    11.584692,
+                    48.187235
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.584653,
+                    48.187715
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584692,
+                    48.187235
+                  ],
+                  [
+                    11.584653,
+                    48.187715
+                  ],
+                  [
+                    11.584674,
+                    48.187738
+                  ],
+                  [
+                    11.5847,
+                    48.187758
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 357,
+                "bearing_before": 0,
+                "location": [
+                  11.584692,
+                  48.187235
+                ],
+                "type": "depart"
+              },
+              "name": "Ingolstädter Straße",
+              "mode": "cycling",
+              "weight": 29.5,
+              "duration": 13.5,
+              "distance": 59.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    135,
+                    210
+                  ],
+                  "location": [
+                    11.5847,
+                    48.187758
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    210,
+                    270
+                  ],
+                  "location": [
+                    11.585091,
+                    48.18779
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.585395,
+                    48.187797
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.5847,
+                    48.187758
+                  ],
+                  [
+                    11.584722,
+                    48.187768
+                  ],
+                  [
+                    11.584743,
+                    48.187775
+                  ],
+                  [
+                    11.584771,
+                    48.18778
+                  ],
+                  [
+                    11.585091,
+                    48.18779
+                  ],
+                  [
+                    11.585395,
+                    48.187797
+                  ],
+                  [
+                    11.585414,
+                    48.187798
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 74,
+                "bearing_before": 35,
+                "location": [
+                  11.5847,
+                  48.187758
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Frankfurter Ring",
+              "mode": "cycling",
+              "weight": 24,
+              "duration": 10.6,
+              "distance": 53.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    266
+                  ],
+                  "location": [
+                    11.585414,
+                    48.187798
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.585414,
+                    48.187798
+                  ],
+                  [
+                    11.585414,
+                    48.187798
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 86,
+                "location": [
+                  11.585414,
+                  48.187798
+                ],
+                "type": "arrive"
+              },
+              "name": "Frankfurter Ring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.584692,
+            48.187235
+          ],
+          [
+            11.584653,
+            48.187715
+          ],
+          [
+            11.584674,
+            48.187738
+          ],
+          [
+            11.5847,
+            48.187758
+          ],
+          [
+            11.584722,
+            48.187768
+          ],
+          [
+            11.584743,
+            48.187775
+          ],
+          [
+            11.584771,
+            48.18778
+          ],
+          [
+            11.585091,
+            48.18779
+          ],
+          [
+            11.585395,
+            48.187797
+          ],
+          [
+            11.585414,
+            48.187798
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 53.5,
+      "duration": 24.1,
+      "distance": 113.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "EKEvgP___38PAAAA_QAAAAAAAAAAAAAATNBcQJbOVUIAAAAAAAAAAAYAAAByAAAAAAAAAAAAAAC9AgAAtMSwAGNH3wK0xLAAY0ffAgAATxYAAAAA",
+      "location": [
+        11.584692,
+        48.187235
+      ],
+      "name": "Ingolstädter Straße",
+      "distance": 0
+    },
+    {
+      "hint": "JKEvgCahL4AGAAAA5AEAAAAAAAAAAAAA7261P9Ny7EEAAAAAAAAAAAIAAAALAQAAAAAAAAAAAAC9AgAAhsewAJZJ3wKGx7AAlUnfAgAAfwUAAAAA",
+      "location": [
+        11.585414,
+        48.187798
+      ],
+      "name": "Frankfurter Ring",
+      "distance": 0.1111937254
+    }
+  ]
+}

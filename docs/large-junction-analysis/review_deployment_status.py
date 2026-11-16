@@ -15,6 +15,8 @@ def status_for(site, state, technical=None):
         text, css = 'Ausgeschlossen · nicht deployed', 'excluded'
     elif site['status'] == 'excluded':
         text, css = 'Ausgeschlossen · nicht deployed', 'excluded'
+    elif site['status'] == 'inventory-open':
+        text, css = 'Offen · noch ohne Geometrie', 'excluded'
     elif site['status'] == 'geometry-draft':
         text, css = 'Korrigierter Entwurf · nicht deployed', 'pending'
     elif site['status'] != 'geometry-approved':
@@ -46,6 +48,8 @@ def status_for(site, state, technical=None):
         tech = f'{count} aktive Beziehungen im Live-Katalog'
     elif site['status'] == 'geometry-approved':
         tech = 'Technische Prüfung ausstehend'
+    elif site['status'] == 'inventory-open':
+        tech = 'Geometrie- und technische Prüfung ausstehend'
     elif site['status'] == 'geometry-draft':
         tech = 'Geometrie geändert; bisherige technische Prüfung gilt nicht für diese Revision'
     else:

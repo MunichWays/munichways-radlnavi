@@ -1,0 +1,988 @@
+{
+  "version": 1,
+  "status": "complete",
+  "completedAt": "2026-11-16T16:31:23.063770+00:00",
+  "runtimeModified": false,
+  "junctions": [
+    {
+      "id": "dachauer-georg-brauchle",
+      "number": 38,
+      "geometryRevision": 2,
+      "status": "complete",
+      "fixtureDirectory": "batch-07",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Georg-Brauchle Nordost": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Dachauer Suedost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Wintrich Suedwest": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Dachauer Nordwest": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.523746021920417,
+            48.176183675854425
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.523564105955307,
+            48.17521325196955
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.523408214664515,
+            48.174864530220596
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.520861529495372,
+            48.17494577325592
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.520390021731886,
+            48.17516158697732
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.520405322580151,
+            48.17634324945529
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.521156509625477,
+            48.176459382485035
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.52284112537015,
+            48.176422432066175
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522841125,48.176422432;11.523408215,48.174864530?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            375059113,
+            1021657478,
+            1021657479,
+            1021657489,
+            1021657490
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522841125,48.176422432;11.520390022,48.175161587?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            89572084,
+            1021657478,
+            1021657479,
+            1021657480
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "dachauer-georg-brauchle-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.522841125,48.176422432;11.521156510,48.176459382?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            1021657478,
+            1021657483
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "dachauer-georg-brauchle-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523564106,48.175213252;11.523746022,48.176183676?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            89572161,
+            310844454,
+            1081564275
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523564106,48.175213252;11.520390022,48.175161587?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            89572084,
+            310844454,
+            1021657479,
+            1021657480,
+            1021657484,
+            1021657485
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.523564106,48.175213252;11.521156510,48.176459382?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            310844454,
+            1021657483,
+            1021657484,
+            1021657485
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520861529,48.174945773;11.523746022,48.176183676?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            169525016,
+            1021657486,
+            1021657487,
+            1021657488,
+            1081564275
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "dachauer-georg-brauchle-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520861529,48.174945773;11.523408215,48.174864530?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            89572160,
+            169525016,
+            375059113
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520861529,48.174945773;11.521156510,48.176459382?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            169525016,
+            1021657483,
+            1021657484,
+            1021657487,
+            1021657488
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520405323,48.176343249;11.523746022,48.176183676?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            1021657481,
+            1021657482,
+            1021657486,
+            1021657487,
+            1021657489,
+            1081564275
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "dachauer-georg-brauchle-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520405323,48.176343249;11.523408215,48.174864530?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            375059113,
+            1021657481,
+            1021657482,
+            1021657489,
+            1021657490
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "dachauer-georg-brauchle",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "dachauer-georg-brauchle-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.520405323,48.176343249;11.520390022,48.175161587?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            89572084,
+            89572382,
+            1021657481
+          ]
+        }
+      ]
+    },
+    {
+      "id": "innsbrucker-bad-schachener",
+      "number": 40,
+      "geometryRevision": 1,
+      "status": "complete",
+      "fixtureDirectory": "batch-07",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Innsbrucker Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Bad-Schachener Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Innsbrucker Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Bad-Schachener West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.620529543224762,
+            48.12100332340391
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.621234477948393,
+            48.12044994795054
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.621110741409709,
+            48.12015800898767
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.620020512706628,
+            48.11974024455123
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.619656991610347,
+            48.11974266349712
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.619164881075847,
+            48.120254711858415
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.619263877723531,
+            48.12055240532191
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.620174610118461,
+            48.120993258621645
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.620174610,48.120993259;11.621110741,48.120158009?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822174,
+            26822175,
+            512880877,
+            512880878,
+            512880879
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.620174610,48.120993259;11.619656992,48.119742663?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822174,
+            225735297,
+            512880877
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "innsbrucker-bad-schachener-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.620174610,48.120993259;11.619263878,48.120552405?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822174,
+            168608669
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "innsbrucker-bad-schachener-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.621234478,48.120449948;11.620529543,48.121003323?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822135,
+            512880880,
+            512880882
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.621234478,48.120449948;11.619656992,48.119742663?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            225735297,
+            512880877,
+            512880880,
+            512880881,
+            512880882
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.621234478,48.120449948;11.619263878,48.120552405?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            168608669,
+            512880880,
+            512880881,
+            512880882
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.620020513,48.119740245;11.620529543,48.121003323?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822135,
+            26822175,
+            230122237,
+            512880880
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "innsbrucker-bad-schachener-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.620020513,48.119740245;11.621110741,48.120158009?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822175,
+            512880878
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.620020513,48.119740245;11.619263878,48.120552405?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822175,
+            168608669,
+            230122237,
+            512880880,
+            512880881
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.619164881,48.120254712;11.620529543,48.121003323?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822135,
+            26822175,
+            230122237,
+            371849831,
+            512880879,
+            512880880
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "innsbrucker-bad-schachener-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.619164881,48.120254712;11.621110741,48.120158009?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            26822175,
+            371849831,
+            512880878,
+            512880879
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "innsbrucker-bad-schachener",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "innsbrucker-bad-schachener-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.619164881,48.120254712;11.619656992,48.119742663?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            225735297,
+            371849831
+          ]
+        }
+      ]
+    },
+    {
+      "id": "candid-gruenwalder",
+      "number": 41,
+      "geometryRevision": 2,
+      "status": "complete",
+      "fixtureDirectory": "batch-07",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Tegernseer Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Tegernseer Suedost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Gruenwalder Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Candid West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.576642711512942,
+            48.11223513882779
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.577210573316357,
+            48.111341370701176
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.576953358553512,
+            48.111167448151974
+          ],
+          "distanceMeters": 35
+        },
+        "Entry-2": {
+          "sample": [
+            11.57608065970103,
+            48.11090677340074
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.57567039708551,
+            48.11099780844649
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.575191577940993,
+            48.11168926345957
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.575233980715723,
+            48.11200234023177
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.57607570524231,
+            48.11235316484848
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "candid-gruenwalder-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576075705,48.112353165;11.576953359,48.111167448?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358536,
+            370672253,
+            377844904,
+            380104597,
+            380104599,
+            1056268251,
+            1056268252,
+            1056268254,
+            1534973622
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "candid-gruenwalder-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576075705,48.112353165;11.575670397,48.110997808?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358532,
+            321358536,
+            380104599,
+            1056268252,
+            1056268254
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "candid-gruenwalder-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576075705,48.112353165;11.575233981,48.112002340?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358533,
+            380104599
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "candid-gruenwalder-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.577210573,48.111341371;11.576642712,48.112235139?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "reason": "ValueError: Routing endpoint snapped over 5m"
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": false,
+          "fixture": "candid-gruenwalder-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.577210573,48.111341371;11.575670397,48.110997808?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "explicitlyExcluded": true,
+          "permanent": true,
+          "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+          "exclusionReview": {
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-3",
+            "permanent": true,
+            "reviewer": "Thomas",
+            "date": "2026-11-16",
+            "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+            "cause": "class:bicycle=-3",
+            "causeEvidence": "Von Thomas als Ursache bestaetigt; am zufuehrenden OSM-Weg 33196720 im eingefrorenen Stand vorhanden."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": false,
+          "fixture": "candid-gruenwalder-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.577210573,48.111341371;11.575233981,48.112002340?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "explicitlyExcluded": true,
+          "permanent": true,
+          "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+          "exclusionReview": {
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-4",
+            "permanent": true,
+            "reviewer": "Thomas",
+            "date": "2026-11-16",
+            "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+            "cause": "class:bicycle=-3",
+            "causeEvidence": "Von Thomas als Ursache bestaetigt; am zufuehrenden OSM-Weg 33196720 im eingefrorenen Stand vorhanden."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "candid-gruenwalder-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576080660,48.110906773;11.576642712,48.112235139?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358534,
+            366214837,
+            374444513
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "candid-gruenwalder-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576080660,48.110906773;11.576953359,48.111167448?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            374444513,
+            377844904,
+            380104597,
+            1534973622
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "candid-gruenwalder-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.576080660,48.110906773;11.575233981,48.112002340?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358533,
+            321358534,
+            321358537,
+            374444513,
+            1056268253
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "candid-gruenwalder-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.575191578,48.111689263;11.576642712,48.112235139?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358534,
+            338689914,
+            366214837,
+            370672253,
+            1056268251
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "candid-gruenwalder-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.575191578,48.111689263;11.576953359,48.111167448?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            338689914,
+            370672253,
+            377844904,
+            380104597,
+            1056268251,
+            1534973622
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "candid-gruenwalder",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "candid-gruenwalder-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.575191578,48.111689263;11.575670397,48.110997808?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            321358532,
+            338689914
+          ]
+        }
+      ]
+    }
+  ],
+  "fullCatalogChecks": {
+    "positive": 22,
+    "rightTurnControls": 12,
+    "walkingControls": 22
+  }
+}

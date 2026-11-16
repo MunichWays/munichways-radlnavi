@@ -1,0 +1,300 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2614030219,
+              2587257173,
+              2614030199,
+              2614030191,
+              2614030165,
+              445818471,
+              2614030140,
+              455927511,
+              2611762947,
+              445818472,
+              2817755170
+            ],
+            "distance": [
+              15.32716025,
+              11.89579023,
+              12.69694035,
+              7.492305655,
+              7.907161868,
+              4.564370058,
+              6.478093914,
+              23.28861917,
+              19.38323732,
+              2.110636384
+            ]
+          },
+          "duration": 24.3,
+          "summary": "Grünwalder Straße",
+          "weight": 42.6,
+          "distance": 111.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    110
+                  ],
+                  "location": [
+                    11.575192,
+                    48.111689
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575192,
+                    48.111689
+                  ],
+                  [
+                    11.575385,
+                    48.111641
+                  ],
+                  [
+                    11.575536,
+                    48.111606
+                  ],
+                  [
+                    11.575694,
+                    48.111563
+                  ],
+                  [
+                    11.57578,
+                    48.111528
+                  ],
+                  [
+                    11.575861,
+                    48.111482
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 110,
+                "bearing_before": 0,
+                "location": [
+                  11.575192,
+                  48.111689
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 17.8,
+              "duration": 13.1,
+              "distance": 55.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    120,
+                    195,
+                    255,
+                    315
+                  ],
+                  "location": [
+                    11.575861,
+                    48.111482
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575861,
+                    48.111482
+                  ],
+                  [
+                    11.575858,
+                    48.111441
+                  ],
+                  [
+                    11.57584,
+                    48.111384
+                  ],
+                  [
+                    11.575763,
+                    48.111181
+                  ],
+                  [
+                    11.575679,
+                    48.111016
+                  ],
+                  [
+                    11.57567,
+                    48.110998
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 187,
+                "bearing_before": 126,
+                "location": [
+                  11.575861,
+                  48.111482
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Grünwalder Straße",
+              "mode": "cycling",
+              "weight": 24.8,
+              "duration": 11.2,
+              "distance": 55.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    19
+                  ],
+                  "location": [
+                    11.57567,
+                    48.110998
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.57567,
+                    48.110998
+                  ],
+                  [
+                    11.57567,
+                    48.110998
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 199,
+                "location": [
+                  11.57567,
+                  48.110998
+                ],
+                "type": "arrive"
+              },
+              "name": "Grünwalder Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.575192,
+            48.111689
+          ],
+          [
+            11.575385,
+            48.111641
+          ],
+          [
+            11.575536,
+            48.111606
+          ],
+          [
+            11.575694,
+            48.111563
+          ],
+          [
+            11.57578,
+            48.111528
+          ],
+          [
+            11.575861,
+            48.111482
+          ],
+          [
+            11.575858,
+            48.111441
+          ],
+          [
+            11.57584,
+            48.111384
+          ],
+          [
+            11.575763,
+            48.111181
+          ],
+          [
+            11.575679,
+            48.111016
+          ],
+          [
+            11.57567,
+            48.110998
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 42.6,
+      "duration": 24.3,
+      "distance": 111.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "TGYZgP___38HAAAALgAAAL0AAABlAAAAQ487QAw8dUFegpdCA_gfQgUAAAAlAAAAmAAAAFAAAAC9AgAAmJ-wAEkg3gKYn7AASSDeAgYA7wYAAAAA",
+      "location": [
+        11.575192,
+        48.111689
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "KBgDgP___38JAAAAjQAAAO8AAAAAAAAAqxQHQEMo7UF421ZCAAAAAAQAAABAAAAAbAAAAAAAAAC9AgAAdqGwAJYd3gJ2obAAlh3eAggAXwwAAAAA",
+      "location": [
+        11.57567,
+        48.110998
+      ],
+      "name": "Grünwalder Straße",
+      "distance": 0
+    }
+  ]
+}

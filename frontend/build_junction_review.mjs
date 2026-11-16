@@ -22,6 +22,11 @@ if (fs.existsSync(source)) {
       copy(path.join(source, entry.name), path.join(target, entry.name));
     }
   }
+  // Public priority overview; no frozen routing or OSM extracts are published.
+  for (const name of ['outgoing-lanes-munich.html', 'outgoing-lanes-munich-inventory.json']) {
+    const from = path.join(source, name);
+    if (fs.existsSync(from)) fs.copyFileSync(from, path.join(target, name));
+  }
   // The first review gallery links its public release notes.
   fs.copyFileSync(path.join(source, 'review-batch-01-release.md'),
     path.join(target, 'review-batch-01-release.md'));

@@ -1,21 +1,35 @@
 # Stand der Kreuzungsprüfung
 
-Stand: 15.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html), der verifizierte Produktionsstand und die Live-Prüfungen.
+Stand: 16.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html), der verifizierte Produktionsstand und die Live-Prüfungen.
 
 | Kategorie | Anzahl |
 | --- | --- |
-| Erfasste Standorte einschließlich Piloten und früherer Ausschlüsse | 39 |
-| Geometrisch bestätigt | 27 |
-| Offen | 0 |
-| Ausgeschlossen / dauerhaft zurückgestellt | 12 |
+| Erfasste Standorte einschließlich Piloten und früherer Ausschlüsse | 98 |
+| Geometrisch bestätigt | 34 |
+| Offen | 51 |
+| Ausgeschlossen / dauerhaft zurückgestellt | 13 |
 | Aktive Kreuzungen live | 26 |
 | Aktive Fahrbeziehungen im Live-Katalog | 225 |
+
+Aktueller Release vorbereitet: Backend **2.4.16**, Katalog **v16**, **34 aktive Kreuzungen / 281 Beziehungen**. K18 v5 mit acht Beziehungen sowie K34–K38/K40/K41 eingeschlossen. K39 bleibt dauerhaft ausgeschlossen; beide K18-Entry-3- und K41-Entry-1-Ausnahmen bleiben deaktiviert. 173 Backend-Tests, 68 Review-Tests und sieben Frontend-Routingtests bestanden. Deployment/Live-Abgleich folgen.
+
+### Bisheriger verifizierter Live-Stand und Arbeitsverlauf
 
 Backend **2.4.15**, Commit `701896122a18dcf2cbf279adf0a581bf8bab859a`, Katalog `munich-big-junctions-v13` ist nachgewiesen live. Der Backend-Workflow 43758056013 ist erfolgreich abgeschlossen, einschließlich Direct und Entdeckertour. K24 (15 Beziehungen), K30 (3) und K33 (8) sind jetzt live.
 
 45 Live-Prüfungen für K24/K30/K33 bestanden, einschließlich Rechtskontrollen, ausgeschlossener Beziehungen und Legacy-Rückfall. Die optionalen Kreuzungsdaten ändern die normale Live-Route nicht. [Live-Belege](review-release-2.4.15-live-checks.json). 168 Backend-Tests und 57 Review-Prüfungen bestanden. Das ersetzt keine Praxistest-Freigabe der neuen Kreuzungen.
 
 K30 Entry-4 nach Exit-3 bleibt ausdrücklich ohne Kreuzungsansage. K31 und K32 sind dauerhaft ausgeschlossen; die bestehenden Ausschlüsse K13/K21 bleiben erhalten. Einzelne ausgesparte Fahrbeziehungen verwenden weiterhin Standardhinweise.
+
+K34 v1, K35 v3 (West), K36 v1 und K37 v2 (Ost) sind technisch geprüft und im lokalen Branch für Backend **2.4.16**, Katalog **v14**, aktiviert: **30 Kreuzungen / 251 Beziehungen**. Noch kein Commit und kein Deployment. Neue Beziehungen: 8 + 5 + 8 + 5 = 26. Alle 38 einzelnen Standardrouten, 26 Fußkontrollen und zwei durchgehende Routen durch beide Teilkreuzungen bestanden; normale Routendaten bleiben unverändert. [Technischer Bericht](review-batch-06-primary-technical.md). Der nachgewiesene Live-Stand bleibt 2.4.15 / 26 Kreuzungen / 225 Beziehungen.
+
+Primary/Secondary-Prioritätsliste: Alle 55 bisher nicht zugeordneten Vierarm-Kandidaten sind offen erfasst, ohne bestehende Freigaben oder Ausschlüsse zu ändern. K38–K41 haben ungeprüfte Flächen/Bilder (12, 11, 10, 10 ausgehende Kfz-Spuren). Die übrigen 51 Einträge sind reine Texte ohne Geometrie oder Bildlink. 13 der 55 Kandidaten fehlen noch vollständige Richtungs-Spurzahlen. Die 145 weiteren uneindeutigen Kontaktgruppen bleiben im Rohinventar und sind keine als Vierarmknoten identifizierten Kreuzungen. [Neue Bildrunde](review-batch-07-lanes-images/index.html). Aktueller Aktivierungsstand siehe nachfolgend.
+
+K38 v2, K40 v1 und K41 v2 von Thomas geometrisch freigegeben. K39 v1 dauerhaft ausgeschlossen: komplexe Wegebeziehungen und Zweirichtungsradwege, 2026 im Umbau. Technische Pruefung: K38 und K40 jeweils 8/8 Links-/Geradeausbeziehungen bestanden; K41 6/8. Entry-1 nach Exit-3/Exit-4 sind von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Das Routing weicht auf andere Anschluesse aus; normale Ansagen bleiben. Anschliessend von Thomas ausdruecklich aktiviert: K38 acht, K40 acht, K41 sechs Beziehungen. Lokaler Branch fuer Backend 2.4.16, Katalog v15: 33 aktive Kreuzungen / 273 Beziehungen. K39 und beide K41-Ausschluesse unveraendert. Noch kein Commit/Deployment.
+
+K18 am 16.11.2026 erneut aus OSM geladen: v4-Entwurf stellt Guntherstrassen-Entry-2 auf Weg 1391209196 wieder her (bicycle=designated, cycleway:oneway=yes). Kein neuer Exit; Flaeche und alle bisherigen Gates unveraendert. v3-Freigabe archiviert, v4 zur Sichtpruefung offen und nicht aktiviert. Andere Kreuzungen unveraendert.
+
+K18 anschliessend als v5 von Thomas bestaetigt: Entry-5 entfernt (nur rechts), Exit-4 bleibt. Entry-2/Entry-3 sind derselbe logische Suedarm mit geradeaus zu Exit-1 und links zu Exit-4. Technisch 8/10 Links-/Geradeausbeziehungen und 5/5 Rechtskontrollen bestanden. Die beiden Entry-3-Referenzen kehren ausserhalb der Flaeche um und queren ueber Entry-2, auch bei naeherem Start und angefragter Nordrichtung. Sie bleiben im Vorschlag einzeln unbestaetigt; normale Ansagen bleiben. Kein Runtime-Katalog geaendert. [Technischer Bericht](review-k18-technical.md).
 
 ## Historischer Verlauf vor diesem Release
 

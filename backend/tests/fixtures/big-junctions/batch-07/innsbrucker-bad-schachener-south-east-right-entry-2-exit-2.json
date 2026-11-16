@@ -1,0 +1,257 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1015613011,
+              294225352,
+              10186515259,
+              294225355,
+              1191062679
+            ],
+            "distance": [
+              10.16856787,
+              43.83055795,
+              3.616673722,
+              56.07772464
+            ]
+          },
+          "duration": 25.2,
+          "summary": "Innsbrucker Ring, Bad-Schachener-Straße",
+          "weight": 55.6,
+          "distance": 113.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    23
+                  ],
+                  "location": [
+                    11.62002,
+                    48.11974
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    270
+                  ],
+                  "location": [
+                    11.620339,
+                    48.120176
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.62002,
+                    48.11974
+                  ],
+                  [
+                    11.620074,
+                    48.119824
+                  ],
+                  [
+                    11.620339,
+                    48.120176
+                  ],
+                  [
+                    11.620361,
+                    48.120205
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 23,
+                "bearing_before": 0,
+                "location": [
+                  11.62002,
+                  48.11974
+                ],
+                "type": "depart"
+              },
+              "name": "Innsbrucker Ring",
+              "mode": "cycling",
+              "weight": 30.7,
+              "duration": 14.1,
+              "distance": 57.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    210
+                  ],
+                  "location": [
+                    11.620361,
+                    48.120205
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.620361,
+                    48.120205
+                  ],
+                  [
+                    11.621111,
+                    48.120158
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 95,
+                "bearing_before": 26,
+                "location": [
+                  11.620361,
+                  48.120205
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 24.9,
+              "duration": 11.1,
+              "distance": 56.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    275
+                  ],
+                  "location": [
+                    11.621111,
+                    48.120158
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.621111,
+                    48.120158
+                  ],
+                  [
+                    11.621111,
+                    48.120158
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 95,
+                "location": [
+                  11.621111,
+                  48.120158
+                ],
+                "type": "arrive"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.62002,
+            48.11974
+          ],
+          [
+            11.620074,
+            48.119824
+          ],
+          [
+            11.620339,
+            48.120176
+          ],
+          [
+            11.620361,
+            48.120205
+          ],
+          [
+            11.621111,
+            48.120158
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 55.6,
+      "duration": 25.2,
+      "distance": 113.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "xdsCgP___3_lAAAAEwEAAFsCAADDAAAAr5VOQnSyIkGEuAdDflIvQmcAAAB8AAAADwEAAFgAAAC9AgAAtE6xALw_3gK1TrEAvD_eAgIAfwEAAAAA",
+      "location": [
+        11.62002,
+        48.11974
+      ],
+      "name": "Innsbrucker Ring",
+      "distance": 0.0744449028
+    },
+    {
+      "hint": "BJcXgP___3_5AAAAKwEAAAAAAAAtAAAAl09gQo0yMkEAAAAADs0gQW8AAACGAAAAAAAAABQAAAC9AgAA91KxAF5B3gL3UrEAXkHeAgAA_wUAAAAA",
+      "location": [
+        11.621111,
+        48.120158
+      ],
+      "name": "Bad-Schachener-Straße",
+      "distance": 0
+    }
+  ]
+}

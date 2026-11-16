@@ -1,0 +1,422 @@
+{
+  "version": 1,
+  "enabled": false,
+  "sourceSnapshot": "primary-primary-context-osm.json.gz",
+  "scope": "K34-K37 human geometry approved and technically verified; activated in local branch, not deployed.",
+  "sites": [
+    {
+      "id": "frankfurter-ingolstaedter",
+      "number": 34,
+      "version": 1,
+      "name": "Frankfurter Ring / Ingolstädter Straße",
+      "origin": [
+        11.58439,
+        48.18788
+      ],
+      "polygon": [
+        [
+          11.584015306455832,
+          48.187961935106
+        ],
+        [
+          11.584034106455833,
+          48.187685535106006
+        ],
+        [
+          11.584064306455833,
+          48.187627335106
+        ],
+        [
+          11.584279893544167,
+          48.187627335106
+        ],
+        [
+          11.584600793544167,
+          48.187637135106
+        ],
+        [
+          11.584760793544167,
+          48.187643435106004
+        ],
+        [
+          11.584807893544166,
+          48.187685835106
+        ],
+        [
+          11.584807893544166,
+          48.187829564893995
+        ],
+        [
+          11.584805493544167,
+          48.187892164893995
+        ],
+        [
+          11.584789493544168,
+          48.188098064894
+        ],
+        [
+          11.584734893544168,
+          48.188130564893996
+        ],
+        [
+          11.584519306455833,
+          48.188130564893996
+        ],
+        [
+          11.584027706455833,
+          48.188117064893994
+        ],
+        [
+          11.584015306455832,
+          48.188105664893996
+        ],
+        [
+          11.584015306455832,
+          48.187961935106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        13665681,
+        13665748,
+        19369002,
+        19369004
+      ],
+      "note": "Vierarmiger oberirdischer Radweg-Knoten. Geometrie freigegeben. Die Brückenfahrbahn des Frankfurter Rings liefert keinen zusätzlichen Radverkehrsarm. Benachbarte Zufahrten bleiben außerhalb.",
+      "proposedLogicalArms": {
+        "Ingolstaedter Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Frankfurter Ring Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Ingolstaedter Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Frankfurter Ring West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "K34 und K36 passen, freigegeben.",
+        "geometrySha256": "330325ee7035efa81bd652bd476a8fce80b3e08647bd974e73da9500a37061ac",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "technicalReport": "review-batch-06-primary-routes.json",
+          "evidence": "Thomas authorized activation after successful technical checks; all planned left/straight routes passed. Local branch only, not deployed.",
+          "backendVersion": "2.4.16"
+        }
+      }
+    },
+    {
+      "id": "landsberger-trappentreu",
+      "number": 35,
+      "version": 3,
+      "name": "Landsberger Straße / Trappentreustraße / Donnersbergerbrücke (West)",
+      "origin": [
+        11.53402,
+        48.14005
+      ],
+      "polygon": [
+        [
+          11.533717106955997,
+          48.140135435106004
+        ],
+        [
+          11.533827606955997,
+          48.13981343510601
+        ],
+        [
+          11.533874306955997,
+          48.13979093510601
+        ],
+        [
+          11.53416,
+          48.13977280369997
+        ],
+        [
+          11.53416,
+          48.14029961759533
+        ],
+        [
+          11.533993393044003,
+          48.140310564893994
+        ],
+        [
+          11.533778006955998,
+          48.140310564893994
+        ],
+        [
+          11.533717106955997,
+          48.140279164894
+        ],
+        [
+          11.533717106955997,
+          48.140135435106004
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        295156,
+        286516174
+      ],
+      "note": "Westlicher Teil von K35 v1. Getrennte Flaeche; Verbindung zu K37 oben westwaerts (Entry-5), unten ostwaerts (Exit-5). Drei Entries und drei Exits. Aeussere Punktnamen bleiben erhalten. Geometrie freigegeben; technische Pruefung bestanden. Innere Grenze und Verbindungspunkte um etwa 12 m zur eigenen Teilkreuzung verschoben; Abstand der Flaechen jetzt etwa 36 m.",
+      "proposedLogicalArms": {
+        "Nord": [
+          "Entry-4"
+        ],
+        "Ost": [
+          "Entry-5",
+          "Exit-5"
+        ],
+        "Sued": [
+          "Exit-3"
+        ],
+        "West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "preservedLabels": {
+        "342896111:exit": "Exit-1",
+        "1305312122:entry": "Entry-1",
+        "1305312124:exit": "Exit-2",
+        "415790796:entry": "Entry-2",
+        "415790795:exit": "Exit-3",
+        "342896115:entry": "Entry-3",
+        "344303344:exit": "Exit-4",
+        "61729254:entry": "Entry-4",
+        "946928532:entry": "Entry-5",
+        "211464646:exit": "Exit-5"
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "perfekt, jetzt fuer alle 4 Kreuzungen technischer test und wenn OK aktivieren. Noch kein commit",
+        "geometrySha256": "2fcc0b2686403bdea41f614b97b4bb7b2307b40883c2c0c1bca1fe1119531f69",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 5,
+          "technicalReport": "review-batch-06-primary-routes.json",
+          "evidence": "Thomas authorized activation after successful technical checks; all planned left/straight routes passed. Local branch only, not deployed.",
+          "backendVersion": "2.4.16"
+        }
+      }
+    },
+    {
+      "id": "berg-am-laim-leuchtenberg",
+      "number": 36,
+      "version": 1,
+      "name": "Berg-am-Laim-Straße / Leuchtenbergring / Ampfingstraße",
+      "origin": [
+        11.61578,
+        48.13099
+      ],
+      "polygon": [
+        [
+          11.615299425925855,
+          48.130804135106004
+        ],
+        [
+          11.615407325925855,
+          48.130774035106
+        ],
+        [
+          11.615713725925854,
+          48.130727435106
+        ],
+        [
+          11.615929074074145,
+          48.130727435106
+        ],
+        [
+          11.616019374074146,
+          48.130729235106
+        ],
+        [
+          11.616107374074145,
+          48.130985135106
+        ],
+        [
+          11.616107374074145,
+          48.131128864893995
+        ],
+        [
+          11.616092974074146,
+          48.131289264893994
+        ],
+        [
+          11.615877625925854,
+          48.131289264893994
+        ],
+        [
+          11.615393625925854,
+          48.13119436489399
+        ],
+        [
+          11.615299425925855,
+          48.130947864894
+        ],
+        [
+          11.615299425925855,
+          48.130804135106004
+        ]
+      ],
+      "onRoadWayIds": [
+        796891858
+      ],
+      "candidateNodeIds": [
+        428750,
+        18327579,
+        17707821
+      ],
+      "note": "Nur oberirdischer Radverkehrsknoten; Innsbrucker-Ring-Tunnel ausgeschlossen. Ausgang nach Norden: separater Radweg geht in Radfahrstreifen auf Leuchtenbergring über. Geometrie freigegeben. Riedgaustraße und Annabrunner Straße bleiben außerhalb.",
+      "proposedLogicalArms": {
+        "Leuchtenbergring Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Berg-am-Laim Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Ampfingstrasse Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Berg-am-Laim West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "K34 und K36 passen, freigegeben.",
+        "geometrySha256": "f8c78e51257cb0832e0b406b41b448cff84626de5ccaa5fa1de82d68c1744b4b",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "technicalReport": "review-batch-06-primary-routes.json",
+          "evidence": "Thomas authorized activation after successful technical checks; all planned left/straight routes passed. Local branch only, not deployed.",
+          "backendVersion": "2.4.16"
+        }
+      }
+    },
+    {
+      "id": "landsberger-trappentreu-ost",
+      "number": 37,
+      "version": 2,
+      "name": "Landsberger Straße / Trappentreustraße / Donnersbergerbrücke (Ost)",
+      "origin": [
+        11.53482,
+        48.14002
+      ],
+      "polygon": [
+        [
+          11.53465,
+          48.13974170602661
+        ],
+        [
+          11.534742506955997,
+          48.139735835106
+        ],
+        [
+          11.534957893044002,
+          48.139735835106
+        ],
+        [
+          11.535033793044002,
+          48.139772635106006
+        ],
+        [
+          11.535033793044002,
+          48.139916364894
+        ],
+        [
+          11.534982893044003,
+          48.140229564894
+        ],
+        [
+          11.534938493044002,
+          48.14024846489399
+        ],
+        [
+          11.53465,
+          48.14026742100238
+        ],
+        [
+          11.53465,
+          48.13974170602661
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        295156,
+        286516174
+      ],
+      "note": "Oestlicher Teil von K35 v1, neue Nummer K37. Verbindung zu K35 oben westwaerts (Exit-5), unten ostwaerts (Entry-5). Drei Entries und drei Exits. Aeussere Punktnamen bleiben erhalten. Geometrie freigegeben; technische Pruefung bestanden. Innere Grenze und Verbindungspunkte um etwa 12 m zur eigenen Teilkreuzung verschoben; Abstand der Flaechen jetzt etwa 36 m.",
+      "proposedLogicalArms": {
+        "Nord": [
+          "Exit-1"
+        ],
+        "Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Sued": [
+          "Entry-2"
+        ],
+        "West": [
+          "Entry-5",
+          "Exit-5"
+        ]
+      },
+      "sourceId": "landsberger-trappentreu",
+      "preservedLabels": {
+        "342896111:exit": "Exit-1",
+        "1305312122:entry": "Entry-1",
+        "1305312124:exit": "Exit-2",
+        "415790796:entry": "Entry-2",
+        "415790795:exit": "Exit-3",
+        "342896115:entry": "Entry-3",
+        "344303344:exit": "Exit-4",
+        "61729254:entry": "Entry-4",
+        "946928532:exit": "Exit-5",
+        "211464646:entry": "Entry-5"
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "perfekt, jetzt fuer alle 4 Kreuzungen technischer test und wenn OK aktivieren. Noch kein commit",
+        "geometrySha256": "1d6b9d86e7dad3608729c85e7a1c157101135edf634e7d0505958f1eddacbedb",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 5,
+          "technicalReport": "review-batch-06-primary-routes.json",
+          "evidence": "Thomas authorized activation after successful technical checks; all planned left/straight routes passed. Local branch only, not deployed.",
+          "backendVersion": "2.4.16"
+        }
+      }
+    }
+  ]
+}

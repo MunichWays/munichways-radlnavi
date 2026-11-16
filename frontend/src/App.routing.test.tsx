@@ -18,6 +18,7 @@ const mockMap = {
   off: jest.fn(), getZoom: () => 16,
   removeLayer: jest.fn(),
   invalidateSize: jest.fn(), setBearing: jest.fn(), fitBounds: jest.fn(),
+  setView: jest.fn(),
 };
 const mockStreetSearch = jest.fn().mockResolvedValue({ manifest: { retrievedAt: '2026-10-31' }, candidates: [] });
 jest.mock('./PriorityNetworkLayer', () => ({ __esModule: true, default: ({ visible, source }: any) =>
@@ -146,9 +147,11 @@ test("coordinate selections retain exact start and destination alongside address
     expect(await screen.findByRole("option", { name: "48.145548, 11.519868" })).toBeInTheDocument();
     expect(await screen.findByRole("option", { name: "Adresse in der Nähe" }, { timeout: 3000 })).toBeInTheDocument();
     fireEvent.click(screen.getByRole("option", { name: "48.145548, 11.519868" }));
+    expect(mockMap.setView).toHaveBeenLastCalledWith([48.145548, 11.519868], 16);
     const end = screen.getByRole("combobox", { name: "Ziel" });
     fireEvent.change(end, { target: { value: "[48.145143, 11.526294]" } });
     fireEvent.click(await screen.findByRole("option", { name: "48.145143, 11.526294" }));
+    expect(mockMap.setView).toHaveBeenLastCalledWith([48.145143, 11.526294], 16);
     await waitFor(() => expect(requests.some(url => url.includes(
       "/route/v1/bike/11.519868,48.145548;11.526294,48.145143"
     ))).toBe(true), { timeout: 5000 });

@@ -17,6 +17,8 @@ def status_for(site, state, technical=None):
         text, css = 'Ausgeschlossen · nicht deployed', 'excluded'
     elif site['status'] == 'inventory-open':
         text, css = 'Offen · noch ohne Geometrie', 'excluded'
+    elif site['status'] == 'deferred':
+        text, css = 'Zurückgestellt · ungeprüft', 'excluded'
     elif site['status'] == 'geometry-draft':
         text, css = 'Korrigierter Entwurf · nicht deployed', 'pending'
     elif site['status'] != 'geometry-approved':

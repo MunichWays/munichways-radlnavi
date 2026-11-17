@@ -1,0 +1,320 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              786716271,
+              1354717236,
+              786716304,
+              1475159721,
+              1475140106,
+              1354717237,
+              10610594285,
+              3783237808,
+              10610594286
+            ],
+            "distance": [
+              16.02102018,
+              19.55850292,
+              2.78649235,
+              2.53966959,
+              6.006106759,
+              15.00364289,
+              18.04894354,
+              11.13186056
+            ]
+          },
+          "duration": 21.8,
+          "summary": "Schwanseestraße",
+          "weight": 40.7,
+          "distance": 91.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    246
+                  ],
+                  "location": [
+                    11.596897,
+                    48.107138
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596897,
+                    48.107138
+                  ],
+                  [
+                    11.5967,
+                    48.10708
+                  ],
+                  [
+                    11.596477,
+                    48.106987
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 246,
+                "bearing_before": 0,
+                "location": [
+                  11.596897,
+                  48.107138
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 16.1,
+              "duration": 10.7,
+              "distance": 35.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    255,
+                    315
+                  ],
+                  "location": [
+                    11.596477,
+                    48.106987
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    165,
+                    345
+                  ],
+                  "location": [
+                    11.596333,
+                    48.107196
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    165,
+                    255,
+                    345
+                  ],
+                  "location": [
+                    11.596266,
+                    48.107352
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596477,
+                    48.106987
+                  ],
+                  [
+                    11.596445,
+                    48.107
+                  ],
+                  [
+                    11.596424,
+                    48.107018
+                  ],
+                  [
+                    11.596387,
+                    48.107066
+                  ],
+                  [
+                    11.596333,
+                    48.107196
+                  ],
+                  [
+                    11.596266,
+                    48.107352
+                  ],
+                  [
+                    11.596229,
+                    48.107449
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 320,
+                "bearing_before": 237,
+                "location": [
+                  11.596477,
+                  48.106987
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Schwanseestraße",
+              "mode": "cycling",
+              "weight": 24.6,
+              "duration": 11.1,
+              "distance": 55.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    166
+                  ],
+                  "location": [
+                    11.596229,
+                    48.107449
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596229,
+                    48.107449
+                  ],
+                  [
+                    11.596229,
+                    48.107449
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 346,
+                "location": [
+                  11.596229,
+                  48.107449
+                ],
+                "type": "arrive"
+              },
+              "name": "Schwanseestraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.596897,
+            48.107138
+          ],
+          [
+            11.5967,
+            48.10708
+          ],
+          [
+            11.596477,
+            48.106987
+          ],
+          [
+            11.596445,
+            48.107
+          ],
+          [
+            11.596424,
+            48.107018
+          ],
+          [
+            11.596387,
+            48.107066
+          ],
+          [
+            11.596333,
+            48.107196
+          ],
+          [
+            11.596266,
+            48.107352
+          ],
+          [
+            11.596229,
+            48.107449
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 40.7,
+      "duration": 21.8,
+      "distance": 91.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "IxIDgP___38KAAAAMgAAAAAAAAAxAAAAWLOEQA0rgEEAAAAA0HecQQgAAAAoAAAAAAAAACcAAAC9AgAAYfSwAIIO3gJh9LAAgg7eAgAAbw8AAAAA",
+      "location": [
+        11.596897,
+        48.107138
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "uz0ZgP___38xAAAARAAAAAAAAAAAAAAAGhwyQVldhEAAAAAAAAAAABYAAAAfAAAAAAAAAAAAAAC9AgAAxfGwALkP3gLF8bAAuQ_eAgAAnxUAAAAA",
+      "location": [
+        11.596229,
+        48.107449
+      ],
+      "name": "Schwanseestraße",
+      "distance": 0
+    }
+  ]
+}

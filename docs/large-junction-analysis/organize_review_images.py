@@ -14,7 +14,8 @@ BATCHES = [ROOT / "review-batch-01-images", ROOT / "review-batch-02-ba09-images"
            ROOT / "review-batch-03-ba09-remaining-images",
            ROOT / "review-batch-04-ba01-radlring-images",
            ROOT / "review-batch-05-ba01-remaining-images",
-           ROOT / "review-batch-06-primary-images", ROOT / "review-batch-07-lanes-images"]
+           ROOT / "review-batch-06-primary-images", ROOT / "review-batch-07-lanes-images",
+           ROOT / "review-batch-08-central-images"]
 
 
 def add_lane_queue(groups):
@@ -25,8 +26,10 @@ def add_lane_queue(groups):
     known = {s['id'] for sites in groups.values() for s in sites}
     for site in json.loads(path.read_text(encoding='utf-8'))['sites']:
         if site['id'] not in known:
-            groups['2-offen'].append(dict(site, textOnly=True, kind='pending',
-                status='inventory-open', version=0, polygon=[]))
+            deferred = site.get('status') == 'deferred'
+            group = '3-ausgeschlossen' if deferred else '2-offen'
+            groups[group].append(dict(site, textOnly=True, kind='pending',
+                status='deferred' if deferred else 'inventory-open', version=0, polygon=[]))
             known.add(site['id'])
 
 
@@ -70,7 +73,8 @@ def main():
     technical = {}
     for filename in ("review-batch-02-ba09-routes.json", "review-batch-03-ba09-routes.json",
                      "review-batch-04-ba01-routes.json", "review-batch-05-k33-routes.json",
-                     "review-batch-06-primary-routes.json", "review-batch-07-lanes-routes.json", "review-k18-v5-routes.json"):
+                     "review-batch-06-primary-routes.json", "review-batch-07-lanes-routes.json",
+                     "review-batch-08-central-routes.json", "review-k18-v5-routes.json"):
         path = ROOT / filename
         if path.exists():
             technical.update({s["id"]: s for s in json.loads(path.read_text(encoding="utf-8"))["junctions"]})
@@ -127,6 +131,8 @@ def main():
     index.insert(4, '<p>'+html.escape(f'Münchenweiter Suchumfang: {scope["candidatePoints"]} OSM-Kandidatenpunkte (Datenstand {scope["date"]}); Hauptstraßen bis einschließlich tertiary, ohne Kreisverkehre. Dies ist noch keine bereinigte Kreuzungszahl: getrennte Fahrbahnen erzeugen Mehrfachpunkte, komplexe/T-Kreuzungen können den Filter passieren und einzelne geeignete Fälle fehlen. Die Gesamtzahl tatsächlich geeigneter Münchner Kreuzungen ist noch nicht bestimmt.')+'</p>')
     index.append('<p>'+intro+'</p>')
     review_links = []
+    if (ROOT / 'review-batch-08-central-images/index.html').exists():
+        review_links.append('<p><a href="../review-batch-08-central-images/index.html"><b>K42–K46: Zentrale Kreuzungen · neue Bildprüfung</b></a></p>')
     remaining_gallery = ROOT / 'review-batch-03-ba09-remaining-images/index.html'
     if remaining_gallery.exists():
         review_links.append('<p><a href="../review-batch-03-ba09-remaining-images/index.html"><b>BA09-Prüfrunde K18–K22: aktueller Prüfstand</b></a></p>')

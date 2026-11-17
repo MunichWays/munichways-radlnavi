@@ -1,0 +1,618 @@
+{
+  "version": 1,
+  "enabled": false,
+  "sites": [
+    {
+      "id": "lane-candidate-363119",
+      "number": 42,
+      "version": 1,
+      "name": "Anzinger Straße / Aschheimer Straße / Bad-Schachener-Straße / Melusinenstraße",
+      "origin": [
+        11.612933,
+        48.120834325
+      ],
+      "polygon": [
+        [
+          11.612536947213943,
+          48.120638935106
+        ],
+        [
+          11.612557447213943,
+          48.120605835106005
+        ],
+        [
+          11.612714947213943,
+          48.120593735106006
+        ],
+        [
+          11.613039847213944,
+          48.12057373510601
+        ],
+        [
+          11.613255152786056,
+          48.12057373510601
+        ],
+        [
+          11.613309552786056,
+          48.120594135106
+        ],
+        [
+          11.613329652786057,
+          48.120690735106
+        ],
+        [
+          11.613351652786056,
+          48.120883435106
+        ],
+        [
+          11.613351652786056,
+          48.121027164893995
+        ],
+        [
+          11.613259052786056,
+          48.121377864893994
+        ],
+        [
+          11.613043747213943,
+          48.121377864893994
+        ],
+        [
+          11.612603047213943,
+          48.12109996489399
+        ],
+        [
+          11.612584347213943,
+          48.12107076489399
+        ],
+        [
+          11.612568447213944,
+          48.120977964893996
+        ],
+        [
+          11.612536947213943,
+          48.120782664893994
+        ],
+        [
+          11.612536947213943,
+          48.120638935106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        363119,
+        21101988,
+        25231133,
+        25231134
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-4"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "9 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "outgoingLaneTotal": 9,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-17",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K42 v1 passt, freigegeben.",
+        "geometrySha256": "1769c3407788cf57626f4a2db35f53e2edc2ff484dbf5ae5c437fd24100fbf32",
+        "efficiency": {
+          "firstPassConfirmed": true,
+          "correctionRounds": 0,
+          "correctionReasons": []
+        },
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "backendVersion": "2.4.17",
+          "technicalReport": "review-batch-08-central-routes.json",
+          "evidence": "Thomas fordert Commit, Push und Backend-Workflow für den morgigen Praxistest. Nur technisch geprüfte Beziehungen aktiviert; Wiedervorlagen K44/K46 und K46 Entry-1 links/geradeaus bleiben deaktiviert. Noch nicht als live bestätigt."
+        }
+      }
+    },
+    {
+      "id": "lane-candidate-472070",
+      "number": 43,
+      "version": 1,
+      "name": "Chiemgaustraße / Schwanseestraße",
+      "origin": [
+        11.596325075,
+        48.106714075
+      ],
+      "polygon": [
+        [
+          11.595975376792882,
+          48.106761335106
+        ],
+        [
+          11.596064676792881,
+          48.106433335106004
+        ],
+        [
+          11.596279923207117,
+          48.106433335106004
+        ],
+        [
+          11.596388323207117,
+          48.106449435106
+        ],
+        [
+          11.596600623207118,
+          48.106529635106
+        ],
+        [
+          11.596710123207117,
+          48.106580435106004
+        ],
+        [
+          11.596710123207117,
+          48.106724164894
+        ],
+        [
+          11.596692123207118,
+          48.106841264893994
+        ],
+        [
+          11.596639423207117,
+          48.106963764894
+        ],
+        [
+          11.596584523207119,
+          48.107059164894
+        ],
+        [
+          11.596369276792883,
+          48.107059164894
+        ],
+        [
+          11.596239576792883,
+          48.107025764894
+        ],
+        [
+          11.596042276792883,
+          48.106936564894
+        ],
+        [
+          11.595975376792882,
+          48.10690506489399
+        ],
+        [
+          11.595975376792882,
+          48.106761335106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        472070,
+        1354717177,
+        7528585132,
+        7528585133
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-4"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "8 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "outgoingLaneTotal": 8,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-17",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K43 v1 passt, freigegeben.",
+        "geometrySha256": "14ba1206e75d5ec204e157135276082f45228140b4a42db42ef08277b8791d81",
+        "efficiency": {
+          "firstPassConfirmed": true,
+          "correctionRounds": 0,
+          "correctionReasons": []
+        },
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "backendVersion": "2.4.17",
+          "technicalReport": "review-batch-08-central-routes.json",
+          "evidence": "Thomas fordert Commit, Push und Backend-Workflow für den morgigen Praxistest. Nur technisch geprüfte Beziehungen aktiviert; Wiedervorlagen K44/K46 und K46 Entry-1 links/geradeaus bleiben deaktiviert. Noch nicht als live bestätigt."
+        }
+      }
+    },
+    {
+      "id": "lane-candidate-361786",
+      "number": 44,
+      "version": 2,
+      "name": "Marsstraße / Seidlstraße",
+      "origin": [
+        11.55696895,
+        48.143675375
+      ],
+      "polygon": [
+        [
+          11.55664584795545,
+          48.143962834576
+        ],
+        [
+          11.557224739118602,
+          48.143962834576
+        ],
+        [
+          11.557480528237205,
+          48.14364842566475
+        ],
+        [
+          11.557480528237205,
+          48.143396898535755
+        ],
+        [
+          11.556834324148104,
+          48.14337893231225
+        ],
+        [
+          11.556538147273931,
+          48.1437292736705
+        ],
+        [
+          11.55664584795545,
+          48.143962834576
+        ]
+      ],
+      "onRoadWayIds": [
+        98436489,
+        100177587,
+        122926430,
+        122926431,
+        124767000,
+        226979011,
+        226979012,
+        292767087,
+        292767088,
+        292767089,
+        292767091,
+        292767092,
+        292767093,
+        310707195,
+        313579595,
+        313579601,
+        316009881,
+        733064239,
+        778925878,
+        923916235,
+        923916236,
+        1459471552
+      ],
+      "candidateNodeIds": [
+        361786,
+        20981711,
+        21026891,
+        21026892
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-4"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "Radfahrstreifen Marsstraße West und Seidlstraße Nord/Süd einbezogen. Marsstraße Ost mit separaten Radwegen. Fahrbahnpunkte auf OSM-Mittellinie; seitliche Lage nicht vermessen. Denisstraße bleibt außerhalb. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "outgoingLaneTotal": 8,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-17",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K44 v2 passt, freigegeben.",
+        "geometrySha256": "8f0aeb807de71792c600ef020d11352eb2f309b2bd23fd93076d692fdfdbbb88",
+        "efficiency": {
+          "firstPassConfirmed": true,
+          "correctionRounds": 0,
+          "correctionReasons": []
+        },
+        "movementRechecks": [
+          {
+            "entryLabel": "Entry-3",
+            "exitLabel": "Exit-1",
+            "status": "awaiting-osm-publication",
+            "notBefore": "2026-11-23",
+            "reportedBy": "Thomas",
+            "reportedOn": "2026-11-17",
+            "osmChange": "Linksabbiegebeschränkung um except=bicycle ergänzt.",
+            "action": "Ab 23.11.2026 OSM und Standardrouting erneut prüfen; bis dahin Links-Makro deaktiviert lassen."
+          }
+        ],
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "activeMovements": 7,
+          "backendVersion": "2.4.17",
+          "technicalReport": "review-batch-08-central-routes.json",
+          "evidence": "Thomas fordert Commit, Push und Backend-Workflow für den morgigen Praxistest. Nur technisch geprüfte Beziehungen aktiviert; Wiedervorlagen K44/K46 und K46 Entry-1 links/geradeaus bleiben deaktiviert. Noch nicht als live bestätigt."
+        }
+      }
+    },
+    {
+      "id": "lane-candidate-361790",
+      "number": 45,
+      "version": 2,
+      "name": "Brienner Straße / Dachauer Straße / Nymphenburger Straße / Seidlstraße / Stiglmaierplatz",
+      "origin": [
+        11.55889425,
+        48.1475571
+      ],
+      "polygon": [
+        [
+          11.558498691172945,
+          48.147401735106
+        ],
+        [
+          11.558607191172944,
+          48.147374535106
+        ],
+        [
+          11.558909891172945,
+          48.147310335106006
+        ],
+        [
+          11.559050591172944,
+          48.147295435106
+        ],
+        [
+          11.559266008827056,
+          48.147295435106
+        ],
+        [
+          11.559557008827056,
+          48.147360035106004
+        ],
+        [
+          11.559557008827056,
+          48.147503764894
+        ],
+        [
+          11.559284827204674,
+          48.147871508911244
+        ],
+        [
+          11.558630394356651,
+          48.147871508911244
+        ],
+        [
+          11.558539891172945,
+          48.147797864893995
+        ],
+        [
+          11.558498691172945,
+          48.147545464893994
+        ],
+        [
+          11.558498691172945,
+          48.147401735106
+        ]
+      ],
+      "onRoadWayIds": [
+        86969970
+      ],
+      "candidateNodeIds": [
+        361790,
+        20980554
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-4"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "Vier Hauptarme; Schleißheimer Straße nördlich außerhalb der Fläche. Brienner Straße ausgehend auf Radfahrstreifen (OSM cycleway:right=lane), eingehend separater Radweg; kein zusätzlicher Gegenrichtungs-Fahrbahnpunkt. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "outgoingLaneTotal": 7,
+      "roadDirectionOverrides": {
+        "86969970": "yes"
+      },
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-17",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K45 v2 passt, freigegeben.",
+        "geometrySha256": "0dd5da6828c57142dd10a3ff8c93f45aa43778a6dcdbe7d4bbeae3629d993165",
+        "efficiency": {
+          "firstPassConfirmed": true,
+          "correctionRounds": 0,
+          "correctionReasons": []
+        },
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "backendVersion": "2.4.17",
+          "technicalReport": "review-batch-08-central-routes.json",
+          "evidence": "Thomas fordert Commit, Push und Backend-Workflow für den morgigen Praxistest. Nur technisch geprüfte Beziehungen aktiviert; Wiedervorlagen K44/K46 und K46 Entry-1 links/geradeaus bleiben deaktiviert. Noch nicht als live bestätigt."
+        }
+      }
+    },
+    {
+      "id": "lane-candidate-428767",
+      "number": 46,
+      "version": 2,
+      "name": "Orleansstraße / Rosenheimer Straße",
+      "origin": [
+        11.5994407,
+        48.1252798
+      ],
+      "polygon": [
+        [
+          11.599036967113358,
+          48.1250462390945
+        ],
+        [
+          11.599333037896896,
+          48.1250462390945
+        ],
+        [
+          11.599615650917546,
+          48.125154036435504
+        ],
+        [
+          11.599952094989748,
+          48.12534268178225
+        ],
+        [
+          11.599952094989748,
+          48.12548641157025
+        ],
+        [
+          11.599736770783538,
+          48.12548641157025
+        ],
+        [
+          11.59909079816491,
+          48.12548641157025
+        ],
+        [
+          11.599036967113358,
+          48.12532471555875
+        ],
+        [
+          11.599036967113358,
+          48.1250462390945
+        ]
+      ],
+      "onRoadWayIds": [
+        30602630,
+        30918081,
+        114255526,
+        264964139,
+        1017223901
+      ],
+      "candidateNodeIds": [
+        428767
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-5"
+        ],
+        "east": [
+          "Entry-1",
+          "Entry-2",
+          "Exit-2"
+        ],
+        "south": [
+          "Exit-3",
+          "Entry-3"
+        ],
+        "west": [
+          "Entry-4",
+          "Exit-4"
+        ]
+      },
+      "note": "Radfahrstreifen Rosenheimer Straße Nordwest und Schutzstreifen Orleansstraße Südwest einbezogen (beidseitig; gemeinsamer Entry/Exit auf OSM-Mittellinie). Aus Südost bestehen Radweg und zusätzliche Fahrbahnzufahrt mit Radfahrstreifen; Geometrie von Thomas freigegeben. Entry-1 (Radweg) nur rechts nach Exit-1; links nach Exit-3 und geradeaus nach Exit-4 ausgeschlossen. Technischer Stand siehe Gesamtübersicht, im Branch aktiviert; noch nicht als live bestätigt.",
+      "outgoingLaneTotal": 6,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-17",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K46 v2 passt; Entry-1 hat ausschließlich die Rechtsbeziehung.",
+        "geometrySha256": "d9ae29ddff19c497443a7269ca63267a6b89c350b6b1ef0e4f587f42131bb592",
+        "efficiency": {
+          "firstPassConfirmed": true,
+          "correctionRounds": 0,
+          "correctionReasons": []
+        },
+        "internalRoadWayIds": [
+          264964142
+        ],
+        "internalRoadEvidence": "OSM-Weg 264964142: gerichtete kurze Fahrbahnverbindung innerhalb der freigegebenen Fläche, ohne Radverkehrsverbot; verbindet die Querung mit dem ausgehenden Radweg. Keine neuen Gates.",
+        "movementRechecks": [
+          {
+            "entryLabel": "Entry-3",
+            "exitLabel": "Exit-4",
+            "status": "awaiting-osm-publication",
+            "notBefore": "2026-11-23",
+            "reportedBy": "Thomas",
+            "reportedOn": "2026-11-17",
+            "osmChange": "Linksabbiegebeschränkung um except=bicycle ergänzt.",
+            "action": "Ab 23.11.2026 OSM-Relation, Routing-Datenimport und Standardroute erneut prüfen. Bei bestandenem Nachweis normale Links-Makroansage vorsehen; bis dahin deaktiviert."
+          }
+        ],
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "activeMovements": 7,
+          "backendVersion": "2.4.17",
+          "technicalReport": "review-batch-08-central-routes.json",
+          "evidence": "Thomas fordert Commit, Push und Backend-Workflow für den morgigen Praxistest. Nur technisch geprüfte Beziehungen aktiviert; Wiedervorlagen K44/K46 und K46 Entry-1 links/geradeaus bleiben deaktiviert. Noch nicht als live bestätigt."
+        }
+      },
+      "excludedMovements": [
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "permanent": true,
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "reason": "Thomas: Entry-1 ist eine reine Rechtszufahrt; keine Geradeaus-/Linksbeziehung. Normale Hinweise bleiben."
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "permanent": true,
+          "date": "2026-11-17",
+          "reviewer": "Thomas",
+          "reason": "Thomas: Entry-1 ist eine reine Rechtszufahrt; keine Geradeaus-/Linksbeziehung. Normale Hinweise bleiben."
+        }
+      ]
+    }
+  ]
+}

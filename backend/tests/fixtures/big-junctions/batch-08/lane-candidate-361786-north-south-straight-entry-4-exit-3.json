@@ -1,0 +1,252 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4972204809,
+              8406282860,
+              1011643600,
+              21026892,
+              20981711,
+              1011643595,
+              20981712
+            ],
+            "distance": [
+              53.05889606,
+              3.881476494,
+              12.44807789,
+              13.2826276,
+              14.08897827,
+              51.63172281
+            ]
+          },
+          "duration": 83.9,
+          "summary": "Seidlstraße",
+          "weight": 174,
+          "distance": 148.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    198
+                  ],
+                  "location": [
+                    11.557222,
+                    48.144347
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.556923,
+                    48.143756
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.55685,
+                    48.143647
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.557222,
+                    48.144347
+                  ],
+                  [
+                    11.556998,
+                    48.143894
+                  ],
+                  [
+                    11.556981,
+                    48.143861
+                  ],
+                  [
+                    11.556923,
+                    48.143756
+                  ],
+                  [
+                    11.55685,
+                    48.143647
+                  ],
+                  [
+                    11.556785,
+                    48.143528
+                  ],
+                  [
+                    11.556559,
+                    48.143089
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 198,
+                "bearing_before": 0,
+                "location": [
+                  11.557222,
+                  48.144347
+                ],
+                "type": "depart"
+              },
+              "name": "Seidlstraße",
+              "mode": "cycling",
+              "weight": 174,
+              "duration": 83.9,
+              "distance": 148.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    19
+                  ],
+                  "location": [
+                    11.556559,
+                    48.143089
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556559,
+                    48.143089
+                  ],
+                  [
+                    11.556559,
+                    48.143089
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 199,
+                "location": [
+                  11.556559,
+                  48.143089
+                ],
+                "type": "arrive"
+              },
+              "name": "Seidlstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.557222,
+            48.144347
+          ],
+          [
+            11.556998,
+            48.143894
+          ],
+          [
+            11.556981,
+            48.143861
+          ],
+          [
+            11.556923,
+            48.143756
+          ],
+          [
+            11.55685,
+            48.143647
+          ],
+          [
+            11.556785,
+            48.143528
+          ],
+          [
+            11.556559,
+            48.143089
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 174,
+      "duration": 83.9,
+      "distance": 148.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "mwcEgP___39gAAAANQEAAL0BAABmAwAAkBXCQU88VELIS95C7qKCQSsAAACLAAAAyAAAAK8BAAC9AgAAZlmwANuf3gJnWbAA25_eAgQAbwwAAAAA",
+      "location": [
+        11.557222,
+        48.144347
+      ],
+      "name": "Seidlstraße",
+      "distance": 0.07444490293
+    },
+    {
+      "hint": "RAcEgP___3_OAAAATAEAAI4BAAD2AgAA4oZOQmFK-kF0bGFBu7OTQlwAAACVAAAAxAAAAGwBAAC9AgAAz1awAPGa3gLPVrAA8ZreAgIAfwwAAAAA",
+      "location": [
+        11.556559,
+        48.143089
+      ],
+      "name": "Seidlstraße",
+      "distance": 0
+    }
+  ]
+}

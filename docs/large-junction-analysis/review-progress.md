@@ -1,15 +1,19 @@
 # Stand der Kreuzungsprüfung
 
-Stand: 16.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html) und der verifizierte Produktionsstand.
+Stand: 17.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html) und der verifizierte Produktionsstand.
 
 | Kategorie | Anzahl |
 | --- | --- |
 | Erfasste Standorte | 98 |
-| Geometrisch bestätigt | 34 |
-| Offen | 51 |
-| Ausgeschlossen / dauerhaft zurückgestellt | 13 |
+| Geometrisch bestätigt | 39 |
+| Offen | 45 |
+| Ausgeschlossen / zurückgestellt | 14 |
 | Aktive Kreuzungen live | 34 |
 | Aktive Fahrbeziehungen live | 281 |
+
+Frauenstraße / Isartorplatz am 17.11.2026 auf Wunsch von Thomas ungeprüft als Sonderfall zurückgestellt. Keine Geometrie oder technische Prüfung, keine Aktivierung; normale Ansagen bleiben. Keine dauerhafte Schließung beschlossen.
+
+Neue Bildrunde K42–K46: Anzinger/Aschheimer, Chiemgau/Schwansee, Mars/Seidl, Stiglmaierplatz sowie Orleans/Rosenheimer. OSM vom 17.11.2026 eingefroren, fünf Flächen mit vier logischen Armen vorbereitet; Radfahrstreifen und gemeinsame Fahrbahnpunkte ausgewiesen. 45 weitere offene Fälle bleiben ohne Geometrie. K42–K46 von Thomas freigegeben. K46 Entry-1 ausschließlich rechts; links nach Exit-3 und geradeaus nach Exit-4 ausdrücklich ausgeschlossen. K42/K43/K45 jeweils 8/8, K44 und K46 jeweils 7/8 zulässige Links-/Geradeausbeziehungen technisch bestanden. K46 Entry-3 → Exit-4 ohne Makro: Standardroute nutzt Gehweg 1017221653 ohne belegte Fahrradfreigabe. K43 verwendet 25m/15m lange Referenzansätze auf denselben Radwegen gegen falsches Snapping. K44 Entry-3 → Exit-1 bleibt ohne Links-Makro: Standardroute über Lämmerstraße/Hirtenstraße mit mehrfacher Flächenquerung. K44 Entry-3 → Exit-1: Thomas hat die Linksabbiegebeschränkung in OSM um except=bicycle ergänzt; Wiedervorlage frühestens ab 23.11.2026 (OSM-Relation und Routing-Datenimport prüfen). Bis dahin kein Links-Makro. 38 positive Routen, 21 Rechts- und 38 Fußkontrollen bestanden, offline reproduziert. Noch keine Aktivierung, Runtime unverändert. [Bildrunde](review-batch-08-central-images/index.html).
 
 Backend **2.4.16**, Commit `2916970044ff07df03edb21694b71ea641aae565`, Katalog **munich-big-junctions-v16** ist nachgewiesen live. [Backend-Workflow 43912335393](https://github.com/MunichWays/munichways-radlnavi/actions/runs/43912335393) erfolgreich, einschließlich Direct und Entdeckertour.
 
@@ -103,3 +107,7 @@ Auf Wunsch von Thomas zehn Beziehungen aktiviert. Entry-4 nach Exit-2 und Entry-
 ### BA01 Altstadt-Radlring, 15.11.2026
 
 Thomas hat K23 v1, K25 v1 und K28 v1 als Standard freigegeben und die Aktivierung nach technischer Prüfung autorisiert. Alle 24 Links-/Geradeausbeziehungen, zwölf Rechtskontrollen und 24 Fußkontrollen im Gesamtkatalog bestanden; 36 reale Standardrouten eingefroren und offline reproduziert. Backend 2.4.11 / Katalog v10: 23 aktive Kreuzungen, 199 aktive Fahrbeziehungen. Alle bisherigen 20 Katalogeinträge unverändert, einschließlich K13-/K21-Sperren. K24 bleibt offen; K26/K27 dauerhaft ausgeschlossen, K29 dauerhaft zurückgestellt bis zu konkreten Praxisproblemen. Geprüfte Gesamtfälle: 35, davon 24 geometrisch bestätigt, ein Fall offen, zehn ausgeschlossen/zurückgestellt. Neue Beziehungen im Branch aktiviert, noch nicht deployed; Backend-Workflow startet Thomas.
+
+17.11.2026: K46 Entry-3 → Exit-4 ebenfalls zur Wiedervorlage ab **23.11.2026**. Thomas hat die Linksabbiegebeschränkung in OSM um `except=bicycle` ergänzt. OSM-Relation, Routing-Datenimport und dieselbe Standardroute erneut prüfen; die bisherige Gehweg-Diagnose bezieht sich auf den alten Routingstand. Bei bestandenem Nachweis ist die normale Ansage „An der großen Kreuzung links abbiegen“ vorgesehen. Bis dahin deaktiviert. Entry-1 bleibt unabhängig davon eine reine Rechtszufahrt.
+
+17.11.2026: Backend 2.4.17 / Katalog v17 für Deployment vorbereitet: K42–K46 mit 38 neuen Beziehungen im Branch aktiviert, insgesamt 39 Kreuzungen / 319 Beziehungen. K44 Entry-3 → Exit-1 und K46 Entry-3 → Exit-4 bleiben bis zur Wiedervorlage ab 23.11.2026 deaktiviert; K46 Entry-1 links/geradeaus bleibt ausgeschlossen. Alle bisherigen Katalogeinträge unverändert. Live-Stand weiterhin 2.4.16 bis zum verifizierten Deployment.

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 38,
+  "referenceCasesChecked": 43,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -1206,6 +1206,106 @@
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
       "reviewQuestion": "10 ausgehende Kfz-Fahrspuren laut OSM. Suedoestlicher Arm Tegernseer Landstrasse ohne durchgehenden Radweg: Entry/Exit auf der erlaubten Fahrbahn (OSM-Mittellinie). Kurze Radweganschluesse und gerichtete Verbindung muessen technisch noch geprueft werden. Candidtunnel/Kraftfahrstrasse ausgeschlossen. Dauerhaft ohne Kreuzungsansage: Entry-1 nach Exit-3 und Exit-4 wegen class:bicycle=-3 auf der Zufahrt (Thomas). Normale Ansagen bleiben.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-363119",
+      "number": 42,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "1769c3407788cf57626f4a2db35f53e2edc2ff484dbf5ae5c437fd24100fbf32",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "9 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-472070",
+      "number": 43,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "14ba1206e75d5ec204e157135276082f45228140b4a42db42ef08277b8791d81",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "8 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-361786",
+      "number": 44,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "8f0aeb807de71792c600ef020d11352eb2f309b2bd23fd93076d692fdfdbbb88",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [
+        "Exit-1",
+        "Entry-2",
+        "Exit-3",
+        "Entry-3",
+        "Exit-4",
+        "Entry-4"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Radfahrstreifen Marsstraße West und Seidlstraße Nord/Süd einbezogen. Marsstraße Ost mit separaten Radwegen. Fahrbahnpunkte auf OSM-Mittellinie; seitliche Lage nicht vermessen. Denisstraße bleibt außerhalb. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-361790",
+      "number": 45,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "0dd5da6828c57142dd10a3ff8c93f45aa43778a6dcdbe7d4bbeae3629d993165",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [],
+      "carriagewayGates": [
+        "Exit-2"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Vier Hauptarme; Schleißheimer Straße nördlich außerhalb der Fläche. Brienner Straße ausgehend auf Radfahrstreifen (OSM cycleway:right=lane), eingehend separater Radweg; kein zusätzlicher Gegenrichtungs-Fahrbahnpunkt. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-428767",
+      "number": 46,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "d9ae29ddff19c497443a7269ca63267a6b89c350b6b1ef0e4f587f42131bb592",
+      "entries": 5,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-3",
+        "Entry-4",
+        "Exit-3",
+        "Exit-4"
+      ],
+      "carriagewayGates": [
+        "Entry-2",
+        "Exit-3",
+        "Entry-3",
+        "Entry-4",
+        "Exit-4"
+      ],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Radfahrstreifen Rosenheimer Straße Nordwest und Schutzstreifen Orleansstraße Südwest einbezogen (beidseitig; gemeinsamer Entry/Exit auf OSM-Mittellinie). Aus Südost bestehen Radweg und zusätzliche Fahrbahnzufahrt mit Radfahrstreifen; Geometrie von Thomas freigegeben. Entry-1 (Radweg) nur rechts nach Exit-1; links nach Exit-3 und geradeaus nach Exit-4 ausgeschlossen. Technischer Stand siehe Gesamtübersicht, im Branch aktiviert; noch nicht als live bestätigt.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     }
   ],

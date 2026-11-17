@@ -1,0 +1,352 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              277011711,
+              506772015,
+              3405893355,
+              1403497789,
+              13811081290,
+              513745290,
+              13811081320,
+              8148401253
+            ],
+            "distance": [
+              53.16630658,
+              5.462842287,
+              3.683949894,
+              29.02140417,
+              6.115601448,
+              2.225100768,
+              50.71313083
+            ]
+          },
+          "duration": 32.1,
+          "summary": "Bad-Schachener-Straße, Aschheimer Straße",
+          "weight": 53.4,
+          "distance": 150.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    275
+                  ],
+                  "location": [
+                    11.613955,
+                    48.12091
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    300
+                  ],
+                  "location": [
+                    11.613244,
+                    48.120955
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613955,
+                    48.12091
+                  ],
+                  [
+                    11.613244,
+                    48.120955
+                  ],
+                  [
+                    11.613171,
+                    48.12096
+                  ],
+                  [
+                    11.61315,
+                    48.12099
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 275,
+                "bearing_before": 0,
+                "location": [
+                  11.613955,
+                  48.12091
+                ],
+                "type": "depart"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 31.4,
+              "duration": 14.6,
+              "distance": 62.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    120,
+                    285
+                  ],
+                  "location": [
+                    11.61315,
+                    48.12099
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180
+                  ],
+                  "location": [
+                    11.613151,
+                    48.121251
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    300
+                  ],
+                  "location": [
+                    11.613151,
+                    48.121306
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180
+                  ],
+                  "location": [
+                    11.613152,
+                    48.121326
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61315,
+                    48.12099
+                  ],
+                  [
+                    11.613151,
+                    48.121251
+                  ],
+                  [
+                    11.613151,
+                    48.121306
+                  ],
+                  [
+                    11.613152,
+                    48.121326
+                  ],
+                  [
+                    11.613165,
+                    48.121782
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 298,
+                "location": [
+                  11.61315,
+                  48.12099
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Aschheimer Straße",
+              "mode": "cycling",
+              "weight": 22,
+              "duration": 17.5,
+              "distance": 88.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    181
+                  ],
+                  "location": [
+                    11.613165,
+                    48.121782
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613165,
+                    48.121782
+                  ],
+                  [
+                    11.613165,
+                    48.121782
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 1,
+                "location": [
+                  11.613165,
+                  48.121782
+                ],
+                "type": "arrive"
+              },
+              "name": "Aschheimer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.613955,
+            48.12091
+          ],
+          [
+            11.613244,
+            48.120955
+          ],
+          [
+            11.613171,
+            48.12096
+          ],
+          [
+            11.61315,
+            48.12099
+          ],
+          [
+            11.613151,
+            48.121251
+          ],
+          [
+            11.613151,
+            48.121306
+          ],
+          [
+            11.613152,
+            48.121326
+          ],
+          [
+            11.613165,
+            48.121782
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 53.4,
+      "duration": 32.1,
+      "distance": 150.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "e7IZgP___3-aAAAAhwEAAAAAAAAAAAAAAdAKQkyqVEIAAAAAAAAAAEUAAACwAAAAAAAAAAAAAAC9AgAAAzexAE5E3gIDN7EATUTeAgAAPxEAAAAA",
+      "location": [
+        11.613955,
+        48.12091
+      ],
+      "name": "Bad-Schachener-Straße",
+      "distance": 0.1111927541
+    },
+    {
+      "hint": "X7MZgP___39-AAAAUAEAAAAAAAAAAAAAP9pKQu61p0IAAAAAAAAAAGUAAAANAQAAAAAAAAAAAAC9AgAA7TOxALZH3gLtM7EAtkfeAgAAHwAAAAAA",
+      "location": [
+        11.613165,
+        48.121782
+      ],
+      "name": "Aschheimer Straße",
+      "distance": 0
+    }
+  ]
+}

@@ -25,7 +25,9 @@ RUN mkdir geo
 COPY src/geo_store.py src/geo_store.py
 
 WORKDIR /opt/app/src
-RUN wget https://download.geofabrik.de/europe/germany/bayern/oberbayern-latest.osm.pbf -O ../geo/oberbayern-latest.osm.pbf && \
+# The extract now lives inside its region directory; the old sibling URL
+# redirects to a missing path on Geofabrik.
+RUN wget https://download.geofabrik.de/europe/germany/bayern/oberbayern/oberbayern-latest.osm.pbf -O ../geo/oberbayern-latest.osm.pbf && \
     poetry run python geo_store.py && \
     chmod 0444 ../geo/geo.db && \
     rm ../geo/oberbayern-latest.osm.pbf && \

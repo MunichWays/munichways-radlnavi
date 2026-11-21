@@ -1,5 +1,19 @@
 # Lokale Kreuzungsprüfung
 
+## Öffentliche mobile Karte
+
+Die Nur-Lese-Karte wird mit dem RadlNavi-Frontend unter `/kreuzungspruefung/`
+veröffentlicht. Lokale Bearbeitungen werden ausdrücklich als neuer Stand exportiert:
+
+```powershell
+$env:PYTHONPATH='tools/junction-review'
+python -m junction_review publish-map --project .local/junction-review/munich --output docs/large-junction-analysis/public-junction-review.json
+```
+
+Den Export committen und das Frontend deployen. Der Export enthält ausgewählte
+öffentliche Geometrie- und Prüfdaten, keine lokale Projektdatenbank oder Schreib-API.
+Die Karte zeigt den Exportzeitpunkt; lokale Änderungen werden nicht automatisch synchronisiert.
+
 Eigenständige Basis für die Sichtprüfung großer Radverkehrskreuzungen. Python ab 3.10, moderner Browser, keine Paketinstallation, kein Docker und kein Routingserver erforderlich.
 
 ## Starten

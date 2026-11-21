@@ -118,7 +118,11 @@ sind dafür nicht erforderlich.
    **Verkleinern** reduziert es auf die Titelleiste; **Öffnen** zeigt den Inhalt wieder.
 4. **Rohantwort herunterladen** sichert die bereits gelieferte Kartenroute
    mit Übernahmezeit. Unter **Abfrage und Zeitpunkt** steht die Quelle;
-   darunter führt **Kreuzungsübersicht** zur aktuellen Bildprüfung.
+   darunter öffnet **Kreuzungsprüfung** die öffentliche Karte unter
+   `https://radlnavi.munichways.de/kreuzungspruefung/` in einem neuen Browsertab.
+   Die mobile Nur-Lese-Ansicht zeigt den veröffentlichten Projektstand, Flächen,
+   Entry-/Exit-Punkte und Prüfstatus. Bearbeitung bleibt in der lokalen Kreuzungsapp.
+   Neue lokale Änderungen erscheinen nach erneutem `publish-map` und Frontend-Deployment.
 
 Die Prüfansicht stellt keine eigene Routenabfrage. Standard, Direkt und
 Entdeckertour verwenden genau die Antwort der Kartenberechnung.

@@ -34,3 +34,11 @@ if (fs.existsSync(source)) {
   throw new Error('Junction review pages must be staged before the frontend Docker build.');
 }
 console.log('Junction review pages available under /docs/large-junction-analysis/.');
+const publicMap = path.join(frontend, 'public/kreuzungspruefung/data.json');
+const publicSnapshot = path.join(source, 'public-junction-review.json');
+if (fs.existsSync(publicSnapshot)) {
+  fs.mkdirSync(path.dirname(publicMap), {recursive: true});
+  fs.copyFileSync(publicSnapshot, publicMap);
+} else if (!fs.existsSync(publicMap)) {
+  throw new Error('Public junction map snapshot must be staged before the Docker build.');
+}

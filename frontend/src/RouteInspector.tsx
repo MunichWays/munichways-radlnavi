@@ -174,8 +174,8 @@ export default function RouteInspector({ open, onClose, route, variant, onMap }:
         <p>Quelle: aktuelle Kartenroute; automatische Aktualisierung nach jeder Neuberechnung.</p>
         {snapshot && <p>In die Prüfansicht übernommen: {snapshot.captured_at_utc}</p>}
       </details>
-      <p><a href="/docs/large-junction-analysis/kreuzungspruefung/index.html"
-        target="_blank" rel="noopener noreferrer">Kreuzungsübersicht</a></p>
+      <p><a href="/kreuzungspruefung/"
+        target="_blank" rel="noopener noreferrer">Kreuzungsprüfung</a></p>
       {!snapshot && <p>Bitte zuerst eine Route auf der Karte berechnen.</p>}
       {snapshot && <>
         <p>{Math.round(selectedRoute.distance)} m · {rows.length} Manöver · {snapshot.source}</p>

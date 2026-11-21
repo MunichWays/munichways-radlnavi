@@ -52,13 +52,21 @@ def main():
     technical.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[3] / '.local/junction-review/munich')
     missing = commands.add_parser('prepare-open', help='Fehlende Geometrien offener Faelle regelbasiert vorbereiten')
     missing.add_argument('--project', type=Path, required=True)
+    publish = commands.add_parser('publish-map', help='Oeffentlichen Nur-Lese-Kartenstand exportieren')
+    publish.add_argument('--project', type=Path, required=True)
+    publish.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     try:
         store = ProjectStore(args.project)
         if args.command == 'demo' and not (args.project / 'project.json').exists():
             source = Path(__file__).resolve().parents[3] / 'docs/large-junction-analysis/review-batch-09-nine-lanes-images/review-data.json'
             store.import_dataset(import_radlnavi(source, 'munich-nine-lanes', 'München', 'K47–K50 · Neun Fahrspuren'))
-        if args.command == 'prepare-open':
+        if args.command == 'publish-map':
+            from .publication import public_snapshot
+            public = public_snapshot(store.snapshot())
+            atomic_write(args.output, public)
+            print(f'{len(public["sites"])} Kreuzungen fuer die oeffentliche Nur-Lese-Karte exportiert.')
+        elif args.command == 'prepare-open':
             from .prepare_open import prepare_missing
             result = prepare_missing(args.project)
             print(', '.join(f'{key}: {len(value)}' for key, value in result.items() if isinstance(value, list)))

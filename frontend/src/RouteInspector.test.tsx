@@ -74,8 +74,10 @@ test('uses the map route immediately and passes its exact step to the map', () =
   expect(screen.getByText('turn / right')).toBeInTheDocument();
   expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   expect(screen.queryByText('Aktuelle Kartenroute \u00fcbernehmen')).not.toBeInTheDocument();
-  expect(screen.getByRole('link', { name: 'Kreuzungs\u00fcbersicht' })).toHaveAttribute(
-    'href', '/docs/large-junction-analysis/kreuzungspruefung/index.html');
+  const reviewLink = screen.getByRole('link', { name: 'Kreuzungspr\u00fcfung' });
+  expect(reviewLink).toHaveAttribute('href', '/kreuzungspruefung/');
+  expect(reviewLink).toHaveAttribute('target', '_blank');
+  expect(reviewLink).toHaveAttribute('rel', 'noopener noreferrer');
   fireEvent.click(screen.getByText('Hinweis 2 auf Karte'));
   expect(onMap).toHaveBeenCalledWith(steps[1]);
   expect(onClose).not.toHaveBeenCalled();

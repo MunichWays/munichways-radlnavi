@@ -1,0 +1,38 @@
+.junction-review { color:#26323b; background:#f6f5f8; min-height:100dvh; font-family:system-ui,sans-serif; }
+.junction-review * { box-sizing:border-box; }
+.junction-review .junction-header { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:10px 18px; background:white; border-bottom:1px solid #ded7e5; }
+.junction-review h1 { margin:4px 0; font-size:21px; }
+.junction-review h2 { font-size:18px; }
+.junction-review p { line-height:1.5; }
+.junction-header p { margin:0; font-size:13px; }
+.junction-review a { color:#7139a4; }
+.junction-published { text-align:right; font-size:12px; line-height:1.6; }
+.junction-controls { display:flex; align-items:flex-end; gap:10px; padding:10px 18px; }
+.junction-controls label { display:block; font-size:12px; font-weight:600; }
+.junction-controls label:first-child { flex:1; }
+.junction-review input,.junction-review select { width:100%; display:block; border:1px solid #c8bfd2; border-radius:6px; padding:10px; margin:4px 0 0; background:white; font:inherit; font-size:16px; }
+.junction-review button { cursor:pointer; background:#7139a4; color:white; border:1px solid #7139a4; border-radius:6px; padding:10px 12px; font:inherit; font-size:14px; }
+.junction-review button:disabled { opacity:.6; }
+.junction-review :focus-visible { outline:3px solid #aa7ccc; outline-offset:2px; }
+.junction-layout { display:grid; grid-template-columns:340px minmax(0,1fr); gap:12px; padding:0 18px 12px; }
+.junction-pane { overflow:auto; max-height:calc(100dvh - 175px); min-height:400px; padding:14px; background:white; border:1px solid #ded7e5; border-radius:8px; }
+.junction-map { height:calc(100dvh - 175px); min-height:400px; border:1px solid #ded7e5; border-radius:8px; z-index:0; }
+.junction-list-item { display:block; width:100%; text-align:left; margin:8px 0; }
+.junction-review .junction-list-item { background:white; color:#26323b; border-color:#ded7e5; }
+.junction-list-item strong { display:block; color:#7139a4; font-size:12px; margin-bottom:5px; }
+.junction-list-item span { display:block; line-height:1.5; }
+.junction-note { white-space:pre-wrap; background:#f4eef9; padding:10px; }
+.junction-status { font-weight:600; }
+.junction-status.confirmed { color:#21825c; }.junction-status.excluded { color:#77717e; }.junction-status.deferred { color:#896400; }.junction-status.open { color:#a75a00; }
+.junction-legend,.junction-readonly,.junction-location { color:#716978; font-size:12px; }
+.junction-location { margin:0 18px 8px; }
+.junction-movements { padding-left:18px; font-size:13px; }.junction-movements li { margin:10px 0; }.junction-movements p { margin:3px 0; color:#6d6474; }
+.junction-pane summary { cursor:pointer; padding:10px 0; font-weight:600; }
+.junction-review [role=alert] { margin:8px 18px; background:#fff0e9; padding:10px; }
+.junction-gate-label { font-size:11px; font-weight:600; border:0; background:#fffffff0; box-shadow:none; padding:2px 4px; }
+@media(max-width:720px) {
+  .junction-review .junction-header { padding:8px 10px; gap:8px; }.junction-review h1 { font-size:18px; }.junction-published { font-size:10px; }
+  .junction-controls { padding:8px 10px; flex-wrap:wrap; gap:8px; }.junction-controls label:first-child { flex-basis:55%; }.junction-controls button { flex:1; }
+  .junction-layout { display:flex; flex-direction:column; padding:0 10px 10px; gap:10px; }.junction-map { order:-1; height:52dvh; min-height:320px; }
+  .junction-pane { max-height:none; min-height:0; }.junction-pane nav { max-height:45dvh; overflow:auto; }
+}

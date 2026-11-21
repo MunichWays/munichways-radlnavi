@@ -6,7 +6,7 @@ RUN cd tippecanoe && make -j && make install && cd -
 ARG BACKEND_URL="https://backend.radlnavi.de"
 ARG VERSION="local"
 ARG COMMIT=""
-ARG REGION="europe/germany/bayern/oberbayern"
+ARG REGION="europe/germany/bayern/oberbayern/oberbayern"
 
 COPY package.json package.json
 COPY package-lock.json package-lock.json

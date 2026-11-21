@@ -8,6 +8,12 @@ The [frontend service](./frontend/) interacts with the user and also features an
 
 # Development
 
+The independent [local junction review tool](tools/junction-review/README.md)
+imports existing review batches and provides an offline map, geometry editor,
+versioned review decisions and a routing-neutral export. Start the K47–K50
+workspace with `python tools/junction-review/run.py demo`, or the migrated full
+Munich overview with `python tools/junction-review/run.py start`.
+
 The [opt-in big-junction backend pilot](docs/big-junction-pilot-api.md)
 adds optional guidance metadata only for the reviewed Arnulfstraße west to
 Steubenplatz north left turn. Existing requests and OSRM steps stay unchanged.

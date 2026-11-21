@@ -1,0 +1,247 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              768427673,
+              509195190,
+              509195217,
+              3445734900,
+              1023856308,
+              509195230,
+              768427671,
+              309864846,
+              309864847
+            ],
+            "distance": [
+              12.00385667,
+              13.30311321,
+              5.848544154,
+              14.62136039,
+              17.276468,
+              18.062372,
+              21.65073772,
+              17.62771439
+            ]
+          },
+          "duration": 24.2,
+          "summary": "Ungererstraße",
+          "weight": 42.3,
+          "distance": 120.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    43
+                  ],
+                  "location": [
+                    11.610432,
+                    48.185383
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.611098,
+                    48.185723
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610432,
+                    48.185383
+                  ],
+                  [
+                    11.610542,
+                    48.185462
+                  ],
+                  [
+                    11.610675,
+                    48.185542
+                  ],
+                  [
+                    11.610735,
+                    48.185576
+                  ],
+                  [
+                    11.610885,
+                    48.185661
+                  ],
+                  [
+                    11.611098,
+                    48.185723
+                  ],
+                  [
+                    11.611333,
+                    48.185764
+                  ],
+                  [
+                    11.611623,
+                    48.185781
+                  ],
+                  [
+                    11.61186,
+                    48.185779
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 43,
+                "bearing_before": 0,
+                "location": [
+                  11.610432,
+                  48.185383
+                ],
+                "type": "depart"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 42.3,
+              "duration": 24.2,
+              "distance": 120.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    271
+                  ],
+                  "location": [
+                    11.61186,
+                    48.185779
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61186,
+                    48.185779
+                  ],
+                  [
+                    11.61186,
+                    48.185779
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 91,
+                "location": [
+                  11.61186,
+                  48.185779
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.610432,
+            48.185383
+          ],
+          [
+            11.610542,
+            48.185462
+          ],
+          [
+            11.610675,
+            48.185542
+          ],
+          [
+            11.610735,
+            48.185576
+          ],
+          [
+            11.610885,
+            48.185661
+          ],
+          [
+            11.611098,
+            48.185723
+          ],
+          [
+            11.611333,
+            48.185764
+          ],
+          [
+            11.611623,
+            48.185781
+          ],
+          [
+            11.61186,
+            48.185779
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 42.3,
+      "duration": 24.2,
+      "distance": 120.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "DPEFgP___38yAAAAaAAAADMCAADjAAAACf01QcwPQEFWZ_1CrDJMQhYAAAAvAAAA_QAAAGcAAAC9AgAAQCmxACdA3wJAKbEAJ0DfAgIArwIAAAAA",
+      "location": [
+        11.610432,
+        48.185383
+      ],
+      "name": "Ungererstraße",
+      "distance": 0
+    },
+    {
+      "hint": "tPEFgJeIL4ArAAAADAAAAGMAAACNAAAAjwWNQfvWjkA62h5C_R5iQiMAAAAJAAAATwAAAHEAAAC9AgAA1C6xALNB3wLULrEAskHfAgQArwUAAAAA",
+      "location": [
+        11.61186,
+        48.185779
+      ],
+      "name": "",
+      "distance": 0.1111937254
+    }
+  ]
+}

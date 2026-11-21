@@ -59,11 +59,12 @@ class LanePriorityBatchTests(unittest.TestCase):
         groups={g:[] for g in GROUPS}
         prepared=json.loads((OUT/'review-data.json').read_text(encoding='utf-8'))['sites']
         prepared += json.loads((ROOT/'review-batch-08-central-images/review-data.json').read_text(encoding='utf-8'))['sites']
+        prepared += json.loads((ROOT/'review-batch-09-nine-lanes-images/review-data.json').read_text(encoding='utf-8'))['sites']
         groups['2-offen']=deepcopy(prepared)
         add_lane_queue(groups)
         self.assertEqual(len(groups['2-offen']),54)
         pending=[s for s in groups['2-offen'] if s.get('textOnly')]
-        self.assertEqual(len(pending),45)
+        self.assertEqual(len(pending),41)
         self.assertTrue(all(s['polygon']==[] and s['status']=='inventory-open' for s in pending))
         deferred = groups['3-ausgeschlossen']
         self.assertEqual(len(deferred), 1)

@@ -103,7 +103,7 @@ def run(collect=False):
                 print(f'K{site["number"]} {item["entryLabel"]} -> {item["exitLabel"]} '
                       f'{item["kind"]}: '+('PASS' if item.get('verified') else item.get('reason', 'unchecked')), flush=True)
         for item in tasks:
-            if item['kind'] != 'right' and not item.get('enabled'):
+            if item['kind'] not in ('right', 'standard') and not item.get('enabled'):
                 candidate['movements'].append(dict(id=item['id'], enabled=False, movement=item['kind'],
                     entryArm=item['entryArm'], exitArm=item['exitArm'], entryLabel=item['entryLabel'],
                     exitLabel=item['exitLabel'], disabledReason=item.get('reason', 'Unverified')))
@@ -114,7 +114,7 @@ def run(collect=False):
         write(REPORT, dict(version=1, status='in_progress', runtimeModified=False, junctions=records))
     proposal = dict(base, junctions=base['junctions']+candidates)
     check.validate_catalog(proposal)
-    positive = right = walking = 0
+    positive = right = walking = standard = 0
     with patch('src.big_junctions.catalog', return_value=proposal):
         for record in records:
             for item in record['movements']:
@@ -141,6 +141,10 @@ def run(collect=False):
                     if result is not None:
                         raise ValueError('Right-turn control triggers macro: '+item['fixture'])
                     right += 1
+                elif item['kind'] == 'standard':
+                    if result is not None:
+                        raise ValueError('Ordinary-guidance control triggers macro: '+item['fixture'])
+                    standard += 1
                 elif item.get('explicitlyExcluded') and result is not None:
                     # A snapped/detoured reference can cross a different, valid
                     # movement. Only the explicitly excluded pair must be absent.
@@ -152,6 +156,8 @@ def run(collect=False):
     report = dict(version=1, status='complete', completedAt=datetime.now(timezone.utc).isoformat(),
         runtimeModified=False, junctions=records, fullCatalogChecks=dict(
             positive=positive, rightTurnControls=right, walkingControls=walking))
+    if standard:
+        report['fullCatalogChecks']['standardGuidanceControls'] = standard
     write(REPORT, report)
     lines = ['# '+REGION+' · Technische Prüfung '+TITLE, '',
         'Echte Standardrouten, unveränderte freigegebene Flächen, gerichtete OSM-Korridore und '
@@ -160,7 +166,7 @@ def run(collect=False):
     for record in records:
         moves = record['movements']
         passed = sum(bool(m.get('enabled')) for m in moves)
-        total = sum(m['kind'] != 'right' for m in moves)
+        total = sum(m['kind'] not in ('right', 'standard') for m in moves)
         lines.append(f'| K{record["number"]} v{record["geometryRevision"]} | {passed}/{total} | '
                      f'{sum(m["kind"] == "right" and bool(m.get("verified")) for m in moves)}/{sum(m["kind"] == "right" for m in moves)} |')
     lines += ['', f'Gesamtkatalog: {positive} positive Routen, {right} Rechts- und {walking} Fußkontrollen.', '', '## Gesperrte Beziehungen', '']

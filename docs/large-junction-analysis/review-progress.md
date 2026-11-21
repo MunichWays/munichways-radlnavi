@@ -1,27 +1,35 @@
 # Stand der Kreuzungsprüfung
 
-Stand: 17.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html) und der verifizierte Produktionsstand.
+21.11.2026: Auf ausdruecklichen Wunsch K48-K50 im Branch aktiviert: 24 neue, insgesamt 343 aktive Fahrbeziehungen an 42 Kreuzungen. Backend 2.4.18, Katalog munich-big-junctions-v18. K47 dauerhaft ausgeschlossen; K48 Entry-1/Exit-2 und die beiden K50-Exit-4-Beziehungen bleiben ohne Makro. Noch kein Push und kein Deployment; letzter verifizierter Live-Stand unveraendert Backend 2.4.17 mit 39 Kreuzungen / 319 Beziehungen.
+
+20.11.2026: K47 dauerhaft ausgeschlossen; K48-K50 im neuen Kartenwerkzeug von Thomas bestaetigt. Technische Pruefung abgeschlossen: je 8 geeignete Links-/Geradeausbeziehungen, zusammen 24. K48 Entry-1/Exit-2 nur normale Hinweise (8 reale Negativkontrollen). K50 Entry-1/Entry-2 nach Exit-4 bewusst ohne Makro wegen mehrdeutiger Auswahl gegenueber Exit-5; beide realen Kontrollrouten ohne Makro. 13 Rechts- und 24 Fusskontrollen bestanden. Nur Vorschlag, keine Aktivierung, kein Deployment. Aktuelle Fallzahlen: 98 gesamt, 42 bestaetigt, 41 offen, 15 ausgeschlossen/zurueckgestellt. Live unveraendert 39/319. [Pruefbericht](review-batch-09-nine-lanes-technical.md).
+
+Stand: 18.11.2026. Maßgeblich sind die [Prüfungsübersicht](kreuzungspruefung/index.html) und der verifizierte Produktionsstand.
 
 | Kategorie | Anzahl |
 | --- | --- |
 | Erfasste Standorte | 98 |
-| Geometrisch bestätigt | 39 |
-| Offen | 45 |
-| Ausgeschlossen / zurückgestellt | 14 |
-| Aktive Kreuzungen live | 34 |
-| Aktive Fahrbeziehungen live | 281 |
+| Geometrisch bestätigt | 42 |
+| Offen | 41 |
+| Ausgeschlossen / zurückgestellt | 15 |
+| Aktive Kreuzungen live | 39 |
+| Aktive Fahrbeziehungen live | 319 |
+
+Backend **2.4.17**, Commit `72957c626d0f6673870bfe75d3beaffd754a3b9a`, Katalog **munich-big-junctions-v17** ist am 18.11.2026 als live bestätigt. [Backend-Workflow 44183789239](https://github.com/MunichWays/munichways-radlnavi/actions/runs/44183789239) erfolgreich. 61 reale Live-Routen entsprechen exakt dem lokalen Katalog; normale Routendaten unverändert. [Live-Belege](review-release-2.4.17-central-live-checks.json). K42–K46 mit 38 neuen Beziehungen live; die vier Ausnahmen bleiben deaktiviert. Die beiden Wiedervorlagen K44 Entry-3 → Exit-1 und K46 Entry-3 → Exit-4 sind in der Übersicht gelb und zusätzlich oben in Offen markiert, ab 23.11.2026. Kein neuer Praxistest behauptet.
+
+Neue Bildrunde K47-K50: die vier noch offenen Kandidaten mit neun ausgehenden Kfz-Fahrspuren. OSM vom 18.11.2026 eingefroren, Bilder kontrolliert, 74 Review-Tests bestanden. K48: zusaetzlicher oestlicher Zweirichtungsweg zur Sichtentscheidung markiert. K50 v2: suedwestlichen Seitenweg aus der Hauptflaeche ausgegrenzt. Keine Geometriefreigabe, technische Fahrbeziehungspruefung oder Aktivierung. Noch 41 offene Inventarkandidaten ohne Geometrie. [Bildrunde](review-batch-09-nine-lanes-images/index.html).
 
 Frauenstraße / Isartorplatz am 17.11.2026 auf Wunsch von Thomas ungeprüft als Sonderfall zurückgestellt. Keine Geometrie oder technische Prüfung, keine Aktivierung; normale Ansagen bleiben. Keine dauerhafte Schließung beschlossen.
 
-Neue Bildrunde K42–K46: Anzinger/Aschheimer, Chiemgau/Schwansee, Mars/Seidl, Stiglmaierplatz sowie Orleans/Rosenheimer. OSM vom 17.11.2026 eingefroren, fünf Flächen mit vier logischen Armen vorbereitet; Radfahrstreifen und gemeinsame Fahrbahnpunkte ausgewiesen. 45 weitere offene Fälle bleiben ohne Geometrie. K42–K46 von Thomas freigegeben. K46 Entry-1 ausschließlich rechts; links nach Exit-3 und geradeaus nach Exit-4 ausdrücklich ausgeschlossen. K42/K43/K45 jeweils 8/8, K44 und K46 jeweils 7/8 zulässige Links-/Geradeausbeziehungen technisch bestanden. K46 Entry-3 → Exit-4 ohne Makro: Standardroute nutzt Gehweg 1017221653 ohne belegte Fahrradfreigabe. K43 verwendet 25m/15m lange Referenzansätze auf denselben Radwegen gegen falsches Snapping. K44 Entry-3 → Exit-1 bleibt ohne Links-Makro: Standardroute über Lämmerstraße/Hirtenstraße mit mehrfacher Flächenquerung. K44 Entry-3 → Exit-1: Thomas hat die Linksabbiegebeschränkung in OSM um except=bicycle ergänzt; Wiedervorlage frühestens ab 23.11.2026 (OSM-Relation und Routing-Datenimport prüfen). Bis dahin kein Links-Makro. 38 positive Routen, 21 Rechts- und 38 Fußkontrollen bestanden, offline reproduziert. Noch keine Aktivierung, Runtime unverändert. [Bildrunde](review-batch-08-central-images/index.html).
+Neue Bildrunde K42–K46: Anzinger/Aschheimer, Chiemgau/Schwansee, Mars/Seidl, Stiglmaierplatz sowie Orleans/Rosenheimer. OSM vom 17.11.2026 eingefroren, fünf Flächen mit vier logischen Armen vorbereitet; Radfahrstreifen und gemeinsame Fahrbahnpunkte ausgewiesen. 41 weitere offene Fälle bleiben ohne Geometrie. K42–K46 von Thomas freigegeben. K46 Entry-1 ausschließlich rechts; links nach Exit-3 und geradeaus nach Exit-4 ausdrücklich ausgeschlossen. K42/K43/K45 jeweils 8/8, K44 und K46 jeweils 7/8 zulässige Links-/Geradeausbeziehungen technisch bestanden. K46 Entry-3 → Exit-4 ohne Makro: Standardroute nutzt Gehweg 1017221653 ohne belegte Fahrradfreigabe. K43 verwendet 25m/15m lange Referenzansätze auf denselben Radwegen gegen falsches Snapping. K44 Entry-3 → Exit-1 bleibt ohne Links-Makro: Standardroute über Lämmerstraße/Hirtenstraße mit mehrfacher Flächenquerung. K44 Entry-3 → Exit-1: Thomas hat die Linksabbiegebeschränkung in OSM um except=bicycle ergänzt; Wiedervorlage frühestens ab 23.11.2026 (OSM-Relation und Routing-Datenimport prüfen). Bis dahin kein Links-Makro. 38 positive Routen, 21 Rechts- und 38 Fußkontrollen bestanden, offline reproduziert. Noch keine Aktivierung, Runtime unverändert. [Bildrunde](review-batch-08-central-images/index.html).
 
-Backend **2.4.16**, Commit `2916970044ff07df03edb21694b71ea641aae565`, Katalog **munich-big-junctions-v16** ist nachgewiesen live. [Backend-Workflow 43912335393](https://github.com/MunichWays/munichways-radlnavi/actions/runs/43912335393) erfolgreich, einschließlich Direct und Entdeckertour.
+Historischer Live-Nachweis vom 16.11.2026: Backend **2.4.16**, Commit `2916970044ff07df03edb21694b71ea641aae565`, Katalog **munich-big-junctions-v16** ist nachgewiesen live. [Backend-Workflow 43912335393](https://github.com/MunichWays/munichways-radlnavi/actions/runs/43912335393) erfolgreich, einschließlich Direct und Entdeckertour.
 
 K18 v5 (8 Beziehungen), K34 (8), K35 West (5), K36 (8), K37 Ost (5), K38 (8), K40 (8), K41 (6) sind jetzt live. K39 dauerhaft ausgeschlossen; die beiden K18-Entry-3- und K41-Entry-1-Ausnahmen sowie K13/K21 bleiben deaktiviert. Standardhinweise bleiben für diese Beziehungen erhalten. Entry-5 bei K18 ist ausgeschlossen, Exit-4 erhalten.
 
 91 Live-Referenzrouten des neuen Rollouts bestanden, einschließlich kombinierter K35/K37-Routen und unveränderter Standardrouten. Zusätzlich 45 bisherige Live-/Legacy-Kontrollen bestanden. [Rollout-Belege](review-release-2.4.16-rollout-live-checks.json) · [Bisherige Kontrollen](review-release-2.4.16-live-checks.json). 173 Backend-Tests, 69 Review-Tests und sieben Frontend-Routingtests bestanden. Dies ersetzt keine Praxistest-Freigabe.
 
-51 weitere Kandidaten stehen als reine Texteinträge ohne Geometrie/Bildlink offen. Die 145 uneindeutigen Kontaktgruppen bleiben im Rohinventar und sind keine bestätigten Vierarmknoten. [Priorität nach Fahrspuren](outgoing-lanes-munich.html).
+41 weitere Kandidaten stehen als reine Texteinträge ohne Geometrie/Bildlink offen. Die 145 uneindeutigen Kontaktgruppen bleiben im Rohinventar und sind keine bestätigten Vierarmknoten. [Priorität nach Fahrspuren](outgoing-lanes-munich.html).
 
 ## Historischer Stand und Arbeitsverlauf vor dem Release 2.4.16
 

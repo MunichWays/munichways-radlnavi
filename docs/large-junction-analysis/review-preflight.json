@@ -1,7 +1,7 @@
 {
   "version": 1,
   "runtimeModified": false,
-  "referenceCasesChecked": 43,
+  "referenceCasesChecked": 47,
   "districtInventory": {
     "candidateNodes": 32,
     "groups": [
@@ -1221,7 +1221,7 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "9 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "reviewQuestion": "9 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -1237,7 +1237,7 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "8 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "reviewQuestion": "8 ausgehende Kfz-Fahrspuren laut OSM. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -1260,7 +1260,7 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "Radfahrstreifen Marsstraße West und Seidlstraße Nord/Süd einbezogen. Marsstraße Ost mit separaten Radwegen. Fahrbahnpunkte auf OSM-Mittellinie; seitliche Lage nicht vermessen. Denisstraße bleibt außerhalb. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "reviewQuestion": "Radfahrstreifen Marsstraße West und Seidlstraße Nord/Süd einbezogen. Marsstraße Ost mit separaten Radwegen. Fahrbahnpunkte auf OSM-Mittellinie; seitliche Lage nicht vermessen. Denisstraße bleibt außerhalb. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -1278,7 +1278,7 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "Vier Hauptarme; Schleißheimer Straße nördlich außerhalb der Fläche. Brienner Straße ausgehend auf Radfahrstreifen (OSM cycleway:right=lane), eingehend separater Radweg; kein zusätzlicher Gegenrichtungs-Fahrbahnpunkt. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Im Branch aktiviert; noch nicht als live bestätigt.",
+      "reviewQuestion": "Vier Hauptarme; Schleißheimer Straße nördlich außerhalb der Fläche. Brienner Straße ausgehend auf Radfahrstreifen (OSM cycleway:right=lane), eingehend separater Radweg; kein zusätzlicher Gegenrichtungs-Fahrbahnpunkt. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     },
     {
@@ -1305,7 +1305,91 @@
       "mergeSuggestions": [],
       "carriagewaySuggestions": [],
       "unverifiedAccessWays": [],
-      "reviewQuestion": "Radfahrstreifen Rosenheimer Straße Nordwest und Schutzstreifen Orleansstraße Südwest einbezogen (beidseitig; gemeinsamer Entry/Exit auf OSM-Mittellinie). Aus Südost bestehen Radweg und zusätzliche Fahrbahnzufahrt mit Radfahrstreifen; Geometrie von Thomas freigegeben. Entry-1 (Radweg) nur rechts nach Exit-1; links nach Exit-3 und geradeaus nach Exit-4 ausgeschlossen. Technischer Stand siehe Gesamtübersicht, im Branch aktiviert; noch nicht als live bestätigt.",
+      "reviewQuestion": "Radfahrstreifen Rosenheimer Straße Nordwest und Schutzstreifen Orleansstraße Südwest einbezogen (beidseitig; gemeinsamer Entry/Exit auf OSM-Mittellinie). Aus Südost bestehen Radweg und zusätzliche Fahrbahnzufahrt mit Radfahrstreifen; Geometrie von Thomas freigegeben. Entry-1 (Radweg) nur rechts nach Exit-1; links nach Exit-3 und geradeaus nach Exit-4 ausgeschlossen. Technischer Stand siehe Gesamtübersicht, live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-428687",
+      "number": 47,
+      "revision": 1,
+      "status": "permanently-excluded",
+      "geometrySha256": "4563bb583d695dc837b06b1907a8650f8682534369a79773f24690c0a7d1ef24",
+      "entries": 5,
+      "exits": 5,
+      "sharedGates": [
+        "Entry-1",
+        "Entry-2",
+        "Entry-3",
+        "Entry-4",
+        "Entry-5",
+        "Exit-1",
+        "Exit-2",
+        "Exit-3",
+        "Exit-4",
+        "Exit-5"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "Sehr spezieller Sonderfall mit vielen Zweirichtungsradwegen und einzelnen Armen ohne Radweg.\nDauerhaft ausschließen, Standardansagen sind hier OK.",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-564153",
+      "number": 48,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "8d514f46714f86e3efd1520f28f99eafd9e38807e3bb8feea81c8abe27779144",
+      "entries": 5,
+      "exits": 5,
+      "sharedGates": [
+        "Entry-1",
+        "Exit-2"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "- Entry-1/Exit-2 gehört zur Kreuzung, soll aber normale Ansagen bekommen, keine spezielle große Kreuzung Ansage.\n- Es gibt 2-Richtungsradwege in der Kreuzung im Süden und Westen. beide Richtungen passen trotzdem zu große Kreuzung Ansage \"... links abbiegen\"",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-1956058",
+      "number": 49,
+      "revision": 1,
+      "status": "geometry-approved",
+      "geometrySha256": "aa5f4623da9f4c63b50631171c85bbb7f2db5f3f90d06d43d8b2b48846ffd1c3",
+      "entries": 4,
+      "exits": 4,
+      "sharedGates": [
+        "Entry-1",
+        "Exit-2"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "passt alles",
+      "caution": "Counts and shared gates do not prove four logical arms or route legality."
+    },
+    {
+      "id": "lane-candidate-564108",
+      "number": 50,
+      "revision": 2,
+      "status": "geometry-approved",
+      "geometrySha256": "b31e73d394c60282a01bf25e7234458cdc753d3114b27dd446df340b2fc26068",
+      "entries": 4,
+      "exits": 5,
+      "sharedGates": [
+        "Entry-3",
+        "Exit-4"
+      ],
+      "carriagewayGates": [],
+      "mergeSuggestions": [],
+      "carriagewaySuggestions": [],
+      "unverifiedAccessWays": [],
+      "reviewQuestion": "passt alles",
       "caution": "Counts and shared gates do not prove four logical arms or route legality."
     }
   ],

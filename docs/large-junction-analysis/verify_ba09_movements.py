@@ -86,7 +86,8 @@ def plan(site, *, draft=False):
     gates = {g['label']: g for g in site['gates']}
     arms = ARMS[site['number']]
     listed = [label for entries, exits in arms.values() for label in entries + exits]
-    if set(listed) != set(gates) or len(listed) != len(gates):
+    standard_only = set(site.get('normalGuidanceGates', []))
+    if not standard_only <= set(gates) or set(listed).intersection(standard_only) or set(listed) != set(gates) - standard_only or len(listed) != len(set(listed)):
         raise ValueError(f'Logical arm mapping incomplete: {site["id"]}')
     edges = graph(site['ways'], site.get('onRoadWayIds', []))
     samples = {}
@@ -110,6 +111,25 @@ def plan(site, *, draft=False):
                         coord = lambda p: f'{p[0]:.9f},{p[1]:.9f}'
                         item['url'] = 'https://api.radlnavi.munichways.de/route/v1/bike/' + coord(samples[entry]['sample']) + ';' + coord(samples[exit]['sample']) + '?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard'
                     tasks.append(item)
+    # Explicitly scoped cycling connections stay physical gates, but never
+    # participate in a junction macro. Verify their real routes as controls.
+    membership = {label: arm for arm, (entries, exits) in arms.items() for label in entries + exits}
+    for entry, before in gates.items():
+        for exit, after in gates.items():
+            if before['kind'] != 'entry' or after['kind'] != 'exit' or not ({entry, exit} & standard_only) or meters(before['location'], after['location']) < 2:
+                continue
+            identifier = f'standard-only-{entry.lower()}-{exit.lower()}'
+            item = dict(id=identifier, junctionId=site['id'], entryArm=membership.get(entry, 'standard-only'),
+                        exitArm=membership.get(exit, 'standard-only'), entryLabel=entry, exitLabel=exit,
+                        kind='standard', enabled=False, normalGuidanceOnly=True,
+                        reason='Human-reviewed connection uses ordinary guidance only.',
+                        fixture=f'{site["id"]}-{identifier}.json')
+            if 'error' not in samples[entry] and 'error' not in samples[exit]:
+                coord = lambda p: f'{p[0]:.9f},{p[1]:.9f}'
+                item['url'] = 'https://api.radlnavi.munichways.de/route/v1/bike/' + coord(samples[entry]['sample']) + ';' + coord(samples[exit]['sample']) + '?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard'
+            else:
+                item['reason'] += ' ' + samples[entry].get('error', samples[exit].get('error', ''))
+            tasks.append(item)
     return tasks, samples
 
 
@@ -149,7 +169,7 @@ def verify(site, item, payload, base):
     start, end = entry['geometrySegmentIndex'], exit['geometrySegmentIndex']
     corridor = [entry['location'], *line[start + 1:end + 1], exit['location']]
     supported = corridor_check(corridor, corridor_graph(site))
-    if item['kind'] == 'right':
+    if item['kind'] in ('right', 'standard'):
         return None, {'verified': True, 'verifiedCyclingWayIds': supported}
     failures = []
     for distance in (10, 40):

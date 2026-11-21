@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kreuzungsprüfung</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand"><button id="toggle-sidebar" class="secondary" type="button" aria-controls="sidebar" aria-expanded="true" title="Kreuzungsliste ein-/ausklappen">☰</button><span class="brand-mark" aria-hidden="true">╋</span><div><h1>Kreuzungsprüfung</h1><p id="project-name">Lokales Projekt wird geladen …</p></div></div>
+    <a class="button secondary" href="/api/export" download>Bestätigte Geometrien exportieren</a>
+  </header>
+  <div id="message" role="status" aria-live="polite" hidden></div>
+  <div class="layout">
+    <aside id="sidebar" aria-label="Kreuzungen">
+      <a class="overview-link" href="#">← Alle Kreuzungen</a>
+      <label for="search">Kreuzung suchen</label>
+      <input id="search" type="search" placeholder="Name oder Nummer …">
+      <div id="counts" class="counts"></div>
+      <div id="rechecks"></div>
+      <nav id="groups" aria-label="Prüfgruppen"></nav>
+      <p id="source" class="source"></p>
+    </aside>
+    <main>
+      <section id="overview">
+        <div class="section-heading"><div><h2>Kreuzungen</h2><p>Auf der Karte oder in der Liste auswählen.</p></div><label>Karte anzeigen<select id="map-status"><option value="open">Offene Prüfungen</option><option value="all">Alle Fälle</option><option value="confirmed">Bestätigt</option><option value="excluded">Ausgeschlossen / zurückgestellt</option></select></label></div>
+        <div id="overview-map" class="map overview-map"></div>
+        <p class="map-caption">OSM-Standardkarte als Hintergrund. Mit „OSM“ auf die gespeicherten Offline-Wege umschalten.</p>
+        <div class="notice"><strong>Ein Schritt nach dem anderen.</strong> Die Sichtprüfung bestätigt Fläche und Anschlüsse. Technische Fahrbeziehungsprüfung und Live-Status werden getrennt geführt.</div>
+      </section>
+      <section id="detail" hidden>
+        <div class="section-heading"><div><p id="detail-number" class="eyebrow"></p><h2 id="detail-title"></h2></div><span id="detail-status" class="badge"></span></div>
+        <div class="stage-status"><span id="revision"></span><span id="technical-stage"></span><span id="deployment-stage"></span></div>
+        <div class="toolbar"><label class="check"><input id="edit-mode" type="checkbox"> Fläche bearbeiten</label><button id="reset-geometry" type="button" class="secondary">Änderungen verwerfen</button><span id="dirty" hidden>Ungespeicherte Fläche</span></div>
+        <div id="detail-map" class="map detail-map"></div>
+        <p class="map-caption">Grün: Entry · Blau: Exit · Violett: Fläche · * gemeinsamer Punkt · Norden oben. Radfahrstreifen liegen schematisch auf der Straßenmitte.</p>
+        <p id="site-note" class="notice"></p>
+        <div id="detail-rechecks"></div>
+        <details id="evidence-panel" class="panel evidence"><summary>Technische Prüfung, Live-Stand und Fahrbeziehungen</summary><div id="evidence-body"></div></details>
+        <p id="edit-help" hidden>Eckpunkte ziehen; die bestehenden Entry-/Exit-Punkte folgen ihren OSM-Wegen. Neue Anschlüsse und Straßenarme werden in dieser Basisversion noch nicht automatisch ergänzt.</p>
+        <div class="review-grid">
+          <section class="panel"><h3>Geometrie prüfen</h3><ul class="checklist"><li>Fläche umfasst Kreuzung und Wartebereiche.</li><li>Anschlüsse liegen auf den richtigen Wegen und Straßenseiten.</li><li>Fahrtrichtungen und Zweirichtungswege sind vollständig.</li><li>Benachbarte Einmündungen bleiben außerhalb.</li></ul><details><summary>Anschlüsse und Straßenarme</summary><div id="gate-list"></div></details></section>
+          <form id="review-form" class="panel"><h3>Prüfentscheidung</h3><p id="stale" class="warning" hidden>Die frühere Entscheidung gilt nicht mehr für diesen Daten- oder Geometriestand.</p><label for="decision">Status</label><select id="decision"><option value="open">Offen</option><option value="confirmed">Geometrie bestätigt</option><option value="deferred">Zurückgestellt</option><option value="excluded">Ausgeschlossen</option></select><label for="note">Kommentar / Grund</label><textarea id="note" rows="3" placeholder="Korrektur, Ausnahme oder kurze Begründung …"></textarea><label for="deferred-until">Wiedervorlage (bei Zurückstellung)</label><input id="deferred-until" type="date"><div class="form-actions"><button id="save-review" type="submit">Entscheidung speichern</button><button id="save-geometry" type="button" class="secondary">Nur Fläche speichern</button></div><p class="muted">Eine Bestätigung aktiviert keine Kreuzungsansagen.</p></form>
+        </div>
+        <details class="panel history"><summary>Änderungsverlauf</summary><ul id="history"></ul></details>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

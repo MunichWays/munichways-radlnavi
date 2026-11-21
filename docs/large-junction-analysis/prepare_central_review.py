@@ -61,7 +61,7 @@ def prepare(record, ways):
     return site
 
 
-def main(collect_source=False):
+def main(collect_source=False, title='K42–K46 · Zentrale Kreuzungen', selection_label='Die fünf von Thomas ausgewählten Kreuzungen.'):
     if collect_source:
         collect()
     snapshot=json.loads(gzip.decompress(SOURCE.read_bytes()))
@@ -90,14 +90,14 @@ def main(collect_source=False):
             if old and old.get('polygonApproved') and not site['polygonApproved']:
                 raise ValueError('Existing approval cannot be dropped')
     cards=[]
-    report_path = ROOT / 'review-batch-08-central-routes.json'
+    report_path = DRAFTS.with_name(DRAFTS.name.replace('-drafts.json', '-routes.json'))
     technical = {s['id']: s for s in json.loads(report_path.read_text(encoding='utf-8'))['junctions']} if report_path.exists() else {}
     for site in sites:
         name=f'K{site["number"]:02d}-{site["id"]}'
         commands=draw(site)
         record = technical.get(site['id'], {})
         if record.get('geometryRevision') == site['version']:
-            blocked = [m for m in record['movements'] if m['kind'] != 'right' and not m.get('enabled')]
+            blocked = [m for m in record['movements'] if m['kind'] not in ('right', 'standard') and not m.get('enabled')]
             if blocked:
                 labels = ', '.join(f'{m["entryLabel"]} → {m["exitLabel"]}' for m in blocked)
                 dates = sorted({m['deferredUntil'] for m in blocked if m.get('deferredUntil')})
@@ -115,9 +115,9 @@ def main(collect_source=False):
         label=html.escape(f'K{site["number"]} v{site["version"]} · {site["name"]}')
         cards.append(f'<article><h2>{label}</h2><p>{html.escape(site["note"])}</p><a href="{name}.png"><img src="{name}.svg" alt="{label}"></a></article>')
     approved_count = sum(site['polygonApproved'] for site in sites)
-    (OUT/'index.html').write_text('<!doctype html><html lang="de"><meta charset="utf-8"><title>K42–K46 · Zentrale Kreuzungen</title>'
+    (OUT/'index.html').write_text(f'<!doctype html><html lang="de"><meta charset="utf-8"><title>{html.escape(title)}</title>'
         '<style>body{font:17px Arial;margin:24px;background:#f3f4f5;color:#263238}main{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px}article{background:white;padding:16px}img{width:100%}p{line-height:1.5}</style>'
-        f'<h1>K42–K46 · Zentrale Kreuzungen</h1><p>{approved_count} Geometrien freigegeben, {len(sites)-approved_count} noch zur Sichtprüfung offen. Technischer Stand und Live-Status siehe Gesamtübersicht. Die fünf von Thomas ausgewählten Kreuzungen. Bitte Umfang der Fläche, Entry-/Exit-Punkte, Fahrtrichtung und fehlende Anschlüsse prüfen. Benachbarte Einmündungen bleiben außerhalb. Radfahrstreifen werden anhand ihrer OSM-Fahrbahnmitte dargestellt; die seitliche Lage ist nicht vermessen. Eine Geometriefreigabe ist noch keine Aktivierung; Fahrbeziehungsprüfung und Live-Status werden getrennt dokumentiert.</p>'
+        f'<h1>{html.escape(title)}</h1><p>{approved_count} Geometrien freigegeben, {len(sites)-approved_count} noch zur Sichtprüfung offen. Technischer Stand und Live-Status siehe Gesamtübersicht. {html.escape(selection_label)} Bitte Umfang der Fläche, Entry-/Exit-Punkte, Fahrtrichtung und fehlende Anschlüsse prüfen. Benachbarte Einmündungen bleiben außerhalb. Radfahrstreifen werden anhand ihrer OSM-Fahrbahnmitte dargestellt; die seitliche Lage ist nicht vermessen. Eine Geometriefreigabe ist noch keine Aktivierung; Fahrbeziehungsprüfung und Live-Status werden getrennt dokumentiert.</p>'
         '<p><a href="../kreuzungspruefung/index.html">Gesamtübersicht</a> · <a href="overview.png">Kontaktübersicht</a></p><main>'+''.join(cards)+
         '</main><p>OSM '+snapshot['retrievedAt'][:10]+' · © OpenStreetMap-Mitwirkende, ODbL.</p></html>',encoding='utf-8')
     write(data,dict(version=1,enabled=False,osmRetrievedAt=snapshot['retrievedAt'],sites=sites))

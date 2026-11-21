@@ -50,6 +50,7 @@ python docs/large-junction-analysis/verify_central_movements.py
 ```
 
 Backend 2.4.17 / Katalog v17: 38 neue Beziehungen im Branch aktiviert.
-Insgesamt 39 Kreuzungen / 319 Beziehungen. Deployment noch nicht als live bestätigt.
+Insgesamt 39 Kreuzungen / 319 Beziehungen. Am 18.11.2026 als live bestätigt: Backend 2.4.17 / Commit 72957c6,
+61 echte Live-Routen bestanden. Wiedervorlagen und reine Rechtszufahrt bleiben ausgeschlossen.
 
 17.11.2026: K46 Entry-3 → Exit-4 ebenfalls zur Wiedervorlage ab **23.11.2026**. Thomas hat die Linksabbiegebeschränkung in OSM um `except=bicycle` ergänzt. OSM-Relation, Routing-Datenimport und dieselbe Standardroute erneut prüfen; die bisherige Gehweg-Diagnose bezieht sich auf den alten Routingstand. Bei bestandenem Nachweis ist die normale Ansage „An der großen Kreuzung links abbiegen“ vorgesehen. Bis dahin deaktiviert. Entry-1 bleibt unabhängig davon eine reine Rechtszufahrt.

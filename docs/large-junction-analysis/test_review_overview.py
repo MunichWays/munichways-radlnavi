@@ -21,7 +21,7 @@ class OverviewCountsTests(unittest.TestCase):
     def test_complete_counts_include_pilots_and_previous_exclusions_once(self):
         groups, _, _ = self.groups()
         self.assertEqual(review_counts(groups), {
-            'total': 98, '1-bestaetigt': 39, '2-offen': 45, '3-ausgeschlossen': 14})
+            'total': 98, '1-bestaetigt': 42, '2-offen': 41, '3-ausgeschlossen': 15})
 
     def test_wilram_draft_preserves_other_gates_and_records_special_guidance(self):
         groups, catalog, _ = self.groups()
@@ -64,7 +64,7 @@ class OverviewCountsTests(unittest.TestCase):
         line = [[p['lon'], p['lat']] for p in street['geometry']]
         self.assertEqual(crossings(line, site['polygon']), [])
         self.assertFalse(any(inside(p, site['polygon']) for p in line))
-        self.assertEqual(sum(s.get('textOnly', False) for items in groups.values() for s in items), 52)
+        self.assertEqual(sum(s.get('textOnly', False) for items in groups.values() for s in items), 48)
 
     def test_duplicate_records_cannot_inflate_totals(self):
         groups, catalog, records = self.groups()

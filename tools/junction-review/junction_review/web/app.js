@@ -1,3 +1,7 @@
+import {createApi} from './api.js';
+import {initializeAreas} from './area-ui.js';
+import {initializeGateEditor, geometryOf} from './gate-ui.js';
+
 const NS = 'http://www.w3.org/2000/svg';
 const labels = {open: 'Offen', confirmed: 'Bestätigt', deferred: 'Zurückgestellt', excluded: 'Ausgeschlossen'};
 const colors = {open: '#8450ac', confirmed: '#248060', deferred: '#bd8b1c', excluded: '#83818b'};
@@ -194,7 +198,9 @@ function roads(map, sites, detailed) {
 }
 
 let projectData, selected, draft, busy = false, dirty = false, formDirty = false, editMode = false;
+let gateEditor;
 const $ = id => document.getElementById(id);
+const apiRequest = createApi(() => projectData || {});
 
 function message(text, error = false) {
   $('message').textContent = text; $('message').hidden = false; $('message').className = error ? 'error' : '';
@@ -205,16 +211,15 @@ function setBusy(value) {
   for (const id of ['save-review', 'save-geometry', 'reset-geometry', 'edit-mode']) $(id).disabled = value;
   const editable = selected && (selected.geometryMode || 'editable') === 'editable';
   for (const id of ['save-geometry', 'reset-geometry', 'edit-mode']) $(id).disabled = value || !editable;
+  gateEditor?.render();
 }
 
-function siteLabel(site) { return site.number ? `K${site.number}` : (site.geometryMode === 'reference' ? 'Pilot' : 'Ohne Nummer'); }
+function siteLabel(site) { return site.number ? `K${site.number}` : (site.priorityRank ? `P${site.priorityRank}` : site.geometryMode === 'reference' ? 'Pilot' : 'Ohne Nummer'); }
 function rechecks(site) { return site.evidenceCurrent ? (site.evidence?.rechecks || []) : []; }
 function recheckText(item) { return `${item.entry} → ${item.exit} · ab ${item.date.split('-').reverse().join('.')}`; }
 
 async function post(action, body) {
-  const response = await fetch(`/api/sites/${encodeURIComponent(selected.id)}/${action}`, {method: 'POST',
-    headers: {'Content-Type': 'application/json', 'X-Review-Token': projectData.token}, body: JSON.stringify(body)});
-  const data = await response.json(); if (!response.ok) throw new Error(data.error); return data;
+  return apiRequest(`/api/sites/${encodeURIComponent(selected.id)}/${action}`, {body});
 }
 
 function navigation() {
@@ -228,12 +233,12 @@ function navigation() {
   const oldOpen = new Set([...$('groups').querySelectorAll('details[open]')].map(d => d.dataset.status));
   const first = !$('groups').children.length;
   $('groups').replaceChildren(...groups.map(([status, title]) => {
-    const sites = projectData.sites.filter(s => s.status === status && (`${siteLabel(s)} ${s.name}`).toLocaleLowerCase().includes(search)).sort((a, b) => (b.number || 0) - (a.number || 0) || (b.outgoingLanes || 0) - (a.outgoingLanes || 0) || a.name.localeCompare(b.name, 'de'));
+    const sites = projectData.sites.filter(s => s.status === status && (`${siteLabel(s)} ${s.name}`).toLocaleLowerCase().includes(search)).sort((a, b) => (a.priorityRank || 0) - (b.priorityRank || 0) || (b.number || 0) - (a.number || 0) || (b.outgoingLanes || 0) - (a.outgoingLanes || 0) || a.name.localeCompare(b.name, 'de'));
     const details = html('details', {open: first ? status === 'open' : oldOpen.has(status) || !!search}); details.dataset.status = status;
     details.append(html('summary', {}, `${title} · ${sites.length}`));
     for (const s of sites) {
       const a = html('a', {href: `#${encodeURIComponent(s.id)}`, className: `site-link${selected?.id === s.id ? ' active' : ''}`});
-      a.append(html('small', {}, `${siteLabel(s)} · ${s.geometryMode === 'none' ? 'noch ohne Geometrie' : 'v' + s.geometryRevision}${s.outgoingLanes ? ' · ' + s.outgoingLanes + ' Fahrspuren' : ''}${s.deploymentStatus === 'live' ? ' · LIVE' : ''}`), document.createTextNode(s.name)); details.append(a);
+      a.append(html('small', {}, `${siteLabel(s)} · ${s.linkedReviews?.length ? 'bereits in anderem Projekt bearbeitet' : s.geometryMode === 'none' ? 'noch ohne Geometrie' : 'v' + s.geometryRevision}${s.outgoingLanes ? ' · ' + s.outgoingLanes + ' Fahrspuren' : s.preparation ? ' · Spuren unbekannt' : ''}${s.preparation?.warnings.length ? ' · ' + s.preparation.warnings.length + ' Prüfpunkte' : ''}${s.deploymentStatus === 'live' ? ' · LIVE' : ''}`), document.createTextNode(s.name)); details.append(a);
     }
     return details;
   }));
@@ -253,7 +258,7 @@ function overview() {
     const [x, y] = map.project.to(site.origin);
     const a = el('a', {href: `#${encodeURIComponent(site.id)}`, 'data-no-pan': '', 'aria-label': `${siteLabel(site)} ${site.name}`});
     a.append(el('circle', {cx: x, cy: y, r: map.width / 110, fill: site.geometryMode === 'none' ? 'white' : colors[site.status], stroke: site.geometryMode === 'none' ? colors[site.status] : 'white', 'stroke-width': map.width / 650}));
-    if (site.number) a.append(el('text', {x, y: y - map.width / 65, 'text-anchor': 'middle', fill: '#46374f', 'font-size': map.width / 65, 'font-weight': 700, 'paint-order': 'stroke', stroke: 'white', 'stroke-width': map.width / 300}, siteLabel(site)));
+    if (site.number || site.priorityRank) a.append(el('text', {x, y: y - map.width / 65, 'text-anchor': 'middle', fill: '#46374f', 'font-size': map.width / 65, 'font-weight': 700, 'paint-order': 'stroke', stroke: 'white', 'stroke-width': map.width / 300}, siteLabel(site)));
     a.append(el('title', {}, site.name)); map.svg.append(a);
   }
 }
@@ -276,7 +281,8 @@ function detailMap() {
       map.svg.append(el('text', {x: labelX, y: g.labelY - size * .3, 'text-anchor': side === -1 ? 'start' : 'end', 'font-size': size, fill: color, 'paint-order': 'stroke', stroke: 'white', 'stroke-width': .8}, g.label + (g.shared ? ' *' : '')));
     }
   }
-  if (!editMode || (draft.geometryMode || 'editable') !== 'editable') return;
+  gateEditor?.attach(map);
+  if (!editMode || gateEditor?.isPicking() || (draft.geometryMode || 'editable') !== 'editable') return;
   draft.polygon.slice(0, -1).forEach((p, index) => {
     const [x, y] = map.project.to(p);
     const handle = el('circle', {cx: x, cy: y, r: size * .5, fill: '#fff', stroke: '#793b9e', 'stroke-width': .8, 'data-no-pan': '', tabindex: 0, 'aria-label': `Flächeneckpunkt ${index + 1}`});
@@ -292,8 +298,7 @@ function detailMap() {
     handle.addEventListener('pointerup', async () => {
       if (!dragging) return; dragging = false; setBusy(true);
       try {
-        draft = await post('preview', {expectedVersion: selected.editVersion, polygon: draft.polygon});
-        dirty = draft.geometryFingerprint !== selected.geometryFingerprint; $('dirty').hidden = !dirty;
+        acceptPreview(await post('preview', {expectedVersion: selected.editVersion, geometry: geometryOf(draft)}));
       } catch (error) { draft = before; message(error.message, true); }
       finally { setBusy(false); detailMap(); }
     });
@@ -305,6 +310,7 @@ function detailMap() {
 function detail() {
   $('detail-number').textContent = `${siteLabel(selected)} · GEOMETRIEPRÜFUNG`;
   $('detail-title').textContent = selected.name;
+  $('image-export').href = `/api/sites/${encodeURIComponent(selected.id)}/image.svg?project=${encodeURIComponent(projectData.workspaceId)}`;
   $('detail-status').textContent = labels[selected.status]; $('detail-status').className = `badge ${selected.status}`;
   $('revision').textContent = selected.geometryMode === 'none' ? 'Noch ohne Geometrie' : `Geometrie v${selected.geometryRevision}`;
   $('technical-stage').textContent = selected.technicalStatus === 'not-run' ? 'Technik: ausstehend' : 'Technik: dokumentiert (siehe Details)';
@@ -317,9 +323,7 @@ function detail() {
   $('edit-mode').checked = editMode; $('edit-help').hidden = !editMode; $('dirty').hidden = !dirty;
   const noGeometry = selected.geometryMode === 'none';
   $('decision').querySelector('[value="confirmed"]').disabled = noGeometry;
-  const membership = new Map(Object.entries({...selected.logicalArms, ...(selected.evidenceCurrent ? selected.evidence.logicalArms : {})}).flatMap(([arm, gates]) => gates.map(g => [g, arm])));
-  const ordinary = selected.evidenceCurrent ? selected.evidence.normalGuidanceGates || [] : [];
-  $('gate-list').replaceChildren(...selected.gates.map(g => html('div', {className: `gate-row ${g.kind}`}, `${g.label}${g.shared ? ' *' : ''} · ${ordinary.includes(g.label) ? 'nur normale Ansagen' : membership.get(g.label) || 'Straßenarm noch zuordnen'} · OSM ${g.osmWayId}`)));
+  renderGateList();
   $('history').replaceChildren(...(selected.history.length ? [...selected.history].reverse().map(h => html('li', {}, `${new Date(h.at).toLocaleString('de-DE')} · ${h.action} ${h.decision ? '· ' + labels[h.decision.status] + (h.decision.note ? ': ' + h.decision.note : '') : ''}`)) : [html('li', {}, 'Noch keine Änderungen im Prüfprojekt.') ]));
   if (selected.decision?.origin === 'legacy-overview') $('history').prepend(html('li', {}, 'Bisherige dokumentierte Prüfentscheidung übernommen; keine neue Freigabe erteilt.'));
   $('detail-rechecks').replaceChildren(...rechecks(selected).map(item => html('p', {className: 'recheck-link'}, `${recheckText(item)}. ${item.reason} Normale Ansagen bleiben aktiv.`)));
@@ -351,17 +355,18 @@ function route() {
   if ((dirty || formDirty) && !window.confirm('Ungespeicherte Änderungen verwerfen?')) { history.replaceState(null, '', selected ? `#${encodeURIComponent(selected.id)}` : location.pathname); return; }
   selected = next; draft = next ? structuredClone(next) : null; dirty = false; formDirty = false;
   $('overview').hidden = !!selected; $('detail').hidden = !selected;
+  $('overview-back').hidden = !selected;
   navigation(); if (selected) detail(); else overview();
   window.scrollTo(0, 0);
 }
 
 async function save(withDecision) {
   if (busy) return;
-  if (!withDecision && !dirty) { message('Die Fläche ist unverändert.'); return; }
+  if (!withDecision && !dirty) { message('Die Geometrie ist unverändert.'); return; }
   setBusy(true);
   try {
     const body = {expectedVersion: selected.editVersion};
-    if (dirty) body.polygon = draft.polygon;
+    if (dirty) body.geometry = geometryOf(draft);
     if (withDecision) Object.assign(body, {status: $('decision').value, note: $('note').value, deferredUntil: $('deferred-until').value});
     const result = await post('save', body);
     projectData.sites[projectData.sites.findIndex(s => s.id === result.id)] = result;
@@ -386,9 +391,16 @@ async function start() {
       sidebarCollapsed = !sidebarCollapsed; setSidebar();
       try { localStorage.setItem('junction-review:sidebar', sidebarCollapsed ? 'collapsed' : 'expanded'); } catch { /* Optional. */ }
     });
-    const response = await fetch('/api/project'); projectData = await response.json();
-    if (!response.ok) throw new Error(projectData.error);
-    $('project-name').textContent = [projectData.project.city, projectData.project.district].filter(Boolean).join(' · ');
+    let remembered;
+    try { remembered = localStorage.getItem('junction-review:project'); } catch { /* Optional. */ }
+    try { projectData = await apiRequest('/api/project', {projectId: remembered}); }
+    catch (error) {
+      if (!remembered) throw error;
+      projectData = await apiRequest('/api/project', {projectId: ''});
+      message('Das zuletzt geöffnete Projekt ist nicht verfügbar. Das Startprojekt wurde geöffnet.', true);
+    }
+    $('export-project').href = `/api/export?project=${encodeURIComponent(projectData.workspaceId)}`;
+    $('project-name').textContent = projectData.project.name || [projectData.project.city, projectData.project.district].filter(Boolean).join(' · ');
     $('source').textContent = `${projectData.source.attribution} · OSM bis ${projectData.source.osmRetrievedAt?.slice(0, 10) || 'Datum unbekannt'}${projectData.source.liveCheckedAt ? ' · Live-Abgleich ' + projectData.source.liveCheckedAt.slice(0, 10) : ''} · Lokal gespeichert`;
     $('search').addEventListener('input', () => { navigation(); if (!selected) overview(); });
     $('map-status').addEventListener('change', overview);
@@ -396,11 +408,51 @@ async function start() {
     $('review-form').addEventListener('input', () => { formDirty = true; });
     $('save-geometry').addEventListener('click', () => save(false));
     $('reset-geometry').addEventListener('click', () => { draft = structuredClone(selected); dirty = false; formDirty = false; detail(); });
-    $('edit-mode').addEventListener('change', () => { editMode = $('edit-mode').checked; $('edit-help').hidden = !editMode; detailMap(); });
+    $('edit-mode').addEventListener('change', () => {
+      editMode = $('edit-mode').checked;
+      if(editMode) $('gate-edit-mode').checked=false;
+      gateEditor?.render();$('edit-help').hidden = !editMode;detailMap();
+    });
     window.addEventListener('hashchange', route);
     window.addEventListener('beforeunload', event => { if (dirty || formDirty || busy) { event.preventDefault(); event.returnValue = ''; } });
+    setupAreas();
+    gateEditor = initializeGateEditor({$,html,el,draft:()=>draft,selected:()=>selected,busy:()=>busy,setBusy,
+      preview:body=>post('preview',body),accept:acceptPreview,redraw:detailMap,message,
+      onModeChange:active=>{if(active) {editMode=false;$('edit-mode').checked=false;$('edit-help').hidden=true;}}});
     route();
   } catch (error) { message(error.message, true); }
+}
+
+function acceptProject(data) {
+  projectData = data; selected = null; draft = null; dirty = formDirty = false;
+  history.replaceState(null, '', location.pathname);
+  $('project-name').textContent = data.project.name || [data.project.city, data.project.district].filter(Boolean).join(' \u00b7 ');
+  $('source').textContent = `${data.source.attribution} \u00b7 OSM bis ${data.source.osmRetrievedAt?.slice(0, 10) || 'Datum unbekannt'} \u00b7 Lokal gespeichert`;
+  $('export-project').href = `/api/export?project=${encodeURIComponent(data.workspaceId)}`;
+  try { localStorage.setItem('junction-review:project', data.workspaceId); } catch { /* Optional. */ }
+  $('search').value = ''; $('map-status').value = 'open';
+  $('overview').hidden = false; $('detail').hidden = true;
+  $('overview-back').hidden = true;
+  navigation(); overview();
+}
+
+function renderGateList() {
+  if (!draft) return;
+  const membership=new Map(Object.entries({...draft.logicalArms,...(draft.evidenceCurrent ? draft.evidence.logicalArms : {})}).flatMap(([arm,gates])=>gates.map(g=>[g,arm])));
+  const ordinary=draft.evidenceCurrent ? draft.evidence.normalGuidanceGates || [] : [];
+  $('gate-list').replaceChildren(...draft.gates.map(g=>html('div',{className:`gate-row ${g.kind}`},`${g.label}${g.shared ? ' *':''} · ${ordinary.includes(g.label) ? 'nur normale Ansagen':membership.get(g.label) || 'Straßenarm noch zuordnen'} · OSM ${g.osmWayId}`)));
+}
+
+function acceptPreview(result) {
+  draft=result;dirty=draft.geometryFingerprint!==selected.geometryFingerprint;
+  $('dirty').hidden=!dirty;
+  $('revision').textContent=`${dirty ? 'Entwurf':'Geometrie'} v${draft.geometryRevision}`;
+  renderGateList();
+}
+
+function setupAreas() {
+  initializeAreas({$, api: apiRequest, createMap, line, el, html,
+    project: () => projectData, acceptProject, setBusy, isBusy: () => busy, message});
 }
 
 if (typeof document !== 'undefined') start();

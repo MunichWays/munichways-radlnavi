@@ -1,0 +1,248 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3710808135,
+              295524560,
+              2005024747,
+              2404594148,
+              2404594147,
+              2404594146
+            ],
+            "distance": [
+              21.36597646,
+              23.8247043,
+              8.859641229,
+              51.68628168,
+              2.815476221
+            ]
+          },
+          "duration": 25.3,
+          "summary": "Waldfriedhofstraße, Luise-Kiesselbach-Platz",
+          "weight": 34.4,
+          "distance": 108.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    90
+                  ],
+                  "location": [
+                    11.515934,
+                    48.113104
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.515934,
+                    48.113104
+                  ],
+                  [
+                    11.516221,
+                    48.113105
+                  ],
+                  [
+                    11.516541,
+                    48.113108
+                  ],
+                  [
+                    11.51666,
+                    48.113107
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 90,
+                "bearing_before": 0,
+                "location": [
+                  11.515934,
+                  48.113104
+                ],
+                "type": "depart"
+              },
+              "name": "Waldfriedhofstraße",
+              "mode": "cycling",
+              "weight": 20.8,
+              "duration": 14.5,
+              "distance": 54.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.51666,
+                    48.113107
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.51666,
+                    48.113107
+                  ],
+                  [
+                    11.516749,
+                    48.112646
+                  ],
+                  [
+                    11.516755,
+                    48.112621
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 171,
+                "bearing_before": 90,
+                "location": [
+                  11.51666,
+                  48.113107
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Luise-Kiesselbach-Platz",
+              "mode": "cycling",
+              "weight": 13.6,
+              "duration": 10.8,
+              "distance": 54.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    351
+                  ],
+                  "location": [
+                    11.516755,
+                    48.112621
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.516755,
+                    48.112621
+                  ],
+                  [
+                    11.516755,
+                    48.112621
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 171,
+                "location": [
+                  11.516755,
+                  48.112621
+                ],
+                "type": "arrive"
+              },
+              "name": "Luise-Kiesselbach-Platz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.515934,
+            48.113104
+          ],
+          [
+            11.516221,
+            48.113105
+          ],
+          [
+            11.516541,
+            48.113108
+          ],
+          [
+            11.51666,
+            48.113107
+          ],
+          [
+            11.516749,
+            48.112646
+          ],
+          [
+            11.516755,
+            48.112621
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 34.4,
+      "duration": 25.3,
+      "distance": 108.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "22EFgP___38QAAAARgAAABEAAABSAAAAl8jYQIXtqkFzI9RAxbwCQg0AAAA4AAAADQAAAEIAAAC9AgAAHrivANAl3gIeuK8A0CXeAgIAnwUAAAAA",
+      "location": [
+        11.515934,
+        48.113104
+      ],
+      "name": "Waldfriedhofstraße",
+      "distance": 0
+    },
+    {
+      "hint": "LmAFgP___38HAAAAMgAAAIEAAACiAAAAwzA0QP33iUHBvk5CsSyCQgUAAAAoAAAAZwAAAIIAAAC9AgAAU7uvAO0j3gJTu68A7SPeAgIArwoAAAAA",
+      "location": [
+        11.516755,
+        48.112621
+      ],
+      "name": "Luise-Kiesselbach-Platz",
+      "distance": 0
+    }
+  ]
+}

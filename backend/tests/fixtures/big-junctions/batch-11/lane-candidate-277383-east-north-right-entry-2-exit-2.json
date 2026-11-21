@@ -1,0 +1,336 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3831527761,
+              3831566679,
+              5249554562,
+              3709902956,
+              3498172719,
+              277383,
+              3878487421,
+              3878487422,
+              3878487423,
+              3878487425
+            ],
+            "distance": [
+              18.69393972,
+              15.41370491,
+              17.12810339,
+              10.27580327,
+              15.56534054,
+              14.35873573,
+              9.678351629,
+              23.90644202,
+              31.92933489
+            ]
+          },
+          "duration": 63.1,
+          "summary": "Schwanthalerstraße",
+          "weight": 157.5,
+          "distance": 156.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    272
+                  ],
+                  "location": [
+                    11.556938,
+                    48.137478
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556938,
+                    48.137478
+                  ],
+                  [
+                    11.556687,
+                    48.137483
+                  ],
+                  [
+                    11.55648,
+                    48.137486
+                  ],
+                  [
+                    11.55625,
+                    48.13749
+                  ],
+                  [
+                    11.556112,
+                    48.137492
+                  ],
+                  [
+                    11.555903,
+                    48.137496
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 272,
+                "bearing_before": 0,
+                "location": [
+                  11.556938,
+                  48.137478
+                ],
+                "type": "depart"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 122.1,
+              "duration": 47.2,
+              "distance": 77.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    45,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.555903,
+                    48.137496
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556056,
+                    48.137665
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556056,
+                    48.13788
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555903,
+                    48.137496
+                  ],
+                  [
+                    11.556052,
+                    48.137578
+                  ],
+                  [
+                    11.556056,
+                    48.137665
+                  ],
+                  [
+                    11.556056,
+                    48.13788
+                  ],
+                  [
+                    11.55607,
+                    48.138167
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 49,
+                "bearing_before": 271,
+                "location": [
+                  11.555903,
+                  48.137496
+                ],
+                "modifier": "sharp right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 35.4,
+              "duration": 15.9,
+              "distance": 79.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    182
+                  ],
+                  "location": [
+                    11.55607,
+                    48.138167
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.55607,
+                    48.138167
+                  ],
+                  [
+                    11.55607,
+                    48.138167
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 2,
+                "location": [
+                  11.55607,
+                  48.138167
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.556938,
+            48.137478
+          ],
+          [
+            11.556687,
+            48.137483
+          ],
+          [
+            11.55648,
+            48.137486
+          ],
+          [
+            11.55625,
+            48.13749
+          ],
+          [
+            11.556112,
+            48.137492
+          ],
+          [
+            11.555903,
+            48.137496
+          ],
+          [
+            11.556052,
+            48.137578
+          ],
+          [
+            11.556056,
+            48.137665
+          ],
+          [
+            11.556056,
+            48.13788
+          ],
+          [
+            11.55607,
+            48.138167
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 157.5,
+      "duration": 63.1,
+      "distance": 156.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "zNwggOHcIIBaAAAAhwAAABkAAAAAAAAAqV5JQTCNlUEXC2BAAAAAABYAAAAiAAAABgAAAAAAAAC9AgAASliwAAaF3gJKWLAABoXeAgIA_xAAAAAA",
+      "location": [
+        11.556938,
+        48.137478
+      ],
+      "name": "Schwanthalerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "8twggP___3-NAAAAoQEAAAAAAAAAAAAAR2__QbPgd0IAAAAAAAAAAD8AAAC8AAAAAAAAAAAAAAC9AgAA5lSwALeH3gLmVLAAt4feAgAAHwAAAAAA",
+      "location": [
+        11.55607,
+        48.138167
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

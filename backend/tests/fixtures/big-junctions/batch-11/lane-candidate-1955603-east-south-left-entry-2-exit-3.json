@@ -1,0 +1,406 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1302910828,
+              13055463493,
+              3697671314,
+              1302910827,
+              8138447221,
+              372811175,
+              1955603,
+              660693962,
+              21495321,
+              372815639,
+              11100005478,
+              1026310441,
+              372815641
+            ],
+            "distance": [
+              12.4427483,
+              12.43645784,
+              28.71274157,
+              6.5083223,
+              7.203988359,
+              4.516891602,
+              5.812382613,
+              3.714253225,
+              5.93730026,
+              23.51691197,
+              1.246842538,
+              49.90639441
+            ]
+          },
+          "duration": 55.9,
+          "summary": "Dietlindenstraße, Potsdamer Straße",
+          "weight": 119.3,
+          "distance": 162,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    307
+                  ],
+                  "location": [
+                    11.591129,
+                    48.166208
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590356,
+                    48.166595
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590252,
+                    48.166645
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.591129,
+                    48.166208
+                  ],
+                  [
+                    11.590995,
+                    48.166275
+                  ],
+                  [
+                    11.59086,
+                    48.166341
+                  ],
+                  [
+                    11.590549,
+                    48.166494
+                  ],
+                  [
+                    11.59048,
+                    48.16653
+                  ],
+                  [
+                    11.590405,
+                    48.166571
+                  ],
+                  [
+                    11.590356,
+                    48.166595
+                  ],
+                  [
+                    11.590292,
+                    48.166625
+                  ],
+                  [
+                    11.590252,
+                    48.166645
+                  ],
+                  [
+                    11.590187,
+                    48.166676
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 307,
+                "bearing_before": 0,
+                "location": [
+                  11.591129,
+                  48.166208
+                ],
+                "type": "depart"
+              },
+              "name": "Dietlindenstraße",
+              "mode": "cycling",
+              "weight": 86.1,
+              "duration": 41.1,
+              "distance": 87.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590187,
+                    48.166676
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.590003,
+                    48.166504
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.589993,
+                    48.166495
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590187,
+                    48.166676
+                  ],
+                  [
+                    11.590003,
+                    48.166504
+                  ],
+                  [
+                    11.589993,
+                    48.166495
+                  ],
+                  [
+                    11.589611,
+                    48.166126
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 215,
+                "bearing_before": 305,
+                "location": [
+                  11.590187,
+                  48.166676
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 33.2,
+              "duration": 14.8,
+              "distance": 74.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    35
+                  ],
+                  "location": [
+                    11.589611,
+                    48.166126
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589611,
+                    48.166126
+                  ],
+                  [
+                    11.589611,
+                    48.166126
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 215,
+                "location": [
+                  11.589611,
+                  48.166126
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.591129,
+            48.166208
+          ],
+          [
+            11.590995,
+            48.166275
+          ],
+          [
+            11.59086,
+            48.166341
+          ],
+          [
+            11.590549,
+            48.166494
+          ],
+          [
+            11.59048,
+            48.16653
+          ],
+          [
+            11.590405,
+            48.166571
+          ],
+          [
+            11.590356,
+            48.166595
+          ],
+          [
+            11.590292,
+            48.166625
+          ],
+          [
+            11.590252,
+            48.166645
+          ],
+          [
+            11.590187,
+            48.166676
+          ],
+          [
+            11.590003,
+            48.166504
+          ],
+          [
+            11.589993,
+            48.166495
+          ],
+          [
+            11.589611,
+            48.166126
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 119.3,
+      "duration": 55.9,
+      "distance": 162
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "k1gvgMxYL4AyAAAAAAAAADIAAABnAAAAfxVHQQAAAAC7-0ZB0BjOQRYAAAAAAAAAFgAAAC4AAAC9AgAA2d2wAED13gLZ3bAAQPXeAgIA7wcAAAAA",
+      "location": [
+        11.591129,
+        48.166208
+      ],
+      "name": "Dietlindenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "VOoFgP___3_dAAAApgEAAAAAAAAAAAAAJqBHQm9dNEIAAAAAAAAAAGMAAAC-AAAAAAAAAAAAAAC9AgAA69ewAO703gLr17AA7vTeAgAAbw0AAAAA",
+      "location": [
+        11.589611,
+        48.166126
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

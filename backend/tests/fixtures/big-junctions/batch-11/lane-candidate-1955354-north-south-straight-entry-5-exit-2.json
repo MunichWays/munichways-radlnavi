@@ -1,0 +1,381 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              5327842375,
+              1319848559,
+              1319848556,
+              2614032433,
+              1955331,
+              2614032298,
+              255417912,
+              1955354,
+              290826815,
+              27470266,
+              3498157178,
+              13962006125,
+              1381612539,
+              5740881393
+            ],
+            "distance": [
+              7.008702699,
+              13.23717212,
+              6.894352661,
+              6.790539966,
+              8.161987801,
+              9.390951474,
+              11.49270512,
+              13.10540719,
+              3.965335243,
+              1.60694237,
+              19.49083955,
+              16.61348627,
+              5.746822588
+            ]
+          },
+          "duration": 86.1,
+          "summary": "Herzog-Heinrich-Straße, Kapuzinerstraße",
+          "weight": 173.2,
+          "distance": 123.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    182
+                  ],
+                  "location": [
+                    11.555744,
+                    48.12891
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    150,
+                    270
+                  ],
+                  "location": [
+                    11.555754,
+                    48.128606
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.555937,
+                    48.128378
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    180,
+                    330
+                  ],
+                  "location": [
+                    11.556068,
+                    48.128252
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    315
+                  ],
+                  "location": [
+                    11.556249,
+                    48.128106
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    270,
+                    315
+                  ],
+                  "location": [
+                    11.556395,
+                    48.127993
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555744,
+                    48.12891
+                  ],
+                  [
+                    11.555741,
+                    48.128847
+                  ],
+                  [
+                    11.555736,
+                    48.128728
+                  ],
+                  [
+                    11.555737,
+                    48.128666
+                  ],
+                  [
+                    11.555754,
+                    48.128606
+                  ],
+                  [
+                    11.555787,
+                    48.128536
+                  ],
+                  [
+                    11.555845,
+                    48.128461
+                  ],
+                  [
+                    11.555937,
+                    48.128378
+                  ],
+                  [
+                    11.556037,
+                    48.128281
+                  ],
+                  [
+                    11.556068,
+                    48.128252
+                  ],
+                  [
+                    11.556082,
+                    48.128241
+                  ],
+                  [
+                    11.556249,
+                    48.128106
+                  ],
+                  [
+                    11.556395,
+                    48.127993
+                  ],
+                  [
+                    11.556442,
+                    48.127952
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 182,
+                "bearing_before": 0,
+                "location": [
+                  11.555744,
+                  48.12891
+                ],
+                "type": "depart"
+              },
+              "name": "Herzog-Heinrich-Straße",
+              "mode": "cycling",
+              "weight": 173.2,
+              "duration": 86.1,
+              "distance": 123.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    322
+                  ],
+                  "location": [
+                    11.556442,
+                    48.127952
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556442,
+                    48.127952
+                  ],
+                  [
+                    11.556442,
+                    48.127952
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 142,
+                "location": [
+                  11.556442,
+                  48.127952
+                ],
+                "type": "arrive"
+              },
+              "name": "Kapuzinerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.555744,
+            48.12891
+          ],
+          [
+            11.555741,
+            48.128847
+          ],
+          [
+            11.555736,
+            48.128728
+          ],
+          [
+            11.555737,
+            48.128666
+          ],
+          [
+            11.555754,
+            48.128606
+          ],
+          [
+            11.555787,
+            48.128536
+          ],
+          [
+            11.555845,
+            48.128461
+          ],
+          [
+            11.555937,
+            48.128378
+          ],
+          [
+            11.556037,
+            48.128281
+          ],
+          [
+            11.556068,
+            48.128252
+          ],
+          [
+            11.556082,
+            48.128241
+          ],
+          [
+            11.556249,
+            48.128106
+          ],
+          [
+            11.556395,
+            48.127993
+          ],
+          [
+            11.556442,
+            48.127952
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 173.2,
+      "duration": 86.1,
+      "distance": 123.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "UA8EgIP9IIAPAAAA3QAAAJMBAACYAQAAS0fgQHaXw0JkYNdBBeiCQQwAAACxAAAA2wAAAMgAAAC9AgAAoFOwAI5j3gKgU7AAjmPeAgYAHwAAAAAA",
+      "location": [
+        11.555744,
+        48.12891
+      ],
+      "name": "Herzog-Heinrich-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "-f4ggI4PBIApAAAABAAAAAAAAAAAAAAA-OW3QG_x5D4AAAAAAAAAAAoAAAABAAAAAAAAAAAAAAC9AgAAWlawANBf3gJaVrAA0F_eAgAA7wgAAAAA",
+      "location": [
+        11.556442,
+        48.127952
+      ],
+      "name": "Kapuzinerstraße",
+      "distance": 0
+    }
+  ]
+}

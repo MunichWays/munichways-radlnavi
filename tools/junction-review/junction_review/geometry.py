@@ -110,7 +110,14 @@ def relocate_gates(site, polygon):
                     hits.append(p)
                     hit_segments.append((a, b))
         if len(hits) != 1:
-            raise ValueError(f"{gate['label']}: Weg schneidet die neue Fläche {len(hits)}-mal. Anschluss gezielt prüfen.")
+            # Direct OSM imports can contain an entire road through the junction,
+            # with independently identified gates on both ends of the same way.
+            known = {tuple(g['location']) for g in site['gates'] if str(g['osmWayId']) == str(gate['osmWayId'])}
+            ordered = sorted(zip(hits, hit_segments), key=lambda item: distance(item[0], gate['location']))
+            if len(known) > 1 and len(hits) == len(known) and distance(ordered[1][0], gate['location']) - distance(ordered[0][0], gate['location']) > .3:
+                hits, hit_segments = [ordered[0][0]], [ordered[0][1]]
+            else:
+                raise ValueError(f"{gate['label']}: Weg schneidet die neue Fläche {len(hits)}-mal. Anschluss gezielt prüfen.")
         p = hits[0]
         if distance(p, gate['location']) > 80:
             raise ValueError(f"{gate['label']}: Verschiebung über 80 m erfordert eine neue Anschlussprüfung.")

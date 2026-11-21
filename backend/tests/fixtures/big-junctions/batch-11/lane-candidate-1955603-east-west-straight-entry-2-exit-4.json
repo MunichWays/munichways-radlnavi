@@ -1,0 +1,302 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1302910828,
+              13055463493,
+              3697671314,
+              1302910827,
+              8138447221,
+              372811175,
+              1955603,
+              660693962,
+              21495321,
+              372815639,
+              9672781542,
+              54792817
+            ],
+            "distance": [
+              12.4427483,
+              12.43645784,
+              28.71274157,
+              6.5083223,
+              7.203988359,
+              4.516891602,
+              5.812382613,
+              3.714253225,
+              5.93730026,
+              9.767460866,
+              56.07115452
+            ]
+          },
+          "duration": 61.8,
+          "summary": "Dietlindenstraße, Potsdamer Straße",
+          "weight": 151,
+          "distance": 153.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    307
+                  ],
+                  "location": [
+                    11.591129,
+                    48.166208
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590356,
+                    48.166595
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590252,
+                    48.166645
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.591129,
+                    48.166208
+                  ],
+                  [
+                    11.590995,
+                    48.166275
+                  ],
+                  [
+                    11.59086,
+                    48.166341
+                  ],
+                  [
+                    11.590549,
+                    48.166494
+                  ],
+                  [
+                    11.59048,
+                    48.16653
+                  ],
+                  [
+                    11.590405,
+                    48.166571
+                  ],
+                  [
+                    11.590356,
+                    48.166595
+                  ],
+                  [
+                    11.590292,
+                    48.166625
+                  ],
+                  [
+                    11.590252,
+                    48.166645
+                  ],
+                  [
+                    11.590187,
+                    48.166676
+                  ],
+                  [
+                    11.590078,
+                    48.166725
+                  ],
+                  [
+                    11.589454,
+                    48.167008
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 307,
+                "bearing_before": 0,
+                "location": [
+                  11.591129,
+                  48.166208
+                ],
+                "type": "depart"
+              },
+              "name": "Dietlindenstraße",
+              "mode": "cycling",
+              "weight": 151,
+              "duration": 61.8,
+              "distance": 153.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    124
+                  ],
+                  "location": [
+                    11.589454,
+                    48.167008
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589454,
+                    48.167008
+                  ],
+                  [
+                    11.589454,
+                    48.167008
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 304,
+                "location": [
+                  11.589454,
+                  48.167008
+                ],
+                "type": "arrive"
+              },
+              "name": "Potsdamer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.591129,
+            48.166208
+          ],
+          [
+            11.590995,
+            48.166275
+          ],
+          [
+            11.59086,
+            48.166341
+          ],
+          [
+            11.590549,
+            48.166494
+          ],
+          [
+            11.59048,
+            48.16653
+          ],
+          [
+            11.590405,
+            48.166571
+          ],
+          [
+            11.590356,
+            48.166595
+          ],
+          [
+            11.590292,
+            48.166625
+          ],
+          [
+            11.590252,
+            48.166645
+          ],
+          [
+            11.590187,
+            48.166676
+          ],
+          [
+            11.590078,
+            48.166725
+          ],
+          [
+            11.589454,
+            48.167008
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 151,
+      "duration": 61.8,
+      "distance": 153.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "k1gvgMxYL4AyAAAAAAAAADIAAABnAAAAfxVHQQAAAAC7-0ZB0BjOQRYAAAAAAAAAFgAAAC4AAAC9AgAA2d2wAED13gLZ3bAAQPXeAgIA7wcAAAAA",
+      "location": [
+        11.591129,
+        48.166208
+      ],
+      "name": "Dietlindenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "UeoFgO5XL4CcAAAAlAEAAAAAAACcAQAA15atQd1IYEIAAAAAhUccQScAAABlAAAAAAAAAL0AAAC9AgAATtewAGD43gJO17AAYPjeAgAAzwcAAAAA",
+      "location": [
+        11.589454,
+        48.167008
+      ],
+      "name": "Potsdamer Straße",
+      "distance": 0
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1224404734,
+              3818854100,
+              3818854102,
+              784947279,
+              3765193735,
+              3993545254,
+              1793502465
+            ],
+            "distance": [
+              14.39958749,
+              17.4163765,
+              24.4402647,
+              6.276881513,
+              42.45121879,
+              7.74546309
+            ]
+          },
+          "duration": 25.9,
+          "summary": "Schlierseestraße, Werinherstraße",
+          "weight": 56.8,
+          "distance": 112.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    355
+                  ],
+                  "location": [
+                    11.59281,
+                    48.11431
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    315
+                  ],
+                  "location": [
+                    11.592793,
+                    48.114439
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    225
+                  ],
+                  "location": [
+                    11.592772,
+                    48.114595
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.59281,
+                    48.11431
+                  ],
+                  [
+                    11.592793,
+                    48.114439
+                  ],
+                  [
+                    11.592772,
+                    48.114595
+                  ],
+                  [
+                    11.592744,
+                    48.114814
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 355,
+                "bearing_before": 0,
+                "location": [
+                  11.59281,
+                  48.11431
+                ],
+                "type": "depart"
+              },
+              "name": "Schlierseestraße",
+              "mode": "cycling",
+              "weight": 31.7,
+              "duration": 14.6,
+              "distance": 56.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    180,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.592744,
+                    48.114814
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.593391,
+                    48.114848
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.592744,
+                    48.114814
+                  ],
+                  [
+                    11.592821,
+                    48.114837
+                  ],
+                  [
+                    11.593391,
+                    48.114848
+                  ],
+                  [
+                    11.593495,
+                    48.11485
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 74,
+                "bearing_before": 354,
+                "location": [
+                  11.592744,
+                  48.114814
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Werinherstraße",
+              "mode": "cycling",
+              "weight": 25.1,
+              "duration": 11.3,
+              "distance": 56.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    268
+                  ],
+                  "location": [
+                    11.593495,
+                    48.11485
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.593495,
+                    48.11485
+                  ],
+                  [
+                    11.593495,
+                    48.11485
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 88,
+                "location": [
+                  11.593495,
+                  48.11485
+                ],
+                "type": "arrive"
+              },
+              "name": "Werinherstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.59281,
+            48.11431
+          ],
+          [
+            11.592793,
+            48.114439
+          ],
+          [
+            11.592772,
+            48.114595
+          ],
+          [
+            11.592744,
+            48.114814
+          ],
+          [
+            11.592821,
+            48.114837
+          ],
+          [
+            11.593391,
+            48.114848
+          ],
+          [
+            11.593495,
+            48.11485
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 56.8,
+      "duration": 25.9,
+      "distance": 112.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "EMQZgP___39HAAAAhwAAAGQCAAAAAAAAtoqAQbZkZkFayQlDAAAAACAAAAA9AAAAFAEAAAAAAAC9AgAAauSwAIYq3gJp5LAAhireAgYAPxYAAAAA",
+      "location": [
+        11.59281,
+        48.11431
+      ],
+      "name": "Schlierseestraße",
+      "distance": 0.0744449028
+    },
+    {
+      "hint": "PZEAgP___38iAAAAVAEAAAAAAACVAQAA1dr3QLJViUIAAAAA6iC2Qg8AAACZAAAAAAAAALUAAAC9AgAAF-ewAKIs3gIX57AAoizeAgAAjwUAAAAA",
+      "location": [
+        11.593495,
+        48.11485
+      ],
+      "name": "Werinherstraße",
+      "distance": 0
+    }
+  ]
+}

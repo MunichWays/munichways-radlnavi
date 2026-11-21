@@ -24,6 +24,32 @@ Falls bereits lokale Prüfentscheidungen im früheren K47–K50-Projekt liegen: 
 
 ## Bedienung
 
+### Entry-/Exit-Punkte bearbeiten
+
+In einer Kreuzung **„Entry/Exit bearbeiten“** einschalten. Einen Anschluss in der Liste auswählen oder auf seinen Punkt klicken. Zum Verschieben den Punkt ziehen oder **„Ziel auf Karte wählen“** und dann auf den gewünschten Radweg klicken. Die Flächengrenze folgt dem verschobenen Punkt; andere Anschlüsse werden auf ihren belegten Wegen an die neue Grenze angepasst.
+
+Für einen gemeinsamen Entry in P3: **Entry-2** wählen, unter **„Zusammenlegen“ → „Mit Entry-3 zusammenlegen“** einstellen und das Ziel auf dem gemeinsamen südlichen Radweg setzen. Bei überlappenden Wegen lässt sich der Zielweg ausdrücklich auswählen (`OSM 421302932`, gemeinsamer Radweg vor der Verzweigung). Entry-2 behält seine Nummer, Entry-3 entfällt; die übrigen Anschlüsse werden nicht umnummeriert. Zwei Entry-Punkte bzw. zwei Exit-Punkte desselben Straßenarms können zusammengelegt werden.
+
+**„Gewählten Punkt löschen“** entfernt den Punkt auch aus seiner Straßenarmzuordnung. Alle Bearbeitungen sind zunächst ein Entwurf. Mit **„Änderungen verwerfen“** zurück zum gespeicherten Stand oder mit **„Geometrie speichern“** Fläche, Anschlüsse und Zuordnungen gemeinsam speichern. Eine bestehende Bestätigung und technische Evidenz werden bei geänderter Geometrie ungültig. Neue Anschlüsse und Änderungen der Straßenarmdefinition sind noch kein Bestandteil dieses Editors.
+
+### Neue Stadt, Stadtteil oder gezeichnete Fläche
+
+In der Übersicht **„Gebiet auswählen und Sichtprüfung vorbereiten“** aufklappen.
+
+1. **„Stadtteil auf Karte wählen“** anklicken und in den gewünschten Bezirk klicken. Aus den gefundenen Verwaltungsgebieten den Bezirk wählen. Alternativ Stadt oder Stadtteil mit genauem OSM-Namen suchen (zum Beispiel `Neuhausen-Nymphenburg`). Einen Treffer auswählen; die Verwaltungsgrenze erscheint lila. Die OSM-Relationsnummer und Verwaltungsebene helfen bei gleichnamigen Orten.
+2. Alternativ die Karte verschieben/zoomen und **„Fläche einzeichnen“** wählen. Mindestens drei verschiedene Eckpunkte setzen; vier oder mehr sind ebenfalls möglich. Abschließen per Startpunkt-Klick, Doppelklick, Eingabetaste oder **„Fläche schließen“**. **„Letzten Punkt entfernen“** korrigiert den letzten Klick; Escape beendet das Zeichnen. Selbstüberschneidungen werden vor dem OSM-Abruf angezeigt. Eine gesuchte Stadt kann auch als Kartenausschnitt für eine kleinere gezeichnete Fläche dienen.
+3. **„Sichtprüfung vorbereiten“** startet einen Hintergrundauftrag und lädt einmalig OSM-Daten. Spinner und Laufzeit zeigen den laufenden Vorgang. **„Abbrechen“** verhindert den Import eines noch nicht abgeschlossenen Auftrags; der laufende Netzabruf kann noch auslaufen. Nach Neuladen lässt sich ein laufender Auftrag wieder aufnehmen. Je nach Gebiet/Overpass-Auslastung dauert das einige Minuten. Es erfolgt kein neuer OSM-Abruf beim bloßen Öffnen der App oder beim Kartenverschieben.
+4. Die neue Prüfliste und Karte öffnen sich automatisch. `P1`, `P2`, … bezeichnet die Priorität im neuen Projekt, keine Münchner K-Nummer. Bekannte ausgehende Fahrspuren absteigend, danach einfache Geometrien; unbekannte Spurzahlen folgen zuletzt.
+5. Kreuzung öffnen, Fläche, Radverkehrsanschlüsse und Richtungen prüfen. **„Prüfbild als SVG herunterladen“** liefert ein eigenständiges Vektorbild mit Pfeilen und Beschriftungen ohne Hintergrundkarten-Abhängigkeit.
+
+Jede Auswahl erhält ein separates Projekt unter `.local/junction-review/area-<hash>/`. Das vorhandene München-Projekt wird nicht überschrieben. Unter **„Gespeichertes Projekt“ → „Öffnen“** wechseln. Dieselbe Auswahl öffnet ihren gespeicherten Stand ohne erneuten OSM-Abruf; Entscheidungen bleiben erhalten. `osm-snapshot.json` enthält die vollständige Abfrageantwort einschließlich Knotentags und Restriktionsrelationen, die Importdatei zusätzlich Abfrage und Algorithmusversion. Den ganzen Projektordner sichern.
+
+Die Programmlogik in `discovery.py` braucht kein LLM. Sie sucht Straßen ab `tertiary`, gruppiert nahe gemeinsame Straßenknoten ohne unbegrenzte Kettenbildung, ermittelt Straßenarme an einer vorgeschlagenen Fläche und sortiert T-Kreuzungen und Kreisverkehre aus. Straßen auf getrennten Ebenen werden nicht allein wegen einer geometrischen Überschneidung verbunden. Das Auswahlgebiet begrenzt die Kandidaten, nicht deren Kreuzungsflächen.
+
+Fahrspuren werden nach Möglichkeit auf der ausgehenden Fortsetzung mindestens 80 m vom Mittelpunkt abgelesen. Explizite Richtungswerte haben Vorrang; ungerade/fehlende Spurzahlen und mehrdeutige Fortsetzungen bleiben unbekannt. Separate Radwege, erlaubte Zweirichtungswege, Radfahrstreifen und erlaubte Straßenabschnitte erzeugen Grenzanschlüsse. `oneway:bicycle` hat Vorrang vor `oneway`. Radfahrstreifen bleiben auf OSM-Straßenmittellinien schematisch; ihre reale Seitenlage wird nicht erfunden.
+
+**Entwürfe bleiben offen.** Die Fläche ist ein konservativer geometrischer Startvorschlag, keine automatisch bestätigte Wartefläche. Versetzte Knoten, viele Anschlüsse, benachbarte Kreuzungen, Zweirichtungswege, Straßenführung und fehlende Evidenz erscheinen als Prüfpunkte. Restriktionsrelationen werden archiviert, hier jedoch noch nicht als vollständige technische Fahrbeziehungsprüfung ausgewertet. Bestätigen, technische RadlNavi-Prüfung und Aktivieren bleiben getrennte Schritte. Es gibt keine automatische Änderung am Backend.
+
 - Übersicht: neueste Nummern oben, Gruppen einklappbar, Namenssuche und anklickbare Kartenpunkte.
 - Die Kreuzungsliste links lässt sich über ☰ im kompakten Kopfbereich einklappen. Die Einstellung bleibt im Browser gespeichert. Die Karte nutzt die verfügbare Fensterhöhe und passt sich beim Ein-/Ausklappen ohne Verlust des Ausschnittmittelpunkts an.
 - Karte: Mausrad oder Plus/Minus zum Zoomen, Hintergrund ziehen zum Verschieben. Standardmäßig wird die OSM-Standardkarte aus dem Internet geladen. Mit „OSM“ ausschalten, um nur die importierten Offline-Wege anzuzeigen; die Auswahl bleibt im Browser gespeichert.
@@ -76,20 +102,55 @@ Mit `--json` entsteht ein kompakter Maschinenbericht mit Status, Revision, veral
 
 ```powershell
 python -m unittest discover -s tools/junction-review/tests -p 'test_*.py'
-node --test tools/junction-review/tests/test_map.mjs
+node --test tools/junction-review/tests/test_map.mjs tools/junction-review/tests/test_area_ui.mjs tools/junction-review/tests/test_gate_ui.mjs
 ```
 
-Die Python-Tests verwenden K47–K50 als echte Importreferenz und temporäre Projekte. Sie verändern keine Freigaben. Ein eigener GitHub-Workflow führt beide Prüfungen aus.
+Die Python-Tests verwenden K47–K50 als echte Importreferenz und temporäre Projekte. Dazu kommen eingefrorene OSM-Topologien, simulierte 502-/HTML-Fehler, Cache, Auftragsabbruch und getrennte Projektzugriffe. JavaScript-Tests prüfen echte UI-Ereignisbehandlungen für Fehlerversuch/Wiederholung, sichtbare Suchtreffer, Spinner/Abbruch, Doppelklick, Vierpunktflächen und korrigierbare Selbstüberschneidungen. Diese Tests ersetzen keine visuelle Browserprüfung. Sie verändern keine Freigaben. Ein eigener GitHub-Workflow führt beide Prüfungen aus.
 
 ## Weitere Ausbaustufen
 
-1. Stadt-/Stadtteilsuche, Gebietsgrenzen und ein zwischengespeicherter OSM-Datenabruf.
-2. Allgemeine Kandidatensuche, Gruppierung und Priorisierung; bestehende Generatorregeln schrittweise übernehmen.
-3. Neue/entfernte Anschlüsse, Zuordnung der Straßenarme und geführtes Verschieben von Gates bearbeiten.
-4. RadlNavi-Adapter für technische Fahrbeziehungsprüfung und Rückmeldung in die bestehende Übersicht.
+Die technische Kartenrunde vom 21.11.2026 (26 neue bestätigte Münchner Fälle) lässt sich
+ohne Netzabruf reproduzieren:
+
+```powershell
+python docs/large-junction-analysis/verify_munich_project.py
+```
+
+`--collect` ergänzt fehlende echte Standardrouten, `--import-results` übernimmt passende Ergebnisse
+in das lokale München-Projekt. Der eingefrorene Freigabestand bleibt unverändert; Import nur bei
+übereinstimmenden Geometrie- und Quellfingerprints. Mehrdeutige Ausfahrten und nicht nachgewiesene
+Beziehungen bleiben deaktiviert. Das Kommando ändert weder Laufzeitkatalog noch Deployment.
+
+Gespeicherte Projekte lassen sich im Bereich „Kreuzungen“ auswählen und mit „Umbenennen“ benennen.
+Der Anzeigename wird separat im lokalen Projekt gespeichert; ID, Gebiet, Geometrien und Prüfentscheidungen
+bleiben unverändert. Der Name bleibt auch nach Neustart und Quelldatenaktualisierung erhalten.
+
+Fehlende Geometrien im bestehenden Projekt ohne LLM vorbereiten:
+
+```powershell
+python tools/junction-review/run.py prepare-open --project .local/junction-review/munich
+```
+
+Nur offene Fälle ohne Geometrie werden ergänzt. Kleine OSM-Kartenabfragen landen im lokalen
+`preparation-cache`; erfolgreiche Entwürfe werden bei Wiederholung übersprungen.
+Freigegebene Geometrien, Ausschlüsse, IDs und Nummern bleiben erhalten. Entscheidungen in anderen
+lokalen Projekten werden als Hinweis markiert, damit sie nicht nochmals geprüft werden müssen.
+Eine räumliche Zuordnung ist kein automatischer Freigabetransfer. Unklare Fälle bleiben offen.
+`preparation-report.json` enthält vorbereitete, verknüpfte, unklare und fehlgeschlagene Fälle.
+Die Vorschläge benötigen weiterhin eine Sichtprüfung; technische Prüfung und Aktivierung folgen separat.
+
+1. Vorschlagsqualität mit weiteren echten Geometrien prüfen; die automatischen Flächen bleiben unbestätigte Heuristiken.
+2. Strassenarmdefinitionen bearbeiten; Hinzufuegen, Verschieben, Loeschen und Zusammenlegen von Anschluessen sind implementiert.
+3. RadlNavi-Adapter für technische Fahrbeziehungsprüfung und Rückmeldung in die bestehende Übersicht.
 
 Standardfälle sollen durch wiederholbare Regeln bearbeitet werden. LLM-Unterstützung ist für benannte Sonderfälle vorgesehen und wird von dieser Basis nicht aufgerufen.
 
 ## Hintergrundkarte
 
 Die [OSM-Standardkacheln](https://operations.osmfoundation.org/policies/tiles/) werden direkt vom Browser geladen, mit sichtbarer Attribution, Browser-Cache und Referer. Nur Kacheln im sichtbaren Ausschnitt werden angefordert; kein Vorabdownload. Die Datenprüfung funktioniert auch ohne Hintergrundkarte. Flächen, Wege und Tiles verwenden dieselbe Web-Mercator-Projektion; gespeicherte Geokoordinaten bleiben WGS84.
+
+### Entry/Exit hinzufügen
+
+Im Anschlusseditor Typ (Entry/Exit), vorhandenen Straßenarm und bei parallelen Wegen den OSM-Zielweg auswählen. "Punkt hinzufügen: auf Karte setzen" wählen und auf den Weg nahe der Flächengrenze klicken. Die Grenze folgt dem Punkt; bei mehr als 12 m Abstand zuerst die Fläche erweitern. Fahrtrichtung und OSM-Zulässigkeit werden geprüft. Neue Punkte erhalten fortlaufende Nummern, bestehende bleiben unverändert. Erst "Geometrie speichern" übernimmt den Entwurf.
+
+P5-Test: Der südliche parallele Straßenabschnitt ist OSM-Weg **3302001**, `highway=residential`. Als **Exit** dem Straßenarm **Arm-3 (Entry-1)** zuordnen und nahe der südöstlichen Flächengrenze setzen. P5 wird durch die Implementierung nicht verändert.

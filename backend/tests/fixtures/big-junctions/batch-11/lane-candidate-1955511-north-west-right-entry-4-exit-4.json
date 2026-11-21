@@ -1,0 +1,230 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              500291693,
+              1078756909,
+              1078756989,
+              1078756887
+            ],
+            "distance": [
+              60.35276135,
+              52.54107355,
+              6.825236036
+            ]
+          },
+          "duration": 27.9,
+          "summary": "Schleißheimer Straße, Elisabethstraße",
+          "weight": 34.8,
+          "distance": 119.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    192
+                  ],
+                  "location": [
+                    11.563116,
+                    48.160472
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.563116,
+                    48.160472
+                  ],
+                  [
+                    11.562941,
+                    48.159942
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 192,
+                "bearing_before": 0,
+                "location": [
+                  11.563116,
+                  48.160472
+                ],
+                "type": "depart"
+              },
+              "name": "Schleißheimer Straße",
+              "mode": "cycling",
+              "weight": 20.1,
+              "duration": 16.1,
+              "distance": 60.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    180,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.562941,
+                    48.159942
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.562941,
+                    48.159942
+                  ],
+                  [
+                    11.562245,
+                    48.160023
+                  ],
+                  [
+                    11.562155,
+                    48.160035
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 278,
+                "bearing_before": 191,
+                "location": [
+                  11.562941,
+                  48.159942
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Elisabethstraße",
+              "mode": "cycling",
+              "weight": 14.7,
+              "duration": 11.8,
+              "distance": 59.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    101
+                  ],
+                  "location": [
+                    11.562155,
+                    48.160035
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.562155,
+                    48.160035
+                  ],
+                  [
+                    11.562155,
+                    48.160035
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 281,
+                "location": [
+                  11.562155,
+                  48.160035
+                ],
+                "type": "arrive"
+              },
+              "name": "Elisabethstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.563116,
+            48.160472
+          ],
+          [
+            11.562941,
+            48.159942
+          ],
+          [
+            11.562245,
+            48.160023
+          ],
+          [
+            11.562155,
+            48.160035
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 34.8,
+      "duration": 27.9,
+      "distance": 119.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "B0ohgP___39JAAAAwgAAAAAAAAAAAAAA56USQjppcUIAAAAAAAAAAEkAAADCAAAAAAAAAAAAAAC9AgAAbHCwANje3gJscLAA2N7eAgAADwwAAAAA",
+      "location": [
+        11.563116,
+        48.160472
+      ],
+      "name": "Schleißheimer Straße",
+      "distance": 0
+    },
+    {
+      "hint": "ShsEgP___38QAAAAYgAAAIMAAAALAAAAVWjaQP0dAkIPKlJCzr-SQA0AAABPAAAAaQAAAAkAAAC9AgAAq2ywACPd3gKrbLAAI93eAgIAnxEAAAAA",
+      "location": [
+        11.562155,
+        48.160035
+      ],
+      "name": "Elisabethstraße",
+      "distance": 0
+    }
+  ]
+}

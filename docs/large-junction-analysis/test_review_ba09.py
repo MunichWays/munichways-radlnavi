@@ -45,8 +45,8 @@ class BA09MovementTests(unittest.TestCase):
                 self.assertTrue(all(m.get('enabled') for m in sequences))
                 continue
             self.assertEqual(actual[junction["id"]], junction)
-        self.assertEqual(len(review.catalog()['junctions']), 42)
-        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 343)
+        self.assertEqual(len(review.catalog()['junctions']), 70)
+        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 552)
         junction = next(j for j in review.catalog()['junctions'] if j['id'] == 'arnulf-landshuter')
         disabled = [m for m in junction['movements'] if not m.get('enabled')]
         self.assertEqual({(m['entryLabel'], m['exitLabel']) for m in disabled},

@@ -1,0 +1,372 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3710808135,
+              295524560,
+              2005024747,
+              2404594148,
+              3710808133,
+              3710808127,
+              3933560688,
+              6564645054,
+              6711876903,
+              295524615
+            ],
+            "distance": [
+              21.36597646,
+              23.8247043,
+              8.859641229,
+              13.17721695,
+              20.34291645,
+              20.00353028,
+              4.170397156,
+              22.86432071,
+              27.34389672
+            ]
+          },
+          "duration": 44.4,
+          "summary": "Waldfriedhofstraße, Luise-Kiesselbach-Platz",
+          "weight": 74.9,
+          "distance": 162,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    90
+                  ],
+                  "location": [
+                    11.515934,
+                    48.113104
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.51666,
+                    48.113107
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    165,
+                    270
+                  ],
+                  "location": [
+                    11.516837,
+                    48.113106
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.51711,
+                    48.113114
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.517378,
+                    48.113127
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    135,
+                    270
+                  ],
+                  "location": [
+                    11.517434,
+                    48.113126
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    150,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.517741,
+                    48.113132
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.515934,
+                    48.113104
+                  ],
+                  [
+                    11.516221,
+                    48.113105
+                  ],
+                  [
+                    11.516541,
+                    48.113108
+                  ],
+                  [
+                    11.51666,
+                    48.113107
+                  ],
+                  [
+                    11.516837,
+                    48.113106
+                  ],
+                  [
+                    11.51711,
+                    48.113114
+                  ],
+                  [
+                    11.517378,
+                    48.113127
+                  ],
+                  [
+                    11.517434,
+                    48.113126
+                  ],
+                  [
+                    11.517741,
+                    48.113132
+                  ],
+                  [
+                    11.518108,
+                    48.113142
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 90,
+                "bearing_before": 0,
+                "location": [
+                  11.515934,
+                  48.113104
+                ],
+                "type": "depart"
+              },
+              "name": "Waldfriedhofstraße",
+              "mode": "cycling",
+              "weight": 74.9,
+              "duration": 44.4,
+              "distance": 162
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    268
+                  ],
+                  "location": [
+                    11.518108,
+                    48.113142
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.518108,
+                    48.113142
+                  ],
+                  [
+                    11.518108,
+                    48.113142
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 88,
+                "location": [
+                  11.518108,
+                  48.113142
+                ],
+                "type": "arrive"
+              },
+              "name": "Luise-Kiesselbach-Platz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.515934,
+            48.113104
+          ],
+          [
+            11.516221,
+            48.113105
+          ],
+          [
+            11.516541,
+            48.113108
+          ],
+          [
+            11.51666,
+            48.113107
+          ],
+          [
+            11.516837,
+            48.113106
+          ],
+          [
+            11.51711,
+            48.113114
+          ],
+          [
+            11.517378,
+            48.113127
+          ],
+          [
+            11.517434,
+            48.113126
+          ],
+          [
+            11.517741,
+            48.113132
+          ],
+          [
+            11.518108,
+            48.113142
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 74.9,
+      "duration": 44.4,
+      "distance": 162
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "22EFgP___38QAAAARgAAABEAAABSAAAAl8jYQIXtqkFzI9RAxbwCQg0AAAA4AAAADQAAAEIAAAC9AgAAHrivANAl3gIeuK8A0CXeAgIAnwUAAAAA",
+      "location": [
+        11.515934,
+        48.113104
+      ],
+      "name": "Waldfriedhofstraße",
+      "distance": 0
+    },
+    {
+      "hint": "yFIrgP___39EAAAAagAAAAAAAADRAAAATcDaQXuUb0EAAAAAzw2nQjYAAABVAAAAAAAAAKgAAAC9AgAAnMCvAPYl3gKcwK8A9iXeAgAAfwUAAAAA",
+      "location": [
+        11.518108,
+        48.113142
+      ],
+      "name": "Luise-Kiesselbach-Platz",
+      "distance": 0
+    }
+  ]
+}

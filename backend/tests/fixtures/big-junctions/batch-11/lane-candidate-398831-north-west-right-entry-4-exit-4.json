@@ -1,0 +1,238 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              918868211,
+              3789801035,
+              3789801034,
+              918868222,
+              8862662878
+            ],
+            "distance": [
+              1.003499949,
+              53.04919292,
+              6.894352661,
+              61.24828849
+            ]
+          },
+          "duration": 28.3,
+          "summary": "Leuchtenbergring, Einsteinstraße",
+          "weight": 38.3,
+          "distance": 122.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    176
+                  ],
+                  "location": [
+                    11.61457,
+                    48.137546
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61457,
+                    48.137546
+                  ],
+                  [
+                    11.614571,
+                    48.137537
+                  ],
+                  [
+                    11.614652,
+                    48.137063
+                  ],
+                  [
+                    11.614651,
+                    48.137001
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 176,
+                "bearing_before": 0,
+                "location": [
+                  11.61457,
+                  48.137546
+                ],
+                "type": "depart"
+              },
+              "name": "Leuchtenbergring",
+              "mode": "cycling",
+              "weight": 23,
+              "duration": 16.1,
+              "distance": 60.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.614651,
+                    48.137001
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.614651,
+                    48.137001
+                  ],
+                  [
+                    11.613833,
+                    48.136942
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 262,
+                "bearing_before": 177,
+                "location": [
+                  11.614651,
+                  48.137001
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Einsteinstraße",
+              "mode": "cycling",
+              "weight": 15.3,
+              "duration": 12.2,
+              "distance": 61.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    84
+                  ],
+                  "location": [
+                    11.613833,
+                    48.136942
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613833,
+                    48.136942
+                  ],
+                  [
+                    11.613833,
+                    48.136942
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 264,
+                "location": [
+                  11.613833,
+                  48.136942
+                ],
+                "type": "arrive"
+              },
+              "name": "Einsteinstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.61457,
+            48.137546
+          ],
+          [
+            11.614571,
+            48.137537
+          ],
+          [
+            11.614652,
+            48.137063
+          ],
+          [
+            11.614651,
+            48.137001
+          ],
+          [
+            11.613833,
+            48.136942
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 38.3,
+      "duration": 28.3,
+      "distance": 122.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "eakCgP___3-VAAAAmAAAAAAAAACWAAAAjjtvQrBygD8AAAAAMcZvQncAAAB6AAAAAAAAAHgAAAC9AgAAajmxAEqF3gJqObEASoXeAgAA7woAAAAA",
+      "location": [
+        11.61457,
+        48.137546
+      ],
+      "name": "Leuchtenbergring",
+      "distance": 0
+    },
+    {
+      "hint": "eqkCgP___3-ZAAAABQEAAAAAAAAAAAAAP_50Qg0xLEIAAAAAAAAAAHoAAADRAAAAAAAAAAAAAAC9AgAAiTaxAO6C3gKJNrEA7oLeAgAAfxAAAAAA",
+      "location": [
+        11.613833,
+        48.136942
+      ],
+      "name": "Einsteinstraße",
+      "distance": 0
+    }
+  ]
+}

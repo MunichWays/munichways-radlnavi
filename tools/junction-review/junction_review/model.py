@@ -107,8 +107,9 @@ def effective_site(base, state):
     site = deepcopy(base)
     override = state.get('geometry')
     if override:
-        for key in ('polygon', 'gates'):
-            site[key] = deepcopy(override[key])
+        for key in ('polygon', 'gates', 'logicalArms'):
+            if key in override:
+                site[key] = deepcopy(override[key])
     fingerprint = geometry_fingerprint(site)
     decision = state.get('decision', base.get('importedDecision'))
     current = bool(decision and decision['geometryFingerprint'] == fingerprint and decision['sourceFingerprint'] == base['sourceFingerprint'])

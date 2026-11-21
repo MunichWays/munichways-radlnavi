@@ -1,0 +1,251 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              8882693681,
+              13063080165,
+              3498172720,
+              277383,
+              3498172719,
+              3709902956,
+              5249554562,
+              3831566679,
+              3831527761
+            ],
+            "distance": [
+              29.40762862,
+              31.56640141,
+              16.15607454,
+              15.56534054,
+              10.27580327,
+              17.12810339,
+              15.41370491,
+              18.69393972
+            ]
+          },
+          "duration": 67.9,
+          "summary": "Schwanthalerstraße",
+          "weight": 153.2,
+          "distance": 154.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    91
+                  ],
+                  "location": [
+                    11.554867,
+                    48.137504
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    45,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.555903,
+                    48.137496
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.554867,
+                    48.137504
+                  ],
+                  [
+                    11.555262,
+                    48.137501
+                  ],
+                  [
+                    11.555686,
+                    48.137498
+                  ],
+                  [
+                    11.555903,
+                    48.137496
+                  ],
+                  [
+                    11.556112,
+                    48.137492
+                  ],
+                  [
+                    11.55625,
+                    48.13749
+                  ],
+                  [
+                    11.55648,
+                    48.137486
+                  ],
+                  [
+                    11.556687,
+                    48.137483
+                  ],
+                  [
+                    11.556938,
+                    48.137478
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 91,
+                "bearing_before": 0,
+                "location": [
+                  11.554867,
+                  48.137504
+                ],
+                "type": "depart"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 153.2,
+              "duration": 67.9,
+              "distance": 154.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    272
+                  ],
+                  "location": [
+                    11.556938,
+                    48.137478
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556938,
+                    48.137478
+                  ],
+                  [
+                    11.556938,
+                    48.137478
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 92,
+                "location": [
+                  11.556938,
+                  48.137478
+                ],
+                "type": "arrive"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.554867,
+            48.137504
+          ],
+          [
+            11.555262,
+            48.137501
+          ],
+          [
+            11.555686,
+            48.137498
+          ],
+          [
+            11.555903,
+            48.137496
+          ],
+          [
+            11.556112,
+            48.137492
+          ],
+          [
+            11.55625,
+            48.13749
+          ],
+          [
+            11.55648,
+            48.137486
+          ],
+          [
+            11.556687,
+            48.137483
+          ],
+          [
+            11.556938,
+            48.137478
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 153.2,
+      "duration": 67.9,
+      "distance": 154.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "QdwggPYKBIBCAAAATAAAAMEBAAAAAAAA00LrQXZPBkLQ4z5CAAAAADQAAAA9AAAAAQEAAAAAAAC9AgAAM1CwACCF3gIzULAAIIXeAgQA7xAAAAAA",
+      "location": [
+        11.554867,
+        48.137504
+      ],
+      "name": "Schwanthalerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "zNwggOHcIIBaAAAAhwAAABkAAAAAAAAAqV5JQTCNlUEXC2BAAAAAABYAAAAiAAAABgAAAAAAAAC9AgAASliwAAaF3gJKWLAABoXeAgIA_xAAAAAA",
+      "location": [
+        11.556938,
+        48.137478
+      ],
+      "name": "Schwanthalerstraße",
+      "distance": 0
+    }
+  ]
+}

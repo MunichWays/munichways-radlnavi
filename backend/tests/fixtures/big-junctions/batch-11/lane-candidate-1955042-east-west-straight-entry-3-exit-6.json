@@ -1,0 +1,413 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1119164181,
+              298509492,
+              1688834601,
+              28097498,
+              8262602432,
+              298503479,
+              28097497,
+              11925329218,
+              11925329211,
+              11925329214
+            ],
+            "distance": [
+              5.84063885,
+              7.836461317,
+              20.35563772,
+              10.14648642,
+              8.660937902,
+              11.52229155,
+              12.5286903,
+              6.151902168,
+              57.19443196
+            ]
+          },
+          "duration": 50.3,
+          "summary": "Ludwigsbrücke, Zweibrückenstraße",
+          "weight": 86.7,
+          "distance": 140.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    298
+                  ],
+                  "location": [
+                    11.585688,
+                    48.132101
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.585688,
+                    48.132101
+                  ],
+                  [
+                    11.585619,
+                    48.132126
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 298,
+                "bearing_before": 0,
+                "location": [
+                  11.585688,
+                  48.132101
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 3.3,
+              "duration": 2.2,
+              "distance": 5.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    270,
+                    300
+                  ],
+                  "location": [
+                    11.585619,
+                    48.132126
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.585619,
+                    48.132126
+                  ],
+                  [
+                    11.585514,
+                    48.132121
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 265,
+                "bearing_before": 298,
+                "location": [
+                  11.585619,
+                  48.132126
+                ],
+                "modifier": "slight left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 4.5,
+              "duration": 2.1,
+              "distance": 7.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.585514,
+                    48.132121
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.585514,
+                    48.132121
+                  ],
+                  [
+                    11.585284,
+                    48.13222
+                  ],
+                  [
+                    11.585172,
+                    48.132272
+                  ],
+                  [
+                    11.585076,
+                    48.132316
+                  ],
+                  [
+                    11.584943,
+                    48.132369
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 302,
+                "bearing_before": 265,
+                "location": [
+                  11.585514,
+                  48.132121
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Ludwigsbrücke",
+              "mode": "cycling",
+              "weight": 65.3,
+              "duration": 32.4,
+              "distance": 50.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300,
+                    315
+                  ],
+                  "location": [
+                    11.584943,
+                    48.132369
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    135,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.584823,
+                    48.132448
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584943,
+                    48.132369
+                  ],
+                  [
+                    11.584823,
+                    48.132448
+                  ],
+                  [
+                    11.584759,
+                    48.132483
+                  ],
+                  [
+                    11.584136,
+                    48.132784
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 313,
+                "bearing_before": 299,
+                "location": [
+                  11.584943,
+                  48.132369
+                ],
+                "modifier": "straight",
+                "type": "turn"
+              },
+              "name": "Zweibrückenstraße",
+              "mode": "cycling",
+              "weight": 13.6,
+              "duration": 13.6,
+              "distance": 75.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    126
+                  ],
+                  "location": [
+                    11.584136,
+                    48.132784
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584136,
+                    48.132784
+                  ],
+                  [
+                    11.584136,
+                    48.132784
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 306,
+                "location": [
+                  11.584136,
+                  48.132784
+                ],
+                "type": "arrive"
+              },
+              "name": "Zweibrückenstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.585688,
+            48.132101
+          ],
+          [
+            11.585619,
+            48.132126
+          ],
+          [
+            11.585514,
+            48.132121
+          ],
+          [
+            11.585284,
+            48.13222
+          ],
+          [
+            11.585172,
+            48.132272
+          ],
+          [
+            11.585076,
+            48.132316
+          ],
+          [
+            11.584943,
+            48.132369
+          ],
+          [
+            11.584823,
+            48.132448
+          ],
+          [
+            11.584759,
+            48.132483
+          ],
+          [
+            11.584136,
+            48.132784
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 86.7,
+      "duration": 50.3,
+      "distance": 140.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "lcgggJjIIIALAAAAGwAAAAAAAAAFAAAAg-a6QHnHVUEAAAAAbnUWQAsAAAAbAAAAAAAAAAUAAAC9AgAAmMiwAAVw3gKYyLAABXDeAgAAbwcAAAAA",
+      "location": [
+        11.585688,
+        48.132101
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "CwgEgP___39mAAAAkgAAAAsAAAAOAAAAGcdkQs2iv0Fi3MRA72H8QGYAAACSAAAACwAAAA4AAAC9AgAAiMKwALBy3gKIwrAAsHLeAgIAHxMAAAAA",
+      "location": [
+        11.584136,
+        48.132784
+      ],
+      "name": "Zweibrückenstraße",
+      "distance": 0
+    }
+  ]
+}

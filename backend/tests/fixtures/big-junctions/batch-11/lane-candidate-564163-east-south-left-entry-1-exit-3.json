@@ -1,0 +1,374 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              8842511692,
+              516134691,
+              1015648287,
+              919619389,
+              918867064,
+              918868206,
+              918868211,
+              3789801035,
+              3789801034
+            ],
+            "distance": [
+              53.23222321,
+              10.78961716,
+              11.03802609,
+              9.470835038,
+              12.70187005,
+              10.50395301,
+              60.81123742,
+              4.478134172
+            ]
+          },
+          "duration": 55.4,
+          "summary": "Prinzregentenstraße, Leuchtenbergring",
+          "weight": 100.2,
+          "distance": 173,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    273
+                  ],
+                  "location": [
+                    11.615659,
+                    48.13824
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    165,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.614801,
+                    48.138277
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.614653,
+                    48.138283
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.615659,
+                    48.13824
+                  ],
+                  [
+                    11.614945,
+                    48.138266
+                  ],
+                  [
+                    11.614801,
+                    48.138277
+                  ],
+                  [
+                    11.614653,
+                    48.138283
+                  ],
+                  [
+                    11.614526,
+                    48.138288
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 273,
+                "bearing_before": 0,
+                "location": [
+                  11.615659,
+                  48.13824
+                ],
+                "type": "depart"
+              },
+              "name": "Prinzregentenstraße",
+              "mode": "cycling",
+              "weight": 65.9,
+              "duration": 31.7,
+              "distance": 84.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    195,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.614526,
+                    48.138288
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.614501,
+                    48.138175
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.614487,
+                    48.138081
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.614526,
+                    48.138288
+                  ],
+                  [
+                    11.614501,
+                    48.138175
+                  ],
+                  [
+                    11.614487,
+                    48.138081
+                  ],
+                  [
+                    11.614571,
+                    48.137537
+                  ],
+                  [
+                    11.614578,
+                    48.137497
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 187,
+                "bearing_before": 272,
+                "location": [
+                  11.614526,
+                  48.138288
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Leuchtenbergring",
+              "mode": "cycling",
+              "weight": 34.3,
+              "duration": 23.7,
+              "distance": 88.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    353
+                  ],
+                  "location": [
+                    11.614578,
+                    48.137497
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.614578,
+                    48.137497
+                  ],
+                  [
+                    11.614578,
+                    48.137497
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 173,
+                "location": [
+                  11.614578,
+                  48.137497
+                ],
+                "type": "arrive"
+              },
+              "name": "Leuchtenbergring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.615659,
+            48.13824
+          ],
+          [
+            11.614945,
+            48.138266
+          ],
+          [
+            11.614801,
+            48.138277
+          ],
+          [
+            11.614653,
+            48.138283
+          ],
+          [
+            11.614526,
+            48.138288
+          ],
+          [
+            11.614501,
+            48.138175
+          ],
+          [
+            11.614487,
+            48.138081
+          ],
+          [
+            11.614571,
+            48.137537
+          ],
+          [
+            11.614578,
+            48.137497
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 100.2,
+      "duration": 55.4,
+      "distance": 173
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "4u0VgP___39DAAAASgEAAAAAAAA1AAAAFyRZQcztVEIAAAAARqIsQR4AAACUAAAAAAAAABgAAAC9AgAAqz2xAACI3gKrPbEAAIjeAgAAHxEAAAAA",
+      "location": [
+        11.615659,
+        48.13824
+      ],
+      "name": "Prinzregentenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "eakCgP___38LAAAAhQAAAJgAAAARAAAA4EyPQMhIQkK1PnNCiZ7cQAgAAABqAAAAegAAAA4AAAC9AgAAcjmxABmF3gJyObEAGYXeAgIA3woAAAAA",
+      "location": [
+        11.614578,
+        48.137497
+      ],
+      "name": "Leuchtenbergring",
+      "distance": 0
+    }
+  ]
+}

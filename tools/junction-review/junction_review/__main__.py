@@ -50,13 +50,20 @@ def main():
     technical = commands.add_parser('import-technical', help='Passenden technischen Prüfbericht zurück in die Karte übernehmen')
     technical.add_argument('--report', type=Path, required=True)
     technical.add_argument('--project', type=Path, default=Path(__file__).resolve().parents[3] / '.local/junction-review/munich')
+    missing = commands.add_parser('prepare-open', help='Fehlende Geometrien offener Faelle regelbasiert vorbereiten')
+    missing.add_argument('--project', type=Path, required=True)
     args = parser.parse_args()
     try:
         store = ProjectStore(args.project)
         if args.command == 'demo' and not (args.project / 'project.json').exists():
             source = Path(__file__).resolve().parents[3] / 'docs/large-junction-analysis/review-batch-09-nine-lanes-images/review-data.json'
             store.import_dataset(import_radlnavi(source, 'munich-nine-lanes', 'München', 'K47–K50 · Neun Fahrspuren'))
-        if args.command == 'import-technical':
+        if args.command == 'prepare-open':
+            from .prepare_open import prepare_missing
+            result = prepare_missing(args.project)
+            print(', '.join(f'{key}: {len(value)}' for key, value in result.items() if isinstance(value, list)))
+            print('Geometrien zur Sichtpruefung: ' + str(result['projectSummary']['readyForGeometryReview']))
+        elif args.command == 'import-technical':
             print(f'{store.import_technical(json.loads(args.report.read_text(encoding="utf-8")))} technische Prüfergebnisse übernommen.')
         elif args.command == 'migrate-overview':
             from .radlnavi_overview import import_overview

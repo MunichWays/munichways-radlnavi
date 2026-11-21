@@ -84,3 +84,28 @@ main { min-width: 0; width: 100%; padding: 14px 18px; margin: 0 auto; }
 .gate-row.exit { color: var(--blue); }
 @media (max-width: 1050px) { .layout { grid-template-columns: 250px minmax(0, 1fr); } .review-grid { grid-template-columns: 1fr; } }
 @media (max-width: 720px) { header { gap: 8px; padding: 8px 10px; flex-wrap: wrap; } .brand-mark { display: none; } header .button { padding: 5px 7px; } .layout { display: block; } aside { position: static; height: auto; border-right: 0; border-bottom: 1px solid var(--line); } nav { max-height: 220px; overflow: auto; } .counts { margin-bottom: 5px; } .source { margin-top: 12px; } main { padding: 12px 10px; } .section-heading { display: block; } .badge { display: inline-block; margin-bottom: 8px; } .detail-map { height: max(440px, calc(100dvh - 250px)); } }
+
+#area-panel { margin-bottom: 12px; padding: 12px; }
+#area-map { height: max(380px, 55dvh); margin-top: 10px; }
+.area-controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: end; margin: 12px 0; }
+.area-controls label { flex: 1; min-width: 220px; }
+#area-results { display: grid; gap: 10px; padding: 14px; margin: 12px 0; border: 2px solid #ae8acb; border-radius: 9px; background: #f5eefb; }
+#area-results h3 { margin: 0; font-size: 16px; }
+.area-result { text-align: left; display: flex; flex-direction: column; gap: 5px; background: white; color: #352342; border: 1px solid #b496cb; }
+.area-result strong { font-size: 18px; }
+.area-result span { font-size: 12px; }
+.area-result .result-action { color: var(--purple); font-weight: 600; font-size: 14px; }
+.area-progress { display: flex; gap: 12px; align-items: center; min-height: 52px; background: #f4eff8; padding: 8px 12px; border-radius: 7px; }
+.area-progress p { flex: 1; margin: 0; }
+#area-status.error { color: #a12919; }
+.spinner { width: 22px; height: 22px; border: 3px solid #dac9e6; border-top-color: #7139a4; border-radius: 50%; animation: spin 1s linear infinite; flex: 0 0 auto; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; border-style: dotted; } }
+#area-map.drawing svg { cursor: crosshair; }
+#area-status { font-size: 13px; }
+
+/* Keep field and action aligned, including their control bottoms. */
+.input-action-row { flex-wrap: nowrap; align-items: end; }
+.input-action-row label { flex: 1 1 0; min-width: 0; margin: 0; }
+.input-action-row input, .input-action-row select { display: block; margin: 6px 0 0; }
+.input-action-row button { flex: 0 0 auto; white-space: nowrap; }

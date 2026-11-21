@@ -9,6 +9,7 @@ from threading import RLock
 
 from .geometry import relocate_gates
 from .model import STATUSES, digest, effective_site, geometry_fingerprint, validate_dataset, validate_site
+from .gate_edit import draft_geometry, edit_gate, geometry_of, movement_changed
 
 
 class Conflict(ValueError):
@@ -71,7 +72,7 @@ class ProjectStore:
                         edit = state['sites'].setdefault(base['id'], {})
                         before = effective_site(previous, edit)
                         edit.setdefault('history', []).append(dict(at=now(), action='source-refresh',
-                            previousGeometry={k: before[k] for k in ('polygon', 'gates', 'geometryRevision')},
+                            previousGeometry={k: before[k] for k in ('polygon', 'gates', 'logicalArms', 'geometryRevision')},
                             previousDecision=before['decision'], previousSource=previous['sourceFingerprint']))
                         edit.pop('geometry', None)
                         edit['version'] = before['editVersion'] + 1
@@ -87,8 +88,25 @@ class ProjectStore:
     def snapshot(self):
         with self.lock:
             project, dataset = self._read()
-            return dict(project=dataset['project'], source=dataset['source'],
+            metadata = deepcopy(dataset['project'])
+            metadata['name'] = project.get('projectName', metadata.get('name', metadata['city']))
+            return dict(project=metadata, source=dataset['source'],
                 sites=[effective_site(s, project['sites'].get(s['id'], {})) for s in dataset['sites']])
+
+    def rename(self, name, expected_name):
+        if not isinstance(name, str) or not 1 <= len(name.strip()) <= 120 or any(ord(c) < 32 for c in name):
+            raise ValueError('Bitte einen Projektnamen mit 1 bis 120 Zeichen eingeben.')
+        name = name.strip()
+        with self.lock:
+            state, _ = self._read()
+            previous = self.snapshot()['project']['name']
+            if previous != expected_name:
+                raise Conflict('Projektname inzwischen geaendert. Ansicht neu laden.')
+            if previous != name:
+                state['projectName'] = name
+                state.setdefault('projectHistory', []).append(dict(at=now(), action='rename', previousName=previous, name=name))
+                atomic_write(self.directory / 'project.json', state)
+            return self.snapshot()
 
     def carry_edits(self, other):
         """Explicitly preserve local work when expanding a pilot into a full project."""
@@ -159,7 +177,14 @@ class ProjectStore:
             if type(payload.get('expectedVersion')) is not int or payload['expectedVersion'] != current['editVersion']:
                 raise Conflict('Inzwischen geändert. Ansicht neu laden, bevor du speicherst.')
             edited = deepcopy(current)
-            if 'polygon' in payload and payload['polygon'] != current['polygon']:
+            if 'geometry' in payload or 'gateEdit' in payload:
+                if current.get('geometryMode', 'editable') != 'editable':
+                    raise ValueError('Für diesen Fall liegt keine bearbeitbare Geometrie vor.')
+                if 'geometry' in payload:
+                    edited = draft_geometry(current,payload['geometry'])
+                if 'gateEdit' in payload:
+                    edited = edit_gate(edited,payload['gateEdit'])
+            elif 'polygon' in payload and payload['polygon'] != current['polygon']:
                 if current.get('geometryMode', 'editable') != 'editable':
                     raise ValueError('Für diesen Fall liegt noch keine bearbeitbare Geometrie vor.')
                 edited['polygon'] = payload['polygon']
@@ -167,7 +192,7 @@ class ProjectStore:
                 validate_site(edited)
             changed = geometry_fingerprint(edited) != current['geometryFingerprint']
             if changed:
-                state['geometry'] = {k: edited[k] for k in ('polygon', 'gates')}
+                state['geometry'] = geometry_of(edited)
                 state['geometryRevision'] = current['geometryRevision'] + 1
             if preview:
                 return effective_site(base, state)
@@ -195,7 +220,10 @@ class ProjectStore:
             state.setdefault('history', []).append(dict(at=now(), action='geometry-and-decision' if changed and status else (
                 'geometry' if changed else 'decision'), previousGeometryFingerprint=current['geometryFingerprint'],
                 previousDecision=current['decision'], geometryFingerprint=geometry_fingerprint(edited),
-                previousGeometry={k: current[k] for k in ('polygon', 'gates', 'geometryRevision')} if changed else None,
+                previousGeometry={k: current[k] for k in ('polygon', 'gates', 'logicalArms', 'geometryRevision')} if changed else None,
+                gateChanges=dict(added=[g['label'] for g in edited['gates'] if g['id'] not in {x['id'] for x in current['gates']}],
+                                 removed=[g['label'] for g in current['gates'] if g['id'] not in {x['id'] for x in edited['gates']}],
+                                 moved=[g['label'] for g in edited['gates'] if g['id'] in {x['id'] for x in current['gates']} and movement_changed(next((old for old in current['gates'] if old['id']==g['id']),None),g)]) if changed else None,
                 decision=deepcopy(state.get('decision')) if status else None))
             project['sites'][site_id] = state
             atomic_write(self.directory / 'project.json', project)

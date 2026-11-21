@@ -27,4 +27,4 @@ jobs:
       - name: Import, revisions, persistence and local API
         run: python -m unittest discover -s tools/junction-review/tests -p 'test_*.py'
       - name: Map and editor primitives
-        run: node --test tools/junction-review/tests/test_map.mjs
+        run: node --test tools/junction-review/tests/test_map.mjs tools/junction-review/tests/test_area_ui.mjs tools/junction-review/tests/test_gate_ui.mjs

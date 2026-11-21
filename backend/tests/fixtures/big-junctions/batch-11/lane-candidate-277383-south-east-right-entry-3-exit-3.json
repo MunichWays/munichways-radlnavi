@@ -1,0 +1,290 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3861525018,
+              4692487276,
+              4692487278,
+              3498172717,
+              277383,
+              3498172719,
+              3709902956,
+              5249554562,
+              3831566679,
+              3831527761
+            ],
+            "distance": [
+              3.003127201,
+              10.0098396,
+              46.26792558,
+              17.57413233,
+              15.56534054,
+              10.27580327,
+              17.12810339,
+              15.41370491,
+              18.69393972
+            ]
+          },
+          "duration": 72.2,
+          "summary": "Paul-Heyse-Straße, Schwanthalerstraße",
+          "weight": 161.8,
+          "distance": 153.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    1
+                  ],
+                  "location": [
+                    11.555879,
+                    48.136805
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555879,
+                    48.136805
+                  ],
+                  [
+                    11.55588,
+                    48.136832
+                  ],
+                  [
+                    11.555883,
+                    48.136922
+                  ],
+                  [
+                    11.555897,
+                    48.137338
+                  ],
+                  [
+                    11.555903,
+                    48.137496
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 1,
+                "bearing_before": 0,
+                "location": [
+                  11.555879,
+                  48.136805
+                ],
+                "type": "depart"
+              },
+              "name": "Paul-Heyse-Straße",
+              "mode": "cycling",
+              "weight": 72.1,
+              "duration": 41.2,
+              "distance": 76.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    45,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.555903,
+                    48.137496
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555903,
+                    48.137496
+                  ],
+                  [
+                    11.556112,
+                    48.137492
+                  ],
+                  [
+                    11.55625,
+                    48.13749
+                  ],
+                  [
+                    11.55648,
+                    48.137486
+                  ],
+                  [
+                    11.556687,
+                    48.137483
+                  ],
+                  [
+                    11.556938,
+                    48.137478
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 91,
+                "bearing_before": 0,
+                "location": [
+                  11.555903,
+                  48.137496
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 89.7,
+              "duration": 31,
+              "distance": 77.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    272
+                  ],
+                  "location": [
+                    11.556938,
+                    48.137478
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556938,
+                    48.137478
+                  ],
+                  [
+                    11.556938,
+                    48.137478
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 92,
+                "location": [
+                  11.556938,
+                  48.137478
+                ],
+                "type": "arrive"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.555879,
+            48.136805
+          ],
+          [
+            11.55588,
+            48.136832
+          ],
+          [
+            11.555883,
+            48.136922
+          ],
+          [
+            11.555897,
+            48.137338
+          ],
+          [
+            11.555903,
+            48.137496
+          ],
+          [
+            11.556112,
+            48.137492
+          ],
+          [
+            11.55625,
+            48.13749
+          ],
+          [
+            11.55648,
+            48.137486
+          ],
+          [
+            11.556687,
+            48.137483
+          ],
+          [
+            11.556938,
+            48.137478
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 161.8,
+      "duration": 72.2,
+      "distance": 153.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "Qd8ggFLfIIAXAAAABwAAAAAAAAAAAAAA-bYjQTwzQEAAAAAAAAAAABIAAAAGAAAAAAAAAAAAAAC9AgAAJ1SwAGWC3gInVLAAZYLeAgAAHwAAAAAA",
+      "location": [
+        11.555879,
+        48.136805
+      ],
+      "name": "Paul-Heyse-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "zNwggOHcIIBaAAAAhwAAABkAAAAAAAAAqV5JQTCNlUEXC2BAAAAAABYAAAAiAAAABgAAAAAAAAC9AgAASliwAAaF3gJKWLAABoXeAgIA_xAAAAAA",
+      "location": [
+        11.556938,
+        48.137478
+      ],
+      "name": "Schwanthalerstraße",
+      "distance": 0
+    }
+  ]
+}

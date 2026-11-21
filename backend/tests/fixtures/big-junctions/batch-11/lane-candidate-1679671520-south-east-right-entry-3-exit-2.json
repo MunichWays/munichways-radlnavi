@@ -1,0 +1,349 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              298502367,
+              1679671491,
+              11926336189,
+              2841445702,
+              269056002,
+              2841445703,
+              1679671525,
+              3933491128,
+              254040685,
+              1823313500
+            ],
+            "distance": [
+              49.5355539,
+              4.366248687,
+              3.226413158,
+              4.74134798,
+              1.044099038,
+              2.501792195,
+              9.634366439,
+              21.7418625,
+              3.14527504
+            ]
+          },
+          "duration": 29.1,
+          "summary": "Reichenbachbrücke, Erhardtstraße",
+          "weight": 50.4,
+          "distance": 99.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    318
+                  ],
+                  "location": [
+                    11.577006,
+                    48.127416
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    165,
+                    240
+                  ],
+                  "location": [
+                    11.57649,
+                    48.127844
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.576512,
+                    48.127872
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.576612,
+                    48.127927
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.577006,
+                    48.127416
+                  ],
+                  [
+                    11.576559,
+                    48.127746
+                  ],
+                  [
+                    11.576523,
+                    48.127777
+                  ],
+                  [
+                    11.576501,
+                    48.127802
+                  ],
+                  [
+                    11.57649,
+                    48.127844
+                  ],
+                  [
+                    11.576494,
+                    48.127853
+                  ],
+                  [
+                    11.576512,
+                    48.127872
+                  ],
+                  [
+                    11.576612,
+                    48.127927
+                  ],
+                  [
+                    11.576846,
+                    48.128044
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 318,
+                "bearing_before": 0,
+                "location": [
+                  11.577006,
+                  48.127416
+                ],
+                "type": "depart"
+              },
+              "name": "Reichenbachbrücke",
+              "mode": "cycling",
+              "weight": 49.8,
+              "duration": 28.5,
+              "distance": 96.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    180,
+                    240
+                  ],
+                  "location": [
+                    11.576846,
+                    48.128044
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576846,
+                    48.128044
+                  ],
+                  [
+                    11.576852,
+                    48.128016
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 174,
+                "bearing_before": 52,
+                "location": [
+                  11.576846,
+                  48.128044
+                ],
+                "modifier": "sharp right",
+                "type": "turn"
+              },
+              "name": "Unterführung Reichenbachbrücke",
+              "mode": "cycling",
+              "weight": 0.6,
+              "duration": 0.6,
+              "distance": 3.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    352
+                  ],
+                  "location": [
+                    11.576852,
+                    48.128016
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576852,
+                    48.128016
+                  ],
+                  [
+                    11.576852,
+                    48.128016
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 172,
+                "location": [
+                  11.576852,
+                  48.128016
+                ],
+                "type": "arrive"
+              },
+              "name": "Unterführung Reichenbachbrücke",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.577006,
+            48.127416
+          ],
+          [
+            11.576559,
+            48.127746
+          ],
+          [
+            11.576523,
+            48.127777
+          ],
+          [
+            11.576501,
+            48.127802
+          ],
+          [
+            11.57649,
+            48.127844
+          ],
+          [
+            11.576494,
+            48.127853
+          ],
+          [
+            11.576512,
+            48.127872
+          ],
+          [
+            11.576612,
+            48.127927
+          ],
+          [
+            11.576846,
+            48.128044
+          ],
+          [
+            11.576852,
+            48.128016
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 50.4,
+      "duration": 29.1,
+      "distance": 99.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "xAAAgP___3_jAAAAXwEAABUAAAAfAAAAk5S1QmgkRkLsnAZBGlhFQbUAAAAZAQAAEQAAABgAAAC9AgAArqawALhd3gKuprAAuF3eAgIA3xMAAAAA",
+      "location": [
+        11.577006,
+        48.127416
+      ],
+      "name": "Reichenbachbrücke",
+      "distance": 0
+    },
+    {
+      "hint": "XbgggF64IIALAAAABgAAAGEAAAAAAAAAscbFQDBMSUC6QMNBAAAAAAsAAAAGAAAAYQAAAAAAAAC9AgAAFKawABBg3gIUprAAEGDeAgQA_xUAAAAA",
+      "location": [
+        11.576852,
+        48.128016
+      ],
+      "name": "Unterführung Reichenbachbrücke",
+      "distance": 0
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {projection, visibleTiles, moveVertex, spreadLabels} from '../junction_review/web/app.js';
+import {addDrawingPoint, closeDrawing} from '../junction_review/web/drawing.js';
+import {createApi} from '../junction_review/web/api.js';
 
 test('projection round trips and keeps north upwards with equal metric scale', () => {
   for (const origin of [[11.6, 48.1], [-73.98, 40.7], [151.2, -33.8]]) {
@@ -9,6 +11,48 @@ test('projection round trips and keeps north upwards with equal metric scale', (
     assert.ok(xy[0] > 0 && xy[1] < 0);
     assert.ok(Math.abs(back[0] - point[0]) < 1e-10 && Math.abs(back[1] - point[1]) < 1e-10);
   }
+});
+
+test('drawing supports arbitrary polygons, closing click and repeated double-click point', () => {
+  let points = [];
+  for (const point of [[11,48],[11.001,48],[11.001,48.001],[11,48.001]]) points = addDrawingPoint(points,point).points;
+  assert.equal(points.length,4);
+  assert.equal(addDrawingPoint(points,points.at(-1)).points.length,4);
+  assert.equal(addDrawingPoint(points,points[0]).close,true);
+  const closed = closeDrawing([...points,points[0]]);
+  assert.equal(closed.length,5);
+  assert.deepEqual(closed[0],closed.at(-1));
+  assert.equal(points.length,4);
+});
+
+test('drawing rejects self crossings and collinear points before starting OSM work', () => {
+  assert.throws(()=>closeDrawing([[11,48],[11.001,48.001],[11,48.001],[11.001,48]]),/kreuzen/);
+  assert.throws(()=>closeDrawing([[11,48],[11.001,48],[11.002,48]]),/Linie/);
+  assert.throws(()=>closeDrawing([[11,48],[11.001,48]]),/drei/);
+});
+
+test('API addresses the explicit project and allows overriding remembered project', async () => {
+  const calls = [];
+  const api = createApi(()=>({workspaceId:'one',token:'csrf'}),async(path,options)=>{
+    calls.push(options); return {ok:true,json:async()=>({ok:true})};
+  });
+  await api('/api/site/save',{body:{status:'confirmed'}});
+  await api('/api/project',{projectId:'two'});
+  await api('/api/project',{projectId:''});
+  assert.equal(calls[0].headers['X-Review-Project'],'one');
+  assert.equal(calls[0].headers['X-Review-Token'],'csrf');
+  assert.equal(calls[1].headers['X-Review-Project'],'two');
+  assert.equal(calls[2].headers['X-Review-Project'],undefined);
+});
+
+test('cancelled API work rejects without returning a stale result', async () => {
+  const abort = new AbortController();
+  const api = createApi(()=>({}),async(path,{signal})=>new Promise((resolve,reject)=>{
+    signal.addEventListener('abort',()=>reject(new DOMException('Abgebrochen','AbortError')));
+  }));
+  const pending = api('/api/areas/search',{signal:abort.signal});
+  abort.abort();
+  await assert.rejects(pending,{name:'AbortError'});
 });
 
 test('moving the first polygon vertex also moves the closing vertex, without editing source', () => {

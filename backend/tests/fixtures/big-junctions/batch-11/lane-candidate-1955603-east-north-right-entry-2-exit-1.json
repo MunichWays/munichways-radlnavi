@@ -1,0 +1,361 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1302910828,
+              13055463493,
+              3697671314,
+              1302910827,
+              8138447221,
+              372811175,
+              11100005487,
+              1026310433,
+              11100005477,
+              11100005479,
+              372811179
+            ],
+            "distance": [
+              12.4427483,
+              12.43645784,
+              28.71274157,
+              6.5083223,
+              7.203988359,
+              5.833419895,
+              20.52936723,
+              0.5797472631,
+              0.5350937353,
+              47.51724161
+            ]
+          },
+          "duration": 48.4,
+          "summary": "Dietlindenstraße, Ungererstraße",
+          "weight": 103,
+          "distance": 142.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    307
+                  ],
+                  "location": [
+                    11.591129,
+                    48.166208
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.591129,
+                    48.166208
+                  ],
+                  [
+                    11.590995,
+                    48.166275
+                  ],
+                  [
+                    11.59086,
+                    48.166341
+                  ],
+                  [
+                    11.590549,
+                    48.166494
+                  ],
+                  [
+                    11.59048,
+                    48.16653
+                  ],
+                  [
+                    11.590405,
+                    48.166571
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 307,
+                "bearing_before": 0,
+                "location": [
+                  11.591129,
+                  48.166208
+                ],
+                "type": "depart"
+              },
+              "name": "Dietlindenstraße",
+              "mode": "cycling",
+              "weight": 69.7,
+              "duration": 33.4,
+              "distance": 67.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.590405,
+                    48.166571
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.590452,
+                    48.166613
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    165,
+                    210
+                  ],
+                  "location": [
+                    11.590615,
+                    48.166762
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    225
+                  ],
+                  "location": [
+                    11.59062,
+                    48.166766
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590405,
+                    48.166571
+                  ],
+                  [
+                    11.590452,
+                    48.166613
+                  ],
+                  [
+                    11.590615,
+                    48.166762
+                  ],
+                  [
+                    11.59062,
+                    48.166766
+                  ],
+                  [
+                    11.590624,
+                    48.16677
+                  ],
+                  [
+                    11.591013,
+                    48.167109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 36,
+                "bearing_before": 306,
+                "location": [
+                  11.590405,
+                  48.166571
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 33.3,
+              "duration": 15,
+              "distance": 75
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    218
+                  ],
+                  "location": [
+                    11.591013,
+                    48.167109
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.591013,
+                    48.167109
+                  ],
+                  [
+                    11.591013,
+                    48.167109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 38,
+                "location": [
+                  11.591013,
+                  48.167109
+                ],
+                "type": "arrive"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.591129,
+            48.166208
+          ],
+          [
+            11.590995,
+            48.166275
+          ],
+          [
+            11.59086,
+            48.166341
+          ],
+          [
+            11.590549,
+            48.166494
+          ],
+          [
+            11.59048,
+            48.16653
+          ],
+          [
+            11.590405,
+            48.166571
+          ],
+          [
+            11.590452,
+            48.166613
+          ],
+          [
+            11.590615,
+            48.166762
+          ],
+          [
+            11.59062,
+            48.166766
+          ],
+          [
+            11.590624,
+            48.16677
+          ],
+          [
+            11.591013,
+            48.167109
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 103,
+      "duration": 48.4,
+      "distance": 142.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "k1gvgMxYL4AyAAAAAAAAADIAAABnAAAAfxVHQQAAAAC7-0ZB0BjOQRYAAAAAAAAAFgAAAC4AAAC9AgAA2d2wAED13gLZ3bAAQPXeAgIA7wcAAAAA",
+      "location": [
+        11.591129,
+        48.166208
+      ],
+      "name": "Dietlindenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "pFgvgP___3_TAAAAlAEAAAIAAAAAAAAAqBE-QtGBLULn-wg_AAAAAF8AAAC2AAAAAQAAAAAAAAC9AgAAZd2wAMX43gJl3bAAxfjeAgIAXwIAAAAA",
+      "location": [
+        11.591013,
+        48.167109
+      ],
+      "name": "Ungererstraße",
+      "distance": 0
+    }
+  ]
+}

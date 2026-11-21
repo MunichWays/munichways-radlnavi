@@ -1,0 +1,340 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              5327842375,
+              1319848559,
+              1319848556,
+              2614032433,
+              1955331,
+              2614032298,
+              255417912,
+              2614032211,
+              2614032126,
+              12108858419,
+              2614032042
+            ],
+            "distance": [
+              7.008702699,
+              13.23717212,
+              6.894352661,
+              6.790539966,
+              8.161987801,
+              9.390951474,
+              17.0116558,
+              25.5495739,
+              23.01241062,
+              4.765824018
+            ]
+          },
+          "duration": 73.2,
+          "summary": "Herzog-Heinrich-Straße",
+          "weight": 146.1,
+          "distance": 121.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    182
+                  ],
+                  "location": [
+                    11.555744,
+                    48.12891
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    150,
+                    270
+                  ],
+                  "location": [
+                    11.555754,
+                    48.128606
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555744,
+                    48.12891
+                  ],
+                  [
+                    11.555741,
+                    48.128847
+                  ],
+                  [
+                    11.555736,
+                    48.128728
+                  ],
+                  [
+                    11.555737,
+                    48.128666
+                  ],
+                  [
+                    11.555754,
+                    48.128606
+                  ],
+                  [
+                    11.555787,
+                    48.128536
+                  ],
+                  [
+                    11.555845,
+                    48.128461
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 182,
+                "bearing_before": 0,
+                "location": [
+                  11.555744,
+                  48.12891
+                ],
+                "type": "depart"
+              },
+              "name": "Herzog-Heinrich-Straße",
+              "mode": "cycling",
+              "weight": 114.8,
+              "duration": 59.2,
+              "distance": 51.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.555845,
+                    48.128461
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240
+                  ],
+                  "location": [
+                    11.555655,
+                    48.128376
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555845,
+                    48.128461
+                  ],
+                  [
+                    11.555655,
+                    48.128376
+                  ],
+                  [
+                    11.555368,
+                    48.12825
+                  ],
+                  [
+                    11.555112,
+                    48.128134
+                  ],
+                  [
+                    11.55506,
+                    48.128109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 234,
+                "bearing_before": 156,
+                "location": [
+                  11.555845,
+                  48.128461
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 31.3,
+              "duration": 14,
+              "distance": 70.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    54
+                  ],
+                  "location": [
+                    11.55506,
+                    48.128109
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.55506,
+                    48.128109
+                  ],
+                  [
+                    11.55506,
+                    48.128109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 234,
+                "location": [
+                  11.55506,
+                  48.128109
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.555744,
+            48.12891
+          ],
+          [
+            11.555741,
+            48.128847
+          ],
+          [
+            11.555736,
+            48.128728
+          ],
+          [
+            11.555737,
+            48.128666
+          ],
+          [
+            11.555754,
+            48.128606
+          ],
+          [
+            11.555787,
+            48.128536
+          ],
+          [
+            11.555845,
+            48.128461
+          ],
+          [
+            11.555655,
+            48.128376
+          ],
+          [
+            11.555368,
+            48.12825
+          ],
+          [
+            11.555112,
+            48.128134
+          ],
+          [
+            11.55506,
+            48.128109
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 146.1,
+      "duration": 73.2,
+      "distance": 121.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "UA8EgIP9IIAPAAAA3QAAAJMBAACYAQAAS0fgQHaXw0JkYNdBBeiCQQwAAACxAAAA2wAAAMgAAAC9AgAAoFOwAI5j3gKgU7AAjmPeAgYAHwAAAAAA",
+      "location": [
+        11.555744,
+        48.12891
+      ],
+      "name": "Herzog-Heinrich-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "O_8ggP___38VAAAANwAAANgAAAB9AQAAoYGYQNiP8UB5P0JCimurQgkAAAAZAAAAYQAAAK0AAAC9AgAA9FCwAG1g3gL0ULAAbWDeAgQArw4AAAAA",
+      "location": [
+        11.55506,
+        48.128109
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

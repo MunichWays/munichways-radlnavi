@@ -3,7 +3,7 @@ ARG MAP_SOURCE=download
 
 FROM alpine:latest AS download
 
-ARG REGION="europe/germany/bayern/oberbayern"
+ARG REGION="europe/germany/bayern/oberbayern/oberbayern"
 ARG MAP_SNAPSHOT=local
 
 RUN mkdir /data && printf '%s' "$MAP_SNAPSHOT" > /data/snapshot && \

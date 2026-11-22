@@ -1,0 +1,335 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1907449180,
+              618702503,
+              5374796934,
+              618702506,
+              618702508,
+              967091720,
+              223875940,
+              223875937
+            ],
+            "distance": [
+              23.49296657,
+              45.69989822,
+              7.772927774,
+              7.772927775,
+              7.434097439,
+              21.73129993,
+              30.63925583
+            ]
+          },
+          "duration": 42.6,
+          "summary": "Katharina-von-Bora-Straße, Königsplatz",
+          "weight": 70.7,
+          "distance": 144.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    23
+                  ],
+                  "location": [
+                    11.566195,
+                    48.144777
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566603,
+                    48.145413
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566195,
+                    48.144777
+                  ],
+                  [
+                    11.56632,
+                    48.144971
+                  ],
+                  [
+                    11.566561,
+                    48.145349
+                  ],
+                  [
+                    11.566603,
+                    48.145413
+                  ],
+                  [
+                    11.566645,
+                    48.145477
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 23,
+                "bearing_before": 0,
+                "location": [
+                  11.566195,
+                  48.144777
+                ],
+                "type": "depart"
+              },
+              "name": "Katharina-von-Bora-Straße",
+              "mode": "cycling",
+              "weight": 53,
+              "duration": 29.6,
+              "distance": 84.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566645,
+                    48.145477
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566553,
+                    48.145503
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.566286,
+                    48.145582
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566645,
+                    48.145477
+                  ],
+                  [
+                    11.566553,
+                    48.145503
+                  ],
+                  [
+                    11.566286,
+                    48.145582
+                  ],
+                  [
+                    11.565908,
+                    48.145691
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 22,
+                "location": [
+                  11.566645,
+                  48.145477
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 17.7,
+              "duration": 13,
+              "distance": 59.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    113
+                  ],
+                  "location": [
+                    11.565908,
+                    48.145691
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565908,
+                    48.145691
+                  ],
+                  [
+                    11.565908,
+                    48.145691
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 293,
+                "location": [
+                  11.565908,
+                  48.145691
+                ],
+                "type": "arrive"
+              },
+              "name": "Königsplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.566195,
+            48.144777
+          ],
+          [
+            11.56632,
+            48.144971
+          ],
+          [
+            11.566561,
+            48.145349
+          ],
+          [
+            11.566603,
+            48.145413
+          ],
+          [
+            11.566645,
+            48.145477
+          ],
+          [
+            11.566553,
+            48.145503
+          ],
+          [
+            11.566286,
+            48.145582
+          ],
+          [
+            11.565908,
+            48.145691
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 70.7,
+      "duration": 42.6,
+      "distance": 144.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ORQhgEkUIYBCAAAAAgAAAAAAAAAAAAAAmPG7QYhhGT8AAAAAAAAAACkAAAACAAAAAAAAAAAAAAC1AgAAc3ywAImh3gJzfLAAiaHeAgAAvwwAAAAA",
+      "location": [
+        11.566195,
+        48.144777
+      ],
+      "name": "Katharina-von-Bora-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "ARUhgP___39UAAAAagAAAAAAAAAAAAAAMh31QQnc9UAAAAAAAAAAAEMAAABVAAAAAAAAAAAAAAC1AgAAVHuwABul3gJUe7AAGqXeAgAAXxIAAAAA",
+      "location": [
+        11.565908,
+        48.145691
+      ],
+      "name": "Königsplatz",
+      "distance": 0.1111927533
+    }
+  ]
+}

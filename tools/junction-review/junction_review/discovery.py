@@ -90,6 +90,23 @@ def cluster_bearings(items, origin, tolerance=32):
     return sorted(groups, key=lambda g: g['angle'])
 
 
+def describe_arms(site):
+    """Describe stable source arms, independently of later moved gate positions."""
+    preparation = site.get('preparation') or {}
+    if preparation.get('armEvidence'):
+        return preparation['armEvidence']
+    if preparation.get('algorithm') != ALGORITHM or not site.get('polygon'):
+        return {}
+    hits = [dict(point=p, way=w) for w in site['ways'] if w['tags'].get('highway') in MAJOR
+            for p, _, _ in crossings(w, site['polygon'])]
+    arms = cluster_bearings(hits, site['origin'])
+    if len(arms) != len(site['logicalArms']):
+        return {}
+    return {f'Arm-{i+1}': dict(bearing=math.degrees(arm['angle']),
+                names=sorted({h['way']['tags']['name'] for h in arm['items'] if h['way']['tags'].get('name')}),
+                wayIds=sorted({h['way']['id'] for h in arm['items']})) for i, arm in enumerate(arms)}
+
+
 def crossings(way, polygon):
     found = []
     for a, b in zip(way['coordinates'], way['coordinates'][1:]):

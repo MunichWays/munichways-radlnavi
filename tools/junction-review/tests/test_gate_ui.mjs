@@ -1,7 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {geometryOf,initializeGateEditor} from '../junction_review/web/gate-ui.js';
+import {geometryOf,initializeGateEditor,armLabel} from '../junction_review/web/gate-ui.js';
+
+test('street directions name the road and compass direction even for an empty arm',()=>{
+  const site={armDescriptions:{'Arm-1':{names:['Marsstraße'],bearing:37}}};
+  assert.equal(armLabel(site,'Arm-1',['Exit-1','Entry-5']),
+    'Arm-1 · Marsstraße nach Nordost · Exit-1, Entry-5');
+  assert.match(armLabel(site,'Arm-1',[]),/Marsstraße nach Nordost.*noch keine Punkte/);
+  assert.match(armLabel({},'Arm-2',['Exit-2']),/zugeordneten Punkte.*Exit-2/);
+});
 
 class Node {
   constructor(tag='div',attrs={},text='') {this.tag=tag;this.children=[];this.listeners={};this.attributes={};this.textContent=text;Object.assign(this,attrs);}

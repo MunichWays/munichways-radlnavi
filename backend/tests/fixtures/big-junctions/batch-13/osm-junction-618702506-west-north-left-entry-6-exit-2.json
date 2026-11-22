@@ -1,0 +1,474 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              303455219,
+              303455222,
+              922831062,
+              5374796934,
+              5374796935,
+              9423153108,
+              3153419928,
+              4372462253,
+              4372463238
+            ],
+            "distance": [
+              30.71495665,
+              22.59483824,
+              7.795429107,
+              6.730579714,
+              11.5780225,
+              11.68168589,
+              63.2325057,
+              4.719021117
+            ]
+          },
+          "duration": 51,
+          "summary": "Arcisstraße",
+          "weight": 95.6,
+          "distance": 159,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    113
+                  ],
+                  "location": [
+                    11.565805,
+                    48.145563
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566186,
+                    48.145457
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566465,
+                    48.145377
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566561,
+                    48.145349
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565805,
+                    48.145563
+                  ],
+                  [
+                    11.566186,
+                    48.145457
+                  ],
+                  [
+                    11.566465,
+                    48.145377
+                  ],
+                  [
+                    11.566561,
+                    48.145349
+                  ],
+                  [
+                    11.566644,
+                    48.145325
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 0,
+                "location": [
+                  11.565805,
+                  48.145563
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 37.1,
+              "duration": 22.5,
+              "distance": 67.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    75,
+                    105,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566644,
+                    48.145325
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566644,
+                    48.145325
+                  ],
+                  [
+                    11.566791,
+                    48.145359
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 70,
+                "bearing_before": 112,
+                "location": [
+                  11.566644,
+                  48.145325
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 23.8,
+              "duration": 11.7,
+              "distance": 11.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    255,
+                    300,
+                    330
+                  ],
+                  "location": [
+                    11.566791,
+                    48.145359
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566791,
+                    48.145359
+                  ],
+                  [
+                    11.566724,
+                    48.145454
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 334,
+                "bearing_before": 70,
+                "location": [
+                  11.566791,
+                  48.145359
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 4.6,
+              "duration": 3.3,
+              "distance": 11.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    150,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566724,
+                    48.145454
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.567061,
+                    48.145976
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566724,
+                    48.145454
+                  ],
+                  [
+                    11.567061,
+                    48.145976
+                  ],
+                  [
+                    11.567086,
+                    48.146015
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 22,
+                "bearing_before": 334,
+                "location": [
+                  11.566724,
+                  48.145454
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 30.1,
+              "duration": 13.5,
+              "distance": 68
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    203
+                  ],
+                  "location": [
+                    11.567086,
+                    48.146015
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567086,
+                    48.146015
+                  ],
+                  [
+                    11.567086,
+                    48.146015
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 23,
+                "location": [
+                  11.567086,
+                  48.146015
+                ],
+                "type": "arrive"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.565805,
+            48.145563
+          ],
+          [
+            11.566186,
+            48.145457
+          ],
+          [
+            11.566465,
+            48.145377
+          ],
+          [
+            11.566561,
+            48.145349
+          ],
+          [
+            11.566644,
+            48.145325
+          ],
+          [
+            11.566791,
+            48.145359
+          ],
+          [
+            11.566724,
+            48.145454
+          ],
+          [
+            11.567061,
+            48.145976
+          ],
+          [
+            11.567086,
+            48.146015
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 95.6,
+      "duration": 51,
+      "distance": 159
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "MBQhgP___38QAAAAZgAAAAAAAAAAAAAA1Ua9QDu49UEAAAAAAAAAAA0AAABRAAAAAAAAAAAAAAC1AgAA7XqwAJuk3gLterAAm6TeAgAADwcAAAAA",
+      "location": [
+        11.565805,
+        48.145563
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "QhUhgP___38UAAAA0AAAAAAAAAAAAAAAOQKXQNCoKEIAAAAAAAAAAAkAAABeAAAAAAAAAAAAAAC1AgAA7n-wAF-m3gLuf7AAX6beAgAAfwEAAAAA",
+      "location": [
+        11.567086,
+        48.146015
+      ],
+      "name": "Arcisstraße",
+      "distance": 0
+    }
+  ]
+}

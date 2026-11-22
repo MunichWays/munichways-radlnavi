@@ -1,0 +1,292 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              303455219,
+              303455222,
+              922831062,
+              5374796934,
+              618702503,
+              1907449180
+            ],
+            "distance": [
+              30.71495665,
+              22.59483824,
+              7.795429107,
+              45.69989822,
+              23.49296657
+            ]
+          },
+          "duration": 29.9,
+          "summary": "Katharina-von-Bora-Straße",
+          "weight": 46.3,
+          "distance": 130.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    113
+                  ],
+                  "location": [
+                    11.565805,
+                    48.145563
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566186,
+                    48.145457
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566465,
+                    48.145377
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565805,
+                    48.145563
+                  ],
+                  [
+                    11.566186,
+                    48.145457
+                  ],
+                  [
+                    11.566465,
+                    48.145377
+                  ],
+                  [
+                    11.566561,
+                    48.145349
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 0,
+                "location": [
+                  11.565805,
+                  48.145563
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 26.8,
+              "duration": 17.6,
+              "distance": 61.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566561,
+                    48.145349
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566561,
+                    48.145349
+                  ],
+                  [
+                    11.56632,
+                    48.144971
+                  ],
+                  [
+                    11.566195,
+                    48.144777
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 202,
+                "bearing_before": 112,
+                "location": [
+                  11.566561,
+                  48.145349
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Katharina-von-Bora-Straße",
+              "mode": "cycling",
+              "weight": 19.5,
+              "duration": 12.3,
+              "distance": 69.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    23
+                  ],
+                  "location": [
+                    11.566195,
+                    48.144777
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566195,
+                    48.144777
+                  ],
+                  [
+                    11.566195,
+                    48.144777
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 203,
+                "location": [
+                  11.566195,
+                  48.144777
+                ],
+                "type": "arrive"
+              },
+              "name": "Katharina-von-Bora-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.565805,
+            48.145563
+          ],
+          [
+            11.566186,
+            48.145457
+          ],
+          [
+            11.566465,
+            48.145377
+          ],
+          [
+            11.566561,
+            48.145349
+          ],
+          [
+            11.56632,
+            48.144971
+          ],
+          [
+            11.566195,
+            48.144777
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 46.3,
+      "duration": 29.9,
+      "distance": 130.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "MBQhgP___38QAAAAZgAAAAAAAAAAAAAA1Ua9QDu49UEAAAAAAAAAAA0AAABRAAAAAAAAAAAAAAC1AgAA7XqwAJuk3gLterAAm6TeAgAADwcAAAAA",
+      "location": [
+        11.565805,
+        48.145563
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "ORQhgEkUIYBCAAAAAgAAAAAAAAAAAAAAmPG7QYhhGT8AAAAAAAAAACkAAAACAAAAAAAAAAAAAAC1AgAAc3ywAImh3gJzfLAAiaHeAgAAvwwAAAAA",
+      "location": [
+        11.566195,
+        48.144777
+      ],
+      "name": "Katharina-von-Bora-Straße",
+      "distance": 0
+    }
+  ]
+}

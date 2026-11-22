@@ -1,0 +1,359 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3161384666,
+              1072805409,
+              2283502930,
+              254086401,
+              1239117115,
+              270533681,
+              1239117116,
+              254085920,
+              3971602399,
+              298506988
+            ],
+            "distance": [
+              34.04676241,
+              19.56860619,
+              7.371605415,
+              7.738194494,
+              1.361171332,
+              2.206207512,
+              7.707493152,
+              4.094640044,
+              65.73223517
+            ]
+          },
+          "duration": 49.5,
+          "summary": "Steinsdorfstraße, Maximilianstraße",
+          "weight": 81.6,
+          "distance": 149.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    227
+                  ],
+                  "location": [
+                    11.590544,
+                    48.137659
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    60,
+                    105,
+                    225,
+                    255,
+                    285
+                  ],
+                  "location": [
+                    11.589966,
+                    48.137273
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    105,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.589873,
+                    48.13722
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590544,
+                    48.137659
+                  ],
+                  [
+                    11.590207,
+                    48.137452
+                  ],
+                  [
+                    11.590019,
+                    48.137329
+                  ],
+                  [
+                    11.589966,
+                    48.137273
+                  ],
+                  [
+                    11.589888,
+                    48.137227
+                  ],
+                  [
+                    11.589873,
+                    48.13722
+                  ],
+                  [
+                    11.589852,
+                    48.137206
+                  ],
+                  [
+                    11.589772,
+                    48.137162
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 227,
+                "bearing_before": 0,
+                "location": [
+                  11.590544,
+                  48.137659
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 64.2,
+              "duration": 35.6,
+              "distance": 80
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    105,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.589772,
+                    48.137162
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.589824,
+                    48.13715
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589772,
+                    48.137162
+                  ],
+                  [
+                    11.589824,
+                    48.13715
+                  ],
+                  [
+                    11.590671,
+                    48.136983
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 108,
+                "bearing_before": 229,
+                "location": [
+                  11.589772,
+                  48.137162
+                ],
+                "modifier": "sharp left",
+                "type": "turn"
+              },
+              "name": "Maximilianstraße",
+              "mode": "cycling",
+              "weight": 17.4,
+              "duration": 13.9,
+              "distance": 69.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    286
+                  ],
+                  "location": [
+                    11.590671,
+                    48.136983
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590671,
+                    48.136983
+                  ],
+                  [
+                    11.590671,
+                    48.136983
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 106,
+                "location": [
+                  11.590671,
+                  48.136983
+                ],
+                "type": "arrive"
+              },
+              "name": "Maximilianstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.590544,
+            48.137659
+          ],
+          [
+            11.590207,
+            48.137452
+          ],
+          [
+            11.590019,
+            48.137329
+          ],
+          [
+            11.589966,
+            48.137273
+          ],
+          [
+            11.589888,
+            48.137227
+          ],
+          [
+            11.589873,
+            48.13722
+          ],
+          [
+            11.589852,
+            48.137206
+          ],
+          [
+            11.589772,
+            48.137162
+          ],
+          [
+            11.589824,
+            48.13715
+          ],
+          [
+            11.590671,
+            48.136983
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 81.6,
+      "duration": 49.5,
+      "distance": 149.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "csAAgPnEAIBMAAAAlgAAAD0AAAAAAAAA4i8IQoJohEKNhddBAAAAAD0AAAB3AAAAMAAAAAAAAAC1AgAAkNuwALuF3gKQ27AAu4XeAgQA_wIAAAAA",
+      "location": [
+        11.590544,
+        48.137659
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "baYggP___3-kAAAAVwIAAAAAAAAAAAAA6HaDQrX9LUMAAAAAAAAAAIMAAADfAQAAAAAAAAAAAAC1AgAAD9ywABeD3gIP3LAAF4PeAgAArwYAAAAA",
+      "location": [
+        11.590671,
+        48.136983
+      ],
+      "name": "Maximilianstraße",
+      "distance": 0
+    }
+  ]
+}

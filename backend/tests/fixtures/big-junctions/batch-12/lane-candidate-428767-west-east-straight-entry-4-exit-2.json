@@ -1,0 +1,311 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              13275901291,
+              3950736371,
+              2706067043,
+              13711397267,
+              1086078390,
+              428767,
+              2584552587,
+              9382586571,
+              1505385759,
+              2615604381
+            ],
+            "distance": [
+              20.62895379,
+              32.08178126,
+              8.923034628,
+              7.89312698,
+              9.592215667,
+              7.833851781,
+              8.652886161,
+              10.43461213,
+              37.25162137
+            ]
+          },
+          "duration": 27.8,
+          "summary": "Rosenheimer Straße",
+          "weight": 50.3,
+          "distance": 143.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    133
+                  ],
+                  "location": [
+                    11.598639,
+                    48.125746
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    105,
+                    135,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.599441,
+                    48.12528
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.598639,
+                    48.125746
+                  ],
+                  [
+                    11.598841,
+                    48.125619
+                  ],
+                  [
+                    11.599164,
+                    48.125428
+                  ],
+                  [
+                    11.599254,
+                    48.125375
+                  ],
+                  [
+                    11.599336,
+                    48.12533
+                  ],
+                  [
+                    11.599441,
+                    48.12528
+                  ],
+                  [
+                    11.599512,
+                    48.125228
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 133,
+                "bearing_before": 0,
+                "location": [
+                  11.598639,
+                  48.125746
+                ],
+                "type": "depart"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 24.2,
+              "duration": 16,
+              "distance": 87
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    165,
+                    315
+                  ],
+                  "location": [
+                    11.599512,
+                    48.125228
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.599512,
+                    48.125228
+                  ],
+                  [
+                    11.599543,
+                    48.125153
+                  ],
+                  [
+                    11.599638,
+                    48.125084
+                  ],
+                  [
+                    11.600023,
+                    48.12487
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 164,
+                "bearing_before": 136,
+                "location": [
+                  11.599512,
+                  48.125228
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 26.1,
+              "duration": 11.8,
+              "distance": 56.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    310
+                  ],
+                  "location": [
+                    11.600023,
+                    48.12487
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.600023,
+                    48.12487
+                  ],
+                  [
+                    11.600023,
+                    48.12487
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 130,
+                "location": [
+                  11.600023,
+                  48.12487
+                ],
+                "type": "arrive"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.598639,
+            48.125746
+          ],
+          [
+            11.598841,
+            48.125619
+          ],
+          [
+            11.599164,
+            48.125428
+          ],
+          [
+            11.599254,
+            48.125375
+          ],
+          [
+            11.599336,
+            48.12533
+          ],
+          [
+            11.599441,
+            48.12528
+          ],
+          [
+            11.599512,
+            48.125228
+          ],
+          [
+            11.599543,
+            48.125153
+          ],
+          [
+            11.599638,
+            48.125084
+          ],
+          [
+            11.600023,
+            48.12487
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 50.3,
+      "duration": 27.8,
+      "distance": 143.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "9BwDgP0cA4ADAAAALwAAADIAAABuAAAAMvK4PxkIpUEuorFBfpdDQgIAAAAmAAAAKAAAAFgAAAC1AgAAL_uwADJX3gIv-7AAMlfeAgIAXwgAAAAA",
+      "location": [
+        11.598639,
+        48.125746
+      ],
+      "name": "Rosenheimer Straße",
+      "distance": 0
+    },
+    {
+      "hint": "uZAZgP___3-lAAAADgEAAC4AAAAmAAAAqQEVQkaZu0Es9CZBcg4JQUoAAAB5AAAAFQAAABEAAAC1AgAAlwCxAMZT3gKXALEAxlPeAgIAHwgAAAAA",
+      "location": [
+        11.600023,
+        48.12487
+      ],
+      "name": "Rosenheimer Straße",
+      "distance": 0
+    }
+  ]
+}

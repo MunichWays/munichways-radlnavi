@@ -12,12 +12,12 @@ class CentralJunctionTests(unittest.TestCase):
 
     def test_activation_and_deferred_pairs(self):
         sites = {j['id']: j for j in catalog()['junctions']}
-        for node, count in [(363119, 8), (472070, 8), (361786, 7), (361790, 8), (428767, 7)]:
+        for node, count in [(363119, 8), (472070, 8), (361786, 8), (361790, 8), (428767, 8)]:
             site = sites[f'lane-candidate-{node}']
             self.assertTrue(site['enabled'])
             self.assertEqual(sum(bool(m.get('enabled')) for m in site['movements']), count)
-        for node, pairs in [(361786, {('Entry-3', 'Exit-1')}),
-                            (428767, {('Entry-1', 'Exit-3'), ('Entry-1', 'Exit-4'), ('Entry-3', 'Exit-4')})]:
+        for node, pairs in [(361786, set()),
+                            (428767, {('Entry-1', 'Exit-3'), ('Entry-1', 'Exit-4')})]:
             disabled = [m for m in sites[f'lane-candidate-{node}']['movements'] if not m.get('enabled')]
             self.assertEqual({(m['entryLabel'], m['exitLabel']) for m in disabled}, pairs)
             for m in disabled:

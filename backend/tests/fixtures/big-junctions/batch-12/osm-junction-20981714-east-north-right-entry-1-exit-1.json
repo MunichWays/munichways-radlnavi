@@ -1,0 +1,248 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              776257432,
+              1099985376,
+              1099985368,
+              1099985491
+            ],
+            "distance": [
+              68.04591186,
+              60.60558335,
+              5.904959375
+            ]
+          },
+          "duration": 31,
+          "summary": "Paul-Heyse-Unterführung",
+          "weight": 68.2,
+          "distance": 134.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    269
+                  ],
+                  "location": [
+                    11.556963,
+                    48.139268
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556963,
+                    48.139268
+                  ],
+                  [
+                    11.556049,
+                    48.139262
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 269,
+                "bearing_before": 0,
+                "location": [
+                  11.556963,
+                  48.139268
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 38.7,
+              "duration": 17.8,
+              "distance": 68
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556049,
+                    48.139262
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "tunnel",
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    180
+                  ],
+                  "location": [
+                    11.556038,
+                    48.139807
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556049,
+                    48.139262
+                  ],
+                  [
+                    11.556038,
+                    48.139807
+                  ],
+                  [
+                    11.556043,
+                    48.13986
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 358,
+                "bearing_before": 270,
+                "location": [
+                  11.556049,
+                  48.139262
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Paul-Heyse-Unterführung",
+              "mode": "cycling",
+              "weight": 29.5,
+              "duration": 13.2,
+              "distance": 66.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    184
+                  ],
+                  "location": [
+                    11.556043,
+                    48.13986
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556043,
+                    48.13986
+                  ],
+                  [
+                    11.556043,
+                    48.13986
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 4,
+                "location": [
+                  11.556043,
+                  48.13986
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.556963,
+            48.139268
+          ],
+          [
+            11.556049,
+            48.139262
+          ],
+          [
+            11.556038,
+            48.139807
+          ],
+          [
+            11.556043,
+            48.13986
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 68.2,
+      "duration": 31,
+      "distance": 134.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "P9IggP___3-_AAAA7gEAAG8AAAAAAAAAqrgsQoIXiEKZwMZBAAAAAFYAAADeAAAAMQAAAAAAAAC1AgAAY1iwAASM3gJjWLAABIzeAggA3xAAAAAA",
+      "location": [
+        11.556963,
+        48.139268
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "DgkEgP___38aAAAA5AMAAAAAAAAAAAAAbfW8QJhGWkMAAAAAAAAAAAsAAADAAQAAAAAAAAAAAAC1AgAAy1SwAFSO3gLLVLAAVI7eAgAAPwAAAAAA",
+      "location": [
+        11.556043,
+        48.13986
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

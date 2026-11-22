@@ -76,12 +76,18 @@ def ambiguous_exits(site):
     excluded = []
     kinds = {g['label']: g['kind'] for g in site['gates']}
     arms = site['proposedLogicalArms']
+    equivalent = [set(group) for group in site.get('equivalentExitGroups', [])]
+    for field, kind in (('equivalentExitGroups', 'exit'), ('equivalentEntryGroups', 'entry')):
+        for group in map(set, site.get(field, [])):
+            if (len(group) < 2 or any(kinds.get(label) != kind for label in group)
+                    or not any(group <= set(labels) for labels in arms.values())):
+                raise ValueError('Equivalent gates require explicit same-arm, same-kind gates')
     for before, labels in arms.items():
         for after, targets in arms.items():
             if before == after or review.check.kind_for(before, after) == 'right':
                 continue
             exits = [label for label in targets if kinds[label] == 'exit']
-            if len(exits) > 1:
+            if len(exits) > 1 and not any(set(exits) <= group for group in equivalent):
                 for entry in labels:
                     if kinds[entry] != 'entry':
                         continue
@@ -119,7 +125,7 @@ def freeze(project):
     print(f'Frozen: {len(sites)} routable cases, {len(blocked)} topology-blocked; runtime unchanged.', flush=True)
 
 
-def run(collect=False, import_project=None):
+def run(collect=False, import_project=None, *, review_date='2026-11-21'):
     data = review.read(SOURCE)
     sites = data['sites']
     # Explicit cycling lanes continue across OSM way splits outside a gate.
@@ -135,10 +141,11 @@ def run(collect=False, import_project=None):
         # legally cycling, connected, same-named road pieces for sampling; do
         # not admit these whole roads as inner-corridor evidence.
         ways = {w['id']: w for w in site['ways']}
-        names = {ways[g['osmWayId']]['tags'].get('name') for g in site['gates'] if g.get('onRoad')}
+        road_gates = [g for g in site['gates'] if g.get('onRoad') or g['osmWayId'] in site['onRoadWayIds']]
+        names = {ways[g['osmWayId']]['tags'].get('name') for g in road_gates}
         names.discard(None)
         roads = {w['id'] for w in site['ways'] if w['tags'].get('name') in names and allowed(w, [w['id']])}
-        selected = {g['osmWayId'] for g in site['gates'] if g.get('onRoad')}
+        selected = {g['osmWayId'] for g in road_gates}
         while True:
             nodes = {(p['lon'], p['lat']) for wid in selected for p in ways[wid]['geometry']}
             extra = {wid for wid in roads if any((p['lon'],p['lat']) in nodes for p in ways[wid]['geometry'])}
@@ -160,7 +167,7 @@ def run(collect=False, import_project=None):
             NUMBERS={s['number'] for s in sites}, SOURCE=SOURCE, FIXTURES=FIXTURES,
             REPORT=REPORT, MANIFEST=ROOT / (PREFIX + '-route-requests.json'), PROPOSAL=PROPOSAL,
             SUMMARY=SUMMARY, TITLE='Neue bestaetigte Muenchner Kartenfaelle',
-            REGION='Projekt Muenchen', REVIEW_DATE='2026-11-21'):
+            REGION='Projekt Muenchen', REVIEW_DATE=review_date):
         review.run(collect)
     report = review.read(REPORT)
     proposal = review.read(PROPOSAL)

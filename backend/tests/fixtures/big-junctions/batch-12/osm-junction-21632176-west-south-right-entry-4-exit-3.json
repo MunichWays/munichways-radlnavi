@@ -1,0 +1,330 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4167555518,
+              739381876,
+              3712297499,
+              10180087142,
+              13946403073,
+              3926664919,
+              739381837,
+              3712297478,
+              1487012462,
+              13946403077
+            ],
+            "distance": [
+              47.72751441,
+              16.738253,
+              3.993068483,
+              4.767936474,
+              2.225037022,
+              7.520465969,
+              4.717200972,
+              6.511954879,
+              44.7663263
+            ]
+          },
+          "duration": 49.2,
+          "summary": "Arnulfstraße, Helmholtzstraße",
+          "weight": 94.6,
+          "distance": 139,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    111
+                  ],
+                  "location": [
+                    11.540316,
+                    48.145282
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    285
+                  ],
+                  "location": [
+                    11.541176,
+                    48.145064
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.541236,
+                    48.145049
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.540316,
+                    48.145282
+                  ],
+                  [
+                    11.540915,
+                    48.145129
+                  ],
+                  [
+                    11.541126,
+                    48.145077
+                  ],
+                  [
+                    11.541176,
+                    48.145064
+                  ],
+                  [
+                    11.541236,
+                    48.145049
+                  ],
+                  [
+                    11.541264,
+                    48.145042
+                  ],
+                  [
+                    11.541359,
+                    48.145019
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 111,
+                "bearing_before": 0,
+                "location": [
+                  11.540316,
+                  48.145282
+                ],
+                "type": "depart"
+              },
+              "name": "Arnulfstraße",
+              "mode": "cycling",
+              "weight": 47.8,
+              "duration": 22.1,
+              "distance": 83
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.541359,
+                    48.145019
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.541359,
+                    48.145019
+                  ],
+                  [
+                    11.541328,
+                    48.144982
+                  ],
+                  [
+                    11.541285,
+                    48.144931
+                  ],
+                  [
+                    11.540956,
+                    48.144594
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 212,
+                "bearing_before": 109,
+                "location": [
+                  11.541359,
+                  48.145019
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Helmholtzstraße",
+              "mode": "cycling",
+              "weight": 46.8,
+              "duration": 27.1,
+              "distance": 56
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    33
+                  ],
+                  "location": [
+                    11.540956,
+                    48.144594
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.540956,
+                    48.144594
+                  ],
+                  [
+                    11.540956,
+                    48.144594
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 213,
+                "location": [
+                  11.540956,
+                  48.144594
+                ],
+                "type": "arrive"
+              },
+              "name": "Helmholtzstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.540316,
+            48.145282
+          ],
+          [
+            11.540915,
+            48.145129
+          ],
+          [
+            11.541126,
+            48.145077
+          ],
+          [
+            11.541176,
+            48.145064
+          ],
+          [
+            11.541236,
+            48.145049
+          ],
+          [
+            11.541264,
+            48.145042
+          ],
+          [
+            11.541359,
+            48.145019
+          ],
+          [
+            11.541328,
+            48.144982
+          ],
+          [
+            11.541285,
+            48.144931
+          ],
+          [
+            11.540956,
+            48.144594
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 94.6,
+      "duration": 49.2,
+      "distance": 139
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "e70ggP___3_FAAAAmQEAAHIBAABcAAAAw6MxQvroPkLqW6ZCv9mlQVgAAAC4AAAApgAAACkAAAC1AgAAXBewAIKj3gJcF7AAgqPeAgIA7wYAAAAA",
+      "location": [
+        11.540316,
+        48.145282
+      ],
+      "name": "Arnulfstraße",
+      "distance": 0
+    },
+    {
+      "hint": "ZL0ggOC9IIBkAAAANgAAAHABAAAAAAAAuBAzQmMqmUGfqjNBAAAAAFAAAAAjAAAAvwAAAAAAAAC1AgAA3BmwANKg3gLcGbAA0qDeAgQAXw0AAAAA",
+      "location": [
+        11.540956,
+        48.144594
+      ],
+      "name": "Helmholtzstraße",
+      "distance": 0
+    }
+  ]
+}

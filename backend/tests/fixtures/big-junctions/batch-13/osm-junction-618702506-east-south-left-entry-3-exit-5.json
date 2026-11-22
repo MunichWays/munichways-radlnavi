@@ -1,0 +1,496 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              11242047626,
+              4372462241,
+              4371655867,
+              9423153108,
+              3153419928,
+              618702508,
+              967091720,
+              967091793,
+              922831062,
+              967091725,
+              1907449182
+            ],
+            "distance": [
+              15.46065613,
+              19.64984268,
+              26.80998669,
+              11.68168589,
+              6.413139568,
+              7.434097439,
+              7.764964478,
+              7.701900653,
+              45.71563998,
+              22.03189706
+            ]
+          },
+          "duration": 55.1,
+          "summary": "Brienner Straße, Katharina-von-Bora-Straße",
+          "weight": 89.8,
+          "distance": 170.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    292
+                  ],
+                  "location": [
+                    11.567557,
+                    48.145142
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567557,
+                    48.145142
+                  ],
+                  [
+                    11.567365,
+                    48.145195
+                  ],
+                  [
+                    11.567122,
+                    48.145264
+                  ],
+                  [
+                    11.566791,
+                    48.145359
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 0,
+                "location": [
+                  11.567557,
+                  48.145142
+                ],
+                "type": "depart"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 15.7,
+              "duration": 12,
+              "distance": 61.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    255,
+                    300,
+                    330
+                  ],
+                  "location": [
+                    11.566791,
+                    48.145359
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566791,
+                    48.145359
+                  ],
+                  [
+                    11.566724,
+                    48.145454
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 334,
+                "bearing_before": 292,
+                "location": [
+                  11.566791,
+                  48.145359
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 5.6,
+              "duration": 3.8,
+              "distance": 11.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    150,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566724,
+                    48.145454
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566645,
+                    48.145477
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566724,
+                    48.145454
+                  ],
+                  [
+                    11.566645,
+                    48.145477
+                  ],
+                  [
+                    11.566553,
+                    48.145503
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 334,
+                "location": [
+                  11.566724,
+                  48.145454
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 34,
+              "duration": 16.7,
+              "distance": 13.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566553,
+                    48.145503
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566508,
+                    48.14544
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566465,
+                    48.145377
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.56622,
+                    48.145
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566553,
+                    48.145503
+                  ],
+                  [
+                    11.566508,
+                    48.14544
+                  ],
+                  [
+                    11.566465,
+                    48.145377
+                  ],
+                  [
+                    11.56622,
+                    48.145
+                  ],
+                  [
+                    11.566103,
+                    48.144818
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 205,
+                "bearing_before": 292,
+                "location": [
+                  11.566553,
+                  48.145503
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 34.5,
+              "duration": 22.6,
+              "distance": 83.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    23
+                  ],
+                  "location": [
+                    11.566103,
+                    48.144818
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566103,
+                    48.144818
+                  ],
+                  [
+                    11.566103,
+                    48.144818
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 203,
+                "location": [
+                  11.566103,
+                  48.144818
+                ],
+                "type": "arrive"
+              },
+              "name": "Katharina-von-Bora-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.567557,
+            48.145142
+          ],
+          [
+            11.567365,
+            48.145195
+          ],
+          [
+            11.567122,
+            48.145264
+          ],
+          [
+            11.566791,
+            48.145359
+          ],
+          [
+            11.566724,
+            48.145454
+          ],
+          [
+            11.566645,
+            48.145477
+          ],
+          [
+            11.566553,
+            48.145503
+          ],
+          [
+            11.566508,
+            48.14544
+          ],
+          [
+            11.566465,
+            48.145377
+          ],
+          [
+            11.56622,
+            48.145
+          ],
+          [
+            11.566103,
+            48.144818
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 89.8,
+      "duration": 55.1,
+      "distance": 170.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "HBQEgEYaIYAfAAAAIwAAAAwAAAAAAAAAJfVdQdled0F5kadAAAAAABkAAAAcAAAACQAAAAAAAAC1AgAAxYGwAPai3gLFgbAA9qLeAgIATxIAAAAA",
+      "location": [
+        11.567557,
+        48.145142
+      ],
+      "name": "Brienner Straße",
+      "distance": 0
+    },
+    {
+      "hint": "RBQhgP___383AAAAPAAAAAAAAAAAAAAAU0GwQRDb9j8AAAAAAAAAACwAAAAwAAAAAAAAAAAAAAC1AgAAF3ywALKh3gIXfLAAsqHeAgAAvwwAAAAA",
+      "location": [
+        11.566103,
+        48.144818
+      ],
+      "name": "Katharina-von-Bora-Straße",
+      "distance": 0
+    }
+  ]
+}

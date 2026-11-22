@@ -1,0 +1,292 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              618702514,
+              618702512,
+              618702508,
+              967091720,
+              223875940,
+              223875937
+            ],
+            "distance": [
+              19.37290759,
+              49.38178184,
+              7.434097439,
+              21.73129993,
+              30.63925583
+            ]
+          },
+          "duration": 29.6,
+          "summary": "Arcisstraße, Königsplatz",
+          "weight": 45.5,
+          "distance": 128.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    203
+                  ],
+                  "location": [
+                    11.567012,
+                    48.146048
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.56701,
+                    48.146045
+                  ],
+                  [
+                    11.566907,
+                    48.145885
+                  ],
+                  [
+                    11.566645,
+                    48.145477
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 203,
+                "bearing_before": 0,
+                "location": [
+                  11.567012,
+                  48.146048
+                ],
+                "type": "depart"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 27.8,
+              "duration": 16.6,
+              "distance": 69.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566645,
+                    48.145477
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566553,
+                    48.145503
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.566286,
+                    48.145582
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566645,
+                    48.145477
+                  ],
+                  [
+                    11.566553,
+                    48.145503
+                  ],
+                  [
+                    11.566286,
+                    48.145582
+                  ],
+                  [
+                    11.565908,
+                    48.145691
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 202,
+                "location": [
+                  11.566645,
+                  48.145477
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 17.7,
+              "duration": 13,
+              "distance": 59.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    113
+                  ],
+                  "location": [
+                    11.565908,
+                    48.145691
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565908,
+                    48.145691
+                  ],
+                  [
+                    11.565908,
+                    48.145691
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 293,
+                "location": [
+                  11.565908,
+                  48.145691
+                ],
+                "type": "arrive"
+              },
+              "name": "Königsplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.56701,
+            48.146045
+          ],
+          [
+            11.566907,
+            48.145885
+          ],
+          [
+            11.566645,
+            48.145477
+          ],
+          [
+            11.566553,
+            48.145503
+          ],
+          [
+            11.566286,
+            48.145582
+          ],
+          [
+            11.565908,
+            48.145691
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 45.5,
+      "duration": 29.6,
+      "distance": 128.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "GRUhgBsVIYABAAAAdQAAAAAAAAAAAAAAVwi7Pru8JUIAAAAAAAAAAAAAAABLAAAAAAAAAAAAAAC1AgAApH-wAICm3gKkf7AAgKbeAgAAfwEAAAAA",
+      "location": [
+        11.567012,
+        48.146048
+      ],
+      "name": "Arcisstraße",
+      "distance": 0
+    },
+    {
+      "hint": "ARUhgP___39UAAAAagAAAAAAAAAAAAAAMh31QQnc9UAAAAAAAAAAAEMAAABVAAAAAAAAAAAAAAC1AgAAVHuwABul3gJUe7AAGqXeAgAAXxIAAAAA",
+      "location": [
+        11.565908,
+        48.145691
+      ],
+      "name": "Königsplatz",
+      "distance": 0.1111927533
+    }
+  ]
+}

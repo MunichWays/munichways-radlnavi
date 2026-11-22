@@ -1,0 +1,331 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              8740411938,
+              3880674304,
+              4510631816,
+              1570276009,
+              1045974663,
+              1570276021,
+              3087423442,
+              1570276039
+            ],
+            "distance": [
+              52.07226313,
+              5.52257616,
+              3.879429583,
+              6.747903146,
+              18.54446947,
+              38.78936044,
+              6.123844769
+            ]
+          },
+          "duration": 28.7,
+          "summary": "Ostpreußenstraße, Englschalkinger Straße",
+          "weight": 63.7,
+          "distance": 131.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    7
+                  ],
+                  "location": [
+                    11.641764,
+                    48.156037
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.641764,
+                    48.156037
+                  ],
+                  [
+                    11.641847,
+                    48.156502
+                  ],
+                  [
+                    11.641875,
+                    48.156548
+                  ],
+                  [
+                    11.641904,
+                    48.156577
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 7,
+                "bearing_before": 0,
+                "location": [
+                  11.641764,
+                  48.156037
+                ],
+                "type": "depart"
+              },
+              "name": "Ostpreußenstraße",
+              "mode": "cycling",
+              "weight": 28.6,
+              "duration": 13,
+              "distance": 61.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    210,
+                    255
+                  ],
+                  "location": [
+                    11.641904,
+                    48.156577
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    75,
+                    240
+                  ],
+                  "location": [
+                    11.641982,
+                    48.156608
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    165,
+                    255
+                  ],
+                  "location": [
+                    11.642227,
+                    48.156639
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    135,
+                    255
+                  ],
+                  "location": [
+                    11.642744,
+                    48.156685
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.641904,
+                    48.156577
+                  ],
+                  [
+                    11.641982,
+                    48.156608
+                  ],
+                  [
+                    11.642227,
+                    48.156639
+                  ],
+                  [
+                    11.642744,
+                    48.156685
+                  ],
+                  [
+                    11.642826,
+                    48.15669
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 59,
+                "bearing_before": 25,
+                "location": [
+                  11.641904,
+                  48.156577
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Englschalkinger Straße",
+              "mode": "cycling",
+              "weight": 35.1,
+              "duration": 15.7,
+              "distance": 70.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    265
+                  ],
+                  "location": [
+                    11.642826,
+                    48.15669
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.642826,
+                    48.15669
+                  ],
+                  [
+                    11.642826,
+                    48.15669
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 85,
+                "location": [
+                  11.642826,
+                  48.15669
+                ],
+                "type": "arrive"
+              },
+              "name": "Englschalkinger Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.641764,
+            48.156037
+          ],
+          [
+            11.641847,
+            48.156502
+          ],
+          [
+            11.641875,
+            48.156548
+          ],
+          [
+            11.641904,
+            48.156577
+          ],
+          [
+            11.641982,
+            48.156608
+          ],
+          [
+            11.642227,
+            48.156639
+          ],
+          [
+            11.642744,
+            48.156685
+          ],
+          [
+            11.642826,
+            48.15669
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 63.7,
+      "duration": 28.7,
+      "distance": 131.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "DRIWgP___38iAAAACgEAAAAAAAAqAAAA-Pz6QP9JUEIAAAAAnm4WQQ8AAAB4AAAAAAAAABMAAAC1AgAApKOxAIXN3gKjo7EAhc3eAgAAbwAAAAAA",
+      "location": [
+        11.641764,
+        48.156037
+      ],
+      "name": "Ostpreußenstraße",
+      "distance": 0.07437262258
+    },
+    {
+      "hint": "yhEWgP___38eAAAAgAAAAAAAAACnAAAAifbDQFz8nkEAAAAASRYHQg0AAAA6AAAAAAAAAEsAAAC1AgAAyqexABLQ3gLKp7EAEtDeAgAATwUAAAAA",
+      "location": [
+        11.642826,
+        48.15669
+      ],
+      "name": "Englschalkinger Straße",
+      "distance": 0
+    }
+  ]
+}

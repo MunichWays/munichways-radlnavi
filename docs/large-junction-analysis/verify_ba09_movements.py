@@ -179,10 +179,11 @@ def verify(site, item, payload, base):
             'departure': [exit['location'], point_at(line, exit['distanceAlongLegMeters'] + distance)],
             'review': {'status': 'approved', 'date': '2026-11-08', 'evidence': f'Human-reviewed geometry v{site["version"]}; legal directed OSM corridor and real standard route batch-02/{item["fixture"]}; logical arm classification preserved.'}}
         junction = {'id': site['id'], 'name': site['name'], 'enabled': True,
-            'armTopology': arm_topology(site),
             'polygon': {'type': 'Polygon', 'coordinates': [site['polygon']]},
             'review': {'status': 'approved', 'date': '2026-11-08', 'evidence': f'Thomas approved K{site["number"]:02d} v{site["version"]}'},
             'movements': [movement]}
+        if not site.get('angleClassification'):
+            junction['armTopology'] = arm_topology(site)
         candidate = dict(base, junctions=[junction])
         try:
             validate_catalog(candidate)

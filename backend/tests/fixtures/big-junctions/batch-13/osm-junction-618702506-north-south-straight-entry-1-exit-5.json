@@ -1,0 +1,321 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              967091718,
+              967091769,
+              967091720,
+              967091793,
+              922831062,
+              967091725,
+              1907449182
+            ],
+            "distance": [
+              18.2649001,
+              49.50804977,
+              7.764964478,
+              7.701900653,
+              45.71563998,
+              22.03189706
+            ]
+          },
+          "duration": 36.2,
+          "summary": "Arcisstraße, Katharina-von-Bora-Straße",
+          "weight": 64.6,
+          "distance": 151,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    204
+                  ],
+                  "location": [
+                    11.566926,
+                    48.146059
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.566826,
+                    48.145909
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566553,
+                    48.145503
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566508,
+                    48.14544
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566465,
+                    48.145377
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.56622,
+                    48.145
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566926,
+                    48.146059
+                  ],
+                  [
+                    11.566826,
+                    48.145909
+                  ],
+                  [
+                    11.566553,
+                    48.145503
+                  ],
+                  [
+                    11.566508,
+                    48.14544
+                  ],
+                  [
+                    11.566465,
+                    48.145377
+                  ],
+                  [
+                    11.56622,
+                    48.145
+                  ],
+                  [
+                    11.566103,
+                    48.144818
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 204,
+                "bearing_before": 0,
+                "location": [
+                  11.566926,
+                  48.146059
+                ],
+                "type": "depart"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 64.6,
+              "duration": 36.2,
+              "distance": 151
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    23
+                  ],
+                  "location": [
+                    11.566103,
+                    48.144818
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566103,
+                    48.144818
+                  ],
+                  [
+                    11.566103,
+                    48.144818
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 203,
+                "location": [
+                  11.566103,
+                  48.144818
+                ],
+                "type": "arrive"
+              },
+              "name": "Katharina-von-Bora-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.566926,
+            48.146059
+          ],
+          [
+            11.566826,
+            48.145909
+          ],
+          [
+            11.566553,
+            48.145503
+          ],
+          [
+            11.566508,
+            48.14544
+          ],
+          [
+            11.566465,
+            48.145377
+          ],
+          [
+            11.56622,
+            48.145
+          ],
+          [
+            11.566103,
+            48.144818
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 64.6,
+      "duration": 36.2,
+      "distance": 151
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "KhUhgP___38EAAAAVQAAAAAAAAAAAAAAENt2P4QekkEAAAAAAAAAAAEAAAAmAAAAAAAAAAAAAAC1AgAATn-wAIum3gJPf7AAi6beAgAAvwwAAAAA",
+      "location": [
+        11.566926,
+        48.146059
+      ],
+      "name": "Arcisstraße",
+      "distance": 0.0744449028
+    },
+    {
+      "hint": "RBQhgP___383AAAAPAAAAAAAAAAAAAAAU0GwQRDb9j8AAAAAAAAAACwAAAAwAAAAAAAAAAAAAAC1AgAAF3ywALKh3gIXfLAAsqHeAgAAvwwAAAAA",
+      "location": [
+        11.566103,
+        48.144818
+      ],
+      "name": "Katharina-von-Bora-Straße",
+      "distance": 0
+    }
+  ]
+}

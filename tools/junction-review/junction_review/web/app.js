@@ -348,7 +348,8 @@ function detail() {
     for (const m of evidence.movements) {
       if (m.kind === 'right') continue;
       const pending = rechecks(selected).find(r => r.entry === m.entryLabel && r.exit === m.exitLabel);
-      const text = `${m.entryLabel} → ${m.exitLabel}: ${{left: 'links', straight: 'geradeaus', special: 'Sonderfolge', standard: 'normale Ansagen'}[m.kind] || m.kind} · ${m.enabled || (m.normalGuidanceOnly && m.verified) ? 'technisch bestanden' : 'ohne Kreuzungsansage: ' + (m.reason || 'bewusst ausgenommen')}${pending ? ' · ' + recheckText(pending) : ''}`;
+      const verdict = m.coverageStatus === 'covered-equivalent-entry' ? m.reason : m.enabled || (m.normalGuidanceOnly && m.verified) ? 'technisch bestanden' : 'ohne Kreuzungsansage: ' + (m.reason || 'bewusst ausgenommen');
+      const text = `${m.entryLabel} → ${m.exitLabel}: ${{left: 'links', straight: 'geradeaus', special: 'Sonderfolge', standard: 'normale Ansagen'}[m.kind] || m.kind} · ${verdict}${pending ? ' · ' + recheckText(pending) : ''}`;
       $('evidence-body').append(html('p', {className: pending ? 'recheck-link' : 'movement-result'}, text));
     }
   }

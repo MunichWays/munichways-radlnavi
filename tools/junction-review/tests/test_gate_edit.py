@@ -102,6 +102,48 @@ class GateEditTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.store.save(self.site['id'],dict(expectedVersion=0,geometry=geometry))
 
+    def test_p8_northern_entry_and_exit_on_connected_one_way_paths(self):
+        site=json.loads(FIXTURE.with_name('gate-edit-p8.json').read_text(encoding='utf-8'))
+        from junction_review.gate_edit import validate_direction
+        from junction_review.geometry import relocate_gates
+        # The saved user draft is valid, although its arm assignments are wrong.
+        for gate in site['gates']:
+            validate_direction(site,gate)
+        site['ways'].append(site.pop('supplementalWay'))
+        site['logicalArms']={'Arm-1':['Exit-1','Entry-5'], 'Arm-2':['Entry-1','Exit-2'],
+                             'Arm-3':['Entry-2','Exit-3','Entry-3'], 'Arm-4':['Entry-4','Exit-4']}
+        before=deepcopy(site)
+        corrected=edit_gate(site,dict(action='move',gateId='manual-exit-4',wayId=93195128,
+                                     location=[11.5408806,48.1454025]))
+        self.assertEqual(site,before)
+        self.assertEqual(next(g['osmWayId'] for g in corrected['gates'] if g['label']=='Exit-4'),93195128)
+        self.assertEqual(next(g for g in corrected['gates'] if g['label']=='Entry-5'),
+                         next(g for g in before['gates'] if g['label']=='Entry-5'))
+        self.assertEqual(len(corrected['gates']),9)
+        for gate in relocate_gates(corrected,corrected['polygon']):
+            validate_direction(corrected,gate)
+        # Subsequent polygon edits must retain both northern gates and directions.
+        geometry=geometry_of(corrected)
+        geometry['polygon'][0][1]+=.000005
+        geometry['polygon'][-1]=geometry['polygon'][0][:]
+        from junction_review.gate_edit import draft_geometry
+        again=draft_geometry(corrected,geometry)
+        for gate in again['gates']:
+            validate_direction(again,gate)
+    def test_arm_descriptions_survive_gate_edits_and_restart(self):
+        from test_discovery import crossing
+        from junction_review.discovery import prepare, describe_arms
+        source=prepare(crossing(),{})[0][0]
+        descriptions=describe_arms(source)
+        self.assertEqual(len(descriptions),4)
+        self.assertTrue(all(info['names'] and info['wayIds'] for info in descriptions.values()))
+        store=ProjectStore(Path(self.temp.name)/'descriptions')
+        store.import_dataset(dict(schemaVersion=1,project=dict(id='descriptions',city='Test'),source={},sites=[source]))
+        gate_id=source['gates'][0]['id']
+        saved=store.save(source['id'],dict(expectedVersion=0,gateEdit=dict(action='delete',gateId=gate_id)))
+        self.assertEqual(saved['armDescriptions'],descriptions)
+        self.assertEqual(ProjectStore(store.directory).snapshot()['sites'][0]['armDescriptions'],descriptions)
+
 
 if __name__=='__main__':
     unittest.main()

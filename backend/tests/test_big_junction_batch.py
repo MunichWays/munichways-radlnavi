@@ -45,7 +45,11 @@ class BatchCatalogTest(unittest.TestCase):
                         continue
                     verified+=1
                     hit,=result['routes'][0].pop('guidance')['junctions']
-                    config=active[(junction['id'],item['id'])]
+                    config=active.get((junction['id'],item['id']))
+                    if config is None and junction['id']=='nymphenburger-waisenhaus':
+                        # K06 now uses the current gate-specific technical IDs.
+                        config=next(m for m in active.values() if m['junctionId']==junction['id']
+                            and (m['entryArm'],m['exitArm'])==tuple(item['id'].split('-')[:2]))
                     self.assertEqual((junction['id'],config['movement'],config['entryArm'],config['exitArm']),
                                      (hit['id'],hit['movement'],hit['entryArm'],hit['exitArm']))
                     self.assertEqual(saved,result)
@@ -85,7 +89,7 @@ class BatchCatalogTest(unittest.TestCase):
         self.assertTrue(excluded['landsberger-barth']['closed'])
         junctions={j['id']:j for j in value['junctions']}
         nymphenburger=junctions['nymphenburger-waisenhaus']
-        self.assertEqual(4,sum(m['enabled'] for m in nymphenburger['movements']))
+        self.assertEqual(8,sum(m['enabled'] for m in nymphenburger['movements']))
         self.assertEqual(['Rufinistraße'],nymphenburger['excludedApproaches'])
         wilram = [m for m in junctions['thomasiusplatz']['movements'] if m.get('sequence')]
         self.assertEqual(len(wilram), 5)

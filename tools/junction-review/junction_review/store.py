@@ -8,12 +8,21 @@ import tempfile
 from threading import RLock
 
 from .geometry import relocate_gates
-from .model import STATUSES, digest, effective_site, geometry_fingerprint, validate_dataset, validate_site
+from .model import STATUSES, digest, effective_site as model_effective_site, geometry_fingerprint, validate_dataset, validate_site
+from .discovery import describe_arms
 from .gate_edit import draft_geometry, edit_gate, geometry_of, movement_changed
 
 
 class Conflict(ValueError):
     pass
+
+
+def effective_site(base, state):
+    site = model_effective_site(base, state)
+    descriptions = describe_arms(base)
+    if descriptions:
+        site['armDescriptions'] = deepcopy(descriptions)
+    return site
 
 
 def now():
@@ -172,6 +181,11 @@ class ProjectStore:
                     branchMovements=0, checkedAt=report.get('completedAt'), backendVersion=None,
                     normalGuidanceGates=record.get('normalGuidanceGates', []), logicalArms=record.get('logicalArms', {}))
                 edit['technicalReportFingerprint'] = report_hash
+                if record.get('guidanceReview'):
+                    edit['technicalEvidence']['guidanceReview'] = deepcopy(record['guidanceReview'])
+                covered = sum(m.get('coverageStatus') == 'covered-equivalent-entry' for m in moves)
+                if covered:
+                    edit['technicalEvidence']['technical'] += f'; {covered} weitere Routen über gleichwertige Zufahrt abgedeckt'
                 edit['version'] = site['editVersion'] + 1
                 edit.setdefault('history', []).append(dict(at=now(), action='technical-check', reportFingerprint=report_hash))
                 changed += 1

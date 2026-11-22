@@ -30,6 +30,12 @@ class BA09MovementTests(unittest.TestCase):
     def test_runtime_catalog_matches_release_and_keeps_k13_exclusions(self):
         actual = {j["id"]: j for j in review.catalog()["junctions"]}
         for junction in self.proposed["junctions"]:
+            if junction['id'] in {'nymphenburger-waisenhaus', 'lane-candidate-361786', 'lane-candidate-428767'}:
+                # Batch 12/13 adds the separately verified Lachnerstrasse and
+                # post-OSM rechecks, without changing these approved polygons.
+                self.assertEqual(actual[junction['id']]['polygon'], junction['polygon'])
+                self.assertEqual(sum(bool(m.get('enabled')) for m in actual[junction['id']]['movements']), 8)
+                continue
             if junction['id'] == 'romanplatz-nord':
                 from verify_review_updates import ROOT
                 approved = json.loads((ROOT / 'review-updates-2026-11-14-proposed-catalog.json').read_text(encoding='utf-8'))
@@ -45,8 +51,8 @@ class BA09MovementTests(unittest.TestCase):
                 self.assertTrue(all(m.get('enabled') for m in sequences))
                 continue
             self.assertEqual(actual[junction["id"]], junction)
-        self.assertEqual(len(review.catalog()['junctions']), 70)
-        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 552)
+        self.assertEqual(len(review.catalog()['junctions']), 78)
+        self.assertEqual(sum(m.get('enabled', False) for j in review.catalog()['junctions'] for m in j['movements']), 613)
         junction = next(j for j in review.catalog()['junctions'] if j['id'] == 'arnulf-landshuter')
         disabled = [m for m in junction['movements'] if not m.get('enabled')]
         self.assertEqual({(m['entryLabel'], m['exitLabel']) for m in disabled},

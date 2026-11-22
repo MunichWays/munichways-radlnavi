@@ -1,0 +1,333 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              11242047626,
+              4372462241,
+              4371655867,
+              9423153108,
+              3153419928,
+              4372462253,
+              4372463238
+            ],
+            "distance": [
+              15.46065613,
+              19.64984268,
+              26.80998669,
+              11.68168589,
+              63.2325057,
+              4.719021117
+            ]
+          },
+          "duration": 28.8,
+          "summary": "Brienner Straße, Arcisstraße",
+          "weight": 50.4,
+          "distance": 141.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    292
+                  ],
+                  "location": [
+                    11.567557,
+                    48.145142
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567557,
+                    48.145142
+                  ],
+                  [
+                    11.567365,
+                    48.145195
+                  ],
+                  [
+                    11.567122,
+                    48.145264
+                  ],
+                  [
+                    11.566791,
+                    48.145359
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 0,
+                "location": [
+                  11.567557,
+                  48.145142
+                ],
+                "type": "depart"
+              },
+              "name": "Brienner Straße",
+              "mode": "cycling",
+              "weight": 15.7,
+              "duration": 12,
+              "distance": 61.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    255,
+                    300,
+                    330
+                  ],
+                  "location": [
+                    11.566791,
+                    48.145359
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566791,
+                    48.145359
+                  ],
+                  [
+                    11.566724,
+                    48.145454
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 334,
+                "bearing_before": 292,
+                "location": [
+                  11.566791,
+                  48.145359
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 4.6,
+              "duration": 3.3,
+              "distance": 11.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    150,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566724,
+                    48.145454
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.567061,
+                    48.145976
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566724,
+                    48.145454
+                  ],
+                  [
+                    11.567061,
+                    48.145976
+                  ],
+                  [
+                    11.567086,
+                    48.146015
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 22,
+                "bearing_before": 334,
+                "location": [
+                  11.566724,
+                  48.145454
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 30.1,
+              "duration": 13.5,
+              "distance": 68
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    203
+                  ],
+                  "location": [
+                    11.567086,
+                    48.146015
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567086,
+                    48.146015
+                  ],
+                  [
+                    11.567086,
+                    48.146015
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 23,
+                "location": [
+                  11.567086,
+                  48.146015
+                ],
+                "type": "arrive"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.567557,
+            48.145142
+          ],
+          [
+            11.567365,
+            48.145195
+          ],
+          [
+            11.567122,
+            48.145264
+          ],
+          [
+            11.566791,
+            48.145359
+          ],
+          [
+            11.566724,
+            48.145454
+          ],
+          [
+            11.567061,
+            48.145976
+          ],
+          [
+            11.567086,
+            48.146015
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 50.4,
+      "duration": 28.8,
+      "distance": 141.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "HBQEgEYaIYAfAAAAIwAAAAwAAAAAAAAAJfVdQdled0F5kadAAAAAABkAAAAcAAAACQAAAAAAAAC1AgAAxYGwAPai3gLFgbAA9qLeAgIATxIAAAAA",
+      "location": [
+        11.567557,
+        48.145142
+      ],
+      "name": "Brienner Straße",
+      "distance": 0
+    },
+    {
+      "hint": "QhUhgP___38UAAAA0AAAAAAAAAAAAAAAOQKXQNCoKEIAAAAAAAAAAAkAAABeAAAAAAAAAAAAAAC1AgAA7n-wAF-m3gLuf7AAX6beAgAAfwEAAAAA",
+      "location": [
+        11.567086,
+        48.146015
+      ],
+      "name": "Arcisstraße",
+      "distance": 0
+    }
+  ]
+}

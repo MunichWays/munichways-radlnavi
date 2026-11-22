@@ -47,6 +47,14 @@ Falls bereits lokale Prüfentscheidungen im früheren K47–K50-Projekt liegen: 
 
 ### Entry-/Exit-Punkte bearbeiten
 
+Ein **Straßenarm** bezeichnet eine Straße in einer Richtung ab der Kreuzung samt ihren Radwegen,
+zum Beispiel „Marsstraße nach Nordost“. Entry und Exit auf gegenüberliegenden Straßenseiten können
+zum selben Arm gehören. Umgekehrt kann ein durchgehender OSM-Radweg um eine Ecke führen und damit
+Punkte verschiedener Arme enthalten. Bei OSM-Projekten zeigt die Auswahl Straßenname, Himmelsrichtung
+und zugeordnete Punkte; die Beschreibung bleibt beim Verschieben von Punkten an die ursprüngliche
+Straßenrichtung gebunden. Ein ausdrücklich ausgewählter Zielweg wird orange markiert. Endet ein
+OSM-Weg direkt an der Grenze, für einen weiter außen liegenden Punkt seine belegte Fortsetzung wählen.
+
 In einer Kreuzung **„Entry/Exit bearbeiten“** einschalten. Einen Anschluss in der Liste auswählen oder auf seinen Punkt klicken. Zum Verschieben den Punkt ziehen oder **„Ziel auf Karte wählen“** und dann auf den gewünschten Radweg klicken. Die Flächengrenze folgt dem verschobenen Punkt; andere Anschlüsse werden auf ihren belegten Wegen an die neue Grenze angepasst.
 
 Für einen gemeinsamen Entry in P3: **Entry-2** wählen, unter **„Zusammenlegen“ → „Mit Entry-3 zusammenlegen“** einstellen und das Ziel auf dem gemeinsamen südlichen Radweg setzen. Bei überlappenden Wegen lässt sich der Zielweg ausdrücklich auswählen (`OSM 421302932`, gemeinsamer Radweg vor der Verzweigung). Entry-2 behält seine Nummer, Entry-3 entfällt; die übrigen Anschlüsse werden nicht umnummeriert. Zwei Entry-Punkte bzw. zwei Exit-Punkte desselben Straßenarms können zusammengelegt werden.
@@ -64,6 +72,8 @@ In der Übersicht **„Gebiet auswählen und Sichtprüfung vorbereiten“** aufk
 5. Kreuzung öffnen, Fläche, Radverkehrsanschlüsse und Richtungen prüfen. **„Prüfbild als SVG herunterladen“** liefert ein eigenständiges Vektorbild mit Pfeilen und Beschriftungen ohne Hintergrundkarten-Abhängigkeit.
 
 Jede Auswahl erhält ein separates Projekt unter `.local/junction-review/area-<hash>/`. Das vorhandene München-Projekt wird nicht überschrieben. Unter **„Gespeichertes Projekt“ → „Öffnen“** wechseln. Dieselbe Auswahl öffnet ihren gespeicherten Stand ohne erneuten OSM-Abruf; Entscheidungen bleiben erhalten. `osm-snapshot.json` enthält die vollständige Abfrageantwort einschließlich Knotentags und Restriktionsrelationen, die Importdatei zusätzlich Abfrage und Algorithmusversion. Den ganzen Projektordner sichern.
+
+Neue Gebiete lassen bereits vorhandene Kreuzungen projektübergreifend aus, unabhängig vom Prüfstatus. Vorrang haben identische IDs und gemeinsame OSM-Kandidatenknoten. Bei älteren RadlNavi-Importen ohne diese Knoten wird zusätzlich die vollständige Menge der Straßennamen (unabhängig von ihrer Reihenfolge) mit höchstens 15 m Abstand der Mittelpunkte verglichen. Nähe allein genügt nicht; widersprüchliche OSM-IDs und mehrdeutige Zuordnungen werden nicht zusammengeführt. Bestehende Projekte werden beim Öffnen nicht automatisch bereinigt. Dokumentierte Duplikatentfernungen erhalten den eingefrorenen Import und frühere Entscheidungen.
 
 Die Programmlogik in `discovery.py` braucht kein LLM. Sie sucht Straßen ab `tertiary`, gruppiert nahe gemeinsame Straßenknoten ohne unbegrenzte Kettenbildung, ermittelt Straßenarme an einer vorgeschlagenen Fläche und sortiert T-Kreuzungen und Kreisverkehre aus. Straßen auf getrennten Ebenen werden nicht allein wegen einer geometrischen Überschneidung verbunden. Das Auswahlgebiet begrenzt die Kandidaten, nicht deren Kreuzungsflächen.
 
@@ -106,6 +116,24 @@ python tools/junction-review/run.py export --project .local/junction-review/muni
 ## Prüfen
 
 Technische RadlNavi-Ergebnisse in die Karte zurückübernehmen:
+
+Die zehn Fälle der Bezirksrunde BA01–BA03 einschließlich K89 und der Wiedervorlagen
+K44/K46 sind als Batch 12 eingefroren. Offline reproduzieren mit
+`python docs/large-junction-analysis/verify_ba01_ba03_project.py`; `--import-results`
+übernimmt die Ergebnisse fingerprintgebunden in ihre jeweiligen Projekte. Bestehende
+Live-Beziehungen bleiben als live dokumentiert; bestandene Wiedervorlagen bleiben bis
+zur gesonderten Aktivierung deaktiviert. Die internen Prüfnummern ab 101 vergeben keine
+neuen K-Nummern. Stachus nutzt für die ausdrücklich freigegebene Geradeausbeziehung
+die vorhandene Winkelprüfung, ohne einen fehlenden vierten Arm zu erfinden.
+
+Die nachfolgenden Ansageentscheidungen zu P2/P7 und die Lachnerstraßen-Prüfung K06
+stehen in Batch 13: `python docs/large-junction-analysis/verify_guidance_followups.py`
+(offline), optional `--import-results`. Die erste Regelversion bleibt archiviert;
+`approved-v2.json` enthält zusätzlich die bestätigte südliche Gleichwertigkeit bei P7.
+Gleichwertige Straße-/Radweg-Ausgänge brauchen eine ausdrückliche Zuordnung zum selben
+Straßenarm; die Straßenklasse allein erteilt keine Ausnahme. Wechselt das Routing auf
+einen ausdrücklich gleichwertigen Entry, wird die tatsächlich nachgewiesene Beziehung
+verwendet und als abgedeckt dokumentiert, ohne doppelte überlappende Makros anzulegen.
 
 ```powershell
 python tools/junction-review/run.py import-technical --report docs/large-junction-analysis/review-batch-09-nine-lanes-routes.json

@@ -1,0 +1,1096 @@
+{
+  "version": 1,
+  "status": "complete",
+  "completedAt": "2026-11-16T13:42:06.623862+00:00",
+  "runtimeModified": false,
+  "junctions": [
+    {
+      "id": "frankfurter-ingolstaedter",
+      "number": 34,
+      "geometryRevision": 1,
+      "status": "complete",
+      "fixtureDirectory": "batch-06",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Ingolstaedter Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Frankfurter Ring Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Ingolstaedter Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Frankfurter Ring West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.584576996171377,
+            48.18853468953713
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.585401977962219,
+            48.18803718571675
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.585414389265189,
+            48.18779739180851
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.584691605239527,
+            48.18723531741868
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.584209425964957,
+            48.18722325410721
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.58342319894549,
+            48.18773418723472
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.58340906853466,
+            48.18797498343646
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.584105101230262,
+            48.188524186039565
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584105101,48.188524186;11.585414389,48.187797392?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            159919453,
+            187475690,
+            187475691,
+            208681213,
+            1117656730,
+            1117656731,
+            1117656733
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584105101,48.188524186;11.584209426,48.187223254?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            187475686,
+            187475691,
+            208681213,
+            1117656730,
+            1117656733
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "frankfurter-ingolstaedter-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584105101,48.188524186;11.583409069,48.187974983?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            208681213,
+            390320305,
+            1117656733
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "frankfurter-ingolstaedter-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585401978,48.188037186;11.584576996,48.188534690?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            81920121,
+            187475687,
+            1117656732
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585401978,48.188037186;11.584209426,48.187223254?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            50260532,
+            81920121,
+            187475686,
+            187475691,
+            1117656730,
+            1117656732,
+            1117656733
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.585401978,48.188037186;11.583409069,48.187974983?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            50260532,
+            81920121,
+            390320305,
+            1117656732,
+            1117656733
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584691605,48.187235317;11.584576996,48.188534690?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            187474564,
+            187475687,
+            187475689,
+            1117656731,
+            1117656732
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "frankfurter-ingolstaedter-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584691605,48.187235317;11.585414389,48.187797392?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            159919453,
+            187474564,
+            1117656731
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.584691605,48.187235317;11.583409069,48.187974983?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            50260532,
+            187474564,
+            187475689,
+            390320305,
+            1117656731,
+            1117656732,
+            1117656733
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583423199,48.187734187;11.584576996,48.188534690?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            187475687,
+            187475689,
+            187475690,
+            187476386,
+            1117656730,
+            1117656731,
+            1117656732
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "frankfurter-ingolstaedter-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583423199,48.187734187;11.585414389,48.187797392?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            159919453,
+            187475690,
+            187476386,
+            1117656730,
+            1117656731
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "frankfurter-ingolstaedter",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "frankfurter-ingolstaedter-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.583423199,48.187734187;11.584209426,48.187223254?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            187475686,
+            187476386,
+            1117656730
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landsberger-trappentreu",
+      "number": 35,
+      "geometryRevision": 3,
+      "status": "complete",
+      "fixtureDirectory": "batch-06",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Nord": [
+          "Entry-4"
+        ],
+        "Ost": [
+          "Entry-5",
+          "Exit-5"
+        ],
+        "Sued": [
+          "Exit-3"
+        ],
+        "West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-5": {
+          "sample": [
+            11.534763682822083,
+            48.13981447933111
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.533975694170522,
+            48.13938210979985
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.533197223374518,
+            48.1399461920617
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.533112330312083,
+            48.14024191488595
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.533987991268644,
+            48.140708899683105
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-5": {
+          "sample": [
+            11.534763509650912,
+            48.140180699499076
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-5",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-north-east-left-entry-4-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.533987991,48.140708900;11.534763683,48.139814479?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            61729254,
+            211464646,
+            342896115,
+            342896129,
+            344303344
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.533987991,48.140708900;11.533975694,48.139382110?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            61729254,
+            342896115,
+            342896129,
+            344303344,
+            415790795
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "landsberger-trappentreu-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.533987991,48.140708900;11.533112330,48.140241915?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            61729254,
+            344303344
+          ]
+        },
+        {
+          "id": "east-south-left-entry-5-exit-3",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-east-south-left-entry-5-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534763510,48.140180699;11.533975694,48.139382110?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            342896115,
+            342896129,
+            344303344,
+            415790795,
+            946928532
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-5-exit-4",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-east-west-straight-entry-5-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534763510,48.140180699;11.533112330,48.140241915?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            344303344,
+            946928532
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-5",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-west-east-straight-entry-3-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.533197223,48.139946192;11.534763683,48.139814479?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            211464646,
+            342896115
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "landsberger-trappentreu",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "landsberger-trappentreu-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.533197223,48.139946192;11.533975694,48.139382110?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            342896115,
+            415790795
+          ]
+        }
+      ]
+    },
+    {
+      "id": "berg-am-laim-leuchtenberg",
+      "number": 36,
+      "geometryRevision": 1,
+      "status": "complete",
+      "fixtureDirectory": "batch-06",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Leuchtenbergring Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Berg-am-Laim Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Ampfingstrasse Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Berg-am-Laim West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.61616825530809,
+            48.131680589468196
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.616694455008737,
+            48.130937235048386
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.61662945545605,
+            48.13069429348422
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.615721599622423,
+            48.130336568474284
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.615245202140619,
+            48.1303854239156
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.614711896309812,
+            48.13099437099378
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.614789516634644,
+            48.131250862274676
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.61571335700369,
+            48.13160925802546
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.615713357,48.131609258;11.616629455,48.130694293?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            120582351,
+            389876744,
+            514803758,
+            1019818785,
+            1019818792,
+            1019818793
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.615713357,48.131609258;11.615245202,48.130385424?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            82494458,
+            120582351,
+            389876744
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "berg-am-laim-leuchtenberg-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.615713357,48.131609258;11.614789517,48.131250862?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            389876744,
+            514803756
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "berg-am-laim-leuchtenberg-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.616694455,48.130937235;11.616168255,48.131680589?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            796891858,
+            1019818787,
+            1361432421
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.616694455,48.130937235;11.615245202,48.130385424?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            82494458,
+            120582351,
+            514803757,
+            1019818787,
+            1019818794,
+            1019818795
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.616694455,48.130937235;11.614789517,48.131250862?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            514803756,
+            514803757,
+            1019818787,
+            1019818794,
+            1019818795
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.615721600,48.130336568;11.616168255,48.131680589?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            41728297,
+            120582360,
+            796891858,
+            1361432421
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "berg-am-laim-leuchtenberg-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.615721600,48.130336568;11.616629455,48.130694293?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            41728297,
+            1019818785
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.615721600,48.130336568;11.614789517,48.131250862?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            41728297,
+            120582360,
+            514803756,
+            514803757,
+            1019818794,
+            1019818795
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.614711896,48.130994371;11.616168255,48.131680589?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            120582360,
+            514803758,
+            796891858,
+            1019818791,
+            1019818792,
+            1019818793,
+            1361432421
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "berg-am-laim-leuchtenberg-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.614711896,48.130994371;11.616629455,48.130694293?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            514803758,
+            1019818785,
+            1019818791,
+            1019818792,
+            1019818793
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "berg-am-laim-leuchtenberg",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "berg-am-laim-leuchtenberg-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.614711896,48.130994371;11.615245202,48.130385424?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            82494458,
+            1019818791
+          ]
+        }
+      ]
+    },
+    {
+      "id": "landsberger-trappentreu-ost",
+      "number": 37,
+      "geometryRevision": 2,
+      "status": "complete",
+      "fixtureDirectory": "batch-06",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "Nord": [
+          "Exit-1"
+        ],
+        "Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Sued": [
+          "Entry-2"
+        ],
+        "West": [
+          "Entry-5",
+          "Exit-5"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-2": {
+          "sample": [
+            11.53563970445957,
+            48.139824391808325
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.534855176121232,
+            48.139331175865
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-5": {
+          "sample": [
+            11.534046144711482,
+            48.13985970382295
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-5": {
+          "sample": [
+            11.534046527523472,
+            48.140228071142886
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-1": {
+          "sample": [
+            11.534773606694516,
+            48.14066273818284
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.5355981839021,
+            48.14009022982859
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "landsberger-trappentreu-ost-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.535598184,48.140090230;11.534773607,48.140662738?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            342896111,
+            1305312122
+          ]
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-5",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-ost-east-west-straight-entry-1-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.535598184,48.140090230;11.534046528,48.140228071?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            946928532,
+            1305312122
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-ost-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534855176,48.139331176;11.534773607,48.140662738?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            61729134,
+            342896111,
+            415790796,
+            1305312122,
+            1305312124
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "landsberger-trappentreu-ost-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534855176,48.139331176;11.535639704,48.139824392?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            415790796,
+            1305312124
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-5",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-ost-south-west-left-entry-2-exit-5.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534855176,48.139331176;11.534046528,48.140228071?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            61729134,
+            415790796,
+            946928532,
+            1305312122,
+            1305312124
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-5-exit-1",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-ost-west-north-left-entry-5-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534046145,48.139859704;11.534773607,48.140662738?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            61729134,
+            211464646,
+            342896111,
+            1305312122,
+            1305312124
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-5-exit-2",
+          "junctionId": "landsberger-trappentreu-ost",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "landsberger-trappentreu-ost-west-east-straight-entry-5-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.534046145,48.139859704;11.535639704,48.139824392?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            211464646,
+            1305312124
+          ],
+          "headingEvidenceMeters": 10
+        }
+      ]
+    }
+  ],
+  "fullCatalogChecks": {
+    "positive": 26,
+    "rightTurnControls": 12,
+    "walkingControls": 26
+  },
+  "combinedRouteChecks": [
+    {
+      "fixture": "combined-west-east.json",
+      "verified": true,
+      "junctions": [
+        "landsberger-trappentreu",
+        "landsberger-trappentreu-ost"
+      ]
+    },
+    {
+      "fixture": "combined-east-west.json",
+      "verified": true,
+      "junctions": [
+        "landsberger-trappentreu-ost",
+        "landsberger-trappentreu"
+      ]
+    }
+  ]
+}

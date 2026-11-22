@@ -20,6 +20,8 @@ NUMBERS = {23, 25, 28}
 SOURCE = ROOT / 'review-batch-04-ba01-radlring-images/review-data.json'
 SUMMARY = ROOT / 'review-batch-04-ba01-technical.md'
 TITLE = 'K23, K25, K28'
+REVIEW_DATE = '2026-11-15'
+REGION = 'BA01'
 
 
 def read(path):
@@ -54,13 +56,19 @@ def run(collect=False):
     records, candidates = [], []
     for site in sites:
         tasks, samples = check.plan(site)
+        exclusions = {(m['entryLabel'], m['exitLabel']): m for m in site.get('excludedMovements', [])}
+        for item in tasks:
+            decision = exclusions.get((item['entryLabel'], item['exitLabel']))
+            if decision:
+                item.update(explicitlyExcluded=True, permanent=True, reason=decision['reason'],
+                            exclusionReview=decision)
         topology = check.arm_topology(site)
         topology['review']['evidence'] = (
             f'Thomas approved K{site["number"]} v{site["version"]}; clockwise gate membership '
             f'in {SOURCE.parent.name}; verified Standard routes.')
         candidate = dict(id=site['id'], name=site['name'], enabled=False,
             polygon={'type': 'Polygon', 'coordinates': [site['polygon']]},
-            armTopology=topology, movements=[], review=dict(status='approved', date='2026-11-15',
+            armTopology=topology, movements=[], review=dict(status='approved', date=REVIEW_DATE,
             evidence=f'Thomas approved K{site["number"]} v{site["version"]}; {REPORT.name}'))
         record = dict(id=site['id'], number=site['number'], geometryRevision=site['version'],
             status='complete', fixtureDirectory=FIXTURES.name, classificationBasis='reviewed-arm-order',
@@ -72,7 +80,7 @@ def run(collect=False):
             except Exception as error:
                 return error
 
-        pending = [item for item in tasks if 'url' in item]
+        pending = [item for item in tasks if 'url' in item and not item.get('explicitlyExcluded')]
         with ThreadPoolExecutor(max_workers=3) as pool:
             for item, result in zip(pending, pool.map(fetch, pending)):
                 try:
@@ -85,7 +93,7 @@ def run(collect=False):
                     movement, evidence = check.verify(site, item, payload, base)
                     item.update(evidence)
                     if movement:
-                        movement['review'] = dict(status='approved', date='2026-11-15',
+                        movement['review'] = dict(status='approved', date=REVIEW_DATE,
                             evidence=f'Thomas approved K{site["number"]} v{site["version"]}; '
                             f'legal directed frozen OSM corridor, {FIXTURES.name}/{item["fixture"]}; '
                             'unchanged Standard response passes production matching.')
@@ -95,7 +103,7 @@ def run(collect=False):
                 print(f'K{site["number"]} {item["entryLabel"]} -> {item["exitLabel"]} '
                       f'{item["kind"]}: '+('PASS' if item.get('verified') else item.get('reason', 'unchecked')), flush=True)
         for item in tasks:
-            if item['kind'] != 'right' and not item.get('enabled'):
+            if item['kind'] not in ('right', 'standard') and not item.get('enabled'):
                 candidate['movements'].append(dict(id=item['id'], enabled=False, movement=item['kind'],
                     entryArm=item['entryArm'], exitArm=item['exitArm'], entryLabel=item['entryLabel'],
                     exitLabel=item['exitLabel'], disabledReason=item.get('reason', 'Unverified')))
@@ -106,7 +114,7 @@ def run(collect=False):
         write(REPORT, dict(version=1, status='in_progress', runtimeModified=False, junctions=records))
     proposal = dict(base, junctions=base['junctions']+candidates)
     check.validate_catalog(proposal)
-    positive = right = walking = 0
+    positive = right = walking = standard = 0
     with patch('src.big_junctions.catalog', return_value=proposal):
         for record in records:
             for item in record['movements']:
@@ -133,21 +141,34 @@ def run(collect=False):
                     if result is not None:
                         raise ValueError('Right-turn control triggers macro: '+item['fixture'])
                     right += 1
+                elif item['kind'] == 'standard':
+                    if result is not None:
+                        raise ValueError('Ordinary-guidance control triggers macro: '+item['fixture'])
+                    standard += 1
+                elif item.get('explicitlyExcluded') and result is not None:
+                    # A snapped/detoured reference can cross a different, valid
+                    # movement. Only the explicitly excluded pair must be absent.
+                    hits = result['routes'][0].pop('guidance')['junctions']
+                    if any(h['id'] == record['id'] and h['entryArm'] == item['entryArm']
+                           and h['exitArm'] == item['exitArm'] for h in hits) or result != payload:
+                        raise ValueError('Excluded pair triggers macro or changes route: '+item['fixture'])
     write(PROPOSAL, proposal)
     report = dict(version=1, status='complete', completedAt=datetime.now(timezone.utc).isoformat(),
         runtimeModified=False, junctions=records, fullCatalogChecks=dict(
             positive=positive, rightTurnControls=right, walkingControls=walking))
+    if standard:
+        report['fullCatalogChecks']['standardGuidanceControls'] = standard
     write(REPORT, report)
-    lines = ['# BA01 · Technische Prüfung '+TITLE, '',
+    lines = ['# '+REGION+' · Technische Prüfung '+TITLE, '',
         'Echte Standardrouten, unveränderte freigegebene Flächen, gerichtete OSM-Korridore und '
         'Laufzeitprüfung. Aktivierungs-/Live-Stand siehe zentrale Übersicht.', '',
         '| Fall | Links/geradeaus bestanden | Rechtskontrollen |', '| --- | --- | --- |']
     for record in records:
         moves = record['movements']
         passed = sum(bool(m.get('enabled')) for m in moves)
-        total = sum(m['kind'] != 'right' for m in moves)
+        total = sum(m['kind'] not in ('right', 'standard') for m in moves)
         lines.append(f'| K{record["number"]} v{record["geometryRevision"]} | {passed}/{total} | '
-                     f'{sum(m["kind"] == "right" and bool(m.get("verified")) for m in moves)}/4 |')
+                     f'{sum(m["kind"] == "right" and bool(m.get("verified")) for m in moves)}/{sum(m["kind"] == "right" for m in moves)} |')
     lines += ['', f'Gesamtkatalog: {positive} positive Routen, {right} Rechts- und {walking} Fußkontrollen.', '', '## Gesperrte Beziehungen', '']
     for record in records:
         for item in record['movements']:

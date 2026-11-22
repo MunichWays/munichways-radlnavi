@@ -1,0 +1,360 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3082661985,
+              5873255830,
+              1725998886,
+              1725998882,
+              789402900,
+              1725998869,
+              5873255832,
+              5873255828,
+              3070745906
+            ],
+            "distance": [
+              50.45993743,
+              4.480093098,
+              3.496629834,
+              2.338668201,
+              6.455566679,
+              21.82227063,
+              4.150259143,
+              22.27765939
+            ]
+          },
+          "duration": 25.2,
+          "summary": "Putzbrunner Straße",
+          "weight": 55.5,
+          "distance": 115.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    204
+                  ],
+                  "location": [
+                    11.646584,
+                    48.097078
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.64631,
+                    48.096663
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.646584,
+                    48.097078
+                  ],
+                  [
+                    11.64631,
+                    48.096663
+                  ],
+                  [
+                    11.646283,
+                    48.096627
+                  ],
+                  [
+                    11.646251,
+                    48.096604
+                  ],
+                  [
+                    11.646229,
+                    48.096589
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 204,
+                "bearing_before": 0,
+                "location": [
+                  11.646584,
+                  48.097078
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 31,
+              "duration": 14.2,
+              "distance": 60.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    90,
+                    225,
+                    270
+                  ],
+                  "location": [
+                    11.646229,
+                    48.096589
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    300
+                  ],
+                  "location": [
+                    11.646143,
+                    48.096596
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.645873,
+                    48.096672
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.645822,
+                    48.096687
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.646229,
+                    48.096589
+                  ],
+                  [
+                    11.646143,
+                    48.096596
+                  ],
+                  [
+                    11.645873,
+                    48.096672
+                  ],
+                  [
+                    11.645822,
+                    48.096687
+                  ],
+                  [
+                    11.645546,
+                    48.096764
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 275,
+                "bearing_before": 216,
+                "location": [
+                  11.646229,
+                  48.096589
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 24.5,
+              "duration": 11,
+              "distance": 54.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    113
+                  ],
+                  "location": [
+                    11.645546,
+                    48.096764
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.645546,
+                    48.096764
+                  ],
+                  [
+                    11.645546,
+                    48.096764
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 293,
+                "location": [
+                  11.645546,
+                  48.096764
+                ],
+                "type": "arrive"
+              },
+              "name": "Putzbrunner Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.646584,
+            48.097078
+          ],
+          [
+            11.64631,
+            48.096663
+          ],
+          [
+            11.646283,
+            48.096627
+          ],
+          [
+            11.646251,
+            48.096604
+          ],
+          [
+            11.646229,
+            48.096589
+          ],
+          [
+            11.646143,
+            48.096596
+          ],
+          [
+            11.645873,
+            48.096672
+          ],
+          [
+            11.645822,
+            48.096687
+          ],
+          [
+            11.645546,
+            48.096764
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 55.5,
+      "duration": 25.2,
+      "distance": 115.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "qoUAgP___3_8AAAA3QEAAAAAAAAAAAAAEL1jQvrWSUIAAAAAAAAAAHEAAADXAAAAAAAAAAAAAAC9AgAAeLaxADbn3QJ4trEANufdAgAAvwwAAAAA",
+      "location": [
+        11.646584,
+        48.097078
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "N2cXgP___39jAAAAbQAAAAAAAAAAAAAApTiyQQ_KDEAAAAAAAAAAACwAAAAxAAAAAAAAAAAAAAC9AgAAarKxAPzl3QJqsrEA_OXdAgAATxIAAAAA",
+      "location": [
+        11.645546,
+        48.096764
+      ],
+      "name": "Putzbrunner Straße",
+      "distance": 0
+    }
+  ]
+}

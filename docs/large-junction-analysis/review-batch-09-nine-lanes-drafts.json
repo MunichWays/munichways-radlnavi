@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "enabled": false,
+  "sites": [
+    {
+      "id": "lane-candidate-428687",
+      "number": 47,
+      "version": 1,
+      "name": "Am Hüllgraben / An der Point / Olof-Palme-Straße / Paul-Henri-Spaak-Straße",
+      "origin": [
+        11.689077675,
+        48.138755450000005
+      ],
+      "polygon": [
+        [
+          11.688653509640135,
+          48.138763135106004
+        ],
+        [
+          11.688724709640136,
+          48.138634035106
+        ],
+        [
+          11.688798309640134,
+          48.138556335106
+        ],
+        [
+          11.688904309640135,
+          48.138499335106005
+        ],
+        [
+          11.689119690359865,
+          48.138499335106005
+        ],
+        [
+          11.689228590359866,
+          48.138538835106004
+        ],
+        [
+          11.689348990359866,
+          48.138590635106006
+        ],
+        [
+          11.689467590359865,
+          48.138678135106005
+        ],
+        [
+          11.689467590359865,
+          48.138821864894
+        ],
+        [
+          11.689430690359865,
+          48.138878064893994
+        ],
+        [
+          11.689352690359865,
+          48.138954264894
+        ],
+        [
+          11.689249590359864,
+          48.139054564893996
+        ],
+        [
+          11.689034209640134,
+          48.139054564893996
+        ],
+        [
+          11.688891909640136,
+          48.139009464893995
+        ],
+        [
+          11.688771009640135,
+          48.13895826489399
+        ],
+        [
+          11.688653509640135,
+          48.138906864894
+        ],
+        [
+          11.688653509640135,
+          48.138763135106004
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        428687,
+        564187,
+        30607521,
+        30607532
+      ],
+      "proposedLogicalArms": {
+        "northeast": [
+          "Exit-1",
+          "Exit-2",
+          "Entry-1",
+          "Entry-5"
+        ],
+        "southeast": [
+          "Exit-3",
+          "Entry-2"
+        ],
+        "southwest": [
+          "Entry-3",
+          "Exit-4"
+        ],
+        "northwest": [
+          "Exit-5",
+          "Entry-4"
+        ]
+      },
+      "note": "Sehr spezieller Sonderfall mit vielen Zweirichtungsradwegen und einzelnen Armen ohne Radweg.\nDauerhaft ausschließen, Standardansagen sind hier OK.",
+      "outgoingLaneTotal": 9,
+      "reviewDecision": {
+        "status": "permanently-excluded",
+        "revision": 1,
+        "geometrySha256": "4563bb583d695dc837b06b1907a8650f8682534369a79773f24690c0a7d1ef24",
+        "note": "Sehr spezieller Sonderfall mit vielen Zweirichtungsradwegen und einzelnen Armen ohne Radweg.\nDauerhaft ausschließen, Standardansagen sind hier OK.",
+        "date": "2026-11-20",
+        "approvalSource": "Thomas saved this exact geometry decision in the local review app.",
+        "appGeometryFingerprint": "af66106ec9f8449c820011b53e68df22dd249637fdc101fdddcccf2fd5ee864c",
+        "appSourceFingerprint": "75c0a11675b6aa2156f79dba0c5974c5030d11be0c5054e7d137b061e0dfc0e8",
+        "permanent": true,
+        "closed": true
+      }
+    },
+    {
+      "id": "lane-candidate-564153",
+      "number": 48,
+      "version": 1,
+      "name": "Bülowstraße / Effnerplatz / Effnerstraße / Richard-Strauss-Straße",
+      "origin": [
+        11.614351533333334,
+        48.15249586666666
+      ],
+      "polygon": [
+        [
+          11.613613480806778,
+          48.152644735106
+        ],
+        [
+          11.613647680806778,
+          48.152561435106
+        ],
+        [
+          11.614214680806779,
+          48.15216483510601
+        ],
+        [
+          11.614364580806777,
+          48.152123135106
+        ],
+        [
+          11.614580019193221,
+          48.152123135106
+        ],
+        [
+          11.614672219193222,
+          48.152174935106004
+        ],
+        [
+          11.614960519193222,
+          48.152356335106006
+        ],
+        [
+          11.615070419193222,
+          48.152471435106
+        ],
+        [
+          11.615070419193222,
+          48.152615164893994
+        ],
+        [
+          11.614992219193223,
+          48.152682364894
+        ],
+        [
+          11.614491819193223,
+          48.152998664894
+        ],
+        [
+          11.614242019193222,
+          48.153022264894
+        ],
+        [
+          11.614026580806778,
+          48.153022264894
+        ],
+        [
+          11.613613480806778,
+          48.152788464893995
+        ],
+        [
+          11.613613480806778,
+          48.152644735106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        564153,
+        564154,
+        21118778
+      ],
+      "proposedLogicalArms": {},
+      "note": "- Entry-1/Exit-2 gehört zur Kreuzung, soll aber normale Ansagen bekommen, keine spezielle große Kreuzung Ansage.\n- Es gibt 2-Richtungsradwege in der Kreuzung im Süden und Westen. beide Richtungen passen trotzdem zu große Kreuzung Ansage \"... links abbiegen\"",
+      "outgoingLaneTotal": 9,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "revision": 1,
+        "geometrySha256": "8d514f46714f86e3efd1520f28f99eafd9e38807e3bb8feea81c8abe27779144",
+        "note": "- Entry-1/Exit-2 gehört zur Kreuzung, soll aber normale Ansagen bekommen, keine spezielle große Kreuzung Ansage.\n- Es gibt 2-Richtungsradwege in der Kreuzung im Süden und Westen. beide Richtungen passen trotzdem zu große Kreuzung Ansage \"... links abbiegen\"",
+        "date": "2026-11-20",
+        "approvalSource": "Thomas saved this exact geometry decision in the local review app.",
+        "appGeometryFingerprint": "1bed8aef108a3f93e77a1b0756808fe91d918cba5d1dc2209cb1dc54e5f97dd1",
+        "appSourceFingerprint": "931981f138aa7eb1aa468af2cc53ce2d4e44f64be03e19b956c0190c400f17fd",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-21",
+          "evidence": "Thomas explicitly requested activation and commit; push/deployment reserved for later."
+        }
+      }
+    },
+    {
+      "id": "lane-candidate-1956058",
+      "number": 49,
+      "version": 1,
+      "name": "Frankfurter Ring / Föhringer Ring / Ungererstraße",
+      "origin": [
+        11.610862375,
+        48.18596765
+      ],
+      "polygon": [
+        [
+          11.610254710477834,
+          48.185810735106
+        ],
+        [
+          11.610323810477833,
+          48.185688135106005
+        ],
+        [
+          11.610989810477834,
+          48.185650735106
+        ],
+        [
+          11.611205389522167,
+          48.185650735106
+        ],
+        [
+          11.611403189522166,
+          48.186035235106004
+        ],
+        [
+          11.611403189522166,
+          48.186178964894
+        ],
+        [
+          11.611240489522167,
+          48.186204064894
+        ],
+        [
+          11.611074489522167,
+          48.186229264893996
+        ],
+        [
+          11.610977489522167,
+          48.186243464894
+        ],
+        [
+          11.610761910477834,
+          48.186243464894
+        ],
+        [
+          11.610254710477834,
+          48.185954464893996
+        ],
+        [
+          11.610254710477834,
+          48.185810735106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        1956058,
+        19371337,
+        1653751779,
+        1653751788
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-4"
+        ],
+        "east": [
+          "Exit-2",
+          "Entry-1"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "passt alles",
+      "outgoingLaneTotal": 9,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "revision": 1,
+        "geometrySha256": "aa5f4623da9f4c63b50631171c85bbb7f2db5f3f90d06d43d8b2b48846ffd1c3",
+        "note": "passt alles",
+        "date": "2026-11-20",
+        "approvalSource": "Thomas saved this exact geometry decision in the local review app.",
+        "appGeometryFingerprint": "33719208c4b7310593df4f6ea7f335635e84348db43684db742aabee6ee259e2",
+        "appSourceFingerprint": "3ba220752f11ea87dc90940b5ca4a3a1f33056efbe3195d3705b1b94e02b1060",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-21",
+          "evidence": "Thomas explicitly requested activation and commit; push/deployment reserved for later."
+        }
+      }
+    },
+    {
+      "id": "lane-candidate-564108",
+      "number": 50,
+      "version": 2,
+      "name": "Lerchenauer Straße / Moosacher Straße",
+      "origin": [
+        11.551664474999999,
+        48.186032225
+      ],
+      "polygon": [
+        [
+          11.55124679007536,
+          48.18577042586143
+        ],
+        [
+          11.551461410342029,
+          48.185768735106
+        ],
+        [
+          11.55167698965797,
+          48.185768735106
+        ],
+        [
+          11.551813289657971,
+          48.185773835106005
+        ],
+        [
+          11.55196538965797,
+          48.185779835106004
+        ],
+        [
+          11.552111489657971,
+          48.185789135106006
+        ],
+        [
+          11.552140989657971,
+          48.185819535106006
+        ],
+        [
+          11.552140989657971,
+          48.185963264894
+        ],
+        [
+          11.552081589657972,
+          48.186051164893996
+        ],
+        [
+          11.551931689657971,
+          48.186240464894
+        ],
+        [
+          11.55185728965797,
+          48.186269964893995
+        ],
+        [
+          11.551596089657972,
+          48.186272164894
+        ],
+        [
+          11.55138051034203,
+          48.186272164894
+        ],
+        [
+          11.55124679007536,
+          48.186266449510455
+        ],
+        [
+          11.55124679007536,
+          48.18577042586143
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        564108,
+        13658513,
+        27003999,
+        27004000
+      ],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-1",
+          "Entry-4"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4",
+          "Exit-5"
+        ]
+      },
+      "note": "passt alles",
+      "outgoingLaneTotal": 9,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "revision": 2,
+        "geometrySha256": "b31e73d394c60282a01bf25e7234458cdc753d3114b27dd446df340b2fc26068",
+        "note": "passt alles",
+        "date": "2026-11-20",
+        "approvalSource": "Thomas saved this exact geometry decision in the local review app.",
+        "appGeometryFingerprint": "7ca58a263cfeef278d04a20cab8b4e07bdbc0794bc20631d1fd14fb3ac662424",
+        "appSourceFingerprint": "438697fb6b2e45ac4a927ce11cef119f7542bd214a7a2d8e02ccf0d03ded6355",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-21",
+          "evidence": "Thomas explicitly requested activation and commit; push/deployment reserved for later."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3397099897,
+              3397099889,
+              7632451183,
+              2344901837,
+              1191052784,
+              4748562186,
+              294225316,
+              277251173
+            ],
+            "distance": [
+              14.50542409,
+              6.136332321,
+              8.420008414,
+              6.478093914,
+              8.184702913,
+              10.27237326,
+              55.72405895
+            ]
+          },
+          "duration": 25,
+          "summary": "Innsbrucker Ring, Bad-Schachener-Straße",
+          "weight": 54.8,
+          "distance": 109.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    189
+                  ],
+                  "location": [
+                    11.620175,
+                    48.120993
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.620129,
+                    48.12081
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.620105,
+                    48.120736
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.620087,
+                    48.120679
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.620053,
+                    48.120609
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.620175,
+                    48.120993
+                  ],
+                  [
+                    11.620146,
+                    48.120864
+                  ],
+                  [
+                    11.620129,
+                    48.12081
+                  ],
+                  [
+                    11.620105,
+                    48.120736
+                  ],
+                  [
+                    11.620087,
+                    48.120679
+                  ],
+                  [
+                    11.620053,
+                    48.120609
+                  ],
+                  [
+                    11.620011,
+                    48.120521
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 189,
+                "bearing_before": 0,
+                "location": [
+                  11.620175,
+                  48.120993
+                ],
+                "type": "depart"
+              },
+              "name": "Innsbrucker Ring",
+              "mode": "cycling",
+              "weight": 30.1,
+              "duration": 13.9,
+              "distance": 54
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.620011,
+                    48.120521
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.620011,
+                    48.120521
+                  ],
+                  [
+                    11.619264,
+                    48.120553
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 272,
+                "bearing_before": 196,
+                "location": [
+                  11.620011,
+                  48.120521
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 24.7,
+              "duration": 11.1,
+              "distance": 55.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    94
+                  ],
+                  "location": [
+                    11.619264,
+                    48.120553
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.619264,
+                    48.120553
+                  ],
+                  [
+                    11.619264,
+                    48.120553
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 274,
+                "location": [
+                  11.619264,
+                  48.120553
+                ],
+                "type": "arrive"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.620175,
+            48.120993
+          ],
+          [
+            11.620146,
+            48.120864
+          ],
+          [
+            11.620129,
+            48.12081
+          ],
+          [
+            11.620105,
+            48.120736
+          ],
+          [
+            11.620087,
+            48.120679
+          ],
+          [
+            11.620053,
+            48.120609
+          ],
+          [
+            11.620011,
+            48.120521
+          ],
+          [
+            11.619264,
+            48.120553
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 54.8,
+      "duration": 25,
+      "distance": 109.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "qCQDgP___3-WAAAA1wAAAIsAAAAbAAAAnU8HQjgWaEHcQfpB1lzEQEMAAABhAAAAPwAAAAwAAAC9AgAAT0-xAKFE3gJPT7EAoUTeAgIAzwsAAAAA",
+      "location": [
+        11.620175,
+        48.120993
+      ],
+      "name": "Innsbrucker Ring",
+      "distance": 0
+    },
+    {
+      "hint": "zrEZgP___3_3AAAAGAEAAAAAAAAAAAAAcOVeQs-D50AAAAAAAAAAAG8AAAB-AAAAAAAAAAAAAAC9AgAAwEuxAOlC3gLAS7EA6ELeAgAAHxEAAAAA",
+      "location": [
+        11.619264,
+        48.120553
+      ],
+      "name": "Bad-Schachener-Straße",
+      "distance": 0.1111927533
+    }
+  ]
+}

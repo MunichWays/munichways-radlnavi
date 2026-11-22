@@ -1,0 +1,288 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              14290289629,
+              1286943996,
+              3405893314,
+              444693353,
+              444693352,
+              444693351
+            ],
+            "distance": [
+              52.91665404,
+              4.201978376,
+              5.110246216,
+              16.28616293,
+              38.29445439
+            ]
+          },
+          "duration": 24.9,
+          "summary": "Melusinenstraße, Rosenheimer Straße",
+          "weight": 45,
+          "distance": 116.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    234
+                  ],
+                  "location": [
+                    11.610302,
+                    48.118931
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    135,
+                    270
+                  ],
+                  "location": [
+                    11.609724,
+                    48.118654
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610302,
+                    48.118931
+                  ],
+                  [
+                    11.609724,
+                    48.118654
+                  ],
+                  [
+                    11.60967,
+                    48.118643
+                  ],
+                  [
+                    11.609603,
+                    48.118653
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 234,
+                "bearing_before": 0,
+                "location": [
+                  11.610302,
+                  48.118931
+                ],
+                "type": "depart"
+              },
+              "name": "Melusinenstraße",
+              "mode": "cycling",
+              "weight": 20.8,
+              "duration": 14,
+              "distance": 62.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    240,
+                    315
+                  ],
+                  "location": [
+                    11.609603,
+                    48.118653
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    315
+                  ],
+                  "location": [
+                    11.609446,
+                    48.118755
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609603,
+                    48.118653
+                  ],
+                  [
+                    11.609446,
+                    48.118755
+                  ],
+                  [
+                    11.60908,
+                    48.118997
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 313,
+                "bearing_before": 268,
+                "location": [
+                  11.609603,
+                  48.118653
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 24.2,
+              "duration": 10.9,
+              "distance": 54.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    135
+                  ],
+                  "location": [
+                    11.60908,
+                    48.118997
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.60908,
+                    48.118997
+                  ],
+                  [
+                    11.60908,
+                    48.118997
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 315,
+                "location": [
+                  11.60908,
+                  48.118997
+                ],
+                "type": "arrive"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.610302,
+            48.118931
+          ],
+          [
+            11.609724,
+            48.118654
+          ],
+          [
+            11.60967,
+            48.118643
+          ],
+          [
+            11.609603,
+            48.118653
+          ],
+          [
+            11.609446,
+            48.118755
+          ],
+          [
+            11.60908,
+            48.118997
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 45,
+      "duration": 24.9,
+      "distance": 116.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "T2AZgP___39SAAAA1wAAAAAAAAAAAAAALLMEQqeqU0IAAAAAAAAAAEIAAACsAAAAAAAAAAAAAAC9AgAAviixAJM83gK-KLEAkzzeAgAArw4AAAAA",
+      "location": [
+        11.610302,
+        48.118931
+      ],
+      "name": "Melusinenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "hhcDgP___3-qAAAA8gEAAAAAAAAAAAAAhS0ZQhtmk0IAAAAAAAAAAEwAAADgAAAAAAAAAAAAAAC9AgAA-COxANU83gL3I7EA1TzeAgAArxMAAAAA",
+      "location": [
+        11.60908,
+        48.118997
+      ],
+      "name": "Rosenheimer Straße",
+      "distance": 0.07444490293
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              12207087848,
+              1823313459,
+              1955087,
+              11953446703,
+              664478903,
+              664478904,
+              21133368,
+              664478905
+            ],
+            "distance": [
+              56.97161826,
+              19.92759304,
+              31.88652892,
+              6.024031589,
+              17.40332707,
+              15.6558725,
+              5.659019328
+            ]
+          },
+          "duration": 58.3,
+          "summary": "Kapuzinerstraße, Auenstraße",
+          "weight": 148.8,
+          "distance": 153.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    116
+                  ],
+                  "location": [
+                    11.565672,
+                    48.123789
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565672,
+                    48.123789
+                  ],
+                  [
+                    11.566361,
+                    48.123566
+                  ],
+                  [
+                    11.566602,
+                    48.123488
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 116,
+                "bearing_before": 0,
+                "location": [
+                  11.565672,
+                  48.123789
+                ],
+                "type": "depart"
+              },
+              "name": "Kapuzinerstraße",
+              "mode": "cycling",
+              "weight": 91.2,
+              "duration": 44,
+              "distance": 76.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 5,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    90,
+                    105,
+                    150,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.566602,
+                    48.123488
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566602,
+                    48.123488
+                  ],
+                  [
+                    11.566265,
+                    48.123311
+                  ],
+                  [
+                    11.566202,
+                    48.123277
+                  ],
+                  [
+                    11.56603,
+                    48.123171
+                  ],
+                  [
+                    11.565879,
+                    48.123073
+                  ],
+                  [
+                    11.565832,
+                    48.123033
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 230,
+                "bearing_before": 115,
+                "location": [
+                  11.566602,
+                  48.123488
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Auenstraße",
+              "mode": "cycling",
+              "weight": 57.6,
+              "duration": 14.3,
+              "distance": 76.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    38
+                  ],
+                  "location": [
+                    11.565832,
+                    48.123033
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565832,
+                    48.123033
+                  ],
+                  [
+                    11.565832,
+                    48.123033
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 218,
+                "location": [
+                  11.565832,
+                  48.123033
+                ],
+                "type": "arrive"
+              },
+              "name": "Auenstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.565672,
+            48.123789
+          ],
+          [
+            11.566361,
+            48.123566
+          ],
+          [
+            11.566602,
+            48.123488
+          ],
+          [
+            11.566265,
+            48.123311
+          ],
+          [
+            11.566202,
+            48.123277
+          ],
+          [
+            11.56603,
+            48.123171
+          ],
+          [
+            11.565879,
+            48.123073
+          ],
+          [
+            11.565832,
+            48.123033
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 148.8,
+      "duration": 58.3,
+      "distance": 153.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "q7cggDEFBIDkAAAABwAAAKYBAAA7AAAA8OJjQp-J3z-2a59BrblqQWYAAAAEAAAAzwAAABoAAAC9AgAAaHqwAI1P3gJoerAAjU_eAgIAfxIAAAAA",
+      "location": [
+        11.565672,
+        48.123789
+      ],
+      "name": "Kapuzinerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "zbcggP___38oAAAAWgAAAO4AAADgAAAAsBa1QO632ECfPARCkrD5QQkAAAAWAAAAOwAAADgAAAC9AgAACHuwAJlM3gIJe7AAmUzeAgQArw0AAAAA",
+      "location": [
+        11.565832,
+        48.123033
+      ],
+      "name": "Auenstraße",
+      "distance": 0.0744449028
+    }
+  ]
+}

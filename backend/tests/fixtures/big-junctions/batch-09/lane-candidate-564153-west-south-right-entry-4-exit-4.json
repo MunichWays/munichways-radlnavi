@@ -1,0 +1,328 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              508352392,
+              1293793535,
+              973840903,
+              12084761313,
+              1362005241,
+              12084761312,
+              11969251360,
+              11969251365,
+              11969251361,
+              11969251362,
+              11969251359,
+              11969251358,
+              1362005240,
+              1362005238
+            ],
+            "distance": [
+              34.44271899,
+              21.86598501,
+              3.986399069,
+              2.527316994,
+              2.672183192,
+              2.234820985,
+              5.865182405,
+              5.392157985,
+              5.68494986,
+              6.103967612,
+              2.492902474,
+              2.111525983,
+              19.72081489
+            ]
+          },
+          "duration": 25,
+          "summary": "Isarring, Bülowstraße",
+          "weight": 53.6,
+          "distance": 115.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    135
+                  ],
+                  "location": [
+                    11.613219,
+                    48.153094
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613219,
+                    48.153094
+                  ],
+                  [
+                    11.613548,
+                    48.152876
+                  ],
+                  [
+                    11.613721,
+                    48.152717
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 135,
+                "bearing_before": 0,
+                "location": [
+                  11.613219,
+                  48.153094
+                ],
+                "type": "depart"
+              },
+              "name": "Isarring",
+              "mode": "cycling",
+              "weight": 27.6,
+              "duration": 13.4,
+              "distance": 56.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    165,
+                    210,
+                    330
+                  ],
+                  "location": [
+                    11.613721,
+                    48.152717
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613721,
+                    48.152717
+                  ],
+                  [
+                    11.613704,
+                    48.152683
+                  ],
+                  [
+                    11.613691,
+                    48.152662
+                  ],
+                  [
+                    11.613669,
+                    48.152643
+                  ],
+                  [
+                    11.613649,
+                    48.152628
+                  ],
+                  [
+                    11.61359,
+                    48.152593
+                  ],
+                  [
+                    11.613527,
+                    48.152569
+                  ],
+                  [
+                    11.613458,
+                    48.152547
+                  ],
+                  [
+                    11.613381,
+                    48.152528
+                  ],
+                  [
+                    11.613351,
+                    48.152518
+                  ],
+                  [
+                    11.613326,
+                    48.152509
+                  ],
+                  [
+                    11.613118,
+                    48.152399
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 205,
+                "bearing_before": 142,
+                "location": [
+                  11.613721,
+                  48.152717
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Bülowstraße",
+              "mode": "cycling",
+              "weight": 26,
+              "duration": 11.6,
+              "distance": 58.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    52
+                  ],
+                  "location": [
+                    11.613118,
+                    48.152399
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613118,
+                    48.152399
+                  ],
+                  [
+                    11.613118,
+                    48.152399
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 232,
+                "location": [
+                  11.613118,
+                  48.152399
+                ],
+                "type": "arrive"
+              },
+              "name": "Bülowstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.613219,
+            48.153094
+          ],
+          [
+            11.613548,
+            48.152876
+          ],
+          [
+            11.613721,
+            48.152717
+          ],
+          [
+            11.613704,
+            48.152683
+          ],
+          [
+            11.613691,
+            48.152662
+          ],
+          [
+            11.613669,
+            48.152643
+          ],
+          [
+            11.613649,
+            48.152628
+          ],
+          [
+            11.61359,
+            48.152593
+          ],
+          [
+            11.613527,
+            48.152569
+          ],
+          [
+            11.613458,
+            48.152547
+          ],
+          [
+            11.613381,
+            48.152528
+          ],
+          [
+            11.613351,
+            48.152518
+          ],
+          [
+            11.613326,
+            48.152509
+          ],
+          [
+            11.613118,
+            48.152399
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 53.6,
+      "duration": 25,
+      "distance": 115.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "IKQCgP___3-tAAAARwEAAI8CAABQAAAA9FscQljFCUJZjxNDiu2uQU4AAACTAAAAJwEAACwAAAC9AgAAIzSxAAbC3gIjNLEABsLeAggAbwgAAAAA",
+      "location": [
+        11.613219,
+        48.153094
+      ],
+      "name": "Isarring",
+      "distance": 0
+    },
+    {
+      "hint": "_KMCgP___39XAAAAwAAAAK0AAABgAAAAO8SdQdobvEEfSRxC-MusQScAAABWAAAATQAAACsAAAC9AgAAvjOxAE-_3gK-M7EAT7_eAhQAfw4AAAAA",
+      "location": [
+        11.613118,
+        48.152399
+      ],
+      "name": "Bülowstraße",
+      "distance": 0
+    }
+  ]
+}

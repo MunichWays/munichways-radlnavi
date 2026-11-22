@@ -1,0 +1,30 @@
+name: Junction review tool tests
+
+on:
+  pull_request:
+    paths:
+      - 'tools/junction-review/**'
+      - 'docs/large-junction-analysis/**'
+      - 'backend/src/big_junctions.json'
+      - '.github/workflows/junction-review-tests.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Import, revisions, persistence and local API
+        run: python -m unittest discover -s tools/junction-review/tests -p 'test_*.py'
+      - name: Map and editor primitives
+        run: node --test tools/junction-review/tests/test_map.mjs tools/junction-review/tests/test_area_ui.mjs tools/junction-review/tests/test_gate_ui.mjs

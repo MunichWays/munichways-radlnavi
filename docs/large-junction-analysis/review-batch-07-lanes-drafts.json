@@ -1,0 +1,489 @@
+{
+  "version": 1,
+  "enabled": false,
+  "sites": [
+    {
+      "id": "dachauer-georg-brauchle",
+      "number": 38,
+      "version": 2,
+      "name": "Dachauer Straße / Georg-Brauchle-Ring / Wintrichring",
+      "origin": [
+        11.521998524999999,
+        48.1757842
+      ],
+      "polygon": [
+        [
+          11.520875031888313,
+          48.175388135106004
+        ],
+        [
+          11.521337531888312,
+          48.175199135106006
+        ],
+        [
+          11.522699231888312,
+          48.175092135106006
+        ],
+        [
+          11.522914768111688,
+          48.175092135106006
+        ],
+        [
+          11.523083868111687,
+          48.175433035106
+        ],
+        [
+          11.523172668111687,
+          48.175950335106
+        ],
+        [
+          11.523172668111687,
+          48.176094064893995
+        ],
+        [
+          11.522350068111688,
+          48.176164064893996
+        ],
+        [
+          11.521842868111689,
+          48.176191764894
+        ],
+        [
+          11.521627331888313,
+          48.176191764894
+        ],
+        [
+          11.520901231888312,
+          48.176129564894
+        ],
+        [
+          11.520875031888313,
+          48.175531864894
+        ],
+        [
+          11.520875031888313,
+          48.175388135106004
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        440646,
+        11937156,
+        11937303,
+        11937465
+      ],
+      "proposedLogicalArms": {
+        "Georg-Brauchle Nordost": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Dachauer Suedost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Wintrich Suedwest": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Dachauer Nordwest": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "12 ausgehende Kfz-Fahrspuren laut OSM. Flaeche umfasst die sechs nachgewiesenen Radweg-Aufteilungen/Zusammenfuehrungen an den Ecken; Punkte liegen jeweils davor/dahinter. Bitte vier Arme und Wartebereiche pruefen. Geometrie freigegeben; technische Pruefung bestanden. Im Branch aktiviert, Live in Backend 2.4.16.",
+      "outgoingLaneTotal": 12,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K38 v2 freigegeben.",
+        "geometrySha256": "c60191490fc81a6becb9ea303608f88431da7bf872378ac51ea8ed863f1038b6",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "backendVersion": "2.4.16",
+          "technicalReport": "review-batch-07-lanes-routes.json",
+          "evidence": "Thomas: alle aktivieren. Only verified movements; permanent K39 and K41 pair exclusions retained. Local branch, not deployed."
+        }
+      }
+    },
+    {
+      "id": "landsberger-fuerstenrieder",
+      "number": 39,
+      "version": 1,
+      "name": "Fürstenrieder Straße / Landsberger Straße / Wotanstraße",
+      "origin": [
+        11.5031834,
+        48.143121475
+      ],
+      "polygon": [
+        [
+          11.502520700480664,
+          48.143356535106
+        ],
+        [
+          11.502560800480664,
+          48.142717035106
+        ],
+        [
+          11.503458300480663,
+          48.142628535106006
+        ],
+        [
+          11.503673699519336,
+          48.142628535106006
+        ],
+        [
+          11.503694299519337,
+          48.143200535106004
+        ],
+        [
+          11.503694299519337,
+          48.143344264894
+        ],
+        [
+          11.503684799519336,
+          48.143449264893995
+        ],
+        [
+          11.502736099519337,
+          48.143500264893994
+        ],
+        [
+          11.502520700480664,
+          48.143500264893994
+        ],
+        [
+          11.502520700480664,
+          48.143356535106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        444584,
+        472077,
+        1547994302,
+        1547994332
+      ],
+      "proposedLogicalArms": {
+        "Wotan Nord": [
+          "Entry-4",
+          "Exit-4"
+        ],
+        "Landsberger Ost": [
+          "Entry-5",
+          "Exit-1"
+        ],
+        "Fuerstenrieder Sued": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Landsberger West": [
+          "Entry-2",
+          "Entry-3",
+          "Exit-3"
+        ]
+      },
+      "note": "Sonderfall mit komplexen Wegebeziehungen und Zweirichtungsradwegen; 2026 im Umbau. Von Thomas dauerhaft ausgeschlossen. Normale Ansagen bleiben; Fall geschlossen.",
+      "outgoingLaneTotal": 11,
+      "reviewDecision": {
+        "status": "permanently-excluded",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "Sonderfall mit komplexen Wegebeziehungen und Zweirichtungsradwegen; 2026 im Umbau. Von Thomas dauerhaft ausgeschlossen.",
+        "geometrySha256": "40f8c9176c590cda4fbac110b71f030548d7edcb7e7808b8b168a66f9c9cb523"
+      }
+    },
+    {
+      "id": "innsbrucker-bad-schachener",
+      "number": 40,
+      "version": 1,
+      "name": "Bad-Schachener-Straße / Innsbrucker Ring",
+      "origin": [
+        11.620157925,
+        48.12035515
+      ],
+      "polygon": [
+        [
+          11.619767148218088,
+          48.120129335106
+        ],
+        [
+          11.620231448218089,
+          48.120104235106005
+        ],
+        [
+          11.620446751781913,
+          48.120104235106005
+        ],
+        [
+          11.620468251781912,
+          48.120132835106006
+        ],
+        [
+          11.620515851781912,
+          48.120209635106
+        ],
+        [
+          11.620589151781912,
+          48.120338335106005
+        ],
+        [
+          11.620630751781912,
+          48.120416635106004
+        ],
+        [
+          11.620630751781912,
+          48.120560364894
+        ],
+        [
+          11.620563051781913,
+          48.120596564893994
+        ],
+        [
+          11.620420351781911,
+          48.120603364893995
+        ],
+        [
+          11.620205048218088,
+          48.120603364893995
+        ],
+        [
+          11.620044648218089,
+          48.120598064894
+        ],
+        [
+          11.619903248218089,
+          48.120592564894
+        ],
+        [
+          11.619845148218088,
+          48.120481264893996
+        ],
+        [
+          11.619805848218087,
+          48.120384264894
+        ],
+        [
+          11.619767148218088,
+          48.12027306489399
+        ],
+        [
+          11.619767148218088,
+          48.120129335106
+        ]
+      ],
+      "onRoadWayIds": [],
+      "candidateNodeIds": [
+        2386472481,
+        2386508847,
+        2386508878,
+        2387698051
+      ],
+      "proposedLogicalArms": {
+        "Innsbrucker Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Bad-Schachener Ost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Innsbrucker Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Bad-Schachener West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "10 ausgehende Kfz-Fahrspuren laut OSM. Flächenentwurf; noch keine Freigabe oder Aktivierung.",
+      "outgoingLaneTotal": 10,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K40 v1 freigegeben.",
+        "geometrySha256": "8a16423d8e075aa53141d7181d0465f1d0e986092c58ffe16e168154778c8839",
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 8,
+          "backendVersion": "2.4.16",
+          "technicalReport": "review-batch-07-lanes-routes.json",
+          "evidence": "Thomas: alle aktivieren. Only verified movements; permanent K39 and K41 pair exclusions retained. Local branch, not deployed."
+        }
+      }
+    },
+    {
+      "id": "candid-gruenwalder",
+      "number": 41,
+      "version": 2,
+      "name": "Candidstraße / Grünwalder Straße / Tegernseer Landstraße",
+      "origin": [
+        11.57614255,
+        48.111602749999996
+      ],
+      "polygon": [
+        [
+          11.575753266554722,
+          48.111410535106
+        ],
+        [
+          11.575845966554722,
+          48.111384335106
+        ],
+        [
+          11.576089266554721,
+          48.111318235106005
+        ],
+        [
+          11.576202566554722,
+          48.111290235106004
+        ],
+        [
+          11.576417833445278,
+          48.111290235106004
+        ],
+        [
+          11.576534633445279,
+          48.111309735106005
+        ],
+        [
+          11.576701633445278,
+          48.111527435106005
+        ],
+        [
+          11.576701633445278,
+          48.111671164894
+        ],
+        [
+          11.576589933445279,
+          48.111818764894
+        ],
+        [
+          11.576466333445278,
+          48.111852564893994
+        ],
+        [
+          11.576180333445278,
+          48.111928264894
+        ],
+        [
+          11.576043233445278,
+          48.111956564893994
+        ],
+        [
+          11.575827966554721,
+          48.111956564893994
+        ],
+        [
+          11.575784766554722,
+          48.111725764894
+        ],
+        [
+          11.575753266554722,
+          48.111554264893996
+        ],
+        [
+          11.575753266554722,
+          48.111410535106
+        ]
+      ],
+      "onRoadWayIds": [
+        229715439,
+        1534973622
+      ],
+      "candidateNodeIds": [
+        21029425,
+        21029429,
+        21135040,
+        21135041
+      ],
+      "proposedLogicalArms": {
+        "Tegernseer Nord": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "Tegernseer Suedost": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "Gruenwalder Sued": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "Candid West": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "note": "10 ausgehende Kfz-Fahrspuren laut OSM. Suedoestlicher Arm Tegernseer Landstrasse ohne durchgehenden Radweg: Entry/Exit auf der erlaubten Fahrbahn (OSM-Mittellinie). Kurze Radweganschluesse und gerichtete Verbindung muessen technisch noch geprueft werden. Candidtunnel/Kraftfahrstrasse ausgeschlossen. Dauerhaft ohne Kreuzungsansage: Entry-1 nach Exit-3 und Exit-4 wegen class:bicycle=-3 auf der Zufahrt (Thomas). Normale Ansagen bleiben.",
+      "outgoingLaneTotal": 10,
+      "reviewDecision": {
+        "status": "geometry-approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "evidence": "Thomas: K41 v2 freigegeben.",
+        "geometrySha256": "8ce45b253da13f94c8b4e531f484a15d6fdafe8964e1d913b79ec22acd66cb4c",
+        "excludedMovements": [
+          {
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-3",
+            "permanent": true,
+            "reviewer": "Thomas",
+            "date": "2026-11-16",
+            "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+            "cause": "class:bicycle=-3",
+            "causeEvidence": "Von Thomas als Ursache bestaetigt; am zufuehrenden OSM-Weg 33196720 im eingefrorenen Stand vorhanden."
+          },
+          {
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-4",
+            "permanent": true,
+            "reviewer": "Thomas",
+            "date": "2026-11-16",
+            "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+            "cause": "class:bicycle=-3",
+            "causeEvidence": "Von Thomas als Ursache bestaetigt; am zufuehrenden OSM-Weg 33196720 im eingefrorenen Stand vorhanden."
+          }
+        ],
+        "activationReview": {
+          "status": "approved",
+          "date": "2026-11-16",
+          "reviewer": "Thomas",
+          "activeMovements": 6,
+          "backendVersion": "2.4.16",
+          "technicalReport": "review-batch-07-lanes-routes.json",
+          "evidence": "Thomas: alle aktivieren. Only verified movements; permanent K39 and K41 pair exclusions retained. Local branch, not deployed."
+        }
+      },
+      "excludedMovements": [
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "permanent": true,
+          "reviewer": "Thomas",
+          "date": "2026-11-16",
+          "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+          "cause": "class:bicycle=-3",
+          "causeEvidence": "Von Thomas als Ursache bestaetigt; am zufuehrenden OSM-Weg 33196720 im eingefrorenen Stand vorhanden."
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "permanent": true,
+          "reviewer": "Thomas",
+          "date": "2026-11-16",
+          "reason": "Von Thomas dauerhaft ausgeschlossen: class:bicycle=-3 (Unter allen Umstaenden vermeiden) auf der Zufahrt. Standardrouting verwendet einen anderen Anschluss; normale Ansagen bleiben. Nur bei ausdruecklicher Neubewertung wieder pruefen.",
+          "cause": "class:bicycle=-3",
+          "causeEvidence": "Von Thomas als Ursache bestaetigt; am zufuehrenden OSM-Weg 33196720 im eingefrorenen Stand vorhanden."
+        }
+      ]
+    }
+  ]
+}

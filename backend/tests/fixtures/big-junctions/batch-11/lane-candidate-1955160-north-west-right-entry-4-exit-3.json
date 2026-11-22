@@ -1,0 +1,388 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              539041632,
+              1745998661,
+              4709549954,
+              1166537179,
+              5038672760,
+              444693356,
+              3405893313,
+              5038672761,
+              1286944004,
+              3404415800,
+              3404415088
+            ],
+            "distance": [
+              23.13997936,
+              14.97219434,
+              3.528097086,
+              12.13583567,
+              1.833007293,
+              2.005505411,
+              2.45076746,
+              2.630722018,
+              38.05800761,
+              16.63309461
+            ]
+          },
+          "duration": 25.9,
+          "summary": "Rosenheimer Straße, Claudius-Keller-Straße",
+          "weight": 46.5,
+          "distance": 117.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    136
+                  ],
+                  "location": [
+                    11.608683,
+                    48.118849
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.609044,
+                    48.118606
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.609075,
+                    48.118582
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.608683,
+                    48.118849
+                  ],
+                  [
+                    11.6089,
+                    48.1187
+                  ],
+                  [
+                    11.609044,
+                    48.118606
+                  ],
+                  [
+                    11.609075,
+                    48.118582
+                  ],
+                  [
+                    11.609192,
+                    48.118506
+                  ],
+                  [
+                    11.609205,
+                    48.118492
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 136,
+                "bearing_before": 0,
+                "location": [
+                  11.608683,
+                  48.118849
+                ],
+                "type": "depart"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 27.1,
+              "duration": 12.3,
+              "distance": 55.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    180,
+                    315
+                  ],
+                  "location": [
+                    11.609205,
+                    48.118492
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609205,
+                    48.118492
+                  ],
+                  [
+                    11.609214,
+                    48.118475
+                  ],
+                  [
+                    11.609212,
+                    48.118453
+                  ],
+                  [
+                    11.609199,
+                    48.118431
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 182,
+                "bearing_before": 136,
+                "location": [
+                  11.609205,
+                  48.118492
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Claudius-Keller-Straße",
+              "mode": "cycling",
+              "weight": 5.8,
+              "duration": 2.7,
+              "distance": 7.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    135,
+                    240
+                  ],
+                  "location": [
+                    11.609199,
+                    48.118431
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609199,
+                    48.118431
+                  ],
+                  [
+                    11.608782,
+                    48.118233
+                  ],
+                  [
+                    11.608607,
+                    48.11814
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 233,
+                "bearing_before": 182,
+                "location": [
+                  11.609199,
+                  48.118431
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 13.6,
+              "duration": 10.9,
+              "distance": 54.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    52
+                  ],
+                  "location": [
+                    11.608607,
+                    48.11814
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.608607,
+                    48.11814
+                  ],
+                  [
+                    11.608607,
+                    48.11814
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 232,
+                "location": [
+                  11.608607,
+                  48.11814
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.608683,
+            48.118849
+          ],
+          [
+            11.6089,
+            48.1187
+          ],
+          [
+            11.609044,
+            48.118606
+          ],
+          [
+            11.609075,
+            48.118582
+          ],
+          [
+            11.609192,
+            48.118506
+          ],
+          [
+            11.609205,
+            48.118492
+          ],
+          [
+            11.609214,
+            48.118475
+          ],
+          [
+            11.609212,
+            48.118453
+          ],
+          [
+            11.609199,
+            48.118431
+          ],
+          [
+            11.608782,
+            48.118233
+          ],
+          [
+            11.608607,
+            48.11814
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 46.5,
+      "duration": 25.9,
+      "distance": 117.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "fV0ZgP___3_lAAAATAEAAAAAAABDAAAAZFdOQq0euUEAAAAAHI5vQWYAAACVAAAAAAAAAB4AAAC9AgAAayKxAEE83gJrIrEAQTzeAgAAfwgAAAAA",
+      "location": [
+        11.608683,
+        48.118849
+      ],
+      "name": "Rosenheimer Straße",
+      "distance": 0
+    },
+    {
+      "hint": "ul8ZgP___38pAAAAZgAAAF8AAADMAAAAlBCFQTucwUFmOxhCuSmjQiEAAABSAAAATAAAAKMAAAC9AgAAHyKxAHw53gIfIrEAfDneAgIAfw4AAAAA",
+      "location": [
+        11.608607,
+        48.11814
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

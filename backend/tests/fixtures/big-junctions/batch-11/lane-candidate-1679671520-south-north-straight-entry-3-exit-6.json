@@ -1,0 +1,475 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              298502367,
+              1679671491,
+              11926336189,
+              2841445702,
+              269056002,
+              2841445703,
+              1679671525,
+              2487367723,
+              2841445705,
+              1679671543,
+              19088835,
+              3742874043
+            ],
+            "distance": [
+              49.5355539,
+              4.366248687,
+              3.226413158,
+              4.74134798,
+              1.044099038,
+              2.501792195,
+              12.19843196,
+              10.57595505,
+              5.489934219,
+              33.86803071,
+              18.71553593
+            ]
+          },
+          "duration": 52.1,
+          "summary": "Reichenbachbrücke, Fraunhoferstraße",
+          "weight": 88.7,
+          "distance": 147.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    318
+                  ],
+                  "location": [
+                    11.577006,
+                    48.127416
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    165,
+                    240
+                  ],
+                  "location": [
+                    11.57649,
+                    48.127844
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.577006,
+                    48.127416
+                  ],
+                  [
+                    11.576559,
+                    48.127746
+                  ],
+                  [
+                    11.576523,
+                    48.127777
+                  ],
+                  [
+                    11.576501,
+                    48.127802
+                  ],
+                  [
+                    11.57649,
+                    48.127844
+                  ],
+                  [
+                    11.576494,
+                    48.127853
+                  ],
+                  [
+                    11.576512,
+                    48.127872
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 318,
+                "bearing_before": 0,
+                "location": [
+                  11.577006,
+                  48.127416
+                ],
+                "type": "depart"
+              },
+              "name": "Reichenbachbrücke",
+              "mode": "cycling",
+              "weight": 33.3,
+              "duration": 21.1,
+              "distance": 65.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.576512,
+                    48.127872
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    120,
+                    240,
+                    315
+                  ],
+                  "location": [
+                    11.57638,
+                    48.127937
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576512,
+                    48.127872
+                  ],
+                  [
+                    11.57638,
+                    48.127937
+                  ],
+                  [
+                    11.576271,
+                    48.127998
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 305,
+                "bearing_before": 26,
+                "location": [
+                  11.576512,
+                  48.127872
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 26.8,
+              "duration": 12.8,
+              "distance": 22.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    135,
+                    255
+                  ],
+                  "location": [
+                    11.576271,
+                    48.127998
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576271,
+                    48.127998
+                  ],
+                  [
+                    11.576198,
+                    48.127991
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 261,
+                "bearing_before": 309,
+                "location": [
+                  11.576271,
+                  48.127998
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 4.6,
+              "duration": 2.6,
+              "distance": 5.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    75,
+                    150,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.576198,
+                    48.127991
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    135,
+                    315
+                  ],
+                  "location": [
+                    11.575893,
+                    48.128217
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576198,
+                    48.127991
+                  ],
+                  [
+                    11.575893,
+                    48.128217
+                  ],
+                  [
+                    11.575723,
+                    48.128341
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 317,
+                "bearing_before": 261,
+                "location": [
+                  11.576198,
+                  48.127991
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Fraunhoferstraße",
+              "mode": "cycling",
+              "weight": 24,
+              "duration": 15.6,
+              "distance": 53.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    137
+                  ],
+                  "location": [
+                    11.575715,
+                    48.128347
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575723,
+                    48.128341
+                  ],
+                  [
+                    11.575723,
+                    48.128341
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 317,
+                "location": [
+                  11.575715,
+                  48.128347
+                ],
+                "type": "arrive"
+              },
+              "name": "Fraunhoferstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.577006,
+            48.127416
+          ],
+          [
+            11.576559,
+            48.127746
+          ],
+          [
+            11.576523,
+            48.127777
+          ],
+          [
+            11.576501,
+            48.127802
+          ],
+          [
+            11.57649,
+            48.127844
+          ],
+          [
+            11.576494,
+            48.127853
+          ],
+          [
+            11.576512,
+            48.127872
+          ],
+          [
+            11.57638,
+            48.127937
+          ],
+          [
+            11.576271,
+            48.127998
+          ],
+          [
+            11.576198,
+            48.127991
+          ],
+          [
+            11.575893,
+            48.128217
+          ],
+          [
+            11.575723,
+            48.128341
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 88.7,
+      "duration": 52.1,
+      "distance": 147.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "xAAAgP___3_jAAAAXwEAABUAAAAfAAAAk5S1QmgkRkLsnAZBGlhFQbUAAAAZAQAAEQAAABgAAAC9AgAArqawALhd3gKuprAAuF3eAgIA3xMAAAAA",
+      "location": [
+        11.577006,
+        48.127416
+      ],
+      "name": "Reichenbachbrücke",
+      "distance": 0
+    },
+    {
+      "hint": "6bgggP___38CAAAACAAAAAAAAAAXAAAAb_FkP986I0AAAAAAxtclQQEAAAAGAAAAAAAAABMAAAC9AgAAo6GwAFth3gKjobAAW2HeAgAA3xMAAAAA",
+      "location": [
+        11.575715,
+        48.128347
+      ],
+      "name": "Fraunhoferstraße",
+      "distance": 0
+    }
+  ]
+}

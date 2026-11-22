@@ -1,0 +1,350 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1276188468,
+              3707107237,
+              1276188463,
+              3707107245,
+              1132189821,
+              254089263,
+              3016496610,
+              3970680079,
+              10767849164,
+              3745668076,
+              4310367581,
+              4310367582
+            ],
+            "distance": [
+              2.225100767,
+              5.839724258,
+              16.42164198,
+              33.0926399,
+              12.60631785,
+              4.944718138,
+              15.58640795,
+              18.25475892,
+              9.976433822,
+              12.87204329,
+              3.674815349
+            ]
+          },
+          "duration": 27.1,
+          "summary": "Thalkirchner Straße, Brudermühlstraße",
+          "weight": 47,
+          "distance": 135.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    2
+                  ],
+                  "location": [
+                    11.548436,
+                    48.1115
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.548436,
+                    48.1115
+                  ],
+                  [
+                    11.548437,
+                    48.11152
+                  ],
+                  [
+                    11.548448,
+                    48.111572
+                  ],
+                  [
+                    11.548534,
+                    48.111708
+                  ],
+                  [
+                    11.548721,
+                    48.111978
+                  ],
+                  [
+                    11.548822,
+                    48.112069
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 2,
+                "bearing_before": 0,
+                "location": [
+                  11.548436,
+                  48.1115
+                ],
+                "type": "depart"
+              },
+              "name": "Thalkirchner Straße",
+              "mode": "cycling",
+              "weight": 18.1,
+              "duration": 14,
+              "distance": 70.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    90,
+                    210,
+                    270
+                  ],
+                  "location": [
+                    11.548822,
+                    48.112069
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    75,
+                    270
+                  ],
+                  "location": [
+                    11.549096,
+                    48.11209
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    255,
+                    345
+                  ],
+                  "location": [
+                    11.549339,
+                    48.112112
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.548822,
+                    48.112069
+                  ],
+                  [
+                    11.548888,
+                    48.112074
+                  ],
+                  [
+                    11.549096,
+                    48.11209
+                  ],
+                  [
+                    11.549339,
+                    48.112112
+                  ],
+                  [
+                    11.549472,
+                    48.112123
+                  ],
+                  [
+                    11.549639,
+                    48.112153
+                  ],
+                  [
+                    11.549688,
+                    48.112157
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 82,
+                "bearing_before": 36,
+                "location": [
+                  11.548822,
+                  48.112069
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Brudermühlstraße",
+              "mode": "cycling",
+              "weight": 28.9,
+              "duration": 13.1,
+              "distance": 65.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    263
+                  ],
+                  "location": [
+                    11.549688,
+                    48.112157
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.549688,
+                    48.112157
+                  ],
+                  [
+                    11.549688,
+                    48.112157
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 83,
+                "location": [
+                  11.549688,
+                  48.112157
+                ],
+                "type": "arrive"
+              },
+              "name": "Brudermühlstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.548436,
+            48.1115
+          ],
+          [
+            11.548437,
+            48.11152
+          ],
+          [
+            11.548448,
+            48.111572
+          ],
+          [
+            11.548534,
+            48.111708
+          ],
+          [
+            11.548721,
+            48.111978
+          ],
+          [
+            11.548822,
+            48.112069
+          ],
+          [
+            11.548888,
+            48.112074
+          ],
+          [
+            11.549096,
+            48.11209
+          ],
+          [
+            11.549339,
+            48.112112
+          ],
+          [
+            11.549472,
+            48.112123
+          ],
+          [
+            11.549639,
+            48.112153
+          ],
+          [
+            11.549688,
+            48.112157
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 47,
+      "duration": 27.1,
+      "distance": 135.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "aYADgP___38IAAAADgAAAAAAAACYAAAACh55QA1oDkAAAAAAr-uHQgYAAAALAAAAAAAAAHwAAAC9AgAAFDewAIwf3gIUN7AAjB_eAgAAHwAAAAAA",
+      "location": [
+        11.548436,
+        48.1115
+      ],
+      "name": "Thalkirchner Straße",
+      "distance": 0
+    },
+    {
+      "hint": "dIADgP___38QAAAAmAAAAGUAAADsAAAALTBrQK5F9EGuybZBZD9UQgcAAABEAAAALgAAAGoAAAC9AgAA-DuwAB0i3gL4O7AAHSLeAgQALwUAAAAA",
+      "location": [
+        11.549688,
+        48.112157
+      ],
+      "name": "Brudermühlstraße",
+      "distance": 0
+    }
+  ]
+}

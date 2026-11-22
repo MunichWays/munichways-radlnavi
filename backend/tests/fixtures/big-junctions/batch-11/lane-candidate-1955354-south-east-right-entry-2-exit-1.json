@@ -1,0 +1,433 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              5740881393,
+              1381612539,
+              13962006125,
+              3498157178,
+              27470266,
+              290826815,
+              2508899917,
+              2614032186,
+              2614032259,
+              2614032343,
+              2614032399,
+              2614032416,
+              5884394654,
+              5884395689
+            ],
+            "distance": [
+              5.746822588,
+              16.61348627,
+              19.49083955,
+              1.60694237,
+              3.965335243,
+              7.823111452,
+              8.667834673,
+              12.81113889,
+              5.976691188,
+              16.58365238,
+              6.906456524,
+              3.58791724,
+              1.114967308
+            ]
+          },
+          "duration": 49.8,
+          "summary": "Kapuzinerstraße, Lindwurmstraße",
+          "weight": 106.5,
+          "distance": 110.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    322
+                  ],
+                  "location": [
+                    11.556442,
+                    48.127952
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    135,
+                    270,
+                    315
+                  ],
+                  "location": [
+                    11.556395,
+                    48.127993
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    135,
+                    180,
+                    330
+                  ],
+                  "location": [
+                    11.556068,
+                    48.128252
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556442,
+                    48.127952
+                  ],
+                  [
+                    11.556395,
+                    48.127993
+                  ],
+                  [
+                    11.556249,
+                    48.128106
+                  ],
+                  [
+                    11.556082,
+                    48.128241
+                  ],
+                  [
+                    11.556068,
+                    48.128252
+                  ],
+                  [
+                    11.556037,
+                    48.128281
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 322,
+                "bearing_before": 0,
+                "location": [
+                  11.556442,
+                  48.127952
+                ],
+                "type": "depart"
+              },
+              "name": "Kapuzinerstraße",
+              "mode": "cycling",
+              "weight": 75,
+              "duration": 35.6,
+              "distance": 47.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.556037,
+                    48.128281
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.556213,
+                    48.128371
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    240
+                  ],
+                  "location": [
+                    11.556353,
+                    48.128438
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.5567,
+                    48.128599
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556037,
+                    48.128281
+                  ],
+                  [
+                    11.556119,
+                    48.128325
+                  ],
+                  [
+                    11.556213,
+                    48.128371
+                  ],
+                  [
+                    11.556353,
+                    48.128438
+                  ],
+                  [
+                    11.556386,
+                    48.128487
+                  ],
+                  [
+                    11.556568,
+                    48.128573
+                  ],
+                  [
+                    11.55666,
+                    48.128581
+                  ],
+                  [
+                    11.5567,
+                    48.128599
+                  ],
+                  [
+                    11.556712,
+                    48.128605
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 50,
+                "bearing_before": 323,
+                "location": [
+                  11.556037,
+                  48.128281
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 31.5,
+              "duration": 14.2,
+              "distance": 63.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    233
+                  ],
+                  "location": [
+                    11.556712,
+                    48.128605
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556712,
+                    48.128605
+                  ],
+                  [
+                    11.556712,
+                    48.128605
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 53,
+                "location": [
+                  11.556712,
+                  48.128605
+                ],
+                "type": "arrive"
+              },
+              "name": "Lindwurmstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.556442,
+            48.127952
+          ],
+          [
+            11.556395,
+            48.127993
+          ],
+          [
+            11.556249,
+            48.128106
+          ],
+          [
+            11.556082,
+            48.128241
+          ],
+          [
+            11.556068,
+            48.128252
+          ],
+          [
+            11.556037,
+            48.128281
+          ],
+          [
+            11.556119,
+            48.128325
+          ],
+          [
+            11.556213,
+            48.128371
+          ],
+          [
+            11.556353,
+            48.128438
+          ],
+          [
+            11.556386,
+            48.128487
+          ],
+          [
+            11.556568,
+            48.128573
+          ],
+          [
+            11.55666,
+            48.128581
+          ],
+          [
+            11.5567,
+            48.128599
+          ],
+          [
+            11.556712,
+            48.128605
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 106.5,
+      "duration": 49.8,
+      "distance": 110.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "-f4ggI4PBIApAAAABAAAAAAAAAAAAAAA-OW3QG_x5D4AAAAAAAAAAAoAAAABAAAAAAAAAAAAAAC9AgAAWlawANBf3gJaVrAA0F_eAgAA7wgAAAAA",
+      "location": [
+        11.556442,
+        48.127952
+      ],
+      "name": "Kapuzinerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "kQ8EgP___38EAAAAOAAAAAAAAAAAAAAAQLeOP54hNkEAAAAAAAAAAAIAAAAZAAAAAAAAAAAAAAC9AgAAaFewAF1i3gJoV7AAXWLeAgAAfwMAAAAA",
+      "location": [
+        11.556712,
+        48.128605
+      ],
+      "name": "Lindwurmstraße",
+      "distance": 0
+    }
+  ]
+}

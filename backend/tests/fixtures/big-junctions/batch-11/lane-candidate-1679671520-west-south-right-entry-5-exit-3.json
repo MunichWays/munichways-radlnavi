@@ -1,0 +1,359 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2822546205,
+              254042953,
+              4756090267,
+              1679671486,
+              2841445701,
+              11926336185,
+              1505679887,
+              11926336184,
+              3653760045,
+              503603681,
+              298502368
+            ],
+            "distance": [
+              24.83894487,
+              16.37077241,
+              13.78917502,
+              3.288190759,
+              2.459196874,
+              2.204241341,
+              5.760664423,
+              6.671581808,
+              0.4998255146,
+              49.27081587
+            ]
+          },
+          "duration": 25.4,
+          "summary": "Auenstraße, Reichenbachbrücke",
+          "weight": 32.8,
+          "distance": 125.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    51
+                  ],
+                  "location": [
+                    11.575561,
+                    48.127388
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    120,
+                    225
+                  ],
+                  "location": [
+                    11.575821,
+                    48.127528
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.576174,
+                    48.127712
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575561,
+                    48.127388
+                  ],
+                  [
+                    11.575821,
+                    48.127528
+                  ],
+                  [
+                    11.575989,
+                    48.127623
+                  ],
+                  [
+                    11.576133,
+                    48.127701
+                  ],
+                  [
+                    11.576174,
+                    48.127712
+                  ],
+                  [
+                    11.576207,
+                    48.127713
+                  ],
+                  [
+                    11.576236,
+                    48.127709
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 51,
+                "bearing_before": 0,
+                "location": [
+                  11.575561,
+                  48.127388
+                ],
+                "type": "depart"
+              },
+              "name": "Wittelsbacherstraße",
+              "mode": "cycling",
+              "weight": 17.3,
+              "duration": 13,
+              "distance": 63
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    270
+                  ],
+                  "location": [
+                    11.576236,
+                    48.127709
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.576362,
+                    48.127636
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576236,
+                    48.127709
+                  ],
+                  [
+                    11.576298,
+                    48.127678
+                  ],
+                  [
+                    11.576362,
+                    48.127636
+                  ],
+                  [
+                    11.576367,
+                    48.127633
+                  ],
+                  [
+                    11.576812,
+                    48.127305
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 129,
+                "bearing_before": 92,
+                "location": [
+                  11.576236,
+                  48.127709
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Reichenbachbrücke",
+              "mode": "cycling",
+              "weight": 15.5,
+              "duration": 12.4,
+              "distance": 62.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    318
+                  ],
+                  "location": [
+                    11.576812,
+                    48.127305
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576812,
+                    48.127305
+                  ],
+                  [
+                    11.576812,
+                    48.127305
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 138,
+                "location": [
+                  11.576812,
+                  48.127305
+                ],
+                "type": "arrive"
+              },
+              "name": "Reichenbachbrücke",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.575561,
+            48.127388
+          ],
+          [
+            11.575821,
+            48.127528
+          ],
+          [
+            11.575989,
+            48.127623
+          ],
+          [
+            11.576133,
+            48.127701
+          ],
+          [
+            11.576174,
+            48.127712
+          ],
+          [
+            11.576207,
+            48.127713
+          ],
+          [
+            11.576236,
+            48.127709
+          ],
+          [
+            11.576298,
+            48.127678
+          ],
+          [
+            11.576362,
+            48.127636
+          ],
+          [
+            11.576367,
+            48.127633
+          ],
+          [
+            11.576812,
+            48.127305
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 32.8,
+      "duration": 25.4,
+      "distance": 125.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "QQUEgNEFBIA3AAAAwwAAAAAAAAAAAAAAKbbGQTS8rEIAAAAAAAAAACwAAACcAAAAAAAAAAAAAAC9AgAACaGwAJxd3gIJobAAnF3eAgAAfw4AAAAA",
+      "location": [
+        11.575561,
+        48.127388
+      ],
+      "name": "Wittelsbacherstraße",
+      "distance": 0
+    },
+    {
+      "hint": "PQEAgP___397AAAAXwEAAAEAAAAUAAAAURVFQvhotkIh6f8-w1QBQWIAAAAZAQAAAQAAABAAAAC9AgAA7KWwAEld3gLspbAASV3eAgIAnwgAAAAA",
+      "location": [
+        11.576812,
+        48.127305
+      ],
+      "name": "Reichenbachbrücke",
+      "distance": 0
+    }
+  ]
+}

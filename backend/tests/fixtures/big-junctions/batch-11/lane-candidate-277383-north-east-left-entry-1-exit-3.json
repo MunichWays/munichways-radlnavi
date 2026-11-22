@@ -1,0 +1,615 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2944348393,
+              10735934020,
+              2858870431,
+              3878487425,
+              10766414325,
+              3878487426,
+              928458325,
+              3709902970,
+              2858870439,
+              2858870427,
+              776257398,
+              3831517752,
+              2944348394,
+              3831527763,
+              297812335,
+              3831527760,
+              3831527761,
+              3831566679
+            ],
+            "distance": [
+              35.36877685,
+              24.69197465,
+              11.31781029,
+              13.01040414,
+              13.56551594,
+              15.04715967,
+              16.46171453,
+              1.715839408,
+              2.979871394,
+              76.9019062,
+              43.38823557,
+              94.78538234,
+              26.47894925,
+              16.80066497,
+              12.2854219,
+              3.5006768,
+              12.58561006
+            ]
+          },
+          "duration": 104.2,
+          "summary": "Paul-Heyse-Straße, Mittererstraße",
+          "weight": 251.7,
+          "distance": 420.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    1
+                  ],
+                  "location": [
+                    11.555927,
+                    48.138186
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555927,
+                    48.138186
+                  ],
+                  [
+                    11.555938,
+                    48.138504
+                  ],
+                  [
+                    11.555946,
+                    48.138726
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 1,
+                "bearing_before": 0,
+                "location": [
+                  11.555927,
+                  48.138186
+                ],
+                "type": "depart"
+              },
+              "name": "Paul-Heyse-Straße",
+              "mode": "cycling",
+              "weight": 62.6,
+              "duration": 15,
+              "distance": 60.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180
+                  ],
+                  "location": [
+                    11.555946,
+                    48.138726
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.555946,
+                    48.138726
+                  ],
+                  [
+                    11.556098,
+                    48.138724
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 90,
+                "bearing_before": 0,
+                "location": [
+                  11.555946,
+                  48.138726
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 21.2,
+              "duration": 10.7,
+              "distance": 11.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556098,
+                    48.138724
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556096,
+                    48.138963
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556098,
+                    48.138724
+                  ],
+                  [
+                    11.556096,
+                    48.138841
+                  ],
+                  [
+                    11.556096,
+                    48.138963
+                  ],
+                  [
+                    11.556082,
+                    48.139098
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 358,
+                "bearing_before": 90,
+                "location": [
+                  11.556098,
+                  48.138724
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 27.4,
+              "duration": 12.7,
+              "distance": 41.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556082,
+                    48.139098
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.556303,
+                    48.139103
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556082,
+                    48.139098
+                  ],
+                  [
+                    11.556303,
+                    48.139103
+                  ],
+                  [
+                    11.556326,
+                    48.139104
+                  ],
+                  [
+                    11.556366,
+                    48.139105
+                  ],
+                  [
+                    11.557399,
+                    48.139103
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 87,
+                "bearing_before": 355,
+                "location": [
+                  11.556082,
+                  48.139098
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 52.5,
+              "duration": 24,
+              "distance": 98.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    45,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.557399,
+                    48.139103
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.557399,
+                    48.139103
+                  ],
+                  [
+                    11.55738,
+                    48.138713
+                  ],
+                  [
+                    11.557339,
+                    48.137861
+                  ],
+                  [
+                    11.557327,
+                    48.137623
+                  ],
+                  [
+                    11.557319,
+                    48.137472
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 181,
+                "bearing_before": 90,
+                "location": [
+                  11.557399,
+                  48.139103
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Mittererstraße",
+              "mode": "cycling",
+              "weight": 67.7,
+              "duration": 36.8,
+              "distance": 181.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    270
+                  ],
+                  "location": [
+                    11.557319,
+                    48.137472
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.557319,
+                    48.137472
+                  ],
+                  [
+                    11.557154,
+                    48.137474
+                  ],
+                  [
+                    11.557107,
+                    48.137475
+                  ],
+                  [
+                    11.556938,
+                    48.137478
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 270,
+                "bearing_before": 181,
+                "location": [
+                  11.557319,
+                  48.137472
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 20.3,
+              "duration": 5,
+              "distance": 28.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    92
+                  ],
+                  "location": [
+                    11.556938,
+                    48.137478
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556938,
+                    48.137478
+                  ],
+                  [
+                    11.556938,
+                    48.137478
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 272,
+                "location": [
+                  11.556938,
+                  48.137478
+                ],
+                "type": "arrive"
+              },
+              "name": "Schwanthalerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.555927,
+            48.138186
+          ],
+          [
+            11.555938,
+            48.138504
+          ],
+          [
+            11.555946,
+            48.138726
+          ],
+          [
+            11.556098,
+            48.138724
+          ],
+          [
+            11.556096,
+            48.138841
+          ],
+          [
+            11.556096,
+            48.138963
+          ],
+          [
+            11.556082,
+            48.139098
+          ],
+          [
+            11.556303,
+            48.139103
+          ],
+          [
+            11.556326,
+            48.139104
+          ],
+          [
+            11.556366,
+            48.139105
+          ],
+          [
+            11.557399,
+            48.139103
+          ],
+          [
+            11.55738,
+            48.138713
+          ],
+          [
+            11.557339,
+            48.137861
+          ],
+          [
+            11.557327,
+            48.137623
+          ],
+          [
+            11.557319,
+            48.137472
+          ],
+          [
+            11.557154,
+            48.137474
+          ],
+          [
+            11.557107,
+            48.137475
+          ],
+          [
+            11.556938,
+            48.137478
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 251.7,
+      "duration": 104.2,
+      "distance": 420.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "dNwggCLdIIAwAQAA_wAAAAAAAAAAAAAAQT4HQqF5DUIAAAAAAAAAAD0AAABAAAAAAAAAAAAAAAC9AgAAV1SwAMqH3gJXVLAAyofeAgAAHwAAAAAA",
+      "location": [
+        11.555927,
+        48.138186
+      ],
+      "name": "Paul-Heyse-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "zNwggOHcIIBaAAAAhwAAABkAAAAAAAAAqV5JQTCNlUEXC2BAAAAAABYAAAAiAAAABgAAAAAAAAC9AgAASliwAAaF3gJKWLAABoXeAgIA_xAAAAAA",
+      "location": [
+        11.556938,
+        48.137478
+      ],
+      "name": "Schwanthalerstraße",
+      "distance": 0
+    }
+  ]
+}

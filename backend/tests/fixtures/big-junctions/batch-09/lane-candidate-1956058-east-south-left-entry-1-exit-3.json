@@ -1,0 +1,825 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              309864847,
+              309864846,
+              768427671,
+              509195230,
+              520345655,
+              372813509,
+              372811247,
+              8244572318,
+              372811252,
+              336237411,
+              9440348770,
+              768427669,
+              1653751802,
+              1217171135,
+              1217171076,
+              9440348772,
+              9440348773,
+              767274201,
+              372812901,
+              372813498,
+              372813501,
+              1653751765,
+              8297422427,
+              4012846412
+            ],
+            "distance": [
+              17.62771439,
+              21.65073772,
+              18.062372,
+              5.408544832,
+              4.382901225,
+              10.13610742,
+              10.53938325,
+              4.199873806,
+              7.082691689,
+              4.146976451,
+              3.66841751,
+              12.3648948,
+              12.65494654,
+              7.404443883,
+              6.638746011,
+              2.534965983,
+              2.831507987,
+              6.838283831,
+              16.24245058,
+              8.438240006,
+              5.943051114,
+              7.770801461,
+              54.81016066
+            ]
+          },
+          "duration": 110.3,
+          "summary": "Ungererstraße, Frankfurter Ring",
+          "weight": 248.4,
+          "distance": 251.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    271
+                  ],
+                  "location": [
+                    11.61186,
+                    48.185779
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61186,
+                    48.185779
+                  ],
+                  [
+                    11.611623,
+                    48.185781
+                  ],
+                  [
+                    11.611333,
+                    48.185764
+                  ],
+                  [
+                    11.611098,
+                    48.185723
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 271,
+                "bearing_before": 0,
+                "location": [
+                  11.61186,
+                  48.185779
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 20.7,
+              "duration": 14.6,
+              "distance": 57.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.611098,
+                    48.185723
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.611067,
+                    48.185767
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.611098,
+                    48.185723
+                  ],
+                  [
+                    11.611067,
+                    48.185767
+                  ],
+                  [
+                    11.611043,
+                    48.185803
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 334,
+                "bearing_before": 254,
+                "location": [
+                  11.611098,
+                  48.185723
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 19.3,
+              "duration": 9.5,
+              "distance": 9.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    285
+                  ],
+                  "location": [
+                    11.611043,
+                    48.185803
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.611111,
+                    48.185882
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.611217,
+                    48.185994
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.611043,
+                    48.185803
+                  ],
+                  [
+                    11.611111,
+                    48.185882
+                  ],
+                  [
+                    11.611187,
+                    48.185962
+                  ],
+                  [
+                    11.611217,
+                    48.185994
+                  ],
+                  [
+                    11.611276,
+                    48.186044
+                  ],
+                  [
+                    11.611307,
+                    48.186075
+                  ],
+                  [
+                    11.611295,
+                    48.186107
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 29,
+                "bearing_before": 334,
+                "location": [
+                  11.611043,
+                  48.185803
+                ],
+                "modifier": "right",
+                "type": "end of road"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 60.2,
+              "duration": 29.1,
+              "distance": 39.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.611295,
+                    48.186107
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.611133,
+                    48.186132
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.610967,
+                    48.186157
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.611295,
+                    48.186107
+                  ],
+                  [
+                    11.611133,
+                    48.186132
+                  ],
+                  [
+                    11.610967,
+                    48.186157
+                  ],
+                  [
+                    11.61087,
+                    48.186172
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 282,
+                "bearing_before": 16,
+                "location": [
+                  11.611295,
+                  48.186107
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Frankfurter Ring",
+              "mode": "cycling",
+              "weight": 43.2,
+              "duration": 22.2,
+              "distance": 32.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    225
+                  ],
+                  "location": [
+                    11.61087,
+                    48.186172
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.610754,
+                    48.186104
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.61071,
+                    48.18605
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    90,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.610597,
+                    48.185925
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.610541,
+                    48.185859
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    165,
+                    210,
+                    330
+                  ],
+                  "location": [
+                    11.610488,
+                    48.185819
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    345
+                  ],
+                  "location": [
+                    11.610432,
+                    48.18576
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61087,
+                    48.186172
+                  ],
+                  [
+                    11.610819,
+                    48.186123
+                  ],
+                  [
+                    11.610791,
+                    48.18611
+                  ],
+                  [
+                    11.610754,
+                    48.186104
+                  ],
+                  [
+                    11.61071,
+                    48.18605
+                  ],
+                  [
+                    11.610597,
+                    48.185925
+                  ],
+                  [
+                    11.610541,
+                    48.185859
+                  ],
+                  [
+                    11.610488,
+                    48.185819
+                  ],
+                  [
+                    11.610432,
+                    48.18576
+                  ],
+                  [
+                    11.610032,
+                    48.185346
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 222,
+                "bearing_before": 282,
+                "location": [
+                  11.61087,
+                  48.186172
+                ],
+                "modifier": "left",
+                "type": "end of road"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 105,
+              "duration": 34.9,
+              "distance": 112
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    33
+                  ],
+                  "location": [
+                    11.610032,
+                    48.185346
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610032,
+                    48.185346
+                  ],
+                  [
+                    11.610032,
+                    48.185346
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 213,
+                "location": [
+                  11.610032,
+                  48.185346
+                ],
+                "type": "arrive"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.61186,
+            48.185779
+          ],
+          [
+            11.611623,
+            48.185781
+          ],
+          [
+            11.611333,
+            48.185764
+          ],
+          [
+            11.611098,
+            48.185723
+          ],
+          [
+            11.611067,
+            48.185767
+          ],
+          [
+            11.611043,
+            48.185803
+          ],
+          [
+            11.611111,
+            48.185882
+          ],
+          [
+            11.611187,
+            48.185962
+          ],
+          [
+            11.611217,
+            48.185994
+          ],
+          [
+            11.611276,
+            48.186044
+          ],
+          [
+            11.611307,
+            48.186075
+          ],
+          [
+            11.611295,
+            48.186107
+          ],
+          [
+            11.611133,
+            48.186132
+          ],
+          [
+            11.610967,
+            48.186157
+          ],
+          [
+            11.61087,
+            48.186172
+          ],
+          [
+            11.610819,
+            48.186123
+          ],
+          [
+            11.610791,
+            48.18611
+          ],
+          [
+            11.610754,
+            48.186104
+          ],
+          [
+            11.61071,
+            48.18605
+          ],
+          [
+            11.610597,
+            48.185925
+          ],
+          [
+            11.610541,
+            48.185859
+          ],
+          [
+            11.610488,
+            48.185819
+          ],
+          [
+            11.610432,
+            48.18576
+          ],
+          [
+            11.610032,
+            48.185346
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 248.4,
+      "duration": 110.3,
+      "distance": 251.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "tPEFgJeIL4ArAAAADAAAAGMAAACNAAAAjwWNQfvWjkA62h5C_R5iQiMAAAAJAAAATwAAAHEAAAC9AgAA1C6xALNB3wLULrEAskHfAgQArwUAAAAA",
+      "location": [
+        11.61186,
+        48.185779
+      ],
+      "name": "",
+      "distance": 0.1111937254
+    },
+    {
+      "hint": "3YgvgP___3_zAAAANAIAAAAAAAAAAAAAmz1bQlH-j0IAAAAAAAAAAG0AAAD-AAAAAAAAAAAAAAC9AgAAsCexAAJA3wKwJ7EAAkDfAgAATw0AAAAA",
+      "location": [
+        11.610032,
+        48.185346
+      ],
+      "name": "Ungererstraße",
+      "distance": 0
+    }
+  ]
+}

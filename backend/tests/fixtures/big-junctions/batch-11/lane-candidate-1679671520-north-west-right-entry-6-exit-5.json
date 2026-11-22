@@ -1,0 +1,415 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1679671547,
+              2495602802,
+              11926336193,
+              1679671532,
+              11926336190,
+              2487367721,
+              2841445701,
+              1679671486,
+              4756090267,
+              254042953,
+              2822546205
+            ],
+            "distance": [
+              1.873032343,
+              48.49149996,
+              3.44475966,
+              6.030218336,
+              8.929834866,
+              11.09084341,
+              3.288190759,
+              13.78917502,
+              16.37077241,
+              24.83894487
+            ]
+          },
+          "duration": 61.6,
+          "summary": "Fraunhoferstraße, Auenstraße",
+          "weight": 109.1,
+          "distance": 138.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    141
+                  ],
+                  "location": [
+                    11.575603,
+                    48.128288
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575603,
+                    48.128288
+                  ],
+                  [
+                    11.575619,
+                    48.128275
+                  ],
+                  [
+                    11.576055,
+                    48.127951
+                  ],
+                  [
+                    11.576086,
+                    48.127928
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 141,
+                "bearing_before": 0,
+                "location": [
+                  11.575603,
+                  48.128288
+                ],
+                "type": "depart"
+              },
+              "name": "Fraunhoferstraße",
+              "mode": "cycling",
+              "weight": 62,
+              "duration": 34.6,
+              "distance": 53.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    195,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.576086,
+                    48.127928
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    150,
+                    330
+                  ],
+                  "location": [
+                    11.576063,
+                    48.127876
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.576113,
+                    48.127803
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576086,
+                    48.127928
+                  ],
+                  [
+                    11.576063,
+                    48.127876
+                  ],
+                  [
+                    11.576113,
+                    48.127803
+                  ],
+                  [
+                    11.576174,
+                    48.127712
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 195,
+                "bearing_before": 137,
+                "location": [
+                  11.576086,
+                  48.127928
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 33.7,
+              "duration": 16.2,
+              "distance": 26.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.576174,
+                    48.127712
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    120,
+                    225
+                  ],
+                  "location": [
+                    11.575821,
+                    48.127528
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.576174,
+                    48.127712
+                  ],
+                  [
+                    11.576133,
+                    48.127701
+                  ],
+                  [
+                    11.575989,
+                    48.127623
+                  ],
+                  [
+                    11.575821,
+                    48.127528
+                  ],
+                  [
+                    11.575561,
+                    48.127388
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 236,
+                "bearing_before": 154,
+                "location": [
+                  11.576174,
+                  48.127712
+                ],
+                "modifier": "right",
+                "type": "end of road"
+              },
+              "name": "Auenstraße",
+              "mode": "cycling",
+              "weight": 13.4,
+              "duration": 10.8,
+              "distance": 58.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    51
+                  ],
+                  "location": [
+                    11.575561,
+                    48.127388
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575561,
+                    48.127388
+                  ],
+                  [
+                    11.575561,
+                    48.127388
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 231,
+                "location": [
+                  11.575561,
+                  48.127388
+                ],
+                "type": "arrive"
+              },
+              "name": "Wittelsbacherstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.575603,
+            48.128288
+          ],
+          [
+            11.575619,
+            48.128275
+          ],
+          [
+            11.576055,
+            48.127951
+          ],
+          [
+            11.576086,
+            48.127928
+          ],
+          [
+            11.576063,
+            48.127876
+          ],
+          [
+            11.576113,
+            48.127803
+          ],
+          [
+            11.576174,
+            48.127712
+          ],
+          [
+            11.576133,
+            48.127701
+          ],
+          [
+            11.575989,
+            48.127623
+          ],
+          [
+            11.575821,
+            48.127528
+          ],
+          [
+            11.575561,
+            48.127388
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 109.1,
+      "duration": 61.6,
+      "distance": 138.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "grgggP___38VAAAAGgAAAAAAAAAAAAAAN0QaQYa_7z8AAAAAAAAAABEAAAAVAAAAAAAAAAAAAAC9AgAAM6GwACBh3gIzobAAIGHeAgAAvwgAAAAA",
+      "location": [
+        11.575603,
+        48.128288
+      ],
+      "name": "Fraunhoferstraße",
+      "distance": 0
+    },
+    {
+      "hint": "QQUEgNEFBIA3AAAAwwAAAAAAAAAAAAAAKbbGQTS8rEIAAAAAAAAAACwAAACcAAAAAAAAAAAAAAC9AgAACaGwAJxd3gIJobAAnF3eAgAAfw4AAAAA",
+      "location": [
+        11.575561,
+        48.127388
+      ],
+      "name": "Wittelsbacherstraße",
+      "distance": 0
+    }
+  ]
+}

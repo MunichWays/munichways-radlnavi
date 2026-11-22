@@ -86,7 +86,7 @@ function action(row: PreviewRow, compact = false): string {
   }
   const name = (row.step.name || '').trim().replace(/\s+/g, ' ');
   if (!compact && wayType(row.step) === 'road' && name) {
-    return `${text}, ${name.toLowerCase().endsWith('platz') ? 'auf' : 'in'} ${name}`;
+    return `${text}, ${/(ring|platz|weg|brücke|damm)$/i.test(name) ? 'auf' : 'in'} ${name}`;
   }
   return text + (row.detectedWayType ? `, auf ${row.detectedWayType === 'road' ? 'Straße' : 'Radweg'}` : '');
 }
@@ -117,8 +117,17 @@ export function appGuidancePreview(route: any, raw: PreviewRow[]) {
       text = 'Keine reguläre Abbiegeansage (gefiltertes Manöver).';
     } else {
       const next = maneuvers[maneuvers.indexOf(row) + 1];
-      const close = next && next.at > row.at && next.at - row.at <= 35;
-      speech = `Hier ${action(row, !!close)}${close ? `, danach sofort ${action(next, true)}` : ''}.`;
+      const nextJunction = approved.filter(j => j.legIndex === row.legIndex &&
+        j.entry.distanceAlongRouteMeters > row.at && (!next || j.entry.distanceAlongRouteMeters <= next.at))
+        .sort((a,b) => a.entry.distanceAlongRouteMeters - b.entry.distanceAlongRouteMeters)[0];
+      const gap = (nextJunction?.entry.distanceAlongRouteMeters ?? next?.at ?? Infinity) - row.at;
+      const linked = gap > 0 && gap <= 75;
+      const close = linked && !nextJunction && gap <= 35;
+      const following = nextJunction ? sentence(nextJunction.instruction?.advance.de || nextJunction.sequence?.advance.de ||
+        (nextJunction.movement === 'straight' ? 'an der großen Kreuzung geradeaus fahren' : 'an der großen Kreuzung links abbiegen'))
+        .replace(/[.!?]+$/, '') : next ? action(next,true) : '';
+      const followingAction = following.charAt(0).toLowerCase() + following.slice(1);
+      speech = `Hier ${action(row, close)}${linked ? `, danach ${close ? 'sofort ' : ''}${followingAction}` : ''}.`;
       text = `60 m / hier ${speech.slice('Hier '.length)}`;
     }
     return { ...row, appInstruction: text, appSpeech: speech };

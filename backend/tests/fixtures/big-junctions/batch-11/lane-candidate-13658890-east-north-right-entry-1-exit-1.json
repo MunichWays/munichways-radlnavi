@@ -1,0 +1,327 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              13354242924,
+              2813930181,
+              4561539535,
+              635333877,
+              4836434501,
+              4836434500,
+              635333878
+            ],
+            "distance": [
+              11.17540271,
+              37.57826724,
+              8.451053324,
+              19.33345913,
+              18.44858437,
+              20.90478628
+            ]
+          },
+          "duration": 27.4,
+          "summary": "Frankfurter Ring, Schleißheimer Straße",
+          "weight": 60,
+          "distance": 115.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    263
+                  ],
+                  "location": [
+                    11.567057,
+                    48.187373
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.566908,
+                    48.18736
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567057,
+                    48.187373
+                  ],
+                  [
+                    11.566908,
+                    48.18736
+                  ],
+                  [
+                    11.566405,
+                    48.187328
+                  ],
+                  [
+                    11.566292,
+                    48.18732
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 263,
+                "bearing_before": 0,
+                "location": [
+                  11.567057,
+                  48.187373
+                ],
+                "type": "depart"
+              },
+              "name": "Frankfurter Ring",
+              "mode": "cycling",
+              "weight": 34,
+              "duration": 15.7,
+              "distance": 57.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.566292,
+                    48.18732
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    83,
+                    174,
+                    353,
+                    354
+                  ],
+                  "location": [
+                    11.566266,
+                    48.187493
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    165,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.56624,
+                    48.187658
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566292,
+                    48.18732
+                  ],
+                  [
+                    11.566266,
+                    48.187493
+                  ],
+                  [
+                    11.56624,
+                    48.187658
+                  ],
+                  [
+                    11.566211,
+                    48.187845
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 352,
+                "bearing_before": 262,
+                "location": [
+                  11.566292,
+                  48.18732
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Schleißheimer Straße",
+              "mode": "cycling",
+              "weight": 26,
+              "duration": 11.7,
+              "distance": 58.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    174
+                  ],
+                  "location": [
+                    11.566211,
+                    48.187845
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566211,
+                    48.187845
+                  ],
+                  [
+                    11.566211,
+                    48.187845
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 354,
+                "location": [
+                  11.566211,
+                  48.187845
+                ],
+                "type": "arrive"
+              },
+              "name": "Schleißheimer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.567057,
+            48.187373
+          ],
+          [
+            11.566908,
+            48.18736
+          ],
+          [
+            11.566405,
+            48.187328
+          ],
+          [
+            11.566292,
+            48.18732
+          ],
+          [
+            11.566266,
+            48.187493
+          ],
+          [
+            11.56624,
+            48.187658
+          ],
+          [
+            11.566211,
+            48.187845
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 60,
+      "duration": 27.4,
+      "distance": 115.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "mY4vgP___39YAAAAigAAAAAAAAAAAAAAF0qeQXPOMkEAAAAAAAAAACcAAAA-AAAAAAAAAAAAAAC9AgAA0X-wAO1H3wLRf7AA7UffAgAAbxAAAAAA",
+      "location": [
+        11.567057,
+        48.187373
+      ],
+      "name": "Frankfurter Ring",
+      "distance": 0
+    },
+    {
+      "hint": "9ZQvgP___39cAAAAkQAAAAAAAAAAAAAAAT2nQfHFO0EAAAAAAAAAACkAAABBAAAAAAAAAAAAAAC9AgAAg3ywAMVJ3wKDfLAAxUnfAgAALxYAAAAA",
+      "location": [
+        11.566211,
+        48.187845
+      ],
+      "name": "Schleißheimer Straße",
+      "distance": 0
+    }
+  ]
+}

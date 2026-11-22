@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RouteInspector, { listSteps } from './RouteInspector';
 import wilram from './testFixtures/wilram-sequence.json';
@@ -74,8 +74,10 @@ test('uses the map route immediately and passes its exact step to the map', () =
   expect(screen.getByText('turn / right')).toBeInTheDocument();
   expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
   expect(screen.queryByText('Aktuelle Kartenroute \u00fcbernehmen')).not.toBeInTheDocument();
-  expect(screen.getByRole('link', { name: 'Kreuzungs\u00fcbersicht' })).toHaveAttribute(
-    'href', '/docs/large-junction-analysis/kreuzungspruefung/index.html');
+  const reviewLink = screen.getByRole('link', { name: 'Kreuzungspr\u00fcfung' });
+  expect(reviewLink).toHaveAttribute('href', '/kreuzungspruefung/');
+  expect(reviewLink).toHaveAttribute('target', '_blank');
+  expect(reviewLink).toHaveAttribute('rel', 'noopener noreferrer');
   fireEvent.click(screen.getByText('Hinweis 2 auf Karte'));
   expect(onMap).toHaveBeenCalledWith(steps[1]);
   expect(onClose).not.toHaveBeenCalled();
@@ -176,10 +178,33 @@ test('window can be moved with the keyboard and minimized without closing', () =
   const previousLeft = parseInt(dialog.style.left, 10);
   fireEvent.keyDown(screen.getByLabelText('Prüffenster verschieben, auch mit Pfeiltasten'), { key: 'ArrowRight' });
   expect(parseInt(dialog.style.left, 10)).toBe(previousLeft + 20);
-  expect(dialog.style.resize).toBe('both');
+  const resize = screen.getByRole('button', { name: 'Fenstergröße ändern' });
+  fireEvent.keyDown(resize, { key: 'ArrowRight' });
+  fireEvent.keyDown(resize, { key: 'ArrowDown' });
+  expect(dialog.style.width).toBe('580px');
+  expect(dialog.style.height).toBe('640px');
   fireEvent.click(screen.getByText('Verkleinern'));
   expect(screen.getByText('Bitte zuerst eine Route auf der Karte berechnen.')).not.toBeVisible();
   expect(onClose).not.toHaveBeenCalled();
   fireEvent.click(screen.getByText('Öffnen'));
   expect(screen.getByText('Bitte zuerst eine Route auf der Karte berechnen.')).toBeVisible();
+  expect(dialog.style.width).toBe('580px');
+  expect(dialog.style.height).toBe('640px');
+});
+
+test('each row leads with bold app speech, plain app hint and then RadlNavi', () => {
+  const route = wilram.routes[0];
+  render(<RouteInspector open onClose={jest.fn()} onMap={jest.fn()} route={route} variant="standard" />);
+  const rows = appGuidancePreview(route, listSteps(route)).rows;
+  const items = screen.getAllByRole('listitem');
+  items.forEach((item, index) => {
+    const speech = within(item).getByText(`App-Ansage: ${rows[index].appSpeech || 'Keine Ansage.'}`);
+    expect(speech.tagName).toBe('STRONG');
+    const paragraphs = Array.from(item.querySelectorAll(':scope > p'));
+    expect(paragraphs[0]).toContainElement(speech);
+    expect(paragraphs[1].textContent).toMatch(/^App-Hinweis:/);
+    expect(paragraphs[1].querySelector('strong')).toBeNull();
+    expect(paragraphs[2].textContent).toMatch(/^RadlNavi:/);
+    expect(paragraphs[2].querySelector('strong')).toBeNull();
+  });
 });

@@ -1,0 +1,379 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4075664787,
+              4075664784,
+              1493497973,
+              3787585880,
+              3747498620,
+              3747498619,
+              2587201188,
+              3701499468,
+              1670275588,
+              2587029234,
+              2587029232,
+              2587029230
+            ],
+            "distance": [
+              33.61618176,
+              14.28993962,
+              5.424503859,
+              5.045510691,
+              7.794212909,
+              11.1811272,
+              3.21150779,
+              3.479133438,
+              20.87480063,
+              20.35173926,
+              5.421886298
+            ]
+          },
+          "duration": 28.8,
+          "summary": "Sankt-Bonifatius-Straße, Tegernseer Landstraße",
+          "weight": 85.4,
+          "distance": 130.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    117
+                  ],
+                  "location": [
+                    11.58273,
+                    48.119344
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    135,
+                    300
+                  ],
+                  "location": [
+                    11.583291,
+                    48.119134
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.58273,
+                    48.119344
+                  ],
+                  [
+                    11.583131,
+                    48.119205
+                  ],
+                  [
+                    11.583291,
+                    48.119134
+                  ],
+                  [
+                    11.583346,
+                    48.119102
+                  ],
+                  [
+                    11.583378,
+                    48.119062
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 117,
+                "bearing_before": 0,
+                "location": [
+                  11.58273,
+                  48.119344
+                ],
+                "type": "depart"
+              },
+              "name": "Sankt-Bonifatius-Straße",
+              "mode": "cycling",
+              "weight": 25.7,
+              "duration": 12,
+              "distance": 58.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    195,
+                    315
+                  ],
+                  "location": [
+                    11.583378,
+                    48.119062
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.583378,
+                    48.119062
+                  ],
+                  [
+                    11.583457,
+                    48.119016
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 130,
+                "bearing_before": 140,
+                "location": [
+                  11.583378,
+                  48.119062
+                ],
+                "modifier": "straight",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 10.7,
+              "duration": 5.2,
+              "distance": 7.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.583457,
+                    48.119016
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.583457,
+                    48.119016
+                  ],
+                  [
+                    11.583368,
+                    48.118935
+                  ],
+                  [
+                    11.583344,
+                    48.118911
+                  ],
+                  [
+                    11.583318,
+                    48.118885
+                  ],
+                  [
+                    11.583162,
+                    48.118729
+                  ],
+                  [
+                    11.583024,
+                    48.118571
+                  ],
+                  [
+                    11.582987,
+                    48.118529
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 215,
+                "bearing_before": 130,
+                "location": [
+                  11.583457,
+                  48.119016
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Tegernseer Landstraße",
+              "mode": "cycling",
+              "weight": 49,
+              "duration": 11.6,
+              "distance": 64.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    31
+                  ],
+                  "location": [
+                    11.582987,
+                    48.118529
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.582987,
+                    48.118529
+                  ],
+                  [
+                    11.582987,
+                    48.118529
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 211,
+                "location": [
+                  11.582987,
+                  48.118529
+                ],
+                "type": "arrive"
+              },
+              "name": "Tegernseer Landstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.58273,
+            48.119344
+          ],
+          [
+            11.583131,
+            48.119205
+          ],
+          [
+            11.583291,
+            48.119134
+          ],
+          [
+            11.583346,
+            48.119102
+          ],
+          [
+            11.583378,
+            48.119062
+          ],
+          [
+            11.583457,
+            48.119016
+          ],
+          [
+            11.583368,
+            48.118935
+          ],
+          [
+            11.583344,
+            48.118911
+          ],
+          [
+            11.583318,
+            48.118885
+          ],
+          [
+            11.583162,
+            48.118729
+          ],
+          [
+            11.583024,
+            48.118571
+          ],
+          [
+            11.582987,
+            48.118529
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 85.4,
+      "duration": 28.8,
+      "distance": 130.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "3pMAgP___3-RAAAAJwEAABoAAABAAAAAxK0CQvh2BkJdZ71AmKNkQUEAAACFAAAADAAAAB0AAAC9AgAACr2wADA-3gIKvbAAMD7eAgIAXwcAAAAA",
+      "location": [
+        11.58273,
+        48.119344
+      ],
+      "name": "Sankt-Bonifatius-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "m8QZgP___38mAAAAVwAAAAAAAAAMAgAAGICtQDLW1UAAAAAAqbaRQgkAAAAWAAAAAAAAAIMAAAC9AgAAC76wAAE73gILvrAAATveAgAALw0AAAAA",
+      "location": [
+        11.582987,
+        48.118529
+      ],
+      "name": "Tegernseer Landstraße",
+      "distance": 0
+    }
+  ]
+}

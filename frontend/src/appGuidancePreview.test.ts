@@ -6,6 +6,37 @@ import excluded from './testFixtures/k21-excluded.json';
 import k24Left from './testFixtures/k24-west-north-left-entry-4-exit-6.json';
 import k24Standard from './testFixtures/k24-west-north-left-entry-4-exit-1.json';
 import k24Straight from './testFixtures/k24-north-south-straight-entry-1-exit-3.json';
+import kobell from './testFixtures/kobell-following-junction.json';
+import weissensee from './testFixtures/weissensee-medium-turns.json';
+
+test('medium turn warns about the next turn without immediately', () => {
+  const route:any=weissensee.routes[0];
+  const rows=appGuidancePreview(route,listSteps(route)).rows;
+  expect(rows.find(r=>r.step.name==='Untersbergstraße')?.appSpeech)
+    .toBe('Hier links abbiegen, in Untersbergstraße, danach rechts.');
+});
+
+test('nearby large junction is named explicitly in the preceding turn', () => {
+  const route:any=kobell.routes[0];
+  const rows=appGuidancePreview(route,listSteps(route)).rows;
+  expect(rows.find(r=>r.step.name==='Herzog-Heinrich-Straße')?.appSpeech)
+    .toContain('danach an der großen Kreuzung geradeaus fahren');
+  expect(rows.find(r=>r.step.name==='Herzog-Heinrich-Straße')?.appSpeech)
+    .not.toContain('sofort');
+});
+
+test.each([
+  ['Bavariaring', 'auf'], ['Georg-Brauchle-Ring', 'auf'],
+  ['Maximiliansplatz', 'auf'], ['Birketweg', 'auf'],
+  ['Donnersbergerbrücke', 'auf'], ['Isardamm', 'auf'],
+  ['Landshuter Allee', 'in'], ['Landsberger Straße', 'in'], ['Rosengasse', 'in'],
+])('street preposition for %s', (name, preposition) => {
+  const route: any = {legs:[{steps:[{name:`  ${name}  `,distance:100,mode:'cycling',
+    maneuver:{type:'turn',modifier:'left',location:[11.57,48.14]},
+    intersections:[{classes:['road']}]}]}]};
+  const result = appGuidancePreview(route,listSteps(route));
+  expect(result.rows[0].appSpeech).toBe(`Hier links abbiegen, ${preposition} ${name}.`);
+});
 
 test('K24 reverse-side templates use backend text while right-side left remains standard', () => {
   for (const data of [k24Left, k24Straight]) {

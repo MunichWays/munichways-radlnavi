@@ -1,0 +1,330 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2587029236,
+              2587029241,
+              2587029238,
+              9501213268,
+              2587029242,
+              3701499459,
+              1506641627,
+              261605716,
+              3701499456,
+              261605717
+            ],
+            "distance": [
+              8.556469884,
+              9.412678844,
+              6.839868793,
+              21.78588632,
+              6.155389929,
+              11.99281234,
+              9.713929579,
+              11.21732629,
+              50.75951664
+            ]
+          },
+          "duration": 54.7,
+          "summary": "Tegernseer Landstraße",
+          "weight": 134.8,
+          "distance": 136.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    35
+                  ],
+                  "location": [
+                    11.583093,
+                    48.118459
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.583093,
+                    48.118459
+                  ],
+                  [
+                    11.583159,
+                    48.118522
+                  ],
+                  [
+                    11.58324,
+                    48.118587
+                  ],
+                  [
+                    11.583301,
+                    48.118633
+                  ],
+                  [
+                    11.583472,
+                    48.118792
+                  ],
+                  [
+                    11.583518,
+                    48.118838
+                  ],
+                  [
+                    11.583609,
+                    48.118927
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 35,
+                "bearing_before": 0,
+                "location": [
+                  11.583093,
+                  48.118459
+                ],
+                "type": "depart"
+              },
+              "name": "Tegernseer Landstraße",
+              "mode": "cycling",
+              "weight": 101.2,
+              "duration": 39.1,
+              "distance": 64.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.583609,
+                    48.118927
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    120,
+                    255,
+                    300
+                  ],
+                  "location": [
+                    11.583716,
+                    48.118877
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.583853,
+                    48.118835
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.583609,
+                    48.118927
+                  ],
+                  [
+                    11.583716,
+                    48.118877
+                  ],
+                  [
+                    11.583853,
+                    48.118835
+                  ],
+                  [
+                    11.584477,
+                    48.118651
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 123,
+                "bearing_before": 33,
+                "location": [
+                  11.583609,
+                  48.118927
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 33.6,
+              "duration": 15.6,
+              "distance": 71.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    294
+                  ],
+                  "location": [
+                    11.584477,
+                    48.118651
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584477,
+                    48.118651
+                  ],
+                  [
+                    11.584477,
+                    48.118651
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 114,
+                "location": [
+                  11.584477,
+                  48.118651
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.583093,
+            48.118459
+          ],
+          [
+            11.583159,
+            48.118522
+          ],
+          [
+            11.58324,
+            48.118587
+          ],
+          [
+            11.583301,
+            48.118633
+          ],
+          [
+            11.583472,
+            48.118792
+          ],
+          [
+            11.583518,
+            48.118838
+          ],
+          [
+            11.583609,
+            48.118927
+          ],
+          [
+            11.583716,
+            48.118877
+          ],
+          [
+            11.583853,
+            48.118835
+          ],
+          [
+            11.584477,
+            48.118651
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 134.8,
+      "duration": 54.7,
+      "distance": 136.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ksQZgP___39GAAAAhAAAANgAAABEAAAAXtocQU3nCEEVhu9BVZoWQREAAAAhAAAANgAAABEAAAC9AgAAdb6wALs63gJ1vrAAuzreAgYAPwIAAAAA",
+      "location": [
+        11.583093,
+        48.118459
+      ],
+      "name": "Tegernseer Landstraße",
+      "distance": 0
+    },
+    {
+      "hint": "qcQZgP___3_6AAAAQQEAAAAAAAALAQAAvwlLQmckZUEAAAAAEwdYQnEAAACRAAAAAAAAAHgAAAC9AgAA3cOwAHs73gLdw7AAezveAgAAHwcAAAAA",
+      "location": [
+        11.584477,
+        48.118651
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              54792817,
+              9672781542,
+              372815639,
+              21495321,
+              660693962,
+              1955603,
+              372811175,
+              11100005487,
+              1026310433,
+              11100005477,
+              11100005479,
+              372811179
+            ],
+            "distance": [
+              56.07115452,
+              9.767460866,
+              5.93730026,
+              3.714253225,
+              5.812382613,
+              4.516891602,
+              5.833419895,
+              20.52936723,
+              0.5797472631,
+              0.5350937353,
+              47.51724161
+            ]
+          },
+          "duration": 61.8,
+          "summary": "Potsdamer Straße, Ungererstraße",
+          "weight": 151.6,
+          "distance": 160.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    124
+                  ],
+                  "location": [
+                    11.589454,
+                    48.167008
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590252,
+                    48.166645
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590356,
+                    48.166595
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589454,
+                    48.167008
+                  ],
+                  [
+                    11.590078,
+                    48.166725
+                  ],
+                  [
+                    11.590187,
+                    48.166676
+                  ],
+                  [
+                    11.590252,
+                    48.166645
+                  ],
+                  [
+                    11.590292,
+                    48.166625
+                  ],
+                  [
+                    11.590356,
+                    48.166595
+                  ],
+                  [
+                    11.590405,
+                    48.166571
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 124,
+                "bearing_before": 0,
+                "location": [
+                  11.589454,
+                  48.167008
+                ],
+                "type": "depart"
+              },
+              "name": "Potsdamer Straße",
+              "mode": "cycling",
+              "weight": 118.3,
+              "duration": 46.8,
+              "distance": 85.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.590405,
+                    48.166571
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.590452,
+                    48.166613
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    165,
+                    210
+                  ],
+                  "location": [
+                    11.590615,
+                    48.166762
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    225
+                  ],
+                  "location": [
+                    11.59062,
+                    48.166766
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590405,
+                    48.166571
+                  ],
+                  [
+                    11.590452,
+                    48.166613
+                  ],
+                  [
+                    11.590615,
+                    48.166762
+                  ],
+                  [
+                    11.59062,
+                    48.166766
+                  ],
+                  [
+                    11.590624,
+                    48.16677
+                  ],
+                  [
+                    11.591013,
+                    48.167109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 36,
+                "bearing_before": 125,
+                "location": [
+                  11.590405,
+                  48.166571
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 33.3,
+              "duration": 15,
+              "distance": 75
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    218
+                  ],
+                  "location": [
+                    11.591013,
+                    48.167109
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.591013,
+                    48.167109
+                  ],
+                  [
+                    11.591013,
+                    48.167109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 38,
+                "location": [
+                  11.591013,
+                  48.167109
+                ],
+                "type": "arrive"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.589454,
+            48.167008
+          ],
+          [
+            11.590078,
+            48.166725
+          ],
+          [
+            11.590187,
+            48.166676
+          ],
+          [
+            11.590252,
+            48.166645
+          ],
+          [
+            11.590292,
+            48.166625
+          ],
+          [
+            11.590356,
+            48.166595
+          ],
+          [
+            11.590405,
+            48.166571
+          ],
+          [
+            11.590452,
+            48.166613
+          ],
+          [
+            11.590615,
+            48.166762
+          ],
+          [
+            11.59062,
+            48.166766
+          ],
+          [
+            11.590624,
+            48.16677
+          ],
+          [
+            11.591013,
+            48.167109
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 151.6,
+      "duration": 61.8,
+      "distance": 160.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "UeoFgO5XL4CcAAAAlAEAAAAAAACcAQAA15atQd1IYEIAAAAAhUccQScAAABlAAAAAAAAAL0AAAC9AgAATtewAGD43gJO17AAYPjeAgAAzwcAAAAA",
+      "location": [
+        11.589454,
+        48.167008
+      ],
+      "name": "Potsdamer Straße",
+      "distance": 0
+    },
+    {
+      "hint": "pFgvgP___3_TAAAAlAEAAAIAAAAAAAAAqBE-QtGBLULn-wg_AAAAAF8AAAC2AAAAAQAAAAAAAAC9AgAAZd2wAMX43gJl3bAAxfjeAgIAXwIAAAAA",
+      "location": [
+        11.591013,
+        48.167109
+      ],
+      "name": "Ungererstraße",
+      "distance": 0
+    }
+  ]
+}

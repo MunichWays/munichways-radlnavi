@@ -1,0 +1,574 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1262615041,
+              993872159,
+              3181526476,
+              993732546,
+              993732539,
+              1045644471,
+              1045830323,
+              1128590912,
+              1128590944,
+              1045830584,
+              4510806350,
+              1045830393,
+              3563822398,
+              10653940194,
+              3097970508,
+              1875979397
+            ],
+            "distance": [
+              58.62001233,
+              3.570613714,
+              5.259864729,
+              11.85415317,
+              9.031565934,
+              7.94178585,
+              7.357540535,
+              3.924500681,
+              6.898188885,
+              9.997517352,
+              3.328440452,
+              5.161739864,
+              19.91841535,
+              4.2523438,
+              25.81950759
+            ]
+          },
+          "duration": 77.5,
+          "summary": "Englschalkinger Straße",
+          "weight": 152.3,
+          "distance": 182.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    273
+                  ],
+                  "location": [
+                    11.630481,
+                    48.153322
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.630481,
+                    48.153322
+                  ],
+                  [
+                    11.629694,
+                    48.153351
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 273,
+                "bearing_before": 0,
+                "location": [
+                  11.630481,
+                  48.153322
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 23.6,
+              "duration": 16.2,
+              "distance": 58.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    240
+                  ],
+                  "location": [
+                    11.629694,
+                    48.153351
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.629706,
+                    48.15343
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.629723,
+                    48.153536
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.629694,
+                    48.153351
+                  ],
+                  [
+                    11.629698,
+                    48.153383
+                  ],
+                  [
+                    11.629706,
+                    48.15343
+                  ],
+                  [
+                    11.629723,
+                    48.153536
+                  ],
+                  [
+                    11.629744,
+                    48.153616
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 5,
+                "bearing_before": 272,
+                "location": [
+                  11.629694,
+                  48.153351
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 55.4,
+              "duration": 26.9,
+              "distance": 29.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.629744,
+                    48.153616
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.629639,
+                    48.153629
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.629399,
+                    48.15366
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    240
+                  ],
+                  "location": [
+                    11.629267,
+                    48.153677
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.629226,
+                    48.153665
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.629157,
+                    48.15367
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.62889,
+                    48.153684
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.629744,
+                    48.153616
+                  ],
+                  [
+                    11.629639,
+                    48.153629
+                  ],
+                  [
+                    11.629542,
+                    48.153642
+                  ],
+                  [
+                    11.62949,
+                    48.153648
+                  ],
+                  [
+                    11.629399,
+                    48.15366
+                  ],
+                  [
+                    11.629267,
+                    48.153677
+                  ],
+                  [
+                    11.629226,
+                    48.153665
+                  ],
+                  [
+                    11.629157,
+                    48.15367
+                  ],
+                  [
+                    11.62889,
+                    48.153684
+                  ],
+                  [
+                    11.628833,
+                    48.153687
+                  ],
+                  [
+                    11.628487,
+                    48.153706
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 279,
+                "bearing_before": 9,
+                "location": [
+                  11.629744,
+                  48.153616
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Englschalkinger Straße",
+              "mode": "cycling",
+              "weight": 73.3,
+              "duration": 34.4,
+              "distance": 94.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    95
+                  ],
+                  "location": [
+                    11.628487,
+                    48.153706
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.628487,
+                    48.153706
+                  ],
+                  [
+                    11.628487,
+                    48.153706
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 275,
+                "location": [
+                  11.628487,
+                  48.153706
+                ],
+                "type": "arrive"
+              },
+              "name": "Englschalkinger Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.630481,
+            48.153322
+          ],
+          [
+            11.629694,
+            48.153351
+          ],
+          [
+            11.629698,
+            48.153383
+          ],
+          [
+            11.629706,
+            48.15343
+          ],
+          [
+            11.629723,
+            48.153536
+          ],
+          [
+            11.629744,
+            48.153616
+          ],
+          [
+            11.629639,
+            48.153629
+          ],
+          [
+            11.629542,
+            48.153642
+          ],
+          [
+            11.62949,
+            48.153648
+          ],
+          [
+            11.629399,
+            48.15366
+          ],
+          [
+            11.629267,
+            48.153677
+          ],
+          [
+            11.629226,
+            48.153665
+          ],
+          [
+            11.629157,
+            48.15367
+          ],
+          [
+            11.62889,
+            48.153684
+          ],
+          [
+            11.628833,
+            48.153687
+          ],
+          [
+            11.628487,
+            48.153706
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 152.3,
+      "duration": 77.5,
+      "distance": 182.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "yXcAgMWsFYCSAAAAbwAAAAAAAAB_AAAA5XpqQtuuMEIAAAAAcSVLQnUAAABZAAAAAAAAAGYAAAC9AgAAkXexAOrC3gKRd7EA6sLeAgAA3wUAAAAA",
+      "location": [
+        11.630481,
+        48.153322
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "MNoVgP___39_AAAA6gAAABUAAACJAwAAWo7OQY3fq0EzE4hAQmk3QzkAAABpAAAACQAAAJgBAAC9AgAAx2-xAGrE3gLHb7EAasTeAgIALxEAAAAA",
+      "location": [
+        11.628487,
+        48.153706
+      ],
+      "name": "Englschalkinger Straße",
+      "distance": 0
+    }
+  ]
+}

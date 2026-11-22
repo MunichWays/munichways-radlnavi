@@ -22,6 +22,11 @@ if (fs.existsSync(source)) {
       copy(path.join(source, entry.name), path.join(target, entry.name));
     }
   }
+  // Public priority overview; no frozen routing or OSM extracts are published.
+  for (const name of ['outgoing-lanes-munich.html', 'outgoing-lanes-munich-inventory.json']) {
+    const from = path.join(source, name);
+    if (fs.existsSync(from)) fs.copyFileSync(from, path.join(target, name));
+  }
   // The first review gallery links its public release notes.
   fs.copyFileSync(path.join(source, 'review-batch-01-release.md'),
     path.join(target, 'review-batch-01-release.md'));
@@ -29,3 +34,11 @@ if (fs.existsSync(source)) {
   throw new Error('Junction review pages must be staged before the frontend Docker build.');
 }
 console.log('Junction review pages available under /docs/large-junction-analysis/.');
+const publicMap = path.join(frontend, 'public/kreuzungspruefung/data.json');
+const publicSnapshot = path.join(source, 'public-junction-review.json');
+if (fs.existsSync(publicSnapshot)) {
+  fs.mkdirSync(path.dirname(publicMap), {recursive: true});
+  fs.copyFileSync(publicSnapshot, publicMap);
+} else if (!fs.existsSync(publicMap)) {
+  throw new Error('Public junction map snapshot must be staged before the Docker build.');
+}

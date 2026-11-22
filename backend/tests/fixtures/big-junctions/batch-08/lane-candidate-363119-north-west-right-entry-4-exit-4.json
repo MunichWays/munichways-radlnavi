@@ -1,0 +1,341 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              11162837643,
+              2344668044,
+              13798939631,
+              1191041971,
+              1403497793,
+              7117579494,
+              268858478,
+              1191041958,
+              1022280999
+            ],
+            "distance": [
+              10.56567225,
+              20.6009463,
+              15.3705824,
+              14.9223152,
+              2.536335644,
+              1.077047794,
+              40.02181043,
+              13.96057589
+            ]
+          },
+          "duration": 43.9,
+          "summary": "Aschheimer Straße, Anzinger Straße",
+          "weight": 81,
+          "distance": 119.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    179
+                  ],
+                  "location": [
+                    11.612746,
+                    48.12158
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.612734,
+                    48.1213
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    210
+                  ],
+                  "location": [
+                    11.612711,
+                    48.121028
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.612746,
+                    48.12158
+                  ],
+                  [
+                    11.612749,
+                    48.121485
+                  ],
+                  [
+                    11.612734,
+                    48.1213
+                  ],
+                  [
+                    11.612722,
+                    48.121162
+                  ],
+                  [
+                    11.612711,
+                    48.121028
+                  ],
+                  [
+                    11.612702,
+                    48.121006
+                  ],
+                  [
+                    11.612692,
+                    48.120999
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 179,
+                "bearing_before": 0,
+                "location": [
+                  11.612746,
+                  48.12158
+                ],
+                "type": "depart"
+              },
+              "name": "Aschheimer Straße",
+              "mode": "cycling",
+              "weight": 57,
+              "duration": 33.2,
+              "distance": 65.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.612692,
+                    48.120999
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    105,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.612159,
+                    48.121046
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.612692,
+                    48.120999
+                  ],
+                  [
+                    11.612159,
+                    48.121046
+                  ],
+                  [
+                    11.611973,
+                    48.121062
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 277,
+                "bearing_before": 202,
+                "location": [
+                  11.612692,
+                  48.120999
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 24,
+              "duration": 10.7,
+              "distance": 54
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    97
+                  ],
+                  "location": [
+                    11.611973,
+                    48.121062
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.611973,
+                    48.121062
+                  ],
+                  [
+                    11.611973,
+                    48.121062
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 277,
+                "location": [
+                  11.611973,
+                  48.121062
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.612746,
+            48.12158
+          ],
+          [
+            11.612749,
+            48.121485
+          ],
+          [
+            11.612734,
+            48.1213
+          ],
+          [
+            11.612722,
+            48.121162
+          ],
+          [
+            11.612711,
+            48.121028
+          ],
+          [
+            11.612702,
+            48.121006
+          ],
+          [
+            11.612692,
+            48.120999
+          ],
+          [
+            11.612159,
+            48.121046
+          ],
+          [
+            11.611973,
+            48.121062
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 81,
+      "duration": 43.9,
+      "distance": 119.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "97MZgP___39wAAAAiwAAAAAAAACKAQAAgiw0Qv4MKUEAAAAAvc6kQVkAAABvAAAAAAAAANQAAAC9AgAASjKxAOxG3gJKMrEA7EbeAgAALwsAAAAA",
+      "location": [
+        11.612746,
+        48.12158
+      ],
+      "name": "Aschheimer Straße",
+      "distance": 0
+    },
+    {
+      "hint": "tl4ZgP___38-AAAApAEAAAAAAAAAAAAAhV5fQeAeoUIAAAAAAAAAABsAAAC9AAAAAAAAAAAAAAC9AgAARS-xAOZE3gJFL7EA5kTeAgAAXxEAAAAA",
+      "location": [
+        11.611973,
+        48.121062
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              410314122,
+              1132189825,
+              3707107298,
+              3745668078,
+              3707107290,
+              1132189823,
+              410314123,
+              3707107271,
+              3970680081,
+              3707107269,
+              10767849167,
+              2434351170,
+              2434351325
+            ],
+            "distance": [
+              5.468548611,
+              2.567166462,
+              17.90961634,
+              1.891742178,
+              23.14533924,
+              11.04606974,
+              4.5792771,
+              2.774586833,
+              14.12271695,
+              9.976433822,
+              10.89086557,
+              19.50964474
+            ]
+          },
+          "duration": 25,
+          "summary": "Brudermühlstraße",
+          "weight": 55,
+          "distance": 123.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    167
+                  ],
+                  "location": [
+                    11.54854,
+                    48.112831
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.548552,
+                    48.112599
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    195,
+                    315
+                  ],
+                  "location": [
+                    11.548539,
+                    48.112374
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.54854,
+                    48.112831
+                  ],
+                  [
+                    11.548556,
+                    48.112783
+                  ],
+                  [
+                    11.548559,
+                    48.11276
+                  ],
+                  [
+                    11.548552,
+                    48.112599
+                  ],
+                  [
+                    11.548551,
+                    48.112582
+                  ],
+                  [
+                    11.548539,
+                    48.112374
+                  ],
+                  [
+                    11.548491,
+                    48.11228
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 167,
+                "bearing_before": 0,
+                "location": [
+                  11.54854,
+                  48.112831
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 27.5,
+              "duration": 12.5,
+              "distance": 62
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    180,
+                    240
+                  ],
+                  "location": [
+                    11.548491,
+                    48.11228
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    210,
+                    255
+                  ],
+                  "location": [
+                    11.548402,
+                    48.112255
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    165,
+                    255
+                  ],
+                  "location": [
+                    11.548081,
+                    48.112227
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.547936,
+                    48.112214
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.548491,
+                    48.11228
+                  ],
+                  [
+                    11.548439,
+                    48.112258
+                  ],
+                  [
+                    11.548402,
+                    48.112255
+                  ],
+                  [
+                    11.548214,
+                    48.112238
+                  ],
+                  [
+                    11.548081,
+                    48.112227
+                  ],
+                  [
+                    11.547936,
+                    48.112214
+                  ],
+                  [
+                    11.547676,
+                    48.112192
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 246,
+                "bearing_before": 198,
+                "location": [
+                  11.548491,
+                  48.11228
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Brudermühlstraße",
+              "mode": "cycling",
+              "weight": 27.5,
+              "duration": 12.5,
+              "distance": 61.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    83
+                  ],
+                  "location": [
+                    11.547676,
+                    48.112192
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.547676,
+                    48.112192
+                  ],
+                  [
+                    11.547676,
+                    48.112192
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 263,
+                "location": [
+                  11.547676,
+                  48.112192
+                ],
+                "type": "arrive"
+              },
+              "name": "Brudermühlstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.54854,
+            48.112831
+          ],
+          [
+            11.548556,
+            48.112783
+          ],
+          [
+            11.548559,
+            48.11276
+          ],
+          [
+            11.548552,
+            48.112599
+          ],
+          [
+            11.548551,
+            48.112582
+          ],
+          [
+            11.548539,
+            48.112374
+          ],
+          [
+            11.548491,
+            48.11228
+          ],
+          [
+            11.548439,
+            48.112258
+          ],
+          [
+            11.548402,
+            48.112255
+          ],
+          [
+            11.548214,
+            48.112238
+          ],
+          [
+            11.548081,
+            48.112227
+          ],
+          [
+            11.547936,
+            48.112214
+          ],
+          [
+            11.547676,
+            48.112192
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 55,
+      "duration": 25,
+      "distance": 123.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "5E0cgP___38dAAAAMwAAAAAAAABSAAAAAa3pQFr-rkAAAAAAdNCjQQ0AAAAXAAAAAAAAACUAAAC9AgAAfDewAL8k3gJ8N7AAvyTeAgAAfwoAAAAA",
+      "location": [
+        11.54854,
+        48.112831
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "gU0cgP___39WAAAApgAAAAAAAAAAAAAAwROcQatDjkEAAAAAAAAAACcAAABLAAAAAAAAAAAAAAC9AgAAHDSwAEAi3gIcNLAAQCLeAgAAbxAAAAAA",
+      "location": [
+        11.547676,
+        48.112192
+      ],
+      "name": "Brudermühlstraße",
+      "distance": 0
+    }
+  ]
+}

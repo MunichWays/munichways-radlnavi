@@ -1,0 +1,362 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1998495228,
+              1998495225,
+              603644885,
+              392069861,
+              603643939,
+              603643938,
+              4683656444,
+              12373573334,
+              4822871079
+            ],
+            "distance": [
+              21.73501672,
+              35.36127794,
+              6.378674551,
+              14.79701461,
+              18.76562017,
+              7.395670051,
+              2.474233095,
+              10.625074
+            ]
+          },
+          "duration": 24.7,
+          "summary": "Lerchenauer Straße",
+          "weight": 43.8,
+          "distance": 117.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    268
+                  ],
+                  "location": [
+                    11.552591,
+                    48.186191
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    270
+                  ],
+                  "location": [
+                    11.552299,
+                    48.186183
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    150,
+                    300
+                  ],
+                  "location": [
+                    11.551824,
+                    48.186169
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.552591,
+                    48.186191
+                  ],
+                  [
+                    11.552299,
+                    48.186183
+                  ],
+                  [
+                    11.551824,
+                    48.186169
+                  ],
+                  [
+                    11.55175,
+                    48.186198
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 268,
+                "bearing_before": 0,
+                "location": [
+                  11.552591,
+                  48.186191
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 30.4,
+              "duration": 13.8,
+              "distance": 63.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    270,
+                    330
+                  ],
+                  "location": [
+                    11.55175,
+                    48.186198
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    165,
+                    255,
+                    345
+                  ],
+                  "location": [
+                    11.551575,
+                    48.186545
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    345
+                  ],
+                  "location": [
+                    11.551564,
+                    48.186566
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.55175,
+                    48.186198
+                  ],
+                  [
+                    11.551664,
+                    48.186318
+                  ],
+                  [
+                    11.551611,
+                    48.186483
+                  ],
+                  [
+                    11.551575,
+                    48.186545
+                  ],
+                  [
+                    11.551564,
+                    48.186566
+                  ],
+                  [
+                    11.551512,
+                    48.186655
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 333,
+                "bearing_before": 299,
+                "location": [
+                  11.55175,
+                  48.186198
+                ],
+                "modifier": "slight right",
+                "type": "continue"
+              },
+              "name": "Lerchenauer Straße",
+              "mode": "cycling",
+              "weight": 13.4,
+              "duration": 10.9,
+              "distance": 54.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    159
+                  ],
+                  "location": [
+                    11.551512,
+                    48.186655
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.551512,
+                    48.186655
+                  ],
+                  [
+                    11.551512,
+                    48.186655
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 339,
+                "location": [
+                  11.551512,
+                  48.186655
+                ],
+                "type": "arrive"
+              },
+              "name": "Lerchenauer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.552591,
+            48.186191
+          ],
+          [
+            11.552299,
+            48.186183
+          ],
+          [
+            11.551824,
+            48.186169
+          ],
+          [
+            11.55175,
+            48.186198
+          ],
+          [
+            11.551664,
+            48.186318
+          ],
+          [
+            11.551611,
+            48.186483
+          ],
+          [
+            11.551575,
+            48.186545
+          ],
+          [
+            11.551564,
+            48.186566
+          ],
+          [
+            11.551512,
+            48.186655
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 43.8,
+      "duration": 24.7,
+      "distance": 117.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "rXUvgP___39LAAAArAAAAAAAAAAAAAAAQzSHQVDhrUEAAAAAAAAAACEAAABNAAAAAAAAAAAAAAC9AgAAT0ewAE9D3wJPR7AAT0PfAgAAvxAAAAAA",
+      "location": [
+        11.552591,
+        48.186191
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "2XsvgP___38aAAAAMAAAAAAAAAAAAAAATgAqQaYoC0EAAAAAAAAAABUAAAAnAAAAAAAAAAAAAAC9AgAAGEOwAB9F3wIYQ7AAH0XfAgAALxUAAAAA",
+      "location": [
+        11.551512,
+        48.186655
+      ],
+      "name": "Lerchenauer Straße",
+      "distance": 0
+    }
+  ]
+}

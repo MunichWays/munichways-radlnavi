@@ -41,9 +41,13 @@ def reviewed_arm_topology(junction):
     for arm in order:
         if not isinstance(gates[arm], dict):
             raise ValueError('Invalid arm gates')
+        # A reviewed one-way arm may supply only entries or only exits.
+        # Both lists must be explicit; an entirely empty arm is still invalid.
+        if not gates[arm].get('entries') and not gates[arm].get('exits'):
+            raise ValueError('Missing arm gates')
         for kind in ('entries', 'exits'):
-            locations = gates[arm].get(kind, [])
-            if not isinstance(locations, list) or not locations:
+            locations = gates[arm].get(kind)
+            if not isinstance(locations, list):
                 raise ValueError('Missing arm gates')
             for location in locations:
                 points({'type': 'LineString', 'coordinates': [location]})

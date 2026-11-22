@@ -1,0 +1,373 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4464804310,
+              1106648595,
+              3463306451,
+              3463306447,
+              774634208,
+              1145362828,
+              4709549964,
+              4323866204
+            ],
+            "distance": [
+              7.708846609,
+              10.90685394,
+              29.27851848,
+              6.198644637,
+              27.42383354,
+              20.91012221,
+              7.05289827
+            ]
+          },
+          "duration": 25.1,
+          "summary": "Nymphenburger Straße",
+          "weight": 55,
+          "distance": 109.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    105
+                  ],
+                  "location": [
+                    11.557918,
+                    48.147626
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.558018,
+                    48.147608
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    165,
+                    285
+                  ],
+                  "location": [
+                    11.558157,
+                    48.147577
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    120,
+                    255,
+                    285
+                  ],
+                  "location": [
+                    11.558534,
+                    48.147502
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.557918,
+                    48.147626
+                  ],
+                  [
+                    11.558018,
+                    48.147608
+                  ],
+                  [
+                    11.558157,
+                    48.147577
+                  ],
+                  [
+                    11.558534,
+                    48.147502
+                  ],
+                  [
+                    11.558606,
+                    48.147474
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 105,
+                "bearing_before": 0,
+                "location": [
+                  11.557918,
+                  48.147626
+                ],
+                "type": "depart"
+              },
+              "name": "Nymphenburger Straße",
+              "mode": "cycling",
+              "weight": 30.4,
+              "duration": 14,
+              "distance": 54.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.558606,
+                    48.147474
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.558499,
+                    48.147238
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.558441,
+                    48.147054
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.558606,
+                    48.147474
+                  ],
+                  [
+                    11.558499,
+                    48.147238
+                  ],
+                  [
+                    11.558441,
+                    48.147054
+                  ],
+                  [
+                    11.558421,
+                    48.146992
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 196,
+                "bearing_before": 119,
+                "location": [
+                  11.558606,
+                  48.147474
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 24.6,
+              "duration": 11.1,
+              "distance": 55.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    12
+                  ],
+                  "location": [
+                    11.558421,
+                    48.146992
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.558421,
+                    48.146992
+                  ],
+                  [
+                    11.558421,
+                    48.146992
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 192,
+                "location": [
+                  11.558421,
+                  48.146992
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.557918,
+            48.147626
+          ],
+          [
+            11.558018,
+            48.147608
+          ],
+          [
+            11.558157,
+            48.147577
+          ],
+          [
+            11.558534,
+            48.147502
+          ],
+          [
+            11.558606,
+            48.147474
+          ],
+          [
+            11.558499,
+            48.147238
+          ],
+          [
+            11.558441,
+            48.147054
+          ],
+          [
+            11.558421,
+            48.146992
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 55,
+      "duration": 25.1,
+      "distance": 109.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "McYggP___38RAAAANAAAAAAAAAAAAAAAneKAQN-u9kAAAAAAAAAAAAcAAAAXAAAAAAAAAAAAAAC9AgAAHlywAKqs3gIeXLAAqqzeAgAAnwYAAAAA",
+      "location": [
+        11.557918,
+        48.147626
+      ],
+      "name": "Nymphenburger Straße",
+      "distance": 0
+    },
+    {
+      "hint": "O8YggP___38fAAAASgAAAAAAAAAAAAAAWLHhQEXdGEEAAAAAAAAAAA4AAAAhAAAAAAAAAAAAAAC9AgAAFV6wADCq3gIVXrAAMKreAgAADwwAAAAA",
+      "location": [
+        11.558421,
+        48.146992
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

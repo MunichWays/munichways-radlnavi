@@ -1,0 +1,230 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1072765122,
+              298509489,
+              254040692,
+              254277225
+            ],
+            "distance": [
+              33.09543549,
+              19.79101637,
+              65.86080596
+            ]
+          },
+          "duration": 29.8,
+          "summary": "Erhardtstraße",
+          "weight": 51.8,
+          "distance": 118.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    304
+                  ],
+                  "location": [
+                    11.585539,
+                    48.13194
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.585539,
+                    48.13194
+                  ],
+                  [
+                    11.58517,
+                    48.132106
+                  ],
+                  [
+                    11.584961,
+                    48.132216
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 304,
+                "bearing_before": 0,
+                "location": [
+                  11.585539,
+                  48.13194
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 25.5,
+              "duration": 18,
+              "distance": 52.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    195,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.584961,
+                    48.132216
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584961,
+                    48.132216
+                  ],
+                  [
+                    11.584351,
+                    48.131787
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 223,
+                "bearing_before": 307,
+                "location": [
+                  11.584961,
+                  48.132216
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Erhardtstraße",
+              "mode": "cycling",
+              "weight": 26.3,
+              "duration": 11.8,
+              "distance": 65.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    44
+                  ],
+                  "location": [
+                    11.584351,
+                    48.131787
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.584351,
+                    48.131787
+                  ],
+                  [
+                    11.584351,
+                    48.131787
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 224,
+                "location": [
+                  11.584351,
+                  48.131787
+                ],
+                "type": "arrive"
+              },
+              "name": "Erhardtstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.585539,
+            48.13194
+          ],
+          [
+            11.58517,
+            48.132106
+          ],
+          [
+            11.584961,
+            48.132216
+          ],
+          [
+            11.584351,
+            48.131787
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 51.8,
+      "duration": 29.8,
+      "distance": 118.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "gMgggJ3IIIBCAAAAGQAAACgAAAAPAAAAumEEQrfvR0EAVJ5BG4nvQEIAAAAZAAAAKAAAAA8AAAC9AgAAA8iwAGRv3gIDyLAAZG_eAgIAvwcAAAAA",
+      "location": [
+        11.585539,
+        48.13194
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "fsgggIjIIIAHAQAAMgAAAAAAAAAAAAAAvLiDQqGkR0EAAAAAAAAAAHYAAAAXAAAAAAAAAAAAAAC9AgAAX8OwAMtu3gJfw7AAy27eAgAA_w0AAAAA",
+      "location": [
+        11.584351,
+        48.131787
+      ],
+      "name": "Erhardtstraße",
+      "distance": 0
+    }
+  ]
+}

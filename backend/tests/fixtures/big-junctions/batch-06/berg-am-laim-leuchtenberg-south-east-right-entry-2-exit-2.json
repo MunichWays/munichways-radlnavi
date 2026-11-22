@@ -1,0 +1,312 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3916869605,
+              3814072365,
+              3814072367,
+              1201476825,
+              282640800,
+              294224807,
+              3814072368,
+              13811173525
+            ],
+            "distance": [
+              1.834299227,
+              20.23283518,
+              6.887780736,
+              8.165232476,
+              16.38613694,
+              28.89355716,
+              25.79347868
+            ]
+          },
+          "duration": 25.4,
+          "summary": "Ampfingstraße, Berg-am-Laim-Straße",
+          "weight": 55.8,
+          "distance": 108.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    14
+                  ],
+                  "location": [
+                    11.615722,
+                    48.130337
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.61582,
+                    48.130589
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.615722,
+                    48.130337
+                  ],
+                  [
+                    11.615728,
+                    48.130353
+                  ],
+                  [
+                    11.615797,
+                    48.130529
+                  ],
+                  [
+                    11.61582,
+                    48.130589
+                  ],
+                  [
+                    11.615848,
+                    48.13066
+                  ],
+                  [
+                    11.615912,
+                    48.130801
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 14,
+                "bearing_before": 0,
+                "location": [
+                  11.615722,
+                  48.130337
+                ],
+                "type": "depart"
+              },
+              "name": "Ampfingstraße",
+              "mode": "cycling",
+              "weight": 31.6,
+              "duration": 14.5,
+              "distance": 53.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.615912,
+                    48.130801
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    150,
+                    285
+                  ],
+                  "location": [
+                    11.616291,
+                    48.130745
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.615912,
+                    48.130801
+                  ],
+                  [
+                    11.616291,
+                    48.130745
+                  ],
+                  [
+                    11.616629,
+                    48.130694
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 101,
+                "bearing_before": 16,
+                "location": [
+                  11.615912,
+                  48.130801
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 24.2,
+              "duration": 10.9,
+              "distance": 54.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    283
+                  ],
+                  "location": [
+                    11.616629,
+                    48.130694
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.616629,
+                    48.130694
+                  ],
+                  [
+                    11.616629,
+                    48.130694
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 103,
+                "location": [
+                  11.616629,
+                  48.130694
+                ],
+                "type": "arrive"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.615722,
+            48.130337
+          ],
+          [
+            11.615728,
+            48.130353
+          ],
+          [
+            11.615797,
+            48.130529
+          ],
+          [
+            11.61582,
+            48.130589
+          ],
+          [
+            11.615848,
+            48.13066
+          ],
+          [
+            11.615912,
+            48.130801
+          ],
+          [
+            11.616291,
+            48.130745
+          ],
+          [
+            11.616629,
+            48.130694
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 55.8,
+      "duration": 25.4,
+      "distance": 108.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "EhIAgP___38BAAAACgAAAAAAAAB5AAAAWv6uPlHK6j8AAAAABvfYQQAAAAAEAAAAAAAAADYAAAC9AgAA6j2xACFp3gLqPbEAIWneAgAA3wAAAAAA",
+      "location": [
+        11.615722,
+        48.130337
+      ],
+      "name": "Ampfingstraße",
+      "distance": 0
+    },
+    {
+      "hint": "hLgXgP___39yAAAAvgAAAAAAAAAAAAAAC1nOQQhvh0EAAAAAAAAAADMAAABVAAAAAAAAAAAAAAC9AgAAdUGxAIZq3gJ1QbEAhmreAgAAbwYAAAAA",
+      "location": [
+        11.616629,
+        48.130694
+      ],
+      "name": "Berg-am-Laim-Straße",
+      "distance": 0
+    }
+  ]
+}

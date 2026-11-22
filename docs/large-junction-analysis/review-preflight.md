@@ -1,7 +1,7 @@
 # Technische Vorprüfung
 
 Offline aus eingefrorenen OSM-Daten. Vorschläge ändern weder Geometrie noch Freigaben.
-30 bestätigte/ausgeschlossene Referenzfälle unverändert geprüft.
+47 bestätigte/ausgeschlossene Referenzfälle unverändert geprüft.
 
 Zweirichtungspunkte und mehr als acht Punkte sind zulässig. Vier logische Arme und legale Referenzrouten werden separat nachgewiesen.
 

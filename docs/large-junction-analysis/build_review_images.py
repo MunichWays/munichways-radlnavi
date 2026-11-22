@@ -14,6 +14,7 @@ from math import atan2, cos, degrees, hypot, radians
 from pathlib import Path
 
 from build_balan_pilot import visits
+from cycling_direction import bicycle_direction
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "review-batch-01-images"
@@ -63,7 +64,7 @@ def extract_gates(ways, polygon, project, road_way_ids=(), excluded=()):
         if w["id"] in excluded or not (cycling(w) or w["id"] in road_way_ids):
             continue
         points=[[v["lon"],v["lat"]] for v in w["geometry"]]
-        direction=w["tags"].get("oneway:bicycle",w["tags"].get("oneway","no"))
+        direction=bicycle_direction(w['tags'])
         if direction=="-1": points.reverse()
         for hit in visits(points,polygon,project):
             a,b=(project(points[hit["segmentIndex"]+j]) for j in (0,1))
@@ -210,6 +211,14 @@ def draw(site):
     text(f'K{site["number"]:02d} · {site["name"]}', 28, 24, 21)
     status = status_text(site)
     activation = 'IM BRANCH; NICHT DEPLOYED' if (site['number'], site['version']) in ((7, 2), (10, 4), (19, 3)) else 'NICHT AKTIV'
+    state_path = ROOT / 'review-deployment-state.json'
+    if state_path.exists():
+        state = json.loads(state_path.read_text(encoding='utf-8'))
+        live = next((j for j in state.get('junctions', []) if j['id'] == site['id'] and j.get('enabled')
+                     and j['polygon']['coordinates'][0] == site['polygon']), None)
+        if live and site['polygonApproved']:
+            active = sum(bool(m.get('enabled')) for m in live['movements'])
+            activation = f'LIVE · {active} Fahrbeziehungen · Backend {state["version"]["backend"]}'
     text(f'v{site["version"]} · {status} · {activation}',28,58,16,"#8b256a")
     # Clip map content to the central panel so long OSM ways cannot cover the header.
     commands.append({"kind":"clip", "x":180,"y":100,"width":840,"height":800})

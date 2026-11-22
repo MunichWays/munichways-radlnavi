@@ -1,0 +1,259 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              372815638,
+              1026310434,
+              372815639,
+              9672781542,
+              54792817
+            ],
+            "distance": [
+              51.7530615,
+              22.51536993,
+              9.767460866,
+              56.07115452
+            ]
+          },
+          "duration": 48.1,
+          "summary": "Potsdamer Straße",
+          "weight": 123.2,
+          "distance": 140.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    216
+                  ],
+                  "location": [
+                    11.590762,
+                    48.167222
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.590356,
+                    48.166844
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590762,
+                    48.167222
+                  ],
+                  [
+                    11.590356,
+                    48.166844
+                  ],
+                  [
+                    11.590187,
+                    48.166676
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 216,
+                "bearing_before": 0,
+                "location": [
+                  11.590762,
+                  48.167222
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 41.6,
+              "duration": 19.1,
+              "distance": 74.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.590187,
+                    48.166676
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.590187,
+                    48.166676
+                  ],
+                  [
+                    11.590078,
+                    48.166725
+                  ],
+                  [
+                    11.589454,
+                    48.167008
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 303,
+                "bearing_before": 213,
+                "location": [
+                  11.590187,
+                  48.166676
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Potsdamer Straße",
+              "mode": "cycling",
+              "weight": 81.6,
+              "duration": 29,
+              "distance": 65.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    124
+                  ],
+                  "location": [
+                    11.589454,
+                    48.167008
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589454,
+                    48.167008
+                  ],
+                  [
+                    11.589454,
+                    48.167008
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 304,
+                "location": [
+                  11.589454,
+                  48.167008
+                ],
+                "type": "arrive"
+              },
+              "name": "Potsdamer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.590762,
+            48.167222
+          ],
+          [
+            11.590356,
+            48.166844
+          ],
+          [
+            11.590187,
+            48.166676
+          ],
+          [
+            11.590078,
+            48.166725
+          ],
+          [
+            11.589454,
+            48.167008
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 123.2,
+      "duration": 48.1,
+      "distance": 140.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "7FcvgP___3-8AAAAowEAAAAAAAAAAAAARMcpQiMDT0IAAAAAAAAAAFQAAAC8AAAAAAAAAAAAAAC9AgAAatywADb53gJq3LAANvneAgAAfw0AAAAA",
+      "location": [
+        11.590762,
+        48.167222
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "UeoFgO5XL4CcAAAAlAEAAAAAAACcAQAA15atQd1IYEIAAAAAhUccQScAAABlAAAAAAAAAL0AAAC9AgAATtewAGD43gJO17AAYPjeAgAAzwcAAAAA",
+      "location": [
+        11.589454,
+        48.167008
+      ],
+      "name": "Potsdamer Straße",
+      "distance": 0
+    }
+  ]
+}

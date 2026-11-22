@@ -1,0 +1,353 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              660711304,
+              660711305,
+              12782495460,
+              419161929,
+              419161899,
+              274852830,
+              12782495461,
+              6625059226,
+              6625059225
+            ],
+            "distance": [
+              48.3065975,
+              8.965620233,
+              5.642073729,
+              10.43031475,
+              10.67537443,
+              4.713072983,
+              9.049109065,
+              52.02803777
+            ]
+          },
+          "duration": 46.3,
+          "summary": "Prinzregentenstraße",
+          "weight": 87.8,
+          "distance": 149.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    287
+                  ],
+                  "location": [
+                    11.595476,
+                    48.141724
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.595476,
+                    48.141724
+                  ],
+                  [
+                    11.594855,
+                    48.14185
+                  ],
+                  [
+                    11.594741,
+                    48.141876
+                  ],
+                  [
+                    11.594681,
+                    48.141907
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 287,
+                "bearing_before": 0,
+                "location": [
+                  11.595476,
+                  48.141724
+                ],
+                "type": "depart"
+              },
+              "name": "Prinzregentenstraße",
+              "mode": "cycling",
+              "weight": 51.1,
+              "duration": 24.1,
+              "distance": 62.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    195,
+                    330
+                  ],
+                  "location": [
+                    11.594681,
+                    48.141907
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.594647,
+                    48.141816
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.594681,
+                    48.141907
+                  ],
+                  [
+                    11.594647,
+                    48.141816
+                  ],
+                  [
+                    11.594606,
+                    48.141724
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 192,
+                "bearing_before": 299,
+                "location": [
+                  11.594681,
+                  48.141907
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 21.9,
+              "duration": 10.5,
+              "distance": 21.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    195,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.594606,
+                    48.141724
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.594606,
+                    48.141724
+                  ],
+                  [
+                    11.594556,
+                    48.141698
+                  ],
+                  [
+                    11.594494,
+                    48.141628
+                  ],
+                  [
+                    11.594278,
+                    48.141183
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 220,
+                "bearing_before": 195,
+                "location": [
+                  11.594606,
+                  48.141724
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 14.8,
+              "duration": 11.7,
+              "distance": 65.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    18
+                  ],
+                  "location": [
+                    11.594278,
+                    48.141183
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.594278,
+                    48.141183
+                  ],
+                  [
+                    11.594278,
+                    48.141183
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 198,
+                "location": [
+                  11.594278,
+                  48.141183
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.595476,
+            48.141724
+          ],
+          [
+            11.594855,
+            48.14185
+          ],
+          [
+            11.594741,
+            48.141876
+          ],
+          [
+            11.594681,
+            48.141907
+          ],
+          [
+            11.594647,
+            48.141816
+          ],
+          [
+            11.594606,
+            48.141724
+          ],
+          [
+            11.594556,
+            48.141698
+          ],
+          [
+            11.594494,
+            48.141628
+          ],
+          [
+            11.594278,
+            48.141183
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 87.8,
+      "duration": 46.3,
+      "distance": 149.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "lAAAgP___39KAAAAIQEAAIIAAABBAAAAxuSFQfU5QUJJLEhBHblpQSEAAACCAAAARwAAAB0AAAC9AgAA1O6wAJyV3gLU7rAAm5XeAgQA7xEAAAAA",
+      "location": [
+        11.595476,
+        48.141724
+      ],
+      "name": "Prinzregentenstraße",
+      "distance": 0.1111927541
+    },
+    {
+      "hint": "LRUhgP___391AAAAuQAAAB8AAACSAAAAthxQQpJt8EHmMVxBhiuCQl0AAACUAAAAGAAAAHUAAAC9AgAAJuqwAH-T3gIl6rAAf5PeAgQAbwwAAAAA",
+      "location": [
+        11.594278,
+        48.141183
+      ],
+      "name": "",
+      "distance": 0.0744449028
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "sites": {
     "romanplatz-sued": {
       "status": "geometry-approved",
-      "revision": 3,
+      "revision": 5,
       "polygon": [
         [
           11.510918976725396,
@@ -71,11 +71,12 @@
         "35379265:entry": "Entry-4",
         "1151568798:exit": "Exit-4",
         "1151568798:entry": "Entry-5",
-        "1353387501:entry": "Entry-6"
+        "1353387501:entry": "Entry-6",
+        "1391209196:entry": "Entry-2"
       },
-      "note": "v3 bleibt unverändert. WIEDERVORLAGE 16.11.2026: Thomas hat OSM erneut korrigiert; zusätzlichen Guntherstraßen-Entry-2 aus v2 nach neuer OSM-Prüfung wieder aufnehmen. Bis dahin keine Geometrieänderung/technische Aktivierung.",
+      "note": "v5: Entry-2 und Entry-3 gehoeren beide zur Guntherstrasse und erhalten dieselben Geradeaus-/Linksansagen. Entry-5 ausgeschlossen: nur Rechtsabbiegen (Thomas); Exit-4 unveraendert erhalten. Geometrie freigegeben; acht gepruefte Beziehungen im Branch aktiviert. Entry-3 geradeaus/links noch nicht nachgewiesen und ohne Kreuzungsansage. Live in Backend 2.4.16.",
       "geometryBasis": "Agent-prepared proposal from frozen official OSM map geometry; no human approval or runtime activation.",
-      "reviewSource": "Remaining BA09 preparation, corrected after agent graph and image inspection.",
+      "reviewSource": "Thomas confirmed K18 v4 and explicitly requested removing Entry-5 only; v5 retains the polygon, Exit-4 and all other gates. Entry-2/Entry-3 share the south arm.",
       "history": {
         "status": "geometry-draft",
         "revision": 2,
@@ -274,7 +275,8 @@
         },
         "south": {
           "entries": [
-            "Entry-3"
+            "Entry-3",
+            "Entry-2"
           ],
           "exits": [
             "Exit-3"
@@ -282,32 +284,181 @@
         },
         "west": {
           "entries": [
-            "Entry-4",
-            "Entry-5"
+            "Entry-4"
           ],
           "exits": [
             "Exit-4"
           ]
         }
       },
-      "excludedGateWayIds": [
-        1391209196
-      ],
-      "reportedFootOnlyWayIds": [
-        1391209196
-      ],
+      "excludedGateWayIds": [],
       "labelMigration": {
-        "Entry-2": null
+        "Entry-2": "restored from v2 on OSM way 1391209196",
+        "Entry-5": null
       },
-      "reviewedGeometrySha256": "a1fe51389602e3b75c35a5c06aa30cf51a77fe733bac1c760789565eebd178f1",
-      "approvalSource": "Thomas explicitly approved K18 v3 after removing the foot-only approach Entry-2.",
-      "pendingChange": {
-        "status": "deferred-osm-refresh",
-        "notBefore": "2026-11-16",
-        "requestedAt": "2026-11-14",
-        "entryLabel": "Entry-2",
-        "sourceWayId": 1391209196,
-        "instruction": "OSM nach der erneuten Korrektur neu abrufen. Kurzes Radwegstück am Gehweg in Guntherstraße zwischen Exit-2 und Entry/Exit-3 prüfen; Entry-2 aus v2 wiederherstellen, nur soweit aktuelle gerichtete OSM-Geometrie dies belegt. Bis dahin v3 nicht ändern oder aktivieren."
+      "previousApprovedDecision": {
+        "status": "geometry-approved",
+        "revision": 3,
+        "polygon": [
+          [
+            11.510918976725396,
+            48.154500635106004
+          ],
+          [
+            11.510938876725396,
+            48.154445135106
+          ],
+          [
+            11.511006276725395,
+            48.154264935106006
+          ],
+          [
+            11.511042376725396,
+            48.154179535106
+          ],
+          [
+            11.511444676725395,
+            48.154128935106
+          ],
+          [
+            11.511660123274604,
+            48.154128935106
+          ],
+          [
+            11.511886423274605,
+            48.154495035106
+          ],
+          [
+            11.511886423274605,
+            48.154638764893996
+          ],
+          [
+            11.511864423274604,
+            48.154670964893995
+          ],
+          [
+            11.511505476725395,
+            48.154670964893995
+          ],
+          [
+            11.510974176725396,
+            48.154670864893994
+          ],
+          [
+            11.510918976725396,
+            48.154644364894
+          ],
+          [
+            11.510918976725396,
+            48.154500635106004
+          ]
+        ],
+        "onRoadWayIds": [
+          1300636865
+        ],
+        "gateLabels": {
+          "35379850:exit": "Exit-1",
+          "77834703:entry": "Entry-1",
+          "342174632:exit": "Exit-2",
+          "1300636865:exit": "Exit-3",
+          "1300636865:entry": "Entry-3",
+          "35379265:entry": "Entry-4",
+          "1151568798:exit": "Exit-4",
+          "1151568798:entry": "Entry-5",
+          "1353387501:entry": "Entry-6"
+        },
+        "note": "v3 bleibt unverändert. WIEDERVORLAGE 16.11.2026: Thomas hat OSM erneut korrigiert; zusätzlichen Guntherstraßen-Entry-2 aus v2 nach neuer OSM-Prüfung wieder aufnehmen. Bis dahin keine Geometrieänderung/technische Aktivierung.",
+        "geometryBasis": "Agent-prepared proposal from frozen official OSM map geometry; no human approval or runtime activation.",
+        "reviewSource": "Remaining BA09 preparation, corrected after agent graph and image inspection.",
+        "proposedLogicalArms": {
+          "north": {
+            "entries": [
+              "Entry-6"
+            ],
+            "exits": [
+              "Exit-1"
+            ]
+          },
+          "east": {
+            "entries": [
+              "Entry-1"
+            ],
+            "exits": [
+              "Exit-2"
+            ]
+          },
+          "south": {
+            "entries": [
+              "Entry-3"
+            ],
+            "exits": [
+              "Exit-3"
+            ]
+          },
+          "west": {
+            "entries": [
+              "Entry-4",
+              "Entry-5"
+            ],
+            "exits": [
+              "Exit-4"
+            ]
+          }
+        },
+        "excludedGateWayIds": [
+          1391209196
+        ],
+        "reportedFootOnlyWayIds": [
+          1391209196
+        ],
+        "labelMigration": {
+          "Entry-2": null
+        },
+        "reviewedGeometrySha256": "a1fe51389602e3b75c35a5c06aa30cf51a77fe733bac1c760789565eebd178f1",
+        "approvalSource": "Thomas explicitly approved K18 v3 after removing the foot-only approach Entry-2.",
+        "pendingChange": {
+          "status": "deferred-osm-refresh",
+          "notBefore": "2026-11-16",
+          "requestedAt": "2026-11-14",
+          "entryLabel": "Entry-2",
+          "sourceWayId": 1391209196,
+          "instruction": "OSM nach der erneuten Korrektur neu abrufen. Kurzes Radwegstück am Gehweg in Guntherstraße zwischen Exit-2 und Entry/Exit-3 prüfen; Entry-2 aus v2 wiederherstellen, nur soweit aktuelle gerichtete OSM-Geometrie dies belegt. Bis dahin v3 nicht ändern oder aktivieren."
+        }
+      },
+      "osmSnapshot": "review-k18-osm-2026-11-16.json.gz",
+      "sourceRefresh": {
+        "date": "2026-11-16",
+        "newEntryWayId": 1391209196,
+        "evidenceTags": {
+          "highway": "path",
+          "bicycle": "designated",
+          "cycleway:oneway": "yes"
+        },
+        "archive": "review-reference-archives/k18-v3.json"
+      },
+      "excludedGateDirections": {
+        "1151568798": [
+          "entry"
+        ]
+      },
+      "excludedApproaches": [
+        {
+          "label": "Entry-5",
+          "osmWayId": 1151568798,
+          "reason": "Thomas: Dieser Zweirichtungsradweg kann nur rechts abbiegen. Standardhinweise bleiben.",
+          "date": "2026-11-16"
+        }
+      ],
+      "reviewedGeometrySha256": "328d1bb9527470be5bc382ece0e5aee61a2cd4eea34d3e23393831292061bdac",
+      "approvalSource": "Thomas confirmed K18 v4 and explicitly requested removing Entry-5 only; v5 retains the polygon, Exit-4 and all other gates. Entry-2/Entry-3 share the south arm.",
+      "activationReview": {
+        "status": "approved",
+        "date": "2026-11-16",
+        "reviewer": "Thomas",
+        "activeMovements": 8,
+        "backendVersion": "2.4.16",
+        "technicalReport": "review-k18-v5-routes.json",
+        "evidence": "Thomas requested activation and release. Eight verified movements only; both unverified Entry-3 relationships remain disabled. Entry-5 excluded."
       }
     },
     "romanplatz-nord": {

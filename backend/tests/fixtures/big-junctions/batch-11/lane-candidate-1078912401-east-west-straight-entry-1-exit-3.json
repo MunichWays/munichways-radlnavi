@@ -1,0 +1,551 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              8862662891,
+              660707035,
+              8862662892,
+              3135638747,
+              3135638746,
+              3170118700,
+              12486142455,
+              1623971101,
+              1078912401,
+              1078912414,
+              1078912692,
+              11245576744,
+              11245576743,
+              11245576742,
+              13098663809,
+              11245576741,
+              1078912433,
+              11245576740,
+              2587713414
+            ],
+            "distance": [
+              6.480001874,
+              8.848070111,
+              22.45002918,
+              16.90634909,
+              2.791141965,
+              10.35010847,
+              4.976943312,
+              11.23409497,
+              4.442268052,
+              13.58116958,
+              9.065316033,
+              5.325473259,
+              4.490710349,
+              2.677886452,
+              3.543730555,
+              2.628960907,
+              15.93280059,
+              9.177721037
+            ]
+          },
+          "duration": 32,
+          "summary": "Einsteinstraße",
+          "weight": 57.2,
+          "distance": 155.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    261
+                  ],
+                  "location": [
+                    11.610047,
+                    48.136578
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    180,
+                    255
+                  ],
+                  "location": [
+                    11.609961,
+                    48.136569
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    255
+                  ],
+                  "location": [
+                    11.609844,
+                    48.136555
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610047,
+                    48.136578
+                  ],
+                  [
+                    11.609961,
+                    48.136569
+                  ],
+                  [
+                    11.609844,
+                    48.136555
+                  ],
+                  [
+                    11.609547,
+                    48.13652
+                  ],
+                  [
+                    11.609326,
+                    48.136485
+                  ],
+                  [
+                    11.609291,
+                    48.136476
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 261,
+                "bearing_before": 0,
+                "location": [
+                  11.610047,
+                  48.136578
+                ],
+                "type": "depart"
+              },
+              "name": "Einsteinstraße",
+              "mode": "cycling",
+              "weight": 14.3,
+              "duration": 11.8,
+              "distance": 57.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    135,
+                    255,
+                    270
+                  ],
+                  "location": [
+                    11.609291,
+                    48.136476
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609291,
+                    48.136476
+                  ],
+                  [
+                    11.609161,
+                    48.136443
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 248,
+                "bearing_before": 254,
+                "location": [
+                  11.609291,
+                  48.136476
+                ],
+                "modifier": "straight",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 6,
+              "duration": 3.7,
+              "distance": 10.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    150,
+                    210,
+                    330
+                  ],
+                  "location": [
+                    11.609161,
+                    48.136443
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609161,
+                    48.136443
+                  ],
+                  [
+                    11.609131,
+                    48.136403
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 205,
+                "bearing_before": 248,
+                "location": [
+                  11.609161,
+                  48.136443
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 3.9,
+              "duration": 1.8,
+              "distance": 5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    75,
+                    150,
+                    255,
+                    330
+                  ],
+                  "location": [
+                    11.609131,
+                    48.136403
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    150,
+                    240,
+                    345
+                  ],
+                  "location": [
+                    11.60899,
+                    48.136367
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609131,
+                    48.136403
+                  ],
+                  [
+                    11.60899,
+                    48.136367
+                  ],
+                  [
+                    11.608936,
+                    48.13635
+                  ],
+                  [
+                    11.608767,
+                    48.136304
+                  ],
+                  [
+                    11.608655,
+                    48.136272
+                  ],
+                  [
+                    11.60859,
+                    48.136252
+                  ],
+                  [
+                    11.608536,
+                    48.136234
+                  ],
+                  [
+                    11.608504,
+                    48.136223
+                  ],
+                  [
+                    11.608462,
+                    48.136208
+                  ],
+                  [
+                    11.60843,
+                    48.136198
+                  ],
+                  [
+                    11.608233,
+                    48.136142
+                  ],
+                  [
+                    11.60812,
+                    48.136109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 248,
+                "bearing_before": 205,
+                "location": [
+                  11.609131,
+                  48.136403
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Einsteinstraße",
+              "mode": "cycling",
+              "weight": 32.8,
+              "duration": 14.7,
+              "distance": 82.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    66
+                  ],
+                  "location": [
+                    11.60812,
+                    48.136109
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.60812,
+                    48.136109
+                  ],
+                  [
+                    11.60812,
+                    48.136109
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 246,
+                "location": [
+                  11.60812,
+                  48.136109
+                ],
+                "type": "arrive"
+              },
+              "name": "Einsteinstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.610047,
+            48.136578
+          ],
+          [
+            11.609961,
+            48.136569
+          ],
+          [
+            11.609844,
+            48.136555
+          ],
+          [
+            11.609547,
+            48.13652
+          ],
+          [
+            11.609326,
+            48.136485
+          ],
+          [
+            11.609291,
+            48.136476
+          ],
+          [
+            11.609161,
+            48.136443
+          ],
+          [
+            11.609131,
+            48.136403
+          ],
+          [
+            11.60899,
+            48.136367
+          ],
+          [
+            11.608936,
+            48.13635
+          ],
+          [
+            11.608767,
+            48.136304
+          ],
+          [
+            11.608655,
+            48.136272
+          ],
+          [
+            11.60859,
+            48.136252
+          ],
+          [
+            11.608536,
+            48.136234
+          ],
+          [
+            11.608504,
+            48.136223
+          ],
+          [
+            11.608462,
+            48.136208
+          ],
+          [
+            11.60843,
+            48.136198
+          ],
+          [
+            11.608233,
+            48.136142
+          ],
+          [
+            11.60812,
+            48.136109
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 57.2,
+      "duration": 32,
+      "distance": 155.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "DvMVgP___38kAQAAJgEAAAAAAAAAAAAAHk3qQopoCD8AAAAAAAAAAOkAAADrAAAAAAAAAAAAAAC9AgAAxiexAIOB3gLGJ7EAgoHeAgAATxAAAAAA",
+      "location": [
+        11.610054,
+        48.136579
+      ],
+      "name": "Einsteinstraße",
+      "distance": 0.1111927533
+    },
+    {
+      "hint": "s6kCgP___38kAAAAWQAAAOUAAAC4AAAA8tcSQUJoT0H0-2RCoCE4QhAAAAAoAAAAZwAAAFIAAAC9AgAAOCCxAK1_3gI4ILEArX_eAhAAbw8AAAAA",
+      "location": [
+        11.60812,
+        48.136109
+      ],
+      "name": "Einsteinstraße",
+      "distance": 0
+    }
+  ]
+}

@@ -1,0 +1,407 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4323866200,
+              4323866215,
+              1157895196,
+              1077566117,
+              8406282859,
+              21026891,
+              21026892,
+              20981711,
+              1011643595,
+              20981712
+            ],
+            "distance": [
+              2.811160899,
+              24.7808449,
+              30.83663947,
+              7.159142825,
+              10.59220771,
+              13.71732822,
+              13.2826276,
+              14.08897827,
+              51.63172281
+            ]
+          },
+          "duration": 75.8,
+          "summary": "Marsstraße, Seidlstraße",
+          "weight": 158.5,
+          "distance": 168.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    296
+                  ],
+                  "location": [
+                    11.558016,
+                    48.143436
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    300
+                  ],
+                  "location": [
+                    11.557982,
+                    48.143447
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.558016,
+                    48.143436
+                  ],
+                  [
+                    11.557982,
+                    48.143447
+                  ],
+                  [
+                    11.55769,
+                    48.143554
+                  ],
+                  [
+                    11.557321,
+                    48.14368
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 296,
+                "bearing_before": 0,
+                "location": [
+                  11.558016,
+                  48.143436
+                ],
+                "type": "depart"
+              },
+              "name": "Marsstraße",
+              "mode": "cycling",
+              "weight": 26.8,
+              "duration": 12.2,
+              "distance": 58.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    270
+                  ],
+                  "location": [
+                    11.557321,
+                    48.14368
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.557321,
+                    48.14368
+                  ],
+                  [
+                    11.557226,
+                    48.14369
+                  ],
+                  [
+                    11.557084,
+                    48.143696
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 275,
+                "bearing_before": 296,
+                "location": [
+                  11.557321,
+                  48.14368
+                ],
+                "modifier": "slight left",
+                "type": "continue"
+              },
+              "name": "Marsstraße",
+              "mode": "cycling",
+              "weight": 41.9,
+              "duration": 20.6,
+              "distance": 17.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.557084,
+                    48.143696
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.556923,
+                    48.143756
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    195,
+                    300
+                  ],
+                  "location": [
+                    11.55685,
+                    48.143647
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.557084,
+                    48.143696
+                  ],
+                  [
+                    11.556923,
+                    48.143756
+                  ],
+                  [
+                    11.55685,
+                    48.143647
+                  ],
+                  [
+                    11.556785,
+                    48.143528
+                  ],
+                  [
+                    11.556559,
+                    48.143089
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 298,
+                "bearing_before": 272,
+                "location": [
+                  11.557084,
+                  48.143696
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Seidlstraße",
+              "mode": "cycling",
+              "weight": 89.8,
+              "duration": 43,
+              "distance": 92.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    19
+                  ],
+                  "location": [
+                    11.556559,
+                    48.143089
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.556559,
+                    48.143089
+                  ],
+                  [
+                    11.556559,
+                    48.143089
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 199,
+                "location": [
+                  11.556559,
+                  48.143089
+                ],
+                "type": "arrive"
+              },
+              "name": "Seidlstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.558016,
+            48.143436
+          ],
+          [
+            11.557982,
+            48.143447
+          ],
+          [
+            11.55769,
+            48.143554
+          ],
+          [
+            11.557321,
+            48.14368
+          ],
+          [
+            11.557226,
+            48.14369
+          ],
+          [
+            11.557084,
+            48.143696
+          ],
+          [
+            11.556923,
+            48.143756
+          ],
+          [
+            11.55685,
+            48.143647
+          ],
+          [
+            11.556785,
+            48.143528
+          ],
+          [
+            11.556559,
+            48.143089
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 158.5,
+      "duration": 75.8,
+      "distance": 168.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ecQggP___38QAAAAHQAAAAAAAAAAAAAAwT9rQA_qM0AAAAAAAAAAAAcAAAANAAAAAAAAAAAAAAC9AgAAgFywAEyc3gKAXLAATJzeAgAAjxIAAAAA",
+      "location": [
+        11.558016,
+        48.143436
+      ],
+      "name": "Marsstraße",
+      "distance": 0
+    },
+    {
+      "hint": "RAcEgP___3_OAAAATAEAAI4BAAD2AgAA4oZOQmFK-kF0bGFBu7OTQlwAAACVAAAAxAAAAGwBAAC9AgAAz1awAPGa3gLPVrAA8ZreAgIAfwwAAAAA",
+      "location": [
+        11.556559,
+        48.143089
+      ],
+      "name": "Seidlstraße",
+      "distance": 0
+    }
+  ]
+}

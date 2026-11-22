@@ -1,0 +1,249 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1015648268,
+              918870154,
+              6416930852,
+              6416930855
+            ],
+            "distance": [
+              56.51614199,
+              23.60322513,
+              32.3138709
+            ]
+          },
+          "duration": 28.4,
+          "summary": "Leuchtenbergring, Prinzregentenstraße",
+          "weight": 51.4,
+          "distance": 112.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    353
+                  ],
+                  "location": [
+                    11.614982,
+                    48.137545
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.614982,
+                    48.137545
+                  ],
+                  [
+                    11.614896,
+                    48.13805
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 353,
+                "bearing_before": 0,
+                "location": [
+                  11.614982,
+                  48.137545
+                ],
+                "type": "depart"
+              },
+              "name": "Leuchtenbergring",
+              "mode": "cycling",
+              "weight": 23.8,
+              "duration": 16.1,
+              "distance": 56.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.614896,
+                    48.13805
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.615213,
+                    48.138054
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.614896,
+                    48.13805
+                  ],
+                  [
+                    11.615213,
+                    48.138054
+                  ],
+                  [
+                    11.615647,
+                    48.138049
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 88,
+                "bearing_before": 352,
+                "location": [
+                  11.614896,
+                  48.13805
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Prinzregentenstraße",
+              "mode": "cycling",
+              "weight": 27.6,
+              "duration": 12.3,
+              "distance": 55.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    271
+                  ],
+                  "location": [
+                    11.615647,
+                    48.138049
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.615647,
+                    48.138049
+                  ],
+                  [
+                    11.615647,
+                    48.138049
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 91,
+                "location": [
+                  11.615647,
+                  48.138049
+                ],
+                "type": "arrive"
+              },
+              "name": "Prinzregentenstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.614982,
+            48.137545
+          ],
+          [
+            11.614896,
+            48.13805
+          ],
+          [
+            11.615213,
+            48.138054
+          ],
+          [
+            11.615647,
+            48.138049
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 51.4,
+      "duration": 28.4,
+      "distance": 112.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "1OwVgP___396AAAACAEAAAAAAAAAAAAAdX5EQogQYkIAAAAAAAAAAGIAAADTAAAAAAAAAAAAAAC9AgAABjuxAEmF3gIFO7EASYXeAgAAHxYAAAAA",
+      "location": [
+        11.614982,
+        48.137545
+      ],
+      "name": "Leuchtenbergring",
+      "distance": 0.0744449028
+    },
+    {
+      "hint": "MO0VgP___3-fAAAA8QAAAAAAAAAAAAAAZ0EBQkmlg0EAAAAAAAAAAEcAAABsAAAAAAAAAAAAAAC9AgAAnz2xAEGH3gKfPbEAQYfeAgAAvwUAAAAA",
+      "location": [
+        11.615647,
+        48.138049
+      ],
+      "name": "Prinzregentenstraße",
+      "distance": 0
+    }
+  ]
+}

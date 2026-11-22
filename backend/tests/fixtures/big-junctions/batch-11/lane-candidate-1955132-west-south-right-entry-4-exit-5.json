@@ -1,0 +1,351 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1455837350,
+              3765193736,
+              786716325,
+              6297693097,
+              3818854103,
+              786716342,
+              10202559603,
+              3818854101,
+              1455837333,
+              786716343
+            ],
+            "distance": [
+              55.67369084,
+              5.325473259,
+              3.081006021,
+              10.25352865,
+              16.2863015,
+              4.157014787,
+              2.023500214,
+              9.656008355,
+              18.21150193
+            ]
+          },
+          "duration": 27.7,
+          "summary": "Schlierseestraße",
+          "weight": 61.1,
+          "distance": 124.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    99
+                  ],
+                  "location": [
+                    11.591421,
+                    48.114917
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.591421,
+                    48.114917
+                  ],
+                  [
+                    11.592159,
+                    48.114836
+                  ],
+                  [
+                    11.592224,
+                    48.114816
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 99,
+                "bearing_before": 0,
+                "location": [
+                  11.591421,
+                  48.114917
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 32.9,
+              "duration": 15,
+              "distance": 61
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    165,
+                    285,
+                    345
+                  ],
+                  "location": [
+                    11.592224,
+                    48.114816
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    120,
+                    165,
+                    345
+                  ],
+                  "location": [
+                    11.592281,
+                    48.114705
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    165,
+                    255,
+                    345
+                  ],
+                  "location": [
+                    11.592329,
+                    48.114524
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    165,
+                    345
+                  ],
+                  "location": [
+                    11.592333,
+                    48.114506
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.592224,
+                    48.114816
+                  ],
+                  [
+                    11.592251,
+                    48.114795
+                  ],
+                  [
+                    11.592281,
+                    48.114705
+                  ],
+                  [
+                    11.592321,
+                    48.114561
+                  ],
+                  [
+                    11.592329,
+                    48.114524
+                  ],
+                  [
+                    11.592333,
+                    48.114506
+                  ],
+                  [
+                    11.592351,
+                    48.11442
+                  ],
+                  [
+                    11.592387,
+                    48.114258
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 158,
+                "bearing_before": 106,
+                "location": [
+                  11.592224,
+                  48.114816
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Schlierseestraße",
+              "mode": "cycling",
+              "weight": 28.2,
+              "duration": 12.7,
+              "distance": 63.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    352
+                  ],
+                  "location": [
+                    11.592387,
+                    48.114258
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.592387,
+                    48.114258
+                  ],
+                  [
+                    11.592387,
+                    48.114258
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 172,
+                "location": [
+                  11.592387,
+                  48.114258
+                ],
+                "type": "arrive"
+              },
+              "name": "Schlierseestraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.591421,
+            48.114917
+          ],
+          [
+            11.592159,
+            48.114836
+          ],
+          [
+            11.592224,
+            48.114816
+          ],
+          [
+            11.592251,
+            48.114795
+          ],
+          [
+            11.592281,
+            48.114705
+          ],
+          [
+            11.592321,
+            48.114561
+          ],
+          [
+            11.592329,
+            48.114524
+          ],
+          [
+            11.592333,
+            48.114506
+          ],
+          [
+            11.592351,
+            48.11442
+          ],
+          [
+            11.592387,
+            48.114258
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 61.1,
+      "duration": 27.7,
+      "distance": 124.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ncgZgP___3_BAAAA1AEAAAAAAAAaAAAA-ZwcQtyxXkIAAAAAR2qqQFcAAADTAAAAAAAAAAwAAAC9AgAA_d6wAOUs3gL93rAA5SzeAgAAPwYAAAAA",
+      "location": [
+        11.591421,
+        48.114917
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "s8UZgP___39QAAAA6QAAACsAAABOAAAAKLGRQU0dCUIDfxpBW9KLQSQAAABpAAAAEwAAACMAAAC9AgAAw-KwAFIq3gLD4rAAUireAgIAvwoAAAAA",
+      "location": [
+        11.592387,
+        48.114258
+      ],
+      "name": "Schlierseestraße",
+      "distance": 0
+    }
+  ]
+}

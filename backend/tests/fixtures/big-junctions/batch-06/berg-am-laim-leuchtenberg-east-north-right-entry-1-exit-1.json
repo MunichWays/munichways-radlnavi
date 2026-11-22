@@ -1,0 +1,259 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              13811173589,
+              294224898,
+              1015622885,
+              12603832481,
+              1587288351
+            ],
+            "distance": [
+              53.35997397,
+              10.0188785,
+              8.337178641,
+              53.36178696
+            ]
+          },
+          "duration": 27.7,
+          "summary": "Berg-am-Laim-Straße, Leuchtenbergring",
+          "weight": 56.8,
+          "distance": 125.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    284
+                  ],
+                  "location": [
+                    11.616694,
+                    48.130937
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.616694,
+                    48.130937
+                  ],
+                  [
+                    11.616,
+                    48.131057
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 284,
+                "bearing_before": 0,
+                "location": [
+                  11.616694,
+                  48.130937
+                ],
+                "type": "depart"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 31.3,
+              "duration": 14.4,
+              "distance": 53.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.616,
+                    48.131057
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    165,
+                    195
+                  ],
+                  "location": [
+                    11.615985,
+                    48.131217
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.616,
+                    48.131057
+                  ],
+                  [
+                    11.616021,
+                    48.131146
+                  ],
+                  [
+                    11.615985,
+                    48.131217
+                  ],
+                  [
+                    11.616168,
+                    48.131681
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 8,
+                "bearing_before": 284,
+                "location": [
+                  11.616,
+                  48.131057
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Leuchtenbergring",
+              "mode": "cycling",
+              "weight": 25.5,
+              "duration": 13.3,
+              "distance": 71.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    195
+                  ],
+                  "location": [
+                    11.616168,
+                    48.131681
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.616168,
+                    48.131681
+                  ],
+                  [
+                    11.616168,
+                    48.131681
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 15,
+                "location": [
+                  11.616168,
+                  48.131681
+                ],
+                "type": "arrive"
+              },
+              "name": "Leuchtenbergring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.616694,
+            48.130937
+          ],
+          [
+            11.616,
+            48.131057
+          ],
+          [
+            11.616021,
+            48.131146
+          ],
+          [
+            11.615985,
+            48.131217
+          ],
+          [
+            11.616168,
+            48.131681
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 56.8,
+      "duration": 27.7,
+      "distance": 125.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "gLcXgP___39VAAAAQwEAAAAAAAAAAAAAgbmZQZ1wVUIAAAAAAAAAACYAAACRAAAAAAAAAAAAAAC9AgAAtkGxAHlr3gK2QbEAeWveAgAAzxEAAAAA",
+      "location": [
+        11.616694,
+        48.130937
+      ],
+      "name": "Berg-am-Laim-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "cbcXgP___3-uAAAAfwEAAAAAAADuAAAAeHJVQg3jfkIAAAAAvr2RQmAAAADTAAAAAAAAAIMAAAC9AgAAqD-xAGFu3gKoP7EAYW7eAgAA7wAAAAAA",
+      "location": [
+        11.616168,
+        48.131681
+      ],
+      "name": "Leuchtenbergring",
+      "distance": 0
+    }
+  ]
+}

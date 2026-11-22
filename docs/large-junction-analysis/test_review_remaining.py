@@ -59,7 +59,7 @@ class RemainingBA09Tests(unittest.TestCase):
             with self.subTest(site=site['number']):
                 self.assertFalse(site['enabled'])
                 self.assertEqual(site['polygonApproved'], site['number'] in (18, 19, 21))
-                self.assertEqual(site['id'] in active, site['number'] in (19, 21))
+                self.assertEqual(site['id'] in active, site['number'] in (18, 19, 21))
                 if site['polygon']:
                     self.assertTrue(simple_ring(site['polygon']))
                 else:
@@ -76,8 +76,8 @@ class RemainingBA09Tests(unittest.TestCase):
             self.assertEqual(set(assigned), {g['label'] for g in site['gates']})
             self.assertEqual(len(assigned), len(set(assigned)))
         self.assertEqual(sites[19]['onRoadWayIds'], [4623552, 1176949329, 1176949330])
-        self.assertNotIn('Entry-2', {g['label'] for g in sites[18]['gates']})
-        self.assertNotIn(1391209196, {g['osmWayId'] for g in sites[18]['gates']})
+        self.assertIn('Entry-2', {g['label'] for g in sites[18]['gates']})
+        self.assertIn(1391209196, {g['osmWayId'] for g in sites[18]['gates']})
         self.assertEqual(sites[20]['review']['recommendation'], 'exclude-three-arm-junction')
         self.assertEqual(sites[22]['review']['recommendation'], 'withhold-complex-scope')
         self.assertEqual(sum(g['osmWayId'] == 105739191 for g in sites[22]['gates']), 2)
@@ -121,10 +121,42 @@ class RemainingBA09Tests(unittest.TestCase):
             self.assertEqual(bool(movement), item['kind'] != 'right')
         self.assertEqual(sum(item.get('enabled', False) for item in report['movements']), 8)
 
-    def test_k18_osm_change_is_deferred_without_changing_approved_geometry(self):
+    def test_k18_gunther_entries_share_instructions_and_entry5_is_out_of_scope(self):
         site = next(s for s in self.sites() if s['number'] == 18)
-        pending = site['review']['pendingChange']
-        self.assertEqual(pending['notBefore'], '2026-11-16')
-        self.assertEqual((pending['entryLabel'], pending['sourceWayId']), ('Entry-2', 1391209196))
-        self.assertEqual(site['version'], 3)
-        self.assertNotIn('Entry-2', {g['label'] for g in site['gates']})
+        arms = site['review']['proposedLogicalArms']
+        self.assertEqual(set(arms['south']['entries']), {'Entry-2', 'Entry-3'})
+        self.assertEqual(arms['west']['entries'], ['Entry-4'])
+        report = json.loads((ROOT / 'review-k18-v5-routes.json').read_text(encoding='utf-8'))['junctions'][0]
+        self.assertFalse(any(m['entryLabel'] == 'Entry-5' for m in report['movements']))
+        for entry in ('Entry-2', 'Entry-3'):
+            movements = {m['exitLabel']:m for m in report['movements'] if m['entryLabel']==entry}
+            self.assertEqual(movements['Exit-1']['kind'], 'straight')
+            self.assertEqual(movements['Exit-4']['kind'], 'left')
+        self.assertEqual(sum(bool(m.get('enabled')) for m in report['movements']), 8)
+
+    def test_k18_refreshed_osm_restores_only_incoming_gunther_path(self):
+        from prepare_review_batch_routes import graph
+        from cycling_direction import bicycle_direction
+        site = next(s for s in self.sites() if s['number'] == 18)
+        old = json.loads((ROOT / 'review-reference-archives/k18-v3.json').read_text(encoding='utf-8'))
+        self.assertEqual(site['version'], 5)
+        self.assertTrue(site['polygonApproved'])
+        self.assertEqual(site['polygon'], old['polygon'])
+        keys = ('kind', 'location', 'osmWayId', 'label', 'forward')
+        current = {g['label']: {k:g[k] for k in keys} for g in site['gates']}
+        for gate in old['gates']:
+            if gate['label'] != 'Entry-5':
+                self.assertEqual(current[gate['label']], {k:gate[k] for k in keys})
+        self.assertNotIn('Entry-5', current)
+        self.assertIn('Exit-4', current)
+        gates = [g for g in site['gates'] if g['osmWayId'] == 1391209196]
+        self.assertEqual([(g['label'], g['kind'], g['directionBasis']) for g in gates], [('Entry-2', 'entry', 'yes')])
+        way = next(w for w in site['ways'] if w['id'] == 1391209196)
+        self.assertEqual(way['tags']['bicycle'], 'designated')
+        self.assertEqual(way['tags']['cycleway:oneway'], 'yes')
+        self.assertNotIn('oneway:bicycle', way['tags'])
+        edges = graph([way], [])
+        self.assertEqual(len(edges), 1)
+        self.assertLess(edges[0][0][1], edges[0][1][1])
+        self.assertEqual(bicycle_direction(dict(way['tags'], **{'oneway:bicycle': 'no'})), 'no')
+        self.assertEqual(bicycle_direction({'highway': 'secondary', 'cycleway:oneway': 'yes'}), 'no')

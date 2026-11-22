@@ -1,0 +1,531 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              269942404,
+              268858810,
+              1505403313,
+              9405936238,
+              967054051,
+              967054054,
+              9405936237,
+              1403497787,
+              3405893353,
+              506771601,
+              3405893352,
+              3405893351,
+              7117579495
+            ],
+            "distance": [
+              53.25738819,
+              3.959927602,
+              5.327526576,
+              6.510977311,
+              14.4198337,
+              6.362889482,
+              3.514775766,
+              2.542443667,
+              2.607943096,
+              12.34415486,
+              35.38075046,
+              6.436928771
+            ]
+          },
+          "duration": 50.2,
+          "summary": "Anzinger Straße, Bad-Schachener-Straße",
+          "weight": 105.5,
+          "distance": 152.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    96
+                  ],
+                  "location": [
+                    11.611934,
+                    48.120764
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.611934,
+                    48.120764
+                  ],
+                  [
+                    11.612645,
+                    48.120711
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 96,
+                "bearing_before": 0,
+                "location": [
+                  11.611934,
+                  48.120764
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 27.7,
+              "duration": 12.7,
+              "distance": 53.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    165,
+                    270
+                  ],
+                  "location": [
+                    11.612645,
+                    48.120711
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.612645,
+                    48.120711
+                  ],
+                  [
+                    11.612665,
+                    48.120678
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 157,
+                "bearing_before": 95,
+                "location": [
+                  11.612645,
+                  48.120711
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Melusinenstraße",
+              "mode": "cycling",
+              "weight": 9,
+              "duration": 4.6,
+              "distance": 4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    195,
+                    345
+                  ],
+                  "location": [
+                    11.612665,
+                    48.120678
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.612823,
+                    48.120666
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.613016,
+                    48.120655
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.613148,
+                    48.120646
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.612665,
+                    48.120678
+                  ],
+                  [
+                    11.612736,
+                    48.120672
+                  ],
+                  [
+                    11.612823,
+                    48.120666
+                  ],
+                  [
+                    11.613016,
+                    48.120655
+                  ],
+                  [
+                    11.613101,
+                    48.120649
+                  ],
+                  [
+                    11.613148,
+                    48.120646
+                  ],
+                  [
+                    11.613167,
+                    48.120665
+                  ],
+                  [
+                    11.613202,
+                    48.120666
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 97,
+                "bearing_before": 157,
+                "location": [
+                  11.612665,
+                  48.120678
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Anzinger Straße",
+              "mode": "cycling",
+              "weight": 44.8,
+              "duration": 22.1,
+              "distance": 41.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    135,
+                    240
+                  ],
+                  "location": [
+                    11.613202,
+                    48.120666
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    210,
+                    270
+                  ],
+                  "location": [
+                    11.613367,
+                    48.120655
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.61384,
+                    48.120624
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613202,
+                    48.120666
+                  ],
+                  [
+                    11.613367,
+                    48.120655
+                  ],
+                  [
+                    11.61384,
+                    48.120624
+                  ],
+                  [
+                    11.613926,
+                    48.120618
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 95,
+                "bearing_before": 60,
+                "location": [
+                  11.613202,
+                  48.120666
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 24,
+              "duration": 10.8,
+              "distance": 54.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    276
+                  ],
+                  "location": [
+                    11.613926,
+                    48.120618
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.613926,
+                    48.120618
+                  ],
+                  [
+                    11.613926,
+                    48.120618
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 96,
+                "location": [
+                  11.613926,
+                  48.120618
+                ],
+                "type": "arrive"
+              },
+              "name": "Bad-Schachener-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.611934,
+            48.120764
+          ],
+          [
+            11.612645,
+            48.120711
+          ],
+          [
+            11.612665,
+            48.120678
+          ],
+          [
+            11.612736,
+            48.120672
+          ],
+          [
+            11.612823,
+            48.120666
+          ],
+          [
+            11.613016,
+            48.120655
+          ],
+          [
+            11.613101,
+            48.120649
+          ],
+          [
+            11.613148,
+            48.120646
+          ],
+          [
+            11.613167,
+            48.120665
+          ],
+          [
+            11.613202,
+            48.120666
+          ],
+          [
+            11.613367,
+            48.120655
+          ],
+          [
+            11.61384,
+            48.120624
+          ],
+          [
+            11.613926,
+            48.120618
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 105.5,
+      "duration": 50.2,
+      "distance": 152.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "kl4ZgP___3-xAAAAngEAAAAAAAAAAAAAl10fQpEHVUIAAAAAAAAAAE8AAAC6AAAAAAAAAAAAAAC9AgAAHi-xALxD3gIeL7EAvEPeAgAADwYAAAAA",
+      "location": [
+        11.611934,
+        48.120764
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "PhcDgP___38cAAAAMQEAAAAAAAAAAAAAUvvNQDN0eEIAAAAAAAAAAAwAAACJAAAAAAAAAAAAAAC9AgAA5jaxACpD3gLmNrEAKkPeAgAA_wUAAAAA",
+      "location": [
+        11.613926,
+        48.120618
+      ],
+      "name": "Bad-Schachener-Straße",
+      "distance": 0
+    }
+  ]
+}

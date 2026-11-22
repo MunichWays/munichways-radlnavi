@@ -1,0 +1,287 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1217171125,
+              1217171076,
+              9440348772,
+              9440348773,
+              767274201,
+              1023856356,
+              767274230,
+              11964313173
+            ],
+            "distance": [
+              54.86546601,
+              6.638746011,
+              2.534965983,
+              2.831507987,
+              27.91134827,
+              15.42541694,
+              16.69246894
+            ]
+          },
+          "duration": 26.6,
+          "summary": "Ungererstraße, Frankfurter Ring",
+          "weight": 59,
+          "distance": 126.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    216
+                  ],
+                  "location": [
+                    11.611304,
+                    48.186571
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    105,
+                    225
+                  ],
+                  "location": [
+                    11.61087,
+                    48.186172
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.611304,
+                    48.186571
+                  ],
+                  [
+                    11.61087,
+                    48.186172
+                  ],
+                  [
+                    11.610819,
+                    48.186123
+                  ],
+                  [
+                    11.610791,
+                    48.18611
+                  ],
+                  [
+                    11.610754,
+                    48.186104
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 216,
+                "bearing_before": 0,
+                "location": [
+                  11.611304,
+                  48.186571
+                ],
+                "type": "depart"
+              },
+              "name": "Ungererstraße",
+              "mode": "cycling",
+              "weight": 32.3,
+              "duration": 14.6,
+              "distance": 66.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    210,
+                    285
+                  ],
+                  "location": [
+                    11.610754,
+                    48.186104
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610754,
+                    48.186104
+                  ],
+                  [
+                    11.610384,
+                    48.186146
+                  ],
+                  [
+                    11.610268,
+                    48.186261
+                  ],
+                  [
+                    11.610083,
+                    48.186346
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 278,
+                "bearing_before": 230,
+                "location": [
+                  11.610754,
+                  48.186104
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Frankfurter Ring",
+              "mode": "cycling",
+              "weight": 26.7,
+              "duration": 12,
+              "distance": 60
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    124
+                  ],
+                  "location": [
+                    11.610083,
+                    48.186346
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610083,
+                    48.186346
+                  ],
+                  [
+                    11.610083,
+                    48.186346
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 304,
+                "location": [
+                  11.610083,
+                  48.186346
+                ],
+                "type": "arrive"
+              },
+              "name": "Frankfurter Ring",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.611304,
+            48.186571
+          ],
+          [
+            11.61087,
+            48.186172
+          ],
+          [
+            11.610819,
+            48.186123
+          ],
+          [
+            11.610791,
+            48.18611
+          ],
+          [
+            11.610754,
+            48.186104
+          ],
+          [
+            11.610384,
+            48.186146
+          ],
+          [
+            11.610268,
+            48.186261
+          ],
+          [
+            11.610083,
+            48.186346
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 59,
+      "duration": 26.6,
+      "distance": 126.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "1H0ugP___39nAAAAXAEAAMwCAAAAAAAAcwq7QT12W0KC8CBDAAAAAC4AAACcAAAAQgEAAAAAAAC9AgAAqCyxAMtE3wKoLLEAy0TfAgQAjw0AAAAA",
+      "location": [
+        11.611304,
+        48.186571
+      ],
+      "name": "Ungererstraße",
+      "distance": 0
+    },
+    {
+      "hint": "_iwAgP___39KAAAAawAAAMEAAABOAgAALYqFQe5q7UDZWC1CQsIEQyEAAAAwAAAAVwAAAAkBAAC9AgAA4yexAOpD3wLjJ7EA6kPfAgQADxMAAAAA",
+      "location": [
+        11.610083,
+        48.186346
+      ],
+      "name": "Frankfurter Ring",
+      "distance": 0
+    }
+  ]
+}

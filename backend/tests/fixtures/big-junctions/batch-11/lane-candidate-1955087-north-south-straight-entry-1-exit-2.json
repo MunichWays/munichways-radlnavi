@@ -1,0 +1,339 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3489050198,
+              3489050197,
+              29630116,
+              29630115,
+              2794931507,
+              3489050195,
+              3943670874,
+              1955087,
+              11953446703,
+              664478903,
+              664478904,
+              21133368,
+              664478905
+            ],
+            "distance": [
+              11.6071078,
+              11.81770363,
+              14.45206559,
+              4.891374899,
+              16.10744049,
+              4.155702298,
+              13.4646315,
+              31.88652892,
+              6.024031589,
+              17.40332707,
+              15.6558725,
+              5.659019328
+            ]
+          },
+          "duration": 74.2,
+          "summary": "Auenstraße",
+          "weight": 188.2,
+          "distance": 153.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    231
+                  ],
+                  "location": [
+                    11.567411,
+                    48.123912
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    180,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.567167,
+                    48.123779
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    240
+                  ],
+                  "location": [
+                    11.567014,
+                    48.123699
+                  ]
+                },
+                {
+                  "out": 4,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    90,
+                    105,
+                    150,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.566602,
+                    48.123488
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.567411,
+                    48.123912
+                  ],
+                  [
+                    11.567289,
+                    48.123847
+                  ],
+                  [
+                    11.567167,
+                    48.123779
+                  ],
+                  [
+                    11.567014,
+                    48.123699
+                  ],
+                  [
+                    11.566961,
+                    48.123673
+                  ],
+                  [
+                    11.566788,
+                    48.123586
+                  ],
+                  [
+                    11.566744,
+                    48.123563
+                  ],
+                  [
+                    11.566602,
+                    48.123488
+                  ],
+                  [
+                    11.566265,
+                    48.123311
+                  ],
+                  [
+                    11.566202,
+                    48.123277
+                  ],
+                  [
+                    11.56603,
+                    48.123171
+                  ],
+                  [
+                    11.565879,
+                    48.123073
+                  ],
+                  [
+                    11.565832,
+                    48.123033
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 231,
+                "bearing_before": 0,
+                "location": [
+                  11.567411,
+                  48.123912
+                ],
+                "type": "depart"
+              },
+              "name": "Auenstraße",
+              "mode": "cycling",
+              "weight": 188.2,
+              "duration": 74.2,
+              "distance": 153.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    38
+                  ],
+                  "location": [
+                    11.565832,
+                    48.123033
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.565832,
+                    48.123033
+                  ],
+                  [
+                    11.565832,
+                    48.123033
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 218,
+                "location": [
+                  11.565832,
+                  48.123033
+                ],
+                "type": "arrive"
+              },
+              "name": "Auenstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.567411,
+            48.123912
+          ],
+          [
+            11.567289,
+            48.123847
+          ],
+          [
+            11.567167,
+            48.123779
+          ],
+          [
+            11.567014,
+            48.123699
+          ],
+          [
+            11.566961,
+            48.123673
+          ],
+          [
+            11.566788,
+            48.123586
+          ],
+          [
+            11.566744,
+            48.123563
+          ],
+          [
+            11.566602,
+            48.123488
+          ],
+          [
+            11.566265,
+            48.123311
+          ],
+          [
+            11.566202,
+            48.123277
+          ],
+          [
+            11.56603,
+            48.123171
+          ],
+          [
+            11.565879,
+            48.123073
+          ],
+          [
+            11.565832,
+            48.123033
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 188.2,
+      "duration": 74.2,
+      "distance": 153.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "xwUEgP___3-nAAAA-wAAAEUCAAAjAgAAGy66Qbe2OUGGV6FCUBU9QSoAAAA_AAAAkQAAAPwAAAC9AgAAM4GwAAhQ3gIzgbAACFDeAgIAfw4AAAAA",
+      "location": [
+        11.567411,
+        48.123912
+      ],
+      "name": "Auenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "zbcggP___38oAAAAWgAAAO4AAADgAAAAsBa1QO632ECfPARCkrD5QQkAAAAWAAAAOwAAADgAAAC9AgAACHuwAJlM3gIJe7AAmUzeAgQArw0AAAAA",
+      "location": [
+        11.565832,
+        48.123033
+      ],
+      "name": "Auenstraße",
+      "distance": 0.0744449028
+    }
+  ]
+}

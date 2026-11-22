@@ -1,0 +1,1095 @@
+{
+  "version": 1,
+  "status": "complete",
+  "completedAt": "2026-11-21T14:13:18.658016+00:00",
+  "runtimeModified": false,
+  "junctions": [
+    {
+      "id": "osm-junction-2041371",
+      "number": 51,
+      "geometryRevision": 3,
+      "status": "complete",
+      "fixtureDirectory": "batch-10",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "north": [
+          "Entry-6",
+          "Exit-1"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-4",
+          "Entry-5",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.646621471781142,
+            48.10978783582595
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.64741472298121,
+            48.10924711749034
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.647427791191904,
+            48.109005346901725
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.64655758122181,
+            48.1083729841787
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.646242627239031,
+            48.108459932014945
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.645424869204449,
+            48.10901261683529
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-5": {
+          "sample": [
+            11.64542336245002,
+            48.109012619442126
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.645436759207254,
+            48.10923998721746
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-6": {
+          "sample": [
+            11.646276609169607,
+            48.10979335440766
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-6-exit-2",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-north-east-left-entry-6-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646276609,48.109793354;11.647427791,48.109005347?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            25574282,
+            421302934,
+            421302935,
+            421302937,
+            421302939,
+            421302944,
+            514803704
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-6-exit-3",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-north-south-straight-entry-6-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646276609,48.109793354;11.646242627,48.108459932?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            25574282,
+            421302933,
+            421302934,
+            421302935,
+            421302939
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-6-exit-4",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-north-west-right-entry-6-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646276609,48.109793354;11.645436759,48.109239987?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            25574282,
+            421302935,
+            851183956
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.647414723,48.109247117;11.646621472,48.109787836?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            27151186,
+            421302946,
+            514803703
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.647414723,48.109247117;11.646242627,48.108459932?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302933,
+            421302934,
+            421302935,
+            421302939,
+            421302941,
+            421302946,
+            514803703
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.647414723,48.109247117;11.645436759,48.109239987?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302935,
+            421302941,
+            421302946,
+            514803703,
+            851183956
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646557581,48.108372984;11.646621472,48.109787836?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            27151186,
+            421302932,
+            421302936,
+            514803703,
+            514803704,
+            1564643171
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646557581,48.108372984;11.647427791,48.109005347?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302932,
+            421302944,
+            514803704,
+            1564643171
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646557581,48.108372984;11.645436759,48.109239987?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302932,
+            421302935,
+            421302936,
+            421302941,
+            514803703,
+            514803704,
+            851183956,
+            1564643171
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-4-exit-1",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-west-north-left-entry-4-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645424869,48.109012617;11.646621472,48.109787836?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            27151186,
+            421302934,
+            421302936,
+            421302937,
+            514803703,
+            514803704,
+            1564643172
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-5-exit-1",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-west-north-left-entry-5-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645423362,48.109012619;11.646621472,48.109787836?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "reason": "ValueError: Wrong entry gate"
+        },
+        {
+          "id": "west-east-straight-entry-4-exit-2",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041371-west-east-straight-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645424869,48.109012617;11.647427791,48.109005347?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302934,
+            421302937,
+            421302944,
+            514803704,
+            1564643172
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-5-exit-2",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-west-east-straight-entry-5-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645423362,48.109012619;11.647427791,48.109005347?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "reason": "ValueError: Wrong entry gate"
+        },
+        {
+          "id": "west-south-right-entry-4-exit-3",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-west-south-right-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645424869,48.109012617;11.646242627,48.108459932?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302933,
+            421302934,
+            1564643172
+          ]
+        },
+        {
+          "id": "west-south-right-entry-5-exit-3",
+          "junctionId": "osm-junction-2041371",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041371-west-south-right-entry-5-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645423362,48.109012619;11.646242627,48.108459932?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "reason": "ValueError: Wrong entry gate"
+        }
+      ],
+      "reviewBinding": {
+        "geometryFingerprint": "5d1527ef22a5365172b7d5d64d0c74a6abd5d578a6f5d82607226811e517241c",
+        "sourceFingerprint": "fc4ef045d7d557de5918b90fd5cc549e37ded46034fb82844faaedf9daa99f05"
+      },
+      "projectLabel": "P3"
+    },
+    {
+      "id": "osm-junction-14658540",
+      "number": 52,
+      "geometryRevision": 2,
+      "status": "complete",
+      "fixtureDirectory": "batch-10",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "north": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-4"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-2"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-3"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.64705298938953,
+            48.09695561821136
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.647423666828988,
+            48.09620796655146
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.646314113419912,
+            48.09576379127893
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.645866177844415,
+            48.0958971801043
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.645455283007633,
+            48.0966187523176
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.64554643396698,
+            48.096764070835306
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.646584457300492,
+            48.09707828628612
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.647386082466317,
+            48.09605499891939
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-4",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-north-east-left-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646584457,48.097078286;11.647386082,48.096054999?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            3302000,
+            3302001,
+            63950432,
+            64004423,
+            160545490,
+            160545498,
+            1042399898,
+            1499095090,
+            1499095091
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-2",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-north-south-straight-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646584457,48.097078286;11.645866178,48.095897180?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            64004423,
+            160545490,
+            160545501,
+            1042399898,
+            1042399899
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-3",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-14658540-north-west-right-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646584457,48.097078286;11.645546434,48.096764071?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            160545490,
+            1042399890,
+            1042399898,
+            1042399901
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-14658540-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.647423667,48.096207967;11.647052989,48.096955618?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            160545494,
+            247441096,
+            1042399902,
+            1042399903
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-2",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-east-south-left-entry-1-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.647423667,48.096207967;11.645866178,48.095897180?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            64004423,
+            160545486,
+            160545501,
+            247441096,
+            1042399899,
+            1042399902,
+            1499095087,
+            1499095088
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-3",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-east-west-straight-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.647423667,48.096207967;11.645546434,48.096764071?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            160545486,
+            247441096,
+            1042399890,
+            1042399901,
+            1042399902,
+            1499095087,
+            1499095088
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646314113,48.095763791;11.647052989,48.096955618?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            63955227,
+            158193267,
+            160545494,
+            1042399903,
+            1042399904
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-4",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-14658540-south-east-right-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646314113,48.095763791;11.647386082,48.096054999?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            3302000,
+            3302001,
+            158193267,
+            160545498,
+            1042399904
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-3",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-south-west-left-entry-2-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.646314113,48.095763791;11.645546434,48.096764071?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            63955227,
+            158193267,
+            160545486,
+            1042399890,
+            1042399901,
+            1042399904,
+            1499095087,
+            1499095088
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645455283,48.096618752;11.647052989,48.096955618?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            63950432,
+            63955227,
+            160545494,
+            1042399894,
+            1042399900,
+            1042399903,
+            1499095090,
+            1499095091
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-4",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-14658540-west-east-straight-entry-3-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645455283,48.096618752;11.647386082,48.096054999?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            3302000,
+            3302001,
+            63950432,
+            160545498,
+            1042399894,
+            1042399900,
+            1499095090,
+            1499095091
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-2",
+          "junctionId": "osm-junction-14658540",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-14658540-west-south-right-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.645455283,48.096618752;11.645866178,48.095897180?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            160545501,
+            1042399894,
+            1042399899,
+            1042399900
+          ]
+        }
+      ],
+      "reviewBinding": {
+        "geometryFingerprint": "9d58b72c20ad8340de432c8a7fcd390f7f18c8b928207992c19c2efb8be27628",
+        "sourceFingerprint": "dc511039dc10db41db04b736781bd768299bed23eca81f775972b4c98e944a2a"
+      },
+      "projectLabel": "P5"
+    },
+    {
+      "id": "osm-junction-2041368",
+      "number": 53,
+      "geometryRevision": 1,
+      "status": "complete",
+      "fixtureDirectory": "batch-10",
+      "classificationBasis": "reviewed-arm-order",
+      "logicalArms": {
+        "north": [
+          "Entry-4",
+          "Exit-1"
+        ],
+        "east": [
+          "Entry-1",
+          "Exit-2"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-3"
+        ],
+        "west": [
+          "Entry-3",
+          "Exit-4"
+        ]
+      },
+      "gateEvidence": {
+        "Exit-1": {
+          "sample": [
+            11.650117662911512,
+            48.1097783981983
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-1": {
+          "sample": [
+            11.650899628504384,
+            48.10924009136475
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-2": {
+          "sample": [
+            11.650890489922627,
+            48.108998721575446
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-2": {
+          "sample": [
+            11.650107354464252,
+            48.1084730143073
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-3": {
+          "sample": [
+            11.649667639168086,
+            48.10847646347829
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-3": {
+          "sample": [
+            11.648895775526501,
+            48.10900173923092
+          ],
+          "distanceMeters": 45
+        },
+        "Exit-4": {
+          "sample": [
+            11.64889175849958,
+            48.10924605806946
+          ],
+          "distanceMeters": 45
+        },
+        "Entry-4": {
+          "sample": [
+            11.649637495868625,
+            48.10977207135648
+          ],
+          "distanceMeters": 45
+        }
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-north-east-left-entry-4-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.649637496,48.109772071;11.650890490,48.108998722?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425409,
+            302425410,
+            302425416,
+            514803691,
+            514803692,
+            514803702,
+            1161158833
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-north-south-straight-entry-4-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.649637496,48.109772071;11.649667639,48.108476463?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425408,
+            302425410,
+            514803691,
+            514803702,
+            1161158833
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "north-west-right-entry-4-exit-4",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "north",
+          "exitArm": "west",
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041368-north-west-right-entry-4-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.649637496,48.109772071;11.648891758,48.109246058?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            421302946,
+            514803702,
+            1161158833
+          ]
+        },
+        {
+          "id": "east-north-right-entry-1-exit-1",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "east",
+          "exitArm": "north",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041368-east-north-right-entry-1-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.650899629,48.109240091;11.650117663,48.109778398?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            514803694,
+            514803710,
+            1141500742
+          ]
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-east-south-left-entry-1-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.650899629,48.109240091;11.649667639,48.108476463?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425408,
+            302425410,
+            302425412,
+            514803691,
+            514803694,
+            514803702,
+            1141500742
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-east-west-straight-entry-1-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.650899629,48.109240091;11.648891758,48.109246058?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425412,
+            421302946,
+            514803694,
+            514803702,
+            1141500742
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-south-north-straight-entry-2-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.650107354,48.108473014;11.650117663,48.109778398?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            24845545,
+            302425411,
+            514803692,
+            514803694,
+            514803710
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "south-east-right-entry-2-exit-2",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "south",
+          "exitArm": "east",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041368-south-east-right-entry-2-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.650107354,48.108473014;11.650890490,48.108998722?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            24845545,
+            302425409,
+            514803692
+          ]
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-south-west-left-entry-2-exit-4.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.650107354,48.108473014;11.648891758,48.109246058?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            24845545,
+            302425411,
+            302425412,
+            421302946,
+            514803692,
+            514803694,
+            514803702
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-west-north-left-entry-3-exit-1.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.648895776,48.109001739;11.650117663,48.109778398?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425411,
+            302425416,
+            421302944,
+            514803691,
+            514803692,
+            514803694,
+            514803710
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true,
+          "fixture": "osm-junction-2041368-west-east-straight-entry-3-exit-2.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.648895776,48.109001739;11.650890490,48.108998722?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425409,
+            302425416,
+            421302944,
+            514803691,
+            514803692
+          ],
+          "headingEvidenceMeters": 10
+        },
+        {
+          "id": "west-south-right-entry-3-exit-3",
+          "junctionId": "osm-junction-2041368",
+          "entryArm": "west",
+          "exitArm": "south",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "fixture": "osm-junction-2041368-west-south-right-entry-3-exit-3.json",
+          "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.648895776,48.109001739;11.649667639,48.108476463?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+          "verified": true,
+          "verifiedCyclingWayIds": [
+            302425408,
+            421302944,
+            514803691
+          ]
+        }
+      ],
+      "reviewBinding": {
+        "geometryFingerprint": "545af4649f3b729224c6611fe32b43452b1035ff6c6efcfba3dc44b916a1f620",
+        "sourceFingerprint": "6362cc582c979d6e7ab19759e73b139ae5c71cc2d8618afcdea5f560a0e2e59f"
+      },
+      "projectLabel": "P6"
+    }
+  ],
+  "fullCatalogChecks": {
+    "positive": 24,
+    "rightTurnControls": 13,
+    "walkingControls": 24
+  }
+}

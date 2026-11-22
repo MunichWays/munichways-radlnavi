@@ -1,0 +1,352 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              2587329968,
+              1756243870,
+              2587329969,
+              381947573,
+              1756243875,
+              893258365,
+              2584391615,
+              3649914319,
+              1703537043,
+              2587029150,
+              8544837218,
+              7099549621
+            ],
+            "distance": [
+              30.95328303,
+              11.4492866,
+              10.9176279,
+              5.211756838,
+              8.856806244,
+              32.43184398,
+              1.958501303,
+              2.621299583,
+              6.742756439,
+              19.07154844,
+              6.770978595
+            ]
+          },
+          "duration": 29.7,
+          "summary": "Werinherstraße, Tegernseer Landstraße",
+          "weight": 86.8,
+          "distance": 137,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    283
+                  ],
+                  "location": [
+                    11.581158,
+                    48.115597
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.580403,
+                    48.115738
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.581158,
+                    48.115597
+                  ],
+                  [
+                    11.580753,
+                    48.11566
+                  ],
+                  [
+                    11.580605,
+                    48.115688
+                  ],
+                  [
+                    11.580464,
+                    48.115715
+                  ],
+                  [
+                    11.580403,
+                    48.115738
+                  ],
+                  [
+                    11.580301,
+                    48.115779
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 283,
+                "bearing_before": 0,
+                "location": [
+                  11.581158,
+                  48.115597
+                ],
+                "type": "depart"
+              },
+              "name": "Werinherstraße",
+              "mode": "cycling",
+              "weight": 37.4,
+              "duration": 17.2,
+              "distance": 67.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.580301,
+                    48.115779
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.580483,
+                    48.116044
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.580301,
+                    48.115779
+                  ],
+                  [
+                    11.580483,
+                    48.116044
+                  ],
+                  [
+                    11.580494,
+                    48.11606
+                  ],
+                  [
+                    11.58051,
+                    48.116081
+                  ],
+                  [
+                    11.580559,
+                    48.116132
+                  ],
+                  [
+                    11.580707,
+                    48.116272
+                  ],
+                  [
+                    11.580761,
+                    48.116321
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 23,
+                "bearing_before": 300,
+                "location": [
+                  11.580301,
+                  48.115779
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Tegernseer Landstraße",
+              "mode": "cycling",
+              "weight": 49.4,
+              "duration": 12.5,
+              "distance": 69.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    216
+                  ],
+                  "location": [
+                    11.580761,
+                    48.116321
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.580761,
+                    48.116321
+                  ],
+                  [
+                    11.580761,
+                    48.116321
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 36,
+                "location": [
+                  11.580761,
+                  48.116321
+                ],
+                "type": "arrive"
+              },
+              "name": "Tegernseer Landstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.581158,
+            48.115597
+          ],
+          [
+            11.580753,
+            48.11566
+          ],
+          [
+            11.580605,
+            48.115688
+          ],
+          [
+            11.580464,
+            48.115715
+          ],
+          [
+            11.580403,
+            48.115738
+          ],
+          [
+            11.580301,
+            48.115779
+          ],
+          [
+            11.580483,
+            48.116044
+          ],
+          [
+            11.580494,
+            48.11606
+          ],
+          [
+            11.58051,
+            48.116081
+          ],
+          [
+            11.580559,
+            48.116132
+          ],
+          [
+            11.580707,
+            48.116272
+          ],
+          [
+            11.580761,
+            48.116321
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 86.8,
+      "duration": 29.7,
+      "distance": 137
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "KMMZgP___39GAAAA0AAAAMUAAAB7AAAAauN7QVOg90H3NTFCHqHcQR8AAABdAAAAWQAAADcAAAC9AgAA5rawAI0v3gLmtrAAjS_eAgQAvxEAAAAA",
+      "location": [
+        11.581158,
+        48.115597
+      ],
+      "name": "Werinherstraße",
+      "distance": 0
+    },
+    {
+      "hint": "y8IZgP___38wAAAAigAAANMAAAAAAAAA26vYQKJsRUEhJ_NBAAAAAAwAAAAiAAAANwAAAAAAAAC9AgAAWbWwAGEy3gJZtbAAYTLeAggATwIAAAAA",
+      "location": [
+        11.580761,
+        48.116321
+      ],
+      "name": "Tegernseer Landstraße",
+      "distance": 0
+    }
+  ]
+}

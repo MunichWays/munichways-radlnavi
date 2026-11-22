@@ -114,7 +114,9 @@ sind dafür nicht erforderlich.
 3. **Hinweis … auf Karte** markiert den Manöverort und das folgende Wegstück
    orange. Das Prüffenster bleibt dabei geöffnet, die Karte bleibt bedienbar.
    Am Titel lässt sich das Fenster verschieben (auch per Pfeiltasten nach
-   Fokussieren des Titels), an der unteren rechten Ecke in der Größe ändern.
+   Fokussieren des Titels). Der Griff unten rechts ändert die Größe durch Ziehen
+   oder, nach Fokussieren des Griffs, mit Pfeiltasten. Die Größe bleibt beim
+   Verkleinern und Wiederöffnen erhalten.
    **Verkleinern** reduziert es auf die Titelleiste; **Öffnen** zeigt den Inhalt wieder.
 4. **Rohantwort herunterladen** sichert die bereits gelieferte Kartenroute
    mit Übernahmezeit. Unter **Abfrage und Zeitpunkt** steht die Quelle;
@@ -126,6 +128,13 @@ sind dafür nicht erforderlich.
 
 Die Prüfansicht stellt keine eigene Routenabfrage. Standard, Direkt und
 Entdeckertour verwenden genau die Antwort der Kartenberechnung.
+Jeder Eintrag beginnt mit der **App-Ansage in Fett**, darunter stehen der
+App-Hinweis in normaler Schrift und anschließend der RadlNavi-Text samt Details.
+
+Die App-Vorschau verbindet aufeinanderfolgende Abbiegungen bis 35 m mit
+„danach sofort“, bis 75 m mit „danach“. Eine folgende große Kreuzung wird
+ausdrücklich benannt. Die tatsächliche GPS-Zuordnung und Ansagezeitpunkte
+werden weiterhin nur in der App bestimmt.
 
 Die API liefert strukturierte Manöver. Deutsche Texte erzeugt wie im
 Webfrontend `osrm-text-instructions`; vorgelesen wird mit der Browserstimme.

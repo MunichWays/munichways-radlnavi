@@ -196,6 +196,18 @@ class HttpTests(ProjectFixture, unittest.TestCase):
             headers=headers or {})
         return urlopen(request, timeout=5)
 
+    def test_rename_saved_project_over_http(self):
+        with self.request('/api/project') as response:
+            before = json.load(response)
+        headers = {'Content-Type': 'application/json', 'X-Review-Token': before['token']}
+        with self.request('/api/projects/rename', dict(id=before['workspaceId'],
+                name='Renamed project', expectedName=before['project']['name']), headers) as response:
+            renamed = json.load(response)
+        self.assertEqual(renamed['project']['name'], 'Renamed project')
+        self.assertEqual(renamed['sites'], before['sites'])
+        with self.request('/api/projects') as response:
+            self.assertEqual(json.load(response)[0]['name'], 'Renamed project')
+
     def test_real_http_save_restart_export_and_csrf(self):
         with self.request('/api/project') as response:
             token = json.load(response)['token']

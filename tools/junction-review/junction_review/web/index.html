@@ -9,11 +9,12 @@
 </head>
 <body>
   <header>
-    <div class="brand"><button id="toggle-sidebar" class="secondary" type="button" aria-controls="sidebar" aria-expanded="true" title="Kreuzungsliste ein-/ausklappen">☰</button><span class="brand-mark" aria-hidden="true">╋</span><div><h1>Kreuzungsprüfung</h1><p id="project-name">Lokales Projekt wird geladen …</p></div></div>
+    <div class="brand"><div><h1>Kreuzungsprüfung</h1><p id="project-name">Lokales Projekt wird geladen …</p></div></div>
     <a id="export-project" class="button secondary" href="/api/export" download>Bestätigte Geometrien exportieren</a>
   </header>
-  <div id="message" role="status" aria-live="polite" hidden></div>
+  <div id="message" role="status" aria-live="polite" hidden><span id="message-text"></span><button id="dismiss-message" type="button" class="secondary" aria-label="Meldung schließen">×</button></div>
   <div class="layout">
+    <button id="toggle-sidebar" class="secondary" type="button" aria-controls="sidebar" aria-expanded="true" title="Kreuzungsliste ausblenden">←</button>
     <aside id="sidebar" aria-label="Kreuzungen">
       <a id="overview-back" class="overview-link" href="#" hidden>← Alle Kreuzungen</a>
       <label for="search">Kreuzung suchen</label>

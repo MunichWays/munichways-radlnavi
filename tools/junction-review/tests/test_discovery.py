@@ -166,9 +166,15 @@ class DiscoveryTests(unittest.TestCase):
         data, raw = discover(selection, fetch=lambda query: crossing())
         with tempfile.TemporaryDirectory() as directory:
             original = ProjectStore(Path(directory) / 'original')
-            original.import_dataset(data)
+            old_data = deepcopy(data)
+            # This test exercises two different junctions. Identical OSM identities
+            # are deliberately skipped by cross-project deduplication.
+            old_id = 'osm-junction-999999'
+            old_data['sites'][0]['id'] = old_id
+            old_data['sites'][0]['preparation']['candidateNodes'] = [999999]
+            original.import_dataset(old_data)
             site_id = data['sites'][0]['id']
-            original.save(site_id, dict(expectedVersion=0, status='excluded', note='Alter Fall bleibt geschlossen'))
+            original.save(old_id, dict(expectedVersion=0, status='excluded', note='Alter Fall bleibt geschlossen'))
             server = create_server(original, 0)
             worker = threading.Thread(target=server.serve_forever, daemon=True)
             worker.start()
@@ -204,7 +210,7 @@ class DiscoveryTests(unittest.TestCase):
                 self.assertTrue((Path(directory) / data['project']['id'] / 'osm-snapshot.json').exists())
                 previous = post('/api/projects/select', dict(id='original'))
                 self.assertEqual(previous['sites'][0]['status'], 'excluded')
-                with urlopen(base + f'/api/sites/{site_id}/image.svg') as image:
+                with urlopen(base + f'/api/sites/{old_id}/image.svg') as image:
                     ET.fromstring(image.read())
             finally:
                 server.shutdown()

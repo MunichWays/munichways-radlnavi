@@ -58,7 +58,12 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
     if(!renameTarget) return;
     const target=renameTarget, name=$('project-rename-name').value;
     return run('Projekt umbenennen …',async t=>{
-      const data=await api('/api/projects/rename',{body:{id:target.id,name,expectedName:target.name},signal:t.controller.signal});
+      let data;
+      try { data=await api('/api/projects/rename',{body:{id:target.id,name,expectedName:target.name},signal:t.controller.signal}); }
+      catch(error) {
+        if(error.message === 'Nicht gefunden.') throw new Error('Der laufende Prüfserver unterstützt Umbenennen noch nicht. Bitte den lokalen Prüfserver stoppen und neu starten, danach die Seite neu laden.');
+        throw error;
+      }
       if(data.workspaceId===project().workspaceId) {
         Object.assign(project().project,data.project);
         $('project-name').textContent=data.project.name;
@@ -219,7 +224,7 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
     const data = await api('/api/project',{projectId:job.projectId,signal:t.controller.signal});
     acceptProject(data); await projects();
     $('area-panel').open = false;
-    message(`${data.sites.length} Kreuzungen im Prüfprojekt. ${data.source.rejected?.length || 0} T-/Kreisverkehrsfälle aussortiert. Vorhandene Entscheidungen bleiben erhalten.`);
+    message(`${data.sites.length} Kreuzungen im Prüfprojekt. ${data.source.existingJunctions?.length || 0} bereits in anderen Projekten enthaltene Kreuzungen übersprungen. ${data.source.rejected?.length || 0} T-/Kreisverkehrsfälle aussortiert. Vorhandene Entscheidungen bleiben erhalten.`);
   }
   $('open-project').addEventListener('click',()=>run('Prüfprojekt öffnen …',async t=>{
     const data = await api('/api/projects/select',{body:{id:$('project-select').value},signal:t.controller.signal});

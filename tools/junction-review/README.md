@@ -1,5 +1,12 @@
 # Lokale Kreuzungsprüfung
 
+Neue Gebietsvorbereitungen überspringen Kreuzungen, deren OSM-Knoten bereits in
+einem gespeicherten Projekt enthalten sind. Das gilt auch für ausgeschlossene
+oder zurückgestellte Fälle und ältere `lane-candidate`-Importe. Der Abschluss
+nennt die Anzahl; Verweise auf die ursprünglichen Projekte stehen im Datenstand
+unter `source.existingJunctions`. Bloße räumliche Nähe gilt nicht als Duplikat,
+damit benachbarte oder getrennte Kreuzungsflächen erhalten bleiben.
+
 ## Öffentliche mobile Karte
 
 Die Nur-Lese-Karte wird mit dem RadlNavi-Frontend unter `/kreuzungspruefung/`

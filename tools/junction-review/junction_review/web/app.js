@@ -105,8 +105,16 @@ function createMap(container, points, origin, padding = 30) {
     }
     notice();
   }
+  function updateScreenMarkers() {
+    const scale = svg.getScreenCTM()?.a;
+    if (!scale) return;
+    for (const marker of svg.querySelectorAll('[data-screen-marker]')) {
+      marker.setAttribute('transform', `translate(${marker.dataset.x} ${marker.dataset.y}) scale(${1 / scale})`);
+    }
+  }
   function apply() {
     svg.setAttribute('viewBox', box.join(' '));
+    updateScreenMarkers();
     clearTimeout(tileTimer); tileTimer = setTimeout(renderTiles, 150);
   }
   function zoom(factor, center = [box[0] + box[2] / 2, box[1] + box[3] / 2]) {
@@ -162,7 +170,7 @@ function createMap(container, points, origin, padding = 30) {
   resize.observe(container);
   container.disposeMap = () => { resize.disconnect(); clearTimeout(tileTimer); };
   renderTiles();
-  return {svg, project, width, height, initial, position};
+  return {svg, project, width, height, initial, position, updateScreenMarkers};
 }
 
 function line(map, coordinates, attrs) {
@@ -203,7 +211,7 @@ const $ = id => document.getElementById(id);
 const apiRequest = createApi(() => projectData || {});
 
 function message(text, error = false) {
-  $('message').textContent = text; $('message').hidden = false; $('message').className = error ? 'error' : '';
+  $('message-text').textContent = text; $('message').hidden = false; $('message').className = error ? 'error' : '';
 }
 
 function setBusy(value) {
@@ -257,10 +265,13 @@ function overview() {
   for (const site of sites) {
     const [x, y] = map.project.to(site.origin);
     const a = el('a', {href: `#${encodeURIComponent(site.id)}`, 'data-no-pan': '', 'aria-label': `${siteLabel(site)} ${site.name}`});
-    a.append(el('circle', {cx: x, cy: y, r: map.width / 110, fill: site.geometryMode === 'none' ? 'white' : colors[site.status], stroke: site.geometryMode === 'none' ? colors[site.status] : 'white', 'stroke-width': map.width / 650}));
-    if (site.number || site.priorityRank) a.append(el('text', {x, y: y - map.width / 65, 'text-anchor': 'middle', fill: '#46374f', 'font-size': map.width / 65, 'font-weight': 700, 'paint-order': 'stroke', stroke: 'white', 'stroke-width': map.width / 300}, siteLabel(site)));
+    const marker = el('g', {'data-screen-marker':'', 'data-x':x, 'data-y':y});
+    marker.append(el('circle', {r:7, fill: site.geometryMode === 'none' ? 'white' : colors[site.status], stroke: site.geometryMode === 'none' ? colors[site.status] : 'white', 'stroke-width':1.5}));
+    if (site.number || site.priorityRank) marker.append(el('text', {y:-12, 'text-anchor':'middle', fill:'#46374f', 'font-size':12, 'font-weight':700, 'paint-order':'stroke', stroke:'white', 'stroke-width':3}, siteLabel(site)));
+    a.append(marker);
     a.append(el('title', {}, site.name)); map.svg.append(a);
   }
+  map.updateScreenMarkers();
 }
 
 function detailMap() {
@@ -382,10 +393,13 @@ async function start() {
     try { const saved = localStorage.getItem('junction-review:sidebar'); if (saved !== null) sidebarCollapsed = saved === 'collapsed'; } catch { /* Optional. */ }
     function setSidebar() {
       $('sidebar').hidden = sidebarCollapsed;
+      $('toggle-sidebar').textContent = sidebarCollapsed ? '→' : '←';
+      $('toggle-sidebar').title = sidebarCollapsed ? 'Kreuzungsliste einblenden' : 'Kreuzungsliste ausblenden';
       document.body.classList.toggle('sidebar-collapsed', sidebarCollapsed);
       $('toggle-sidebar').setAttribute('aria-expanded', String(!sidebarCollapsed));
       $('toggle-sidebar').setAttribute('aria-label', sidebarCollapsed ? 'Kreuzungsliste einblenden' : 'Kreuzungsliste ausblenden');
     }
+    $('dismiss-message').addEventListener('click', () => { $('message').hidden = true; });
     setSidebar();
     $('toggle-sidebar').addEventListener('click', () => {
       sidebarCollapsed = !sidebarCollapsed; setSidebar();

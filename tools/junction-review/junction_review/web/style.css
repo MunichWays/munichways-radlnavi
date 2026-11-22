@@ -109,3 +109,11 @@ main { min-width: 0; width: 100%; padding: 14px 18px; margin: 0 auto; }
 .input-action-row label { flex: 1 1 0; min-width: 0; margin: 0; }
 .input-action-row input, .input-action-row select { display: block; margin: 6px 0 0; }
 .input-action-row button { flex: 0 0 auto; white-space: nowrap; }
+
+.layout { position:relative; }
+#toggle-sidebar { position:fixed; left:294px; top:145px; z-index:15; padding:8px 6px; box-shadow:0 1px 5px #0002; }
+body.sidebar-collapsed #toggle-sidebar { left:0; }
+#message { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+#dismiss-message { padding:2px 9px; font-size:22px; flex-shrink:0; }
+@media(max-width:1050px) { #toggle-sidebar { left:234px; } }
+@media(max-width:720px) { #toggle-sidebar { left:0; top:150px; } }

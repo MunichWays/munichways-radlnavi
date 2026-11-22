@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "readOnly": true,
   "projectName": "München Initial Teil 1",
-  "publishedAt": "2026-11-21T21:02:23.793997+00:00",
+  "publishedAt": "2026-11-22T12:09:02.797457+00:00",
   "osmRetrievedAt": "2026-11-21T14:27:39.234169+00:00",
   "sites": [
     {
@@ -20921,16 +20921,190 @@
         11.6418187,
         48.15672415
       ],
-      "polygon": [],
-      "gates": [],
-      "status": "open",
-      "geometryRevision": 0,
-      "note": "5 ausgehende Fahrspuren laut OSM. Offen zur Geometriepruefung; noch keine Freigabe oder Aktivierung.\nVorbereitung: Keine eindeutige bearbeitbare Geometrie. Manuelle Klaerung erforderlich. T-Kreuzung / weniger als vier Straßenarme",
+      "polygon": [
+        [
+          11.6418187,
+          48.157011609576
+        ],
+        [
+          11.641983602990893,
+          48.156989728018694
+        ],
+        [
+          11.642123400996272,
+          48.15692741461551
+        ],
+        [
+          11.642216811037091,
+          48.15683415601721
+        ],
+        [
+          11.642249612281397,
+          48.15672415
+        ],
+        [
+          11.642216811037091,
+          48.15661414398279
+        ],
+        [
+          11.642123400996272,
+          48.156520885384495
+        ],
+        [
+          11.641983602990893,
+          48.15645857198131
+        ],
+        [
+          11.6418187,
+          48.156436690424
+        ],
+        [
+          11.641653797009107,
+          48.15645857198131
+        ],
+        [
+          11.641513999003728,
+          48.156520885384495
+        ],
+        [
+          11.641420588962909,
+          48.15661414398279
+        ],
+        [
+          11.641387787718603,
+          48.15672415
+        ],
+        [
+          11.641420588962909,
+          48.15683415601721
+        ],
+        [
+          11.641513999003728,
+          48.15692741461551
+        ],
+        [
+          11.641653797009107,
+          48.156989728018694
+        ],
+        [
+          11.6418187,
+          48.157011609576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.642023402338825,
+            48.15697198790282
+          ],
+          "forward": [
+            -0.009902414286624637,
+            0.9999509698936724
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.642138789505559,
+            48.15691205105509
+          ],
+          "forward": [
+            -0.9999781963971139,
+            -0.00660353923097345
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.642224060316714,
+            48.15663845599887
+          ],
+          "forward": [
+            0.9827433329036259,
+            0.18497443508083183
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.64183576808586,
+            48.15643895524829
+          ],
+          "forward": [
+            0.1193427830995921,
+            0.9928531110501914
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.641674746353818,
+            48.15645579213915
+          ],
+          "forward": [
+            -0.08455411032905964,
+            -0.9964188890353601
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.641504121513417,
+            48.15653074686077
+          ],
+          "forward": [
+            0.9828050911541465,
+            0.1846460202698392
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.641404900435452,
+            48.1567815411711
+          ],
+          "forward": [
+            -0.9695983322943753,
+            -0.2447020106414455
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.641685573896856,
+            48.15699394460559
+          ],
+          "forward": [
+            -0.031147686568729637,
+            -0.9995147930978391
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt",
       "deferredUntil": null,
-      "technical": "Geometrie- und technische Prüfung ausstehend",
-      "deploymentStatus": "not-live",
-      "deployment": "Offen · noch ohne Geometrie",
-      "backendVersion": "2.4.17",
+      "technical": "not-run",
+      "deploymentStatus": "unknown",
+      "deployment": "Kein verifizierter Live-Stand",
+      "backendVersion": null,
       "branchMovements": 0,
       "liveMovements": 0,
       "movements": [],

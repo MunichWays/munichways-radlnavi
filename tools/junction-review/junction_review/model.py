@@ -93,7 +93,7 @@ def validate_dataset(dataset):
     if not dataset['project']['city'].strip():
         raise ValueError('Stadt fehlt.')
     validate_area(dataset['project'].get('area'))
-    if not isinstance(dataset['sites'], list) or not dataset['sites']:
+    if not isinstance(dataset['sites'], list) or (not dataset['sites'] and not dataset['source'].get('existingJunctions')):
         raise ValueError('Projekt enthält keine Kreuzungen.')
     ids = set()
     for site in dataset['sites']:

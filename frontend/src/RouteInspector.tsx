@@ -57,8 +57,18 @@ export default function RouteInspector({ open, onClose, route, variant, onMap }:
   } : null, [route, variant]);
   const panel = useRef<HTMLDivElement | null>(null);
   const drag = useRef<{ x: number; y: number; left: number; top: number } | null>(null);
+  const resizing = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
+  const [size, setSize] = useState({ width: 560, height: 620 });
   const [position, setPosition] = useState({ x: window.innerWidth > 960 ? 380 : 8, y: 16 });
   const [minimized, setMinimized] = useState(false);
+  const resizeTo = (width: number, height: number) => {
+    const maxWidth = Math.max(0, window.innerWidth - position.x - 8);
+    const maxHeight = Math.max(0, window.innerHeight - position.y - 8);
+    setSize({
+      width: Math.min(maxWidth, Math.max(Math.min(300, maxWidth), width)),
+      height: Math.min(maxHeight, Math.max(Math.min(180, maxHeight), height)),
+    });
+  };
   const moveTo = useCallback((x: number, y: number) => {
     const bounds = panel.current?.getBoundingClientRect();
     setPosition({
@@ -133,9 +143,9 @@ export default function RouteInspector({ open, onClose, route, variant, onMap }:
   if (!open) return null;
   return <Portal><Paper ref={panel} role="dialog" aria-modal="false" aria-labelledby="route-inspector-title"
     elevation={10} style={{ position: 'fixed', zIndex: 1300, left: position.x, top: position.y,
-      width: 560, height: minimized ? 'auto' : 620, minWidth: 'min(300px, calc(100vw - 16px))',
+      width: size.width, height: minimized ? 'auto' : size.height, minWidth: 'min(300px, calc(100vw - 16px))',
       minHeight: minimized ? undefined : 180, maxWidth: `calc(100vw - ${position.x + 8}px)`,
-      maxHeight: `calc(100dvh - ${position.y + 8}px)`, resize: minimized ? 'none' : 'both',
+      maxHeight: `calc(100dvh - ${position.y + 8}px)`, resize: 'none',
       overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
     <div style={{ display: 'flex', alignItems: 'center', background: '#e3f5ff', padding: 8, flexShrink: 0 }}>
       <div id="route-inspector-title" tabIndex={0} aria-label="Prüffenster verschieben, auch mit Pfeiltasten"
@@ -163,7 +173,7 @@ export default function RouteInspector({ open, onClose, route, variant, onMap }:
       <Button onClick={onClose}>Schließen</Button>
     </div>
     <div hidden={minimized} style={{ overflow: 'auto', flex: 1, padding: minimized ? 0 : 16 }}>
-      <p>Am Titel verschieben, an der unteren rechten Ecke die Größe ändern. Die Karte bleibt bedienbar.</p>
+      <p>Am Titel verschieben, am Griff unten rechts die Größe ändern (auch mit Pfeiltasten). Die Karte bleibt bedienbar.</p>
       <p>RadlNavi: bisherige deutsche Manövertexte. App: Textvorschau für die geplante Fahrt,
         mit geprüften Kreuzungsansagen bei 120/40 m und unterdrückten Einzelhinweisen.
         Normale Manöver sind angenähert; GPS, Startansagen, Versatzfilter, Fahrtverlauf und tatsächlicher
@@ -192,12 +202,12 @@ export default function RouteInspector({ open, onClose, route, variant, onMap }:
           {rows.map((row: any, index: number) => <li key={row.previewKey || `${row.legIndex}-${row.stepIndex}`}
             style={{ padding: 12, marginBottom: 8, border: '1px solid #ccc', borderRadius: 6,
               background: speaking === index ? '#e3f5ff' : undefined }}>
-            <strong>RadlNavi: {row.instruction}</strong>
-            <p><strong>{row.appDisplay ? 'App-Anzeige:' : 'App:'}</strong>{' '}
+            <p style={{ marginTop: 0 }}><strong>App-Ansage: {row.appSpeech || 'Keine Ansage.'}</strong></p>
+            <p>App-Hinweis:{' '}
               {row.appDisplay || row.appInstruction}
               {row.context && <> · {row.context}</>}
-              {row.appDisplay && row.stepIndex === -1 && <> · Ansage: {row.appInstruction}</>}
             </p>
+            <p>RadlNavi: {row.instruction}</p>
             <p>Bei {Math.round(row.at)} m ab Start · Abschnitt {row.legIndex + 1} · danach {Math.round(row.step.distance)} m</p>
             <p>Straße: {row.step.name || 'ohne Namen'} · Manöver: <code>{row.step.maneuver?.type} / {row.step.maneuver?.modifier || '—'}</code></p>
             <Button disabled={!canSpeak || !!row.previewKey} onClick={() => speak(index, false)}>Hinweis {index + 1} vorlesen</Button>
@@ -212,5 +222,29 @@ export default function RouteInspector({ open, onClose, route, variant, onMap }:
         </ol>
       </>}
     </div>
+    {!minimized && <button type="button" aria-label="Fenstergröße ändern" title="Größe ändern: ziehen oder Pfeiltasten"
+      style={{ position: 'absolute', right: 0, bottom: 0, width: 24, height: 24, padding: 0,
+        border: '1px solid #bbb', borderRadius: '4px 0 0 0', background: '#e3f5ff',
+        cursor: 'se-resize', touchAction: 'none', fontSize: 20 }}
+      onPointerDown={event => {
+        if (event.button !== 0) return;
+        const bounds = panel.current?.getBoundingClientRect();
+        resizing.current = { x: event.clientX, y: event.clientY,
+          width: bounds?.width || size.width, height: bounds?.height || size.height };
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }}
+      onPointerMove={event => {
+        const start = resizing.current;
+        if (start) resizeTo(start.width + event.clientX - start.x, start.height + event.clientY - start.y);
+      }}
+      onPointerUp={() => { resizing.current = null; }}
+      onPointerCancel={() => { resizing.current = null; }}
+      onLostPointerCapture={() => { resizing.current = null; }}
+      onKeyDown={event => {
+        const delta: Record<string, number[]> = { ArrowLeft: [-20, 0], ArrowRight: [20, 0], ArrowUp: [0, -20], ArrowDown: [0, 20] };
+        if (delta[event.key]) {
+          event.preventDefault(); resizeTo(size.width + delta[event.key][0], size.height + delta[event.key][1]);
+        }
+      }}>↘</button>}
   </Paper></Portal>;
 }

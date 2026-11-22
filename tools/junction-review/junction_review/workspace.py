@@ -8,6 +8,7 @@ from .discovery import discover, selection_query
 from .model import digest, identifier
 from .store import Conflict, ProjectStore, atomic_write
 from .osm_client import cancel_when
+from .duplicates import duplicate_of
 
 
 class Workspace:
@@ -89,11 +90,30 @@ class Workspace:
                 if job['status'] != 'running':
                     return
                 if data is not None:
+                    # Inspect existing projects before importing a new area. Never
+                    # change their decisions or silently merge nearby junctions.
+                    existing = []
+                    for path in sorted(self.root.glob('*/project.json')):
+                        if path.parent.resolve() == candidate.directory:
+                            continue
+                        other = self.stores.setdefault(path.parent.name, ProjectStore(path.parent))
+                        existing.extend((path.parent.name, s) for s in other.snapshot()['sites'])
+                    duplicates = []
+                    unique = []
+                    for site in data['sites']:
+                        owner = duplicate_of(site, existing)
+                        if owner:
+                            duplicates.append(dict(candidateId=site['id'], **owner))
+                        else:
+                            unique.append(site)
+                    data = deepcopy(data)
+                    data['sites'] = unique
+                    data['source']['existingJunctions'] = duplicates
                     atomic_write(candidate.directory / 'osm-snapshot.json', raw)
                     candidate.import_dataset(data)
                 snap = candidate.snapshot()
                 job.update(status='complete', phase='Sichtprüfung vorbereitet.', projectId=candidate.directory.name,
-                           count=len(snap['sites']))
+                           count=len(snap['sites']), skippedDuplicates=len(snap['source'].get('existingJunctions', [])))
         except Exception as error:
             with self.lock:
                 job = self.jobs[job_id]

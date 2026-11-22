@@ -91,7 +91,20 @@ class ProjectStore:
             metadata = deepcopy(dataset['project'])
             metadata['name'] = project.get('projectName', metadata.get('name', metadata['city']))
             return dict(project=metadata, source=dataset['source'],
-                sites=[effective_site(s, project['sites'].get(s['id'], {})) for s in dataset['sites']])
+                sites=[effective_site(s, project['sites'].get(s['id'], {})) for s in dataset['sites']
+                       if s['id'] not in project.get('removedDuplicates', {})])
+
+    def remove_duplicates(self, duplicates):
+        """Remove from the active project; retain frozen imports, edits and decisions."""
+        with self.lock:
+            state, dataset = self._read()
+            known = {s['id'] for s in dataset['sites']}
+            if set(duplicates) - known:
+                raise ValueError('Unbekannte Kreuzung beim Entfernen von Duplikaten.')
+            removed = state.setdefault('removedDuplicates', {})
+            for site_id, owner in duplicates.items():
+                removed.setdefault(site_id, dict(**owner, at=now()))
+            atomic_write(self.directory / 'project.json', state)
 
     def rename(self, name, expected_name):
         if not isinstance(name, str) or not 1 <= len(name.strip()) <= 120 or any(ord(c) < 32 for c in name):
@@ -169,6 +182,8 @@ class ProjectStore:
     def save(self, site_id, payload, preview=False):
         with self.lock:
             project, dataset = self._read()
+            if site_id in project.get('removedDuplicates', {}):
+                raise Conflict('Dieses Duplikat wurde entfernt. Bitte das ursprüngliche Projekt öffnen.')
             base = next((s for s in dataset['sites'] if s['id'] == site_id), None)
             if base is None:
                 raise KeyError(site_id)

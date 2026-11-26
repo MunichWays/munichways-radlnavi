@@ -14,8 +14,15 @@ veröffentlicht. Lokale Bearbeitungen werden ausdrücklich als neuer Stand expor
 
 ```powershell
 $env:PYTHONPATH='tools/junction-review'
-python -m junction_review publish-map --project .local/junction-review/munich --output docs/large-junction-analysis/public-junction-review.json
+python -m junction_review publish-map --name München --project .local/junction-review/munich --project .local/junction-review/area-603b6d7ec04db77e --project .local/junction-review/area-369e14ac688ef47e --project .local/junction-review/area-8c7276beba7eaf73 --project .local/junction-review/area-8192789c4e8926dd --output docs/large-junction-analysis/public-junction-review.json
 ```
+
+`--project` mehrfach angeben, um das Gesamtprojekt und die Bezirksprojekte gemeinsam zu
+veröffentlichen. Veröffentlicht werden nur Kreuzungen mit K-Nummer; lokale P-Nummern
+unnummerierter Kandidaten würden sich zwischen Bezirksprojekten überschneiden. Jede Kreuzung
+erhält Stadt und Münchner Stadtbezirk über ihren Mittelpunkt (gebündelte `stadtbezirke.geojson`);
+Kreuzungen auf einer Bezirksgrenze erscheinen in genau einem Bezirk. Die Karte gruppiert die Liste
+nach Stadt und Stadtbezirk und blendet die Bezirksgrenzen wie die RadlNavi-Karte ein.
 
 Den Export committen und das Frontend deployen. Der Export enthält ausgewählte
 öffentliche Geometrie- und Prüfdaten, keine lokale Projektdatenbank oder Schreib-API.

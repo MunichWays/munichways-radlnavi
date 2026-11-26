@@ -1,14 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "readOnly": true,
-  "projectName": "München Initial Teil 1",
-  "publishedAt": "2026-11-22T12:09:02.797457+00:00",
-  "osmRetrievedAt": "2026-11-21T14:27:39.234169+00:00",
+  "projectName": "München",
+  "publishedAt": "2026-11-26T17:08:58.436818+00:00",
+  "osmRetrievedAt": "2026-11-24T07:47:46Z",
   "sites": [
     {
       "id": "staendler-balan",
       "number": 1,
       "name": "Ständlerstraße / Balanstraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.6051623,
         48.1046008
@@ -194,6 +199,11 @@
       "id": "fuerstenrieder-agnes-bernauer",
       "number": 2,
       "name": "Fürstenrieder Straße / Agnes-Bernauer-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA25",
+        "name": "Laim"
+      },
       "origin": [
         11.5031886,
         48.1397689
@@ -367,6 +377,11 @@
       "id": "fuerstenrieder-gotthard",
       "number": 3,
       "name": "Fürstenrieder Straße / Gotthardstraße",
+      "city": "München",
+      "district": {
+        "id": "BA25",
+        "name": "Laim"
+      },
       "origin": [
         11.5028688,
         48.1354156
@@ -552,6 +567,11 @@
       "id": "landsberger-elsenheimer",
       "number": 4,
       "name": "Landsberger Straße / Elsenheimerstraße / Friedenheimer Brücke",
+      "city": "München",
+      "district": {
+        "id": "BA25",
+        "name": "Laim"
+      },
       "origin": [
         11.51868,
         48.1414144
@@ -737,6 +757,11 @@
       "id": "westend-zschokke",
       "number": 5,
       "name": "Westendstraße / Zschokkestraße / Tübinger Straße",
+      "city": "München",
+      "district": {
+        "id": "BA25",
+        "name": "Laim"
+      },
       "origin": [
         11.522715,
         48.1344755
@@ -894,6 +919,11 @@
       "id": "nymphenburger-waisenhaus",
       "number": 6,
       "name": "Nymphenburger Straße / Waisenhausstraße / Lachnerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5309626,
         48.1565188
@@ -1060,19 +1090,101 @@
       "geometryRevision": 2,
       "note": "v2: Lachnerstrasse mit gemeinsamem Entry-2 und Exit-3 auf der Fahrbahn vor der Ampel ergaenzt. Polygon unveraendert, Rufinistrasse ausgeschlossen. Nach Einfuegen des Punktepaares folgende Nummern im Uhrzeigersinn angepasst.",
       "deferredUntil": null,
-      "technical": "4 aktive Beziehungen im Live-Katalog",
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
       "deploymentStatus": "live",
-      "deployment": "LIVE · v2 · 4 Fahrbeziehungen",
-      "backendVersion": "2.4.17",
-      "branchMovements": 4,
-      "liveMovements": 4,
-      "movements": [],
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
+      "movements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
       "rechecks": []
     },
     {
       "id": "mars-pappenheim",
       "number": 7,
       "name": "Marsstraße / Pappenheimstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.5496026,
         48.1459514
@@ -1305,6 +1417,11 @@
       "id": "arnulf-hackerbruecke",
       "number": 8,
       "name": "Arnulfstraße / Hackerbrücke / Wredestraße",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
       "origin": [
         11.5487832,
         48.1434822
@@ -1460,6 +1577,11 @@
       "id": "landsberger-barth",
       "number": 9,
       "name": "Landsberger Straße / Barthstraße",
+      "city": "München",
+      "district": {
+        "id": "BA08",
+        "name": "Schwanthalerhöhe"
+      },
       "origin": [
         11.5281809,
         48.1403416
@@ -1483,6 +1605,11 @@
       "id": "thomasiusplatz",
       "number": 10,
       "name": "Thomasiusplatz / Balanstraße / Werinherstraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.6021533,
         48.1157081
@@ -1813,6 +1940,11 @@
       "id": "wintrich-allacher",
       "number": 11,
       "name": "Wintrichring / Allacher Straße / Nederlinger Straße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5108472,
         48.1697516
@@ -2104,6 +2236,11 @@
       "id": "menzinger-wintrich",
       "number": 12,
       "name": "Menzinger Straße / Wintrichring / Maria-Ward-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5069067,
         48.1636653
@@ -2352,6 +2489,11 @@
       "id": "arnulf-landshuter",
       "number": 13,
       "name": "Arnulfstraße / Landshuter Allee",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5357006,
         48.1463786
@@ -2750,6 +2892,11 @@
       "id": "nymphenburger-landshuter",
       "number": 14,
       "name": "Nymphenburger Straße / Landshuter Allee",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5367648,
         48.1518587
@@ -3050,6 +3197,11 @@
       "id": "leonrod-landshuter",
       "number": 15,
       "name": "Leonrodstraße / Landshuter Allee",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5372963,
         48.1541465
@@ -3305,6 +3457,11 @@
       "id": "dachauer-leonrod",
       "number": 16,
       "name": "Dachauer Straße / Leonrodstraße / Schwere-Reiter-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5475783,
         48.1594466
@@ -3587,6 +3744,11 @@
       "id": "dachauer-loth",
       "number": 17,
       "name": "Dachauer Straße / Lothstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.5539252,
         48.1543148
@@ -3829,6 +3991,11 @@
       "id": "romanplatz-sued",
       "number": 18,
       "name": "Romanplatz Süd / Arnulfstraße / Wotanstraße / Guntherstraße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.51138,
         48.15444
@@ -4110,6 +4277,11 @@
       "id": "romanplatz-nord",
       "number": 19,
       "name": "Romanplatz Nord / Notburgastraße / Romanstraße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5118756,
         48.1557525
@@ -4366,6 +4538,11 @@
       "id": "menzinger-schragenhof",
       "number": 20,
       "name": "Menzinger Straße / Schragenhofstraße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.4926049,
         48.1657687
@@ -4389,6 +4566,11 @@
       "id": "schwere-reiter-ackermann",
       "number": 21,
       "name": "Schwere-Reiter-Straße / Ackermannstraße / Infanteriestraße",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5528417,
         48.1615241
@@ -4701,6 +4883,11 @@
       "id": "dachauer-landshuter",
       "number": 22,
       "name": "Dachauer Straße / Landshuter Allee",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.5380883,
         48.1655284
@@ -4912,6 +5099,11 @@
       "id": "ludwig-tann",
       "number": 23,
       "name": "Ludwigstraße / Von-der-Tann-Straße / Oskar-von-Miller-Ring",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.57886,
         48.14531
@@ -5158,6 +5350,11 @@
       "id": "maximilian-ring",
       "number": 24,
       "name": "Maximilianstraße / Karl-Scharnagl-Ring / Thomas-Wimmer-Ring",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.58455,
         48.13823
@@ -5504,6 +5701,11 @@
       "id": "maximilians-brienner",
       "number": 25,
       "name": "Brienner Straße / Maximiliansplatz / Oskar-von-Miller-Ring",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.57366,
         48.14343
@@ -5730,6 +5932,11 @@
       "id": "sonnen-schwanthaler",
       "number": 26,
       "name": "Sonnenstraße / Schwanthalerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.56499,
         48.13748
@@ -5879,6 +6086,11 @@
       "id": "sonnen-landwehr",
       "number": 27,
       "name": "Sonnenstraße / Landwehrstraße / Josephspitalstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.56492,
         48.13651
@@ -6046,6 +6258,11 @@
       "id": "blumen-cornelius",
       "number": 28,
       "name": "Blumenstraße / Corneliusstraße / Fritz-Neuland-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.573553,
         48.1334688
@@ -6264,6 +6481,11 @@
       "id": "blumen-papa-schmid",
       "number": 29,
       "name": "Blumenstraße / Papa-Schmid-Straße / An der Hauptfeuerwache",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.57086,
         48.131925
@@ -6413,6 +6635,11 @@
       "id": "lenbach-pacelli",
       "number": 30,
       "name": "Lenbachplatz / Pacellistraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.56905,
         48.14125
@@ -6587,6 +6814,11 @@
       "id": "maximilians-max-joseph",
       "number": 31,
       "name": "Maximiliansplatz / Max-Joseph-Straße / Prannerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.57113,
         48.14198
@@ -6748,6 +6980,11 @@
       "id": "ring-hofgarten-christoph",
       "number": 32,
       "name": "Karl-Scharnagl-Ring / Hofgartenstraße / Christophstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.58304,
         48.1412
@@ -6969,6 +7206,11 @@
       "id": "sendlinger-tor",
       "number": 33,
       "name": "Sendlinger-Tor-Platz / Sonnenstraße / Lindwurmstraße / Blumenstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.56665,
         48.13346
@@ -7195,6 +7437,11 @@
       "id": "frankfurter-ingolstaedter",
       "number": 34,
       "name": "Frankfurter Ring / Ingolstädter Straße",
+      "city": "München",
+      "district": {
+        "id": "BA12",
+        "name": "Schwabing-Freimann"
+      },
       "origin": [
         11.58439,
         48.18788
@@ -7449,6 +7696,11 @@
       "id": "landsberger-trappentreu",
       "number": 35,
       "name": "Landsberger Straße / Trappentreustraße / Donnersbergerbrücke (West)",
+      "city": "München",
+      "district": {
+        "id": "BA08",
+        "name": "Schwanthalerhöhe"
+      },
       "origin": [
         11.53402,
         48.14005
@@ -7625,6 +7877,11 @@
       "id": "berg-am-laim-leuchtenberg",
       "number": 36,
       "name": "Berg-am-Laim-Straße / Leuchtenbergring / Ampfingstraße",
+      "city": "München",
+      "district": {
+        "id": "BA14",
+        "name": "Berg am Laim"
+      },
       "origin": [
         11.61578,
         48.13099
@@ -7867,6 +8124,11 @@
       "id": "landsberger-trappentreu-ost",
       "number": 37,
       "name": "Landsberger Straße / Trappentreustraße / Donnersbergerbrücke (Ost)",
+      "city": "München",
+      "district": {
+        "id": "BA08",
+        "name": "Schwanthalerhöhe"
+      },
       "origin": [
         11.53482,
         48.14002
@@ -8043,6 +8305,11 @@
       "id": "dachauer-georg-brauchle",
       "number": 38,
       "name": "Dachauer Straße / Georg-Brauchle-Ring / Wintrichring",
+      "city": "München",
+      "district": {
+        "id": "BA10",
+        "name": "Moosach"
+      },
       "origin": [
         11.521998524999999,
         48.1757842
@@ -8289,6 +8556,11 @@
       "id": "landsberger-fuerstenrieder",
       "number": 39,
       "name": "Fürstenrieder Straße / Landsberger Straße / Wotanstraße",
+      "city": "München",
+      "district": {
+        "id": "BA25",
+        "name": "Laim"
+      },
       "origin": [
         11.5031834,
         48.143121475
@@ -8466,6 +8738,11 @@
       "id": "innsbrucker-bad-schachener",
       "number": 40,
       "name": "Bad-Schachener-Straße / Innsbrucker Ring",
+      "city": "München",
+      "district": {
+        "id": "BA14",
+        "name": "Berg am Laim"
+      },
       "origin": [
         11.620157925,
         48.12035515
@@ -8728,6 +9005,11 @@
       "id": "candid-gruenwalder",
       "number": 41,
       "name": "Candidstraße / Grünwalder Straße / Tegernseer Landstraße",
+      "city": "München",
+      "district": {
+        "id": "BA17",
+        "name": "Obergiesing-Fasangarten"
+      },
       "origin": [
         11.57614255,
         48.111602749999996
@@ -8989,6 +9271,11 @@
       "id": "lane-candidate-363119",
       "number": 42,
       "name": "Anzinger Straße / Aschheimer Straße / Bad-Schachener-Straße / Melusinenstraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.612933,
         48.120834325
@@ -9247,6 +9534,11 @@
       "id": "lane-candidate-472070",
       "number": 43,
       "name": "Chiemgaustraße / Schwanseestraße",
+      "city": "München",
+      "district": {
+        "id": "BA17",
+        "name": "Obergiesing-Fasangarten"
+      },
       "origin": [
         11.596325075,
         48.106714075
@@ -9501,6 +9793,11 @@
       "id": "lane-candidate-361786",
       "number": 44,
       "name": "Marsstraße / Seidlstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.55696895,
         48.143675375
@@ -9637,12 +9934,12 @@
       "geometryRevision": 2,
       "note": "Radfahrstreifen Marsstraße West und Seidlstraße Nord/Süd einbezogen. Marsstraße Ost mit separaten Radwegen. Fahrbahnpunkte auf OSM-Mittellinie; seitliche Lage nicht vermessen. Denisstraße bleibt außerhalb. Geometrie von Thomas freigegeben; technischer Stand siehe Gesamtübersicht. Live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
       "deferredUntil": null,
-      "technical": "7/8 Links-/Geradeausbeziehungen technisch bestanden",
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
       "deploymentStatus": "live",
-      "deployment": "LIVE · v2 · 7 Fahrbeziehungen",
-      "backendVersion": "2.4.17",
-      "branchMovements": 7,
-      "liveMovements": 7,
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -9660,50 +9957,52 @@
           "entryLabel": "Entry-4",
           "exitLabel": "Exit-4",
           "kind": "right",
-          "enabled": false
-        },
-        {
-          "entryLabel": "Entry-1",
-          "exitLabel": "Exit-1",
-          "kind": "right",
-          "enabled": false
-        },
-        {
-          "entryLabel": "Entry-1",
-          "exitLabel": "Exit-3",
-          "kind": "left",
-          "enabled": true
-        },
-        {
-          "entryLabel": "Entry-1",
-          "exitLabel": "Exit-4",
-          "kind": "straight",
-          "enabled": true
-        },
-        {
-          "entryLabel": "Entry-2",
-          "exitLabel": "Exit-1",
-          "kind": "straight",
-          "enabled": true
-        },
-        {
-          "entryLabel": "Entry-2",
-          "exitLabel": "Exit-2",
-          "kind": "right",
-          "enabled": false
-        },
-        {
-          "entryLabel": "Entry-2",
-          "exitLabel": "Exit-4",
-          "kind": "left",
-          "enabled": true
-        },
-        {
-          "entryLabel": "Entry-3",
-          "exitLabel": "Exit-1",
-          "kind": "left",
           "enabled": false,
-          "reason": "ValueError: Route does not cross polygon exactly once; Standardroute fährt zunächst auf der Marsstraße nach Südosten und über Lämmerstraße/Hirtenstraße zurück in die Seidlstraße; mehrfache Flächenquerung statt der vorgesehenen Linksbeziehung. Keine Links-Makroansage; die zwei tatsächlich gefahrenen Geradeausquerungen bleiben gültig.; Wiedervorlage ab 23.11.2026 (OSM except=bicycle)."
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
         },
         {
           "entryLabel": "Entry-3",
@@ -9715,15 +10014,16 @@
           "entryLabel": "Entry-3",
           "exitLabel": "Exit-3",
           "kind": "right",
-          "enabled": false
+          "enabled": false,
+          "failureStage": "runtime-matching"
         }
       ],
       "rechecks": [
         {
           "entry": "Entry-3",
           "exit": "Exit-1",
-          "date": "2026-11-23",
-          "reason": "Linksabbiegebeschränkung um except=bicycle ergänzt."
+          "date": "2026-11-22",
+          "reason": "Erneut technisch bestanden; diese Beziehung ist noch nicht aktiviert."
         }
       ]
     },
@@ -9731,6 +10031,11 @@
       "id": "lane-candidate-361790",
       "number": 45,
       "name": "Brienner Straße / Dachauer Straße / Nymphenburger Straße / Seidlstraße / Stiglmaierplatz",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.55889425,
         48.1475571
@@ -9973,6 +10278,11 @@
       "id": "lane-candidate-428767",
       "number": 46,
       "name": "Orleansstraße / Rosenheimer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA05",
+        "name": "Au-Haidhausen"
+      },
       "origin": [
         11.5994407,
         48.1252798
@@ -10133,12 +10443,12 @@
       "geometryRevision": 2,
       "note": "Radfahrstreifen Rosenheimer Straße Nordwest und Schutzstreifen Orleansstraße Südwest einbezogen (beidseitig; gemeinsamer Entry/Exit auf OSM-Mittellinie). Aus Südost bestehen Radweg und zusätzliche Fahrbahnzufahrt mit Radfahrstreifen; Geometrie von Thomas freigegeben. Entry-1 (Radweg) nur rechts nach Exit-1; links nach Exit-3 und geradeaus nach Exit-4 ausgeschlossen. Technischer Stand siehe Gesamtübersicht, live mit Backend 2.4.17; Wiedervorlagen bleiben deaktiviert.",
       "deferredUntil": null,
-      "technical": "7/10 Links-/Geradeausbeziehungen technisch bestanden",
+      "technical": "8/10 Links-/Geradeausbeziehungen technisch bestanden",
       "deploymentStatus": "live",
-      "deployment": "LIVE · v2 · 7 Fahrbeziehungen",
-      "backendVersion": "2.4.17",
-      "branchMovements": 7,
-      "liveMovements": 7,
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -10156,26 +10466,22 @@
           "entryLabel": "Entry-5",
           "exitLabel": "Exit-4",
           "kind": "right",
-          "enabled": false
-        },
-        {
-          "entryLabel": "Entry-1",
-          "exitLabel": "Exit-1",
-          "kind": "right",
-          "enabled": false
+          "enabled": false,
+          "failureStage": "runtime-matching"
         },
         {
           "entryLabel": "Entry-2",
           "exitLabel": "Exit-1",
           "kind": "right",
-          "enabled": false
+          "enabled": false,
+          "failureStage": "runtime-matching"
         },
         {
           "entryLabel": "Entry-1",
-          "exitLabel": "Exit-3",
-          "kind": "left",
+          "exitLabel": "Exit-1",
+          "kind": "right",
           "enabled": false,
-          "reason": "Thomas: Entry-1 ist eine reine Rechtszufahrt; keine Geradeaus-/Linksbeziehung. Normale Hinweise bleiben."
+          "failureStage": "runtime-matching"
         },
         {
           "entryLabel": "Entry-2",
@@ -10185,16 +10491,25 @@
         },
         {
           "entryLabel": "Entry-1",
-          "exitLabel": "Exit-4",
-          "kind": "straight",
+          "exitLabel": "Exit-3",
+          "kind": "left",
           "enabled": false,
-          "reason": "Thomas: Entry-1 ist eine reine Rechtszufahrt; keine Geradeaus-/Linksbeziehung. Normale Hinweise bleiben."
+          "reason": "Thomas: Entry-1 ist eine reine Rechtszufahrt; keine Geradeaus-/Linksbeziehung. Normale Hinweise bleiben.",
+          "failureStage": "instruction-clarity"
         },
         {
           "entryLabel": "Entry-2",
           "exitLabel": "Exit-4",
           "kind": "straight",
           "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "Thomas: Entry-1 ist eine reine Rechtszufahrt; keine Geradeaus-/Linksbeziehung. Normale Hinweise bleiben.",
+          "failureStage": "instruction-clarity"
         },
         {
           "entryLabel": "Entry-3",
@@ -10206,14 +10521,14 @@
           "entryLabel": "Entry-3",
           "exitLabel": "Exit-2",
           "kind": "right",
-          "enabled": false
+          "enabled": false,
+          "failureStage": "runtime-matching"
         },
         {
           "entryLabel": "Entry-3",
           "exitLabel": "Exit-4",
           "kind": "left",
-          "enabled": false,
-          "reason": "ValueError: Inner route lacks legal directed OSM support within 1.25m; Standardroute verwendet den inneren Gehwegabschnitt 1017221653 ohne belegte Fahrradfreigabe (kein bicycle=yes/designated im eingefrorenen OSM). Keine Erweiterung des Radkorridors auf unbelegte Gehwege; normale Hinweise bleiben.; Wiedervorlage ab 23.11.2026 (OSM except=bicycle)."
+          "enabled": true
         },
         {
           "entryLabel": "Entry-4",
@@ -10231,15 +10546,16 @@
           "entryLabel": "Entry-4",
           "exitLabel": "Exit-3",
           "kind": "right",
-          "enabled": false
+          "enabled": false,
+          "failureStage": "runtime-matching"
         }
       ],
       "rechecks": [
         {
           "entry": "Entry-3",
           "exit": "Exit-4",
-          "date": "2026-11-23",
-          "reason": "Linksabbiegebeschränkung um except=bicycle ergänzt."
+          "date": "2026-11-22",
+          "reason": "Erneut technisch bestanden; diese Beziehung ist noch nicht aktiviert."
         }
       ]
     },
@@ -10247,6 +10563,11 @@
       "id": "lane-candidate-428687",
       "number": 47,
       "name": "Am Hüllgraben / An der Point / Olof-Palme-Straße / Paul-Henri-Spaak-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA15",
+        "name": "Trudering-Riem"
+      },
       "origin": [
         11.689077675,
         48.138755450000005
@@ -10470,6 +10791,11 @@
       "id": "lane-candidate-564153",
       "number": 48,
       "name": "Bülowstraße / Effnerplatz / Effnerstraße / Richard-Strauss-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA13",
+        "name": "Bogenhausen"
+      },
       "origin": [
         11.614351533333334,
         48.15249586666666
@@ -10665,11 +10991,11 @@
       "note": "- Entry-1/Exit-2 gehört zur Kreuzung, soll aber normale Ansagen bekommen, keine spezielle große Kreuzung Ansage.\n- Es gibt 2-Richtungsradwege in der Kreuzung im Süden und Westen. beide Richtungen passen trotzdem zu große Kreuzung Ansage \"... links abbiegen\"",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.18",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -10806,6 +11132,11 @@
       "id": "lane-candidate-1956058",
       "number": 49,
       "name": "Frankfurter Ring / Föhringer Ring / Ungererstraße",
+      "city": "München",
+      "district": {
+        "id": "BA12",
+        "name": "Schwabing-Freimann"
+      },
       "origin": [
         11.610862375,
         48.18596765
@@ -10965,11 +11296,11 @@
       "note": "passt alles",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.18",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -11050,6 +11381,11 @@
       "id": "lane-candidate-564108",
       "number": 50,
       "name": "Lerchenauer Straße / Moosacher Straße",
+      "city": "München",
+      "district": {
+        "id": "BA11",
+        "name": "Milbertshofen-Am Hart"
+      },
       "origin": [
         11.551664474999999,
         48.186032225
@@ -11233,11 +11569,11 @@
       "note": "passt alles",
       "deferredUntil": null,
       "technical": "8/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.18",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -11338,6 +11674,11 @@
       "id": "osm-junction-2041371",
       "number": 51,
       "name": "Albert-Schweitzer-Straße / Quiddestraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.646427724999999,
         48.109122549999995
@@ -11540,11 +11881,11 @@
       "note": "passt jetzt",
       "deferredUntil": null,
       "technical": "8/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.19",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-6",
@@ -11646,6 +11987,11 @@
       "id": "osm-junction-14658540",
       "number": 52,
       "name": "Carl-Wery-Straße / Fritz-Erler-Straße / Putzbrunner Straße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.646447949999999,
         48.096424999999996
@@ -11835,11 +12181,11 @@
       "note": "Die südliche parallele Putzbrunner Straße mit highway=residenal ist Exit-4, mauell selbst gesetzt",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.19",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -11920,6 +12266,11 @@
       "id": "osm-junction-2041368",
       "number": 53,
       "name": "Heinrich-Wieland-Straße / Karl-Marx-Ring / Quiddestraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.649893325,
         48.109126075
@@ -12105,11 +12456,11 @@
       "note": "passt, geometrisch perfekte Standardkreuzung mit je 4 Standard Entry/Exit punkten",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.19",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -12190,6 +12541,11 @@
       "id": "lane-candidate-26421931",
       "number": 54,
       "name": "Aidenbachstraße / Boschetsrieder Straße",
+      "city": "München",
+      "district": {
+        "id": "BA19",
+        "name": "Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln"
+      },
       "origin": [
         11.523772825,
         48.0993661
@@ -12388,11 +12744,11 @@
       "note": "passt",
       "deferredUntil": null,
       "technical": "6/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 6 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 6,
-      "liveMovements": 0,
+      "liveMovements": 6,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -12504,6 +12860,11 @@
       "id": "lane-candidate-2041416",
       "number": 55,
       "name": "Albert-Schweitzer-Straße / Corinthstraße / Heinrich-Wieland-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA15",
+        "name": "Trudering-Riem"
+      },
       "origin": [
         11.6487818,
         48.1119048
@@ -12689,11 +13050,11 @@
       "note": "passt, freilaufende Rechtsabbieger außerhalb der Geometrie korrekt.",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -12780,6 +13141,11 @@
       "id": "lane-candidate-1955160",
       "number": 56,
       "name": "Claudius-Keller-Straße / Melusinenstraße / Rosenheimer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.60961945,
         48.118434725
@@ -12981,11 +13347,11 @@
       "note": "einzelne Exit/Entry leicht von der Kreuzung weg gezogen",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -13070,6 +13436,11 @@
       "id": "lane-candidate-1954462",
       "number": 57,
       "name": "Cosimastraße / Englschalkinger Straße / Vollmannstraße",
+      "city": "München",
+      "district": {
+        "id": "BA13",
+        "name": "Bogenhausen"
+      },
       "origin": [
         11.629463025,
         48.153488225
@@ -13268,11 +13639,11 @@
       "note": "passt alles",
       "deferredUntil": null,
       "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 10 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 10,
-      "liveMovements": 0,
+      "liveMovements": 10,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -13376,6 +13747,11 @@
       "id": "lane-candidate-13658890",
       "number": 58,
       "name": "Frankfurter Ring / Moosacher Straße / Schleißheimer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA11",
+        "name": "Milbertshofen-Am Hart"
+      },
       "origin": [
         11.566091974999999,
         48.187183825
@@ -13561,11 +13937,11 @@
       "note": "passt gut, komplett Standard ohne Besonderheiten",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -13650,6 +14026,11 @@
       "id": "lane-candidate-1679671520",
       "number": 59,
       "name": "Auenstraße / Erhardtstraße / Fraunhoferstraße / Reichenbachbrücke",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
       "origin": [
         11.5762462,
         48.12787135
@@ -13887,11 +14268,11 @@
       "note": "müsste passen. Unterführung Isarradweg korrekt außerhalb der Kreuzung",
       "deferredUntil": null,
       "technical": "1/18 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 1 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 1,
-      "liveMovements": 0,
+      "liveMovements": 1,
       "movements": [
         {
           "entryLabel": "Entry-6",
@@ -14102,6 +14483,11 @@
       "id": "lane-candidate-1955603",
       "number": 60,
       "name": "Dietlindenstraße / Potsdamer Straße / Ungererstraße",
+      "city": "München",
+      "district": {
+        "id": "BA12",
+        "name": "Schwabing-Freimann"
+      },
       "origin": [
         11.59030375,
         48.16661955
@@ -14287,11 +14673,11 @@
       "note": "passt alles",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -14377,6 +14763,11 @@
       "id": "lane-candidate-398831",
       "number": 61,
       "name": "Einsteinstraße / Leuchtenbergring",
+      "city": "München",
+      "district": {
+        "id": "BA05",
+        "name": "Au-Haidhausen"
+      },
       "origin": [
         11.61490775,
         48.13686395
@@ -14562,11 +14953,11 @@
       "note": "sieht korrekt aus, sollt passen",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -14651,6 +15042,11 @@
       "id": "lane-candidate-1955132",
       "number": 62,
       "name": "Eintrachtstraße / Schlierseestraße / Werinherstraße",
+      "city": "München",
+      "district": {
+        "id": "BA17",
+        "name": "Obergiesing-Fasangarten"
+      },
       "origin": [
         11.592459125,
         48.114943624999995
@@ -14853,11 +15249,11 @@
       "note": "zusätzlicher Abzweig im Nordosten Schlierseestraße aus der Kreuzung rausgenommen",
       "deferredUntil": null,
       "technical": "6/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 6 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 6,
-      "liveMovements": 0,
+      "liveMovements": 6,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -14969,6 +15365,11 @@
       "id": "lane-candidate-21135749",
       "number": 63,
       "name": "Garmischer Straße / Luise-Kiesselbach-Platz / Waldfriedhofstraße",
+      "city": "München",
+      "district": {
+        "id": "BA07",
+        "name": "Sendling-Westpark"
+      },
       "origin": [
         11.516913666666667,
         48.113268733333335
@@ -15154,11 +15555,11 @@
       "note": "passt",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -15243,6 +15644,11 @@
       "id": "lane-candidate-1955583",
       "number": 64,
       "name": "Leopoldstraße / Potsdamer Straße / Rheinstraße",
+      "city": "München",
+      "district": {
+        "id": "BA12",
+        "name": "Schwabing-Freimann"
+      },
       "origin": [
         11.5862082,
         48.167313050000004
@@ -15428,11 +15834,11 @@
       "note": "passt, Standard",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -15517,6 +15923,11 @@
       "id": "lane-candidate-1078912401",
       "number": 65,
       "name": "Einsteinstraße / Grillparzerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA05",
+        "name": "Au-Haidhausen"
+      },
       "origin": [
         11.6091138,
         48.136314375
@@ -15702,11 +16113,11 @@
       "note": "passt",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -15792,6 +16203,11 @@
       "id": "lane-candidate-1955042",
       "number": 66,
       "name": "Erhardtstraße / Ludwigsbrücke / Steinsdorfstraße / Zweibrückenstraße",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
       "origin": [
         11.58489655,
         48.1323279
@@ -15994,11 +16410,11 @@
       "note": "Unterführung gehört nicht zur Kreuzung",
       "deferredUntil": null,
       "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 10 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 10,
-      "liveMovements": 0,
+      "liveMovements": 10,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -16102,6 +16518,11 @@
       "id": "lane-candidate-1955354",
       "number": 67,
       "name": "Herzog-Heinrich-Straße / Kapuzinerstraße / Lindwurmstraße",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
       "origin": [
         11.5559368,
         48.1283779
@@ -16279,11 +16700,11 @@
       "note": "Kobellstraße außerhalb der Kreuzung",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -16368,6 +16789,11 @@
       "id": "lane-candidate-1954435",
       "number": 68,
       "name": "Prinzregentenstraße / Widenmayerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.5944693,
         48.1418543
@@ -16553,11 +16979,11 @@
       "note": "müsste alles passen",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -16642,6 +17068,11 @@
       "id": "lane-candidate-1506641801",
       "number": 69,
       "name": "Sankt-Bonifatius-Straße / Tegernseer Landstraße",
+      "city": "München",
+      "district": {
+        "id": "BA17",
+        "name": "Obergiesing-Fasangarten"
+      },
       "origin": [
         11.583652733333333,
         48.1190339
@@ -16827,11 +17258,11 @@
       "note": "sieht richtig aus",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -16916,6 +17347,11 @@
       "id": "lane-candidate-21151002",
       "number": 70,
       "name": "Brudermühlstraße / Thalkirchner Straße",
+      "city": "München",
+      "district": {
+        "id": "BA06",
+        "name": "Sendling"
+      },
       "origin": [
         11.548682,
         48.1121589
@@ -17114,11 +17550,11 @@
       "note": "sollte alles passen, mit einem Zweirichtungsstück",
       "deferredUntil": null,
       "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 10 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 10,
-      "liveMovements": 0,
+      "liveMovements": 10,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -17222,6 +17658,11 @@
       "id": "lane-candidate-1956160",
       "number": 71,
       "name": "Cosimastraße / Johanneskirchner Straße",
+      "city": "München",
+      "district": {
+        "id": "BA13",
+        "name": "Bogenhausen"
+      },
       "origin": [
         11.6344949,
         48.169199750000004
@@ -17407,11 +17848,11 @@
       "note": "sieht alles richtig aus",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -17496,6 +17937,11 @@
       "id": "lane-candidate-26823592",
       "number": 72,
       "name": "Heidemannstraße / Lützelsteiner Straße",
+      "city": "München",
+      "district": {
+        "id": "BA12",
+        "name": "Schwabing-Freimann"
+      },
       "origin": [
         11.6155895,
         48.1988316
@@ -17706,6 +18152,11 @@
       "id": "lane-candidate-2040643",
       "number": 73,
       "name": "Drygalski-Allee / Stäblistraße",
+      "city": "München",
+      "district": {
+        "id": "BA19",
+        "name": "Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln"
+      },
       "origin": [
         11.50299785,
         48.0874374
@@ -17904,11 +18355,11 @@
       "note": "sollte alles passen, inkl. ein Zweirichtungsstück",
       "deferredUntil": null,
       "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 10 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 10,
-      "liveMovements": 0,
+      "liveMovements": 10,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -18012,6 +18463,11 @@
       "id": "lane-candidate-21029419",
       "number": 74,
       "name": "Ichostraße / Tegernseer Landstraße / Tegernseer Platz / Werinherstraße",
+      "city": "München",
+      "district": {
+        "id": "BA17",
+        "name": "Obergiesing-Fasangarten"
+      },
       "origin": [
         11.5801601,
         48.11576515
@@ -18171,11 +18627,11 @@
       "note": "ist richtig, Tegernseeerplatz ohne Möglichkeit nach Süden",
       "deferredUntil": null,
       "technical": "3/4 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 3 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 3,
-      "liveMovements": 0,
+      "liveMovements": 3,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -18232,6 +18688,11 @@
       "id": "lane-candidate-1955559",
       "number": 75,
       "name": "Ackermannstraße / Karl-Theodor-Straße / Schleißheimer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA04",
+        "name": "Schwabing-West"
+      },
       "origin": [
         11.564873366666667,
         48.16791563333334
@@ -18417,11 +18878,11 @@
       "note": "komplett Standard",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -18506,6 +18967,11 @@
       "id": "lane-candidate-1955087",
       "number": 76,
       "name": "Auenstraße / Kapuzinerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
       "origin": [
         11.5666016,
         48.1234878
@@ -18665,11 +19131,11 @@
       "note": "sollte passen",
       "deferredUntil": null,
       "technical": "5/5 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 5 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 5,
-      "liveMovements": 0,
+      "liveMovements": 5,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -18722,6 +19188,11 @@
       "id": "lane-candidate-1955511",
       "number": 77,
       "name": "Elisabethstraße / Schleißheimer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA04",
+        "name": "Schwabing-West"
+      },
       "origin": [
         11.5631011,
         48.159804550000004
@@ -18907,11 +19378,11 @@
       "note": "passt",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -18996,6 +19467,11 @@
       "id": "lane-candidate-564163",
       "number": 78,
       "name": "Leuchtenbergring / Prinzregentenstraße / Richard-Strauss-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA05",
+        "name": "Au-Haidhausen"
+      },
       "origin": [
         11.6146501,
         48.1381691
@@ -19181,11 +19657,11 @@
       "note": "passt, Standardkreuzung",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -19270,6 +19746,11 @@
       "id": "lane-candidate-277383",
       "number": 79,
       "name": "Paul-Heyse-Straße / Schwanthalerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
       "origin": [
         11.5559027,
         48.1374958
@@ -19468,11 +19949,11 @@
       "note": "sollte passen",
       "deferredUntil": null,
       "technical": "4/10 Links-/Geradeausbeziehungen technisch bestanden",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Backend 2.4.20: Deployment laeuft; noch nicht als live bestaetigt",
-      "backendVersion": "2.4.20",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 4 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
       "branchMovements": 4,
-      "liveMovements": 0,
+      "liveMovements": 4,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -19588,6 +20069,11 @@
       "id": "am-knie",
       "number": 80,
       "name": "Am Knie",
+      "city": "München",
+      "district": {
+        "id": "BA21",
+        "name": "Pasing-Obermenzing"
+      },
       "origin": [
         11.4718851,
         48.1453596
@@ -19611,6 +20097,11 @@
       "id": "lane-candidate-444591",
       "number": 81,
       "name": "Ammerseestraße / Fürstenrieder Straße",
+      "city": "München",
+      "district": {
+        "id": "BA20",
+        "name": "Hadern"
+      },
       "origin": [
         11.502627400000002,
         48.125814500000004
@@ -19808,6 +20299,11 @@
       "id": "lane-candidate-29564155",
       "number": 82,
       "name": "Arcisstraße / Gabelsbergerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.568012,
         48.1476037
@@ -19992,6 +20488,11 @@
       "id": "lane-candidate-967091764",
       "number": 83,
       "name": "Arcisstraße / Theresienstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.5693512,
         48.1496887
@@ -20189,6 +20690,11 @@
       "id": "arnulf-steuben",
       "number": 84,
       "name": "Arnulfstraße / Steubenplatz",
+      "city": "München",
+      "district": {
+        "id": "BA09",
+        "name": "Neuhausen-Nymphenburg"
+      },
       "origin": [
         11.52028125,
         48.1501125
@@ -20249,6 +20755,11 @@
       "id": "balan-chiemgau",
       "number": 85,
       "name": "Balanstraße / Chiemgaustraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.604019999999998,
         48.10859
@@ -20313,6 +20824,11 @@
       "id": "lane-candidate-21091226",
       "number": 86,
       "name": "Belgradstraße / Karl-Theodor-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA04",
+        "name": "Schwabing-West"
+      },
       "origin": [
         11.5739971,
         48.167142999999996
@@ -20510,6 +21026,11 @@
       "id": "lane-candidate-379659923",
       "number": 87,
       "name": "Deisenhofener Straße / Silberhornstraße / Tegernseer Landstraße",
+      "city": "München",
+      "district": {
+        "id": "BA17",
+        "name": "Obergiesing-Fasangarten"
+      },
       "origin": [
         11.5795475,
         48.1151437
@@ -20668,6 +21189,11 @@
       "id": "lane-candidate-374110738",
       "number": 88,
       "name": "Elisabethplatz / Franz-Joseph-Straße / Nordendstraße",
+      "city": "München",
+      "district": {
+        "id": "BA04",
+        "name": "Schwabing-West"
+      },
       "origin": [
         11.574991,
         48.1576441
@@ -20917,6 +21443,11 @@
       "id": "lane-candidate-1954489",
       "number": 89,
       "name": "Englschalkinger Straße / Freischützstraße / Ostpreußenstraße",
+      "city": "München",
+      "district": {
+        "id": "BA13",
+        "name": "Bogenhausen"
+      },
       "origin": [
         11.6418187,
         48.15672415
@@ -21101,19 +21632,101 @@
       "geometryRevision": 1,
       "note": "passt",
       "deferredUntil": null,
-      "technical": "not-run",
-      "deploymentStatus": "unknown",
-      "deployment": "Kein verifizierter Live-Stand",
-      "backendVersion": null,
-      "branchMovements": 0,
-      "liveMovements": 0,
-      "movements": [],
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
+      "movements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
       "rechecks": []
     },
     {
       "id": "lane-candidate-290307714",
       "number": 90,
       "name": "Forstenrieder Allee / Herterichstraße / Liesl-Karlstadt-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA19",
+        "name": "Thalkirchen-Obersendling-Forstenried-Fürstenried-Solln"
+      },
       "origin": [
         11.4946366,
         48.0843368
@@ -21311,6 +21924,11 @@
       "id": "lane-candidate-21263461",
       "number": 91,
       "name": "Frauenstraße / Isartorplatz",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.5819083,
         48.1347521
@@ -21334,6 +21952,11 @@
       "id": "gabelsberger-oskar-von-miller",
       "number": 92,
       "name": "Gabelsbergerstraße / Oskar-von-Miller-Ring",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
       "origin": [
         11.574655,
         48.1455796
@@ -21357,6 +21980,11 @@
       "id": "osm-junction-15687721",
       "number": 93,
       "name": "Heinrich-Wieland-Straße / Ständlerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.649767,
         48.1076723
@@ -21502,6 +22130,11 @@
       "id": "osm-junction-15688742",
       "number": 94,
       "name": "Heinrich-Wieland-Straße / Ständlerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.65150088,
         48.1045854
@@ -21699,6 +22332,11 @@
       "id": "osm-junction-15355014",
       "number": 95,
       "name": "Karl-Marx-Ring / Putzbrunner Straße / Tribulaunstraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.65380095,
         48.09415225
@@ -21935,6 +22573,11 @@
       "id": "kreiller-els-rosenfeld",
       "number": 96,
       "name": "Kreillerstraße / Else-Rosenfeld-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA14",
+        "name": "Berg am Laim"
+      },
       "origin": [
         11.634584,
         48.1272623
@@ -21958,6 +22601,11 @@
       "id": "lane-candidate-19404296",
       "number": 97,
       "name": "Maximilianstraße / Steinsdorfstraße / Sternstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.589155,
         48.1373582
@@ -22142,6 +22790,11 @@
       "id": "lane-candidate-564566",
       "number": 98,
       "name": "Oettingenstraße / Prinzregentenstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
       "origin": [
         11.5921713,
         48.1423367
@@ -22313,6 +22966,11 @@
       "id": "lane-candidate-273185",
       "number": 99,
       "name": "Pippinger Straße / Verdistraße",
+      "city": "München",
+      "district": {
+        "id": "BA21",
+        "name": "Pasing-Obermenzing"
+      },
       "origin": [
         11.4567835,
         48.165223725
@@ -22588,6 +23246,11 @@
       "id": "quidde-nawiasky",
       "number": 100,
       "name": "Quiddestraße / Nawiaskystraße",
+      "city": "München",
+      "district": {
+        "id": "BA16",
+        "name": "Ramersdorf - Perlach"
+      },
       "origin": [
         11.6364588,
         48.1068228
@@ -22605,6 +23268,2634 @@
       "branchMovements": 0,
       "liveMovements": 0,
       "movements": [],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-13353278127",
+      "number": 101,
+      "name": "1455393266 / Maximilianstraße",
+      "city": "München",
+      "district": {
+        "id": "BA01",
+        "name": "Altstadt-Lehel"
+      },
+      "origin": [
+        11.5897295,
+        48.1372457
+      ],
+      "polygon": [
+        [
+          11.5897295,
+          48.137533159576
+        ],
+        [
+          11.589894340418669,
+          48.13751127801869
+        ],
+        [
+          11.590034085377876,
+          48.13744896461551
+        ],
+        [
+          11.590127459974376,
+          48.13735570601721
+        ],
+        [
+          11.590160248772294,
+          48.1372457
+        ],
+        [
+          11.590127459974376,
+          48.13713569398279
+        ],
+        [
+          11.590034085377876,
+          48.137042435384494
+        ],
+        [
+          11.589894340418669,
+          48.13698012198131
+        ],
+        [
+          11.5897295,
+          48.136958240424
+        ],
+        [
+          11.589564659581333,
+          48.13698012198131
+        ],
+        [
+          11.589424914622125,
+          48.137042435384494
+        ],
+        [
+          11.589331540025626,
+          48.13713569398279
+        ],
+        [
+          11.589298751227707,
+          48.1372457
+        ],
+        [
+          11.589331540025626,
+          48.13735570601721
+        ],
+        [
+          11.589424914622125,
+          48.13744896461551
+        ],
+        [
+          11.589564659581333,
+          48.13751127801869
+        ],
+        [
+          11.5897295,
+          48.137533159576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.590041483697535,
+            48.1374415754867
+          ],
+          "forward": [
+            0.7057548165160106,
+            0.708456165873692
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.590100783026417,
+            48.1373823498247
+          ],
+          "forward": [
+            0.7122670655930858,
+            0.7019085604773707
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.590100783026417,
+            48.1373823498247
+          ],
+          "forward": [
+            -0.7122670655930858,
+            -0.7019085604773707
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.59015747777111,
+            48.13723640332481
+          ],
+          "forward": [
+            -0.961204567203771,
+            0.27583650952441235
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.590089130103772,
+            48.13709741172895
+          ],
+          "forward": [
+            0.9590888855377997,
+            -0.2831051211791501
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.589507754051846,
+            48.13700549661537
+          ],
+          "forward": [
+            -0.5971889975682038,
+            -0.8021005555312152
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.589507754051846,
+            48.13700549661537
+          ],
+          "forward": [
+            0.5971889975682038,
+            0.8021005555312152
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.58929914709645,
+            48.1372470281348
+          ],
+          "forward": [
+            0.9653027080966637,
+            -0.26113345580612046
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-5",
+          "kind": "exit",
+          "location": [
+            11.589322394975595,
+            48.13732502448587
+          ],
+          "forward": [
+            -0.9584208604486926,
+            0.28535846624340405
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 2,
+      "note": "- Entry-5 entfernt, weil cycleway:left=seperate\n- Exit-1 ist parallel zum Isarradweg auf der Straße ein Sonderfall zum nördlichen Nebenarn Maximilanstr.. Hier Standard belassen\n- Exit-2 Isarradweg ist der Standardfall und soll die große Kreuzung Ansage bekommen",
+      "deferredUntil": null,
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
+      "movements": [
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-5",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "reason": "ValueError: Route does not cross polygon exactly once",
+          "failureStage": "polygon-crossing"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "standard",
+          "enabled": false,
+          "reason": "Human-reviewed connection uses ordinary guidance only. 45m: No unambiguous 45m legal gate continuation; 35m: No unambiguous 45m legal gate continuation; 25m: No unambiguous 45m legal gate continuation; 15m: No unambiguous 45m legal gate continuation; 12m: No unambiguous 45m legal gate continuation",
+          "failureStage": "reference-sampling"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "standard",
+          "enabled": false,
+          "reason": "Human-reviewed connection uses ordinary guidance only. 45m: No unambiguous 45m legal gate continuation; 35m: No unambiguous 45m legal gate continuation; 25m: No unambiguous 45m legal gate continuation; 15m: No unambiguous 45m legal gate continuation; 12m: No unambiguous 45m legal gate continuation",
+          "failureStage": "reference-sampling"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "standard",
+          "enabled": false,
+          "reason": "Human-reviewed connection uses ordinary guidance only. 45m: No unambiguous 45m legal gate continuation; 35m: No unambiguous 45m legal gate continuation; 25m: No unambiguous 45m legal gate continuation; 15m: No unambiguous 45m legal gate continuation; 12m: No unambiguous 45m legal gate continuation",
+          "failureStage": "reference-sampling"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "standard",
+          "enabled": false,
+          "reason": "Human-reviewed connection uses ordinary guidance only. 45m: No unambiguous 45m legal gate continuation; 35m: No unambiguous 45m legal gate continuation; 25m: No unambiguous 45m legal gate continuation; 15m: No unambiguous 45m legal gate continuation; 12m: No unambiguous 45m legal gate continuation",
+          "failureStage": "reference-sampling"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-20981714",
+      "number": 102,
+      "name": "Bayerstraße / Paul-Heyse-Straße / Paul-Heyse-Unterführung",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
+      "origin": [
+        11.555950849999999,
+        48.139180550000006
+      ],
+      "polygon": [
+        [
+          11.555950849999999,
+          48.13946800957601
+        ],
+        [
+          11.556115696631167,
+          48.1394461280187
+        ],
+        [
+          11.55625544685708,
+          48.13938381461551
+        ],
+        [
+          11.556348824972678,
+          48.139290556017215
+        ],
+        [
+          11.55638161500634,
+          48.139180550000006
+        ],
+        [
+          11.556348824972678,
+          48.1390705439828
+        ],
+        [
+          11.55625544685708,
+          48.1389772853845
+        ],
+        [
+          11.556115696631167,
+          48.138914971981315
+        ],
+        [
+          11.555950849999999,
+          48.138893090424006
+        ],
+        [
+          11.55578600336883,
+          48.138914971981315
+        ],
+        [
+          11.555646253142918,
+          48.1389772853845
+        ],
+        [
+          11.555552875027319,
+          48.1390705439828
+        ],
+        [
+          11.555520084993658,
+          48.139180550000006
+        ],
+        [
+          11.555552875027319,
+          48.139290556017215
+        ],
+        [
+          11.555646253142918,
+          48.13938381461551
+        ],
+        [
+          11.55578600336883,
+          48.1394461280187
+        ],
+        [
+          11.555950849999999,
+          48.13946800957601
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.556045255021479,
+            48.139455478359125
+          ],
+          "forward": [
+            -0.013957331968030812,
+            0.9999025916979785
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.556356675298598,
+            48.13926421926205
+          ],
+          "forward": [
+            -0.9999466304057585,
+            -0.010331328093217514
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.556358988373768,
+            48.13910464078449
+          ],
+          "forward": [
+            0.9994377055961595,
+            0.0335301749575588
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.556095872114552,
+            48.13891234049717
+          ],
+          "forward": [
+            -0.0049309012636758525,
+            0.999987843032468
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.555952668521094,
+            48.13889333181246
+          ],
+          "forward": [
+            -0.023294979487793806,
+            -0.9997286351458896
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.555952668521094,
+            48.13889333181246
+          ],
+          "forward": [
+            0.023294979487793806,
+            0.9997286351458896
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.555546666532566,
+            48.139091372622005
+          ],
+          "forward": [
+            0.9991498819346172,
+            0.041225155306446055
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.55554077291093,
+            48.13924995509446
+          ],
+          "forward": [
+            -0.99830960906108,
+            -0.058119914455490015
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-5",
+          "kind": "entry",
+          "location": [
+            11.555787966025479,
+            48.13944638853955
+          ],
+          "forward": [
+            0.049627386907740295,
+            -0.9987678020784959
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt",
+      "deferredUntil": null,
+      "technical": "8/10 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
+      "movements": [
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "ValueError: Wrong entry gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "reason": "ValueError: Wrong entry gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": false,
+          "reason": "ValueError: Wrong entry gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-1240216331",
+      "number": 103,
+      "name": "Bayerstraße / Karlsplatz (Stachus)",
+      "city": "München",
+      "district": {
+        "id": "BA02",
+        "name": "Ludwigsvorstadt-Isarvorstadt"
+      },
+      "origin": [
+        11.5651256,
+        48.13931
+      ],
+      "polygon": [
+        [
+          11.565077830832413,
+          48.13950386710587
+        ],
+        [
+          11.565184959033763,
+          48.139503881327045
+        ],
+        [
+          11.565263067418817,
+          48.13944637754908
+        ],
+        [
+          11.565287307432396,
+          48.139356511964124
+        ],
+        [
+          11.56527715128879,
+          48.13926843605857
+        ],
+        [
+          11.565242138360919,
+          48.139198341573405
+        ],
+        [
+          11.56521128297688,
+          48.13911746891068
+        ],
+        [
+          11.565158026247355,
+          48.13905815208469
+        ],
+        [
+          11.56511493351662,
+          48.13899704361351
+        ],
+        [
+          11.565014930505948,
+          48.13896530182686
+        ],
+        [
+          11.564910243043618,
+          48.13902759786675
+        ],
+        [
+          11.564821002374865,
+          48.139106735384495
+        ],
+        [
+          11.56472762402381,
+          48.13919999398279
+        ],
+        [
+          11.564694833907469,
+          48.13931
+        ],
+        [
+          11.564754447369099,
+          48.1393932940415
+        ],
+        [
+          11.564849797808932,
+          48.139442379536675
+        ],
+        [
+          11.564964218431733,
+          48.13947146720997
+        ],
+        [
+          11.565077830832413,
+          48.13950386710587
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.565076875287675,
+            48.13950359460437
+          ],
+          "forward": [
+            -0.43300379463435884,
+            -0.901392097720102
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.565014930505948,
+            48.13896530182686
+          ],
+          "forward": [
+            -0.1356953329672374,
+            -0.990750612722955
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.56471117498046,
+            48.13933283232637
+          ],
+          "forward": [
+            -0.999623582940401,
+            0.027435240647664047
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 2,
+      "note": "passt, wird nur für geradeaus gebraucht, dafür sehr nützlich\nEntry-2 Bayerstraße Ostkurve gelöscht, real nicht fahrbar",
+      "deferredUntil": null,
+      "technical": "1/1 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 1 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 1,
+      "liveMovements": 1,
+      "movements": [
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-618702506",
+      "number": 104,
+      "name": "Arcisstraße / Brienner Straße / Katharina-von-Bora-Straße / Königsplatz",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
+      "origin": [
+        11.5666032,
+        48.1454126
+      ],
+      "polygon": [
+        [
+          11.5666032,
+          48.145700059576
+        ],
+        [
+          11.56676806664577,
+          48.14567817801869
+        ],
+        [
+          11.566907833839242,
+          48.14561586461551
+        ],
+        [
+          11.567001223292202,
+          48.14552260601721
+        ],
+        [
+          11.567034017307012,
+          48.1454126
+        ],
+        [
+          11.567001223292202,
+          48.14530259398279
+        ],
+        [
+          11.566907833839242,
+          48.14520933538449
+        ],
+        [
+          11.56676806664577,
+          48.14514702198131
+        ],
+        [
+          11.5666032,
+          48.145125140424
+        ],
+        [
+          11.56643833335423,
+          48.14514702198131
+        ],
+        [
+          11.566298566160757,
+          48.14520933538449
+        ],
+        [
+          11.566280814127174,
+          48.14527932052441
+        ],
+        [
+          11.566308761168237,
+          48.14534034650413
+        ],
+        [
+          11.566363781803293,
+          48.145406108703185
+        ],
+        [
+          11.56641962142797,
+          48.145467945862435
+        ],
+        [
+          11.56646448810797,
+          48.1455291215737
+        ],
+        [
+          11.56650276661635,
+          48.145593695705514
+        ],
+        [
+          11.566547110720245,
+          48.14565287199567
+        ],
+        [
+          11.5666032,
+          48.145700059576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.566678751670745,
+            48.145690032149254
+          ],
+          "forward": [
+            -0.41022411629228606,
+            -0.9119847446159464
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.56677292954758,
+            48.145676009956546
+          ],
+          "forward": [
+            0.3948037045508349,
+            0.9187654950382808
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.56677292954758,
+            48.145676009956546
+          ],
+          "forward": [
+            -0.3948037045508349,
+            -0.9187654950382808
+          ],
+          "shared": true
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.566846468899241,
+            48.1456432233837
+          ],
+          "forward": [
+            0.39554461365457183,
+            0.9184467641670123
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.56699819553375,
+            48.14529957046675
+          ],
+          "forward": [
+            0.9182992835207496,
+            -0.3958868852150546
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.56699819553375,
+            48.14529957046675
+          ],
+          "forward": [
+            -0.9182992835207496,
+            0.3958868852150546
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.566523233693374,
+            48.14513575377343
+          ],
+          "forward": [
+            0.39138886485004215,
+            0.9202253835182963
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.56643338705592,
+            48.14514922722471
+          ],
+          "forward": [
+            -0.39141291886474855,
+            -0.9202151525299819
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-5",
+          "kind": "entry",
+          "location": [
+            11.56643338705592,
+            48.14514922722471
+          ],
+          "forward": [
+            0.39141291886474855,
+            0.9202151525299819
+          ],
+          "shared": true
+        },
+        {
+          "label": "Exit-5",
+          "kind": "exit",
+          "location": [
+            11.56634298380755,
+            48.14518953234872
+          ],
+          "forward": [
+            -0.3968874765623626,
+            -0.9178672730563826
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-6",
+          "kind": "entry",
+          "location": [
+            11.566363781803304,
+            48.145406108703185
+          ],
+          "forward": [
+            0.9187557839164927,
+            -0.3948263029738408
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-6",
+          "kind": "exit",
+          "location": [
+            11.566464488107963,
+            48.1455291215737
+          ],
+          "forward": [
+            -0.9153468720448129,
+            0.40266624372770177
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 2,
+      "note": "Entry-7/Exit-7 am Parkweg im Königsplatz gelöscht, gehört nicht zur Kreuzung\n- doppelte Entry/Exit auf Arcisstr./Kathrina-von-Bora-Str sind korrekt, nicht benutzungspflichtige Radwege",
+      "deferredUntil": null,
+      "technical": "16/18 Links-/Geradeausbeziehungen technisch bestanden; 2 weitere Routen über gleichwertige Zufahrt abgedeckt",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 16 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 16,
+      "liveMovements": 16,
+      "movements": [
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": false,
+          "reason": "Standardrouting führt über den ausdrücklich gleichwertigen Entry-2; diese reale Route erhält die gleiche Kreuzungsansage über dessen geprüfte Beziehung.",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "Standardrouting führt über den ausdrücklich gleichwertigen Entry-2; diese reale Route erhält die gleiche Kreuzungsansage über dessen geprüfte Beziehung.",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-6",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-6",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-6",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-6",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-6",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-5",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-21632176",
+      "number": 105,
+      "name": "Arnulfstraße / Marsstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
+      "origin": [
+        11.5413995,
+        48.1450711
+      ],
+      "polygon": [
+        [
+          11.541248203856751,
+          48.14550352388276
+        ],
+        [
+          11.541454550500113,
+          48.145460144323565
+        ],
+        [
+          11.541542176857355,
+          48.14544505578605
+        ],
+        [
+          11.541660896552864,
+          48.14540544830687
+        ],
+        [
+          11.541731339252133,
+          48.145377273326005
+        ],
+        [
+          11.541869445449391,
+          48.14528121271657
+        ],
+        [
+          11.541827149436568,
+          48.14514769557289
+        ],
+        [
+          11.541830314440613,
+          48.1450711
+        ],
+        [
+          11.541787219429722,
+          48.145007741779864
+        ],
+        [
+          11.541734119968455,
+          48.14496724993246
+        ],
+        [
+          11.541607692990311,
+          48.14491663483417
+        ],
+        [
+          11.541539484847963,
+          48.14489793049008
+        ],
+        [
+          11.541464546810523,
+          48.14490761119998
+        ],
+        [
+          11.54142038892718,
+          48.144915848453095
+        ],
+        [
+          11.541354675695287,
+          48.144923199455974
+        ],
+        [
+          11.541220825899485,
+          48.14494362949781
+        ],
+        [
+          11.541129798532229,
+          48.144972311370175
+        ],
+        [
+          11.541027602322048,
+          48.14502264917657
+        ],
+        [
+          11.540941068450518,
+          48.14508945416914
+        ],
+        [
+          11.540814106842692,
+          48.14519299425447
+        ],
+        [
+          11.540776831238844,
+          48.145249882331804
+        ],
+        [
+          11.540794352352917,
+          48.145317899420654
+        ],
+        [
+          11.540819533154231,
+          48.14536995375679
+        ],
+        [
+          11.54090943552659,
+          48.14545131414075
+        ],
+        [
+          11.541085472313256,
+          48.14548708233092
+        ],
+        [
+          11.541248203856751,
+          48.14550352388276
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.541797367735551,
+            48.14533134681088
+          ],
+          "forward": [
+            0.5560853347553886,
+            0.8311252014407863
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.54184710145559,
+            48.14521067873401
+          ],
+          "forward": [
+            -0.924498497968104,
+            0.3811856860569656
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.541684245718336,
+            48.144947282753705
+          ],
+          "forward": [
+            0.9485499761147735,
+            -0.31662745113565643
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.54142038892718,
+            48.144915848453095
+          ],
+          "forward": [
+            0.5584602523995102,
+            0.8295312812003387
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.541286988633221,
+            48.144933530809126
+          ],
+          "forward": [
+            -0.49184894743933516,
+            -0.8706805458391833
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.541286988633221,
+            48.144933530809126
+          ],
+          "forward": [
+            0.49184894743933516,
+            0.8706805458391833
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.540882436181356,
+            48.14513727012119
+          ],
+          "forward": [
+            0.9335248049850257,
+            -0.35851281494204607
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-5",
+          "kind": "entry",
+          "location": [
+            11.541366009395169,
+            48.14547875802157
+          ],
+          "forward": [
+            -0.8481033197595238,
+            -0.5298308777457905
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.540856803872131,
+            48.14540368323288
+          ],
+          "forward": [
+            -0.9972348024209012,
+            0.07431519925658736
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 5,
+      "note": "genau zu testen, ob Exit-4, Entry-5 im Norden so funktionieren\n\n22.11.2026: Geometrie v4 geprüft: Entry-5 unverändert, Exit-4 um 4,5 m nach Westen auf Weg 93195128 verschoben. Alle neun Richtungen und erneute Flächenbearbeitung bestanden. Vier Straßenrichtungen korrigiert: Marsstraße NO, Arnulfstraße O, Helmholtzstraße S, Arnulfstraße W. Ergänzter Weg aus eingefrorenem K13-Stand vom 08.11.; aktueller OSM-Abgleich wegen Abruffehlern offen. Keine technische Fahrbeziehungsfreigabe oder Aktivierung.",
+      "deferredUntil": null,
+      "technical": "3/10 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 3 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 3,
+      "liveMovements": 3,
+      "movements": [
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": false,
+          "reason": "ValueError: Inner route lacks legal directed OSM support within 1.25m",
+          "failureStage": "directed-corridor"
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "ValueError: Inner route lacks legal directed OSM support within 1.25m",
+          "failureStage": "directed-corridor"
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": false,
+          "reason": "ValueError: Inner route lacks legal directed OSM support within 1.25m",
+          "failureStage": "directed-corridor"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "ValueError: Inner route lacks legal directed OSM support within 1.25m",
+          "failureStage": "directed-corridor"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "ValueError: Wrong entry gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": false,
+          "reason": "ValueError: Wrong entry gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": false,
+          "reason": "ValueError: Inner route lacks legal directed OSM support within 1.25m",
+          "failureStage": "directed-corridor"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-361803",
+      "number": 106,
+      "name": "Dachauer Straße / Maßmannstraße / Sandstraße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
+      "origin": [
+        11.55788115,
+        48.15092645
+      ],
+      "polygon": [
+        [
+          11.55788115,
+          48.151213909576
+        ],
+        [
+          11.558046034359508,
+          48.15119202801869
+        ],
+        [
+          11.558185816569962,
+          48.15112971461551
+        ],
+        [
+          11.558279216056949,
+          48.15103645601721
+        ],
+        [
+          11.558312013595241,
+          48.15092645
+        ],
+        [
+          11.558279216056949,
+          48.15081644398279
+        ],
+        [
+          11.558185816569962,
+          48.15072318538449
+        ],
+        [
+          11.558046034359508,
+          48.15066087198131
+        ],
+        [
+          11.55788115,
+          48.150638990424
+        ],
+        [
+          11.557716265640492,
+          48.15066087198131
+        ],
+        [
+          11.557576483430038,
+          48.15072318538449
+        ],
+        [
+          11.557483083943051,
+          48.15081644398279
+        ],
+        [
+          11.557450286404759,
+          48.15092645
+        ],
+        [
+          11.557483083943051,
+          48.15103645601721
+        ],
+        [
+          11.557576483430038,
+          48.15112971461551
+        ],
+        [
+          11.557716265640492,
+          48.15119202801869
+        ],
+        [
+          11.55788115,
+          48.151213909576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.558167965923468,
+            48.15113767224136
+          ],
+          "forward": [
+            0.7915418508705975,
+            0.6111149632600635
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.558167965923468,
+            48.15113767224136
+          ],
+          "forward": [
+            -0.7915418508705975,
+            -0.6111149632600635
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.55824317920905,
+            48.15078046149476
+          ],
+          "forward": [
+            -0.38525755438227816,
+            0.9228090901109428
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.557823629453416,
+            48.150646623889905
+          ],
+          "forward": [
+            0.35297876444057513,
+            -0.9356313333006784
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.55753264427101,
+            48.15076695841423
+          ],
+          "forward": [
+            -0.5507642592299378,
+            -0.8346608477429008
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.557497181317645,
+            48.15105053212658
+          ],
+          "forward": [
+            0.6066445434324897,
+            -0.794973205789721
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.557814614908002,
+            48.151205079803226
+          ],
+          "forward": [
+            -0.6506641377883603,
+            0.7593656430179928
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt inkl. ein Zweirichtungsradweg Maßmannstraße, ohne Entry Punkt Sandsreaße, da muss man vorher ausßerhalb der Kreuzung herumfahren\n\nzu testen",
+      "deferredUntil": null,
+      "technical": "6/6 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 6 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 6,
+      "liveMovements": 6,
+      "movements": [
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-361802",
+      "number": 107,
+      "name": "Dachauer Straße / Gabelsbergerstraße / Josef-Ruederer-Straße",
+      "city": "München",
+      "district": {
+        "id": "BA03",
+        "name": "Maxvorstadt"
+      },
+      "origin": [
+        11.5582402,
+        48.1502615
+      ],
+      "polygon": [
+        [
+          11.5582402,
+          48.150548959576
+        ],
+        [
+          11.558405082223015,
+          48.15052707801869
+        ],
+        [
+          11.558544862622236,
+          48.150464764615506
+        ],
+        [
+          11.558638260898995,
+          48.15037150601721
+        ],
+        [
+          11.558671058012314,
+          48.1502615
+        ],
+        [
+          11.558638260898995,
+          48.15015149398279
+        ],
+        [
+          11.558544862622236,
+          48.15005823538449
+        ],
+        [
+          11.558405082223015,
+          48.14999592198131
+        ],
+        [
+          11.5582402,
+          48.149974040424
+        ],
+        [
+          11.558075317776986,
+          48.14999592198131
+        ],
+        [
+          11.557935537377764,
+          48.15005823538449
+        ],
+        [
+          11.557842139101005,
+          48.15015149398279
+        ],
+        [
+          11.557809341987687,
+          48.1502615
+        ],
+        [
+          11.557842139101005,
+          48.15037150601721
+        ],
+        [
+          11.557935537377764,
+          48.150464764615506
+        ],
+        [
+          11.558075317776986,
+          48.15052707801869
+        ],
+        [
+          11.5582402,
+          48.150548959576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.558375229099129,
+            48.15053103983355
+          ],
+          "forward": [
+            -0.2768924241394771,
+            0.9609009238491573
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.558662115292663,
+            48.150231504891515
+          ],
+          "forward": [
+            0.9492076643105618,
+            -0.3146502979723487
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.558489867703132,
+            48.15003371892448
+          ],
+          "forward": [
+            -0.0546648064738177,
+            0.9985047615976501
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.5581021383914,
+            48.14999236261147
+          ],
+          "forward": [
+            0.2806410907956702,
+            -0.9598127828681052
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.557841533703069,
+            48.15015352457052
+          ],
+          "forward": [
+            0.9895215857358841,
+            0.14438501086588326
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.55792064129408,
+            48.15044989080913
+          ],
+          "forward": [
+            0.2883823010864873,
+            -0.95751535153232
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt\nkein Exit in Josef-Ruederer-Straße und keine Entry in Einbahnstraße Gabelsbergerstr.",
+      "deferredUntil": null,
+      "technical": "5/5 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 5 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 5,
+      "liveMovements": 5,
+      "movements": [
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-1955541",
+      "number": 108,
+      "name": "Hohenzollernstraße / Schleißheimer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA04",
+        "name": "Schwabing-West"
+      },
+      "origin": [
+        11.56342905,
+        48.160914375000004
+      ],
+      "polygon": [
+        [
+          11.56342905,
+          48.161201834576005
+        ],
+        [
+          11.563593966460198,
+          48.161179953018696
+        ],
+        [
+          11.563733775884302,
+          48.16111763961551
+        ],
+        [
+          11.563827193554868,
+          48.161024381017214
+        ],
+        [
+          11.563859997478387,
+          48.160914375000004
+        ],
+        [
+          11.563827193554868,
+          48.160804368982795
+        ],
+        [
+          11.563733775884302,
+          48.1607111103845
+        ],
+        [
+          11.563593966460198,
+          48.16064879698131
+        ],
+        [
+          11.56342905,
+          48.160626915424004
+        ],
+        [
+          11.563264133539802,
+          48.16064879698131
+        ],
+        [
+          11.563124324115698,
+          48.1607111103845
+        ],
+        [
+          11.563030906445132,
+          48.160804368982795
+        ],
+        [
+          11.562903,
+          48.1609045
+        ],
+        [
+          11.562903,
+          48.1609445
+        ],
+        [
+          11.563023635997167,
+          48.161
+        ],
+        [
+          11.563030906445132,
+          48.161024381017214
+        ],
+        [
+          11.563124324115698,
+          48.16111763961551
+        ],
+        [
+          11.563264133539802,
+          48.161179953018696
+        ],
+        [
+          11.563411014673417,
+          48.161196605957386
+        ],
+        [
+          11.56342905,
+          48.161201834576005
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.56363620949492,
+            48.161161125194525
+          ],
+          "forward": [
+            0.17638654051630898,
+            0.9843209783016353
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.563836588201049,
+            48.16099287662693
+          ],
+          "forward": [
+            -0.9997820140428912,
+            -0.020878802560015307
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.56381996478909,
+            48.16079715252621
+          ],
+          "forward": [
+            0.9996903914674439,
+            0.024882146363781207
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.563536612565839,
+            48.160641187113114
+          ],
+          "forward": [
+            0.20388331475715424,
+            0.9789951960881296
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.563185471067175,
+            48.16068385703827
+          ],
+          "forward": [
+            -0.21449633279754654,
+            -0.9767247940010554
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.562903,
+            48.1609265
+          ],
+          "forward": [
+            0.9856996077102013,
+            -0.16851196800214266
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.563029482904165,
+            48.16101960725678
+          ],
+          "forward": [
+            -0.990297426952899,
+            0.1389640463230245
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.563411014673417,
+            48.161196605957386
+          ],
+          "forward": [
+            -0.19807450654331998,
+            -0.9801869667862454
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 3,
+      "note": "Entry-4 auf der Straße hinzugefügt, dort am Nordarm der Schleißheimer-Str ist kein Radweg, wie bei den bestehenden Entry-3 und Exit-4 auf Hohenzollernstr West auch.\nÄnderung Entry-3 bestätigt",
+      "deferredUntil": null,
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 8 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 8,
+      "liveMovements": 8,
+      "movements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-1955522",
+      "number": 109,
+      "name": "Belgradstraße / Hohenzollernstraße / Kurfürstenplatz",
+      "city": "München",
+      "district": {
+        "id": "BA04",
+        "name": "Schwabing-West"
+      },
+      "origin": [
+        11.57496315,
+        48.16027375
+      ],
+      "polygon": [
+        [
+          11.57496315,
+          48.160564674791424
+        ],
+        [
+          11.575130052380864,
+          48.160542529460294
+        ],
+        [
+          11.575271545387215,
+          48.16047946489283
+        ],
+        [
+          11.575366087991474,
+          48.16038508209774
+        ],
+        [
+          11.575399286939174,
+          48.16027375
+        ],
+        [
+          11.575366087991474,
+          48.160162417902264
+        ],
+        [
+          11.575271545387215,
+          48.16006803510717
+        ],
+        [
+          11.575130052380864,
+          48.16000497053971
+        ],
+        [
+          11.57496315,
+          48.15998282520858
+        ],
+        [
+          11.574796247619137,
+          48.16000497053971
+        ],
+        [
+          11.574654754612785,
+          48.16006803510717
+        ],
+        [
+          11.574560212008526,
+          48.160162417902264
+        ],
+        [
+          11.574527013060827,
+          48.16027375
+        ],
+        [
+          11.574560212008526,
+          48.16038508209774
+        ],
+        [
+          11.574654754612785,
+          48.16047946489283
+        ],
+        [
+          11.574796247619137,
+          48.160542529460294
+        ],
+        [
+          11.57496315,
+          48.160564674791424
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.575059911444404,
+            48.16055183606368
+          ],
+          "forward": [
+            -0.11522247330103934,
+            0.9933397110990737
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.575059911444404,
+            48.16055183606368
+          ],
+          "forward": [
+            0.11522247330103934,
+            -0.9933397110990737
+          ],
+          "shared": true
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.5753893747995,
+            48.160306990189206
+          ],
+          "forward": [
+            0.9925869521604809,
+            -0.12153658873264149
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.5753893747995,
+            48.160306990189206
+          ],
+          "forward": [
+            -0.9925869521604809,
+            0.12153658873264149
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.575322945054259,
+            48.16011934789129
+          ],
+          "forward": [
+            -0.12107920765144246,
+            0.9926428489011034
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.574805480083457,
+            48.160003745536336
+          ],
+          "forward": [
+            -0.1303126566079743,
+            -0.991472950477103
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.574542456621437,
+            48.16032553971378
+          ],
+          "forward": [
+            0.966106984047905,
+            -0.2581420062172389
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.574578463444777,
+            48.16040330268285
+          ],
+          "forward": [
+            -0.9860239529467927,
+            0.16660361405198024
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "sieht korrekt aus, sollte passen",
+      "deferredUntil": null,
+      "technical": "7/8 Links-/Geradeausbeziehungen technisch bestanden",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.22 · Commit 17dca13 · 7 Fahrbeziehungen · abgeglichen 2026-11-26",
+      "backendVersion": "2.4.22",
+      "branchMovements": 7,
+      "liveMovements": 7,
+      "movements": [
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": false,
+          "reason": "Thomas 26.11.2026: Von der Belgradstraße links in die Hohenzollernstraße Ost gibt es real nicht; die Standardroute fährt über die Kaiserstraße. Normale Hinweise bleiben.",
+          "failureStage": "instruction-clarity"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
       "rechecks": []
     }
   ]

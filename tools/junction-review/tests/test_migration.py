@@ -28,7 +28,7 @@ class OverviewMigrationTests(unittest.TestCase):
         report = summarize(snapshot)
         self.assertEqual(report['total'], 98)
         self.assertEqual(report['counts'], dict(confirmed=42, open=41, excluded=15, deferred=0))
-        self.assertEqual(sum(s['deploymentStatus'] == 'live' for s in snapshot['sites']), 39)
+        self.assertEqual(sum(s['deploymentStatus'] == 'live' for s in snapshot['sites']), 42)
         self.assertTrue(all(s['origin'] for s in snapshot['sites']))
         self.assertEqual(sum(s['status'] == 'open' and s['geometryMode'] == 'none' for s in snapshot['sites']), 41)
         sites = {s['number']: s for s in snapshot['sites'] if s['number']}

@@ -1,9 +1,16 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import PublicJunctionMap from './PublicJunctionMap';
-import {Coordinate, PublicJunction, PublicJunctionData, ReviewStatus, filterPublicJunctions, parsePublicJunctions, reviewLabels} from './publicJunctions';
+import {Coordinate, PublicJunction, PublicJunctionData, ReviewStatus, filterPublicJunctions, groupPublicJunctions, parsePublicJunctions, reviewLabels} from './publicJunctions';
 import './PublicJunctionReview.css';
 
+const DISTRICT_KEY='kreuzungspruefung.stadtbezirke';
+function storedDistricts() { try { return window.localStorage.getItem(DISTRICT_KEY)!=='off'; } catch { return true; } }
+
 export default function PublicJunctionReview() {
+  const [showDistricts,setShowDistricts]=useState(storedDistricts);
+  function toggleDistricts(value:boolean) {
+    setShowDistricts(value); try { window.localStorage.setItem(DISTRICT_KEY,value?'on':'off'); } catch { /* optional */ }
+  }
   const [data,setData]=useState<PublicJunctionData | null>(null), [error,setError]=useState('');
   const [query,setQuery]=useState(''), [status,setStatus]=useState('all'), [selectedNumber,setSelectedNumber]=useState<number | null>(null);
   const [position,setPosition]=useState<{point:Coordinate;accuracy:number} | null>(null), [locating,setLocating]=useState(false), [locationError,setLocationError]=useState('');
@@ -19,6 +26,8 @@ export default function PublicJunctionReview() {
     update(); window.addEventListener('hashchange',update); return ()=>window.removeEventListener('hashchange',update);
   },[]);
   const sites=useMemo(()=>filterPublicJunctions(data?.sites || [],query,status),[data,query,status]);
+  const groups=useMemo(()=>groupPublicJunctions(sites),[sites]);
+  const filtered=!!query.trim() || status!=='all';
   const selected=data?.sites.find(s=>s.number===selectedNumber) || null;
   function select(site:PublicJunction) {setSelectedNumber(site.number); window.history.replaceState(null,'',`#K${site.number}`);}
   function clear() {setSelectedNumber(null); window.history.replaceState(null,'',window.location.pathname);}
@@ -37,7 +46,8 @@ export default function PublicJunctionReview() {
     {error && <p role="alert">{error}</p>}
     <div className="junction-controls"><label>Suche<input type="search" value={query} placeholder="K67 oder Straßenname" onChange={e=>{setQuery(e.target.value);clear();}}/></label>
       <label>Status<select value={status} onChange={e=>{setStatus(e.target.value);clear();}}><option value="all">Alle</option>{Object.entries(reviewLabels).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
-      <button type="button" onClick={locate} disabled={locating}>{locating?'Standort wird gesucht …':'Mein Standort'}</button></div>
+      <button type="button" onClick={locate} disabled={locating}>{locating?'Standort wird gesucht …':'Mein Standort'}</button>
+      <label className="junction-toggle"><input type="checkbox" checked={showDistricts} onChange={e=>toggleDistricts(e.target.checked)}/>Stadtbezirke</label></div>
     {locationError && <p role="alert">{locationError}</p>}
     {position && <p className="junction-location">Standort bei letzter Abfrage · Genauigkeit ca. {Math.round(position.accuracy)} m</p>}
     {data && <main className="junction-layout"><section className="junction-pane" aria-label="Kreuzungen und Details">
@@ -55,8 +65,14 @@ export default function PublicJunctionReview() {
         {!!selected.rechecks.length && <details><summary>Wiedervorlagen</summary><ul>{selected.rechecks.map((r,i)=><li key={i}>{r.entry} → {r.exit} · {r.date} · {r.reason}</li>)}</ul></details>}
         <p className="junction-readonly">Öffentlicher Kartenstand. Bearbeitung erfolgt in der lokalen Kreuzungsapp.</p>
       </> : <><h2>{sites.length} Kreuzungen</h2><p>Auf der Karte oder in der Liste auswählen.</p><p className="junction-legend">● Grün: bestätigt · Orange: offen · Ocker: zurückgestellt · Grau: ausgeschlossen</p>
-        <nav aria-label="Kreuzungsliste">{sites.map(s=><button className="junction-list-item" type="button" key={s.id} onClick={()=>select(s)}><strong>K{s.number} · {reviewLabels[s.status as ReviewStatus]}</strong><span>{s.name}</span></button>)}</nav>
+        <nav aria-label="Kreuzungsliste">{groups.map(g=><section className="junction-city" key={g.city} aria-label={g.city}>
+          <h3>{g.city} <small>{g.count}</small></h3>
+          {g.districts.map(d=><details className="junction-district" key={`${d.id}-${filtered}`} open={filtered}>
+            <summary><span>{d.title}</span><small>{d.sites.length}{d.sites.some(x=>x.status==='confirmed') ? ` · ${d.sites.filter(x=>x.status==='confirmed').length} bestätigt` : ''}</small></summary>
+            {d.sites.map(s=><button className="junction-list-item" type="button" key={s.id} onClick={()=>select(s)}><strong>K{s.number} · {reviewLabels[s.status as ReviewStatus]}</strong><span>{s.name}</span></button>)}
+          </details>)}
+        </section>)}</nav>
         {!sites.length && <p>Keine Kreuzung gefunden.</p>}</>}
-    </section><PublicJunctionMap sites={sites} selected={selected} onSelect={select} position={position}/></main>}
+    </section><PublicJunctionMap sites={sites} selected={selected} onSelect={select} position={position} showDistricts={showDistricts}/></main>}
   </div>;
 }

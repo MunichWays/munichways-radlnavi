@@ -61,6 +61,20 @@ Für einen gemeinsamen Entry in P3: **Entry-2** wählen, unter **„Zusammenlege
 
 **„Gewählten Punkt löschen“** entfernt den Punkt auch aus seiner Straßenarmzuordnung. Alle Bearbeitungen sind zunächst ein Entwurf. Mit **„Änderungen verwerfen“** zurück zum gespeicherten Stand oder mit **„Geometrie speichern“** Fläche, Anschlüsse und Zuordnungen gemeinsam speichern. Eine bestehende Bestätigung und technische Evidenz werden bei geänderter Geometrie ungültig. Neue Anschlüsse und Änderungen der Straßenarmdefinition sind noch kein Bestandteil dieses Editors.
 
+### Münchner Stadtbezirke
+
+Alle 25 Stadtbezirke sind unter **„Münchner Stadtbezirk“** fest auswählbar,
+zum Beispiel **BA04 Schwabing-West**. Die Auswahl und Grenzen werden lokal geladen;
+ein OSM-Abruf ist erst für **„Sichtprüfung vorbereiten“** nötig. Die vollständigen
+Teilflächen von BA18 und BA19 bleiben erhalten.
+
+Die Checkbox **„Stadtbezirke München“** über dem OSM-Hinweis blendet violette,
+gestrichelte Grenzen und Bezirksnamen in Übersicht, Detail und Gebietsauswahl ein.
+Die Einstellung gilt gemeinsam für alle Karten und bleibt im Browser gespeichert.
+Die gebündelte Datei `junction_review/web/stadtbezirke.geojson` ist eine unveränderte
+Kopie von `frontend/public/data/stadtbezirke.geojson`, dem RadlNavi-Datenstand.
+Bestehende Projekte und Freigaben werden durch Auswahl oder Einblenden nicht verändert.
+
 ### Neue Stadt, Stadtteil oder gezeichnete Fläche
 
 In der Übersicht **„Gebiet auswählen und Sichtprüfung vorbereiten“** aufklappen.
@@ -70,6 +84,15 @@ In der Übersicht **„Gebiet auswählen und Sichtprüfung vorbereiten“** aufk
 3. **„Sichtprüfung vorbereiten“** startet einen Hintergrundauftrag und lädt einmalig OSM-Daten. Spinner und Laufzeit zeigen den laufenden Vorgang. **„Abbrechen“** verhindert den Import eines noch nicht abgeschlossenen Auftrags; der laufende Netzabruf kann noch auslaufen. Nach Neuladen lässt sich ein laufender Auftrag wieder aufnehmen. Je nach Gebiet/Overpass-Auslastung dauert das einige Minuten. Es erfolgt kein neuer OSM-Abruf beim bloßen Öffnen der App oder beim Kartenverschieben.
 4. Die neue Prüfliste und Karte öffnen sich automatisch. `P1`, `P2`, … bezeichnet die Priorität im neuen Projekt, keine Münchner K-Nummer. Bekannte ausgehende Fahrspuren absteigend, danach einfache Geometrien; unbekannte Spurzahlen folgen zuletzt.
 5. Kreuzung öffnen, Fläche, Radverkehrsanschlüsse und Richtungen prüfen. **„Prüfbild als SVG herunterladen“** liefert ein eigenständiges Vektorbild mit Pfeilen und Beschriftungen ohne Hintergrundkarten-Abhängigkeit.
+
+Bei vorübergehenden HTTP-Fehlern (zum Beispiel 502), Zeitüberschreitungen oder
+abgebrochenen Antworten wechselt der Abruf zwischen `overpass-api.de` und
+`overpass.private.coffee`. Insgesamt bleiben es höchstens drei Versuche; der
+zuletzt erfolgreiche Dienst wird für folgende Abrufe weiterverwendet. Beide
+öffentlichen Dienste können gleichzeitig überlastet oder nicht erreichbar sein.
+Die Fehlermeldung nennt dann die betroffenen Dienste und Fehlerarten. Unvollständige
+Antworten werden weder importiert noch zwischengespeichert; vorhandene Projekte
+und Freigaben bleiben erhalten. Der Serverstart selbst löst keinen Abruf aus.
 
 Jede Auswahl erhält ein separates Projekt unter `.local/junction-review/area-<hash>/`. Das vorhandene München-Projekt wird nicht überschrieben. Unter **„Gespeichertes Projekt“ → „Öffnen“** wechseln. Dieselbe Auswahl öffnet ihren gespeicherten Stand ohne erneuten OSM-Abruf; Entscheidungen bleiben erhalten. `osm-snapshot.json` enthält die vollständige Abfrageantwort einschließlich Knotentags und Restriktionsrelationen, die Importdatei zusätzlich Abfrage und Algorithmusversion. Den ganzen Projektordner sichern.
 

@@ -3,15 +3,17 @@ from collections import OrderedDict
 from contextlib import contextmanager
 from contextvars import ContextVar
 from copy import deepcopy
+from http.client import HTTPException
 import json
 import re
 from threading import Lock
 import time
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlsplit
 from urllib.request import Request, urlopen
 
 ENDPOINT = 'https://overpass-api.de/api/interpreter'
+ENDPOINTS = (ENDPOINT, 'https://overpass.private.coffee/api/interpreter')
 _cancelled = ContextVar('osm_cancelled', default=lambda: False)
 
 
@@ -29,8 +31,12 @@ class OsmUnavailable(ValueError):
 
 
 class OverpassClient:
-    def __init__(self, opener=urlopen, sleep=time.sleep, clock=time.monotonic):
+    def __init__(self, opener=urlopen, sleep=time.sleep, clock=time.monotonic, endpoints=ENDPOINTS):
         self.opener, self.sleep, self.clock = opener, sleep, clock
+        self.endpoints = tuple(endpoints)
+        if not self.endpoints:
+            raise ValueError('Mindestens ein OSM-Dienst ist erforderlich.')
+        self.endpoint_index = 0
         self.lock = Lock()
         self.cache = OrderedDict()
 
@@ -46,11 +52,13 @@ class OverpassClient:
                 return deepcopy(cached[1])
             match = re.search(r'\[timeout:(\d+)\]', query)
             timeout = min(165, int(match[1]) + 10) if match else 40
+            failures = []
             for attempt in range(3):
                 if _cancelled.get()():
                     raise OsmUnavailable('Abgebrochen.')
                 delay = 2 * (attempt + 1)
-                request = Request(ENDPOINT, data=urlencode({'data': query}).encode(),
+                endpoint = self.endpoints[self.endpoint_index]
+                request = Request(endpoint, data=urlencode({'data': query}).encode(),
                                   headers={'User-Agent': 'JunctionReview/1.0 (local human geometry review)'})
                 try:
                     with self.opener(request, timeout=timeout) as response:
@@ -83,12 +91,17 @@ class OverpassClient:
                     delay = max(15 if code == 429 else 2, min(30, int(retry_after))) if retry_after.isdigit() else (15 if code == 429 else 2)
                 except OsmUnavailable as error:
                     failure = str(error)
-                except (URLError, TimeoutError, ConnectionError, OSError) as error:
+                except (URLError, TimeoutError, ConnectionError, OSError, HTTPException) as error:
                     failure = 'Der OSM-Dienst antwortet nicht oder die Verbindung wurde unterbrochen.'
+                failures.append(f'{urlsplit(endpoint).hostname}: {failure}')
                 if attempt == 2:
-                    raise OsmUnavailable(failure + ' Bitte kurz warten und erneut versuchen.')
+                    raise OsmUnavailable(' '.join(dict.fromkeys(failures)) + ' Bitte kurz warten und erneut versuchen.')
                 if _cancelled.get()():
                     raise OsmUnavailable('Abgebrochen.')
+                # Keep the same query and total three-attempt budget. Only a
+                # fully validated response may enter the cache or be imported.
+                # Remember the working server for subsequent uncached requests.
+                self.endpoint_index = (self.endpoint_index + 1) % len(self.endpoints)
                 self.sleep(delay)
 
 

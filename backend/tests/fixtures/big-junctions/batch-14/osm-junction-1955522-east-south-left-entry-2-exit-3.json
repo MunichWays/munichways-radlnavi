@@ -1,0 +1,501 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3050624441,
+              1562853073,
+              3239382674,
+              667321239,
+              11258809485,
+              1703216505,
+              1955522,
+              1703216494,
+              667321240,
+              1679832079,
+              11258802035,
+              1679832077,
+              11258809477,
+              1680006268,
+              2280537511,
+              11258809476,
+              11258809475,
+              11258809474,
+              11258809473,
+              3242684217,
+              11258802017,
+              11258802016,
+              1159881603,
+              1679832062
+            ],
+            "distance": [
+              48.02221467,
+              3.466021402,
+              5.795368785,
+              5.833644226,
+              5.228378804,
+              2.348061222,
+              1.575101277,
+              3.441905204,
+              3.441905203,
+              2.153106486,
+              2.272001326,
+              3.611882715,
+              4.478404856,
+              3.881106356,
+              4.304058439,
+              5.018100237,
+              6.667476948,
+              7.62273769,
+              7.141227429,
+              4.124909418,
+              4.559549355,
+              8.678211115,
+              15.59711712
+            ]
+          },
+          "duration": 39.6,
+          "summary": "Hohenzollernstraße, Kurfürstenplatz",
+          "weight": 167.2,
+          "distance": 159.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    277
+                  ],
+                  "location": [
+                    11.575992,
+                    48.160258
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575992,
+                    48.160258
+                  ],
+                  [
+                    11.575351,
+                    48.16031
+                  ],
+                  [
+                    11.575305,
+                    48.160315
+                  ],
+                  [
+                    11.575228,
+                    48.160323
+                  ],
+                  [
+                    11.575151,
+                    48.160333
+                  ],
+                  [
+                    11.575082,
+                    48.160342
+                  ],
+                  [
+                    11.575051,
+                    48.160346
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 277,
+                "bearing_before": 0,
+                "location": [
+                  11.575992,
+                  48.160258
+                ],
+                "type": "depart"
+              },
+              "name": "Hohenzollernstraße",
+              "mode": "cycling",
+              "weight": 102.7,
+              "duration": 23.2,
+              "distance": 70.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    165,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.575051,
+                    48.160346
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    195,
+                    315
+                  ],
+                  "location": [
+                    11.574875,
+                    48.160201
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575051,
+                    48.160346
+                  ],
+                  [
+                    11.575036,
+                    48.160336
+                  ],
+                  [
+                    11.575002,
+                    48.160315
+                  ],
+                  [
+                    11.574968,
+                    48.160294
+                  ],
+                  [
+                    11.574948,
+                    48.16028
+                  ],
+                  [
+                    11.574929,
+                    48.160264
+                  ],
+                  [
+                    11.574902,
+                    48.160237
+                  ],
+                  [
+                    11.574875,
+                    48.160201
+                  ],
+                  [
+                    11.574858,
+                    48.160168
+                  ],
+                  [
+                    11.574841,
+                    48.160131
+                  ],
+                  [
+                    11.574826,
+                    48.160087
+                  ],
+                  [
+                    11.57481,
+                    48.160028
+                  ],
+                  [
+                    11.574797,
+                    48.15996
+                  ],
+                  [
+                    11.574789,
+                    48.159896
+                  ],
+                  [
+                    11.574785,
+                    48.159859
+                  ],
+                  [
+                    11.574784,
+                    48.159818
+                  ],
+                  [
+                    11.574788,
+                    48.15974
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 217,
+                "bearing_before": 279,
+                "location": [
+                  11.575051,
+                  48.160346
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Kurfürstenplatz",
+              "mode": "cycling",
+              "weight": 53.3,
+              "duration": 13.6,
+              "distance": 73
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    135,
+                    180
+                  ],
+                  "location": [
+                    11.574788,
+                    48.15974
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.574788,
+                    48.15974
+                  ],
+                  [
+                    11.574801,
+                    48.1596
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 175,
+                "bearing_before": 177,
+                "location": [
+                  11.574788,
+                  48.15974
+                ],
+                "modifier": "straight",
+                "type": "continue"
+              },
+              "name": "Kurfürstenplatz",
+              "mode": "cycling",
+              "weight": 11.2,
+              "duration": 2.8,
+              "distance": 15.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    356
+                  ],
+                  "location": [
+                    11.574801,
+                    48.1596
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.574801,
+                    48.1596
+                  ],
+                  [
+                    11.574801,
+                    48.1596
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 176,
+                "location": [
+                  11.574801,
+                  48.1596
+                ],
+                "type": "arrive"
+              },
+              "name": "Kurfürstenplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.575992,
+            48.160258
+          ],
+          [
+            11.575351,
+            48.16031
+          ],
+          [
+            11.575305,
+            48.160315
+          ],
+          [
+            11.575228,
+            48.160323
+          ],
+          [
+            11.575151,
+            48.160333
+          ],
+          [
+            11.575082,
+            48.160342
+          ],
+          [
+            11.575051,
+            48.160346
+          ],
+          [
+            11.575036,
+            48.160336
+          ],
+          [
+            11.575002,
+            48.160315
+          ],
+          [
+            11.574968,
+            48.160294
+          ],
+          [
+            11.574948,
+            48.16028
+          ],
+          [
+            11.574929,
+            48.160264
+          ],
+          [
+            11.574902,
+            48.160237
+          ],
+          [
+            11.574875,
+            48.160201
+          ],
+          [
+            11.574858,
+            48.160168
+          ],
+          [
+            11.574841,
+            48.160131
+          ],
+          [
+            11.574826,
+            48.160087
+          ],
+          [
+            11.57481,
+            48.160028
+          ],
+          [
+            11.574797,
+            48.15996
+          ],
+          [
+            11.574789,
+            48.159896
+          ],
+          [
+            11.574785,
+            48.159859
+          ],
+          [
+            11.574784,
+            48.159818
+          ],
+          [
+            11.574788,
+            48.15974
+          ],
+          [
+            11.574801,
+            48.1596
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 167.2,
+      "duration": 39.6,
+      "distance": 159.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "C0AhgC5AIYAHAAAAWgEAADYBAAAcAAAAwiR5P78WQEKQRixCS9NdQAEAAABXAAAATgAAAAcAAAC1AgAAuKKwAALe3gK4orAAAt7eAgIATxEAAAAA",
+      "location": [
+        11.575992,
+        48.160258
+      ],
+      "name": "Hohenzollernstraße",
+      "distance": 0
+    },
+    {
+      "hint": "1T8hgP___39wAAAAsAAAAAAAAABGAAAAy415QfPeDEEAAAAAcgEbQRwAAAAsAAAAAAAAABEAAAC1AgAAEZ6wAHDb3gIRnrAAcNveAgAADwsAAAAA",
+      "location": [
+        11.574801,
+        48.1596
+      ],
+      "name": "Kurfürstenplatz",
+      "distance": 0
+    }
+  ]
+}

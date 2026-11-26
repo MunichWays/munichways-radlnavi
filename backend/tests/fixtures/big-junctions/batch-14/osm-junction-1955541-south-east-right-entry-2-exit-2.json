@@ -1,0 +1,353 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1078756995,
+              1276791054,
+              10049600253,
+              1276791053,
+              1077641239,
+              10049824263,
+              10049824261,
+              1077641236,
+              1077641218,
+              10049600299,
+              1420302730
+            ],
+            "distance": [
+              4.878104758,
+              8.731120859,
+              8.513154638,
+              34.19165483,
+              2.092952933,
+              3.779124302,
+              4.555552813,
+              4.040876635,
+              42.55290926,
+              8.55574231
+            ]
+          },
+          "duration": 25.1,
+          "summary": "Schleißheimer Straße",
+          "weight": 42,
+          "distance": 121.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    11
+                  ],
+                  "location": [
+                    11.563415,
+                    48.160245
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195
+                  ],
+                  "location": [
+                    11.563451,
+                    48.160365
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.563568,
+                    48.160741
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    60,
+                    210
+                  ],
+                  "location": [
+                    11.563585,
+                    48.160756
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    240
+                  ],
+                  "location": [
+                    11.563686,
+                    48.160788
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.564311,
+                    48.160805
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.563415,
+                    48.160245
+                  ],
+                  [
+                    11.563428,
+                    48.160288
+                  ],
+                  [
+                    11.563451,
+                    48.160365
+                  ],
+                  [
+                    11.563474,
+                    48.16044
+                  ],
+                  [
+                    11.563568,
+                    48.160741
+                  ],
+                  [
+                    11.563585,
+                    48.160756
+                  ],
+                  [
+                    11.563629,
+                    48.160773
+                  ],
+                  [
+                    11.563686,
+                    48.160788
+                  ],
+                  [
+                    11.563739,
+                    48.160796
+                  ],
+                  [
+                    11.564311,
+                    48.160805
+                  ],
+                  [
+                    11.564426,
+                    48.160807
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 11,
+                "bearing_before": 0,
+                "location": [
+                  11.563415,
+                  48.160245
+                ],
+                "type": "depart"
+              },
+              "name": "Schleißheimer Straße",
+              "mode": "cycling",
+              "weight": 42,
+              "duration": 25.1,
+              "distance": 121.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    269
+                  ],
+                  "location": [
+                    11.564426,
+                    48.160807
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.564426,
+                    48.160807
+                  ],
+                  [
+                    11.564426,
+                    48.160807
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 89,
+                "location": [
+                  11.564426,
+                  48.160807
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.563415,
+            48.160245
+          ],
+          [
+            11.563428,
+            48.160288
+          ],
+          [
+            11.563451,
+            48.160365
+          ],
+          [
+            11.563474,
+            48.16044
+          ],
+          [
+            11.563568,
+            48.160741
+          ],
+          [
+            11.563585,
+            48.160756
+          ],
+          [
+            11.563629,
+            48.160773
+          ],
+          [
+            11.563686,
+            48.160788
+          ],
+          [
+            11.563739,
+            48.160796
+          ],
+          [
+            11.564311,
+            48.160805
+          ],
+          [
+            11.564426,
+            48.160807
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 42,
+      "duration": 25.1,
+      "distance": 121.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "9xoEgP___39QAAAAWgAAAAAAAAARAAAAXwYgQm8ZnEAAAAAArLILQVAAAABaAAAAAAAAABEAAAC1AgAAl3GwAPXd3gKXcbAA9d3eAgAAvwAAAAAA",
+      "location": [
+        11.563415,
+        48.160245
+      ],
+      "name": "Schleißheimer Straße",
+      "distance": 0
+    },
+    {
+      "hint": "N0ghgP___38mAAAA-wAAAAAAAAAeAAAAUuQIQV-vP0IAAAAAgHXWQBEAAABxAAAAAAAAAA0AAAC1AgAAinWwACfg3gKKdbAAKODeAgAAjwUAAAAA",
+      "location": [
+        11.564426,
+        48.160807
+      ],
+      "name": "",
+      "distance": 0.1111937262
+    }
+  ]
+}

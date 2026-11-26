@@ -27,6 +27,7 @@
     <main>
       <section id="overview">
         <details id="area-panel" class="panel"><summary>Gebiet auswählen und Sichtprüfung vorbereiten</summary>
+          <div class="area-controls"><label>Münchner Stadtbezirk<select id="munich-district"><option value="">Stadtbezirk auswählen …</option></select></label></div>
           <form id="area-search" class="area-controls input-action-row"><label>Stadt / Stadtteil (genauer OSM-Name)<input id="area-name" placeholder="z. B. Neuhausen-Nymphenburg oder Freising" required minlength="2"></label><button type="submit">Gebiet suchen</button></form>
           <div id="area-results" hidden></div>
           <div class="area-controls"><button id="pick-area" type="button" class="secondary">Stadtteil auf Karte wählen</button><button id="draw-area" type="button" class="secondary">Fläche einzeichnen</button><button id="undo-area" type="button" class="secondary" hidden>Letzten Punkt entfernen</button><button id="finish-area" type="button" hidden>Fläche schließen</button><button id="clear-area" type="button" class="secondary">Auswahl zurücksetzen</button><button id="prepare-area" type="button" disabled>Sichtprüfung vorbereiten</button></div>

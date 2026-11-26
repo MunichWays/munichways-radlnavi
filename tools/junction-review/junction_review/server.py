@@ -65,9 +65,9 @@ def create_server(store, port=8765):
                 return
             path = urlsplit(self.path).path
             try:
-                if path in ('/', '/app.js', '/drawing.js', '/api.js', '/area-ui.js', '/gate-ui.js', '/style.css'):
+                if path in ('/', '/app.js', '/drawing.js', '/api.js', '/area-ui.js', '/gate-ui.js', '/districts.js', '/stadtbezirke.geojson', '/style.css'):
                     file = STATIC / ('index.html' if path == '/' else path[1:])
-                    types = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css'}
+                    types = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.geojson': 'application/geo+json'}
                     self.send(200, file.read_bytes(), types[file.suffix] + '; charset=utf-8')
                 elif path == '/api/project':
                     self.send(200, self.snapshot(self.project_store()))

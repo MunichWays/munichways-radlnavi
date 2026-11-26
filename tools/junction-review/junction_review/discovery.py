@@ -8,6 +8,7 @@ import re
 from .geometry import distance, inside, intersection, point
 from .model import digest, validate_area, validate_dataset
 from .osm_client import query_osm
+from .districts import district_feature
 from .cycling import direction
 
 ALGORITHM = 'osm-four-arm-v1'
@@ -51,7 +52,14 @@ def area_results(data):
 
 
 def selection_query(selection):
-    if selection.get('relationId'):
+    if selection.get('districtId'):
+        feature = district_feature(selection['districtId'])
+        queries = []
+        for polygon in feature['geometry']['coordinates']:
+            poly = ' '.join(f'{p[1]:.7f} {p[0]:.7f}' for p in polygon[0][:-1])
+            queries.append(f'way[highway](poly:"{poly}");')
+        scope = '(' + ''.join(queries) + ')->.roads;'
+    elif selection.get('relationId'):
         rid = selection['relationId']
         if type(rid) is not int or rid <= 0:
             raise ValueError('Ungültige Gebietsrelation.')
@@ -194,6 +202,7 @@ def administrative_rings(relation, role):
 
 def prepare(raw, selection):
     """Pure function: frozen OSM + selection => same proposals and ordering."""
+    district = district_feature(selection['districtId']) if selection.get('districtId') else None
     elements = raw['elements']
     outer, inner = [], []
     if selection.get('relationId'):
@@ -235,6 +244,9 @@ def prepare(raw, selection):
         if outer and (not any(inside(origin, r) for r in outer) or any(inside(origin, r) for r in inner)):
             continue
         if selection.get('area') and not inside(origin, selection['area']['coordinates'][0]):
+            continue
+        if district and not any(inside(origin, polygon[0]) and not any(inside(origin, hole) for hole in polygon[1:])
+                                for polygon in district['geometry']['coordinates']):
             continue
         # Do not combine roads on different levels merely because they cross visually.
         if any(e['way']['tags'].get('junction') in ('roundabout', 'circular') for e in edges):

@@ -20,6 +20,8 @@ REPORT = ROOT / (PREFIX + '-routes.json')
 FIXTURES = checks.FIXTURES.parent / 'batch-12'
 TITLE = 'BA01–BA03, K89 und Wiedervorlagen K44/K46'
 POLICIES = {}
+# Later batches continue the report-only numbering to avoid duplicate labels.
+FIRST_REPORT_NUMBER = 101
 SELECTED = {
     'area-603b6d7ec04db77e': ['osm-junction-13353278127'],
     'area-369e14ac688ef47e': ['osm-junction-20981714', 'osm-junction-1240216331'],
@@ -41,7 +43,7 @@ def freeze():
         raise ValueError('Frozen batch exists; reproduce without --freeze')
     sites, blocked = [], []
     # Internal report numbers do not assign new K numbers in local projects.
-    next_number = 101
+    next_number = FIRST_REPORT_NUMBER
     for project_id, identifiers in SELECTED.items():
         snapshot = ProjectStore(PROJECTS / project_id).snapshot()
         for site_id in identifiers:
@@ -136,7 +138,7 @@ def run(collect=False, import_results=False):
         report['fullCatalogChecks']['equivalentEntryRoutesCovered'] = equivalent_routes
     atomic_write(REPORT, report)
     lines = ['# '+TITLE, '',
-        'Prüfnummern ab 101 dienen nur diesem Bericht; die Projekte behalten ihre bisherigen P-Nummern.',
+        f'Prüfnummern ab {FIRST_REPORT_NUMBER} dienen nur diesem Bericht; die Projekte behalten ihre bisherigen P-Nummern.',
         'Unveränderte freigegebene Geometrien, aktuelle echte Standardrouten, gerichtete OSM-Korridore und Produktionsprüfung.',
         'Keine Aktivierung und kein Deployment. Neue Ergebnisse ersetzen keine Live-Verifikation.', '',
         '| Projekt / Kreuzung | Links / geradeaus bestanden | Rechtskontrollen bestanden |', '| --- | --- | --- |']

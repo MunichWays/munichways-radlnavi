@@ -1,3 +1,4 @@
+import {attachDistricts, loadDistricts} from './districts.js';
 import {createApi} from './api.js';
 import {initializeAreas} from './area-ui.js';
 import {initializeGateEditor, geometryOf} from './gate-ui.js';
@@ -87,6 +88,7 @@ function createMap(container, points, origin, padding = 30) {
   const attribution = html('div', {className: 'map-attribution'});
   attribution.append(document.createTextNode('© '), html('a', {href: 'https://www.openstreetmap.org/copyright', target: '_blank', rel: 'noopener'}, 'OpenStreetMap-Mitwirkende'));
   container.append(tileNotice, attribution);
+  const disposeDistricts = attachDistricts({container, svg, project, el, html, refresh:updateScreenMarkers});
   const tools = html('div', {className: 'map-tools'});
   let tileTimer;
   function renderTiles() {
@@ -168,7 +170,7 @@ function createMap(container, points, origin, padding = 30) {
     apply();
   });
   resize.observe(container);
-  container.disposeMap = () => { resize.disconnect(); clearTimeout(tileTimer); };
+  container.disposeMap = () => { resize.disconnect(); clearTimeout(tileTimer); disposeDistricts(); };
   renderTiles();
   return {svg, project, width, height, initial, position, updateScreenMarkers};
 }
@@ -466,7 +468,7 @@ function acceptPreview(result) {
 }
 
 function setupAreas() {
-  initializeAreas({$, api: apiRequest, createMap, line, el, html,
+  initializeAreas({$, api: apiRequest, createMap, line, el, html, loadDistricts,
     project: () => projectData, acceptProject, setBusy, isBusy: () => busy, message});
 }
 

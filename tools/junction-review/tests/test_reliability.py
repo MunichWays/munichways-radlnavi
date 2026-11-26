@@ -1,4 +1,5 @@
 from io import BytesIO
+from http.client import IncompleteRead
 from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
@@ -7,10 +8,10 @@ import tempfile
 import threading
 import time
 import unittest
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from junction_review.osm_client import OverpassClient, OsmUnavailable
+from junction_review.osm_client import OverpassClient, OsmUnavailable, cancel_when
 from junction_review.discovery import search_areas, areas_at, discover
 from junction_review.store import ProjectStore, Conflict
 from junction_review.workspace import Workspace
@@ -42,6 +43,56 @@ class TransportTests(unittest.TestCase):
         self.assertEqual(len(attempts), 3)
         with self.assertRaises(OsmUnavailable):
             OverpassClient(opener=lambda *a, **k: BytesIO(b'<html>gateway</html>'), sleep=lambda _: None).query('q;')
+
+    def test_failed_primary_switches_server_and_remembers_success(self):
+        calls = []
+        endpoints = ('https://primary.example/api/interpreter',
+                     'https://fallback.example/api/interpreter')
+        def opener(request, timeout):
+            calls.append((request.full_url, request.data))
+            if request.full_url == endpoints[0]:
+                raise URLError('offline')
+            return BytesIO(b'{"elements": []}')
+        client = OverpassClient(opener=opener, sleep=lambda _: None, endpoints=endpoints)
+        client.query('first;')
+        client.query('second;')
+        self.assertEqual([url for url, _ in calls], [endpoints[0], endpoints[1], endpoints[1]])
+        self.assertEqual(calls[0][1], calls[1][1])
+
+    def test_partial_response_is_not_cached_and_recovers_on_fallback(self):
+        calls = []
+        class Interrupted(BytesIO):
+            def read(self, size=-1):
+                raise IncompleteRead(b'{"elements": [')
+        def opener(request, timeout):
+            calls.append(request.full_url)
+            return Interrupted() if len(calls) == 1 else BytesIO(b'{"elements": []}')
+        client = OverpassClient(opener=opener, sleep=lambda _: None)
+        self.assertEqual(client.query('q;'), dict(elements=[]))
+        self.assertEqual(client.query('q;'), dict(elements=[]))
+        self.assertEqual(len(calls), 2)
+        self.assertNotEqual(calls[0], calls[1])
+
+    def test_non_retryable_error_does_not_switch_servers(self):
+        calls = []
+        def opener(request, timeout):
+            calls.append(request.full_url)
+            raise HTTPError(request.full_url, 400, 'Bad Request', {}, BytesIO())
+        with self.assertRaisesRegex(ValueError, 'HTTP 400'):
+            OverpassClient(opener=opener, sleep=lambda _: None).query('invalid;')
+        self.assertEqual(len(calls), 1)
+
+    def test_cancellation_after_network_failure_prevents_fallback(self):
+        calls = []
+        cancelled = [False]
+        def opener(request, timeout):
+            calls.append(request.full_url)
+            cancelled[0] = True
+            raise URLError('offline')
+        with cancel_when(lambda: cancelled[0]):
+            with self.assertRaisesRegex(OsmUnavailable, 'Abgebrochen'):
+                OverpassClient(opener=opener, sleep=lambda _: None).query('q;')
+        self.assertEqual(len(calls), 1)
 
     def test_searches_do_not_download_all_boundary_geometries(self):
         queries = []

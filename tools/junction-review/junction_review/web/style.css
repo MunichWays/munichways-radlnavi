@@ -45,6 +45,8 @@ main { min-width: 0; width: 100%; padding: 14px 18px; margin: 0 auto; }
 .eyebrow { color: var(--purple); font-size: 10px; font-weight: 700; letter-spacing: 1px; margin: 0 0 4px; }
 .badge { white-space: nowrap; background: #ece6f2; color: #65497d; border-radius: 20px; padding: 7px 12px; font-size: 12px; }
 .badge.confirmed { background: #e2f1e9; color: #226548; }
+.badge.checked { background: #e1edf6; color: #1d5f8c; }
+.badge.live { background: #f8e1ee; color: #b0127a; }
 .badge.deferred { background: #fff0c9; color: #7d610e; }
 .badge.excluded { background: #eae8eb; color: #625d68; }
 .stage-status { display: flex; flex-wrap: wrap; gap: 6px 20px; color: #756d7f; font-size: 11px; margin-bottom: 10px; }

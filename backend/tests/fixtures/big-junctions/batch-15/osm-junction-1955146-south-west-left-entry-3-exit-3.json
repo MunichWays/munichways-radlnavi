@@ -1,0 +1,348 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              251742333,
+              4670703060,
+              8221606548,
+              9282760065,
+              1172140645,
+              261730693,
+              261730212,
+              1304350273,
+              13381897753,
+              3835128467,
+              1304350272,
+              1172140640
+            ],
+            "distance": [
+              32.8588669,
+              2.584600452,
+              23.94365114,
+              5.92950336,
+              10.88043103,
+              7.60885228,
+              25.57717915,
+              4.380410044,
+              19.42878437,
+              4.306399084,
+              8.612798168
+            ]
+          },
+          "duration": 63.5,
+          "summary": "Auerfeldstraße",
+          "weight": 118.1,
+          "distance": 146.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    326
+                  ],
+                  "location": [
+                    11.597453,
+                    48.123274
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.597184,
+                    48.123537
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597453,
+                    48.123274
+                  ],
+                  [
+                    11.597204,
+                    48.123518
+                  ],
+                  [
+                    11.597184,
+                    48.123537
+                  ],
+                  [
+                    11.597003,
+                    48.123715
+                  ],
+                  [
+                    11.596958,
+                    48.123759
+                  ],
+                  [
+                    11.596876,
+                    48.12384
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 326,
+                "bearing_before": 0,
+                "location": [
+                  11.597453,
+                  48.123274
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 43.9,
+              "duration": 27.7,
+              "distance": 76.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.596876,
+                    48.12384
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    255
+                  ],
+                  "location": [
+                    11.596171,
+                    48.123644
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596876,
+                    48.12384
+                  ],
+                  [
+                    11.596791,
+                    48.123802
+                  ],
+                  [
+                    11.59647,
+                    48.12372
+                  ],
+                  [
+                    11.596415,
+                    48.123706
+                  ],
+                  [
+                    11.596171,
+                    48.123644
+                  ],
+                  [
+                    11.596116,
+                    48.123632
+                  ],
+                  [
+                    11.596006,
+                    48.123608
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 246,
+                "bearing_before": 324,
+                "location": [
+                  11.596876,
+                  48.12384
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Auerfeldstraße",
+              "mode": "cycling",
+              "weight": 74.2,
+              "duration": 35.8,
+              "distance": 69.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    72
+                  ],
+                  "location": [
+                    11.596006,
+                    48.123608
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596006,
+                    48.123608
+                  ],
+                  [
+                    11.596006,
+                    48.123608
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 252,
+                "location": [
+                  11.596006,
+                  48.123608
+                ],
+                "type": "arrive"
+              },
+              "name": "Auerfeldstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.597453,
+            48.123274
+          ],
+          [
+            11.597204,
+            48.123518
+          ],
+          [
+            11.597184,
+            48.123537
+          ],
+          [
+            11.597003,
+            48.123715
+          ],
+          [
+            11.596958,
+            48.123759
+          ],
+          [
+            11.596876,
+            48.12384
+          ],
+          [
+            11.596791,
+            48.123802
+          ],
+          [
+            11.59647,
+            48.12372
+          ],
+          [
+            11.596415,
+            48.123706
+          ],
+          [
+            11.596171,
+            48.123644
+          ],
+          [
+            11.596116,
+            48.123632
+          ],
+          [
+            11.596006,
+            48.123608
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 118.1,
+      "duration": 63.5,
+      "distance": 146.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ZVAZgAVRGYAiAAAAUwAAAAAAAAAGAAAApf9fQXtvA0IAAAAAGGolQBwAAABCAAAAAAAAAAUAAAC1AgAAjfawAIpN3gKN9rAAik3eAgAAXxQAAAAA",
+      "location": [
+        11.597453,
+        48.123274
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "oVAZgNdQGYAxAAAAIwAAAAAAAAARAAAA_TpGQQXOCUEAAAAABc6JQBYAAAAQAAAAAAAAAAgAAAC1AgAA5vCwANhO3gLm8LAA107eAgAAfwQAAAAA",
+      "location": [
+        11.596006,
+        48.123608
+      ],
+      "name": "Auerfeldstraße",
+      "distance": 0.1111927533
+    }
+  ]
+}

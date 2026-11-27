@@ -62,6 +62,13 @@ export function initializeTechnical({$, html, api, project, selected, isDirty, i
       `${check.standard ? 'Standardfall – fertig geprüft' : 'Sonderfall – Nachbearbeitung nötig'}: ` +
       `${check.passed}/${check.attempted} links/geradeaus, ${check.rightVerified}/${check.rightAttempted} Rechtskontrollen.`)];
     if (check.connectors?.length) rows.push(html('p', {className: 'muted'}, `Automatisch zugelassene innere Verbinder (OSM): ${check.connectors.join(', ')}`));
+    const variants = [...(check.variants?.exit || []), ...(check.variants?.entry || [])];
+    if (variants.length) rows.push(html('p', {className: 'muted'},
+      `Gleiche Ansage für Radweg/Fahrbahn (Radweg nicht benutzungspflichtig): ${variants.map(g => g.join(' = ')).join(', ')}`));
+    if (check.coveredByVariant?.length) rows.push(html('p', {className: 'muted'},
+      `Standardroute umfährt die Kreuzung, gleichwertige Ausfahrt geprüft: ${check.coveredByVariant.map(m => `${m.entryLabel} → ${m.exitLabel} (über ${m.partner})`).join(', ')}`));
+    if (check.bypassingRights?.length) rows.push(html('p', {className: 'muted'},
+      `Rechtskontrolle umfährt die Kreuzung (gültig, kein Makro möglich): ${check.bypassingRights.map(m => `${m.entryLabel} → ${m.exitLabel}`).join(', ')}`));
     for (const issue of check.issues) {
       const pair = issue.entryLabel ? `${issue.entryLabel} → ${issue.exitLabel} (${issue.kind}): ` : '';
       rows.push(html('p', {className: 'recheck-link'}, `${pair}${issue.text}. ${STAGE_HINT[issue.stage] || ''}`));

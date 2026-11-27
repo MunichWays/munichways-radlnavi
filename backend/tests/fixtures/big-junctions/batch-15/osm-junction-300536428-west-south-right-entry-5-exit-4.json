@@ -1,0 +1,407 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4779514006,
+              13098697055,
+              13378382975,
+              3700767484,
+              2630394425,
+              3789797777,
+              12512692958,
+              300546488,
+              300546478,
+              300546485,
+              10729623556,
+              1097998503,
+              4678580641,
+              4678580640,
+              4678580642,
+              2584552572,
+              12851852076,
+              2153213525,
+              2587713403
+            ],
+            "distance": [
+              2.013831462,
+              5.379256895,
+              20.79666407,
+              10.01004503,
+              13.82160725,
+              3.42684429,
+              6.039386201,
+              7.17154224,
+              15.13077466,
+              6.311766353,
+              3.623275222,
+              2.195474032,
+              2.093683832,
+              2.054004014,
+              2.997612573,
+              13.84250794,
+              17.80861477,
+              10.47944631
+            ]
+          },
+          "duration": 53,
+          "summary": "Kirchenstraße, Orleansstraße",
+          "weight": 127.9,
+          "distance": 145.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    106
+                  ],
+                  "location": [
+                    11.609059,
+                    48.132711
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609059,
+                    48.132711
+                  ],
+                  [
+                    11.609085,
+                    48.132706
+                  ],
+                  [
+                    11.609155,
+                    48.132694
+                  ],
+                  [
+                    11.609425,
+                    48.132646
+                  ],
+                  [
+                    11.609555,
+                    48.132623
+                  ],
+                  [
+                    11.609734,
+                    48.13259
+                  ],
+                  [
+                    11.609777,
+                    48.132579
+                  ],
+                  [
+                    11.609853,
+                    48.13256
+                  ],
+                  [
+                    11.609943,
+                    48.132537
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 106,
+                "bearing_before": 0,
+                "location": [
+                  11.609059,
+                  48.132711
+                ],
+                "type": "depart"
+              },
+              "name": "Kirchenstraße",
+              "mode": "cycling",
+              "weight": 70,
+              "duration": 39.2,
+              "distance": 68.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    60,
+                    150,
+                    195,
+                    285,
+                    345
+                  ],
+                  "location": [
+                    11.609943,
+                    48.132537
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    45,
+                    135,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.609888,
+                    48.132406
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609943,
+                    48.132537
+                  ],
+                  [
+                    11.609888,
+                    48.132406
+                  ],
+                  [
+                    11.609854,
+                    48.132354
+                  ],
+                  [
+                    11.609835,
+                    48.132324
+                  ],
+                  [
+                    11.60982,
+                    48.132307
+                  ],
+                  [
+                    11.609803,
+                    48.132292
+                  ],
+                  [
+                    11.609785,
+                    48.132278
+                  ],
+                  [
+                    11.609758,
+                    48.132258
+                  ],
+                  [
+                    11.609625,
+                    48.132171
+                  ],
+                  [
+                    11.609454,
+                    48.132059
+                  ],
+                  [
+                    11.609355,
+                    48.131992
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 195,
+                "bearing_before": 109,
+                "location": [
+                  11.609943,
+                  48.132537
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 57.9,
+              "duration": 13.8,
+              "distance": 76.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    45
+                  ],
+                  "location": [
+                    11.609355,
+                    48.131992
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609355,
+                    48.131992
+                  ],
+                  [
+                    11.609355,
+                    48.131992
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 225,
+                "location": [
+                  11.609355,
+                  48.131992
+                ],
+                "type": "arrive"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.609059,
+            48.132711
+          ],
+          [
+            11.609085,
+            48.132706
+          ],
+          [
+            11.609155,
+            48.132694
+          ],
+          [
+            11.609425,
+            48.132646
+          ],
+          [
+            11.609555,
+            48.132623
+          ],
+          [
+            11.609734,
+            48.13259
+          ],
+          [
+            11.609777,
+            48.132579
+          ],
+          [
+            11.609853,
+            48.13256
+          ],
+          [
+            11.609943,
+            48.132537
+          ],
+          [
+            11.609888,
+            48.132406
+          ],
+          [
+            11.609854,
+            48.132354
+          ],
+          [
+            11.609835,
+            48.132324
+          ],
+          [
+            11.60982,
+            48.132307
+          ],
+          [
+            11.609803,
+            48.132292
+          ],
+          [
+            11.609785,
+            48.132278
+          ],
+          [
+            11.609758,
+            48.132258
+          ],
+          [
+            11.609625,
+            48.132171
+          ],
+          [
+            11.609454,
+            48.132059
+          ],
+          [
+            11.609355,
+            48.131992
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 127.9,
+      "duration": 53,
+      "distance": 145.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "Y3MZgIlzGYAEAAAAKAAAADsAAAAAAAAAneIAQL3yjEFJaNFBAAAAAAMAAAAgAAAALwAAAAAAAAC1AgAA4yOxAGdy3gLjI7EAZ3LeAgQAzxEAAAAA",
+      "location": [
+        11.609059,
+        48.132711
+      ],
+      "name": "Kirchenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "f3MZgP___39KAAAAtAAAAPoAAABdAAAA0KsnQcc5aUFOmApC6SdOQRIAAAAtAAAAPgAAABcAAAC1AgAACyWxAJhv3gIMJbEAmG_eAgYADw4AAAAA",
+      "location": [
+        11.609355,
+        48.131992
+      ],
+      "name": "Orleansstraße",
+      "distance": 0.0744449028
+    }
+  ]
+}

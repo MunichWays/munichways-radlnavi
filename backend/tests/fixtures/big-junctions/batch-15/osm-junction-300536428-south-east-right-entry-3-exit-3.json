@@ -1,0 +1,288 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              660703835,
+              10729623563,
+              300546467,
+              300546471,
+              3170118677,
+              1686308578
+            ],
+            "distance": [
+              42.68645697,
+              9.299595247,
+              7.338755676,
+              6.24909881,
+              41.75769232
+            ]
+          },
+          "duration": 22.7,
+          "summary": "Orleansstraße, Berg-am-Laim-Straße",
+          "weight": 50.2,
+          "distance": 107.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    46
+                  ],
+                  "location": [
+                    11.609647,
+                    48.131937
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.610059,
+                    48.132204
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.610149,
+                    48.132262
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609647,
+                    48.131937
+                  ],
+                  [
+                    11.610059,
+                    48.132204
+                  ],
+                  [
+                    11.610149,
+                    48.132262
+                  ],
+                  [
+                    11.610245,
+                    48.132277
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 46,
+                "bearing_before": 0,
+                "location": [
+                  11.609647,
+                  48.131937
+                ],
+                "type": "depart"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 28.9,
+              "duration": 13.2,
+              "distance": 59.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    255
+                  ],
+                  "location": [
+                    11.610245,
+                    48.132277
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610245,
+                    48.132277
+                  ],
+                  [
+                    11.610324,
+                    48.132258
+                  ],
+                  [
+                    11.610793,
+                    48.132052
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 75,
+                "location": [
+                  11.610245,
+                  48.132277
+                ],
+                "modifier": "slight right",
+                "type": "continue"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 21.3,
+              "duration": 9.5,
+              "distance": 48
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    303
+                  ],
+                  "location": [
+                    11.610793,
+                    48.132052
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610793,
+                    48.132052
+                  ],
+                  [
+                    11.610793,
+                    48.132052
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 123,
+                "location": [
+                  11.610793,
+                  48.132052
+                ],
+                "type": "arrive"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.609647,
+            48.131937
+          ],
+          [
+            11.610059,
+            48.132204
+          ],
+          [
+            11.610149,
+            48.132262
+          ],
+          [
+            11.610245,
+            48.132277
+          ],
+          [
+            11.610324,
+            48.132258
+          ],
+          [
+            11.610793,
+            48.132052
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 50.2,
+      "duration": 22.7,
+      "distance": 107.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "LnMZgP___38TAAAA0QAAAAoBAAAAAAAAprWKQO--KkL2h29CAAAAAAgAAABeAAAAeAAAAAAAAAC1AgAALyaxAGFv3gIwJrEAYW_eAgIA3wIAAAAA",
+      "location": [
+        11.609647,
+        48.131937
+      ],
+      "name": "Orleansstraße",
+      "distance": 0.0744449028
+    },
+    {
+      "hint": "FXMZgP___3-5AAAA2wAAABwAAAAAAAAA4AcnQoaG8UCe-MdAAAAAAFMAAABjAAAADAAAAAAAAAC1AgAAqSqxANRv3gKpKrEA1W_eAgIAvwcAAAAA",
+      "location": [
+        11.610793,
+        48.132052
+      ],
+      "name": "Berg-am-Laim-Straße",
+      "distance": 0.1111927533
+    }
+  ]
+}

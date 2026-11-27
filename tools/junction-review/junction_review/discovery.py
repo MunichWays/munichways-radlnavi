@@ -11,7 +11,7 @@ from .osm_client import query_osm
 from .districts import district_feature
 from .cycling import direction
 
-ALGORITHM = 'osm-four-arm-v1'
+ALGORITHM = 'osm-four-arm-v2'  # v2: entries before a road-to-cycleway split on the road
 MAJOR = {'primary', 'secondary', 'tertiary', 'primary_link', 'secondary_link', 'tertiary_link'}
 
 
@@ -374,6 +374,14 @@ def prepare(raw, selection):
                                      laneEvidence=lane_evidence, candidateNodes=sorted(s['id'] for s in group)),
                     provenance=dict(adapter=ALGORITHM), sourceFingerprint=digest(dict(group=group_signature(group), ways=local,
                         nodes=[nodes[n] for n in sorted(local_nodes) if n in nodes], restrictions=restrictions)))
+        if gates:
+            from .split_entries import apply as entries_before_splits
+            site, corrected = entries_before_splits(site)
+            if corrected:
+                warnings.extend(corrected)
+                site['note'] = ' · '.join(warnings)
+                site['preparation']['complexity'] = len(warnings)
+                site['preparation']['splitEntries'] = corrected
         sites.append(site)
     sites.sort(key=lambda s: (-(s['outgoingLanes'] or 0), s['preparation']['complexity'], s['id']))
     for rank, site in enumerate(sites, 1):

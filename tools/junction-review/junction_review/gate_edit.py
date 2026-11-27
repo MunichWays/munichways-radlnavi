@@ -110,6 +110,34 @@ def move_boundary(polygon, previous, target):
     return polygon
 
 
+def perpendicular_boundary(polygon, previous, target, vector, half_width=2.5):
+    """Boundary through ``target`` as a short edge across the way (no spike).
+
+    Used when moving a gate outward along a road: a single inserted vertex makes
+    a narrow spike that the road may not enter cleanly. The old gate vertex (or
+    its edge) is replaced by two points ``half_width`` metres either side.
+    """
+    polygon = deepcopy(polygon)
+    scale = math.cos(math.radians(target[1]))
+    length = math.hypot(*vector) or 1
+    nx, ny = -vector[1] / length, vector[0] / length
+    offset = half_width / 111320
+    side = [[target[0] + sign * nx * offset / scale, target[1] + sign * ny * offset] for sign in (1, -1)]
+    near = min(range(len(polygon) - 1), key=lambda i: distance(previous, polygon[i]))
+    if distance(previous, polygon[near]) < .3:
+        before = polygon[near - 1] if near else polygon[-2]
+        first, second = sorted(side, key=lambda q: distance(before, q))
+        polygon[near:near + 1] = [first, second]
+        if near == 0:
+            polygon[-1] = first
+    else:
+        edge = min(range(len(polygon) - 1), key=lambda i: boundary_distance(previous, polygon[i:i + 2]))
+        first, second = sorted(side, key=lambda q: distance(polygon[edge], q))
+        polygon[edge + 1:edge + 1] = [first, second]
+    ring(polygon)
+    return polygon
+
+
 def reserved_labels(site):
     gates = list(site['gates'])
     for event in site.get('history', []):
@@ -162,18 +190,30 @@ def edit_gate(site, operation):
         way,p,vector = snap_to_way(operation['location'],result['ways'],operation.get('wayId'))
         if distance(p,gate['location']) > 80:
             raise ValueError('Bitte den Anschluss höchstens 80 m pro Bearbeitung verschieben.')
-        result['polygon'] = move_boundary(result['polygon'],gate['location'],p)
+        previous = gate['location']
+        result['polygon'] = move_boundary(result['polygon'],previous,p)
         gate['location'],gate['osmWayId'] = p,way['id']
         length = math.hypot(*vector)
-        candidates = []
-        for sign in direction(way['tags']):
-            candidate = deepcopy(gate)
-            candidate['forward'] = [sign*v/length for v in vector]
+
+        def directions():
+            found = []
+            for sign in direction(way['tags']):
+                candidate = deepcopy(gate)
+                candidate['forward'] = [sign*v/length for v in vector]
+                try:
+                    validate_direction(result,candidate)
+                    found.append(candidate)
+                except ValueError:
+                    pass
+            return found
+        candidates = directions()
+        if len(candidates) != 1:
+            # A spike vertex can leave the way outside its own tip; try a short cross edge.
             try:
-                validate_direction(result,candidate)
-                candidates.append(candidate)
+                result['polygon'] = perpendicular_boundary(site['polygon'],previous,p,vector)
+                candidates = directions()
             except ValueError:
-                pass
+                candidates = []
         if len(candidates) != 1:
             raise ValueError('An dieser Stelle ist keine eindeutige passende Ein-/Ausfahrtrichtung belegt. Bitte einen Punkt vor der Verzweigung wählen.')
         gate.update(candidates[0])

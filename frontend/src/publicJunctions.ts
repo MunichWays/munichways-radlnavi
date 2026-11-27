@@ -16,6 +16,19 @@ export const reviewLabels: Record<ReviewStatus, string> = {
 export const reviewColors: Record<ReviewStatus, string> = {
   confirmed: '#21825c', open: '#a75a00', deferred: '#896400', excluded: '#77717e',
 };
+/** Public display status: derived from the human decision plus technical and live evidence. */
+export type ViewStatus = ReviewStatus | 'checked' | 'live';
+export const viewLabels: Record<ViewStatus, string> = {
+  live: 'Live', checked: 'Technisch geprüft', confirmed: 'Bestätigt', open: 'Offen', deferred: 'Zurückgestellt', excluded: 'Ausgeschlossen',
+};
+export const viewColors: Record<ViewStatus, string> = {
+  ...reviewColors, checked: '#1d5f8c', live: '#b0127a',
+};
+export function viewStatus(site: Pick<PublicJunction, 'status' | 'technical' | 'deploymentStatus'>): ViewStatus {
+  if (site.status !== 'confirmed') return site.status;
+  if (site.deploymentStatus === 'live') return 'live';
+  return site.technical && site.technical !== 'not-run' ? 'checked' : 'confirmed';
+}
 export function parsePublicJunctions(value: any): PublicJunctionData {
   if (![1, 2].includes(value?.schemaVersion) || value.readOnly !== true || !Array.isArray(value.sites)
     || typeof value.projectName !== 'string' || !Number.isFinite(Date.parse(value.publishedAt))
@@ -29,7 +42,7 @@ export function parsePublicJunctions(value: any): PublicJunctionData {
 export function filterPublicJunctions(sites: PublicJunction[], query: string, status: string): PublicJunction[] {
   const text = query.trim().toLocaleLowerCase('de');
   const number = /^k?\d+$/.test(text) ? Number(text.replace(/^k/, '')) : null;
-  return sites.filter(s => (status === 'all' || s.status === status)
+  return sites.filter(s => (status === 'all' || viewStatus(s) === status)
     && (number !== null ? s.number === number : s.name.toLocaleLowerCase('de').includes(text)))
     .sort((a,b) => a.number - b.number);
 }

@@ -5,8 +5,20 @@ import {initializeGateEditor, geometryOf} from './gate-ui.js';
 import {initializeTechnical} from './technical-ui.js';
 
 const NS = 'http://www.w3.org/2000/svg';
-const labels = {open: 'Offen', confirmed: 'Bestätigt', deferred: 'Zurückgestellt', excluded: 'Ausgeschlossen'};
-const colors = {open: '#8450ac', confirmed: '#248060', deferred: '#bd8b1c', excluded: '#83818b'};
+const labels = {open: 'Offen', confirmed: 'Bestätigt', checked: 'Technisch geprüft', live: 'Live', deferred: 'Zurückgestellt', excluded: 'Ausgeschlossen'};
+const colors = {open: '#8450ac', confirmed: '#248060', checked: '#1d5f8c', live: '#b0127a', deferred: '#bd8b1c', excluded: '#83818b'};
+
+// Display status: a confirmation with current technical evidence counts as "checked",
+// and as "live" once that exact geometry is verified in production.
+// Derived only; the human decision itself keeps its four values.
+export function viewStatus(site) {
+  if (site.status !== 'confirmed' || !site.evidenceCurrent) return site.status;
+  if (site.deploymentStatus === 'live') return 'live';
+  return site.technicalStatus && site.technicalStatus !== 'not-run' ? 'checked' : 'confirmed';
+}
+export function specialCase(site) {
+  return viewStatus(site) === 'checked' && (site.evidence?.appCheck ? !site.evidence.appCheck.standard : /zurückgestellt/i.test(site.technicalStatus));
+}
 const EARTH_RADIUS = 6378137;
 const WORLD = 2 * Math.PI * EARTH_RADIUS;
 const mercatorY = lat => EARTH_RADIUS * Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360));
@@ -235,22 +247,22 @@ async function post(action, body) {
 }
 
 function navigation() {
-  const counts = {open: 0, confirmed: 0, excluded: 0, deferred: 0};
-  projectData.sites.forEach(s => counts[s.status]++);
-  $('counts').replaceChildren(...[[projectData.sites.length, 'Gesamt'], [counts.confirmed, 'Bestätigt'], [counts.open + counts.deferred, 'Offen'], [counts.excluded, 'Ausgeschl.']].map(([n, title]) => {
+  const counts = {open: 0, confirmed: 0, checked: 0, live: 0, excluded: 0, deferred: 0};
+  projectData.sites.forEach(s => counts[viewStatus(s)]++);
+  $('counts').replaceChildren(...[[projectData.sites.length, 'Gesamt'], [counts.live, 'Live'], [counts.checked, 'Geprüft'], [counts.confirmed, 'Bestätigt'], [counts.open + counts.deferred, 'Offen'], [counts.excluded, 'Ausgeschl.']].map(([n, title]) => {
     const div = html('div'); div.append(html('strong', {}, n), document.createTextNode(title)); return div;
   }));
   const search = $('search').value.toLocaleLowerCase();
-  const groups = [['confirmed', 'Bestätigt'], ['open', 'Offen'], ['deferred', 'Zurückgestellt'], ['excluded', 'Ausgeschlossen']];
+  const groups = [['confirmed', 'Bestätigt · Technik ausstehend'], ['checked', 'Technisch geprüft · noch nicht live'], ['live', 'Live'], ['open', 'Offen'], ['deferred', 'Zurückgestellt'], ['excluded', 'Ausgeschlossen']];
   const oldOpen = new Set([...$('groups').querySelectorAll('details[open]')].map(d => d.dataset.status));
   const first = !$('groups').children.length;
   $('groups').replaceChildren(...groups.map(([status, title]) => {
-    const sites = projectData.sites.filter(s => s.status === status && (`${siteLabel(s)} ${s.name}`).toLocaleLowerCase().includes(search)).sort((a, b) => (a.priorityRank || 0) - (b.priorityRank || 0) || (b.number || 0) - (a.number || 0) || (b.outgoingLanes || 0) - (a.outgoingLanes || 0) || a.name.localeCompare(b.name, 'de'));
+    const sites = projectData.sites.filter(s => viewStatus(s) === status && (`${siteLabel(s)} ${s.name}`).toLocaleLowerCase().includes(search)).sort((a, b) => (a.priorityRank || 0) - (b.priorityRank || 0) || (b.number || 0) - (a.number || 0) || (b.outgoingLanes || 0) - (a.outgoingLanes || 0) || a.name.localeCompare(b.name, 'de'));
     const details = html('details', {open: first ? status === 'open' : oldOpen.has(status) || !!search}); details.dataset.status = status;
     details.append(html('summary', {}, `${title} · ${sites.length}`));
     for (const s of sites) {
       const a = html('a', {href: `#${encodeURIComponent(s.id)}`, className: `site-link${selected?.id === s.id ? ' active' : ''}`});
-      a.append(html('small', {}, `${siteLabel(s)} · ${s.linkedReviews?.length ? 'bereits in anderem Projekt bearbeitet' : s.geometryMode === 'none' ? 'noch ohne Geometrie' : 'v' + s.geometryRevision}${s.outgoingLanes ? ' · ' + s.outgoingLanes + ' Fahrspuren' : s.preparation ? ' · Spuren unbekannt' : ''}${s.preparation?.warnings.length ? ' · ' + s.preparation.warnings.length + ' Prüfpunkte' : ''}${s.deploymentStatus === 'live' ? ' · LIVE' : ''}`), document.createTextNode(s.name)); details.append(a);
+      a.append(html('small', {}, `${siteLabel(s)} · ${s.linkedReviews?.length ? 'bereits in anderem Projekt bearbeitet' : s.geometryMode === 'none' ? 'noch ohne Geometrie' : 'v' + s.geometryRevision}${s.outgoingLanes ? ' · ' + s.outgoingLanes + ' Fahrspuren' : s.preparation ? ' · Spuren unbekannt' : ''}${s.preparation?.warnings.length ? ' · ' + s.preparation.warnings.length + ' Prüfpunkte' : ''}${specialCase(s) ? ' · Sonderfall' : ''}${s.deploymentStatus === 'branch-ready' && s.evidenceCurrent ? ' · aktiviert, Deployment ausstehend' : ''}`), document.createTextNode(s.name)); details.append(a);
     }
     return details;
   }));
@@ -260,7 +272,7 @@ function navigation() {
 
 function overview() {
   const filter = $('map-status').value, search = $('search').value.toLocaleLowerCase();
-  const sites = projectData.sites.filter(s => s.origin && (filter === 'all' || s.status === filter || (filter === 'open' && s.status === 'deferred')) && `${siteLabel(s)} ${s.name}`.toLocaleLowerCase().includes(search));
+  const sites = projectData.sites.filter(s => s.origin && (filter === 'all' || viewStatus(s) === filter || (filter === 'open' && s.status === 'deferred')) && `${siteLabel(s)} ${s.name}`.toLocaleLowerCase().includes(search));
   if (!sites.length) { $('overview-map').disposeMap?.(); $('overview-map').replaceChildren(html('p', {className: 'notice'}, 'Keine verorteten Fälle für diese Auswahl.')); return; }
   const points = sites.map(s => s.origin);
   const origin = [points.reduce((n, p) => n + p[0], 0) / points.length, points.reduce((n, p) => n + p[1], 0) / points.length];
@@ -270,7 +282,7 @@ function overview() {
     const [x, y] = map.project.to(site.origin);
     const a = el('a', {href: `#${encodeURIComponent(site.id)}`, 'data-no-pan': '', 'aria-label': `${siteLabel(site)} ${site.name}`});
     const marker = el('g', {'data-screen-marker':'', 'data-x':x, 'data-y':y});
-    marker.append(el('circle', {r:7, fill: site.geometryMode === 'none' ? 'white' : colors[site.status], stroke: site.geometryMode === 'none' ? colors[site.status] : 'white', 'stroke-width':1.5}));
+    marker.append(el('circle', {r:7, fill: site.geometryMode === 'none' ? 'white' : colors[viewStatus(site)], stroke: site.geometryMode === 'none' ? colors[viewStatus(site)] : 'white', 'stroke-width':1.5}));
     if (site.number || site.priorityRank) marker.append(el('text', {y:-12, 'text-anchor':'middle', fill:'#46374f', 'font-size':12, 'font-weight':700, 'paint-order':'stroke', stroke:'white', 'stroke-width':3}, siteLabel(site)));
     a.append(marker);
     a.append(el('title', {}, site.name)); map.svg.append(a);
@@ -326,7 +338,7 @@ function detail() {
   $('detail-number').textContent = `${siteLabel(selected)} · GEOMETRIEPRÜFUNG`;
   $('detail-title').textContent = selected.name;
   $('image-export').href = `/api/sites/${encodeURIComponent(selected.id)}/image.svg?project=${encodeURIComponent(projectData.workspaceId)}`;
-  $('detail-status').textContent = labels[selected.status]; $('detail-status').className = `badge ${selected.status}`;
+  $('detail-status').textContent = labels[viewStatus(selected)] + (specialCase(selected) ? ' · Sonderfall' : ''); $('detail-status').className = `badge ${viewStatus(selected)}`;
   $('revision').textContent = selected.geometryMode === 'none' ? 'Noch ohne Geometrie' : `Geometrie v${selected.geometryRevision}`;
   $('technical-stage').textContent = selected.technicalStatus === 'not-run' ? 'Technik: ausstehend' : 'Technik: dokumentiert (siehe Details)';
   $('deployment-stage').textContent = selected.evidenceCurrent ? selected.evidence.deployment : (selected.deploymentStatus === 'older-geometry' ? 'LIVE: früherer Geometriestand' : 'Deployment: nicht ermittelt');

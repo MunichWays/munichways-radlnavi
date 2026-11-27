@@ -2,7 +2,7 @@ import React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PublicJunctionReview from './PublicJunctionReview';
-import {filterPublicJunctions, groupPublicJunctions, parsePublicJunctions} from './publicJunctions';
+import {filterPublicJunctions, groupPublicJunctions, parsePublicJunctions, viewStatus} from './publicJunctions';
 
 jest.mock('./PublicJunctionMap',()=>()=> <div>Kartenansicht</div>);
 const site = {id:'one',number:1,name:'Romanplatz',origin:[11.5,48.1],polygon:[],gates:[],status:'confirmed',geometryRevision:2,
@@ -13,20 +13,27 @@ test('filters the published snapshot by number, street and status',()=>{
   const parsed=parsePublicJunctions(data);
   expect(filterPublicJunctions(parsed.sites,'K01','all').map(s=>s.number)).toEqual([1]);
   expect(filterPublicJunctions(parsed.sites,'MARS','all').map(s=>s.number)).toEqual([2]);
-  expect(filterPublicJunctions(parsed.sites,'','confirmed')).toHaveLength(1);
+  expect(filterPublicJunctions(parsed.sites,'','checked')).toHaveLength(1);
+  expect(filterPublicJunctions(parsed.sites,'','confirmed')).toHaveLength(0);
   expect(()=>parsePublicJunctions({...data,readOnly:false})).toThrow();
 });
 test('loads details from a read-only snapshot and returns to the filtered list',async()=>{
   render(<PublicJunctionReview/>);
-  fireEvent.click(await screen.findByRole('button',{name:/K1 · Bestätigt/}));
+  fireEvent.click(await screen.findByRole('button',{name:/K1 · Technisch geprüft/}));
   expect(screen.getByRole('heading',{name:'K1 · Romanplatz'})).toBeInTheDocument();
   expect(screen.getByText('Noch nicht live')).toBeInTheDocument();
   expect(window.location.hash).toBe('#K1');
   fireEvent.click(screen.getByRole('button',{name:/Alle Kreuzungen/}));
   fireEvent.change(screen.getByRole('searchbox'),{target:{value:'Mars'}});
-  expect(screen.queryByRole('button',{name:/K1 · Bestätigt/})).not.toBeInTheDocument();
+  expect(screen.queryByRole('button',{name:/K1 · Technisch geprüft/})).not.toBeInTheDocument();
   expect(screen.getByRole('button',{name:/K2 · Ausgeschlossen/})).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledTimes(1);
+});
+test('derives confirmed, technically checked and live',()=>{
+  expect(viewStatus({status:'confirmed',technical:'not-run',deploymentStatus:'unknown'})).toBe('confirmed');
+  expect(viewStatus({status:'confirmed',technical:'8/8 bestanden',deploymentStatus:'branch-ready'})).toBe('checked');
+  expect(viewStatus({status:'confirmed',technical:'8/8 bestanden',deploymentStatus:'live'})).toBe('live');
+  expect(viewStatus({status:'excluded',technical:'x',deploymentStatus:'live'})).toBe('excluded');
 });
 test('handles unavailable published data',async()=>{
   (fetch as jest.Mock).mockResolvedValue({ok:false});

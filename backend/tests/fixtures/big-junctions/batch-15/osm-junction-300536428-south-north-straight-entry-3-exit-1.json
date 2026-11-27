@@ -1,0 +1,593 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              660703835,
+              10729623563,
+              300546467,
+              300546471,
+              10729623580,
+              4475936149,
+              1237856676,
+              2214731023,
+              1237856653,
+              2214731045,
+              10729623579,
+              10729623578,
+              300546482,
+              10729623577,
+              300546494,
+              300546453,
+              10729623574,
+              3174636594,
+              3157458481,
+              1686324427,
+              3174636600
+            ],
+            "distance": [
+              42.68645697,
+              9.299595247,
+              7.338755676,
+              1.198288952,
+              4.850623359,
+              0.234515154,
+              1.826490011,
+              2.06003245,
+              1.198288952,
+              1.329504937,
+              2.892840298,
+              4.018278022,
+              5.186604725,
+              2.191788012,
+              6.493901475,
+              4.878250114,
+              2.828242019,
+              5.461144863,
+              31.00645411,
+              9.465739311
+            ]
+          },
+          "duration": 46.2,
+          "summary": "Orleansstraße, Grillparzerstraße",
+          "weight": 107.4,
+          "distance": 146.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    46
+                  ],
+                  "location": [
+                    11.609647,
+                    48.131937
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.610059,
+                    48.132204
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.610149,
+                    48.132262
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609647,
+                    48.131937
+                  ],
+                  [
+                    11.610059,
+                    48.132204
+                  ],
+                  [
+                    11.610149,
+                    48.132262
+                  ],
+                  [
+                    11.610245,
+                    48.132277
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 46,
+                "bearing_before": 0,
+                "location": [
+                  11.609647,
+                  48.131937
+                ],
+                "type": "depart"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 33.4,
+              "duration": 15.5,
+              "distance": 59.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    255
+                  ],
+                  "location": [
+                    11.610245,
+                    48.132277
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.610278,
+                    48.132329
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.610349,
+                    48.132439
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    210,
+                    345
+                  ],
+                  "location": [
+                    11.610388,
+                    48.1325
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    165,
+                    285,
+                    345
+                  ],
+                  "location": [
+                    11.610369,
+                    48.132557
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    165,
+                    285
+                  ],
+                  "location": [
+                    11.610356,
+                    48.1326
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.610354,
+                    48.132674
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    60,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.610423,
+                    48.132949
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610245,
+                    48.132277
+                  ],
+                  [
+                    11.610251,
+                    48.132287
+                  ],
+                  [
+                    11.610277,
+                    48.132327
+                  ],
+                  [
+                    11.610278,
+                    48.132329
+                  ],
+                  [
+                    11.610288,
+                    48.132344
+                  ],
+                  [
+                    11.610299,
+                    48.132361
+                  ],
+                  [
+                    11.610305,
+                    48.132371
+                  ],
+                  [
+                    11.610312,
+                    48.132382
+                  ],
+                  [
+                    11.610327,
+                    48.132406
+                  ],
+                  [
+                    11.610349,
+                    48.132439
+                  ],
+                  [
+                    11.610376,
+                    48.132482
+                  ],
+                  [
+                    11.610388,
+                    48.1325
+                  ],
+                  [
+                    11.610369,
+                    48.132557
+                  ],
+                  [
+                    11.610356,
+                    48.1326
+                  ],
+                  [
+                    11.610349,
+                    48.132625
+                  ],
+                  [
+                    11.610354,
+                    48.132674
+                  ],
+                  [
+                    11.610423,
+                    48.132949
+                  ],
+                  [
+                    11.61043,
+                    48.133034
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 22,
+                "bearing_before": 75,
+                "location": [
+                  11.610245,
+                  48.132277
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 74,
+              "duration": 30.7,
+              "distance": 87.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    183
+                  ],
+                  "location": [
+                    11.61043,
+                    48.133034
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61043,
+                    48.133034
+                  ],
+                  [
+                    11.61043,
+                    48.133034
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 3,
+                "location": [
+                  11.61043,
+                  48.133034
+                ],
+                "type": "arrive"
+              },
+              "name": "Grillparzerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.609647,
+            48.131937
+          ],
+          [
+            11.610059,
+            48.132204
+          ],
+          [
+            11.610149,
+            48.132262
+          ],
+          [
+            11.610245,
+            48.132277
+          ],
+          [
+            11.610251,
+            48.132287
+          ],
+          [
+            11.610277,
+            48.132327
+          ],
+          [
+            11.610278,
+            48.132329
+          ],
+          [
+            11.610288,
+            48.132344
+          ],
+          [
+            11.610299,
+            48.132361
+          ],
+          [
+            11.610305,
+            48.132371
+          ],
+          [
+            11.610312,
+            48.132382
+          ],
+          [
+            11.610327,
+            48.132406
+          ],
+          [
+            11.610349,
+            48.132439
+          ],
+          [
+            11.610376,
+            48.132482
+          ],
+          [
+            11.610388,
+            48.1325
+          ],
+          [
+            11.610369,
+            48.132557
+          ],
+          [
+            11.610356,
+            48.1326
+          ],
+          [
+            11.610349,
+            48.132625
+          ],
+          [
+            11.610354,
+            48.132674
+          ],
+          [
+            11.610423,
+            48.132949
+          ],
+          [
+            11.61043,
+            48.133034
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 107.4,
+      "duration": 46.2,
+      "distance": 146.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "LnMZgP___38TAAAA0QAAAAoBAAAAAAAAprWKQO--KkL2h29CAAAAAAgAAABeAAAAeAAAAAAAAAC1AgAALyaxAGFv3gIwJrEAYW_eAgIA3wIAAAAA",
+      "location": [
+        11.609647,
+        48.131937
+      ],
+      "name": "Orleansstraße",
+      "distance": 0.0744449028
+    },
+    {
+      "hint": "ulcWgP___38qAAAAhgAAAAAAAAAAAAAAq3MXQZ-6pUEAAAAAAAAAABIAAAA8AAAAAAAAAAAAAAC1AgAAPimxAKpz3gI-KbEAqnPeAgAAPwAAAAAA",
+      "location": [
+        11.61043,
+        48.133034
+      ],
+      "name": "Grillparzerstraße",
+      "distance": 0
+    }
+  ]
+}

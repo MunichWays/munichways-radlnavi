@@ -14,7 +14,7 @@ veröffentlicht. Lokale Bearbeitungen werden ausdrücklich als neuer Stand expor
 
 ```powershell
 $env:PYTHONPATH='tools/junction-review'
-python -m junction_review publish-map --name München --project .local/junction-review/munich --project .local/junction-review/area-603b6d7ec04db77e --project .local/junction-review/area-369e14ac688ef47e --project .local/junction-review/area-8c7276beba7eaf73 --project .local/junction-review/area-8192789c4e8926dd --output docs/large-junction-analysis/public-junction-review.json
+python -m junction_review publish-map --name München --project .local/junction-review/munich --project .local/junction-review/area-603b6d7ec04db77e --project .local/junction-review/area-369e14ac688ef47e --project .local/junction-review/area-8c7276beba7eaf73 --project .local/junction-review/area-8192789c4e8926dd --project .local/junction-review/area-90800087a64697a8 --output docs/large-junction-analysis/public-junction-review.json
 ```
 
 `--project` mehrfach angeben, um das Gesamtprojekt und die Bezirksprojekte gemeinsam zu
@@ -133,6 +133,17 @@ Die Programmlogik in `discovery.py` braucht kein LLM. Sie sucht Straßen ab `ter
 
 Fahrspuren werden nach Möglichkeit auf der ausgehenden Fortsetzung mindestens 80 m vom Mittelpunkt abgelesen. Explizite Richtungswerte haben Vorrang; ungerade/fehlende Spurzahlen und mehrdeutige Fortsetzungen bleiben unbekannt. Separate Radwege, erlaubte Zweirichtungswege, Radfahrstreifen und erlaubte Straßenabschnitte erzeugen Grenzanschlüsse. `oneway:bicycle` hat Vorrang vor `oneway`. Radfahrstreifen bleiben auf OSM-Straßenmittellinien schematisch; ihre reale Seitenlage wird nicht erfunden.
 
+**Entry vor Radweg-Abzweig auf der Fahrbahn:** Fährt man auf der Straße und wechselt erst kurz vor
+der Kreuzung über ein schräges Radwegstück auf einen Radweg neben der Straße, gehört der Entry auf die
+Fahrbahn einige Meter vor dem Abzweig (Fälle K108 Hohenzollernstraße, BA05 P4 Ohlmüllerstraße). Die
+Vorbereitung (Algorithmus `osm-four-arm-v2`) legt solche Entries automatisch 5 m vor dem Abzweig auf
+die Fahrbahn und fasst Entries desselben Arms ab diesem Knoten zusammen. Nur wenn der Radweg höchstens
+25 m vor dem Anschluss an der Fahrbahn beginnt, genau eine legal befahrbare Fahrbahn und kein anderer
+Radweg dort ankommt und alle übrigen Anschlüsse unverändert bleiben. Die Korrektur steht im Hinweis der
+Kreuzung. Bestehende Projekte ändern sich dadurch nicht. Beim manuellen Verschieben eines Anschlusses
+nach außen ersetzt der Editor eine Grenzspitze, die die Straße nicht sauber quert, durch eine kurze Kante
+quer zur Straße.
+
 **Entwürfe bleiben offen.** Die Fläche ist ein konservativer geometrischer Startvorschlag, keine automatisch bestätigte Wartefläche. Versetzte Knoten, viele Anschlüsse, benachbarte Kreuzungen, Zweirichtungswege, Straßenführung und fehlende Evidenz erscheinen als Prüfpunkte. Restriktionsrelationen werden archiviert, hier jedoch noch nicht als vollständige technische Fahrbeziehungsprüfung ausgewertet. Bestätigen, technische RadlNavi-Prüfung und Aktivieren bleiben getrennte Schritte. Es gibt keine automatische Änderung am Backend.
 
 - Übersicht: neueste Nummern oben, Gruppen einklappbar, Namenssuche und anklickbare Kartenpunkte.
@@ -188,6 +199,15 @@ bleibt erhalten. Die Prüfung aktiviert oder deployt nichts.
   liegt höchstens 1,25 m auf einem legal befahrbaren Weg ohne Rad-/Zugangsverbot, nur dessen
   Abschnitte vollständig innerhalb der Fläche zählen, die Einbahnrichtung bleibt gerichtet geprüft.
   Bei parallelen gleich nahen Wegen wird nicht geraten. Zugelassene OSM-IDs stehen im Ergebnis.
+- **Radweg/Fahrbahn gleichwertig** (Arcisstraße, BA05 P8 Balanstraße): Liegen in einem Arm genau
+  zwei Exits (bzw. Entries) nebeneinander – einer auf einer legal befahrbaren Straße ohne
+  `bicycle=use_sidepath`, einer auf einem Radweg, höchstens 15 m entfernt, gleiche Richtung ±45° –,
+  ist der Radweg nicht benutzungspflichtig. Beide erhalten dieselbe Ansage statt eines Ausschlusses
+  „Mehrere Ausfahrten“. Ein als „normale Hinweise“ markierter Anschluss (z. B. Maximilianstraße
+  Exit-1) wird nie gepaart.
+- **Route umfährt die Kreuzung:** Eine Rechtskontrolle, deren echte Standardroute die Fläche gar
+  nicht berührt, gilt als bestanden (kein Makro möglich). Links/geradeaus nur, wenn die gleichwertige
+  Ausfahrt vom selben Entry bestanden hat; die Beziehung bleibt dann bei normalen Hinweisen.
 
 **Ausdrücklich ausschließen:** Im Bereich „Technische Prüfung in der App“ eine Fahrbeziehung wählen,
 Grund eintragen, „Ausschließen“. Der Ausschluss ist eine Ansageentscheidung, ändert die
@@ -197,6 +217,16 @@ Geometriefreigabe nicht, steht im Änderungsverlauf und gilt ab der nächsten te
 Die Schaltfläche ist nur im RadlNavi-Repository verfügbar (Backend und Prüfskripte nötig).
 Prüfskript für einen Fall auch direkt:
 `python docs/large-junction-analysis/verify_app_site.py --project <projekt> --site <id> --out <ordner>`.
+
+**Status in der Liste:** Bestätigt (Technik ausstehend) → Technisch geprüft (noch nicht live;
+„aktiviert, Deployment ausstehend“ nach der Branch-Aktivierung) → **Live** (magenta, nur für den
+live verifizierten aktuellen Geometriestand). Die öffentliche Karte zeigt dieselben Stufen.
+
+**Aktivieren** aller App-geprüften Standardfälle eines Projekts (nur Branch, kein Deployment):
+`python docs/large-junction-analysis/activate_app_checks.py --project <projekt-id> --batch batch-NN
+--prefix review-batch-NN-<name> --version <backend> --catalog-version munich-big-junctions-vNN
+--authorization "<Freigabe>"`. Vergibt K-Nummern, spielt alle echten Routen gegen den
+zusammengeführten Katalog ab und kopiert Bericht und Routen ins Repository (Beispiel Batch 15, BA05).
 
 ### Batch-Prüfungen und Nachbearbeitung
 

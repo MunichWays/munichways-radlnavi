@@ -2,7 +2,7 @@ import React, {ComponentProps, useEffect, useRef, useState} from 'react';
 import * as leaflet from 'leaflet';
 import type * as Leaflet from '../node_modules/@types/leaflet';
 import DistrictLayer from './DistrictLayer';
-import {Coordinate, PublicJunction, reviewColors, reviewLabels} from './publicJunctions';
+import {Coordinate, PublicJunction, viewColors, viewLabels, viewStatus} from './publicJunctions';
 
 // The installed rotation wrapper recursively re-exports its own declarations.
 // Use the matching upstream declarations for this ordinary Leaflet map.
@@ -35,8 +35,9 @@ export default function PublicJunctionMap({sites, selected, onSelect, position, 
   useEffect(()=>{
     markers.current?.clearLayers();
     sites.forEach(s=>{
-      L.circleMarker(latLng(s.origin),{radius:7,weight:2,color:reviewColors[s.status],fillColor:reviewColors[s.status],fillOpacity:.85})
-        .bindTooltip(text(`K${s.number} · ${s.name} · ${reviewLabels[s.status]}`))
+      const color=viewColors[viewStatus(s)];
+      L.circleMarker(latLng(s.origin),{radius:7,weight:2,color,fillColor:color,fillOpacity:.85})
+        .bindTooltip(text(`K${s.number} · ${s.name} · ${viewLabels[viewStatus(s)]}`))
         .on('click',()=>select.current(s)).addTo(markers.current!);
     });
   },[sites]);

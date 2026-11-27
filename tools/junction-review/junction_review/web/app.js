@@ -2,6 +2,7 @@ import {attachDistricts, loadDistricts} from './districts.js';
 import {createApi} from './api.js';
 import {initializeAreas} from './area-ui.js';
 import {initializeGateEditor, geometryOf} from './gate-ui.js';
+import {initializeTechnical} from './technical-ui.js';
 
 const NS = 'http://www.w3.org/2000/svg';
 const labels = {open: 'Offen', confirmed: 'Bestätigt', deferred: 'Zurückgestellt', excluded: 'Ausgeschlossen'};
@@ -208,7 +209,7 @@ function roads(map, sites, detailed) {
 }
 
 let projectData, selected, draft, busy = false, dirty = false, formDirty = false, editMode = false;
-let gateEditor;
+let gateEditor, technicalUi;
 const $ = id => document.getElementById(id);
 const apiRequest = createApi(() => projectData || {});
 
@@ -222,6 +223,7 @@ function setBusy(value) {
   const editable = selected && (selected.geometryMode || 'editable') === 'editable';
   for (const id of ['save-geometry', 'reset-geometry', 'edit-mode']) $(id).disabled = value || !editable;
   gateEditor?.render();
+  technicalUi?.render();
 }
 
 function siteLabel(site) { return site.number ? `K${site.number}` : (site.priorityRank ? `P${site.priorityRank}` : site.geometryMode === 'reference' ? 'Pilot' : 'Ohne Nummer'); }
@@ -422,7 +424,7 @@ async function start() {
     $('search').addEventListener('input', () => { navigation(); if (!selected) overview(); });
     $('map-status').addEventListener('change', overview);
     $('review-form').addEventListener('submit', event => { event.preventDefault(); save(true); });
-    $('review-form').addEventListener('input', () => { formDirty = true; });
+    $('review-form').addEventListener('input', event => { if (!event.target.closest('#exclusion-form')) formDirty = true; technicalUi?.render(); });
     $('save-geometry').addEventListener('click', () => save(false));
     $('reset-geometry').addEventListener('click', () => { draft = structuredClone(selected); dirty = false; formDirty = false; detail(); });
     $('edit-mode').addEventListener('change', () => {
@@ -436,8 +438,17 @@ async function start() {
     gateEditor = initializeGateEditor({$,html,el,draft:()=>draft,selected:()=>selected,busy:()=>busy,setBusy,
       preview:body=>post('preview',body),accept:acceptPreview,redraw:detailMap,message,
       onModeChange:active=>{if(active) {editMode=false;$('edit-mode').checked=false;$('edit-help').hidden=true;}}});
+    technicalUi = initializeTechnical({$, html, api: apiRequest, project: () => projectData, selected: () => selected,
+      isDirty: () => dirty || formDirty, isBusy: () => busy, replaceSite, message});
     route();
   } catch (error) { message(error.message, true); }
+}
+
+function replaceSite(site) {
+  const index = projectData.sites.findIndex(s => s.id === site.id);
+  if (index >= 0) projectData.sites[index] = site;
+  if (selected?.id === site.id) { selected = site; draft = structuredClone(site); dirty = false; formDirty = false; detail(); }
+  navigation();
 }
 
 function acceptProject(data) {

@@ -92,6 +92,30 @@ In der Übersicht **„Gebiet auswählen und Sichtprüfung vorbereiten“** aufk
 4. Die neue Prüfliste und Karte öffnen sich automatisch. `P1`, `P2`, … bezeichnet die Priorität im neuen Projekt, keine Münchner K-Nummer. Bekannte ausgehende Fahrspuren absteigend, danach einfache Geometrien; unbekannte Spurzahlen folgen zuletzt.
 5. Kreuzung öffnen, Fläche, Radverkehrsanschlüsse und Richtungen prüfen. **„Prüfbild als SVG herunterladen“** liefert ein eigenständiges Vektorbild mit Pfeilen und Beschriftungen ohne Hintergrundkarten-Abhängigkeit.
 
+### Lokaler OSM-Auszug statt Overpass
+
+Die Vorbereitung liest OSM-Daten bevorzugt aus einem lokalen Auszug, nicht vom öffentlichen
+Overpass-Dienst (der zeitweise überlastet ist). Einmalig und bei Bedarf erneut, etwa wöchentlich:
+
+```powershell
+python tools/junction-review/run.py osm-import
+```
+
+Lädt `oberbayern-latest.osm.pbf` von Geofabrik (rund 260 MB, täglich aktualisiert) nach
+`.local/junction-review/osm/` und liest Straßen, deren Knoten mit Tags und Abbiegeverbote für
+München und Umgebung in `osm.sqlite` ein. Mit `--file datei.osm.pbf` wird eine vorhandene Datei
+verwendet. Nur Python-Standardbibliothek; das Einlesen nutzt alle Prozessorkerne und dauert
+einige Minuten. Wege, die über den Rand des Auszugs hinausgehen, werden verworfen statt
+abgeschnitten.
+
+Die Abfrage bildet die bisherige Overpass-Abfrage nach (Straßen im Gebiet, Straßen im
+130-m-Umkreis, deren Knoten und Abbiegeverbote) und liefert dasselbe Datenformat; die
+Kreuzungserkennung bleibt unverändert. Die Gebietsauswahl zeigt Quelle und OSM-Stand.
+Stadtbezirke und gezeichnete Flächen in München nutzen den Auszug; gesuchte
+Verwaltungsgebiete, Flächen außerhalb und die Option „Stattdessen tagesaktuell über Overpass
+laden“ nutzen Overpass. Das Projekt speichert unter `source.osmSource`, welche Quelle verwendet
+wurde, und unter `osmRetrievedAt` den OSM-Stand.
+
 Bei vorübergehenden HTTP-Fehlern (zum Beispiel 502), Zeitüberschreitungen oder
 abgebrochenen Antworten wechselt der Abruf zwischen `overpass-api.de` und
 `overpass.private.coffee`. Insgesamt bleiben es höchstens drei Versuche; der
@@ -144,6 +168,37 @@ python tools/junction-review/run.py export --project .local/junction-review/muni
 ```
 
 ## Prüfen
+
+### Technische Prüfung in der App
+
+Nach **„Geometrie bestätigt“ → „Entscheidung speichern“** startet **„Technische Prüfung“**
+(neben „Geometrie speichern“) die bisherige technische Prüfkette für genau diese Kreuzung als
+Hintergrundauftrag: Freigabe einfrieren, echte Standardrouten von `api.radlnavi.munichways.de`
+abrufen, gerichtete OSM-Korridore, Produktionsklassifikation, Rechts- und Schiebekontrollen.
+Spinner und Abbrechen wie bei der Gebietsvorbereitung. Routen und Bericht liegen im Projektordner
+unter `technical/<kreuzung>-v<revision>-<zeit>/`, nicht in Git. Das Ergebnis wird nur übernommen,
+wenn Freigabe und Geometrie während der Prüfung unverändert blieben; ein bestehender Live-Stand
+bleibt erhalten. Die Prüfung aktiviert oder deployt nichts.
+
+- **Standardfall – fertig geprüft:** alle Links-/Geradeaus- und Rechtsbeziehungen bestanden oder
+  ausdrücklich ausgeschlossen. Danach folgt nur noch die gesonderte Aktivierung.
+- **Sonderfall – Nachbearbeitung nötig:** jede offene Beziehung mit Ursache (z. B. Straßenarme
+  nicht automatisch zuordenbar, Route führt nicht durch die Fläche, innerer Weg nicht belegt).
+- **Innere Straßenverbinder** werden nur nach strengen Regeln automatisch zugelassen: Die echte Route
+  liegt höchstens 1,25 m auf einem legal befahrbaren Weg ohne Rad-/Zugangsverbot, nur dessen
+  Abschnitte vollständig innerhalb der Fläche zählen, die Einbahnrichtung bleibt gerichtet geprüft.
+  Bei parallelen gleich nahen Wegen wird nicht geraten. Zugelassene OSM-IDs stehen im Ergebnis.
+
+**Ausdrücklich ausschließen:** Im Bereich „Technische Prüfung in der App“ eine Fahrbeziehung wählen,
+Grund eintragen, „Ausschließen“. Der Ausschluss ist eine Ansageentscheidung, ändert die
+Geometriefreigabe nicht, steht im Änderungsverlauf und gilt ab der nächsten technischen Prüfung
+(dort bleiben normale Ansagen). „Aufheben“ entfernt ihn wieder.
+
+Die Schaltfläche ist nur im RadlNavi-Repository verfügbar (Backend und Prüfskripte nötig).
+Prüfskript für einen Fall auch direkt:
+`python docs/large-junction-analysis/verify_app_site.py --project <projekt> --site <id> --out <ordner>`.
+
+### Batch-Prüfungen und Nachbearbeitung
 
 Technische RadlNavi-Ergebnisse in die Karte zurückübernehmen:
 

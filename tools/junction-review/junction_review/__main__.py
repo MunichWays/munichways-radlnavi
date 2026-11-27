@@ -57,7 +57,17 @@ def main():
         help='Mehrfach angeben, um mehrere Projekte gemeinsam zu veröffentlichen')
     publish.add_argument('--output', type=Path, required=True)
     publish.add_argument('--name', help='Angezeigter Titel der öffentlichen Karte')
+    osm = commands.add_parser('osm-import', help='OSM-Auszug (Geofabrik) herunterladen und lokal für die Vorbereitung einlesen')
+    osm.add_argument('--file', type=Path, help='Vorhandene .osm.pbf-Datei statt Download verwenden')
+    osm.add_argument('--url', default=None, help='Download-Adresse (Standard: Geofabrik Oberbayern)')
+    osm.add_argument('--database', type=Path, default=None)
     args = parser.parse_args()
+    if args.command == 'osm-import':
+        from . import osm_local
+        database = args.database or osm_local.default_path()
+        source = args.file or osm_local.download(args.url or osm_local.DEFAULT_URL, database.parent / 'extract.osm.pbf')
+        osm_local.import_extract(source, database)
+        return
     try:
         store = ProjectStore(args.project[0] if isinstance(args.project, list) else args.project)
         if args.command == 'demo' and not (args.project / 'project.json').exists():

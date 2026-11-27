@@ -385,9 +385,30 @@ def group_signature(group):
     return [dict(id=s['id'], origin=s['origin'], names=sorted(s['names'])) for s in group]
 
 
-def discover(selection, fetch=query_osm):
+OSM_SOURCES = ('auto', 'local', 'overpass')
+
+
+def discover(selection, fetch=None, source='auto'):
+    """Local OSM extract when present and covering the selection, otherwise Overpass.
+
+    ``fetch`` (tests, explicit callers) always means an Overpass-style fetch.
+    """
+    if source not in OSM_SOURCES:
+        raise ValueError('Unbekannte OSM-Quelle.')
     query = selection_query(selection)
-    raw = fetch(query)
+    origin = dict(kind='overpass')
+    if fetch is None:
+        from . import osm_local
+        local = osm_local.open_default() if source != 'overpass' else None
+        if local is not None and local.supports(selection):
+            raw = local.query(selection)
+            origin = dict(kind='local-extract', **{k: local.meta.get(k) for k in ('source', 'timestamp', 'importedAt')})
+        elif source == 'local':
+            raise ValueError('Lokaler OSM-Auszug fehlt oder deckt die Auswahl nicht ab. Overpass verwenden oder „run.py osm-import“ ausführen.')
+        else:
+            raw = query_osm(query)
+    else:
+        raw = fetch(query)
     sites, rejected = prepare(raw, selection)
     if not sites:
         raise ValueError(f'Keine geeigneten Vierarm-Kandidaten gefunden ({len(rejected)} T-/Kreisverkehrsfälle aussortiert). Bestehendes Projekt bleibt unverändert.')
@@ -395,6 +416,6 @@ def discover(selection, fetch=query_osm):
     data = dict(schemaVersion=1, project=dict(id=identity, city=selection.get('name') or 'Gezeichnetes Gebiet', area=selection.get('area')),
                 source=dict(adapter=ALGORITHM, sha256=digest(raw), osmRetrievedAt=raw.get('osm3s', {}).get('timestamp_osm_base'),
                             retrievedAt=datetime.now(timezone.utc).isoformat(), attribution='© OpenStreetMap-Mitwirkende, ODbL',
-                            query=query, selection=selection, rejected=rejected), sites=sites)
+                            query=query, selection=selection, rejected=rejected, osmSource=origin), sites=sites)
     validate_dataset(data)
     return data, raw

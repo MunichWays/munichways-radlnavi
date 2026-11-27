@@ -69,10 +69,13 @@ def pending_rechecks(site, record):
     moves = record.get('movements', []) if record.get('geometryRevision') == site['version'] else []
     records = list(site.get('review', {}).get('movementRechecks', []))
     records += [m for m in moves if m.get('deferredUntil')]
+    # A completed human follow-up also closes the historical deferral of that pair.
+    closed = {(r['entryLabel'], r['exitLabel']) for r in records
+              if r.get('status') in {'completed', 'resolved', 'cancelled'}}
     result = {}
     for item in records:
         pair = item['entryLabel'], item['exitLabel']
-        if item.get('status') in {'completed', 'resolved', 'cancelled'} or any(
+        if pair in closed or any(
                 m.get('enabled') and (m['entryLabel'], m['exitLabel']) == pair for m in moves):
             continue
         date = item.get('notBefore') or item.get('deferredUntil')
@@ -250,9 +253,12 @@ def main():
             rechecks = pending_rechecks(site, record)
             recheck_pairs = {(r['entry'], r['exit']): r for r in rechecks}
             blocked_notice = ''
+            live_site = next((j for j in state.get('junctions', []) if j['id'] == site['id'] and j.get('enabled')), {})
+            # Relationships enabled live on the same polygon after a later recheck.
+            live_ids = {m['id'] for m in live_site.get('movements', []) if m.get('enabled')} if phase['geometryMatches'] else set()
             if record.get('geometryRevision') == site['version']:
                 blocked = [m for m in record.get('movements', []) if m['kind'] not in ('right', 'standard') and not m.get('enabled')
-                           and (m['entryLabel'], m['exitLabel']) not in recheck_pairs]
+                           and (m['entryLabel'], m['exitLabel']) not in recheck_pairs and m['id'] not in live_ids]
                 if blocked:
                     labels = ' / '.join(f'{m["entryLabel"]} → {m["exitLabel"]}' for m in blocked)
                     blocked_notice = '<p style="color:#616161;font-size:0.9em">'+html.escape(
@@ -262,9 +268,9 @@ def main():
                     if movement['kind'] in ('right', 'standard'):
                         continue
                     direction = {'left': 'links', 'straight': 'geradeaus', 'special': 'Sonderfolge'}[movement['kind']]
-                    live_site = next((j for j in state.get('junctions', []) if j['id'] == site['id'] and j.get('enabled')), {})
-                    deployed = phase['geometryMatches'] and any(m.get('enabled') and m['id'] == movement['id'] for m in live_site.get('movements', []))
-                    outcome = ('bestanden; live' if deployed else 'bestanden; noch nicht live') if movement.get('enabled') else 'gesperrt: '+movement.get('reason', 'Prüfung offen')
+                    deployed = movement['id'] in live_ids
+                    outcome = ('bestanden; live' if deployed else 'bestanden; noch nicht live') if movement.get('enabled') else (
+                        'später erneut technisch geprüft; live' if deployed else 'gesperrt: '+movement.get('reason', 'Prüfung offen'))
                     if movement.get('implementationPending'):
                         outcome = 'Routenführung geprüft; Sonderansage noch nicht implementiert, nicht aktiviert'
                     elif movement.get('requiresProtocolVersion') == 2:

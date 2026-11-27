@@ -238,9 +238,15 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
     if (!selection) throw new Error('Bitte zuerst ein Gebiet oder eine Fläche auswählen.');
     // Do not abort creation: remember the returned job before enabling cancel.
     $('cancel-area-task').disabled = true;
-    const job = await api('/api/areas/prepare',{body:{selection},timeout:10000});
+    const osmSource = $('use-overpass').checked ? 'overpass' : 'auto';
+    const job = await api('/api/areas/prepare',{body:{selection,osmSource},timeout:10000});
     await monitor(job,t);
   }));
+  // Show which OSM data a preparation will use; local extract by default.
+  api('/api/osm-source',{timeout:10000}).then(info=>{
+    $('osm-source').textContent = osmSourceText(info);
+    $('use-overpass').checked = !info.available;
+  }).catch(()=>{ $('osm-source').textContent = 'OSM-Quelle konnte nicht ermittelt werden; Vorbereitung nutzt Overpass.'; });
   async function monitor(initial,t) {
     let job = initial;
     try { sessionStorage.setItem('junction-review:job',job.id); } catch { /* Optional. */ }
@@ -279,4 +285,10 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
       try { sessionStorage.removeItem('junction-review:job'); } catch { /* Optional. */ }
     }
   }).catch(error=>message(error.message,true)); controls();
+}
+
+export function osmSourceText(info) {
+  if (!info?.available) return 'OSM-Daten: kein lokaler Auszug vorhanden, Abruf über Overpass (öffentlicher Dienst, kann überlastet sein). Einmalig „python tools/junction-review/run.py osm-import“ ausführen.';
+  const stand = info.timestamp ? new Date(info.timestamp).toLocaleDateString('de-DE') : 'unbekannt';
+  return `OSM-Daten: lokaler Auszug ${info.source || ''}, Stand ${stand} (München und Umgebung). Gesuchte Verwaltungsgebiete und Flächen außerhalb nutzen Overpass.`;
 }

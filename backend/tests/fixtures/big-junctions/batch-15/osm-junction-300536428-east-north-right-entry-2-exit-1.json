@@ -1,0 +1,325 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1686286858,
+              300546494,
+              300546453,
+              10729623574,
+              3174636594,
+              3157458481,
+              1686324427,
+              3174636600
+            ],
+            "distance": [
+              51.98374256,
+              6.493901475,
+              4.878250114,
+              2.828242019,
+              5.461144863,
+              31.00645411,
+              9.465739311
+            ]
+          },
+          "duration": 23.3,
+          "summary": "Berg-am-Laim-Straße, Grillparzerstraße",
+          "weight": 40.6,
+          "distance": 112.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    305
+                  ],
+                  "location": [
+                    11.610957,
+                    48.132229
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    210,
+                    345
+                  ],
+                  "location": [
+                    11.610388,
+                    48.1325
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    165,
+                    285,
+                    345
+                  ],
+                  "location": [
+                    11.610369,
+                    48.132557
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    165,
+                    285
+                  ],
+                  "location": [
+                    11.610356,
+                    48.1326
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.610354,
+                    48.132674
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    60,
+                    195,
+                    270
+                  ],
+                  "location": [
+                    11.610423,
+                    48.132949
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610957,
+                    48.132229
+                  ],
+                  [
+                    11.610388,
+                    48.1325
+                  ],
+                  [
+                    11.610369,
+                    48.132557
+                  ],
+                  [
+                    11.610356,
+                    48.1326
+                  ],
+                  [
+                    11.610349,
+                    48.132625
+                  ],
+                  [
+                    11.610354,
+                    48.132674
+                  ],
+                  [
+                    11.610423,
+                    48.132949
+                  ],
+                  [
+                    11.61043,
+                    48.133034
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 305,
+                "bearing_before": 0,
+                "location": [
+                  11.610957,
+                  48.132229
+                ],
+                "type": "depart"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 40.6,
+              "duration": 23.3,
+              "distance": 112.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    183
+                  ],
+                  "location": [
+                    11.61043,
+                    48.133034
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.61043,
+                    48.133034
+                  ],
+                  [
+                    11.61043,
+                    48.133034
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 3,
+                "location": [
+                  11.61043,
+                  48.133034
+                ],
+                "type": "arrive"
+              },
+              "name": "Grillparzerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.610957,
+            48.132229
+          ],
+          [
+            11.610388,
+            48.1325
+          ],
+          [
+            11.610369,
+            48.132557
+          ],
+          [
+            11.610356,
+            48.1326
+          ],
+          [
+            11.610349,
+            48.132625
+          ],
+          [
+            11.610354,
+            48.132674
+          ],
+          [
+            11.610423,
+            48.132949
+          ],
+          [
+            11.61043,
+            48.133034
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 40.6,
+      "duration": 23.3,
+      "distance": 112.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "N3MZgP___38CAAAAhQAAAB0AAAAAAAAA4q6GP1rvT0IvajxBAAAAAAIAAABqAAAAGAAAAAAAAAC1AgAATSuxAIVw3gJOK7EAhnDeAgIAHxMAAAAA",
+      "location": [
+        11.610957,
+        48.132229
+      ],
+      "name": "Berg-am-Laim-Straße",
+      "distance": 0.1338128243
+    },
+    {
+      "hint": "ulcWgP___38qAAAAhgAAAAAAAAAAAAAAq3MXQZ-6pUEAAAAAAAAAABIAAAA8AAAAAAAAAAAAAAC1AgAAPimxAKpz3gI-KbEAqnPeAgAAPwAAAAAA",
+      "location": [
+        11.61043,
+        48.133034
+      ],
+      "name": "Grillparzerstraße",
+      "distance": 0
+    }
+  ]
+}

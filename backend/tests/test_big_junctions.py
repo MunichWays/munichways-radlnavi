@@ -90,7 +90,7 @@ class BigJunctionMatchingTest(unittest.TestCase):
 
     def test_catalog_requires_review_and_preserves_explicit_exclusions(self):
         value = deepcopy(catalog())
-        self.assertEqual(552, len(approved_movements(value)))
+        self.assertEqual(732, len(approved_movements(value)))
         for kind in ("unreviewed_junction", "unreviewed_movement", "duplicate", "excluded", "self_intersection"):
             invalid = deepcopy(value)
             junction = invalid["junctions"][0]
@@ -301,8 +301,8 @@ class FullMovementCatalogTest(unittest.TestCase):
 
     def test_all_four_approaches_have_left_and_straight(self):
         value = catalog()
-        self.assertEqual('munich-big-junctions-v20', value['version'])
-        self.assertEqual(70, len(value['junctions']))
+        self.assertEqual('munich-big-junctions-v25', value['version'])
+        self.assertEqual(91, len(value["junctions"]))
         for junction in value['junctions']:
             if junction['id'] not in {'arnulf-steuben', 'balan-chiemgau'}:
                 continue

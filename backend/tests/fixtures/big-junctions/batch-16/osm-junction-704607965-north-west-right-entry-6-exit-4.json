@@ -1,0 +1,356 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              20982562,
+              1159673929,
+              2411799184,
+              2409282138,
+              3702167165,
+              363158,
+              3702167162,
+              2841449764,
+              3702167167,
+              658515605,
+              3702167169,
+              12638839204
+            ],
+            "distance": [
+              21.74701464,
+              12.70372945,
+              13.05293423,
+              5.280007208,
+              7.492894857,
+              4.924742494,
+              1.768458908,
+              11.16109794,
+              8.300801472,
+              24.53345092,
+              22.14313672
+            ]
+          },
+          "duration": 51.7,
+          "summary": "Mariahilfplatz, Ohlmüllerstraße",
+          "weight": 131.4,
+          "distance": 133.1,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    215
+                  ],
+                  "location": [
+                    11.581712,
+                    48.124887
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.581712,
+                    48.124887
+                  ],
+                  [
+                    11.581544,
+                    48.124727
+                  ],
+                  [
+                    11.581437,
+                    48.124638
+                  ],
+                  [
+                    11.581334,
+                    48.124543
+                  ],
+                  [
+                    11.581269,
+                    48.124524
+                  ],
+                  [
+                    11.581188,
+                    48.124484
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 215,
+                "bearing_before": 0,
+                "location": [
+                  11.581712,
+                  48.124887
+                ],
+                "type": "depart"
+              },
+              "name": "Mariahilfplatz",
+              "mode": "cycling",
+              "weight": 78.7,
+              "duration": 37.8,
+              "distance": 60.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.581188,
+                    48.124484
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    120,
+                    225,
+                    300,
+                    330
+                  ],
+                  "location": [
+                    11.581116,
+                    48.124519
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    105,
+                    135,
+                    315
+                  ],
+                  "location": [
+                    11.580879,
+                    48.12459
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.581188,
+                    48.124484
+                  ],
+                  [
+                    11.581138,
+                    48.124513
+                  ],
+                  [
+                    11.581116,
+                    48.124519
+                  ],
+                  [
+                    11.580986,
+                    48.124569
+                  ],
+                  [
+                    11.580879,
+                    48.12459
+                  ],
+                  [
+                    11.580643,
+                    48.124744
+                  ],
+                  [
+                    11.58043,
+                    48.124883
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 305,
+                "bearing_before": 219,
+                "location": [
+                  11.581188,
+                  48.124484
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Ohlmüllerstraße",
+              "mode": "cycling",
+              "weight": 52.7,
+              "duration": 13.9,
+              "distance": 72.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    134
+                  ],
+                  "location": [
+                    11.58043,
+                    48.124883
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.58043,
+                    48.124883
+                  ],
+                  [
+                    11.58043,
+                    48.124883
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 314,
+                "location": [
+                  11.58043,
+                  48.124883
+                ],
+                "type": "arrive"
+              },
+              "name": "Ohlmüllerstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.581712,
+            48.124887
+          ],
+          [
+            11.581544,
+            48.124727
+          ],
+          [
+            11.581437,
+            48.124638
+          ],
+          [
+            11.581334,
+            48.124543
+          ],
+          [
+            11.581269,
+            48.124524
+          ],
+          [
+            11.581188,
+            48.124484
+          ],
+          [
+            11.581138,
+            48.124513
+          ],
+          [
+            11.581116,
+            48.124519
+          ],
+          [
+            11.580986,
+            48.124569
+          ],
+          [
+            11.580879,
+            48.12459
+          ],
+          [
+            11.580643,
+            48.124744
+          ],
+          [
+            11.58043,
+            48.124883
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 131.4,
+      "duration": 51.7,
+      "distance": 133.1
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "WSgDgOYnA4A7AAAAWQAAAAAAAABpAAAAHHRoQeP5rUEAAAAApg3OQRoAAAAnAAAAAAAAAC4AAAC1AgAAELmwANdT3gIQubAA11PeAgAAfw0AAAAA",
+      "location": [
+        11.581712,
+        48.124887
+      ],
+      "name": "Mariahilfplatz",
+      "distance": 0
+    },
+    {
+      "hint": "iNUZgP___3-fAAAA4AAAALEAAAAAAAAAJSWxQS_lDkGCRMRBAAAAACcAAAA4AAAALAAAAAAAAAC1AgAADrSwANNT3gIPtLAA01PeAgIArxMAAAAA",
+      "location": [
+        11.58043,
+        48.124883
+      ],
+      "name": "Ohlmüllerstraße",
+      "distance": 0.07444490293
+    }
+  ]
+}

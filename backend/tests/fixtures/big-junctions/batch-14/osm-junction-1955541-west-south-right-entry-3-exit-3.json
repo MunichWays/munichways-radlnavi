@@ -1,0 +1,331 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              10049824254,
+              13056194306,
+              2739597134,
+              4793273746,
+              1077606437,
+              500291693,
+              1078756909
+            ],
+            "distance": [
+              9.737969842,
+              31.06549686,
+              8.600821421,
+              15.72690784,
+              9.342017622,
+              57.51002127
+            ]
+          },
+          "duration": 31.2,
+          "summary": "Hohenzollernstraße, Schleißheimer Straße",
+          "weight": 75.1,
+          "distance": 132,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    100
+                  ],
+                  "location": [
+                    11.562305,
+                    48.160994
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.562305,
+                    48.160994
+                  ],
+                  [
+                    11.562434,
+                    48.160979
+                  ],
+                  [
+                    11.562846,
+                    48.160933
+                  ],
+                  [
+                    11.56296,
+                    48.16092
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 100,
+                "bearing_before": 0,
+                "location": [
+                  11.562305,
+                  48.160994
+                ],
+                "type": "depart"
+              },
+              "name": "Hohenzollernstraße",
+              "mode": "cycling",
+              "weight": 37.3,
+              "duration": 9.7,
+              "distance": 49.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    105,
+                    135,
+                    285
+                  ],
+                  "location": [
+                    11.56296,
+                    48.16092
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    300,
+                    315
+                  ],
+                  "location": [
+                    11.5631,
+                    48.160814
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.56296,
+                    48.16092
+                  ],
+                  [
+                    11.5631,
+                    48.160814
+                  ],
+                  [
+                    11.563222,
+                    48.160794
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 137,
+                "bearing_before": 98,
+                "location": [
+                  11.56296,
+                  48.16092
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 26.3,
+              "duration": 10,
+              "distance": 25.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.563222,
+                    48.160794
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.563222,
+                    48.160794
+                  ],
+                  [
+                    11.563055,
+                    48.160289
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 191,
+                "bearing_before": 102,
+                "location": [
+                  11.563222,
+                  48.160794
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Schleißheimer Straße",
+              "mode": "cycling",
+              "weight": 11.5,
+              "duration": 11.5,
+              "distance": 57.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    12
+                  ],
+                  "location": [
+                    11.563055,
+                    48.160289
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.563055,
+                    48.160289
+                  ],
+                  [
+                    11.563055,
+                    48.160289
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 192,
+                "location": [
+                  11.563055,
+                  48.160289
+                ],
+                "type": "arrive"
+              },
+              "name": "Schleißheimer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.562305,
+            48.160994
+          ],
+          [
+            11.562434,
+            48.160979
+          ],
+          [
+            11.562846,
+            48.160933
+          ],
+          [
+            11.56296,
+            48.16092
+          ],
+          [
+            11.5631,
+            48.160814
+          ],
+          [
+            11.563222,
+            48.160794
+          ],
+          [
+            11.563055,
+            48.160289
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 75.1,
+      "duration": 31.2,
+      "distance": 132
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "RUghgP___385AAAAgAAAACEAAAAeAQAAItz_QLnOG0GYdyNBT6oeQg4AAAAgAAAAEgAAAEcAAAC1AgAAQW2wAOLg3gJBbbAA4uDeAgIAPwYAAAAA",
+      "location": [
+        11.562305,
+        48.160994
+      ],
+      "name": "Hohenzollernstraße",
+      "distance": 0
+    },
+    {
+      "hint": "TBsEgP___39zAAAAwgAAAAAAAAAAAAAAQwpmQuIEHkIAAAAAAAAAAHMAAADCAAAAAAAAAAAAAAC1AgAAL3CwACHe3gIvcLAAId7eAgAADwwAAAAA",
+      "location": [
+        11.563055,
+        48.160289
+      ],
+      "name": "Schleißheimer Straße",
+      "distance": 0
+    }
+  ]
+}

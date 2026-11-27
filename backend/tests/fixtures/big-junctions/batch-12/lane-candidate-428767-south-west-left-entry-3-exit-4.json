@@ -1,0 +1,320 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              11697394946,
+              2706039625,
+              9952721334,
+              1258718238,
+              6858731235,
+              2706039664,
+              9382586574,
+              428767,
+              1086078390,
+              13711397267,
+              2706067043,
+              3950736371,
+              13275901291
+            ],
+            "distance": [
+              12.81674263,
+              8.479299813,
+              13.58937746,
+              13.4040401,
+              15.95907828,
+              7.423635694,
+              12.97737063,
+              9.592215667,
+              7.89312698,
+              8.923034628,
+              32.08178126,
+              20.62895379
+            ]
+          },
+          "duration": 63.4,
+          "summary": "Orleansstraße, Rosenheimer Straße",
+          "weight": 178.6,
+          "distance": 163.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    50
+                  ],
+                  "location": [
+                    11.598581,
+                    48.124782
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.598581,
+                    48.124782
+                  ],
+                  [
+                    11.598713,
+                    48.124856
+                  ],
+                  [
+                    11.598799,
+                    48.124906
+                  ],
+                  [
+                    11.598937,
+                    48.124986
+                  ],
+                  [
+                    11.599073,
+                    48.125065
+                  ],
+                  [
+                    11.599235,
+                    48.125159
+                  ],
+                  [
+                    11.59931,
+                    48.125203
+                  ],
+                  [
+                    11.599441,
+                    48.12528
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 50,
+                "bearing_before": 0,
+                "location": [
+                  11.598581,
+                  48.124782
+                ],
+                "type": "depart"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 159.1,
+              "duration": 49.1,
+              "distance": 84.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    105,
+                    135,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.599441,
+                    48.12528
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.599441,
+                    48.12528
+                  ],
+                  [
+                    11.599336,
+                    48.12533
+                  ],
+                  [
+                    11.599254,
+                    48.125375
+                  ],
+                  [
+                    11.599164,
+                    48.125428
+                  ],
+                  [
+                    11.598841,
+                    48.125619
+                  ],
+                  [
+                    11.598639,
+                    48.125746
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 305,
+                "bearing_before": 47,
+                "location": [
+                  11.599441,
+                  48.12528
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 19.5,
+              "duration": 14.3,
+              "distance": 79.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    133
+                  ],
+                  "location": [
+                    11.598639,
+                    48.125746
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.598639,
+                    48.125746
+                  ],
+                  [
+                    11.598639,
+                    48.125746
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 313,
+                "location": [
+                  11.598639,
+                  48.125746
+                ],
+                "type": "arrive"
+              },
+              "name": "Rosenheimer Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.598581,
+            48.124782
+          ],
+          [
+            11.598713,
+            48.124856
+          ],
+          [
+            11.598799,
+            48.124906
+          ],
+          [
+            11.598937,
+            48.124986
+          ],
+          [
+            11.599073,
+            48.125065
+          ],
+          [
+            11.599235,
+            48.125159
+          ],
+          [
+            11.59931,
+            48.125203
+          ],
+          [
+            11.599441,
+            48.12528
+          ],
+          [
+            11.599336,
+            48.12533
+          ],
+          [
+            11.599254,
+            48.125375
+          ],
+          [
+            11.599164,
+            48.125428
+          ],
+          [
+            11.598841,
+            48.125619
+          ],
+          [
+            11.598639,
+            48.125746
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 178.6,
+      "duration": 63.4,
+      "distance": 163.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "fpAZgM-QGYBbAAAADQAAAAAAAAAAAAAAYRFNQX6i1z8AAAAAAAAAABYAAAAEAAAAAAAAAAAAAAC1AgAA9fqwAG5T3gL1-rAAblPeAgAAXw4AAAAA",
+      "location": [
+        11.598581,
+        48.124782
+      ],
+      "name": "Orleansstraße",
+      "distance": 0
+    },
+    {
+      "hint": "9BwDgP0cA4ADAAAALwAAADIAAABuAAAAMvK4PxkIpUEuorFBfpdDQgIAAAAmAAAAKAAAAFgAAAC1AgAAL_uwADJX3gIv-7AAMlfeAgIAXwgAAAAA",
+      "location": [
+        11.598639,
+        48.125746
+      ],
+      "name": "Rosenheimer Straße",
+      "distance": 0
+    }
+  ]
+}

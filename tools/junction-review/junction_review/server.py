@@ -17,7 +17,7 @@ STATIC = Path(__file__).with_name('web')
 
 def create_server(store, port=8765):
     token = secrets.token_urlsafe(32)
-    workspace = Workspace(store, prepare=lambda selection: discover(selection))
+    workspace = Workspace(store, prepare=lambda selection, source='auto': discover(selection, source=source))
 
     class Handler(BaseHTTPRequestHandler):
         def setup(self):
@@ -57,7 +57,8 @@ def create_server(store, port=8765):
             return workspace.store(project_id)
 
         def snapshot(self, target):
-            return dict(**workspace.snapshot(target), token=token)
+            from .technical import available
+            return dict(**workspace.snapshot(target), token=token, technicalCheckAvailable=available())
 
         def do_GET(self):
             if not self.same_origin():
@@ -65,9 +66,9 @@ def create_server(store, port=8765):
                 return
             path = urlsplit(self.path).path
             try:
-                if path in ('/', '/app.js', '/drawing.js', '/api.js', '/area-ui.js', '/gate-ui.js', '/style.css'):
+                if path in ('/', '/app.js', '/drawing.js', '/api.js', '/area-ui.js', '/gate-ui.js', '/technical-ui.js', '/districts.js', '/stadtbezirke.geojson', '/style.css'):
                     file = STATIC / ('index.html' if path == '/' else path[1:])
-                    types = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css'}
+                    types = {'.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.geojson': 'application/geo+json'}
                     self.send(200, file.read_bytes(), types[file.suffix] + '; charset=utf-8')
                 elif path == '/api/project':
                     self.send(200, self.snapshot(self.project_store()))
@@ -75,8 +76,13 @@ def create_server(store, port=8765):
                     self.send(200, workspace.projects(self.project_store()))
                 elif path == '/api/export':
                     self.send(200, export_review(self.project_store().snapshot()), attachment=True)
+                elif path == '/api/osm-source':
+                    from .osm_local import open_default
+                    local = open_default()
+                    self.send(200, local.info() if local else dict(available=False))
                 elif path == '/api/jobs/current':
-                    self.send(200, workspace.current())
+                    kind = parse_qs(urlsplit(self.path).query).get('kind', ['area'])[0]
+                    self.send(200, workspace.current(kind))
                 elif path.startswith('/api/jobs/') and len(path.split('/')) == 4:
                     self.send(200, workspace.job(path.split('/')[3]))
                 elif path.startswith('/api/sites/') and path.endswith('/image.svg') and len(path.split('/')) == 5:
@@ -128,9 +134,13 @@ def create_server(store, port=8765):
                     target.rename(payload['name'], payload['expectedName'])
                     self.send(200, self.snapshot(target))
                 elif path == '/api/areas/prepare':
-                    self.send(202, workspace.start(payload['selection']))
+                    self.send(202, workspace.start(payload['selection'], payload.get('osmSource', 'auto')))
                 elif len(parts) == 5 and parts[1:3] == ['api', 'jobs'] and parts[4] == 'cancel':
                     self.send(200, workspace.cancel(parts[3]))
+                elif len(parts) == 5 and parts[1:3] == ['api', 'sites'] and parts[4] == 'technical':
+                    self.send(202, workspace.start_technical(self.project_store(), unquote(parts[3])))
+                elif len(parts) == 5 and parts[1:3] == ['api', 'sites'] and parts[4] == 'exclusions':
+                    self.send(200, self.project_store().set_exclusions(unquote(parts[3]), payload))
                 elif len(parts) == 5 and parts[1:3] == ['api', 'sites'] and parts[4] in ('save', 'preview'):
                     self.send(200, self.project_store().save(unquote(parts[3]), payload, preview=parts[4] == 'preview'))
                 else:

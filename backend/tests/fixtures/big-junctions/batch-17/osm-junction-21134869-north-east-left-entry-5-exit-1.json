@@ -1,0 +1,562 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              6119786056,
+              6119786079,
+              1877959861,
+              7271446082,
+              7271446083,
+              1831472480,
+              297885156,
+              297885155,
+              1719175618,
+              1813173814,
+              297885157,
+              4264232689,
+              10113734618,
+              4264232690,
+              778765877,
+              4264232691
+            ],
+            "distance": [
+              11.84185511,
+              4.604108423,
+              4.176443367,
+              13.05099773,
+              42.67243528,
+              7.117805985,
+              13.57875765,
+              7.387171499,
+              12.36040118,
+              9.510212506,
+              6.041674379,
+              5.46696796,
+              9.749871911,
+              30.01623411,
+              16.22816656
+            ]
+          },
+          "duration": 78.2,
+          "summary": "Elsenheimerstraße, Westendstraße",
+          "weight": 139.3,
+          "distance": 193.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    139
+                  ],
+                  "location": [
+                    11.523923,
+                    48.136138
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.523923,
+                    48.136138
+                  ],
+                  [
+                    11.524028,
+                    48.136058
+                  ],
+                  [
+                    11.524069,
+                    48.136027
+                  ],
+                  [
+                    11.524108,
+                    48.136
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 139,
+                "bearing_before": 0,
+                "location": [
+                  11.523923,
+                  48.136138
+                ],
+                "type": "depart"
+              },
+              "name": "Elsenheimerstraße",
+              "mode": "cycling",
+              "weight": 13.3,
+              "duration": 8,
+              "distance": 20.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.524108,
+                    48.136
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.524108,
+                    48.136
+                  ],
+                  [
+                    11.523977,
+                    48.135922
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 227,
+                "bearing_before": 136,
+                "location": [
+                  11.524108,
+                  48.136
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 21.8,
+              "duration": 11.1,
+              "distance": 13.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.523977,
+                    48.135922
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.524369,
+                    48.135642
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.524437,
+                    48.135597
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.524565,
+                    48.13551
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.523977,
+                    48.135922
+                  ],
+                  [
+                    11.524369,
+                    48.135642
+                  ],
+                  [
+                    11.524437,
+                    48.135597
+                  ],
+                  [
+                    11.524565,
+                    48.13551
+                  ],
+                  [
+                    11.524638,
+                    48.135465
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 136,
+                "bearing_before": 227,
+                "location": [
+                  11.523977,
+                  48.135922
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 69.1,
+              "duration": 34.9,
+              "distance": 70.8
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.524638,
+                    48.135465
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.524745,
+                    48.13555
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    135,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.524833,
+                    48.135612
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.524638,
+                    48.135465
+                  ],
+                  [
+                    11.524745,
+                    48.13555
+                  ],
+                  [
+                    11.524833,
+                    48.135612
+                  ],
+                  [
+                    11.524842,
+                    48.135666
+                  ],
+                  [
+                    11.524899,
+                    48.135697
+                  ],
+                  [
+                    11.525001,
+                    48.135752
+                  ],
+                  [
+                    11.525308,
+                    48.135927
+                  ],
+                  [
+                    11.525476,
+                    48.13602
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 39,
+                "bearing_before": 132,
+                "location": [
+                  11.524638,
+                  48.135465
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Westendstraße",
+              "mode": "cycling",
+              "weight": 35.1,
+              "duration": 24.2,
+              "distance": 89.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    230
+                  ],
+                  "location": [
+                    11.525476,
+                    48.13602
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.525476,
+                    48.13602
+                  ],
+                  [
+                    11.525476,
+                    48.13602
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 50,
+                "location": [
+                  11.525476,
+                  48.13602
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.523923,
+            48.136138
+          ],
+          [
+            11.524028,
+            48.136058
+          ],
+          [
+            11.524069,
+            48.136027
+          ],
+          [
+            11.524108,
+            48.136
+          ],
+          [
+            11.523977,
+            48.135922
+          ],
+          [
+            11.524369,
+            48.135642
+          ],
+          [
+            11.524437,
+            48.135597
+          ],
+          [
+            11.524565,
+            48.13551
+          ],
+          [
+            11.524638,
+            48.135465
+          ],
+          [
+            11.524745,
+            48.13555
+          ],
+          [
+            11.524833,
+            48.135612
+          ],
+          [
+            11.524842,
+            48.135666
+          ],
+          [
+            11.524899,
+            48.135697
+          ],
+          [
+            11.525001,
+            48.135752
+          ],
+          [
+            11.525308,
+            48.135927
+          ],
+          [
+            11.525476,
+            48.13602
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 139.3,
+      "duration": 78.2,
+      "distance": 193.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "NXkrgGtjBYABAAAAGwAAAAAAAAAAAAAASl4hPz14PUEAAAAAAAAAAAEAAAAVAAAAAAAAAAAAAAC1AgAAU9evAMp_3gJT168Ayn_eAgAArwgAAAAA",
+      "location": [
+        11.523923,
+        48.136138
+      ],
+      "name": "Elsenheimerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "mncvgP___38oAAAAyAAAAIAAAACHAQAASdOBQUMyf0JYGU1CRF8cQyAAAACgAAAAZgAAADkBAAC1AgAAZN2vAFR_3gJl3a8AVH_eAggALwMAAAAA",
+      "location": [
+        11.525476,
+        48.13602
+      ],
+      "name": "",
+      "distance": 0.07444490293
+    }
+  ]
+}

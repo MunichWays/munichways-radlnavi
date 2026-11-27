@@ -1,0 +1,361 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              11537679629,
+              324556336,
+              4087032532,
+              4087032528,
+              10870955149,
+              3927206661,
+              324556338,
+              10870955150,
+              3927206664,
+              698098570,
+              698098571
+            ],
+            "distance": [
+              20.51716701,
+              10.62907067,
+              5.613429256,
+              0.7059467703,
+              12.69961085,
+              9.581802074,
+              18.81786161,
+              1.329504937,
+              14.89679663,
+              21.20277196
+            ]
+          },
+          "duration": 26.2,
+          "summary": "Radlkoferstraße, Pfeuferstraße",
+          "weight": 42,
+          "distance": 116,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    248
+                  ],
+                  "location": [
+                    11.541571,
+                    48.125657
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    165,
+                    255
+                  ],
+                  "location": [
+                    11.541102,
+                    48.125535
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.541571,
+                    48.125657
+                  ],
+                  [
+                    11.541316,
+                    48.125587
+                  ],
+                  [
+                    11.541182,
+                    48.125554
+                  ],
+                  [
+                    11.541111,
+                    48.125537
+                  ],
+                  [
+                    11.541102,
+                    48.125535
+                  ],
+                  [
+                    11.540937,
+                    48.125506
+                  ],
+                  [
+                    11.54081,
+                    48.125492
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 248,
+                "bearing_before": 0,
+                "location": [
+                  11.541571,
+                  48.125657
+                ],
+                "type": "depart"
+              },
+              "name": "Radlkoferstraße",
+              "mode": "cycling",
+              "weight": 21.2,
+              "duration": 14.9,
+              "distance": 59.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    165,
+                    255,
+                    330
+                  ],
+                  "location": [
+                    11.54081,
+                    48.125492
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    150,
+                    255,
+                    345
+                  ],
+                  "location": [
+                    11.540712,
+                    48.125648
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    165,
+                    345
+                  ],
+                  "location": [
+                    11.540637,
+                    48.125785
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.54081,
+                    48.125492
+                  ],
+                  [
+                    11.540712,
+                    48.125648
+                  ],
+                  [
+                    11.540705,
+                    48.125659
+                  ],
+                  [
+                    11.540637,
+                    48.125785
+                  ],
+                  [
+                    11.540543,
+                    48.125965
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 336,
+                "bearing_before": 260,
+                "location": [
+                  11.54081,
+                  48.125492
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Pfeuferstraße",
+              "mode": "cycling",
+              "weight": 20.8,
+              "duration": 11.3,
+              "distance": 56.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    161
+                  ],
+                  "location": [
+                    11.540543,
+                    48.125965
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.540543,
+                    48.125965
+                  ],
+                  [
+                    11.540543,
+                    48.125965
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 341,
+                "location": [
+                  11.540543,
+                  48.125965
+                ],
+                "type": "arrive"
+              },
+              "name": "Pfeuferstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.541571,
+            48.125657
+          ],
+          [
+            11.541316,
+            48.125587
+          ],
+          [
+            11.541182,
+            48.125554
+          ],
+          [
+            11.541111,
+            48.125537
+          ],
+          [
+            11.541102,
+            48.125535
+          ],
+          [
+            11.540937,
+            48.125506
+          ],
+          [
+            11.54081,
+            48.125492
+          ],
+          [
+            11.540712,
+            48.125648
+          ],
+          [
+            11.540705,
+            48.125659
+          ],
+          [
+            11.540637,
+            48.125785
+          ],
+          [
+            11.540543,
+            48.125965
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 42,
+      "duration": 26.2,
+      "distance": 116
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "sOcFgP___38BAAAANQAAAAAAAAArAAAAiJo_PygjpEEAAAAAa5aHQQEAAAArAAAAAAAAACEAAAC1AgAAQxywANlW3gJDHLAA2VbeAgAAfw8AAAAA",
+      "location": [
+        11.541571,
+        48.125657
+      ],
+      "name": "Radlkoferstraße",
+      "distance": 0
+    },
+    {
+      "hint": "pecFgP___380AAAA-AAAAAAAAAAAAAAAR5-pQeBXnEIAAAAAAAAAACoAAADHAAAAAAAAAAAAAAC1AgAAPxiwAA1Y3gI_GLAADVjeAgAATxUAAAAA",
+      "location": [
+        11.540543,
+        48.125965
+      ],
+      "name": "Pfeuferstraße",
+      "distance": 0
+    }
+  ]
+}

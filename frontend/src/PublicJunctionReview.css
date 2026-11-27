@@ -23,16 +23,33 @@
 .junction-list-item span { display:block; line-height:1.5; }
 .junction-note { white-space:pre-wrap; background:#f4eef9; padding:10px; }
 .junction-status { font-weight:600; }
-.junction-status.confirmed { color:#21825c; }.junction-status.excluded { color:#77717e; }.junction-status.deferred { color:#896400; }.junction-status.open { color:#a75a00; }
+.junction-status.confirmed { color:#21825c; }.junction-status.excluded { color:#77717e; }.junction-status.deferred { color:#896400; }.junction-status.open { color:#a75a00; }.junction-status.checked { color:#1d5f8c; }.junction-status.live { color:#b0127a; }
 .junction-legend,.junction-readonly,.junction-location { color:#716978; font-size:12px; }
 .junction-location { margin:0 18px 8px; }
 .junction-movements { padding-left:18px; font-size:13px; }.junction-movements li { margin:10px 0; }.junction-movements p { margin:3px 0; color:#6d6474; }
 .junction-pane summary { cursor:pointer; padding:10px 0; font-weight:600; }
 .junction-review [role=alert] { margin:8px 18px; background:#fff0e9; padding:10px; }
 .junction-gate-label { font-size:11px; font-weight:600; border:0; background:#fffffff0; box-shadow:none; padding:2px 4px; }
+/* City and district groups in the list. */
+.junction-review .junction-city { margin-top:10px; }
+.junction-review .junction-city > summary { display:flex; justify-content:space-between; gap:8px; align-items:baseline; padding:8px 2px; font-size:15px; font-weight:700; cursor:pointer; border-bottom:2px solid #ddd3e6; }
+.junction-review .junction-city > .junction-district { margin-left:10px; }
+.junction-city > summary small,.junction-district summary small { color:#716978; font-weight:400; font-size:12px; }
+.junction-review .junction-district { border-top:1px solid #ece6f1; }
+.junction-review .junction-district summary { display:flex; justify-content:space-between; gap:8px; align-items:baseline; padding:9px 2px; }
+.junction-district[open] summary { color:#7139a4; }
+.junction-review .junction-toggle { display:flex; align-items:center; gap:6px; font-size:14px; white-space:nowrap; padding-bottom:10px; flex:0 0 auto; }
+.junction-review .junction-toggle input { width:auto; margin:0; }
+.junction-map-wrap { position:relative; min-width:0; }
+.junction-map-status { position:absolute; left:0; right:0; bottom:0; z-index:500; }
+/* Same district labels as on the RadlNavi map (App.css is not loaded here). */
+.junction-review .district-label { box-sizing:border-box; background:rgba(255,255,255,.94); color:#374151; border:1px solid #7b8390; border-radius:6px; font:600 11px/22px Arial,sans-serif; text-align:center; cursor:pointer; }
+.junction-review .district-label:hover,.junction-review .district-label:focus-visible { color:#004d69; border-color:#00769b; outline:2px solid #00769b; outline-offset:2px; }
+.junction-review .district-popup h3 { margin:4px 0 8px; font-size:14px; line-height:1.4; overflow-wrap:anywhere; }
+.junction-review .district-popup p { margin:6px 0; }
 @media(max-width:720px) {
   .junction-review .junction-header { padding:8px 10px; gap:8px; }.junction-review h1 { font-size:18px; }.junction-published { font-size:10px; }
   .junction-controls { padding:8px 10px; flex-wrap:wrap; gap:8px; }.junction-controls label:first-child { flex-basis:55%; }.junction-controls button { flex:1; }
-  .junction-layout { display:flex; flex-direction:column; padding:0 10px 10px; gap:10px; }.junction-map { order:-1; height:52dvh; min-height:320px; }
+  .junction-layout { display:flex; flex-direction:column; padding:0 10px 10px; gap:10px; }.junction-map-wrap { order:-1; }.junction-map { height:52dvh; min-height:320px; }
   .junction-pane { max-height:none; min-height:0; }.junction-pane nav { max-height:45dvh; overflow:auto; }
 }

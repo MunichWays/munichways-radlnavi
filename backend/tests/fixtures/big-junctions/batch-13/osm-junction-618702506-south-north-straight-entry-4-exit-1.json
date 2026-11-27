@@ -1,0 +1,459 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4372462279,
+              4371267424,
+              1314474477,
+              5374796935,
+              9423153108,
+              3153419928,
+              618702508,
+              618702512,
+              618702514
+            ],
+            "distance": [
+              5.449551473,
+              16.81606543,
+              45.59765352,
+              11.5780225,
+              11.68168589,
+              6.413139568,
+              49.38178184,
+              19.37290759
+            ]
+          },
+          "duration": 48.2,
+          "summary": "Katharina-von-Bora-Straße, Arcisstraße",
+          "weight": 79.6,
+          "distance": 166.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    23
+                  ],
+                  "location": [
+                    11.566285,
+                    48.144764
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.566314,
+                    48.144809
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566285,
+                    48.144764
+                  ],
+                  [
+                    11.566314,
+                    48.144809
+                  ],
+                  [
+                    11.566403,
+                    48.144948
+                  ],
+                  [
+                    11.566644,
+                    48.145325
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 23,
+                "bearing_before": 0,
+                "location": [
+                  11.566285,
+                  48.144764
+                ],
+                "type": "depart"
+              },
+              "name": "Katharina-von-Bora-Straße",
+              "mode": "cycling",
+              "weight": 19.4,
+              "duration": 14.8,
+              "distance": 67.9
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    75,
+                    105,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566644,
+                    48.145325
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566644,
+                    48.145325
+                  ],
+                  [
+                    11.566791,
+                    48.145359
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 70,
+                "bearing_before": 22,
+                "location": [
+                  11.566644,
+                  48.145325
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 23.8,
+              "duration": 11.7,
+              "distance": 11.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    120,
+                    255,
+                    300,
+                    330
+                  ],
+                  "location": [
+                    11.566791,
+                    48.145359
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566791,
+                    48.145359
+                  ],
+                  [
+                    11.566724,
+                    48.145454
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 334,
+                "bearing_before": 70,
+                "location": [
+                  11.566791,
+                  48.145359
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 5.6,
+              "duration": 3.8,
+              "distance": 11.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 4,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    150,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566724,
+                    48.145454
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566724,
+                    48.145454
+                  ],
+                  [
+                    11.566645,
+                    48.145477
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 292,
+                "bearing_before": 334,
+                "location": [
+                  11.566724,
+                  48.145454
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 11.4,
+              "duration": 5.5,
+              "distance": 6.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.566645,
+                    48.145477
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.566645,
+                    48.145477
+                  ],
+                  [
+                    11.566907,
+                    48.145885
+                  ],
+                  [
+                    11.56701,
+                    48.146045
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 22,
+                "bearing_before": 292,
+                "location": [
+                  11.566645,
+                  48.145477
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 19.4,
+              "duration": 12.4,
+              "distance": 69.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    203
+                  ],
+                  "location": [
+                    11.567012,
+                    48.146048
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.56701,
+                    48.146045
+                  ],
+                  [
+                    11.56701,
+                    48.146045
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 23,
+                "location": [
+                  11.567012,
+                  48.146048
+                ],
+                "type": "arrive"
+              },
+              "name": "Arcisstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.566285,
+            48.144764
+          ],
+          [
+            11.566314,
+            48.144809
+          ],
+          [
+            11.566403,
+            48.144948
+          ],
+          [
+            11.566644,
+            48.145325
+          ],
+          [
+            11.566791,
+            48.145359
+          ],
+          [
+            11.566724,
+            48.145454
+          ],
+          [
+            11.566645,
+            48.145477
+          ],
+          [
+            11.566907,
+            48.145885
+          ],
+          [
+            11.56701,
+            48.146045
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 79.6,
+      "duration": 48.2,
+      "distance": 166.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "dBQhgP___39pAAAAdwAAAAAAAAAAAAAA3AMoQrpirkAAAAAAAAAAAFQAAABfAAAAAAAAAAAAAAC1AgAAzXywAHyh3gLNfLAAfKHeAgAAfwEAAAAA",
+      "location": [
+        11.566285,
+        48.144764
+      ],
+      "name": "Katharina-von-Bora-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "GRUhgBsVIYABAAAAdQAAAAAAAAAAAAAAVwi7Pru8JUIAAAAAAAAAAAAAAABLAAAAAAAAAAAAAAC1AgAApH-wAICm3gKkf7AAgKbeAgAAfwEAAAAA",
+      "location": [
+        11.567012,
+        48.146048
+      ],
+      "name": "Arcisstraße",
+      "distance": 0
+    }
+  ]
+}

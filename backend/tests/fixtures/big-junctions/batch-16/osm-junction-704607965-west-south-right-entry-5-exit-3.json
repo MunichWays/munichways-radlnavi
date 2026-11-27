@@ -1,0 +1,483 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1679739403,
+              363160,
+              704607975,
+              12995044451,
+              12995044452,
+              12995044453,
+              12995044454,
+              12995044455,
+              3702167158,
+              3702167157,
+              3948299747,
+              3702167155,
+              3702167153,
+              3702167151,
+              3702167149,
+              12653029869,
+              3702167147,
+              3702167146
+            ],
+            "distance": [
+              11.49350595,
+              26.63144408,
+              11.90819254,
+              6.152193642,
+              11.36102523,
+              6.598614219,
+              2.216359087,
+              2.133545118,
+              4.88838562,
+              3.482530666,
+              18.79355303,
+              4.410105198,
+              5.443554891,
+              13.55081976,
+              1.077047794,
+              5.683193224,
+              7.021970375
+            ]
+          },
+          "duration": 31.1,
+          "summary": "Ohlmüllerstraße",
+          "weight": 82.3,
+          "distance": 143.4,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    138
+                  ],
+                  "location": [
+                    11.580251,
+                    48.12489
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.580354,
+                    48.124813
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.580251,
+                    48.12489
+                  ],
+                  [
+                    11.580354,
+                    48.124813
+                  ],
+                  [
+                    11.580595,
+                    48.124636
+                  ],
+                  [
+                    11.580703,
+                    48.124557
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 138,
+                "bearing_before": 0,
+                "location": [
+                  11.580251,
+                  48.12489
+                ],
+                "type": "depart"
+              },
+              "name": "Ohlmüllerstraße",
+              "mode": "cycling",
+              "weight": 37,
+              "duration": 9.4,
+              "distance": 50
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    165,
+                    315
+                  ],
+                  "location": [
+                    11.580703,
+                    48.124557
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.580703,
+                    48.124557
+                  ],
+                  [
+                    11.580694,
+                    48.124502
+                  ],
+                  [
+                    11.580796,
+                    48.124426
+                  ],
+                  [
+                    11.580852,
+                    48.12438
+                  ],
+                  [
+                    11.580861,
+                    48.124361
+                  ],
+                  [
+                    11.580865,
+                    48.124342
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 167,
+                "bearing_before": 136,
+                "location": [
+                  11.580703,
+                  48.124557
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 16.5,
+              "duration": 8.7,
+              "distance": 28.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.580865,
+                    48.124342
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    135,
+                    240,
+                    315
+                  ],
+                  "location": [
+                    11.58053,
+                    48.124169
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225
+                  ],
+                  "location": [
+                    11.580316,
+                    48.124063
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.580865,
+                    48.124342
+                  ],
+                  [
+                    11.580817,
+                    48.124312
+                  ],
+                  [
+                    11.580781,
+                    48.124292
+                  ],
+                  [
+                    11.580582,
+                    48.124188
+                  ],
+                  [
+                    11.58053,
+                    48.124169
+                  ],
+                  [
+                    11.580462,
+                    48.124151
+                  ],
+                  [
+                    11.580326,
+                    48.12407
+                  ],
+                  [
+                    11.580316,
+                    48.124063
+                  ],
+                  [
+                    11.580259,
+                    48.124029
+                  ],
+                  [
+                    11.580196,
+                    48.123982
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 227,
+                "bearing_before": 151,
+                "location": [
+                  11.580865,
+                  48.124342
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 28.8,
+              "duration": 13,
+              "distance": 64.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    42
+                  ],
+                  "location": [
+                    11.580191,
+                    48.123978
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.580196,
+                    48.123982
+                  ],
+                  [
+                    11.580196,
+                    48.123982
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 222,
+                "location": [
+                  11.580191,
+                  48.123978
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.580251,
+            48.12489
+          ],
+          [
+            11.580354,
+            48.124813
+          ],
+          [
+            11.580595,
+            48.124636
+          ],
+          [
+            11.580703,
+            48.124557
+          ],
+          [
+            11.580694,
+            48.124502
+          ],
+          [
+            11.580796,
+            48.124426
+          ],
+          [
+            11.580852,
+            48.12438
+          ],
+          [
+            11.580861,
+            48.124361
+          ],
+          [
+            11.580865,
+            48.124342
+          ],
+          [
+            11.580817,
+            48.124312
+          ],
+          [
+            11.580781,
+            48.124292
+          ],
+          [
+            11.580582,
+            48.124188
+          ],
+          [
+            11.58053,
+            48.124169
+          ],
+          [
+            11.580462,
+            48.124151
+          ],
+          [
+            11.580326,
+            48.12407
+          ],
+          [
+            11.580316,
+            48.124063
+          ],
+          [
+            11.580259,
+            48.124029
+          ],
+          [
+            11.580196,
+            48.123982
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 82.3,
+      "duration": 31.1,
+      "distance": 143.4
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "tdUZgP___38wAAAAgwAAAAAAAAAAAAAAWDrYQGblN0EAAAAAAAAAAAwAAAAhAAAAAAAAAAAAAAC1AgAAW7OwANpT3gJbs7AA2lPeAgAArwgAAAAA",
+      "location": [
+        11.580251,
+        48.12489
+      ],
+      "name": "Ohlmüllerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "I9YZgP___38CAAAARAAAADgAAAAZAQAAUXkUP7wbbEFaSEtBlDB9QgEAAAAfAAAAGQAAAH8AAAC1AgAAH7OwAEpQ3gIfs7AASlDeAgQAvw0AAAAA",
+      "location": [
+        11.580191,
+        48.123978
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

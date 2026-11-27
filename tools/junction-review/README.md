@@ -14,8 +14,15 @@ veröffentlicht. Lokale Bearbeitungen werden ausdrücklich als neuer Stand expor
 
 ```powershell
 $env:PYTHONPATH='tools/junction-review'
-python -m junction_review publish-map --project .local/junction-review/munich --output docs/large-junction-analysis/public-junction-review.json
+python -m junction_review publish-map --name München --project .local/junction-review/munich --project .local/junction-review/area-603b6d7ec04db77e --project .local/junction-review/area-369e14ac688ef47e --project .local/junction-review/area-8c7276beba7eaf73 --project .local/junction-review/area-8192789c4e8926dd --project .local/junction-review/area-90800087a64697a8 --project .local/junction-review/area-756c41d1c3d06fce --project .local/junction-review/area-f5bdef90f8af4365 --output docs/large-junction-analysis/public-junction-review.json
 ```
+
+`--project` mehrfach angeben, um das Gesamtprojekt und die Bezirksprojekte gemeinsam zu
+veröffentlichen. Veröffentlicht werden nur Kreuzungen mit K-Nummer; lokale P-Nummern
+unnummerierter Kandidaten würden sich zwischen Bezirksprojekten überschneiden. Jede Kreuzung
+erhält Stadt und Münchner Stadtbezirk über ihren Mittelpunkt (gebündelte `stadtbezirke.geojson`);
+Kreuzungen auf einer Bezirksgrenze erscheinen in genau einem Bezirk. Die Karte gruppiert die Liste
+nach Stadt und Stadtbezirk und blendet die Bezirksgrenzen wie die RadlNavi-Karte ein.
 
 Den Export committen und das Frontend deployen. Der Export enthält ausgewählte
 öffentliche Geometrie- und Prüfdaten, keine lokale Projektdatenbank oder Schreib-API.
@@ -47,11 +54,33 @@ Falls bereits lokale Prüfentscheidungen im früheren K47–K50-Projekt liegen: 
 
 ### Entry-/Exit-Punkte bearbeiten
 
+Ein **Straßenarm** bezeichnet eine Straße in einer Richtung ab der Kreuzung samt ihren Radwegen,
+zum Beispiel „Marsstraße nach Nordost“. Entry und Exit auf gegenüberliegenden Straßenseiten können
+zum selben Arm gehören. Umgekehrt kann ein durchgehender OSM-Radweg um eine Ecke führen und damit
+Punkte verschiedener Arme enthalten. Bei OSM-Projekten zeigt die Auswahl Straßenname, Himmelsrichtung
+und zugeordnete Punkte; die Beschreibung bleibt beim Verschieben von Punkten an die ursprüngliche
+Straßenrichtung gebunden. Ein ausdrücklich ausgewählter Zielweg wird orange markiert. Endet ein
+OSM-Weg direkt an der Grenze, für einen weiter außen liegenden Punkt seine belegte Fortsetzung wählen.
+
 In einer Kreuzung **„Entry/Exit bearbeiten“** einschalten. Einen Anschluss in der Liste auswählen oder auf seinen Punkt klicken. Zum Verschieben den Punkt ziehen oder **„Ziel auf Karte wählen“** und dann auf den gewünschten Radweg klicken. Die Flächengrenze folgt dem verschobenen Punkt; andere Anschlüsse werden auf ihren belegten Wegen an die neue Grenze angepasst.
 
 Für einen gemeinsamen Entry in P3: **Entry-2** wählen, unter **„Zusammenlegen“ → „Mit Entry-3 zusammenlegen“** einstellen und das Ziel auf dem gemeinsamen südlichen Radweg setzen. Bei überlappenden Wegen lässt sich der Zielweg ausdrücklich auswählen (`OSM 421302932`, gemeinsamer Radweg vor der Verzweigung). Entry-2 behält seine Nummer, Entry-3 entfällt; die übrigen Anschlüsse werden nicht umnummeriert. Zwei Entry-Punkte bzw. zwei Exit-Punkte desselben Straßenarms können zusammengelegt werden.
 
 **„Gewählten Punkt löschen“** entfernt den Punkt auch aus seiner Straßenarmzuordnung. Alle Bearbeitungen sind zunächst ein Entwurf. Mit **„Änderungen verwerfen“** zurück zum gespeicherten Stand oder mit **„Geometrie speichern“** Fläche, Anschlüsse und Zuordnungen gemeinsam speichern. Eine bestehende Bestätigung und technische Evidenz werden bei geänderter Geometrie ungültig. Neue Anschlüsse und Änderungen der Straßenarmdefinition sind noch kein Bestandteil dieses Editors.
+
+### Münchner Stadtbezirke
+
+Alle 25 Stadtbezirke sind unter **„Münchner Stadtbezirk“** fest auswählbar,
+zum Beispiel **BA04 Schwabing-West**. Die Auswahl und Grenzen werden lokal geladen;
+ein OSM-Abruf ist erst für **„Sichtprüfung vorbereiten“** nötig. Die vollständigen
+Teilflächen von BA18 und BA19 bleiben erhalten.
+
+Die Checkbox **„Stadtbezirke München“** über dem OSM-Hinweis blendet violette,
+gestrichelte Grenzen und Bezirksnamen in Übersicht, Detail und Gebietsauswahl ein.
+Die Einstellung gilt gemeinsam für alle Karten und bleibt im Browser gespeichert.
+Die gebündelte Datei `junction_review/web/stadtbezirke.geojson` ist eine unveränderte
+Kopie von `frontend/public/data/stadtbezirke.geojson`, dem RadlNavi-Datenstand.
+Bestehende Projekte und Freigaben werden durch Auswahl oder Einblenden nicht verändert.
 
 ### Neue Stadt, Stadtteil oder gezeichnete Fläche
 
@@ -63,11 +92,57 @@ In der Übersicht **„Gebiet auswählen und Sichtprüfung vorbereiten“** aufk
 4. Die neue Prüfliste und Karte öffnen sich automatisch. `P1`, `P2`, … bezeichnet die Priorität im neuen Projekt, keine Münchner K-Nummer. Bekannte ausgehende Fahrspuren absteigend, danach einfache Geometrien; unbekannte Spurzahlen folgen zuletzt.
 5. Kreuzung öffnen, Fläche, Radverkehrsanschlüsse und Richtungen prüfen. **„Prüfbild als SVG herunterladen“** liefert ein eigenständiges Vektorbild mit Pfeilen und Beschriftungen ohne Hintergrundkarten-Abhängigkeit.
 
+### Lokaler OSM-Auszug statt Overpass
+
+Die Vorbereitung liest OSM-Daten bevorzugt aus einem lokalen Auszug, nicht vom öffentlichen
+Overpass-Dienst (der zeitweise überlastet ist). Einmalig und bei Bedarf erneut, etwa wöchentlich:
+
+```powershell
+python tools/junction-review/run.py osm-import
+```
+
+Lädt `oberbayern-latest.osm.pbf` von Geofabrik (rund 260 MB, täglich aktualisiert) nach
+`.local/junction-review/osm/` und liest Straßen, deren Knoten mit Tags und Abbiegeverbote für
+München und Umgebung in `osm.sqlite` ein. Mit `--file datei.osm.pbf` wird eine vorhandene Datei
+verwendet. Nur Python-Standardbibliothek; das Einlesen nutzt alle Prozessorkerne und dauert
+einige Minuten. Wege, die über den Rand des Auszugs hinausgehen, werden verworfen statt
+abgeschnitten.
+
+Die Abfrage bildet die bisherige Overpass-Abfrage nach (Straßen im Gebiet, Straßen im
+130-m-Umkreis, deren Knoten und Abbiegeverbote) und liefert dasselbe Datenformat; die
+Kreuzungserkennung bleibt unverändert. Die Gebietsauswahl zeigt Quelle und OSM-Stand.
+Stadtbezirke und gezeichnete Flächen in München nutzen den Auszug; gesuchte
+Verwaltungsgebiete, Flächen außerhalb und die Option „Stattdessen tagesaktuell über Overpass
+laden“ nutzen Overpass. Das Projekt speichert unter `source.osmSource`, welche Quelle verwendet
+wurde, und unter `osmRetrievedAt` den OSM-Stand.
+
+Bei vorübergehenden HTTP-Fehlern (zum Beispiel 502), Zeitüberschreitungen oder
+abgebrochenen Antworten wechselt der Abruf zwischen `overpass-api.de` und
+`overpass.private.coffee`. Insgesamt bleiben es höchstens drei Versuche; der
+zuletzt erfolgreiche Dienst wird für folgende Abrufe weiterverwendet. Beide
+öffentlichen Dienste können gleichzeitig überlastet oder nicht erreichbar sein.
+Die Fehlermeldung nennt dann die betroffenen Dienste und Fehlerarten. Unvollständige
+Antworten werden weder importiert noch zwischengespeichert; vorhandene Projekte
+und Freigaben bleiben erhalten. Der Serverstart selbst löst keinen Abruf aus.
+
 Jede Auswahl erhält ein separates Projekt unter `.local/junction-review/area-<hash>/`. Das vorhandene München-Projekt wird nicht überschrieben. Unter **„Gespeichertes Projekt“ → „Öffnen“** wechseln. Dieselbe Auswahl öffnet ihren gespeicherten Stand ohne erneuten OSM-Abruf; Entscheidungen bleiben erhalten. `osm-snapshot.json` enthält die vollständige Abfrageantwort einschließlich Knotentags und Restriktionsrelationen, die Importdatei zusätzlich Abfrage und Algorithmusversion. Den ganzen Projektordner sichern.
+
+Neue Gebiete lassen bereits vorhandene Kreuzungen projektübergreifend aus, unabhängig vom Prüfstatus. Vorrang haben identische IDs und gemeinsame OSM-Kandidatenknoten. Bei älteren RadlNavi-Importen ohne diese Knoten wird zusätzlich die vollständige Menge der Straßennamen (unabhängig von ihrer Reihenfolge) mit höchstens 15 m Abstand der Mittelpunkte verglichen. Nähe allein genügt nicht; widersprüchliche OSM-IDs und mehrdeutige Zuordnungen werden nicht zusammengeführt. Bestehende Projekte werden beim Öffnen nicht automatisch bereinigt. Dokumentierte Duplikatentfernungen erhalten den eingefrorenen Import und frühere Entscheidungen.
 
 Die Programmlogik in `discovery.py` braucht kein LLM. Sie sucht Straßen ab `tertiary`, gruppiert nahe gemeinsame Straßenknoten ohne unbegrenzte Kettenbildung, ermittelt Straßenarme an einer vorgeschlagenen Fläche und sortiert T-Kreuzungen und Kreisverkehre aus. Straßen auf getrennten Ebenen werden nicht allein wegen einer geometrischen Überschneidung verbunden. Das Auswahlgebiet begrenzt die Kandidaten, nicht deren Kreuzungsflächen.
 
 Fahrspuren werden nach Möglichkeit auf der ausgehenden Fortsetzung mindestens 80 m vom Mittelpunkt abgelesen. Explizite Richtungswerte haben Vorrang; ungerade/fehlende Spurzahlen und mehrdeutige Fortsetzungen bleiben unbekannt. Separate Radwege, erlaubte Zweirichtungswege, Radfahrstreifen und erlaubte Straßenabschnitte erzeugen Grenzanschlüsse. `oneway:bicycle` hat Vorrang vor `oneway`. Radfahrstreifen bleiben auf OSM-Straßenmittellinien schematisch; ihre reale Seitenlage wird nicht erfunden.
+
+**Entry vor Radweg-Abzweig auf der Fahrbahn:** Fährt man auf der Straße und wechselt erst kurz vor
+der Kreuzung über ein schräges Radwegstück auf einen Radweg neben der Straße, gehört der Entry auf die
+Fahrbahn einige Meter vor dem Abzweig (Fälle K108 Hohenzollernstraße, BA05 P4 Ohlmüllerstraße). Die
+Vorbereitung (Algorithmus `osm-four-arm-v2`) legt solche Entries automatisch 5 m vor dem Abzweig auf
+die Fahrbahn und fasst Entries desselben Arms ab diesem Knoten zusammen. Nur wenn der Radweg höchstens
+25 m vor dem Anschluss an der Fahrbahn beginnt, genau eine legal befahrbare Fahrbahn und kein anderer
+Radweg dort ankommt und alle übrigen Anschlüsse unverändert bleiben. Die Korrektur steht im Hinweis der
+Kreuzung. Bestehende Projekte ändern sich dadurch nicht. Beim manuellen Verschieben eines Anschlusses
+nach außen ersetzt der Editor eine Grenzspitze, die die Straße nicht sauber quert, durch eine kurze Kante
+quer zur Straße.
 
 **Entwürfe bleiben offen.** Die Fläche ist ein konservativer geometrischer Startvorschlag, keine automatisch bestätigte Wartefläche. Versetzte Knoten, viele Anschlüsse, benachbarte Kreuzungen, Zweirichtungswege, Straßenführung und fehlende Evidenz erscheinen als Prüfpunkte. Restriktionsrelationen werden archiviert, hier jedoch noch nicht als vollständige technische Fahrbeziehungsprüfung ausgewertet. Bestätigen, technische RadlNavi-Prüfung und Aktivieren bleiben getrennte Schritte. Es gibt keine automatische Änderung am Backend.
 
@@ -105,7 +180,88 @@ python tools/junction-review/run.py export --project .local/junction-review/muni
 
 ## Prüfen
 
+### Technische Prüfung in der App
+
+Nach **„Geometrie bestätigt“ → „Entscheidung speichern“** startet **„Technische Prüfung“**
+(neben „Geometrie speichern“) die bisherige technische Prüfkette für genau diese Kreuzung als
+Hintergrundauftrag: Freigabe einfrieren, echte Standardrouten von `api.radlnavi.munichways.de`
+abrufen, gerichtete OSM-Korridore, Produktionsklassifikation, Rechts- und Schiebekontrollen.
+Spinner und Abbrechen wie bei der Gebietsvorbereitung. Routen und Bericht liegen im Projektordner
+unter `technical/<kreuzung>-v<revision>-<zeit>/`, nicht in Git. Das Ergebnis wird nur übernommen,
+wenn Freigabe und Geometrie während der Prüfung unverändert blieben; ein bestehender Live-Stand
+bleibt erhalten. Die Prüfung aktiviert oder deployt nichts.
+
+- **Standardfall – fertig geprüft:** alle Links-/Geradeaus- und Rechtsbeziehungen bestanden oder
+  ausdrücklich ausgeschlossen. Danach folgt nur noch die gesonderte Aktivierung.
+- **Sonderfall – Nachbearbeitung nötig:** jede offene Beziehung mit Ursache (z. B. Straßenarme
+  nicht automatisch zuordenbar, Route führt nicht durch die Fläche, innerer Weg nicht belegt).
+- **Innere Straßenverbinder** werden nur nach strengen Regeln automatisch zugelassen: Die echte Route
+  liegt höchstens 1,25 m auf einem legal befahrbaren Weg ohne Rad-/Zugangsverbot, nur dessen
+  Abschnitte vollständig innerhalb der Fläche zählen, die Einbahnrichtung bleibt gerichtet geprüft.
+  Bei parallelen gleich nahen Wegen wird nicht geraten. Zugelassene OSM-IDs stehen im Ergebnis.
+- **Radweg/Fahrbahn gleichwertig** (Arcisstraße, BA05 P8 Balanstraße): Liegen in einem Arm genau
+  zwei Exits (bzw. Entries) nebeneinander – einer auf einer legal befahrbaren Straße ohne
+  `bicycle=use_sidepath`, einer auf einem Radweg, höchstens 15 m entfernt, gleiche Richtung ±45° –,
+  ist der Radweg nicht benutzungspflichtig. Beide erhalten dieselbe Ansage statt eines Ausschlusses
+  „Mehrere Ausfahrten“. Ein als „normale Hinweise“ markierter Anschluss (z. B. Maximilianstraße
+  Exit-1) wird nie gepaart.
+- **Route umfährt die Kreuzung:** Eine Rechtskontrolle, deren echte Standardroute die Fläche gar
+  nicht berührt, gilt als bestanden (kein Makro möglich). Links/geradeaus nur, wenn die gleichwertige
+  Ausfahrt vom selben Entry bestanden hat; die Beziehung bleibt dann bei normalen Hinweisen.
+
+**Ausdrücklich ausschließen:** Im Bereich „Technische Prüfung in der App“ eine Fahrbeziehung wählen,
+Grund eintragen, „Ausschließen“. Der Ausschluss ist eine Ansageentscheidung, ändert die
+Geometriefreigabe nicht, steht im Änderungsverlauf und gilt ab der nächsten technischen Prüfung
+(dort bleiben normale Ansagen). „Aufheben“ entfernt ihn wieder.
+
+Die Schaltfläche ist nur im RadlNavi-Repository verfügbar (Backend und Prüfskripte nötig).
+Prüfskript für einen Fall auch direkt:
+`python docs/large-junction-analysis/verify_app_site.py --project <projekt> --site <id> --out <ordner>`.
+
+**Status in der Liste:** Bestätigt (Technik ausstehend) → Technisch geprüft (noch nicht live;
+„aktiviert, Deployment ausstehend“ nach der Branch-Aktivierung) → **Live** (magenta, nur für den
+live verifizierten aktuellen Geometriestand). Die öffentliche Karte zeigt dieselben Stufen.
+
+**Aktivieren** aller App-geprüften Standardfälle eines Projekts (nur Branch, kein Deployment):
+`python docs/large-junction-analysis/activate_app_checks.py --project <projekt-id> --batch batch-NN
+--prefix review-batch-NN-<name> --version <backend> --catalog-version munich-big-junctions-vNN
+--authorization "<Freigabe>"`. Vergibt K-Nummern, spielt alle echten Routen gegen den
+zusammengeführten Katalog ab und kopiert Bericht und Routen ins Repository (Beispiel Batch 15, BA05).
+Wird eine bereits aktive Kreuzung nachträglich geändert, neu bestätigt und in der App geprüft,
+ersetzt `--replace <site-id>` ihren Katalogeintrag an derselben Stelle; die K-Nummer bleibt
+(Beispiel Batch 16: K110 mit Fahrbahn-Gates Exit-5/Entry-6).
+Ein Sonderfall, den Thomas mit seinen einzelnen Fehlern freigibt, wird mit
+`--accept-special <site-id>` aktiviert: Jeder Prüfpunkt muss eine deaktivierte Beziehung
+betreffen (dort normale Ansagen). Beim Abspielen darf eine deaktivierte Route nur dann eine
+Ansage dieser Kreuzung bekommen, wenn sie tatsächlich durch die Anschlüsse einer aktiven,
+geprüften Beziehung gleicher Art fährt (Beispiel Batch 17: K117 Elsenheimerstraße).
+
+Nach jedem erfolgreichen Backend-Deployment werden alle ausgelieferten Kreuzungen auf „Live“
+gesetzt: `python docs/large-junction-analysis/mark_deployed_live.py --run-id <run>`. Das Skript
+liest den Katalog aus dem Produktions-Commit und setzt nur Kreuzungen, die dort exakt so wie im
+Branch aktiviert ausgeliefert werden; danach Karte neu veröffentlichen (`publish-map`).
+
+### Batch-Prüfungen und Nachbearbeitung
+
 Technische RadlNavi-Ergebnisse in die Karte zurückübernehmen:
+
+Die zehn Fälle der Bezirksrunde BA01–BA03 einschließlich K89 und der Wiedervorlagen
+K44/K46 sind als Batch 12 eingefroren. Offline reproduzieren mit
+`python docs/large-junction-analysis/verify_ba01_ba03_project.py`; `--import-results`
+übernimmt die Ergebnisse fingerprintgebunden in ihre jeweiligen Projekte. Bestehende
+Live-Beziehungen bleiben als live dokumentiert; bestandene Wiedervorlagen bleiben bis
+zur gesonderten Aktivierung deaktiviert. Die internen Prüfnummern ab 101 vergeben keine
+neuen K-Nummern. Stachus nutzt für die ausdrücklich freigegebene Geradeausbeziehung
+die vorhandene Winkelprüfung, ohne einen fehlenden vierten Arm zu erfinden.
+
+Die nachfolgenden Ansageentscheidungen zu P2/P7 und die Lachnerstraßen-Prüfung K06
+stehen in Batch 13: `python docs/large-junction-analysis/verify_guidance_followups.py`
+(offline), optional `--import-results`. Die erste Regelversion bleibt archiviert;
+`approved-v2.json` enthält zusätzlich die bestätigte südliche Gleichwertigkeit bei P7.
+Gleichwertige Straße-/Radweg-Ausgänge brauchen eine ausdrückliche Zuordnung zum selben
+Straßenarm; die Straßenklasse allein erteilt keine Ausnahme. Wechselt das Routing auf
+einen ausdrücklich gleichwertigen Entry, wird die tatsächlich nachgewiesene Beziehung
+verwendet und als abgedeckt dokumentiert, ohne doppelte überlappende Makros anzulegen.
 
 ```powershell
 python tools/junction-review/run.py import-technical --report docs/large-junction-analysis/review-batch-09-nine-lanes-routes.json

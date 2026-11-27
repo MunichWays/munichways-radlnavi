@@ -1,0 +1,631 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              4779514006,
+              13098697055,
+              13378382975,
+              3700767484,
+              2630394425,
+              3789797777,
+              12512692958,
+              300546488,
+              300546478,
+              300546485,
+              2154055987,
+              2214731026,
+              3186212875,
+              2214731030,
+              347332299,
+              2214731032,
+              2154071061,
+              300546486,
+              300546467,
+              300546471,
+              3170118677,
+              1686308578
+            ],
+            "distance": [
+              2.013831462,
+              5.379256895,
+              20.79666407,
+              10.01004503,
+              13.82160725,
+              3.42684429,
+              6.039386201,
+              7.17154224,
+              15.13077466,
+              4.097280049,
+              3.111419776,
+              2.170744651,
+              0.9455175052,
+              1.799183307,
+              3.911555726,
+              0.8706326665,
+              3.111419776,
+              5.166724879,
+              7.338755676,
+              6.24909881,
+              41.75769232
+            ]
+          },
+          "duration": 95.2,
+          "summary": "Kirchenstraße, Berg-am-Laim-Straße",
+          "weight": 203.2,
+          "distance": 164.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    106
+                  ],
+                  "location": [
+                    11.609059,
+                    48.132711
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609059,
+                    48.132711
+                  ],
+                  [
+                    11.609085,
+                    48.132706
+                  ],
+                  [
+                    11.609155,
+                    48.132694
+                  ],
+                  [
+                    11.609425,
+                    48.132646
+                  ],
+                  [
+                    11.609555,
+                    48.132623
+                  ],
+                  [
+                    11.609734,
+                    48.13259
+                  ],
+                  [
+                    11.609777,
+                    48.132579
+                  ],
+                  [
+                    11.609853,
+                    48.13256
+                  ],
+                  [
+                    11.609943,
+                    48.132537
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 106,
+                "bearing_before": 0,
+                "location": [
+                  11.609059,
+                  48.132711
+                ],
+                "type": "depart"
+              },
+              "name": "Kirchenstraße",
+              "mode": "cycling",
+              "weight": 70,
+              "duration": 39.2,
+              "distance": 68.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 4,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    60,
+                    150,
+                    195,
+                    285,
+                    345
+                  ],
+                  "location": [
+                    11.609943,
+                    48.132537
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609943,
+                    48.132537
+                  ],
+                  [
+                    11.609888,
+                    48.132406
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 195,
+                "bearing_before": 109,
+                "location": [
+                  11.609943,
+                  48.132537
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 22.9,
+              "duration": 7.3,
+              "distance": 15.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    45,
+                    135,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.609888,
+                    48.132406
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.609931,
+                    48.132383
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    135,
+                    240,
+                    315
+                  ],
+                  "location": [
+                    11.610064,
+                    48.13231
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.610096,
+                    48.132292
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.609888,
+                    48.132406
+                  ],
+                  [
+                    11.609931,
+                    48.132383
+                  ],
+                  [
+                    11.609963,
+                    48.132365
+                  ],
+                  [
+                    11.609986,
+                    48.132353
+                  ],
+                  [
+                    11.609995,
+                    48.132347
+                  ],
+                  [
+                    11.610014,
+                    48.132337
+                  ],
+                  [
+                    11.610055,
+                    48.132315
+                  ],
+                  [
+                    11.610064,
+                    48.13231
+                  ],
+                  [
+                    11.610096,
+                    48.132292
+                  ],
+                  [
+                    11.610149,
+                    48.132262
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 127,
+                "bearing_before": 195,
+                "location": [
+                  11.609888,
+                  48.132406
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 84.2,
+              "duration": 37,
+              "distance": 25.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.610149,
+                    48.132262
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610149,
+                    48.132262
+                  ],
+                  [
+                    11.610245,
+                    48.132277
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 75,
+                "bearing_before": 129,
+                "location": [
+                  11.610149,
+                  48.132262
+                ],
+                "modifier": "left",
+                "type": "end of road"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 4.8,
+              "duration": 2.2,
+              "distance": 7.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    255
+                  ],
+                  "location": [
+                    11.610245,
+                    48.132277
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610245,
+                    48.132277
+                  ],
+                  [
+                    11.610324,
+                    48.132258
+                  ],
+                  [
+                    11.610793,
+                    48.132052
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 75,
+                "location": [
+                  11.610245,
+                  48.132277
+                ],
+                "modifier": "slight right",
+                "type": "continue"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 21.3,
+              "duration": 9.5,
+              "distance": 48
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    303
+                  ],
+                  "location": [
+                    11.610793,
+                    48.132052
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.610793,
+                    48.132052
+                  ],
+                  [
+                    11.610793,
+                    48.132052
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 123,
+                "location": [
+                  11.610793,
+                  48.132052
+                ],
+                "type": "arrive"
+              },
+              "name": "Berg-am-Laim-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.609059,
+            48.132711
+          ],
+          [
+            11.609085,
+            48.132706
+          ],
+          [
+            11.609155,
+            48.132694
+          ],
+          [
+            11.609425,
+            48.132646
+          ],
+          [
+            11.609555,
+            48.132623
+          ],
+          [
+            11.609734,
+            48.13259
+          ],
+          [
+            11.609777,
+            48.132579
+          ],
+          [
+            11.609853,
+            48.13256
+          ],
+          [
+            11.609943,
+            48.132537
+          ],
+          [
+            11.609888,
+            48.132406
+          ],
+          [
+            11.609931,
+            48.132383
+          ],
+          [
+            11.609963,
+            48.132365
+          ],
+          [
+            11.609986,
+            48.132353
+          ],
+          [
+            11.609995,
+            48.132347
+          ],
+          [
+            11.610014,
+            48.132337
+          ],
+          [
+            11.610055,
+            48.132315
+          ],
+          [
+            11.610064,
+            48.13231
+          ],
+          [
+            11.610096,
+            48.132292
+          ],
+          [
+            11.610149,
+            48.132262
+          ],
+          [
+            11.610245,
+            48.132277
+          ],
+          [
+            11.610324,
+            48.132258
+          ],
+          [
+            11.610793,
+            48.132052
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 203.2,
+      "duration": 95.2,
+      "distance": 164.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "Y3MZgIlzGYAEAAAAKAAAADsAAAAAAAAAneIAQL3yjEFJaNFBAAAAAAMAAAAgAAAALwAAAAAAAAC1AgAA4yOxAGdy3gLjI7EAZ3LeAgQAzxEAAAAA",
+      "location": [
+        11.609059,
+        48.132711
+      ],
+      "name": "Kirchenstraße",
+      "distance": 0
+    },
+    {
+      "hint": "FXMZgP___3-5AAAA2wAAABwAAAAAAAAA4AcnQoaG8UCe-MdAAAAAAFMAAABjAAAADAAAAAAAAAC1AgAAqSqxANRv3gKpKrEA1W_eAgIAvwcAAAAA",
+      "location": [
+        11.610793,
+        48.132052
+      ],
+      "name": "Berg-am-Laim-Straße",
+      "distance": 0.1111927533
+    }
+  ]
+}

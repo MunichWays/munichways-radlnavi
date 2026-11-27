@@ -53,17 +53,29 @@ def main():
     missing = commands.add_parser('prepare-open', help='Fehlende Geometrien offener Faelle regelbasiert vorbereiten')
     missing.add_argument('--project', type=Path, required=True)
     publish = commands.add_parser('publish-map', help='Oeffentlichen Nur-Lese-Kartenstand exportieren')
-    publish.add_argument('--project', type=Path, required=True)
+    publish.add_argument('--project', type=Path, required=True, action='append',
+        help='Mehrfach angeben, um mehrere Projekte gemeinsam zu veröffentlichen')
     publish.add_argument('--output', type=Path, required=True)
+    publish.add_argument('--name', help='Angezeigter Titel der öffentlichen Karte')
+    osm = commands.add_parser('osm-import', help='OSM-Auszug (Geofabrik) herunterladen und lokal für die Vorbereitung einlesen')
+    osm.add_argument('--file', type=Path, help='Vorhandene .osm.pbf-Datei statt Download verwenden')
+    osm.add_argument('--url', default=None, help='Download-Adresse (Standard: Geofabrik Oberbayern)')
+    osm.add_argument('--database', type=Path, default=None)
     args = parser.parse_args()
+    if args.command == 'osm-import':
+        from . import osm_local
+        database = args.database or osm_local.default_path()
+        source = args.file or osm_local.download(args.url or osm_local.DEFAULT_URL, database.parent / 'extract.osm.pbf')
+        osm_local.import_extract(source, database)
+        return
     try:
-        store = ProjectStore(args.project)
+        store = ProjectStore(args.project[0] if isinstance(args.project, list) else args.project)
         if args.command == 'demo' and not (args.project / 'project.json').exists():
             source = Path(__file__).resolve().parents[3] / 'docs/large-junction-analysis/review-batch-09-nine-lanes-images/review-data.json'
             store.import_dataset(import_radlnavi(source, 'munich-nine-lanes', 'München', 'K47–K50 · Neun Fahrspuren'))
         if args.command == 'publish-map':
             from .publication import public_snapshot
-            public = public_snapshot(store.snapshot())
+            public = public_snapshot(*(ProjectStore(path).snapshot() for path in args.project), name=args.name)
             atomic_write(args.output, public)
             print(f'{len(public["sites"])} Kreuzungen fuer die oeffentliche Nur-Lese-Karte exportiert.')
         elif args.command == 'prepare-open':

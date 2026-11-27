@@ -8,12 +8,21 @@ import tempfile
 from threading import RLock
 
 from .geometry import relocate_gates
-from .model import STATUSES, digest, effective_site, geometry_fingerprint, validate_dataset, validate_site
+from .model import STATUSES, digest, effective_site as model_effective_site, geometry_fingerprint, validate_dataset, validate_site
+from .discovery import describe_arms
 from .gate_edit import draft_geometry, edit_gate, geometry_of, movement_changed
 
 
 class Conflict(ValueError):
     pass
+
+
+def effective_site(base, state):
+    site = model_effective_site(base, state)
+    descriptions = describe_arms(base)
+    if descriptions:
+        site['armDescriptions'] = deepcopy(descriptions)
+    return site
 
 
 def now():
@@ -106,6 +115,45 @@ class ProjectStore:
                 removed.setdefault(site_id, dict(**owner, at=now()))
             atomic_write(self.directory / 'project.json', state)
 
+    def set_exclusions(self, site_id, payload):
+        """Explicit human entry/exit pair exclusions with a reason; no geometry change."""
+        exclusions = payload.get('exclusions')
+        if not isinstance(exclusions, list) or len(exclusions) > 100:
+            raise ValueError('Ungültige Ausschlussliste.')
+        with self.lock:
+            project, dataset = self._read()
+            base = next((s for s in dataset['sites'] if s['id'] == site_id), None)
+            if base is None or site_id in project.get('removedDuplicates', {}):
+                raise KeyError(site_id)
+            state = deepcopy(project['sites'].get(site_id, {}))
+            current = effective_site(base, state)
+            if type(payload.get('expectedVersion')) is not int or payload['expectedVersion'] != current['editVersion']:
+                raise Conflict('Inzwischen geändert. Ansicht neu laden, bevor du speicherst.')
+            kinds = {g['label']: g['kind'] for g in current['gates']}
+            previous = {(m['entryLabel'], m['exitLabel']): m for m in state.get('movementExclusions', [])}
+            result, seen = [], set()
+            for item in exclusions:
+                entry, exit, reason = (item.get(k) if isinstance(item, dict) else None for k in ('entryLabel', 'exitLabel', 'reason'))
+                if kinds.get(entry) != 'entry' or kinds.get(exit) != 'exit':
+                    raise ValueError('Ausschluss braucht einen vorhandenen Entry und Exit.')
+                if not isinstance(reason, str) or not reason.strip() or len(reason) > 1000:
+                    raise ValueError(f'Bitte einen kurzen Grund für {entry} → {exit} angeben.')
+                if (entry, exit) in seen:
+                    raise ValueError(f'{entry} → {exit} ist doppelt angegeben.')
+                seen.add((entry, exit))
+                old = previous.get((entry, exit))
+                result.append(dict(entryLabel=entry, exitLabel=exit, reason=reason.strip(),
+                                   at=old['at'] if old and old['reason'] == reason.strip() else now()))
+            if result == state.get('movementExclusions', []):
+                raise ValueError('Keine Änderung zum Speichern.')
+            state['movementExclusions'] = result
+            state['version'] = current['editVersion'] + 1
+            state.setdefault('history', []).append(dict(at=now(), action='movement-exclusions',
+                exclusions=[f"{m['entryLabel']} → {m['exitLabel']}: {m['reason']}" for m in result]))
+            project['sites'][site_id] = state
+            atomic_write(self.directory / 'project.json', project)
+            return effective_site(base, state)
+
     def rename(self, name, expected_name):
         if not isinstance(name, str) or not 1 <= len(name.strip()) <= 120 or any(ord(c) < 32 for c in name):
             raise ValueError('Bitte einen Projektnamen mit 1 bis 120 Zeichen eingeben.')
@@ -172,6 +220,11 @@ class ProjectStore:
                     branchMovements=0, checkedAt=report.get('completedAt'), backendVersion=None,
                     normalGuidanceGates=record.get('normalGuidanceGates', []), logicalArms=record.get('logicalArms', {}))
                 edit['technicalReportFingerprint'] = report_hash
+                if record.get('guidanceReview'):
+                    edit['technicalEvidence']['guidanceReview'] = deepcopy(record['guidanceReview'])
+                covered = sum(m.get('coverageStatus') == 'covered-equivalent-entry' for m in moves)
+                if covered:
+                    edit['technicalEvidence']['technical'] += f'; {covered} weitere Routen über gleichwertige Zufahrt abgedeckt'
                 edit['version'] = site['editVersion'] + 1
                 edit.setdefault('history', []).append(dict(at=now(), action='technical-check', reportFingerprint=report_hash))
                 changed += 1

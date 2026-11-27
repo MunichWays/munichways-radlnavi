@@ -1,0 +1,520 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              8740411938,
+              3880674304,
+              4510631816,
+              1570276009,
+              1045974663,
+              3837359082,
+              1045974597,
+              1045974499,
+              1045974824,
+              4510631822,
+              1045974445,
+              3685725911,
+              4510631823,
+              1045974733,
+              8983401800
+            ],
+            "distance": [
+              52.07226313,
+              5.52257616,
+              3.879429583,
+              6.747903146,
+              6.224784614,
+              4.818207229,
+              11.12911247,
+              12.28905812,
+              4.498918888,
+              8.228671807,
+              14.2329912,
+              7.78675801,
+              4.536405707,
+              13.24897243
+            ]
+          },
+          "duration": 46.1,
+          "summary": "Ostpreußenstraße, Freischützstraße",
+          "weight": 99.3,
+          "distance": 155.2,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    7
+                  ],
+                  "location": [
+                    11.641764,
+                    48.156037
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.641764,
+                    48.156037
+                  ],
+                  [
+                    11.641847,
+                    48.156502
+                  ],
+                  [
+                    11.641875,
+                    48.156548
+                  ],
+                  [
+                    11.641904,
+                    48.156577
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 7,
+                "bearing_before": 0,
+                "location": [
+                  11.641764,
+                  48.156037
+                ],
+                "type": "depart"
+              },
+              "name": "Ostpreußenstraße",
+              "mode": "cycling",
+              "weight": 28.6,
+              "duration": 13,
+              "distance": 61.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    210,
+                    255
+                  ],
+                  "location": [
+                    11.641904,
+                    48.156577
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.641904,
+                    48.156577
+                  ],
+                  [
+                    11.641982,
+                    48.156608
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 59,
+                "bearing_before": 25,
+                "location": [
+                  11.641904,
+                  48.156577
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Englschalkinger Straße",
+              "mode": "cycling",
+              "weight": 7.1,
+              "duration": 3.4,
+              "distance": 6.7
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    75,
+                    240
+                  ],
+                  "location": [
+                    11.641982,
+                    48.156608
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    75,
+                    195,
+                    255
+                  ],
+                  "location": [
+                    11.642021,
+                    48.156703
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    75,
+                    195,
+                    255
+                  ],
+                  "location": [
+                    11.642043,
+                    48.156802
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.642059,
+                    48.156912
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.642023,
+                    48.157019
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.642024,
+                    48.157147
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.642039,
+                    48.157257
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.641982,
+                    48.156608
+                  ],
+                  [
+                    11.642013,
+                    48.15666
+                  ],
+                  [
+                    11.642021,
+                    48.156703
+                  ],
+                  [
+                    11.642043,
+                    48.156802
+                  ],
+                  [
+                    11.642059,
+                    48.156912
+                  ],
+                  [
+                    11.642024,
+                    48.156945
+                  ],
+                  [
+                    11.642023,
+                    48.157019
+                  ],
+                  [
+                    11.642024,
+                    48.157147
+                  ],
+                  [
+                    11.642027,
+                    48.157217
+                  ],
+                  [
+                    11.642039,
+                    48.157257
+                  ],
+                  [
+                    11.642048,
+                    48.157376
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 15,
+                "bearing_before": 59,
+                "location": [
+                  11.641982,
+                  48.156608
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 63.6,
+              "duration": 29.7,
+              "distance": 87
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    183
+                  ],
+                  "location": [
+                    11.642048,
+                    48.157376
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.642048,
+                    48.157376
+                  ],
+                  [
+                    11.642048,
+                    48.157376
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 3,
+                "location": [
+                  11.642048,
+                  48.157376
+                ],
+                "type": "arrive"
+              },
+              "name": "Freischützstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.641764,
+            48.156037
+          ],
+          [
+            11.641847,
+            48.156502
+          ],
+          [
+            11.641875,
+            48.156548
+          ],
+          [
+            11.641904,
+            48.156577
+          ],
+          [
+            11.641982,
+            48.156608
+          ],
+          [
+            11.642013,
+            48.15666
+          ],
+          [
+            11.642021,
+            48.156703
+          ],
+          [
+            11.642043,
+            48.156802
+          ],
+          [
+            11.642059,
+            48.156912
+          ],
+          [
+            11.642024,
+            48.156945
+          ],
+          [
+            11.642023,
+            48.157019
+          ],
+          [
+            11.642024,
+            48.157147
+          ],
+          [
+            11.642027,
+            48.157217
+          ],
+          [
+            11.642039,
+            48.157257
+          ],
+          [
+            11.642048,
+            48.157376
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 99.3,
+      "duration": 46.1,
+      "distance": 155.2
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "DRIWgP___38iAAAACgEAAAAAAAAqAAAA-Pz6QP9JUEIAAAAAnm4WQQ8AAAB4AAAAAAAAABMAAAC1AgAApKOxAIXN3gKjo7EAhc3eAgAAbwAAAAAA",
+      "location": [
+        11.641764,
+        48.156037
+      ],
+      "name": "Ostpreußenstraße",
+      "distance": 0.07437262258
+    },
+    {
+      "hint": "QhgWgP___387AAAAQgAAAAAAAAAAAAAAy_tTQYd8xz8AAAAAAAAAABoAAAAeAAAAAAAAAAAAAAC1AgAAwKSxAMDS3gLApLEAwNLeAgAALwAAAAAA",
+      "location": [
+        11.642048,
+        48.157376
+      ],
+      "name": "Freischützstraße",
+      "distance": 0
+    }
+  ]
+}

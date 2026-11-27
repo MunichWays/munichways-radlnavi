@@ -1,0 +1,337 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              10135110289,
+              1264806486,
+              1341767463,
+              9282760071,
+              2615604365,
+              355963992,
+              2185528517,
+              3643270762,
+              355964661
+            ],
+            "distance": [
+              11.78655333,
+              39.58382056,
+              6.548228571,
+              6.511954879,
+              11.95100758,
+              8.000744041,
+              63.87197052,
+              3.716153212
+            ]
+          },
+          "duration": 36.4,
+          "summary": "",
+          "weight": 64.7,
+          "distance": 152,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    327
+                  ],
+                  "location": [
+                    11.597584,
+                    48.12333
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.597498,
+                    48.123419
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    330
+                  ],
+                  "location": [
+                    11.597196,
+                    48.123712
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.597017,
+                    48.123902
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.59696,
+                    48.123963
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    75,
+                    150,
+                    330
+                  ],
+                  "location": [
+                    11.596583,
+                    48.124479
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597584,
+                    48.12333
+                  ],
+                  [
+                    11.597498,
+                    48.123419
+                  ],
+                  [
+                    11.597196,
+                    48.123712
+                  ],
+                  [
+                    11.597143,
+                    48.123759
+                  ],
+                  [
+                    11.5971,
+                    48.12381
+                  ],
+                  [
+                    11.597017,
+                    48.123902
+                  ],
+                  [
+                    11.59696,
+                    48.123963
+                  ],
+                  [
+                    11.596583,
+                    48.124479
+                  ],
+                  [
+                    11.596561,
+                    48.124509
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 327,
+                "bearing_before": 0,
+                "location": [
+                  11.597584,
+                  48.12333
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 64.7,
+              "duration": 36.4,
+              "distance": 152
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    154
+                  ],
+                  "location": [
+                    11.596561,
+                    48.124509
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596561,
+                    48.124509
+                  ],
+                  [
+                    11.596561,
+                    48.124509
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 334,
+                "location": [
+                  11.596561,
+                  48.124509
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.597584,
+            48.12333
+          ],
+          [
+            11.597498,
+            48.123419
+          ],
+          [
+            11.597196,
+            48.123712
+          ],
+          [
+            11.597143,
+            48.123759
+          ],
+          [
+            11.5971,
+            48.12381
+          ],
+          [
+            11.597017,
+            48.123902
+          ],
+          [
+            11.59696,
+            48.123963
+          ],
+          [
+            11.596583,
+            48.124479
+          ],
+          [
+            11.596561,
+            48.124509
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 64.7,
+      "duration": 36.4,
+      "distance": 152
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "3JEAgP___39GAAAAZAAAAPMAAAAAAAAAtXjiQbmVPEG6qcFCAAAAADgAAABQAAAAwgAAAAAAAAC1AgAAEPewAMJN3gIQ97AAwk3eAggAfxQAAAAA",
+      "location": [
+        11.597584,
+        48.12333
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "z1AZgP___38QAAAAWwEAAAAAAAAAAAAAdNVtQNnolEIAAAAAAAAAAAcAAACcAAAAAAAAAAAAAAC1AgAAEfOwAF1S3gIR87AAXVLeAgAA3xQAAAAA",
+      "location": [
+        11.596561,
+        48.124509
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

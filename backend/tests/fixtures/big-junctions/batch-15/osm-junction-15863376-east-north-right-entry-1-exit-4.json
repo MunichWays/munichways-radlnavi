@@ -1,0 +1,319 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1743287243,
+              1370810925,
+              4805821353,
+              262103428,
+              13710672265,
+              1294816236,
+              13710672263,
+              1294816163,
+              29558945,
+              1370810929,
+              1154654374
+            ],
+            "distance": [
+              62.73146138,
+              7.109131256,
+              5.352225791,
+              4.067246953,
+              2.007192369,
+              2.390314298,
+              11.92803684,
+              6.92384352,
+              24.45157057,
+              16.40680123
+            ]
+          },
+          "duration": 65.5,
+          "summary": "Franziskanerstraße, Gebsattelstraße",
+          "weight": 144.7,
+          "distance": 143.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    237
+                  ],
+                  "location": [
+                    11.589763,
+                    48.125289
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    225
+                  ],
+                  "location": [
+                    11.589057,
+                    48.124981
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589763,
+                    48.125289
+                  ],
+                  [
+                    11.589057,
+                    48.124981
+                  ],
+                  [
+                    11.588985,
+                    48.124939
+                  ],
+                  [
+                    11.58893,
+                    48.124908
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 237,
+                "bearing_before": 0,
+                "location": [
+                  11.589763,
+                  48.125289
+                ],
+                "type": "depart"
+              },
+              "name": "Franziskanerstraße",
+              "mode": "cycling",
+              "weight": 26.9,
+              "duration": 19,
+              "distance": 75.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.58893,
+                    48.124908
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.58893,
+                    48.124908
+                  ],
+                  [
+                    11.588901,
+                    48.124939
+                  ],
+                  [
+                    11.588886,
+                    48.124954
+                  ],
+                  [
+                    11.588863,
+                    48.124969
+                  ],
+                  [
+                    11.588747,
+                    48.125043
+                  ],
+                  [
+                    11.588677,
+                    48.125084
+                  ],
+                  [
+                    11.588411,
+                    48.125213
+                  ],
+                  [
+                    11.588223,
+                    48.12529
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 315,
+                "bearing_before": 229,
+                "location": [
+                  11.58893,
+                  48.124908
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Gebsattelstraße",
+              "mode": "cycling",
+              "weight": 117.8,
+              "duration": 46.5,
+              "distance": 68.7
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    121
+                  ],
+                  "location": [
+                    11.588216,
+                    48.125292
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.588223,
+                    48.12529
+                  ],
+                  [
+                    11.588223,
+                    48.12529
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 301,
+                "location": [
+                  11.588216,
+                  48.125292
+                ],
+                "type": "arrive"
+              },
+              "name": "Gebsattelstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.589763,
+            48.125289
+          ],
+          [
+            11.589057,
+            48.124981
+          ],
+          [
+            11.588985,
+            48.124939
+          ],
+          [
+            11.58893,
+            48.124908
+          ],
+          [
+            11.588901,
+            48.124939
+          ],
+          [
+            11.588886,
+            48.124954
+          ],
+          [
+            11.588863,
+            48.124969
+          ],
+          [
+            11.588747,
+            48.125043
+          ],
+          [
+            11.588677,
+            48.125084
+          ],
+          [
+            11.588411,
+            48.125213
+          ],
+          [
+            11.588223,
+            48.12529
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 144.7,
+      "duration": 65.5,
+      "distance": 143.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ZlIZgP___39tAAAACwEAAAAAAAAAAAAAB7IvQgTtekIAAAAAAAAAAFcAAADVAAAAAAAAAAAAAAC1AgAAg9iwAGlV3gKD2LAAaVXeAgAAzw4AAAAA",
+      "location": [
+        11.589763,
+        48.125289
+      ],
+      "name": "Franziskanerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "URMDgPhPGYAEAAAAoAAAACYBAABqAwAAiQsRP3cqskH5biNCe-LyQgEAAAAoAAAASgAAANsAAAC1AgAAeNKwAGxV3gJ40rAAbFXeAgQAjxIAAAAA",
+      "location": [
+        11.588216,
+        48.125292
+      ],
+      "name": "Gebsattelstraße",
+      "distance": 0
+    }
+  ]
+}

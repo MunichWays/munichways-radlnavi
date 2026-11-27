@@ -1,0 +1,381 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              251742333,
+              4670703060,
+              8221606548,
+              9282760065,
+              1172140645,
+              261730693,
+              1955146,
+              2615604370,
+              1172140680,
+              9282760069,
+              13383540370,
+              260031473
+            ],
+            "distance": [
+              32.8588669,
+              2.584600452,
+              23.94365114,
+              5.92950336,
+              10.88043103,
+              7.052204175,
+              7.961510804,
+              8.190124215,
+              27.14105539,
+              14.13453126,
+              19.11138283
+            ]
+          },
+          "duration": 65.8,
+          "summary": "Auerfeldstraße, Balanstraße",
+          "weight": 127.2,
+          "distance": 159.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    326
+                  ],
+                  "location": [
+                    11.597453,
+                    48.123274
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.597184,
+                    48.123537
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597453,
+                    48.123274
+                  ],
+                  [
+                    11.597204,
+                    48.123518
+                  ],
+                  [
+                    11.597184,
+                    48.123537
+                  ],
+                  [
+                    11.597003,
+                    48.123715
+                  ],
+                  [
+                    11.596958,
+                    48.123759
+                  ],
+                  [
+                    11.596876,
+                    48.12384
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 326,
+                "bearing_before": 0,
+                "location": [
+                  11.597453,
+                  48.123274
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 27.7,
+              "duration": 19.6,
+              "distance": 76.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.596876,
+                    48.12384
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596876,
+                    48.12384
+                  ],
+                  [
+                    11.596955,
+                    48.123875
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 56,
+                "bearing_before": 324,
+                "location": [
+                  11.596876,
+                  48.12384
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Auerfeldstraße",
+              "mode": "cycling",
+              "weight": 18.8,
+              "duration": 9.3,
+              "distance": 7.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.596955,
+                    48.123875
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596955,
+                    48.123875
+                  ],
+                  [
+                    11.596899,
+                    48.123936
+                  ],
+                  [
+                    11.596842,
+                    48.123999
+                  ],
+                  [
+                    11.596681,
+                    48.124218
+                  ],
+                  [
+                    11.596597,
+                    48.124332
+                  ],
+                  [
+                    11.596483,
+                    48.124486
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 327,
+                "bearing_before": 56,
+                "location": [
+                  11.596955,
+                  48.123875
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "Balanstraße",
+              "mode": "cycling",
+              "weight": 80.7,
+              "duration": 36.9,
+              "distance": 76.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    154
+                  ],
+                  "location": [
+                    11.596483,
+                    48.124486
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596483,
+                    48.124486
+                  ],
+                  [
+                    11.596483,
+                    48.124486
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 334,
+                "location": [
+                  11.596483,
+                  48.124486
+                ],
+                "type": "arrive"
+              },
+              "name": "Balanstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.597453,
+            48.123274
+          ],
+          [
+            11.597204,
+            48.123518
+          ],
+          [
+            11.597184,
+            48.123537
+          ],
+          [
+            11.597003,
+            48.123715
+          ],
+          [
+            11.596958,
+            48.123759
+          ],
+          [
+            11.596876,
+            48.12384
+          ],
+          [
+            11.596955,
+            48.123875
+          ],
+          [
+            11.596899,
+            48.123936
+          ],
+          [
+            11.596842,
+            48.123999
+          ],
+          [
+            11.596681,
+            48.124218
+          ],
+          [
+            11.596597,
+            48.124332
+          ],
+          [
+            11.596483,
+            48.124486
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 127.2,
+      "duration": 65.8,
+      "distance": 159.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ZVAZgAVRGYAiAAAAUwAAAAAAAAAGAAAApf9fQXtvA0IAAAAAGGolQBwAAABCAAAAAAAAAAUAAAC1AgAAjfawAIpN3gKN9rAAik3eAgAAXxQAAAAA",
+      "location": [
+        11.597453,
+        48.123274
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "e1AZgMBQGYCPAAAAYAAAAAAAAACmAgAASyLmQR3kmEEAAAAA5NxFQjMAAAAjAAAAAAAAAEABAAC1AgAAw_KwAEZS3gLD8rAARlLeAgAAnwkAAAAA",
+      "location": [
+        11.596483,
+        48.124486
+      ],
+      "name": "Balanstraße",
+      "distance": 0
+    }
+  ]
+}

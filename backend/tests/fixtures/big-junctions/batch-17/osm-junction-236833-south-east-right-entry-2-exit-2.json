@@ -1,0 +1,284 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              893891524,
+              3137325133,
+              675155203,
+              2415249243,
+              1364242543
+            ],
+            "distance": [
+              14.1222646,
+              45.40181226,
+              50.32782525,
+              13.92164089
+            ]
+          },
+          "duration": 30.4,
+          "summary": "Waldfriedhofstraße",
+          "weight": 66.4,
+          "distance": 123.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    1
+                  ],
+                  "location": [
+                    11.502501,
+                    48.111432
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.502503,
+                    48.111559
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.502501,
+                    48.111432
+                  ],
+                  [
+                    11.502503,
+                    48.111559
+                  ],
+                  [
+                    11.502527,
+                    48.111967
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 1,
+                "bearing_before": 0,
+                "location": [
+                  11.502501,
+                  48.111432
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 34.7,
+              "duration": 16.1,
+              "distance": 59.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.502527,
+                    48.111967
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.503203,
+                    48.111962
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.502527,
+                    48.111967
+                  ],
+                  [
+                    11.503203,
+                    48.111962
+                  ],
+                  [
+                    11.50339,
+                    48.111961
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 90,
+                "bearing_before": 1,
+                "location": [
+                  11.502527,
+                  48.111967
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Waldfriedhofstraße",
+              "mode": "cycling",
+              "weight": 31.7,
+              "duration": 14.3,
+              "distance": 64.2
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    270
+                  ],
+                  "location": [
+                    11.50339,
+                    48.111961
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.50339,
+                    48.111961
+                  ],
+                  [
+                    11.50339,
+                    48.111961
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 90,
+                "location": [
+                  11.50339,
+                  48.111961
+                ],
+                "type": "arrive"
+              },
+              "name": "Waldfriedhofstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.502501,
+            48.111432
+          ],
+          [
+            11.502503,
+            48.111559
+          ],
+          [
+            11.502527,
+            48.111967
+          ],
+          [
+            11.503203,
+            48.111962
+          ],
+          [
+            11.50339,
+            48.111961
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 66.4,
+      "duration": 30.4,
+      "distance": 123.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "kywvgP___3_mAgAAJQMAAAAAAAAAAAAAD-omQ8z0YUEAAAAAAAAAAE0BAABqAQAAAAAAAAAAAAC1AgAApYOvAEgf3gKlg68ASB_eAgAADwAAAAAA",
+      "location": [
+        11.502501,
+        48.111432
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "LuMFgP___39EAAAAdQAAAAAAAAA6AAAAC79eQfILHEEAAAAAcgk7QR8AAAA1AAAAAAAAABoAAAC1AgAAHoevAFkh3gIeh68AWSHeAgAArwUAAAAA",
+      "location": [
+        11.50339,
+        48.111961
+      ],
+      "name": "Waldfriedhofstraße",
+      "distance": 0
+    }
+  ]
+}

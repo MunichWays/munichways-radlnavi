@@ -1,0 +1,318 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1172140640,
+              1304350272,
+              3835128467,
+              13381897753,
+              1304350273,
+              261730212,
+              261730693,
+              1955146,
+              355963992,
+              1505385756,
+              9282760070,
+              13381825381,
+              1341762627,
+              13968079733
+            ],
+            "distance": [
+              8.612798168,
+              4.306399084,
+              19.42878437,
+              4.380410044,
+              25.57717915,
+              7.60885228,
+              7.052204175,
+              5.506073591,
+              10.20699348,
+              22.90000781,
+              11.84855209,
+              9.164390789,
+              16.99908214
+            ]
+          },
+          "duration": 73.9,
+          "summary": "Auerfeldstraße, Orleansstraße",
+          "weight": 178.5,
+          "distance": 153.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    72
+                  ],
+                  "location": [
+                    11.596006,
+                    48.123608
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    75,
+                    255
+                  ],
+                  "location": [
+                    11.596171,
+                    48.123644
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.596955,
+                    48.123875
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.596006,
+                    48.123608
+                  ],
+                  [
+                    11.596116,
+                    48.123632
+                  ],
+                  [
+                    11.596171,
+                    48.123644
+                  ],
+                  [
+                    11.596415,
+                    48.123706
+                  ],
+                  [
+                    11.59647,
+                    48.12372
+                  ],
+                  [
+                    11.596791,
+                    48.123802
+                  ],
+                  [
+                    11.596876,
+                    48.12384
+                  ],
+                  [
+                    11.596955,
+                    48.123875
+                  ],
+                  [
+                    11.597017,
+                    48.123902
+                  ],
+                  [
+                    11.597131,
+                    48.123953
+                  ],
+                  [
+                    11.597362,
+                    48.124089
+                  ],
+                  [
+                    11.597482,
+                    48.124159
+                  ],
+                  [
+                    11.597575,
+                    48.124213
+                  ],
+                  [
+                    11.597749,
+                    48.124312
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 72,
+                "bearing_before": 0,
+                "location": [
+                  11.596006,
+                  48.123608
+                ],
+                "type": "depart"
+              },
+              "name": "Auerfeldstraße",
+              "mode": "cycling",
+              "weight": 178.5,
+              "duration": 73.9,
+              "distance": 153.6
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    230
+                  ],
+                  "location": [
+                    11.597749,
+                    48.124312
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597749,
+                    48.124312
+                  ],
+                  [
+                    11.597749,
+                    48.124312
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 50,
+                "location": [
+                  11.597749,
+                  48.124312
+                ],
+                "type": "arrive"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.596006,
+            48.123608
+          ],
+          [
+            11.596116,
+            48.123632
+          ],
+          [
+            11.596171,
+            48.123644
+          ],
+          [
+            11.596415,
+            48.123706
+          ],
+          [
+            11.59647,
+            48.12372
+          ],
+          [
+            11.596791,
+            48.123802
+          ],
+          [
+            11.596876,
+            48.12384
+          ],
+          [
+            11.596955,
+            48.123875
+          ],
+          [
+            11.597017,
+            48.123902
+          ],
+          [
+            11.597131,
+            48.123953
+          ],
+          [
+            11.597362,
+            48.124089
+          ],
+          [
+            11.597482,
+            48.124159
+          ],
+          [
+            11.597575,
+            48.124213
+          ],
+          [
+            11.597749,
+            48.124312
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 178.5,
+      "duration": 73.9,
+      "distance": 153.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "oVAZgNdQGYAxAAAAIwAAAAAAAAARAAAA_TpGQQXOCUEAAAAABc6JQBYAAAAQAAAAAAAAAAgAAAC1AgAA5vCwANhO3gLm8LAA107eAgAAfwQAAAAA",
+      "location": [
+        11.596006,
+        48.123608
+      ],
+      "name": "Auerfeldstraße",
+      "distance": 0.1111927533
+    },
+    {
+      "hint": "O5IAgAORGYB6AAAAIQAAAAAAAAAAAAAAH_6HQYE9kUAAAAAAAAAAAB4AAAAJAAAAAAAAAAAAAAC1AgAAtfewAJhR3gK197AAmFHeAgAAHwMAAAAA",
+      "location": [
+        11.597749,
+        48.124312
+      ],
+      "name": "Orleansstraße",
+      "distance": 0
+    }
+  ]
+}

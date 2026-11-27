@@ -28,13 +28,13 @@ class OverviewMigrationTests(unittest.TestCase):
         report = summarize(snapshot)
         self.assertEqual(report['total'], 98)
         self.assertEqual(report['counts'], dict(confirmed=42, open=41, excluded=15, deferred=0))
-        self.assertEqual(sum(s['deploymentStatus'] == 'live' for s in snapshot['sites']), 39)
+        self.assertEqual(sum(s['deploymentStatus'] == 'live' for s in snapshot['sites']), 42)
         self.assertTrue(all(s['origin'] for s in snapshot['sites']))
         self.assertEqual(sum(s['status'] == 'open' and s['geometryMode'] == 'none' for s in snapshot['sites']), 41)
         sites = {s['number']: s for s in snapshot['sites'] if s['number']}
         self.assertEqual(sites[47]['gates'][0]['label'], 'Exit-1')
-        self.assertEqual([(s['number'], r['entry'], r['exit'], r['date']) for s in snapshot['sites'] for r in s['evidence']['rechecks']],
-                         [(44, 'Entry-3', 'Exit-1', '2026-11-23'), (46, 'Entry-3', 'Exit-4', '2026-11-23')])
+        # K44/K46 rechecks were resolved (passed, live with 2.4.22) on 2026-11-26.
+        self.assertEqual([r for s in snapshot['sites'] for r in s['evidence']['rechecks']], [])
         self.assertFalse(sites[9]['provenance']['exclusion']['enabled'])
         self.assertTrue(sites[9]['provenance']['exclusion']['permanent'])
 

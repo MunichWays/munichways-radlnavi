@@ -8,9 +8,10 @@ import re
 from .geometry import distance, inside, intersection, point
 from .model import digest, validate_area, validate_dataset
 from .osm_client import query_osm
+from .districts import district_feature
 from .cycling import direction
 
-ALGORITHM = 'osm-four-arm-v1'
+ALGORITHM = 'osm-four-arm-v2'  # v2: entries before a road-to-cycleway split on the road
 MAJOR = {'primary', 'secondary', 'tertiary', 'primary_link', 'secondary_link', 'tertiary_link'}
 
 
@@ -51,7 +52,14 @@ def area_results(data):
 
 
 def selection_query(selection):
-    if selection.get('relationId'):
+    if selection.get('districtId'):
+        feature = district_feature(selection['districtId'])
+        queries = []
+        for polygon in feature['geometry']['coordinates']:
+            poly = ' '.join(f'{p[1]:.7f} {p[0]:.7f}' for p in polygon[0][:-1])
+            queries.append(f'way[highway](poly:"{poly}");')
+        scope = '(' + ''.join(queries) + ')->.roads;'
+    elif selection.get('relationId'):
         rid = selection['relationId']
         if type(rid) is not int or rid <= 0:
             raise ValueError('Ungültige Gebietsrelation.')
@@ -88,6 +96,23 @@ def cluster_bearings(items, origin, tolerance=32):
         else:
             groups.append(dict(angle=angle, items=[item]))
     return sorted(groups, key=lambda g: g['angle'])
+
+
+def describe_arms(site):
+    """Describe stable source arms, independently of later moved gate positions."""
+    preparation = site.get('preparation') or {}
+    if preparation.get('armEvidence'):
+        return preparation['armEvidence']
+    if preparation.get('algorithm') != ALGORITHM or not site.get('polygon'):
+        return {}
+    hits = [dict(point=p, way=w) for w in site['ways'] if w['tags'].get('highway') in MAJOR
+            for p, _, _ in crossings(w, site['polygon'])]
+    arms = cluster_bearings(hits, site['origin'])
+    if len(arms) != len(site['logicalArms']):
+        return {}
+    return {f'Arm-{i+1}': dict(bearing=math.degrees(arm['angle']),
+                names=sorted({h['way']['tags']['name'] for h in arm['items'] if h['way']['tags'].get('name')}),
+                wayIds=sorted({h['way']['id'] for h in arm['items']})) for i, arm in enumerate(arms)}
 
 
 def crossings(way, polygon):
@@ -177,6 +202,7 @@ def administrative_rings(relation, role):
 
 def prepare(raw, selection):
     """Pure function: frozen OSM + selection => same proposals and ordering."""
+    district = district_feature(selection['districtId']) if selection.get('districtId') else None
     elements = raw['elements']
     outer, inner = [], []
     if selection.get('relationId'):
@@ -218,6 +244,9 @@ def prepare(raw, selection):
         if outer and (not any(inside(origin, r) for r in outer) or any(inside(origin, r) for r in inner)):
             continue
         if selection.get('area') and not inside(origin, selection['area']['coordinates'][0]):
+            continue
+        if district and not any(inside(origin, polygon[0]) and not any(inside(origin, hole) for hole in polygon[1:])
+                                for polygon in district['geometry']['coordinates']):
             continue
         # Do not combine roads on different levels merely because they cross visually.
         if any(e['way']['tags'].get('junction') in ('roundabout', 'circular') for e in edges):
@@ -345,6 +374,14 @@ def prepare(raw, selection):
                                      laneEvidence=lane_evidence, candidateNodes=sorted(s['id'] for s in group)),
                     provenance=dict(adapter=ALGORITHM), sourceFingerprint=digest(dict(group=group_signature(group), ways=local,
                         nodes=[nodes[n] for n in sorted(local_nodes) if n in nodes], restrictions=restrictions)))
+        if gates:
+            from .split_entries import apply as entries_before_splits
+            site, corrected = entries_before_splits(site)
+            if corrected:
+                warnings.extend(corrected)
+                site['note'] = ' · '.join(warnings)
+                site['preparation']['complexity'] = len(warnings)
+                site['preparation']['splitEntries'] = corrected
         sites.append(site)
     sites.sort(key=lambda s: (-(s['outgoingLanes'] or 0), s['preparation']['complexity'], s['id']))
     for rank, site in enumerate(sites, 1):
@@ -356,9 +393,30 @@ def group_signature(group):
     return [dict(id=s['id'], origin=s['origin'], names=sorted(s['names'])) for s in group]
 
 
-def discover(selection, fetch=query_osm):
+OSM_SOURCES = ('auto', 'local', 'overpass')
+
+
+def discover(selection, fetch=None, source='auto'):
+    """Local OSM extract when present and covering the selection, otherwise Overpass.
+
+    ``fetch`` (tests, explicit callers) always means an Overpass-style fetch.
+    """
+    if source not in OSM_SOURCES:
+        raise ValueError('Unbekannte OSM-Quelle.')
     query = selection_query(selection)
-    raw = fetch(query)
+    origin = dict(kind='overpass')
+    if fetch is None:
+        from . import osm_local
+        local = osm_local.open_default() if source != 'overpass' else None
+        if local is not None and local.supports(selection):
+            raw = local.query(selection)
+            origin = dict(kind='local-extract', **{k: local.meta.get(k) for k in ('source', 'timestamp', 'importedAt')})
+        elif source == 'local':
+            raise ValueError('Lokaler OSM-Auszug fehlt oder deckt die Auswahl nicht ab. Overpass verwenden oder „run.py osm-import“ ausführen.')
+        else:
+            raw = query_osm(query)
+    else:
+        raw = fetch(query)
     sites, rejected = prepare(raw, selection)
     if not sites:
         raise ValueError(f'Keine geeigneten Vierarm-Kandidaten gefunden ({len(rejected)} T-/Kreisverkehrsfälle aussortiert). Bestehendes Projekt bleibt unverändert.')
@@ -366,6 +424,6 @@ def discover(selection, fetch=query_osm):
     data = dict(schemaVersion=1, project=dict(id=identity, city=selection.get('name') or 'Gezeichnetes Gebiet', area=selection.get('area')),
                 source=dict(adapter=ALGORITHM, sha256=digest(raw), osmRetrievedAt=raw.get('osm3s', {}).get('timestamp_osm_base'),
                             retrievedAt=datetime.now(timezone.utc).isoformat(), attribution='© OpenStreetMap-Mitwirkende, ODbL',
-                            query=query, selection=selection, rejected=rejected), sites=sites)
+                            query=query, selection=selection, rejected=rejected, osmSource=origin), sites=sites)
     validate_dataset(data)
     return data, raw

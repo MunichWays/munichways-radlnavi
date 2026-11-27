@@ -1,0 +1,37 @@
+{
+  "standard": true,
+  "passed": 14,
+  "attempted": 15,
+  "rightVerified": 7,
+  "rightAttempted": 7,
+  "excluded": [],
+  "connectors": [],
+  "issues": [],
+  "variants": {
+    "exit": [
+      [
+        "Exit-4",
+        "Exit-5"
+      ]
+    ],
+    "entry": [
+      [
+        "Entry-5",
+        "Entry-6"
+      ]
+    ]
+  },
+  "bypassingRights": [
+    {
+      "entryLabel": "Entry-6",
+      "exitLabel": "Exit-3"
+    }
+  ],
+  "coveredByVariant": [
+    {
+      "entryLabel": "Entry-4",
+      "exitLabel": "Exit-4",
+      "partner": "Exit-5"
+    }
+  ]
+}

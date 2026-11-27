@@ -2,7 +2,7 @@ import React from 'react';
 import {fireEvent, render, screen} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PublicJunctionReview from './PublicJunctionReview';
-import {filterPublicJunctions, parsePublicJunctions} from './publicJunctions';
+import {filterPublicJunctions, groupPublicJunctions, parsePublicJunctions, viewStatus} from './publicJunctions';
 
 jest.mock('./PublicJunctionMap',()=>()=> <div>Kartenansicht</div>);
 const site = {id:'one',number:1,name:'Romanplatz',origin:[11.5,48.1],polygon:[],gates:[],status:'confirmed',geometryRevision:2,
@@ -13,20 +13,27 @@ test('filters the published snapshot by number, street and status',()=>{
   const parsed=parsePublicJunctions(data);
   expect(filterPublicJunctions(parsed.sites,'K01','all').map(s=>s.number)).toEqual([1]);
   expect(filterPublicJunctions(parsed.sites,'MARS','all').map(s=>s.number)).toEqual([2]);
-  expect(filterPublicJunctions(parsed.sites,'','confirmed')).toHaveLength(1);
+  expect(filterPublicJunctions(parsed.sites,'','checked')).toHaveLength(1);
+  expect(filterPublicJunctions(parsed.sites,'','confirmed')).toHaveLength(0);
   expect(()=>parsePublicJunctions({...data,readOnly:false})).toThrow();
 });
 test('loads details from a read-only snapshot and returns to the filtered list',async()=>{
   render(<PublicJunctionReview/>);
-  fireEvent.click(await screen.findByRole('button',{name:/K1 · Bestätigt/}));
+  fireEvent.click(await screen.findByRole('button',{name:/K1 · Technisch geprüft/}));
   expect(screen.getByRole('heading',{name:'K1 · Romanplatz'})).toBeInTheDocument();
   expect(screen.getByText('Noch nicht live')).toBeInTheDocument();
   expect(window.location.hash).toBe('#K1');
   fireEvent.click(screen.getByRole('button',{name:/Alle Kreuzungen/}));
   fireEvent.change(screen.getByRole('searchbox'),{target:{value:'Mars'}});
-  expect(screen.queryByRole('button',{name:/K1 · Bestätigt/})).not.toBeInTheDocument();
+  expect(screen.queryByRole('button',{name:/K1 · Technisch geprüft/})).not.toBeInTheDocument();
   expect(screen.getByRole('button',{name:/K2 · Ausgeschlossen/})).toBeInTheDocument();
   expect(fetch).toHaveBeenCalledTimes(1);
+});
+test('derives confirmed, technically checked and live',()=>{
+  expect(viewStatus({status:'confirmed',technical:'not-run',deploymentStatus:'unknown'})).toBe('confirmed');
+  expect(viewStatus({status:'confirmed',technical:'8/8 bestanden',deploymentStatus:'branch-ready'})).toBe('checked');
+  expect(viewStatus({status:'confirmed',technical:'8/8 bestanden',deploymentStatus:'live'})).toBe('live');
+  expect(viewStatus({status:'excluded',technical:'x',deploymentStatus:'live'})).toBe('excluded');
 });
 test('handles unavailable published data',async()=>{
   (fetch as jest.Mock).mockResolvedValue({ok:false});
@@ -37,4 +44,39 @@ test('opens a shared junction link',async()=>{
   window.history.replaceState(null,'','#K2');
   render(<PublicJunctionReview/>);
   expect(await screen.findByRole('heading',{name:'K2 · Marsstraße'})).toBeInTheDocument();
+});
+test('groups the list by city and district, unassigned last',async()=>{
+  const district=(id:string,name:string)=>({id,name});
+  const grouped={...data,schemaVersion:2,sites:[
+    {...site,number:3,id:'three',city:'München',district:district('BA04','Schwabing-West')},
+    {...site,number:1,id:'one',city:'München',district:district('BA01','Altstadt-Lehel')},
+    {...site,number:2,id:'two',city:'München',district:null,status:'excluded'},
+    {...site,number:4,id:'four',city:'Augsburg',district:null}]};
+  const groups=groupPublicJunctions(parsePublicJunctions(grouped).sites as any);
+  expect(groups.map(g=>[g.city,g.count,g.districts.map(d=>d.title)])).toEqual([
+    ['München',3,['BA01 · Altstadt-Lehel','BA04 · Schwabing-West','Ohne Stadtbezirk']],
+    ['Augsburg',1,['Ohne Stadtbezirk']]]);
+  (fetch as jest.Mock).mockResolvedValue({ok:true,json:async()=>grouped});
+  const {container}=render(<PublicJunctionReview/>);
+  expect(await screen.findByText('BA04 · Schwabing-West')).toBeInTheDocument();
+  // Several cities: city and district groups start collapsed; München first.
+  const cities=[...container.querySelectorAll('details.junction-city')];
+  expect(cities.map(c=>c.querySelector('summary span')?.textContent)).toEqual(['München','Augsburg']);
+  expect(cities[0].querySelector('summary small')?.textContent).toBe('3');
+  expect(container.querySelectorAll('details[open]')).toHaveLength(0);
+  expect(cities[0].querySelectorAll('details.junction-district')).toHaveLength(3);
+  fireEvent.change(screen.getByRole('searchbox'),{target:{value:'Roman'}});
+  expect(container.querySelectorAll('details[open]').length).toBeGreaterThan(0);
+  expect(screen.getByRole('checkbox',{name:'Stadtbezirke'})).toBeChecked();
+});
+test('a single city starts expanded and counts live junctions',async()=>{
+  const live={...site,city:'München',district:{id:'BA05',name:'Au-Haidhausen'},status:'confirmed',deploymentStatus:'live'};
+  const single={...data,schemaVersion:2,sites:[live,{...live,id:'two',number:2,deploymentStatus:'branch-ready'}]};
+  (fetch as jest.Mock).mockResolvedValue({ok:true,json:async()=>single});
+  const {container}=render(<PublicJunctionReview/>);
+  await screen.findByText('BA05 · Au-Haidhausen');
+  const city=container.querySelector('details.junction-city') as HTMLDetailsElement;
+  expect(city.open).toBe(true);
+  expect(city.querySelector('summary small')?.textContent).toBe('2 · 1 live');
+  expect((container.querySelector('details.junction-district') as HTMLDetailsElement).open).toBe(false);
 });

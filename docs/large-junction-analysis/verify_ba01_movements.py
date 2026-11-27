@@ -68,8 +68,10 @@ def run(collect=False):
             f'in {SOURCE.parent.name}; verified Standard routes.')
         candidate = dict(id=site['id'], name=site['name'], enabled=False,
             polygon={'type': 'Polygon', 'coordinates': [site['polygon']]},
-            armTopology=topology, movements=[], review=dict(status='approved', date=REVIEW_DATE,
+            movements=[], review=dict(status='approved', date=REVIEW_DATE,
             evidence=f'Thomas approved K{site["number"]} v{site["version"]}; {REPORT.name}'))
+        if not site.get('angleClassification'):
+            candidate['armTopology'] = topology
         record = dict(id=site['id'], number=site['number'], geometryRevision=site['version'],
             status='complete', fixtureDirectory=FIXTURES.name, classificationBasis='reviewed-arm-order',
             logicalArms=site['proposedLogicalArms'], gateEvidence=samples, movements=tasks)

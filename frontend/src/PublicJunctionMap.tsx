@@ -1,7 +1,8 @@
-import React, {useEffect, useRef} from 'react';
+import React, {ComponentProps, useEffect, useRef, useState} from 'react';
 import * as leaflet from 'leaflet';
 import type * as Leaflet from '../node_modules/@types/leaflet';
-import {Coordinate, PublicJunction, reviewColors, reviewLabels} from './publicJunctions';
+import DistrictLayer from './DistrictLayer';
+import {Coordinate, PublicJunction, viewColors, viewLabels, viewStatus} from './publicJunctions';
 
 // The installed rotation wrapper recursively re-exports its own declarations.
 // Use the matching upstream declarations for this ordinary Leaflet map.
@@ -9,11 +10,14 @@ const L = leaflet as unknown as typeof Leaflet;
 const latLng = (p: Coordinate): Leaflet.LatLngTuple => [p[1], p[0]];
 function text(value: string) { const span=document.createElement('span'); span.textContent=value; return span; }
 
-export default function PublicJunctionMap({sites, selected, onSelect, position}: {
+type DistrictMap = ComponentProps<typeof DistrictLayer>['map'];
+
+export default function PublicJunctionMap({sites, selected, onSelect, position, showDistricts=true}: {
   sites: PublicJunction[]; selected: PublicJunction | null; onSelect: (site: PublicJunction) => void;
-  position: {point: Coordinate; accuracy: number} | null;
+  position: {point: Coordinate; accuracy: number} | null; showDistricts?: boolean;
 }) {
   const container=useRef<HTMLDivElement>(null), map=useRef<Leaflet.Map | null>(null);
+  const [districtMap,setDistrictMap]=useState<DistrictMap>(null);
   const markers=useRef<Leaflet.LayerGroup>(), details=useRef<Leaflet.LayerGroup>(), location=useRef<Leaflet.LayerGroup>();
   const select=useRef(onSelect); select.current=onSelect;
   useEffect(()=>{
@@ -25,13 +29,15 @@ export default function PublicJunctionMap({sites, selected, onSelect, position}:
     }).addTo(current);
     markers.current=L.layerGroup().addTo(current); details.current=L.layerGroup().addTo(current); location.current=L.layerGroup().addTo(current);
     const observer=new ResizeObserver(()=>current.invalidateSize()); observer.observe(container.current!);
-    return ()=>{observer.disconnect(); current.remove(); map.current=null;};
+    setDistrictMap(current as unknown as DistrictMap);
+    return ()=>{observer.disconnect(); setDistrictMap(null); current.remove(); map.current=null;};
   },[]);
   useEffect(()=>{
     markers.current?.clearLayers();
     sites.forEach(s=>{
-      L.circleMarker(latLng(s.origin),{radius:7,weight:2,color:reviewColors[s.status],fillColor:reviewColors[s.status],fillOpacity:.85})
-        .bindTooltip(text(`K${s.number} · ${s.name} · ${reviewLabels[s.status]}`))
+      const color=viewColors[viewStatus(s)];
+      L.circleMarker(latLng(s.origin),{radius:7,weight:2,color,fillColor:color,fillOpacity:.85})
+        .bindTooltip(text(`K${s.number} · ${s.name} · ${viewLabels[viewStatus(s)]}`))
         .on('click',()=>select.current(s)).addTo(markers.current!);
     });
   },[sites]);
@@ -71,5 +77,8 @@ export default function PublicJunctionMap({sites, selected, onSelect, position}:
       .bindTooltip(text('Mein Standort')).addTo(location.current!);
     map.current.setView(latLng(position.point),17);
   },[position]);
-  return <div ref={container} className="junction-map" aria-label="Karte der Kreuzungen" />;
+  return <div className="junction-map-wrap">
+    <div ref={container} className="junction-map" aria-label="Karte der Kreuzungen" />
+    <div className="junction-map-status"><DistrictLayer map={districtMap} visible={showDistricts}/></div>
+  </div>;
 }

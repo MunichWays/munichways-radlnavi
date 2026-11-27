@@ -122,6 +122,16 @@ def effective_site(base, state):
     if evidence_current and state.get('technicalEvidence'):
         site.setdefault('constraints', {})['normalGuidanceGates'] = evidence.get('normalGuidanceGates', [])
         site['constraints']['technicalMovementExclusions'] = [deepcopy(m) for m in evidence.get('movements', []) if m.get('kind') in ('left', 'straight') and not m.get('enabled')]
+    # Human pair exclusions (guidance decision, not geometry): used at the next
+    # technical freeze and kept separate from the approval fingerprint.
+    exclusions = state.get('movementExclusions', [])
+    site['movementExclusions'] = deepcopy(exclusions)
+    if exclusions:
+        constraints = site.setdefault('constraints', {})
+        known = {(m['entryLabel'], m['exitLabel']) for m in constraints.get('excludedMovements', [])}
+        constraints['excludedMovements'] = deepcopy(constraints.get('excludedMovements', [])) + [
+            dict(entryLabel=m['entryLabel'], exitLabel=m['exitLabel'], reason=m['reason'])
+            for m in exclusions if (m['entryLabel'], m['exitLabel']) not in known]
     site.update(geometryFingerprint=fingerprint, editVersion=state.get('version', 0),
                 geometryRevision=state.get('geometryRevision', base['geometryRevision']),
                 decision=deepcopy(decision), decisionCurrent=current,

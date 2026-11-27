@@ -1,0 +1,342 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              10135110289,
+              1264806486,
+              1341767463,
+              9282760071,
+              2615604365,
+              355963992,
+              1505385756,
+              9282760070,
+              13381825381,
+              1341762627,
+              13968079733
+            ],
+            "distance": [
+              11.78655333,
+              39.58382056,
+              6.548228571,
+              6.511954879,
+              11.95100758,
+              10.20699348,
+              22.90000781,
+              11.84855209,
+              9.164390789,
+              16.99908214
+            ]
+          },
+          "duration": 54.4,
+          "summary": "Orleansstraße",
+          "weight": 123.3,
+          "distance": 147.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    327
+                  ],
+                  "location": [
+                    11.597584,
+                    48.12333
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.597498,
+                    48.123419
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    330
+                  ],
+                  "location": [
+                    11.597196,
+                    48.123712
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597584,
+                    48.12333
+                  ],
+                  [
+                    11.597498,
+                    48.123419
+                  ],
+                  [
+                    11.597196,
+                    48.123712
+                  ],
+                  [
+                    11.597143,
+                    48.123759
+                  ],
+                  [
+                    11.5971,
+                    48.12381
+                  ],
+                  [
+                    11.597017,
+                    48.123902
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 327,
+                "bearing_before": 0,
+                "location": [
+                  11.597584,
+                  48.12333
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 26,
+              "duration": 18.7,
+              "distance": 76.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.597017,
+                    48.123902
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597017,
+                    48.123902
+                  ],
+                  [
+                    11.597131,
+                    48.123953
+                  ],
+                  [
+                    11.597362,
+                    48.124089
+                  ],
+                  [
+                    11.597482,
+                    48.124159
+                  ],
+                  [
+                    11.597575,
+                    48.124213
+                  ],
+                  [
+                    11.597749,
+                    48.124312
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 49,
+                "bearing_before": 327,
+                "location": [
+                  11.597017,
+                  48.123902
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 97.3,
+              "duration": 35.7,
+              "distance": 71.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    230
+                  ],
+                  "location": [
+                    11.597749,
+                    48.124312
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597749,
+                    48.124312
+                  ],
+                  [
+                    11.597749,
+                    48.124312
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 50,
+                "location": [
+                  11.597749,
+                  48.124312
+                ],
+                "type": "arrive"
+              },
+              "name": "Orleansstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.597584,
+            48.12333
+          ],
+          [
+            11.597498,
+            48.123419
+          ],
+          [
+            11.597196,
+            48.123712
+          ],
+          [
+            11.597143,
+            48.123759
+          ],
+          [
+            11.5971,
+            48.12381
+          ],
+          [
+            11.597017,
+            48.123902
+          ],
+          [
+            11.597131,
+            48.123953
+          ],
+          [
+            11.597362,
+            48.124089
+          ],
+          [
+            11.597482,
+            48.124159
+          ],
+          [
+            11.597575,
+            48.124213
+          ],
+          [
+            11.597749,
+            48.124312
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 123.3,
+      "duration": 54.4,
+      "distance": 147.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "3JEAgP___39GAAAAZAAAAPMAAAAAAAAAtXjiQbmVPEG6qcFCAAAAADgAAABQAAAAwgAAAAAAAAC1AgAAEPewAMJN3gIQ97AAwk3eAggAfxQAAAAA",
+      "location": [
+        11.597584,
+        48.12333
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "O5IAgAORGYB6AAAAIQAAAAAAAAAAAAAAH_6HQYE9kUAAAAAAAAAAAB4AAAAJAAAAAAAAAAAAAAC1AgAAtfewAJhR3gK197AAmFHeAgAAHwMAAAAA",
+      "location": [
+        11.597749,
+        48.124312
+      ],
+      "name": "Orleansstraße",
+      "distance": 0
+    }
+  ]
+}

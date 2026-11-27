@@ -1,0 +1,353 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3837359086,
+              1570276064,
+              4510631821,
+              1045974824,
+              4510631822,
+              1045974445,
+              3685725911,
+              4510631823,
+              1045974733,
+              8983401800
+            ],
+            "distance": [
+              22.55809521,
+              21.75639057,
+              6.767908648,
+              4.498918888,
+              8.228671807,
+              14.2329912,
+              7.78675801,
+              4.536405707,
+              13.24897243
+            ]
+          },
+          "duration": 24.6,
+          "summary": "Englschalkinger Straße, Freischützstraße",
+          "weight": 54.5,
+          "distance": 103.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    263
+                  ],
+                  "location": [
+                    11.642742,
+                    48.156957
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.642742,
+                    48.156957
+                  ],
+                  [
+                    11.642441,
+                    48.156932
+                  ],
+                  [
+                    11.64215,
+                    48.156912
+                  ],
+                  [
+                    11.642059,
+                    48.156912
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 263,
+                "bearing_before": 0,
+                "location": [
+                  11.642742,
+                  48.156957
+                ],
+                "type": "depart"
+              },
+              "name": "Englschalkinger Straße",
+              "mode": "cycling",
+              "weight": 31.1,
+              "duration": 14.2,
+              "distance": 51.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270,
+                    345
+                  ],
+                  "location": [
+                    11.642059,
+                    48.156912
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.642023,
+                    48.157019
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.642024,
+                    48.157147
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.642039,
+                    48.157257
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.642059,
+                    48.156912
+                  ],
+                  [
+                    11.642024,
+                    48.156945
+                  ],
+                  [
+                    11.642023,
+                    48.157019
+                  ],
+                  [
+                    11.642024,
+                    48.157147
+                  ],
+                  [
+                    11.642027,
+                    48.157217
+                  ],
+                  [
+                    11.642039,
+                    48.157257
+                  ],
+                  [
+                    11.642048,
+                    48.157376
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 343,
+                "bearing_before": 268,
+                "location": [
+                  11.642059,
+                  48.156912
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Freischützstraße",
+              "mode": "cycling",
+              "weight": 23.4,
+              "duration": 10.4,
+              "distance": 52.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    183
+                  ],
+                  "location": [
+                    11.642048,
+                    48.157376
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.642048,
+                    48.157376
+                  ],
+                  [
+                    11.642048,
+                    48.157376
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 3,
+                "location": [
+                  11.642048,
+                  48.157376
+                ],
+                "type": "arrive"
+              },
+              "name": "Freischützstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.642742,
+            48.156957
+          ],
+          [
+            11.642441,
+            48.156932
+          ],
+          [
+            11.64215,
+            48.156912
+          ],
+          [
+            11.642059,
+            48.156912
+          ],
+          [
+            11.642024,
+            48.156945
+          ],
+          [
+            11.642023,
+            48.157019
+          ],
+          [
+            11.642024,
+            48.157147
+          ],
+          [
+            11.642027,
+            48.157217
+          ],
+          [
+            11.642039,
+            48.157257
+          ],
+          [
+            11.642048,
+            48.157376
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 54.5,
+      "duration": 24.6,
+      "distance": 103.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "EKwCgP___38hAAAAkQAAAJMAAACMAAAAel3cQPt2tEFXme1BwzHkQQ8AAABBAAAAQgAAAD8AAAC1AgAAdqexAB3R3gJ2p7EAHdHeAgIAfxAAAAAA",
+      "location": [
+        11.642742,
+        48.156957
+      ],
+      "name": "Englschalkinger Straße",
+      "distance": 0
+    },
+    {
+      "hint": "QhgWgP___387AAAAQgAAAAAAAAAAAAAAy_tTQYd8xz8AAAAAAAAAABoAAAAeAAAAAAAAAAAAAAC1AgAAwKSxAMDS3gLApLEAwNLeAgAALwAAAAAA",
+      "location": [
+        11.642048,
+        48.157376
+      ],
+      "name": "Freischützstraße",
+      "distance": 0
+    }
+  ]
+}

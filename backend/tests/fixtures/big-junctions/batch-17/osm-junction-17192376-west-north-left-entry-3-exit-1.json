@@ -1,0 +1,384 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              6183273007,
+              11111781008,
+              11111781009,
+              3707267037,
+              295283143,
+              17192376,
+              295283084,
+              295283238,
+              3707267053,
+              3707267060,
+              295283087,
+              1216377849
+            ],
+            "distance": [
+              4.468077959,
+              21.83801661,
+              32.98077897,
+              6.108531429,
+              11.61819463,
+              8.596473329,
+              12.68090953,
+              6.673226402,
+              10.961796,
+              34.50736071,
+              9.279381321
+            ]
+          },
+          "duration": 61,
+          "summary": "Albert-Roßhaupter-Straße, Albert-Roßhaupter-Straße",
+          "weight": 113.6,
+          "distance": 159.7,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    89
+                  ],
+                  "location": [
+                    11.532621,
+                    48.116746
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.532621,
+                    48.116746
+                  ],
+                  [
+                    11.532681,
+                    48.116747
+                  ],
+                  [
+                    11.532923,
+                    48.116858
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 89,
+                "bearing_before": 0,
+                "location": [
+                  11.532621,
+                  48.116746
+                ],
+                "type": "depart"
+              },
+              "name": "Albert-Roßhaupter-Straße",
+              "mode": "cycling",
+              "weight": 13.1,
+              "duration": 6.5,
+              "distance": 26.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    90,
+                    240,
+                    270
+                  ],
+                  "location": [
+                    11.532923,
+                    48.116858
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270,
+                    330
+                  ],
+                  "location": [
+                    11.533604,
+                    48.116866
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "maneuver": {
+                "bearing_after": 88,
+                "bearing_before": 54,
+                "location": [
+                  11.532923,
+                  48.116858
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.532923,
+                    48.116858
+                  ],
+                  [
+                    11.533366,
+                    48.116861
+                  ],
+                  [
+                    11.533448,
+                    48.116863
+                  ],
+                  [
+                    11.533604,
+                    48.116866
+                  ],
+                  [
+                    11.533719,
+                    48.116873
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "ref": "St 2343",
+              "name": "Albert-Roßhaupter-Straße",
+              "mode": "cycling",
+              "weight": 82.1,
+              "duration": 39.8,
+              "distance": 59.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    15,
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.533719,
+                    48.116873
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.533719,
+                    48.116873
+                  ],
+                  [
+                    11.533742,
+                    48.116986
+                  ],
+                  [
+                    11.53374,
+                    48.117046
+                  ],
+                  [
+                    11.533756,
+                    48.117144
+                  ],
+                  [
+                    11.533799,
+                    48.117453
+                  ],
+                  [
+                    11.533829,
+                    48.117534
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 7,
+                "bearing_before": 84,
+                "location": [
+                  11.533719,
+                  48.116873
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 18.4,
+              "duration": 14.7,
+              "distance": 74.1
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    194
+                  ],
+                  "location": [
+                    11.533829,
+                    48.117534
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.533829,
+                    48.117534
+                  ],
+                  [
+                    11.533829,
+                    48.117534
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 14,
+                "location": [
+                  11.533829,
+                  48.117534
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.532621,
+            48.116746
+          ],
+          [
+            11.532681,
+            48.116747
+          ],
+          [
+            11.532923,
+            48.116858
+          ],
+          [
+            11.533366,
+            48.116861
+          ],
+          [
+            11.533448,
+            48.116863
+          ],
+          [
+            11.533604,
+            48.116866
+          ],
+          [
+            11.533719,
+            48.116873
+          ],
+          [
+            11.533742,
+            48.116986
+          ],
+          [
+            11.53374,
+            48.117046
+          ],
+          [
+            11.533756,
+            48.117144
+          ],
+          [
+            11.533799,
+            48.117453
+          ],
+          [
+            11.533829,
+            48.117534
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 113.6,
+      "duration": 61,
+      "distance": 159.7
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "pVkvgP___38UAAAAHQAAAAAAAAAAAAAAqp4fQX_6jkAAAAAAAAAAABQAAAAdAAAAAAAAAAAAAAC1AgAATfmvAAo03gJN-a8ACjTeAgAAnwUAAAAA",
+      "location": [
+        11.532621,
+        48.116746
+      ],
+      "name": "Albert-Roßhaupter-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "tScBgP___38WAAAAKAAAAKIAAAAVAAAAWXgUQbNo3ECHpYFCq3YHQRIAAAAgAAAAgQAAABEAAAC1AgAABf6vAB433gIF_q8AHjfeAggA7wAAAAAA",
+      "location": [
+        11.533829,
+        48.117534
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

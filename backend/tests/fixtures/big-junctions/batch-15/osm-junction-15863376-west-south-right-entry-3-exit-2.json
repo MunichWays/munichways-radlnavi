@@ -1,0 +1,311 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3702463034,
+              262128545,
+              4790116821,
+              4790116826,
+              262104921,
+              13710672264,
+              3944674389,
+              1304350270,
+              13381891250,
+              2120574352
+            ],
+            "distance": [
+              35.19648079,
+              30.51625281,
+              5.223795998,
+              4.145829906,
+              9.676137496,
+              1.782057111,
+              15.88243021,
+              20.14170972,
+              21.34568208
+            ]
+          },
+          "duration": 48.9,
+          "summary": "Regerplatz, Gebsattelstraße",
+          "weight": 89.6,
+          "distance": 143.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    50
+                  ],
+                  "location": [
+                    11.588266,
+                    48.124364
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    120,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.588947,
+                    48.12474
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.588266,
+                    48.124364
+                  ],
+                  [
+                    11.58863,
+                    48.124566
+                  ],
+                  [
+                    11.588947,
+                    48.12474
+                  ],
+                  [
+                    11.589001,
+                    48.12477
+                  ],
+                  [
+                    11.589048,
+                    48.12479
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 50,
+                "bearing_before": 0,
+                "location": [
+                  11.588266,
+                  48.124364
+                ],
+                "type": "depart"
+              },
+              "name": "Regerplatz",
+              "mode": "cycling",
+              "weight": 27.7,
+              "duration": 19.4,
+              "distance": 75.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.589048,
+                    48.12479
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589048,
+                    48.12479
+                  ],
+                  [
+                    11.589121,
+                    48.124718
+                  ],
+                  [
+                    11.589135,
+                    48.124705
+                  ],
+                  [
+                    11.589253,
+                    48.124586
+                  ],
+                  [
+                    11.589409,
+                    48.124438
+                  ],
+                  [
+                    11.589574,
+                    48.124281
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 144,
+                "bearing_before": 53,
+                "location": [
+                  11.589048,
+                  48.12479
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "Gebsattelstraße",
+              "mode": "cycling",
+              "weight": 61.9,
+              "duration": 29.5,
+              "distance": 68.8
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    325
+                  ],
+                  "location": [
+                    11.589574,
+                    48.124281
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589574,
+                    48.124281
+                  ],
+                  [
+                    11.589574,
+                    48.124281
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 145,
+                "location": [
+                  11.589574,
+                  48.124281
+                ],
+                "type": "arrive"
+              },
+              "name": "Gebsattelstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.588266,
+            48.124364
+          ],
+          [
+            11.58863,
+            48.124566
+          ],
+          [
+            11.588947,
+            48.12474
+          ],
+          [
+            11.589001,
+            48.12477
+          ],
+          [
+            11.589048,
+            48.12479
+          ],
+          [
+            11.589121,
+            48.124718
+          ],
+          [
+            11.589135,
+            48.124705
+          ],
+          [
+            11.589253,
+            48.124586
+          ],
+          [
+            11.589409,
+            48.124438
+          ],
+          [
+            11.589574,
+            48.124281
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 89.6,
+      "duration": 48.9,
+      "distance": 143.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "iVIZgP___38ZAAAAcgAAAAAAAABMAAAAID8mQTLJDEIAAAAASSH0QRQAAABbAAAAAAAAAD0AAAC1AgAAqtKwAMxR3gKq0rAAzFHeAgAALwMAAAAA",
+      "location": [
+        11.588266,
+        48.124364
+      ],
+      "name": "Regerplatz",
+      "distance": 0
+    },
+    {
+      "hint": "KFIZgFBSGYBnAAAAVgAAAF4AAAAVAgAAjC7QQfXDqkE9D71B6u09Qi4AAAAnAAAAKgAAAAABAAC1AgAAxtewAHlR3gLG17AAeVHeAgQATxQAAAAA",
+      "location": [
+        11.589574,
+        48.124281
+      ],
+      "name": "Gebsattelstraße",
+      "distance": 0
+    }
+  ]
+}

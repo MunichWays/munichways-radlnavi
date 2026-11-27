@@ -1,0 +1,248 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1638046421,
+              3695123630,
+              764705257,
+              3695123628,
+              1638046341,
+              1348718172
+            ],
+            "distance": [
+              36.40967037,
+              13.71995825,
+              6.640813762,
+              8.815716518,
+              40.03631317
+            ]
+          },
+          "duration": 23.1,
+          "summary": "Würmtalstraße",
+          "weight": 51,
+          "distance": 105.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    91
+                  ],
+                  "location": [
+                    11.501454,
+                    48.111975
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.501454,
+                    48.111975
+                  ],
+                  [
+                    11.501943,
+                    48.111969
+                  ],
+                  [
+                    11.502127,
+                    48.111962
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 91,
+                "bearing_before": 0,
+                "location": [
+                  11.501454,
+                  48.111975
+                ],
+                "type": "depart"
+              },
+              "name": "Würmtalstraße",
+              "mode": "cycling",
+              "weight": 26.4,
+              "duration": 12,
+              "distance": 50.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    150,
+                    270
+                  ],
+                  "location": [
+                    11.502127,
+                    48.111962
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.502127,
+                    48.111962
+                  ],
+                  [
+                    11.502178,
+                    48.111913
+                  ],
+                  [
+                    11.502188,
+                    48.111834
+                  ],
+                  [
+                    11.502178,
+                    48.111474
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 154,
+                "bearing_before": 92,
+                "location": [
+                  11.502127,
+                  48.111962
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 24.6,
+              "duration": 11.1,
+              "distance": 55.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    1
+                  ],
+                  "location": [
+                    11.502178,
+                    48.111474
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.502178,
+                    48.111474
+                  ],
+                  [
+                    11.502178,
+                    48.111474
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 181,
+                "location": [
+                  11.502178,
+                  48.111474
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.501454,
+            48.111975
+          ],
+          [
+            11.501943,
+            48.111969
+          ],
+          [
+            11.502127,
+            48.111962
+          ],
+          [
+            11.502178,
+            48.111913
+          ],
+          [
+            11.502188,
+            48.111834
+          ],
+          [
+            11.502178,
+            48.111474
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 51,
+      "duration": 23.1,
+      "distance": 105.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "0SYAgP___39jBwAABQgAAPkAAAA9AAAAgrjUQ4GjEUKgh2BC84RbQVMDAACcAwAAcAAAABsAAAC1AgAAjn-vAGch3gKOf68AZiHeAgIArwUAAAAA",
+      "location": [
+        11.501454,
+        48.111975
+      ],
+      "name": "Würmtalstraße",
+      "distance": 0.1111927541
+    },
+    {
+      "hint": "MSsAgP___3-xAAAAXwUAAEUAAAAAAAAALyUgQjefhkPzTXdBAAAAAFAAAABrAgAAHwAAAAAAAAC1AgAAYoKvAHIf3gJigq8Ach_eAgQAXwsAAAAA",
+      "location": [
+        11.502178,
+        48.111474
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

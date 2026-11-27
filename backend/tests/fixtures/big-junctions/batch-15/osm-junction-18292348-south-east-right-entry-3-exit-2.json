@@ -1,0 +1,422 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              11250282306,
+              1670330688,
+              609807996,
+              13372342124,
+              201741328,
+              6816818776,
+              6475552594,
+              1670330693,
+              3787601475,
+              2214711683,
+              643082092,
+              1097998511,
+              4709597651,
+              4190359368,
+              2214481212
+            ],
+            "distance": [
+              1.834299227,
+              7.302368823,
+              17.07891033,
+              2.133545118,
+              7.42319315,
+              6.832012365,
+              1.45315353,
+              0.4466694171,
+              1.21170065,
+              10.31706964,
+              4.404898193,
+              7.31675352,
+              32.37808671,
+              16.7869693
+            ]
+          },
+          "duration": 49.9,
+          "summary": "Max-Weber-Platz",
+          "weight": 92.7,
+          "distance": 116.9,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    14
+                  ],
+                  "location": [
+                    11.597798,
+                    48.135175
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597798,
+                    48.135175
+                  ],
+                  [
+                    11.597804,
+                    48.135191
+                  ],
+                  [
+                    11.597826,
+                    48.135255
+                  ],
+                  [
+                    11.597859,
+                    48.135407
+                  ],
+                  [
+                    11.597863,
+                    48.135426
+                  ],
+                  [
+                    11.597878,
+                    48.135492
+                  ],
+                  [
+                    11.597889,
+                    48.135553
+                  ],
+                  [
+                    11.597891,
+                    48.135566
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 14,
+                "bearing_before": 0,
+                "location": [
+                  11.597798,
+                  48.135175
+                ],
+                "type": "depart"
+              },
+              "name": "Max-Weber-Platz",
+              "mode": "cycling",
+              "weight": 72.3,
+              "duration": 35.3,
+              "distance": 44.1
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.597891,
+                    48.135566
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    195,
+                    285
+                  ],
+                  "location": [
+                    11.59805,
+                    48.13555
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    270
+                  ],
+                  "location": [
+                    11.598109,
+                    48.135547
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    180,
+                    270
+                  ],
+                  "location": [
+                    11.598207,
+                    48.135542
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    90,
+                    255,
+                    270
+                  ],
+                  "location": [
+                    11.598641,
+                    48.135523
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.597891,
+                    48.135566
+                  ],
+                  [
+                    11.597897,
+                    48.135566
+                  ],
+                  [
+                    11.597913,
+                    48.135564
+                  ],
+                  [
+                    11.59805,
+                    48.13555
+                  ],
+                  [
+                    11.598109,
+                    48.135547
+                  ],
+                  [
+                    11.598207,
+                    48.135542
+                  ],
+                  [
+                    11.598641,
+                    48.135523
+                  ],
+                  [
+                    11.598866,
+                    48.135513
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 98,
+                "bearing_before": 8,
+                "location": [
+                  11.597891,
+                  48.135566
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 20.4,
+              "duration": 14.6,
+              "distance": 72.9
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    274
+                  ],
+                  "location": [
+                    11.598866,
+                    48.135513
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.598866,
+                    48.135513
+                  ],
+                  [
+                    11.598866,
+                    48.135513
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 94,
+                "location": [
+                  11.598866,
+                  48.135513
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.597798,
+            48.135175
+          ],
+          [
+            11.597804,
+            48.135191
+          ],
+          [
+            11.597826,
+            48.135255
+          ],
+          [
+            11.597859,
+            48.135407
+          ],
+          [
+            11.597863,
+            48.135426
+          ],
+          [
+            11.597878,
+            48.135492
+          ],
+          [
+            11.597889,
+            48.135553
+          ],
+          [
+            11.597891,
+            48.135566
+          ],
+          [
+            11.597897,
+            48.135566
+          ],
+          [
+            11.597913,
+            48.135564
+          ],
+          [
+            11.59805,
+            48.13555
+          ],
+          [
+            11.598109,
+            48.135547
+          ],
+          [
+            11.598207,
+            48.135542
+          ],
+          [
+            11.598641,
+            48.135523
+          ],
+          [
+            11.598866,
+            48.135513
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 92.7,
+      "duration": 49.9,
+      "distance": 116.9
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ExkDgBQZA4AAAAAACAAAAAsAAAD_AQAAviRwPlHK6j8heCpAiuQoQgAAAAAEAAAABQAAAPcAAAC1AgAA5vewAAd83gLm97AAB3zeAgIA7wAAAAAA",
+      "location": [
+        11.597798,
+        48.135175
+      ],
+      "name": "Max-Weber-Platz",
+      "distance": 0
+    },
+    {
+      "hint": "IhkDgP___38pAAAARwAAAAAAAAAAAAAAt0uGQTk7OkEAAAAAAAAAACEAAAA5AAAAAAAAAAAAAAC1AgAAEvywAFl93gIS_LAAWX3eAgAA3wUAAAAA",
+      "location": [
+        11.598866,
+        48.135513
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

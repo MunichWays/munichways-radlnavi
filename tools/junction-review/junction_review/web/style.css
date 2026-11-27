@@ -45,6 +45,8 @@ main { min-width: 0; width: 100%; padding: 14px 18px; margin: 0 auto; }
 .eyebrow { color: var(--purple); font-size: 10px; font-weight: 700; letter-spacing: 1px; margin: 0 0 4px; }
 .badge { white-space: nowrap; background: #ece6f2; color: #65497d; border-radius: 20px; padding: 7px 12px; font-size: 12px; }
 .badge.confirmed { background: #e2f1e9; color: #226548; }
+.badge.checked { background: #e1edf6; color: #1d5f8c; }
+.badge.live { background: #f8e1ee; color: #b0127a; }
 .badge.deferred { background: #fff0c9; color: #7d610e; }
 .badge.excluded { background: #eae8eb; color: #625d68; }
 .stage-status { display: flex; flex-wrap: wrap; gap: 6px 20px; color: #756d7f; font-size: 11px; margin-bottom: 10px; }
@@ -59,7 +61,7 @@ main { min-width: 0; width: 100%; padding: 14px 18px; margin: 0 auto; }
 .map-tools button[aria-pressed="true"] { background: #eee6f5; border-color: #ae8acb; }
 .map-attribution { position: absolute; bottom: 0; right: 0; background: #fffffff0; padding: 3px 6px; font-size: 10px; }
 .map-attribution a { color: #4e5263; }
-.tile-notice { position: absolute; bottom: 25px; left: 10px; right: 10px; width: fit-content; background: #fffffff0; padding: 6px 9px; border-radius: 4px; font-size: 11px; color: #765e33; }
+.tile-notice { position: absolute; bottom: 65px; left: 10px; right: 10px; width: fit-content; background: #fffffff0; padding: 6px 9px; border-radius: 4px; font-size: 11px; color: #765e33; }
 .osm-background .road-overlay { visibility: hidden; }
 .osm-background .cycleway-overlay { opacity: .65; }
 .map-caption { font-size: 11px; color: #77717e; margin: 9px 0 21px; }
@@ -117,3 +119,11 @@ body.sidebar-collapsed #toggle-sidebar { left:0; }
 #dismiss-message { padding:2px 9px; font-size:22px; flex-shrink:0; }
 @media(max-width:1050px) { #toggle-sidebar { left:234px; } }
 @media(max-width:720px) { #toggle-sidebar { left:0; top:150px; } }
+
+.map-district-toggle { position:absolute; right:0; bottom:24px; margin:0; display:flex; align-items:center; gap:6px; padding:6px 8px; background:#fffffff0; color:#800080; font-size:12px; cursor:pointer; border-radius:5px 0 0 5px; }
+.map-district-toggle input { width:auto; margin:0; accent-color:#800080; }
+
+/* Technical check from the app */
+.technical h4 { margin: 18px 0 6px; font-size: 13px; }
+.technical-standard { font-size: 13px; background: #e2f3ea; color: #1d5a3d; padding: 12px; }
+.exclusion-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--line); }

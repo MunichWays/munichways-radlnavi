@@ -1,0 +1,3374 @@
+{
+  "project": {
+    "id": "ba01-ba03-technical",
+    "city": "München"
+  },
+  "source": {
+    "frozenAt": "2026-11-27T16:49:56.612228+00:00",
+    "note": "Report-only numbers >=101; original project numbering unchanged."
+  },
+  "sites": [
+    {
+      "id": "osm-junction-26125663",
+      "number": 900,
+      "name": "Höglwörther Straße / Murnauer Straße",
+      "origin": [
+        11.522443599999999,
+        48.10679915
+      ],
+      "geometryRevision": 1,
+      "polygon": [
+        [
+          11.522443599999999,
+          48.107086609576
+        ],
+        [
+          11.5226083427459,
+          48.10706472801869
+        ],
+        [
+          11.522748004902134,
+          48.10700241461551
+        ],
+        [
+          11.522841324171456,
+          48.10690915601721
+        ],
+        [
+          11.522874093541052,
+          48.10679915
+        ],
+        [
+          11.522841324171456,
+          48.10668914398279
+        ],
+        [
+          11.522748004902134,
+          48.10659588538449
+        ],
+        [
+          11.5226083427459,
+          48.10653357198131
+        ],
+        [
+          11.522443599999999,
+          48.106511690424
+        ],
+        [
+          11.522278857254099,
+          48.10653357198131
+        ],
+        [
+          11.522139195097864,
+          48.10659588538449
+        ],
+        [
+          11.522045875828542,
+          48.10668914398279
+        ],
+        [
+          11.522013106458946,
+          48.10679915
+        ],
+        [
+          11.522045875828542,
+          48.10690915601721
+        ],
+        [
+          11.522139195097864,
+          48.10700241461551
+        ],
+        [
+          11.522278857254099,
+          48.10706472801869
+        ],
+        [
+          11.522443599999999,
+          48.107086609576
+        ]
+      ],
+      "gates": [
+        {
+          "kind": "entry",
+          "location": [
+            11.522714432084777,
+            48.1070173938809
+          ],
+          "osmWayId": 875859966,
+          "forward": [
+            -0.8164894232650186,
+            -0.5773603915201989
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-1",
+          "id": "entry-1"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.522841926781116,
+            48.10690713307049
+          ],
+          "osmWayId": 25463713,
+          "forward": [
+            0.8099321947331451,
+            0.586523520359372
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-1",
+          "id": "exit-1"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.522792159319968,
+            48.10664001109557
+          ],
+          "osmWayId": 158652689,
+          "forward": [
+            -0.4708215379778016,
+            0.8822284734558377
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-2",
+          "id": "entry-2"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.522440042456303,
+            48.106512162946146
+          ],
+          "osmWayId": 158652679,
+          "forward": [
+            0.46408245886824884,
+            -0.8857920023181514
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-2",
+          "id": "exit-2"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.522152791012363,
+            48.106589819262325
+          ],
+          "osmWayId": 155337384,
+          "forward": [
+            0.824746686514947,
+            0.5655023457799406
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-3",
+          "id": "entry-3"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.522040330283781,
+            48.106707760248526
+          ],
+          "osmWayId": 34967748,
+          "forward": [
+            -0.8160221583789271,
+            -0.5780206199043398
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-3",
+          "id": "exit-3"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.522074796094834,
+            48.106938057481145
+          ],
+          "osmWayId": 58578849,
+          "forward": [
+            0.49509708506840533,
+            -0.8688376582289514
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-4",
+          "id": "entry-4"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.522409590408936,
+            48.10708209233422
+          ],
+          "osmWayId": 158658174,
+          "forward": [
+            -0.49787987155993035,
+            0.8672460051770012
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-4",
+          "id": "exit-4"
+        }
+      ],
+      "geometryMode": "editable",
+      "logicalArms": {
+        "Arm-1": [
+          "Entry-1",
+          "Exit-1"
+        ],
+        "Arm-2": [
+          "Entry-2",
+          "Exit-2"
+        ],
+        "Arm-3": [
+          "Entry-3",
+          "Exit-3"
+        ],
+        "Arm-4": [
+          "Entry-4",
+          "Exit-4"
+        ]
+      },
+      "ways": [
+        {
+          "id": 4333414,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "no",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Murnauer Straße",
+            "name:etymology:wikidata": "Q254356",
+            "oneway": "yes",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "tmc": "DE:35471/35472",
+            "wikidata": "Q135277847"
+          },
+          "geometry": [
+            {
+              "lon": 11.5207448,
+              "lat": 48.1086163
+            },
+            {
+              "lon": 11.5208353,
+              "lat": 48.1085211
+            },
+            {
+              "lon": 11.5212017,
+              "lat": 48.1081186
+            },
+            {
+              "lon": 11.5215981,
+              "lat": 48.1076623
+            },
+            {
+              "lon": 11.5222547,
+              "lat": 48.106926
+            },
+            {
+              "lon": 11.5223245,
+              "lat": 48.1068431
+            },
+            {
+              "lon": 11.5223849,
+              "lat": 48.1067713
+            }
+          ]
+        },
+        {
+          "id": 4340052,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "no",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Murnauer Straße",
+            "name:etymology:wikidata": "Q254356",
+            "oneway": "yes",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "tmc": "DE:35470/35471",
+            "wikidata": "Q135277847"
+          },
+          "geometry": [
+            {
+              "lon": 11.5243807,
+              "lat": 48.1021926
+            },
+            {
+              "lon": 11.5243851,
+              "lat": 48.1022364
+            },
+            {
+              "lon": 11.5243966,
+              "lat": 48.1023295
+            },
+            {
+              "lon": 11.5244181,
+              "lat": 48.1025026
+            },
+            {
+              "lon": 11.5244457,
+              "lat": 48.102818
+            },
+            {
+              "lon": 11.5244466,
+              "lat": 48.1028736
+            },
+            {
+              "lon": 11.5244473,
+              "lat": 48.1029135
+            },
+            {
+              "lon": 11.5244519,
+              "lat": 48.1031849
+            },
+            {
+              "lon": 11.5244326,
+              "lat": 48.1034584
+            },
+            {
+              "lon": 11.5243747,
+              "lat": 48.103885
+            },
+            {
+              "lon": 11.5242395,
+              "lat": 48.104308
+            },
+            {
+              "lon": 11.5240231,
+              "lat": 48.10481
+            },
+            {
+              "lon": 11.5239094,
+              "lat": 48.1050195
+            },
+            {
+              "lon": 11.5236118,
+              "lat": 48.1054933
+            },
+            {
+              "lon": 11.5234189,
+              "lat": 48.1057365
+            },
+            {
+              "lon": 11.5230335,
+              "lat": 48.1062086
+            },
+            {
+              "lon": 11.5226839,
+              "lat": 48.106616
+            },
+            {
+              "lon": 11.5226223,
+              "lat": 48.1066876
+            },
+            {
+              "lon": 11.5225475,
+              "lat": 48.1067746
+            },
+            {
+              "lon": 11.5225023,
+              "lat": 48.106827
+            }
+          ]
+        },
+        {
+          "id": 4369375,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Seehauser Straße",
+            "sidewalk": "both",
+            "surface": "asphalt",
+            "wikidata": "Q138763734"
+          },
+          "geometry": [
+            {
+              "lon": 11.5191071,
+              "lat": 48.1067586
+            },
+            {
+              "lon": 11.5191708,
+              "lat": 48.106759
+            },
+            {
+              "lon": 11.5195806,
+              "lat": 48.1067618
+            },
+            {
+              "lon": 11.5196895,
+              "lat": 48.1067757
+            },
+            {
+              "lon": 11.5197914,
+              "lat": 48.1068193
+            },
+            {
+              "lon": 11.5198838,
+              "lat": 48.1068622
+            },
+            {
+              "lon": 11.5202414,
+              "lat": 48.1070282
+            },
+            {
+              "lon": 11.5206527,
+              "lat": 48.1072253
+            },
+            {
+              "lon": 11.5207076,
+              "lat": 48.1072516
+            },
+            {
+              "lon": 11.520787,
+              "lat": 48.1072876
+            },
+            {
+              "lon": 11.5211841,
+              "lat": 48.1074679
+            },
+            {
+              "lon": 11.5215002,
+              "lat": 48.1076114
+            },
+            {
+              "lon": 11.5215981,
+              "lat": 48.1076623
+            }
+          ]
+        },
+        {
+          "id": 4393227,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Kuhfluchtstraße",
+            "sidewalk": "both",
+            "surface": "asphalt",
+            "wikidata": "Q138763660"
+          },
+          "geometry": [
+            {
+              "lon": 11.5199037,
+              "lat": 48.1081675
+            },
+            {
+              "lon": 11.5199499,
+              "lat": 48.1081426
+            },
+            {
+              "lon": 11.52068,
+              "lat": 48.107284
+            },
+            {
+              "lon": 11.5207076,
+              "lat": 48.1072516
+            }
+          ]
+        },
+        {
+          "id": 4401835,
+          "tags": {
+            "bicycle": "yes",
+            "foot": "yes",
+            "highway": "footway",
+            "horse": "no",
+            "lit": "yes",
+            "name": "Schottenloherweg",
+            "surface": "asphalt",
+            "wikidata": "Q138763729"
+          },
+          "geometry": [
+            {
+              "lon": 11.5236118,
+              "lat": 48.1054933
+            },
+            {
+              "lon": 11.5237279,
+              "lat": 48.105531
+            },
+            {
+              "lon": 11.523761,
+              "lat": 48.1055418
+            },
+            {
+              "lon": 11.5246186,
+              "lat": 48.1058223
+            },
+            {
+              "lon": 11.5246786,
+              "lat": 48.1058419
+            }
+          ]
+        },
+        {
+          "id": 25463713,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "oneway": "yes",
+            "segregated": "yes",
+            "smoothness": "excellent",
+            "surface": "paving_stones",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5226394,
+              "lat": 48.1068092
+            },
+            {
+              "lon": 11.5233874,
+              "lat": 48.1071709
+            },
+            {
+              "lon": 11.5239129,
+              "lat": 48.1074197
+            },
+            {
+              "lon": 11.5248156,
+              "lat": 48.1078454
+            }
+          ]
+        },
+        {
+          "id": 34967748,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "2",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1.3",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "paved",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5222049,
+              "lat": 48.1067856
+            },
+            {
+              "lon": 11.52147,
+              "lat": 48.106438
+            },
+            {
+              "lon": 11.521236,
+              "lat": 48.1063274
+            },
+            {
+              "lon": 11.5196405,
+              "lat": 48.1055796
+            },
+            {
+              "lon": 11.5195264,
+              "lat": 48.1055261
+            },
+            {
+              "lon": 11.5194437,
+              "lat": 48.1054889
+            },
+            {
+              "lon": 11.5182017,
+              "lat": 48.1049304
+            },
+            {
+              "lon": 11.5181395,
+              "lat": 48.1049024
+            },
+            {
+              "lon": 11.5180815,
+              "lat": 48.1048754
+            },
+            {
+              "lon": 11.5179274,
+              "lat": 48.1048038
+            },
+            {
+              "lon": 11.5171116,
+              "lat": 48.1044245
+            },
+            {
+              "lon": 11.5168718,
+              "lat": 48.104313
+            },
+            {
+              "lon": 11.5161606,
+              "lat": 48.1039861
+            },
+            {
+              "lon": 11.5155582,
+              "lat": 48.1037092
+            },
+            {
+              "lon": 11.5145011,
+              "lat": 48.103219
+            },
+            {
+              "lon": 11.5144093,
+              "lat": 48.1031764
+            },
+            {
+              "lon": 11.5143204,
+              "lat": 48.1031259
+            },
+            {
+              "lon": 11.5138343,
+              "lat": 48.1028496
+            },
+            {
+              "lon": 11.513224,
+              "lat": 48.102505
+            },
+            {
+              "lon": 11.5120418,
+              "lat": 48.1016819
+            },
+            {
+              "lon": 11.5116086,
+              "lat": 48.101383
+            },
+            {
+              "lon": 11.511068,
+              "lat": 48.10101
+            },
+            {
+              "lon": 11.5107979,
+              "lat": 48.1008014
+            },
+            {
+              "lon": 11.5106337,
+              "lat": 48.1006746
+            },
+            {
+              "lon": 11.5103917,
+              "lat": 48.1004877
+            },
+            {
+              "lon": 11.5103261,
+              "lat": 48.100437
+            },
+            {
+              "lon": 11.5102709,
+              "lat": 48.1003858
+            },
+            {
+              "lon": 11.5100443,
+              "lat": 48.1001758
+            },
+            {
+              "lon": 11.5098446,
+              "lat": 48.0999775
+            },
+            {
+              "lon": 11.509829,
+              "lat": 48.0999609
+            },
+            {
+              "lon": 11.5097714,
+              "lat": 48.099908
+            },
+            {
+              "lon": 11.5097075,
+              "lat": 48.0998423
+            },
+            {
+              "lon": 11.5094913,
+              "lat": 48.0995997
+            },
+            {
+              "lon": 11.5093098,
+              "lat": 48.0994113
+            },
+            {
+              "lon": 11.5092855,
+              "lat": 48.0993813
+            },
+            {
+              "lon": 11.5092641,
+              "lat": 48.0993549
+            },
+            {
+              "lon": 11.5089058,
+              "lat": 48.0989257
+            },
+            {
+              "lon": 11.5086004,
+              "lat": 48.0985863
+            },
+            {
+              "lon": 11.5084133,
+              "lat": 48.0983741
+            }
+          ]
+        },
+        {
+          "id": 34967750,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "asphalt",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "segregated": "yes",
+            "smoothness": "good",
+            "source": "survey",
+            "surface": "asphalt",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5225327,
+              "lat": 48.1069389
+            },
+            {
+              "lon": 11.5224405,
+              "lat": 48.1068989
+            },
+            {
+              "lon": 11.5223245,
+              "lat": 48.1068431
+            },
+            {
+              "lon": 11.5222049,
+              "lat": 48.1067856
+            }
+          ]
+        },
+        {
+          "id": 35861313,
+          "tags": {
+            "bicycle": "no",
+            "highway": "path",
+            "surface": "grass"
+          },
+          "geometry": [
+            {
+              "lon": 11.5227801,
+              "lat": 48.1066551
+            },
+            {
+              "lon": 11.5230327,
+              "lat": 48.1067317
+            },
+            {
+              "lon": 11.5231873,
+              "lat": 48.1068245
+            },
+            {
+              "lon": 11.5233289,
+              "lat": 48.1068473
+            },
+            {
+              "lon": 11.5236592,
+              "lat": 48.1070128
+            },
+            {
+              "lon": 11.5240179,
+              "lat": 48.1072448
+            },
+            {
+              "lon": 11.5240526,
+              "lat": 48.1073396
+            },
+            {
+              "lon": 11.5241536,
+              "lat": 48.1073007
+            },
+            {
+              "lon": 11.5242758,
+              "lat": 48.1072828
+            },
+            {
+              "lon": 11.524521,
+              "lat": 48.1073712
+            },
+            {
+              "lon": 11.5247783,
+              "lat": 48.1074185
+            },
+            {
+              "lon": 11.5249757,
+              "lat": 48.1074303
+            },
+            {
+              "lon": 11.5253316,
+              "lat": 48.107513
+            },
+            {
+              "lon": 11.525436,
+              "lat": 48.1075671
+            }
+          ]
+        },
+        {
+          "id": 49198889,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "4",
+            "lit": "yes",
+            "maxspeed": "50",
+            "maxweight": "40",
+            "name": "Höglwörther Straße",
+            "surface": "asphalt",
+            "tmc": "DE:35460",
+            "turn:lanes:backward": "left|through",
+            "turn:lanes:forward": "left|through",
+            "wikidata": "Q117257136",
+            "zone:maxspeed": "DE:urban",
+            "zone:traffic": "DE:urban"
+          },
+          "geometry": [
+            {
+              "lon": 11.5225023,
+              "lat": 48.106827
+            },
+            {
+              "lon": 11.5224251,
+              "lat": 48.1067921
+            },
+            {
+              "lon": 11.5223849,
+              "lat": 48.1067713
+            }
+          ]
+        },
+        {
+          "id": 49198890,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Höglwörther Straße",
+            "note": "Einbahnregelung bis 12. September 2016. https://www.muenchen.de/rathaus/Stadtverwaltung/baureferat/baustellen/baustellenbericht.html",
+            "oneway": "no",
+            "parking:condition:right": "free",
+            "parking:lane:left": "no_parking",
+            "parking:lane:right": "parallel",
+            "sidewalk:both": "separate",
+            "surface": "asphalt",
+            "tmc": "DE:35460/35461",
+            "wikidata": "Q117257136",
+            "zone:maxspeed": "DE:urban",
+            "zone:traffic": "DE:urban"
+          },
+          "geometry": [
+            {
+              "lon": 11.5247746,
+              "lat": 48.1078972
+            },
+            {
+              "lon": 11.5237646,
+              "lat": 48.1074208
+            },
+            {
+              "lon": 11.5233389,
+              "lat": 48.1072209
+            }
+          ]
+        },
+        {
+          "id": 58578849,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "0.8",
+            "foot": "designated",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "traffic_sign": "DE:240;DE:1000-31"
+          },
+          "geometry": [
+            {
+              "lon": 11.519494,
+              "lat": 48.1097208
+            },
+            {
+              "lon": 11.519573,
+              "lat": 48.1096379
+            },
+            {
+              "lon": 11.5197468,
+              "lat": 48.1094764
+            },
+            {
+              "lon": 11.5202263,
+              "lat": 48.1090189
+            },
+            {
+              "lon": 11.5207044,
+              "lat": 48.1084896
+            },
+            {
+              "lon": 11.5214635,
+              "lat": 48.1076519
+            },
+            {
+              "lon": 11.5215002,
+              "lat": 48.1076114
+            },
+            {
+              "lon": 11.5215216,
+              "lat": 48.1075863
+            },
+            {
+              "lon": 11.5222049,
+              "lat": 48.1067856
+            }
+          ]
+        },
+        {
+          "id": 59178139,
+          "tags": {
+            "foot": "yes",
+            "highway": "cycleway",
+            "lit": "yes",
+            "segregated": "no",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5233874,
+              "lat": 48.1071709
+            },
+            {
+              "lon": 11.5233389,
+              "lat": 48.1072209
+            }
+          ]
+        },
+        {
+          "id": 70379369,
+          "tags": {
+            "access": "destination",
+            "check_date:surface": "2020-12-27",
+            "highway": "footway",
+            "lit": "no",
+            "noexit": "yes",
+            "surface": "asphalt",
+            "width": "2"
+          },
+          "geometry": [
+            {
+              "lon": 11.5231555,
+              "lat": 48.1056623
+            },
+            {
+              "lon": 11.5226601,
+              "lat": 48.1055012
+            }
+          ]
+        },
+        {
+          "id": 155039690,
+          "tags": {
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lane_markings": "no",
+            "lit": "yes",
+            "maxspeed:type": "DE:urban",
+            "name": "Heuwinkel",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "asphalt",
+            "surface": "asphalt",
+            "wikidata": "Q138763620"
+          },
+          "geometry": [
+            {
+              "lon": 11.52129,
+              "lat": 48.1062701
+            },
+            {
+              "lon": 11.521236,
+              "lat": 48.1063274
+            },
+            {
+              "lon": 11.5209495,
+              "lat": 48.1066114
+            },
+            {
+              "lon": 11.5208438,
+              "lat": 48.1066832
+            }
+          ]
+        },
+        {
+          "id": 155039692,
+          "tags": {
+            "access": "private",
+            "foot": "designated",
+            "highway": "footway",
+            "lit": "yes",
+            "name": "Kirchgrabnerweg",
+            "segregated": "no",
+            "surface": "asphalt",
+            "wikidata": "Q138763649"
+          },
+          "geometry": [
+            {
+              "lon": 11.5232701,
+              "lat": 48.1083824
+            },
+            {
+              "lon": 11.523292,
+              "lat": 48.1083389
+            },
+            {
+              "lon": 11.5237048,
+              "lat": 48.1075206
+            },
+            {
+              "lon": 11.5237285,
+              "lat": 48.1074923
+            }
+          ]
+        },
+        {
+          "id": 155039693,
+          "tags": {
+            "access": "private",
+            "foot": "designated",
+            "highway": "footway",
+            "lit": "no",
+            "name": "Köglspergerweg",
+            "surface": "asphalt",
+            "wikidata": "Q138763661"
+          },
+          "geometry": [
+            {
+              "lon": 11.5223143,
+              "lat": 48.1081647
+            },
+            {
+              "lon": 11.5223386,
+              "lat": 48.1081184
+            },
+            {
+              "lon": 11.5224648,
+              "lat": 48.1078778
+            },
+            {
+              "lon": 11.5228557,
+              "lat": 48.1071131
+            },
+            {
+              "lon": 11.5228646,
+              "lat": 48.1070883
+            },
+            {
+              "lon": 11.5229001,
+              "lat": 48.1070122
+            }
+          ]
+        },
+        {
+          "id": 155039694,
+          "tags": {
+            "class:bicycle": "1",
+            "highway": "residential",
+            "lane_markings": "no",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Slevogtstraße",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "paving_stones",
+            "surface": "asphalt",
+            "wikidata": "Q138763737"
+          },
+          "geometry": [
+            {
+              "lon": 11.5212442,
+              "lat": 48.1062491
+            },
+            {
+              "lon": 11.5212913,
+              "lat": 48.1061955
+            },
+            {
+              "lon": 11.5214224,
+              "lat": 48.1060382
+            },
+            {
+              "lon": 11.5215029,
+              "lat": 48.1059416
+            },
+            {
+              "lon": 11.5215899,
+              "lat": 48.1058373
+            },
+            {
+              "lon": 11.5219881,
+              "lat": 48.1053597
+            },
+            {
+              "lon": 11.5222463,
+              "lat": 48.1050423
+            },
+            {
+              "lon": 11.5223567,
+              "lat": 48.1048887
+            },
+            {
+              "lon": 11.5224152,
+              "lat": 48.104804
+            },
+            {
+              "lon": 11.5225001,
+              "lat": 48.1046782
+            },
+            {
+              "lon": 11.5226806,
+              "lat": 48.1043116
+            },
+            {
+              "lon": 11.5227444,
+              "lat": 48.1041622
+            },
+            {
+              "lon": 11.5228099,
+              "lat": 48.1039884
+            },
+            {
+              "lon": 11.5228783,
+              "lat": 48.1037129
+            },
+            {
+              "lon": 11.5228871,
+              "lat": 48.103664
+            },
+            {
+              "lon": 11.5229338,
+              "lat": 48.1034551
+            }
+          ]
+        },
+        {
+          "id": 155039697,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Wallmenichstraße",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "paving_stones",
+            "surface": "asphalt",
+            "wikidata": "Q138763756"
+          },
+          "geometry": [
+            {
+              "lon": 11.5233389,
+              "lat": 48.1072209
+            },
+            {
+              "lon": 11.5232835,
+              "lat": 48.107285
+            },
+            {
+              "lon": 11.5229485,
+              "lat": 48.1079867
+            },
+            {
+              "lon": 11.522824,
+              "lat": 48.1082847
+            },
+            {
+              "lon": 11.5225667,
+              "lat": 48.1089948
+            }
+          ]
+        },
+        {
+          "id": 155337384,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "paved",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5180307,
+              "lat": 48.1047031
+            },
+            {
+              "lon": 11.5186918,
+              "lat": 48.1050057
+            },
+            {
+              "lon": 11.5196159,
+              "lat": 48.1054286
+            },
+            {
+              "lon": 11.5200937,
+              "lat": 48.1056473
+            },
+            {
+              "lon": 11.5203465,
+              "lat": 48.105763
+            },
+            {
+              "lon": 11.5209356,
+              "lat": 48.1060327
+            },
+            {
+              "lon": 11.5211014,
+              "lat": 48.1061086
+            },
+            {
+              "lon": 11.5212913,
+              "lat": 48.1061955
+            },
+            {
+              "lon": 11.5216397,
+              "lat": 48.1063549
+            },
+            {
+              "lon": 11.5217495,
+              "lat": 48.1064052
+            },
+            {
+              "lon": 11.5219422,
+              "lat": 48.1064934
+            },
+            {
+              "lon": 11.5223135,
+              "lat": 48.1066634
+            }
+          ]
+        },
+        {
+          "id": 158355751,
+          "tags": {
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Schinnaglstraße",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "paving_stones",
+            "surface": "asphalt",
+            "wikidata": "Q136646405"
+          },
+          "geometry": [
+            {
+              "lon": 11.5215371,
+              "lat": 48.1079433
+            },
+            {
+              "lon": 11.5216385,
+              "lat": 48.1079782
+            },
+            {
+              "lon": 11.5219794,
+              "lat": 48.108072
+            },
+            {
+              "lon": 11.5223143,
+              "lat": 48.1081647
+            },
+            {
+              "lon": 11.5223752,
+              "lat": 48.1081804
+            },
+            {
+              "lon": 11.522824,
+              "lat": 48.1082847
+            },
+            {
+              "lon": 11.5232701,
+              "lat": 48.1083824
+            },
+            {
+              "lon": 11.5232924,
+              "lat": 48.1083877
+            },
+            {
+              "lon": 11.5233078,
+              "lat": 48.1083909
+            },
+            {
+              "lon": 11.523388,
+              "lat": 48.1084077
+            },
+            {
+              "lon": 11.5234384,
+              "lat": 48.1084183
+            },
+            {
+              "lon": 11.5236909,
+              "lat": 48.1084642
+            },
+            {
+              "lon": 11.5239413,
+              "lat": 48.1085051
+            },
+            {
+              "lon": 11.5241487,
+              "lat": 48.1085404
+            },
+            {
+              "lon": 11.5243256,
+              "lat": 48.1085693
+            }
+          ]
+        },
+        {
+          "id": 158652679,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1.7",
+            "foot": "designated",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "no",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "paved"
+          },
+          "geometry": [
+            {
+              "lon": 11.5223135,
+              "lat": 48.1066634
+            },
+            {
+              "lon": 11.5223836,
+              "lat": 48.1065841
+            },
+            {
+              "lon": 11.5225712,
+              "lat": 48.106345
+            },
+            {
+              "lon": 11.5227778,
+              "lat": 48.1061121
+            },
+            {
+              "lon": 11.5229562,
+              "lat": 48.1058983
+            },
+            {
+              "lon": 11.5231555,
+              "lat": 48.1056623
+            },
+            {
+              "lon": 11.5233893,
+              "lat": 48.1053698
+            },
+            {
+              "lon": 11.5235553,
+              "lat": 48.1051275
+            },
+            {
+              "lon": 11.5237687,
+              "lat": 48.1047432
+            },
+            {
+              "lon": 11.5238733,
+              "lat": 48.1045323
+            },
+            {
+              "lon": 11.5239571,
+              "lat": 48.1043328
+            },
+            {
+              "lon": 11.5240514,
+              "lat": 48.104032
+            },
+            {
+              "lon": 11.5241459,
+              "lat": 48.1036727
+            },
+            {
+              "lon": 11.5241763,
+              "lat": 48.1034522
+            },
+            {
+              "lon": 11.5241848,
+              "lat": 48.103383
+            },
+            {
+              "lon": 11.5241997,
+              "lat": 48.1032197
+            },
+            {
+              "lon": 11.5242014,
+              "lat": 48.1029142
+            },
+            {
+              "lon": 11.5241979,
+              "lat": 48.1028641
+            },
+            {
+              "lon": 11.5241938,
+              "lat": 48.1028068
+            },
+            {
+              "lon": 11.5241367,
+              "lat": 48.1023554
+            },
+            {
+              "lon": 11.5241351,
+              "lat": 48.1023414
+            },
+            {
+              "lon": 11.5241286,
+              "lat": 48.1022862
+            },
+            {
+              "lon": 11.5241203,
+              "lat": 48.1022161
+            }
+          ]
+        },
+        {
+          "id": 158652688,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Hirsch-Gereuth-Straße",
+            "sidewalk:both": "yes",
+            "surface": "asphalt",
+            "wikidata": "Q138763625"
+          },
+          "geometry": [
+            {
+              "lon": 11.522903,
+              "lat": 48.106162
+            },
+            {
+              "lon": 11.5230335,
+              "lat": 48.1062086
+            },
+            {
+              "lon": 11.5231349,
+              "lat": 48.106245
+            },
+            {
+              "lon": 11.5233457,
+              "lat": 48.1063224
+            },
+            {
+              "lon": 11.5235474,
+              "lat": 48.1063965
+            },
+            {
+              "lon": 11.523621,
+              "lat": 48.1064236
+            },
+            {
+              "lon": 11.5240763,
+              "lat": 48.1066068
+            },
+            {
+              "lon": 11.5244929,
+              "lat": 48.1067461
+            },
+            {
+              "lon": 11.5246095,
+              "lat": 48.1067851
+            },
+            {
+              "lon": 11.5249958,
+              "lat": 48.1068962
+            },
+            {
+              "lon": 11.5254008,
+              "lat": 48.1069839
+            },
+            {
+              "lon": 11.5257092,
+              "lat": 48.1070233
+            },
+            {
+              "lon": 11.5260231,
+              "lat": 48.1070502
+            },
+            {
+              "lon": 11.5263664,
+              "lat": 48.1070538
+            },
+            {
+              "lon": 11.5268948,
+              "lat": 48.1070556
+            },
+            {
+              "lon": 11.5271904,
+              "lat": 48.1070466
+            },
+            {
+              "lon": 11.5273668,
+              "lat": 48.1070428
+            },
+            {
+              "lon": 11.5274789,
+              "lat": 48.1070377
+            },
+            {
+              "lon": 11.5276573,
+              "lat": 48.1070288
+            },
+            {
+              "lon": 11.5277799,
+              "lat": 48.1070193
+            },
+            {
+              "lon": 11.5278656,
+              "lat": 48.1070084
+            },
+            {
+              "lon": 11.527935,
+              "lat": 48.1069896
+            },
+            {
+              "lon": 11.5279945,
+              "lat": 48.1069472
+            }
+          ]
+        },
+        {
+          "id": 158652689,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1.7",
+            "foot": "designated",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5244934,
+              "lat": 48.1022447
+            },
+            {
+              "lon": 11.5245193,
+              "lat": 48.102324
+            },
+            {
+              "lon": 11.5245292,
+              "lat": 48.1023543
+            },
+            {
+              "lon": 11.5245449,
+              "lat": 48.1025021
+            },
+            {
+              "lon": 11.524572,
+              "lat": 48.1028179
+            },
+            {
+              "lon": 11.5245732,
+              "lat": 48.1028719
+            },
+            {
+              "lon": 11.5245741,
+              "lat": 48.1029126
+            },
+            {
+              "lon": 11.5245826,
+              "lat": 48.1032899
+            },
+            {
+              "lon": 11.5245756,
+              "lat": 48.1033636
+            },
+            {
+              "lon": 11.5245662,
+              "lat": 48.1034628
+            },
+            {
+              "lon": 11.524524,
+              "lat": 48.1038062
+            },
+            {
+              "lon": 11.5244435,
+              "lat": 48.104125
+            },
+            {
+              "lon": 11.5243148,
+              "lat": 48.1044868
+            },
+            {
+              "lon": 11.524127,
+              "lat": 48.1048916
+            },
+            {
+              "lon": 11.5239232,
+              "lat": 48.1052498
+            },
+            {
+              "lon": 11.5237279,
+              "lat": 48.105531
+            },
+            {
+              "lon": 11.5231349,
+              "lat": 48.106245
+            },
+            {
+              "lon": 11.5228414,
+              "lat": 48.1065784
+            },
+            {
+              "lon": 11.5227801,
+              "lat": 48.1066551
+            },
+            {
+              "lon": 11.5227099,
+              "lat": 48.106732
+            },
+            {
+              "lon": 11.5226394,
+              "lat": 48.1068092
+            }
+          ]
+        },
+        {
+          "id": 158652698,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "asphalt",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "segregated": "yes",
+            "smoothness": "good",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5223135,
+              "lat": 48.1066634
+            },
+            {
+              "lon": 11.5224315,
+              "lat": 48.106716
+            },
+            {
+              "lon": 11.5225475,
+              "lat": 48.1067746
+            },
+            {
+              "lon": 11.5226394,
+              "lat": 48.1068092
+            }
+          ]
+        },
+        {
+          "id": 158652709,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1",
+            "foot": "designated",
+            "footway:surface": "asphalt",
+            "highway": "path",
+            "lit": "yes",
+            "segregated": "yes",
+            "surface": "paved"
+          },
+          "geometry": [
+            {
+              "lon": 11.5222049,
+              "lat": 48.1067856
+            },
+            {
+              "lon": 11.522265,
+              "lat": 48.1067183
+            },
+            {
+              "lon": 11.5223135,
+              "lat": 48.1066634
+            }
+          ]
+        },
+        {
+          "id": 158658151,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1",
+            "foot": "designated",
+            "footway:surface": "asphalt",
+            "highway": "path",
+            "lit": "yes",
+            "segregated": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5226394,
+              "lat": 48.1068092
+            },
+            {
+              "lon": 11.5225876,
+              "lat": 48.1068673
+            },
+            {
+              "lon": 11.5225327,
+              "lat": 48.1069389
+            }
+          ]
+        },
+        {
+          "id": 158658174,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "0.8",
+            "foot": "designated",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes",
+            "smoothness": "intermediate",
+            "surface": "paving_stones",
+            "traffic_sign": "DE:240;DE:1000-31"
+          },
+          "geometry": [
+            {
+              "lon": 11.5225327,
+              "lat": 48.1069389
+            },
+            {
+              "lon": 11.521859,
+              "lat": 48.1077225
+            },
+            {
+              "lon": 11.5216385,
+              "lat": 48.1079782
+            },
+            {
+              "lon": 11.5209812,
+              "lat": 48.108717
+            },
+            {
+              "lon": 11.5207981,
+              "lat": 48.1089325
+            },
+            {
+              "lon": 11.5207804,
+              "lat": 48.1089509
+            },
+            {
+              "lon": 11.5206593,
+              "lat": 48.109059
+            },
+            {
+              "lon": 11.5205786,
+              "lat": 48.1091395
+            },
+            {
+              "lon": 11.5204037,
+              "lat": 48.1093154
+            },
+            {
+              "lon": 11.5202197,
+              "lat": 48.1094969
+            },
+            {
+              "lon": 11.5201388,
+              "lat": 48.1095954
+            },
+            {
+              "lon": 11.5201308,
+              "lat": 48.1096402
+            },
+            {
+              "lon": 11.5201337,
+              "lat": 48.1096815
+            },
+            {
+              "lon": 11.520139,
+              "lat": 48.109705
+            }
+          ]
+        },
+        {
+          "id": 158695382,
+          "tags": {
+            "highway": "footway",
+            "name": "Trischbergerweg",
+            "surface": "asphalt",
+            "wikidata": "Q138763751"
+          },
+          "geometry": [
+            {
+              "lon": 11.5229485,
+              "lat": 48.1079867
+            },
+            {
+              "lon": 11.5224648,
+              "lat": 48.1078778
+            },
+            {
+              "lon": 11.5222441,
+              "lat": 48.1078267
+            }
+          ]
+        },
+        {
+          "id": 162309185,
+          "tags": {
+            "highway": "path",
+            "surface": "compacted",
+            "tracktype": "grade2"
+          },
+          "geometry": [
+            {
+              "lon": 11.5215029,
+              "lat": 48.1059416
+            },
+            {
+              "lon": 11.5215057,
+              "lat": 48.1058303
+            },
+            {
+              "lon": 11.5216775,
+              "lat": 48.1055733
+            },
+            {
+              "lon": 11.5222339,
+              "lat": 48.1048721
+            },
+            {
+              "lon": 11.5222581,
+              "lat": 48.1048416
+            },
+            {
+              "lon": 11.5224384,
+              "lat": 48.1045512
+            },
+            {
+              "lon": 11.5224917,
+              "lat": 48.1044653
+            },
+            {
+              "lon": 11.5224961,
+              "lat": 48.1043306
+            }
+          ]
+        },
+        {
+          "id": 232067488,
+          "tags": {
+            "highway": "service",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5220993,
+              "lat": 48.1061463
+            },
+            {
+              "lon": 11.5220778,
+              "lat": 48.1061972
+            },
+            {
+              "lon": 11.5219422,
+              "lat": 48.1064934
+            },
+            {
+              "lon": 11.5218928,
+              "lat": 48.1065472
+            }
+          ]
+        },
+        {
+          "id": 232067490,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5219052,
+              "lat": 48.1062441
+            },
+            {
+              "lon": 11.5214224,
+              "lat": 48.1060382
+            }
+          ]
+        },
+        {
+          "id": 232067494,
+          "tags": {
+            "highway": "service",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5214073,
+              "lat": 48.1054933
+            },
+            {
+              "lon": 11.5213536,
+              "lat": 48.1056724
+            },
+            {
+              "lon": 11.5212893,
+              "lat": 48.1058515
+            },
+            {
+              "lon": 11.5212034,
+              "lat": 48.1060127
+            },
+            {
+              "lon": 11.5211014,
+              "lat": 48.1061086
+            },
+            {
+              "lon": 11.5210507,
+              "lat": 48.1061595
+            }
+          ]
+        },
+        {
+          "id": 232067497,
+          "tags": {
+            "highway": "service",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5222119,
+              "lat": 48.1058515
+            },
+            {
+              "lon": 11.5220859,
+              "lat": 48.1060378
+            },
+            {
+              "lon": 11.5219944,
+              "lat": 48.1060387
+            },
+            {
+              "lon": 11.5218046,
+              "lat": 48.1059528
+            },
+            {
+              "lon": 11.5215899,
+              "lat": 48.1058373
+            }
+          ]
+        },
+        {
+          "id": 232068855,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5233787,
+              "lat": 48.106765
+            },
+            {
+              "lon": 11.5231145,
+              "lat": 48.1066732
+            },
+            {
+              "lon": 11.5228414,
+              "lat": 48.1065784
+            }
+          ]
+        },
+        {
+          "id": 264186542,
+          "tags": {
+            "bicycle": "no",
+            "highway": "path",
+            "surface": "grass"
+          },
+          "geometry": [
+            {
+              "lon": 11.5240526,
+              "lat": 48.1073396
+            },
+            {
+              "lon": 11.5239129,
+              "lat": 48.1074197
+            }
+          ]
+        },
+        {
+          "id": 290571553,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "3",
+            "lanes:backward": "2",
+            "lanes:forward": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "maxweight": "40",
+            "name": "Höglwörther Straße",
+            "sidewalk:both": "separate",
+            "surface": "asphalt",
+            "tmc": "DE:35459/35460",
+            "turn:lanes:backward": "left|through;right",
+            "wikidata": "Q117257136",
+            "zone:maxspeed": "DE:urban",
+            "zone:traffic": "DE:urban"
+          },
+          "geometry": [
+            {
+              "lon": 11.5223849,
+              "lat": 48.1067713
+            },
+            {
+              "lon": 11.522265,
+              "lat": 48.1067183
+            },
+            {
+              "lon": 11.5221546,
+              "lat": 48.1066675
+            },
+            {
+              "lon": 11.5218928,
+              "lat": 48.1065472
+            },
+            {
+              "lon": 11.5216936,
+              "lat": 48.1064557
+            }
+          ]
+        },
+        {
+          "id": 290571554,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "no",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Murnauer Straße",
+            "name:etymology:wikidata": "Q254356",
+            "oneway": "yes",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "tmc": "DE:35471/35472",
+            "wikidata": "Q135277847"
+          },
+          "geometry": [
+            {
+              "lon": 11.5225023,
+              "lat": 48.106827
+            },
+            {
+              "lon": 11.5224405,
+              "lat": 48.1068989
+            },
+            {
+              "lon": 11.5223817,
+              "lat": 48.1069672
+            },
+            {
+              "lon": 11.521752,
+              "lat": 48.1076954
+            },
+            {
+              "lon": 11.5215371,
+              "lat": 48.1079433
+            },
+            {
+              "lon": 11.5211941,
+              "lat": 48.108341
+            },
+            {
+              "lon": 11.520869,
+              "lat": 48.1086742
+            },
+            {
+              "lon": 11.5205497,
+              "lat": 48.1090087
+            }
+          ]
+        },
+        {
+          "id": 290571555,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "no",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Murnauer Straße",
+            "name:etymology:wikidata": "Q254356",
+            "oneway": "yes",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "tmc": "DE:35470/35471",
+            "wikidata": "Q135277847"
+          },
+          "geometry": [
+            {
+              "lon": 11.5223849,
+              "lat": 48.1067713
+            },
+            {
+              "lon": 11.5224315,
+              "lat": 48.106716
+            },
+            {
+              "lon": 11.5227983,
+              "lat": 48.1062804
+            },
+            {
+              "lon": 11.522903,
+              "lat": 48.106162
+            },
+            {
+              "lon": 11.5232759,
+              "lat": 48.1057004
+            },
+            {
+              "lon": 11.5235004,
+              "lat": 48.1054057
+            },
+            {
+              "lon": 11.5236914,
+              "lat": 48.1051283
+            },
+            {
+              "lon": 11.5238603,
+              "lat": 48.104848
+            },
+            {
+              "lon": 11.524025,
+              "lat": 48.1044862
+            },
+            {
+              "lon": 11.5241499,
+              "lat": 48.1041313
+            },
+            {
+              "lon": 11.5242415,
+              "lat": 48.1038054
+            },
+            {
+              "lon": 11.5243009,
+              "lat": 48.1034561
+            },
+            {
+              "lon": 11.5243176,
+              "lat": 48.1032235
+            },
+            {
+              "lon": 11.5243209,
+              "lat": 48.1028641
+            },
+            {
+              "lon": 11.5243207,
+              "lat": 48.1028119
+            },
+            {
+              "lon": 11.5242651,
+              "lat": 48.1024135
+            },
+            {
+              "lon": 11.5242566,
+              "lat": 48.1023763
+            },
+            {
+              "lon": 11.5242474,
+              "lat": 48.1023357
+            },
+            {
+              "lon": 11.524222,
+              "lat": 48.1022239
+            },
+            {
+              "lon": 11.5242127,
+              "lat": 48.1021786
+            }
+          ]
+        },
+        {
+          "id": 367397948,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "maxweight": "40",
+            "name": "Höglwörther Straße",
+            "sidewalk:both": "separate",
+            "surface": "asphalt",
+            "tmc": "DE:35459/35460",
+            "wikidata": "Q117257136",
+            "zone:maxspeed": "DE:urban",
+            "zone:traffic": "DE:urban"
+          },
+          "geometry": [
+            {
+              "lon": 11.5216936,
+              "lat": 48.1064557
+            },
+            {
+              "lon": 11.5214405,
+              "lat": 48.1063393
+            },
+            {
+              "lon": 11.52129,
+              "lat": 48.1062701
+            },
+            {
+              "lon": 11.5212442,
+              "lat": 48.1062491
+            },
+            {
+              "lon": 11.5210507,
+              "lat": 48.1061595
+            },
+            {
+              "lon": 11.5202955,
+              "lat": 48.1058097
+            },
+            {
+              "lon": 11.5195731,
+              "lat": 48.1054751
+            },
+            {
+              "lon": 11.5186468,
+              "lat": 48.10505
+            },
+            {
+              "lon": 11.5184299,
+              "lat": 48.1049505
+            },
+            {
+              "lon": 11.5183431,
+              "lat": 48.1049127
+            },
+            {
+              "lon": 11.5181829,
+              "lat": 48.1048403
+            },
+            {
+              "lon": 11.5179843,
+              "lat": 48.1047517
+            },
+            {
+              "lon": 11.517599,
+              "lat": 48.1045657
+            },
+            {
+              "lon": 11.5173853,
+              "lat": 48.1044625
+            },
+            {
+              "lon": 11.5151099,
+              "lat": 48.1034151
+            },
+            {
+              "lon": 11.5144655,
+              "lat": 48.1031141
+            },
+            {
+              "lon": 11.5138864,
+              "lat": 48.1028038
+            },
+            {
+              "lon": 11.5128718,
+              "lat": 48.1021727
+            },
+            {
+              "lon": 11.5121324,
+              "lat": 48.1016571
+            },
+            {
+              "lon": 11.5116864,
+              "lat": 48.1013418
+            },
+            {
+              "lon": 11.5113981,
+              "lat": 48.1011364
+            },
+            {
+              "lon": 11.5110825,
+              "lat": 48.1009147
+            },
+            {
+              "lon": 11.5107019,
+              "lat": 48.1006307
+            },
+            {
+              "lon": 11.5104164,
+              "lat": 48.1003855
+            },
+            {
+              "lon": 11.5100801,
+              "lat": 48.1000815
+            },
+            {
+              "lon": 11.5098662,
+              "lat": 48.0998673
+            },
+            {
+              "lon": 11.5098293,
+              "lat": 48.0998301
+            },
+            {
+              "lon": 11.5096259,
+              "lat": 48.0995974
+            },
+            {
+              "lon": 11.509591,
+              "lat": 48.0995576
+            },
+            {
+              "lon": 11.5093961,
+              "lat": 48.0993353
+            },
+            {
+              "lon": 11.5093751,
+              "lat": 48.0993114
+            },
+            {
+              "lon": 11.5090554,
+              "lat": 48.0989468
+            },
+            {
+              "lon": 11.5090063,
+              "lat": 48.09889
+            },
+            {
+              "lon": 11.5089096,
+              "lat": 48.0987779
+            },
+            {
+              "lon": 11.5087576,
+              "lat": 48.0986068
+            }
+          ]
+        },
+        {
+          "id": 367397949,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "3",
+            "lanes:backward": "1",
+            "lanes:forward": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Höglwörther Straße",
+            "oneway": "no",
+            "sidewalk:both": "separate",
+            "surface": "asphalt",
+            "tmc": "DE:35460/35461",
+            "turn:lanes:forward": "left|through;right",
+            "wikidata": "Q117257136",
+            "zone:maxspeed": "DE:urban",
+            "zone:traffic": "DE:urban"
+          },
+          "geometry": [
+            {
+              "lon": 11.5233389,
+              "lat": 48.1072209
+            },
+            {
+              "lon": 11.5229001,
+              "lat": 48.1070122
+            },
+            {
+              "lon": 11.5227631,
+              "lat": 48.1069485
+            },
+            {
+              "lon": 11.5225876,
+              "lat": 48.1068673
+            },
+            {
+              "lon": 11.5225023,
+              "lat": 48.106827
+            }
+          ]
+        },
+        {
+          "id": 369932204,
+          "tags": {
+            "area": "yes",
+            "bench": "yes",
+            "bin": "yes",
+            "bus": "yes",
+            "highway": "bus_stop",
+            "kerb": "raised",
+            "kerb:height": "0.20",
+            "lit": "no",
+            "mvv:zone": "M",
+            "name": "Höglwörther Straße",
+            "network": "Münchner Verkehrs- und Tarifverbund",
+            "network:guid": "DE-BY-MVV",
+            "network:short": "MVV",
+            "network:wikidata": "Q259000",
+            "operator": "Münchner Verkehrsgesellschaft",
+            "platform:width": "3.6",
+            "public_transport": "platform",
+            "ref:IFOPT": "de:09162:1316:3:3",
+            "shelter": "no",
+            "tactile_paving": "yes",
+            "wheelchair": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.5213764,
+              "lat": 48.1063765
+            },
+            {
+              "lon": 11.5213919,
+              "lat": 48.106361
+            },
+            {
+              "lon": 11.5214986,
+              "lat": 48.1064088
+            },
+            {
+              "lon": 11.521483,
+              "lat": 48.1064243
+            },
+            {
+              "lon": 11.5213764,
+              "lat": 48.1063765
+            }
+          ]
+        },
+        {
+          "id": 369932205,
+          "tags": {
+            "area": "yes",
+            "bench": "yes",
+            "bin": "yes",
+            "bus": "yes",
+            "highway": "bus_stop",
+            "kerb": "raised",
+            "kerb:height": "0.21",
+            "lit": "no",
+            "mvv:zone": "M",
+            "name": "Höglwörther Straße",
+            "network": "Münchner Verkehrs- und Tarifverbund",
+            "network:guid": "DE-BY-MVV",
+            "network:short": "MVV",
+            "network:wikidata": "Q259000",
+            "operator": "Münchner Verkehrsgesellschaft",
+            "platform:width": "2.1",
+            "public_transport": "platform",
+            "ref:IFOPT": "de:09162:1316:4:4",
+            "shelter": "no",
+            "tactile_paving": "yes",
+            "wheelchair": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.5217353,
+              "lat": 48.106419
+            },
+            {
+              "lon": 11.5217495,
+              "lat": 48.1064052
+            },
+            {
+              "lon": 11.5217547,
+              "lat": 48.1064001
+            },
+            {
+              "lon": 11.5216451,
+              "lat": 48.1063497
+            },
+            {
+              "lon": 11.5216397,
+              "lat": 48.1063549
+            },
+            {
+              "lon": 11.5216256,
+              "lat": 48.1063685
+            },
+            {
+              "lon": 11.5217353,
+              "lat": 48.106419
+            }
+          ]
+        },
+        {
+          "id": 382317829,
+          "tags": {
+            "highway": "cycleway",
+            "lit": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5227778,
+              "lat": 48.1061121
+            },
+            {
+              "lon": 11.522903,
+              "lat": 48.106162
+            }
+          ]
+        },
+        {
+          "id": 382317830,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5231145,
+              "lat": 48.1066732
+            },
+            {
+              "lon": 11.5232092,
+              "lat": 48.106559
+            },
+            {
+              "lon": 11.5233473,
+              "lat": 48.1066104
+            },
+            {
+              "lon": 11.5234492,
+              "lat": 48.1065988
+            },
+            {
+              "lon": 11.5235042,
+              "lat": 48.1065643
+            },
+            {
+              "lon": 11.523621,
+              "lat": 48.1064236
+            }
+          ]
+        },
+        {
+          "id": 393391534,
+          "tags": {
+            "area": "yes",
+            "bench": "yes",
+            "bin": "yes",
+            "bus": "yes",
+            "highway": "bus_stop",
+            "kerb": "raised",
+            "kerb:height": "0.15",
+            "lit": "yes",
+            "mvv:zone": "M",
+            "name": "Höglwörther Straße",
+            "network": "Münchner Verkehrs- und Tarifverbund",
+            "network:guid": "DE-BY-MVV",
+            "network:short": "MVV",
+            "network:wikidata": "Q259000",
+            "operator": "Münchner Verkehrsgesellschaft",
+            "platform:width": "4",
+            "public_transport": "platform",
+            "ref:IFOPT": "de:09162:1316:2:2",
+            "shelter": "yes",
+            "source": "survey",
+            "tactile_paving": "no",
+            "website:official": "http://www.mvv-muenchen.de",
+            "wheelchair": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.5228526,
+              "lat": 48.1065036
+            },
+            {
+              "lon": 11.522876,
+              "lat": 48.106513
+            },
+            {
+              "lon": 11.5227422,
+              "lat": 48.1066605
+            },
+            {
+              "lon": 11.5227189,
+              "lat": 48.106651
+            },
+            {
+              "lon": 11.5228526,
+              "lat": 48.1065036
+            }
+          ]
+        },
+        {
+          "id": 393391535,
+          "tags": {
+            "area": "yes",
+            "bench": "yes",
+            "bin": "yes",
+            "bus": "yes",
+            "highway": "bus_stop",
+            "kerb": "raised",
+            "kerb:height": "0.12",
+            "lit": "yes",
+            "mvv:zone": "M",
+            "name": "Höglwörther Straße",
+            "network": "Münchner Verkehrs- und Tarifverbund",
+            "network:guid": "DE-BY-MVV",
+            "network:short": "MVV",
+            "network:wikidata": "Q259000",
+            "operator": "Münchner Verkehrsgesellschaft",
+            "platform:width": "3.9",
+            "public_transport": "platform",
+            "ref:IFOPT": "de:09162:1316:1:1",
+            "shelter": "yes",
+            "tactile_paving": "no",
+            "website:official": "http://www.mvv-muenchen.de",
+            "wheelchair": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.5225907,
+              "lat": 48.1063615
+            },
+            {
+              "lon": 11.522615,
+              "lat": 48.1063711
+            },
+            {
+              "lon": 11.5227317,
+              "lat": 48.1062392
+            },
+            {
+              "lon": 11.5227075,
+              "lat": 48.1062296
+            },
+            {
+              "lon": 11.5225907,
+              "lat": 48.1063615
+            }
+          ]
+        },
+        {
+          "id": 393391539,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5225712,
+              "lat": 48.106345
+            },
+            {
+              "lon": 11.5225907,
+              "lat": 48.1063615
+            }
+          ]
+        },
+        {
+          "id": 393391540,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.521483,
+              "lat": 48.1064243
+            },
+            {
+              "lon": 11.52147,
+              "lat": 48.106438
+            }
+          ]
+        },
+        {
+          "id": 787948657,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5209356,
+              "lat": 48.1060327
+            },
+            {
+              "lon": 11.5209916,
+              "lat": 48.1058962
+            }
+          ]
+        },
+        {
+          "id": 875859966,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "2",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "oneway": "yes",
+            "segregated": "yes",
+            "smoothness": "excellent",
+            "source": "survey",
+            "surface": "asphalt",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5237285,
+              "lat": 48.1074923
+            },
+            {
+              "lon": 11.5232835,
+              "lat": 48.107285
+            },
+            {
+              "lon": 11.5228646,
+              "lat": 48.1070883
+            },
+            {
+              "lon": 11.5226723,
+              "lat": 48.1069975
+            },
+            {
+              "lon": 11.5225327,
+              "lat": 48.1069389
+            }
+          ]
+        },
+        {
+          "id": 875859967,
+          "tags": {
+            "bicycle": "designated",
+            "foot": "designated",
+            "highway": "service",
+            "lit": "yes",
+            "name": "Kirchgrabnerweg",
+            "segregated": "no",
+            "surface": "paving_stones",
+            "wikidata": "Q138763649"
+          },
+          "geometry": [
+            {
+              "lon": 11.5237285,
+              "lat": 48.1074923
+            },
+            {
+              "lon": 11.5237646,
+              "lat": 48.1074208
+            }
+          ]
+        },
+        {
+          "id": 891065043,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Hermann-von-Sicherer-Straße",
+            "sidewalk": "both",
+            "surface": "asphalt",
+            "wikidata": "Q138763618"
+          },
+          "geometry": [
+            {
+              "lon": 11.5240763,
+              "lat": 48.1066068
+            },
+            {
+              "lon": 11.5244229,
+              "lat": 48.1061791
+            },
+            {
+              "lon": 11.5245811,
+              "lat": 48.1059705
+            },
+            {
+              "lon": 11.5246786,
+              "lat": 48.1058419
+            },
+            {
+              "lon": 11.5248473,
+              "lat": 48.105604
+            },
+            {
+              "lon": 11.5250237,
+              "lat": 48.1053302
+            }
+          ]
+        },
+        {
+          "id": 1160814473,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Höglwörther Straße",
+            "oneway": "yes",
+            "segregated": "yes",
+            "smoothness": "excellent",
+            "source": "survey",
+            "surface": "asphalt",
+            "wikidata": "Q117257136"
+          },
+          "geometry": [
+            {
+              "lon": 11.5247208,
+              "lat": 48.1079651
+            },
+            {
+              "lon": 11.5237285,
+              "lat": 48.1074923
+            }
+          ]
+        },
+        {
+          "id": 1334502545,
+          "tags": {
+            "highway": "footway",
+            "name": "Trischbergerweg",
+            "surface": "asphalt",
+            "wikidata": "Q138763751"
+          },
+          "geometry": [
+            {
+              "lon": 11.5221317,
+              "lat": 48.1078006
+            },
+            {
+              "lon": 11.5219904,
+              "lat": 48.1077679
+            },
+            {
+              "lon": 11.521859,
+              "lat": 48.1077225
+            }
+          ]
+        },
+        {
+          "id": 1334502591,
+          "tags": {
+            "highway": "footway",
+            "name": "Trischbergerweg",
+            "surface": "paving_stones",
+            "wikidata": "Q138763751"
+          },
+          "geometry": [
+            {
+              "lon": 11.5222441,
+              "lat": 48.1078267
+            },
+            {
+              "lon": 11.5221317,
+              "lat": 48.1078006
+            }
+          ]
+        },
+        {
+          "id": 1530367407,
+          "tags": {
+            "highway": "footway",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5234041,
+              "lat": 48.1062564
+            },
+            {
+              "lon": 11.5233457,
+              "lat": 48.1063224
+            }
+          ]
+        },
+        {
+          "id": 1561294540,
+          "tags": {
+            "footway": "sidewalk",
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5192658,
+              "lat": 48.1099552
+            },
+            {
+              "lon": 11.5192584,
+              "lat": 48.1096868
+            },
+            {
+              "lon": 11.5192373,
+              "lat": 48.108931
+            },
+            {
+              "lon": 11.5192344,
+              "lat": 48.1088259
+            },
+            {
+              "lon": 11.5192327,
+              "lat": 48.1087669
+            },
+            {
+              "lon": 11.5191917,
+              "lat": 48.1081236
+            },
+            {
+              "lon": 11.5192348,
+              "lat": 48.1080826
+            },
+            {
+              "lon": 11.519286,
+              "lat": 48.1080785
+            },
+            {
+              "lon": 11.5194992,
+              "lat": 48.1080812
+            },
+            {
+              "lon": 11.5196192,
+              "lat": 48.1080987
+            },
+            {
+              "lon": 11.5198251,
+              "lat": 48.1081825
+            },
+            {
+              "lon": 11.5199009,
+              "lat": 48.1082057
+            },
+            {
+              "lon": 11.5199376,
+              "lat": 48.1081939
+            },
+            {
+              "lon": 11.5199686,
+              "lat": 48.1081838
+            },
+            {
+              "lon": 11.5206921,
+              "lat": 48.107338
+            },
+            {
+              "lon": 11.520727,
+              "lat": 48.1073243
+            },
+            {
+              "lon": 11.5207559,
+              "lat": 48.1073259
+            },
+            {
+              "lon": 11.5207782,
+              "lat": 48.1073271
+            },
+            {
+              "lon": 11.5214635,
+              "lat": 48.1076519
+            }
+          ]
+        },
+        {
+          "id": 1561294558,
+          "tags": {
+            "highway": "service",
+            "service": "driveway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5210821,
+              "lat": 48.1072301
+            },
+            {
+              "lon": 11.5213092,
+              "lat": 48.1073395
+            },
+            {
+              "lon": 11.5212093,
+              "lat": 48.107442
+            },
+            {
+              "lon": 11.5211841,
+              "lat": 48.1074679
+            }
+          ]
+        },
+        {
+          "id": 1561294559,
+          "tags": {
+            "crossing": "unmarked",
+            "crossing:markings": "no",
+            "footway": "crossing",
+            "highway": "footway",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5208111,
+              "lat": 48.107258
+            },
+            {
+              "lon": 11.520787,
+              "lat": 48.1072876
+            },
+            {
+              "lon": 11.5207559,
+              "lat": 48.1073259
+            },
+            {
+              "lon": 11.52068,
+              "lat": 48.107284
+            },
+            {
+              "lon": 11.5206265,
+              "lat": 48.1072545
+            },
+            {
+              "lon": 11.5206527,
+              "lat": 48.1072253
+            },
+            {
+              "lon": 11.5206784,
+              "lat": 48.1071967
+            }
+          ]
+        },
+        {
+          "id": 1577018155,
+          "tags": {
+            "footway": "sidewalk",
+            "highway": "footway",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5208111,
+              "lat": 48.107258
+            },
+            {
+              "lon": 11.5212093,
+              "lat": 48.107442
+            },
+            {
+              "lon": 11.5215216,
+              "lat": 48.1075863
+            }
+          ]
+        },
+        {
+          "id": 1577018384,
+          "tags": {
+            "footway": "sidewalk",
+            "highway": "footway",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5192491,
+              "lat": 48.1067362
+            },
+            {
+              "lon": 11.5193159,
+              "lat": 48.1067372
+            },
+            {
+              "lon": 11.5196559,
+              "lat": 48.1067435
+            },
+            {
+              "lon": 11.5197692,
+              "lat": 48.1067766
+            },
+            {
+              "lon": 11.5206784,
+              "lat": 48.1071967
+            },
+            {
+              "lon": 11.5208111,
+              "lat": 48.107258
+            }
+          ]
+        }
+      ],
+      "outgoingLanes": 6,
+      "note": "",
+      "preparation": {
+        "algorithm": "osm-four-arm-v2",
+        "warnings": [],
+        "complexity": 0,
+        "laneEvidence": [
+          {
+            "wayId": 367397949,
+            "direction": -1,
+            "lanes": 1,
+            "sample": [
+              11.5233389,
+              48.1072209
+            ],
+            "boundaryWayId": 367397949,
+            "boundaryDirection": -1
+          },
+          {
+            "wayId": 290571555,
+            "direction": 1,
+            "lanes": 2,
+            "sample": [
+              11.5232759,
+              48.1057004
+            ],
+            "boundaryWayId": 290571555,
+            "boundaryDirection": 1
+          },
+          {
+            "wayId": 367397948,
+            "direction": 1,
+            "lanes": 1,
+            "sample": [
+              11.5214405,
+              48.1063393
+            ],
+            "boundaryWayId": 290571553,
+            "boundaryDirection": 1
+          },
+          {
+            "wayId": 290571554,
+            "direction": 1,
+            "lanes": 2,
+            "sample": [
+              11.521752,
+              48.1076954
+            ],
+            "boundaryWayId": 290571554,
+            "boundaryDirection": 1
+          }
+        ],
+        "candidateNodes": [
+          26125663,
+          26420203
+        ]
+      },
+      "provenance": {
+        "adapter": "osm-four-arm-v2"
+      },
+      "sourceFingerprint": "3a2fedb035005d7720c90e2ff144d9f9d80cef93033d4732105a3d6f07be6270",
+      "priorityRank": 1,
+      "movementExclusions": [],
+      "geometryFingerprint": "96984dc865af6b15ee0aa3c01f934d67efaba447707f8508b5ecdd21873a3912",
+      "editVersion": 1,
+      "decision": {
+        "status": "confirmed",
+        "note": "passt",
+        "deferredUntil": null,
+        "at": "2026-11-27T16:49:54.820938+00:00",
+        "geometryFingerprint": "96984dc865af6b15ee0aa3c01f934d67efaba447707f8508b5ecdd21873a3912",
+        "sourceFingerprint": "3a2fedb035005d7720c90e2ff144d9f9d80cef93033d4732105a3d6f07be6270"
+      },
+      "decisionCurrent": true,
+      "status": "confirmed",
+      "technicalStatus": "not-run",
+      "deploymentStatus": "unknown",
+      "evidenceCurrent": false,
+      "history": [
+        {
+          "at": "2026-11-27T16:49:54.820938+00:00",
+          "action": "decision",
+          "previousGeometryFingerprint": "96984dc865af6b15ee0aa3c01f934d67efaba447707f8508b5ecdd21873a3912",
+          "previousDecision": null,
+          "geometryFingerprint": "96984dc865af6b15ee0aa3c01f934d67efaba447707f8508b5ecdd21873a3912",
+          "previousGeometry": null,
+          "gateChanges": null,
+          "decision": {
+            "status": "confirmed",
+            "note": "passt",
+            "deferredUntil": null,
+            "at": "2026-11-27T16:49:54.820938+00:00",
+            "geometryFingerprint": "96984dc865af6b15ee0aa3c01f934d67efaba447707f8508b5ecdd21873a3912",
+            "sourceFingerprint": "3a2fedb035005d7720c90e2ff144d9f9d80cef93033d4732105a3d6f07be6270"
+          }
+        }
+      ],
+      "armDescriptions": {
+        "Arm-1": {
+          "bearing": 55.01732759432069,
+          "names": [
+            "Höglwörther Straße"
+          ],
+          "wayIds": [
+            367397949
+          ]
+        },
+        "Arm-2": {
+          "bearing": 140.40206507542135,
+          "names": [
+            "Murnauer Straße"
+          ],
+          "wayIds": [
+            4340052,
+            290571555
+          ]
+        },
+        "Arm-3": {
+          "bearing": 235.65832466166594,
+          "names": [
+            "Höglwörther Straße"
+          ],
+          "wayIds": [
+            290571553
+          ]
+        },
+        "Arm-4": {
+          "bearing": 320.4031454373719,
+          "names": [
+            "Murnauer Straße"
+          ],
+          "wayIds": [
+            4333414,
+            290571554
+          ]
+        }
+      },
+      "reportNumberOnly": true,
+      "reviewProjectId": "area-f5bdef90f8af4365",
+      "version": 1,
+      "polygonApproved": true,
+      "reviewBinding": {
+        "geometryFingerprint": "96984dc865af6b15ee0aa3c01f934d67efaba447707f8508b5ecdd21873a3912",
+        "sourceFingerprint": "3a2fedb035005d7720c90e2ff144d9f9d80cef93033d4732105a3d6f07be6270"
+      },
+      "onRoadWayIds": [],
+      "normalGuidanceGates": [],
+      "proposedLogicalArms": {
+        "north": [
+          "Exit-4",
+          "Entry-4"
+        ],
+        "east": [
+          "Exit-1",
+          "Entry-1"
+        ],
+        "south": [
+          "Entry-2",
+          "Exit-2"
+        ],
+        "west": [
+          "Exit-3",
+          "Entry-3"
+        ]
+      },
+      "excludedMovements": []
+    }
+  ],
+  "blocked": []
+}

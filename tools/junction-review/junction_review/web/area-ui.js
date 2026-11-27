@@ -1,9 +1,11 @@
+import {districtName, districtOutlines, districtSelection} from './districts.js';
 import {addDrawingPoint, closeDrawing} from './drawing.js';
 import {wait} from './api.js';
 
 // Area interaction owns its drawing/request state; map and project views are injected.
-export function initializeAreas({$, api, createMap, line, el, html, project, acceptProject, setBusy, isBusy, message}) {
+export function initializeAreas({$, api, createMap, line, el, html, project, acceptProject, setBusy, isBusy, message, loadDistricts}) {
   let savedProjects = [], renameTarget = null;
+  let districts = [];
   let map, outline, verticesLayer, boundaries = [], selection = null, drawing = false, picking = false, drawn = [], task = null;
   const status = (text, error = false) => {
     $('area-status').textContent = text;
@@ -139,6 +141,7 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
     await run(`Grenze für „${item.name}“ laden …`, async t => {
       const full = item.outlines?.length ? item : await api('/api/areas/boundary',{body:{id:item.id},signal:t.controller.signal});
       const b = full.bounds;
+      if (loadDistricts) $('munich-district').value = '';
       selection = {relationId:item.id,name:item.name}; drawing = picking = false; drawn = [];
       paint([[b.minlon,b.minlat],[b.maxlon,b.maxlat]],full.outlines);
       for (const card of $('area-results').querySelectorAll('button')) card.classList.toggle('selected',card.dataset.id === String(item.id));
@@ -159,9 +162,34 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
     status(results.length ? 'Suche abgeschlossen. Einen der hervorgehobenen Treffer auswählen.' : 'Suche abgeschlossen: keine Treffer. Bitte die Schreibweise prüfen.');
     container.scrollIntoView({block:'nearest',behavior:'smooth'});
   }
+  if (loadDistricts) {
+    const select = $('munich-district');
+    select.addEventListener('change', () => {
+      if (isBusy()) return;
+      const feature = districts.find(item => item.properties.bezirk_nummer === select.value);
+      if (!feature) {
+        selection = null; drawing = picking = false; drawn = [];
+        removeBoundaries(); redrawDrawing(); controls();
+        status('Bitte einen Stadtbezirk auswählen, ein Gebiet suchen oder eine Fläche zeichnen.');
+        return;
+      }
+      return run('Münchner Stadtbezirk auswählen …', async () => {
+        selection = districtSelection(feature); drawing = picking = false; drawn = [];
+        const outlines = districtOutlines(feature);
+        paint(outlines.flat(), outlines);
+        $('area-results').replaceChildren(); $('area-results').hidden = true;
+        status(`Ausgewählt: ${selection.name}. Jetzt „Sichtprüfung vorbereiten“ wählen.`);
+      });
+    });
+    loadDistricts().then(features => {
+      districts = features;
+      for (const feature of features) select.append(html('option', {value:feature.properties.bezirk_nummer}, districtName(feature)));
+    }).catch(error => status(error.message,true));
+  }
   $('area-panel').addEventListener('toggle',()=>{ if ($('area-panel').open && !map) paint(); });
   $('area-search').addEventListener('submit',event=>{
     event.preventDefault(); if (isBusy()) return;
+    if (loadDistricts) $('munich-district').value = '';
     selection = null; drawing = picking = false;
     removeBoundaries(); drawn = []; redrawDrawing();
     $('area-results').replaceChildren(); $('area-results').hidden = true;
@@ -170,6 +198,7 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
   $('pick-area').addEventListener('click',()=>{
     if (isBusy()) return;
     if (!map) paint();
+    if (loadDistricts) $('munich-district').value = '';
     selection = null; drawing = false; picking = true; drawn = []; redrawDrawing(); controls();
     removeBoundaries();
     status('Jetzt einmal in den gewünschten Stadtteil klicken. Danach aus den gefundenen Gebieten auswählen.');
@@ -177,6 +206,7 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
   $('draw-area').addEventListener('click',()=>{
     if (isBusy()) return;
     if (!map) paint();
+    if (loadDistricts) $('munich-district').value = '';
     selection = null; drawn = []; drawing = true; picking = false; redrawDrawing(); controls();
     removeBoundaries();
     status('1. Eckpunkte nacheinander anklicken (mindestens drei, auch mehr). 2. Startpunkt anklicken, doppelklicken oder „Fläche schließen“ wählen.');
@@ -186,6 +216,7 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
   $('undo-area').addEventListener('click',undo);
   $('clear-area').addEventListener('click',()=>{
     if (isBusy()) return;
+    if (loadDistricts) $('munich-district').value = '';
     selection = null; drawing = picking = false; drawn = [];
     removeBoundaries();
     redrawDrawing(); controls(); status('Auswahl zurückgesetzt. Karte verschieben, ein Gebiet suchen oder eine Fläche zeichnen.');
@@ -207,9 +238,15 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
     if (!selection) throw new Error('Bitte zuerst ein Gebiet oder eine Fläche auswählen.');
     // Do not abort creation: remember the returned job before enabling cancel.
     $('cancel-area-task').disabled = true;
-    const job = await api('/api/areas/prepare',{body:{selection},timeout:10000});
+    const osmSource = $('use-overpass').checked ? 'overpass' : 'auto';
+    const job = await api('/api/areas/prepare',{body:{selection,osmSource},timeout:10000});
     await monitor(job,t);
   }));
+  // Show which OSM data a preparation will use; local extract by default.
+  api('/api/osm-source',{timeout:10000}).then(info=>{
+    $('osm-source').textContent = osmSourceText(info);
+    $('use-overpass').checked = !info.available;
+  }).catch(()=>{ $('osm-source').textContent = 'OSM-Quelle konnte nicht ermittelt werden; Vorbereitung nutzt Overpass.'; });
   async function monitor(initial,t) {
     let job = initial;
     try { sessionStorage.setItem('junction-review:job',job.id); } catch { /* Optional. */ }
@@ -248,4 +285,10 @@ export function initializeAreas({$, api, createMap, line, el, html, project, acc
       try { sessionStorage.removeItem('junction-review:job'); } catch { /* Optional. */ }
     }
   }).catch(error=>message(error.message,true)); controls();
+}
+
+export function osmSourceText(info) {
+  if (!info?.available) return 'OSM-Daten: kein lokaler Auszug vorhanden, Abruf über Overpass (öffentlicher Dienst, kann überlastet sein). Einmalig „python tools/junction-review/run.py osm-import“ ausführen.';
+  const stand = info.timestamp ? new Date(info.timestamp).toLocaleDateString('de-DE') : 'unbekannt';
+  return `OSM-Daten: lokaler Auszug ${info.source || ''}, Stand ${stand} (München und Umgebung). Gesuchte Verwaltungsgebiete und Flächen außerhalb nutzen Overpass.`;
 }

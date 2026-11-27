@@ -1,0 +1,382 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3050624441,
+              1562853073,
+              3239382674,
+              667321239,
+              3239382678,
+              11258809483,
+              11258809484,
+              11258809530,
+              3239382691,
+              11258809529,
+              1703216560,
+              11258921448,
+              11258921445,
+              12815504333
+            ],
+            "distance": [
+              48.02221467,
+              3.466021402,
+              5.795368785,
+              4.316174764,
+              3.118228279,
+              3.072662033,
+              4.904082568,
+              1.55911414,
+              3.251597733,
+              1.896136611,
+              3.454218939,
+              2.124429735,
+              46.79499507
+            ]
+          },
+          "duration": 31.6,
+          "summary": "Hohenzollernstraße, Belgradstraße",
+          "weight": 104.5,
+          "distance": 131.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    277
+                  ],
+                  "location": [
+                    11.575992,
+                    48.160258
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575992,
+                    48.160258
+                  ],
+                  [
+                    11.575351,
+                    48.16031
+                  ],
+                  [
+                    11.575305,
+                    48.160315
+                  ],
+                  [
+                    11.575228,
+                    48.160323
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 277,
+                "bearing_before": 0,
+                "location": [
+                  11.575992,
+                  48.160258
+                ],
+                "type": "depart"
+              },
+              "name": "Hohenzollernstraße",
+              "mode": "cycling",
+              "weight": 56.3,
+              "duration": 17.7,
+              "distance": 57.3
+            },
+            {
+              "intersections": [
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    105,
+                    165,
+                    285,
+                    330
+                  ],
+                  "location": [
+                    11.575228,
+                    48.160323
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575228,
+                    48.160323
+                  ],
+                  [
+                    11.5752,
+                    48.160357
+                  ],
+                  [
+                    11.575174,
+                    48.160379
+                  ],
+                  [
+                    11.575149,
+                    48.160401
+                  ],
+                  [
+                    11.575107,
+                    48.160435
+                  ],
+                  [
+                    11.575094,
+                    48.160446
+                  ],
+                  [
+                    11.575067,
+                    48.160469
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 324,
+                "bearing_before": 278,
+                "location": [
+                  11.575228,
+                  48.160323
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 9.1,
+              "duration": 4.3,
+              "distance": 20.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    135,
+                    180,
+                    285
+                  ],
+                  "location": [
+                    11.575067,
+                    48.160469
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575067,
+                    48.160469
+                  ],
+                  [
+                    11.575069,
+                    48.160486
+                  ],
+                  [
+                    11.575066,
+                    48.160517
+                  ],
+                  [
+                    11.575063,
+                    48.160536
+                  ],
+                  [
+                    11.57499,
+                    48.160954
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 352,
+                "bearing_before": 320,
+                "location": [
+                  11.575067,
+                  48.160469
+                ],
+                "modifier": "slight right",
+                "type": "turn"
+              },
+              "name": "Belgradstraße",
+              "mode": "cycling",
+              "weight": 39.1,
+              "duration": 9.6,
+              "distance": 54.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    173
+                  ],
+                  "location": [
+                    11.57499,
+                    48.160954
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.57499,
+                    48.160954
+                  ],
+                  [
+                    11.57499,
+                    48.160954
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 353,
+                "location": [
+                  11.57499,
+                  48.160954
+                ],
+                "type": "arrive"
+              },
+              "name": "Belgradstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.575992,
+            48.160258
+          ],
+          [
+            11.575351,
+            48.16031
+          ],
+          [
+            11.575305,
+            48.160315
+          ],
+          [
+            11.575228,
+            48.160323
+          ],
+          [
+            11.5752,
+            48.160357
+          ],
+          [
+            11.575174,
+            48.160379
+          ],
+          [
+            11.575149,
+            48.160401
+          ],
+          [
+            11.575107,
+            48.160435
+          ],
+          [
+            11.575094,
+            48.160446
+          ],
+          [
+            11.575067,
+            48.160469
+          ],
+          [
+            11.575069,
+            48.160486
+          ],
+          [
+            11.575066,
+            48.160517
+          ],
+          [
+            11.575063,
+            48.160536
+          ],
+          [
+            11.57499,
+            48.160954
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 104.5,
+      "duration": 31.6,
+      "distance": 131.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "C0AhgC5AIYAHAAAAWgEAADYBAAAcAAAAwiR5P78WQEKQRixCS9NdQAEAAABXAAAATgAAAAcAAAC1AgAAuKKwAALe3gK4orAAAt7eAgIATxEAAAAA",
+      "location": [
+        11.575992,
+        48.160258
+      ],
+      "name": "Hohenzollernstraße",
+      "distance": 0
+    },
+    {
+      "hint": "LhoEgLwYBIBRAQAACQAAADYAAAAAAAAAEy47Qta2nT9xMe9AAAAAAFMAAAADAAAADQAAAAAAAAC1AgAAzp6wALrg3gLOnrAAuuDeAgYAHxYAAAAA",
+      "location": [
+        11.57499,
+        48.160954
+      ],
+      "name": "Belgradstraße",
+      "distance": 0
+    }
+  ]
+}

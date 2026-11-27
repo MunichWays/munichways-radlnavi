@@ -113,6 +113,17 @@ def validate_catalog(value):
                     raise ValueError("Invalid reference path")
             for key in ("entry", "exit"):
                 points({"type": "LineString", "coordinates": [movement[key]]})
+            alternatives = movement.get('alternateCorridors', [])
+            if not isinstance(alternatives, list) or len(alternatives) > 4:
+                raise ValueError('Invalid alternate corridors')
+            for alternative in alternatives:
+                if (not isinstance(alternative, dict) or alternative.get('review', {}).get('status') != 'approved'
+                        or not alternative['review'].get('evidence')):
+                    raise ValueError('Alternate corridor requires review')
+                path = points({'type': 'LineString', 'coordinates': alternative.get('coordinates')})
+                if (len(path) < 2 or path != alternative['coordinates']
+                        or meters(path[0], movement['entry']) > 2.5 or meters(path[-1], movement['exit']) > 2.5):
+                    raise ValueError('Alternate corridor must join the same reviewed gates')
             mx = cos(radians(movement["entry"][1]))
             def heading(path):
                 return atan2(path[-1][1] - path[0][1], (path[-1][0] - path[0][0]) * mx)
@@ -361,7 +372,8 @@ def match_leg(leg, config, geometry=None):
             continue
         start, end = entry["geometrySegmentIndex"], exit["geometrySegmentIndex"]
         traversed = [entry["location"], *line[start + 1:end + 1], exit["location"]]
-        if not corridor_matches(traversed, config["corridor"], 2.5):
+        references = [config['corridor'], *[a['coordinates'] for a in config.get('alternateCorridors', [])]]
+        if not any(corridor_matches(traversed, reference, 2.5) for reference in references):
             continue
         contained = [i for i, location in enumerate(step_locations)
             if inside(location, ring) and steps_type(leg, i) not in ("depart", "arrive")

@@ -1,0 +1,321 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3050624441,
+              1562853073,
+              3239382674,
+              667321239,
+              11258809485,
+              1703216505,
+              1955522,
+              1703216513,
+              1680006299,
+              5517234979,
+              11258809527,
+              371634670,
+              1680006307,
+              11258809534,
+              11258809497,
+              21543939
+            ],
+            "distance": [
+              48.02221467,
+              3.466021402,
+              5.795368785,
+              5.833644226,
+              5.228378804,
+              2.348061222,
+              0.8477864726,
+              10.67583565,
+              5.813474702,
+              4.456483833,
+              4.017863028,
+              29.92853822,
+              5.174897382,
+              10.88047941,
+              9.054560192
+            ]
+          },
+          "duration": 33.8,
+          "summary": "Hohenzollernstraße",
+          "weight": 152.9,
+          "distance": 151.5,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "road"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    277
+                  ],
+                  "location": [
+                    11.575992,
+                    48.160258
+                  ]
+                },
+                {
+                  "out": 4,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    105,
+                    165,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.575051,
+                    48.160346
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.575992,
+                    48.160258
+                  ],
+                  [
+                    11.575351,
+                    48.16031
+                  ],
+                  [
+                    11.575305,
+                    48.160315
+                  ],
+                  [
+                    11.575228,
+                    48.160323
+                  ],
+                  [
+                    11.575151,
+                    48.160333
+                  ],
+                  [
+                    11.575082,
+                    48.160342
+                  ],
+                  [
+                    11.575051,
+                    48.160346
+                  ],
+                  [
+                    11.57504,
+                    48.160348
+                  ],
+                  [
+                    11.574899,
+                    48.160366
+                  ],
+                  [
+                    11.574822,
+                    48.160375
+                  ],
+                  [
+                    11.574763,
+                    48.160382
+                  ],
+                  [
+                    11.57471,
+                    48.160389
+                  ],
+                  [
+                    11.574313,
+                    48.160433
+                  ],
+                  [
+                    11.574244,
+                    48.160439
+                  ],
+                  [
+                    11.574099,
+                    48.160452
+                  ],
+                  [
+                    11.573978,
+                    48.160461
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 277,
+                "bearing_before": 0,
+                "location": [
+                  11.575992,
+                  48.160258
+                ],
+                "type": "depart"
+              },
+              "name": "Hohenzollernstraße",
+              "mode": "cycling",
+              "weight": 152.9,
+              "duration": 33.8,
+              "distance": 151.5
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    96
+                  ],
+                  "location": [
+                    11.573978,
+                    48.160461
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.573978,
+                    48.160461
+                  ],
+                  [
+                    11.573978,
+                    48.160461
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 276,
+                "location": [
+                  11.573978,
+                  48.160461
+                ],
+                "type": "arrive"
+              },
+              "name": "Hohenzollernstraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.575992,
+            48.160258
+          ],
+          [
+            11.575351,
+            48.16031
+          ],
+          [
+            11.575305,
+            48.160315
+          ],
+          [
+            11.575228,
+            48.160323
+          ],
+          [
+            11.575151,
+            48.160333
+          ],
+          [
+            11.575082,
+            48.160342
+          ],
+          [
+            11.575051,
+            48.160346
+          ],
+          [
+            11.57504,
+            48.160348
+          ],
+          [
+            11.574899,
+            48.160366
+          ],
+          [
+            11.574822,
+            48.160375
+          ],
+          [
+            11.574763,
+            48.160382
+          ],
+          [
+            11.57471,
+            48.160389
+          ],
+          [
+            11.574313,
+            48.160433
+          ],
+          [
+            11.574244,
+            48.160439
+          ],
+          [
+            11.574099,
+            48.160452
+          ],
+          [
+            11.573978,
+            48.160461
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 152.9,
+      "duration": 33.8,
+      "distance": 151.5
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "C0AhgC5AIYAHAAAAWgEAADYBAAAcAAAAwiR5P78WQEKQRixCS9NdQAEAAABXAAAATgAAAAcAAAC1AgAAuKKwAALe3gK4orAAAt7eAgIATxEAAAAA",
+      "location": [
+        11.575992,
+        48.160258
+      ],
+      "name": "Hohenzollernstraße",
+      "distance": 0
+    },
+    {
+      "hint": "rj8hgP___39BAAAARwAAAEoBAAAAAAAAe98QQeNbUz-I7zdCAAAAABAAAAASAAAAUwAAAAAAAAC1AgAA2pqwAM3e3gLamrAAzd7eAgYATxEAAAAA",
+      "location": [
+        11.573978,
+        48.160461
+      ],
+      "name": "Hohenzollernstraße",
+      "distance": 0
+    }
+  ]
+}

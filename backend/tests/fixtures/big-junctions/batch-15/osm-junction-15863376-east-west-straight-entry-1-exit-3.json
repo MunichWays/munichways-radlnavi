@@ -1,0 +1,366 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              1743287243,
+              1370810925,
+              4805821353,
+              262103428,
+              4790116825,
+              1370810928,
+              14247845132,
+              262103471,
+              3702463047,
+              3702463040
+            ],
+            "distance": [
+              62.73146138,
+              7.109131256,
+              5.352225791,
+              5.779564887,
+              4.703715968,
+              26.77782862,
+              6.209736218,
+              6.523227007,
+              26.80402985
+            ]
+          },
+          "duration": 36.4,
+          "summary": "Franziskanerstraße, Regerplatz",
+          "weight": 50.2,
+          "distance": 152,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    237
+                  ],
+                  "location": [
+                    11.589763,
+                    48.125289
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    225
+                  ],
+                  "location": [
+                    11.589057,
+                    48.124981
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.58893,
+                    48.124908
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225
+                  ],
+                  "location": [
+                    11.588828,
+                    48.124843
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    225,
+                    285
+                  ],
+                  "location": [
+                    11.588549,
+                    48.124691
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.588484,
+                    48.124656
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    225
+                  ],
+                  "location": [
+                    11.588416,
+                    48.124619
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.589763,
+                    48.125289
+                  ],
+                  [
+                    11.589057,
+                    48.124981
+                  ],
+                  [
+                    11.588985,
+                    48.124939
+                  ],
+                  [
+                    11.58893,
+                    48.124908
+                  ],
+                  [
+                    11.588874,
+                    48.124872
+                  ],
+                  [
+                    11.588828,
+                    48.124843
+                  ],
+                  [
+                    11.588549,
+                    48.124691
+                  ],
+                  [
+                    11.588484,
+                    48.124656
+                  ],
+                  [
+                    11.588416,
+                    48.124619
+                  ],
+                  [
+                    11.588139,
+                    48.124465
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 237,
+                "bearing_before": 0,
+                "location": [
+                  11.589763,
+                  48.125289
+                ],
+                "type": "depart"
+              },
+              "name": "Franziskanerstraße",
+              "mode": "cycling",
+              "weight": 50.2,
+              "duration": 36.4,
+              "distance": 152
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    50
+                  ],
+                  "location": [
+                    11.588139,
+                    48.124465
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.588139,
+                    48.124465
+                  ],
+                  [
+                    11.588139,
+                    48.124465
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 230,
+                "location": [
+                  11.588139,
+                  48.124465
+                ],
+                "type": "arrive"
+              },
+              "name": "Regerplatz",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.589763,
+            48.125289
+          ],
+          [
+            11.589057,
+            48.124981
+          ],
+          [
+            11.588985,
+            48.124939
+          ],
+          [
+            11.58893,
+            48.124908
+          ],
+          [
+            11.588874,
+            48.124872
+          ],
+          [
+            11.588828,
+            48.124843
+          ],
+          [
+            11.588549,
+            48.124691
+          ],
+          [
+            11.588484,
+            48.124656
+          ],
+          [
+            11.588416,
+            48.124619
+          ],
+          [
+            11.588139,
+            48.124465
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 50.2,
+      "duration": 36.4,
+      "distance": 152
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "ZlIZgP___39tAAAACwEAAAAAAAAAAAAAB7IvQgTtekIAAAAAAAAAAFcAAADVAAAAAAAAAAAAAAC1AgAAg9iwAGlV3gKD2LAAaVXeAgAAzw4AAAAA",
+      "location": [
+        11.589763,
+        48.125289
+      ],
+      "name": "Franziskanerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "mlIZgP___39DAAAAUQAAAAAAAAAAAAAAp27WQbcZrUAAAAAAAAAAADUAAABAAAAAAAAAAAAAAAC1AgAAK9KwADFS3gIr0rAAMVLeAgAAbw4AAAAA",
+      "location": [
+        11.588139,
+        48.124465
+      ],
+      "name": "Regerplatz",
+      "distance": 0
+    }
+  ]
+}

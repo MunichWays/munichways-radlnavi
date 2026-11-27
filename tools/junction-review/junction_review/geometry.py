@@ -137,7 +137,8 @@ def relocate_gates(site, polygon):
         before = [p[0] - forward[0] * 1e-7 / scale, p[1] - forward[1] * 1e-7]
         after = [p[0] + forward[0] * 1e-7 / scale, p[1] + forward[1] * 1e-7]
         if (inside(before, polygon), inside(after, polygon)) != ((False, True) if gate['kind'] == 'entry' else (True, False)):
-            raise ValueError(f"{gate['label']}: Die neue Grenze passt nicht zur belegten Fahrtrichtung.")
+            raise ValueError(f"{gate['label']}: Die neue Grenze passt nicht zur belegten Fahrtrichtung auf OSM-Weg {gate['osmWayId']}. "
+                             'Entry muss in die Fläche führen, Exit aus ihr heraus. Bei einem Wegende die passende Fortsetzung wählen.')
         moved['forward'] = forward
         result.append(moved)
     return result

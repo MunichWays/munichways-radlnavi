@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "version": "munich-big-junctions-v23",
+  "version": "munich-big-junctions-v25",
   "junctions": [
     {
       "id": "arnulf-steuben",
@@ -71582,6 +71582,10 @@
               48.1246160758141
             ],
             [
+              11.581354062347868,
+              48.12456113305634
+            ],
+            [
               11.58138641226948,
               48.124551592571684
             ],
@@ -71656,8 +71660,8 @@
           "entryArm": "north",
           "exitArm": "east",
           "entry": [
-            11.581259502999002,
-            48.124608196660056
+            11.581258964324682,
+            48.12460769091951
           ],
           "exit": [
             11.581099023121146,
@@ -71665,8 +71669,8 @@
           ],
           "corridor": [
             [
-              11.581259502999002,
-              48.124608196660056
+              11.581258964324682,
+              48.12460769091951
             ],
             [
               11.581206,
@@ -71715,12 +71719,12 @@
           ],
           "approach": [
             [
-              11.581338650812855,
-              48.12468097404011
+              11.581338123232493,
+              48.12468046292278
             ],
             [
-              11.581259502999002,
-              48.124608196660056
+              11.581258964324682,
+              48.12460769091951
             ]
           ],
           "departure": [
@@ -71736,7 +71740,109 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-north-east-left-entry-1-exit-2.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-north-east-left-entry-1-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-east-left-entry-6-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.581353799546754,
+            48.12456126171788
+          ],
+          "exit": [
+            11.581099023121146,
+            48.12404746168202
+          ],
+          "corridor": [
+            [
+              11.581353799546754,
+              48.12456126171788
+            ],
+            [
+              11.581334,
+              48.124543
+            ],
+            [
+              11.581269,
+              48.124524
+            ],
+            [
+              11.581188,
+              48.124484
+            ],
+            [
+              11.581138,
+              48.124513
+            ],
+            [
+              11.581116,
+              48.124519
+            ],
+            [
+              11.58105,
+              48.124477
+            ],
+            [
+              11.580988,
+              48.124434
+            ],
+            [
+              11.580961,
+              48.124417
+            ],
+            [
+              11.580913,
+              48.124387
+            ],
+            [
+              11.580865,
+              48.124342
+            ],
+            [
+              11.580901,
+              48.12429
+            ],
+            [
+              11.580954,
+              48.124194
+            ],
+            [
+              11.581011,
+              48.124091
+            ],
+            [
+              11.581099023121146,
+              48.12404746168202
+            ]
+          ],
+          "approach": [
+            [
+              11.5814327886681,
+              48.124634115761836
+            ],
+            [
+              11.581353799546754,
+              48.12456126171788
+            ]
+          ],
+          "departure": [
+            [
+              11.581099023121146,
+              48.12404746168202
+            ],
+            [
+              11.581176569387587,
+              48.1239741863234
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-north-east-left-entry-6-exit-2.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -71746,8 +71852,8 @@
           "entryArm": "north",
           "exitArm": "south",
           "entry": [
-            11.581259502999002,
-            48.124608196660056
+            11.581258964324682,
+            48.12460769091951
           ],
           "exit": [
             11.580659293586985,
@@ -71755,8 +71861,8 @@
           ],
           "corridor": [
             [
-              11.581259502999002,
-              48.124608196660056
+              11.581258964324682,
+              48.12460769091951
             ],
             [
               11.581206,
@@ -71801,12 +71907,12 @@
           ],
           "approach": [
             [
-              11.581338650812855,
-              48.12468097404011
+              11.581338123232493,
+              48.12468046292278
             ],
             [
-              11.581259502999002,
-              48.124608196660056
+              11.581258964324682,
+              48.12460769091951
             ]
           ],
           "departure": [
@@ -71822,7 +71928,105 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-north-south-straight-entry-1-exit-3.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-north-south-straight-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-6-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.581353799546754,
+            48.12456126171788
+          ],
+          "exit": [
+            11.580659293586985,
+            48.12422839463842
+          ],
+          "corridor": [
+            [
+              11.581353799546754,
+              48.12456126171788
+            ],
+            [
+              11.581334,
+              48.124543
+            ],
+            [
+              11.581269,
+              48.124524
+            ],
+            [
+              11.581188,
+              48.124484
+            ],
+            [
+              11.581138,
+              48.124513
+            ],
+            [
+              11.581116,
+              48.124519
+            ],
+            [
+              11.58105,
+              48.124477
+            ],
+            [
+              11.580988,
+              48.124434
+            ],
+            [
+              11.580961,
+              48.124417
+            ],
+            [
+              11.580913,
+              48.124387
+            ],
+            [
+              11.580865,
+              48.124342
+            ],
+            [
+              11.580817,
+              48.124312
+            ],
+            [
+              11.580781,
+              48.124292
+            ],
+            [
+              11.580659293586985,
+              48.12422839463842
+            ]
+          ],
+          "approach": [
+            [
+              11.5814327886681,
+              48.124634115761836
+            ],
+            [
+              11.581353799546754,
+              48.12456126171788
+            ]
+          ],
+          "departure": [
+            [
+              11.580659293586985,
+              48.12422839463842
+            ],
+            [
+              11.580549929012665,
+              48.12417628175463
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-north-south-straight-entry-6-exit-3.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -71928,7 +72132,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-east-south-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-east-south-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -72014,7 +72218,117 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-east-west-straight-entry-2-exit-4.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-east-west-straight-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-3-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.580915414966874,
+            48.124064478667556
+          ],
+          "exit": [
+            11.581353799546754,
+            48.12456126171788
+          ],
+          "corridor": [
+            [
+              11.580915414966874,
+              48.124064478667556
+            ],
+            [
+              11.580925,
+              48.12407
+            ],
+            [
+              11.580961,
+              48.124081
+            ],
+            [
+              11.581011,
+              48.124091
+            ],
+            [
+              11.581094,
+              48.124155
+            ],
+            [
+              11.581134,
+              48.124188
+            ],
+            [
+              11.581158,
+              48.124211
+            ],
+            [
+              11.581183,
+              48.124231
+            ],
+            [
+              11.581207,
+              48.12425
+            ],
+            [
+              11.581257,
+              48.124291
+            ],
+            [
+              11.581299,
+              48.124326
+            ],
+            [
+              11.581321,
+              48.124368
+            ],
+            [
+              11.581295,
+              48.124394
+            ],
+            [
+              11.581264,
+              48.124421
+            ],
+            [
+              11.581316,
+              48.124486
+            ],
+            [
+              11.581334,
+              48.124543
+            ],
+            [
+              11.581353799546754,
+              48.12456126171788
+            ]
+          ],
+          "approach": [
+            [
+              11.580813416996522,
+              48.12400572407634
+            ],
+            [
+              11.580915414966874,
+              48.124064478667556
+            ]
+          ],
+          "departure": [
+            [
+              11.581353799546754,
+              48.12456126171788
+            ],
+            [
+              11.5814327886681,
+              48.124634115761836
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-south-north-straight-entry-3-exit-5.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -72108,7 +72422,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-south-north-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-south-north-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -72230,7 +72544,141 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-south-west-left-entry-3-exit-4.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-south-west-left-entry-3-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-5-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.58065827666513,
+            48.124589714291254
+          ],
+          "exit": [
+            11.581353799546754,
+            48.12456126171788
+          ],
+          "corridor": [
+            [
+              11.58065827666513,
+              48.124589714291254
+            ],
+            [
+              11.580703,
+              48.124557
+            ],
+            [
+              11.580694,
+              48.124502
+            ],
+            [
+              11.580796,
+              48.124426
+            ],
+            [
+              11.580852,
+              48.12438
+            ],
+            [
+              11.580861,
+              48.124361
+            ],
+            [
+              11.580865,
+              48.124342
+            ],
+            [
+              11.580901,
+              48.12429
+            ],
+            [
+              11.580954,
+              48.124194
+            ],
+            [
+              11.581011,
+              48.124091
+            ],
+            [
+              11.581094,
+              48.124155
+            ],
+            [
+              11.581134,
+              48.124188
+            ],
+            [
+              11.581158,
+              48.124211
+            ],
+            [
+              11.581183,
+              48.124231
+            ],
+            [
+              11.581207,
+              48.12425
+            ],
+            [
+              11.581257,
+              48.124291
+            ],
+            [
+              11.581299,
+              48.124326
+            ],
+            [
+              11.581321,
+              48.124368
+            ],
+            [
+              11.581295,
+              48.124394
+            ],
+            [
+              11.581264,
+              48.124421
+            ],
+            [
+              11.581316,
+              48.124486
+            ],
+            [
+              11.581334,
+              48.124543
+            ],
+            [
+              11.581353799546754,
+              48.12456126171788
+            ]
+          ],
+          "approach": [
+            [
+              11.580567521840427,
+              48.12465618105496
+            ],
+            [
+              11.58065827666513,
+              48.124589714291254
+            ]
+          ],
+          "departure": [
+            [
+              11.581353799546754,
+              48.12456126171788
+            ],
+            [
+              11.5814327886681,
+              48.124634115761836
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-west-north-left-entry-5-exit-5.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -72348,7 +72796,7 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-west-north-left-entry-5-exit-1.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-west-north-left-entry-5-exit-1.json; unchanged Standard response passes production matching."
           }
         },
         {
@@ -72434,14 +72882,14 @@
           "review": {
             "status": "approved",
             "date": "2026-11-27",
-            "evidence": "Thomas approved K110 v2; legal directed frozen OSM corridor, routes/osm-junction-704607965-west-east-straight-entry-5-exit-2.json; unchanged Standard response passes production matching."
+            "evidence": "Thomas approved K110 v4; legal directed frozen OSM corridor, routes/osm-junction-704607965-west-east-straight-entry-5-exit-2.json; unchanged Standard response passes production matching."
           }
         }
       ],
       "review": {
         "status": "approved",
         "date": "2026-11-27",
-        "evidence": "Thomas approved K110 v2; check-routes.json"
+        "evidence": "Thomas approved K110 v4; check-routes.json"
       },
       "armTopology": {
         "clockwise": [
@@ -72454,11 +72902,19 @@
           "north": {
             "entries": [
               [
-                11.581259250736714,
-                48.124608309174114
+                11.58125871212317,
+                48.12460781439172
+              ],
+              [
+                11.581354062347868,
+                48.12456113305634
               ]
             ],
             "exits": [
+              [
+                11.581354062347868,
+                48.12456113305634
+              ],
               [
                 11.581452006283431,
                 48.12448606357979
@@ -72511,7 +72967,7 @@
         "review": {
           "status": "approved",
           "date": "2026-11-27",
-          "evidence": "Thomas approved K110 v2; clockwise gate membership in osm-junction-704607965-v2-20261127T083818Z; verified Standard routes."
+          "evidence": "Thomas approved K110 v4; clockwise gate membership in osm-junction-704607965-v4-20261127T160453Z; verified Standard routes."
         }
       }
     },
@@ -77058,6 +77514,5022 @@
           "status": "approved",
           "date": "2026-11-27",
           "evidence": "Thomas approved K114 v2; clockwise gate membership in osm-junction-300536428-v2-20261127T091204Z; verified Standard routes."
+        }
+      }
+    },
+    {
+      "id": "osm-junction-415803502",
+      "name": "Baumgartnerstraße / Pfeuferstraße / Radlkoferstraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.5407299,
+              48.125587659576
+            ],
+            [
+              11.540894702078063,
+              48.12556577801869
+            ],
+            [
+              11.541034414533673,
+              48.125503464615505
+            ],
+            [
+              11.541127767411965,
+              48.12541020601721
+            ],
+            [
+              11.541160548583461,
+              48.1253002
+            ],
+            [
+              11.541127767411965,
+              48.12519019398279
+            ],
+            [
+              11.541034414533673,
+              48.12509693538449
+            ],
+            [
+              11.540894702078063,
+              48.12503462198131
+            ],
+            [
+              11.5407299,
+              48.125012740424
+            ],
+            [
+              11.540565097921938,
+              48.12503462198131
+            ],
+            [
+              11.540425385466328,
+              48.12509693538449
+            ],
+            [
+              11.540332032588037,
+              48.12519019398279
+            ],
+            [
+              11.54029925141654,
+              48.1253002
+            ],
+            [
+              11.540332032588037,
+              48.12541020601721
+            ],
+            [
+              11.540425385466328,
+              48.125503464615505
+            ],
+            [
+              11.540565097921938,
+              48.12556577801869
+            ],
+            [
+              11.5407299,
+              48.125587659576
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-5-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.540479035814549,
+            48.12552739330365
+          ],
+          "exit": [
+            11.541134767963102,
+            48.12521368621061
+          ],
+          "corridor": [
+            [
+              11.540479035814549,
+              48.12552739330365
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540585,
+              48.125299
+            ],
+            [
+              11.54067,
+              48.125177
+            ],
+            [
+              11.540709,
+              48.12517
+            ],
+            [
+              11.540811,
+              48.12516
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.54105,
+              48.125187
+            ],
+            [
+              11.541134767963102,
+              48.12521368621061
+            ]
+          ],
+          "approach": [
+            [
+              11.540437913255134,
+              48.12561303386316
+            ],
+            [
+              11.540479035814549,
+              48.12552739330365
+            ]
+          ],
+          "departure": [
+            [
+              11.541134767963102,
+              48.12521368621061
+            ],
+            [
+              11.54125662407635,
+              48.125252048320334
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-north-east-left-entry-5-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-5-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.540479035814549,
+            48.12552739330365
+          ],
+          "exit": [
+            11.54077002820381,
+            48.12501806843686
+          ],
+          "corridor": [
+            [
+              11.540479035814549,
+              48.12552739330365
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540585,
+              48.125299
+            ],
+            [
+              11.54067,
+              48.125177
+            ],
+            [
+              11.540752,
+              48.125055
+            ],
+            [
+              11.54077002820381,
+              48.12501806843686
+            ]
+          ],
+          "approach": [
+            [
+              11.540437913255134,
+              48.12561303386316
+            ],
+            [
+              11.540479035814549,
+              48.12552739330365
+            ]
+          ],
+          "departure": [
+            [
+              11.54077002820381,
+              48.12501806843686
+            ],
+            [
+              11.540811768656749,
+              48.1249325612954
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-north-south-straight-entry-5-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-2-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.541134767963102,
+            48.12521368621061
+          ],
+          "exit": [
+            11.54077002820381,
+            48.12501806843686
+          ],
+          "corridor": [
+            [
+              11.541134767963102,
+              48.12521368621061
+            ],
+            [
+              11.54105,
+              48.125187
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.540963,
+              48.125207
+            ],
+            [
+              11.540903,
+              48.125328
+            ],
+            [
+              11.540834,
+              48.12545
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540638,
+              48.12546
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540585,
+              48.125299
+            ],
+            [
+              11.54067,
+              48.125177
+            ],
+            [
+              11.540752,
+              48.125055
+            ],
+            [
+              11.54077002820381,
+              48.12501806843686
+            ]
+          ],
+          "approach": [
+            [
+              11.54125662407635,
+              48.125252048320334
+            ],
+            [
+              11.541134767963102,
+              48.12521368621061
+            ]
+          ],
+          "departure": [
+            [
+              11.54077002820381,
+              48.12501806843686
+            ],
+            [
+              11.540811768656749,
+              48.1249325612954
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-east-south-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.541002800356962,
+            48.12551756491123
+          ],
+          "exit": [
+            11.54077002820381,
+            48.12501806843686
+          ],
+          "corridor": [
+            [
+              11.541002800356962,
+              48.12551756491123
+            ],
+            [
+              11.540937,
+              48.125506
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540638,
+              48.12546
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540585,
+              48.125299
+            ],
+            [
+              11.54067,
+              48.125177
+            ],
+            [
+              11.540752,
+              48.125055
+            ],
+            [
+              11.54077002820381,
+              48.12501806843686
+            ]
+          ],
+          "approach": [
+            [
+              11.541132332125807,
+              48.1255421076921
+            ],
+            [
+              11.541002800356962,
+              48.12551756491123
+            ]
+          ],
+          "departure": [
+            [
+              11.54077002820381,
+              48.12501806843686
+            ],
+            [
+              11.540811768656749,
+              48.1249325612954
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-east-south-left-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-2-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.541134767963102,
+            48.12521368621061
+          ],
+          "exit": [
+            11.540328833410744,
+            48.12539947031936
+          ],
+          "corridor": [
+            [
+              11.541134767963102,
+              48.12521368621061
+            ],
+            [
+              11.54105,
+              48.125187
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.540963,
+              48.125207
+            ],
+            [
+              11.540903,
+              48.125328
+            ],
+            [
+              11.540834,
+              48.12545
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540638,
+              48.12546
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540328833410744,
+              48.12539947031936
+            ]
+          ],
+          "approach": [
+            [
+              11.54125662407635,
+              48.125252048320334
+            ],
+            [
+              11.541134767963102,
+              48.12521368621061
+            ]
+          ],
+          "departure": [
+            [
+              11.540328833410744,
+              48.12539947031936
+            ],
+            [
+              11.540198274486398,
+              48.125384386275684
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-east-west-straight-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.541002800356962,
+            48.12551756491123
+          ],
+          "exit": [
+            11.540328833410744,
+            48.12539947031936
+          ],
+          "corridor": [
+            [
+              11.541002800356962,
+              48.12551756491123
+            ],
+            [
+              11.540937,
+              48.125506
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540638,
+              48.12546
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540328833410744,
+              48.12539947031936
+            ]
+          ],
+          "approach": [
+            [
+              11.541132332125807,
+              48.1255421076921
+            ],
+            [
+              11.541002800356962,
+              48.12551756491123
+            ]
+          ],
+          "departure": [
+            [
+              11.540328833410744,
+              48.12539947031936
+            ],
+            [
+              11.540198274486398,
+              48.125384386275684
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-east-west-straight-entry-1-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-3-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.541004419453873,
+            48.125083557225096
+          ],
+          "exit": [
+            11.540751726726436,
+            48.12558476153751
+          ],
+          "corridor": [
+            [
+              11.541004419453873,
+              48.125083557225096
+            ],
+            [
+              11.541003,
+              48.125111
+            ],
+            [
+              11.540991,
+              48.12514
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.540963,
+              48.125207
+            ],
+            [
+              11.540903,
+              48.125328
+            ],
+            [
+              11.540834,
+              48.12545
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540751726726436,
+              48.12558476153751
+            ]
+          ],
+          "approach": [
+            [
+              11.541035206761764,
+              48.12499693644581
+            ],
+            [
+              11.541004419453873,
+              48.125083557225096
+            ]
+          ],
+          "departure": [
+            [
+              11.540751726726436,
+              48.12558476153751
+            ],
+            [
+              11.540700223378291,
+              48.12566785079905
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-south-north-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-3-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.541004419453873,
+            48.125083557225096
+          ],
+          "exit": [
+            11.540328833410744,
+            48.12539947031936
+          ],
+          "corridor": [
+            [
+              11.541004419453873,
+              48.125083557225096
+            ],
+            [
+              11.541003,
+              48.125111
+            ],
+            [
+              11.540991,
+              48.12514
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.540963,
+              48.125207
+            ],
+            [
+              11.540903,
+              48.125328
+            ],
+            [
+              11.540834,
+              48.12545
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540638,
+              48.12546
+            ],
+            [
+              11.540521,
+              48.12544
+            ],
+            [
+              11.540328833410744,
+              48.12539947031936
+            ]
+          ],
+          "approach": [
+            [
+              11.541035206761764,
+              48.12499693644581
+            ],
+            [
+              11.541004419453873,
+              48.125083557225096
+            ]
+          ],
+          "departure": [
+            [
+              11.540328833410744,
+              48.12539947031936
+            ],
+            [
+              11.540198274486398,
+              48.125384386275684
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-south-west-left-entry-3-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-4-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.540322874998013,
+            48.12522092473339
+          ],
+          "exit": [
+            11.540751726726436,
+            48.12558476153751
+          ],
+          "corridor": [
+            [
+              11.540322874998013,
+              48.12522092473339
+            ],
+            [
+              11.540619,
+              48.125197
+            ],
+            [
+              11.54067,
+              48.125177
+            ],
+            [
+              11.540709,
+              48.12517
+            ],
+            [
+              11.540811,
+              48.12516
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.540963,
+              48.125207
+            ],
+            [
+              11.540903,
+              48.125328
+            ],
+            [
+              11.540834,
+              48.12545
+            ],
+            [
+              11.54081,
+              48.125492
+            ],
+            [
+              11.540751726726436,
+              48.12558476153751
+            ]
+          ],
+          "approach": [
+            [
+              11.540189122497914,
+              48.12523173095673
+            ],
+            [
+              11.540322874998013,
+              48.12522092473339
+            ]
+          ],
+          "departure": [
+            [
+              11.540751726726436,
+              48.12558476153751
+            ],
+            [
+              11.540700223378291,
+              48.12566785079905
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-west-north-left-entry-4-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-4-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.540322874998013,
+            48.12522092473339
+          ],
+          "exit": [
+            11.541134767963102,
+            48.12521368621061
+          ],
+          "corridor": [
+            [
+              11.540322874998013,
+              48.12522092473339
+            ],
+            [
+              11.540619,
+              48.125197
+            ],
+            [
+              11.54067,
+              48.125177
+            ],
+            [
+              11.540709,
+              48.12517
+            ],
+            [
+              11.540811,
+              48.12516
+            ],
+            [
+              11.540985,
+              48.125166
+            ],
+            [
+              11.54105,
+              48.125187
+            ],
+            [
+              11.541134767963102,
+              48.12521368621061
+            ]
+          ],
+          "approach": [
+            [
+              11.540189122497914,
+              48.12523173095673
+            ],
+            [
+              11.540322874998013,
+              48.12522092473339
+            ]
+          ],
+          "departure": [
+            [
+              11.541134767963102,
+              48.12521368621061
+            ],
+            [
+              11.54125662407635,
+              48.125252048320334
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K115 v1; legal directed frozen OSM corridor, routes/osm-junction-415803502-west-east-straight-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-27",
+        "evidence": "Thomas approved K115 v1; check-routes.json"
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.540479468689194,
+                48.12552758637084
+              ]
+            ],
+            "exits": [
+              [
+                11.540751429370491,
+                48.125584801018874
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.541134847913524,
+                48.1252139545057
+              ],
+              [
+                11.54100273252009,
+                48.12551759516727
+              ]
+            ],
+            "exits": [
+              [
+                11.541134847913524,
+                48.1252139545057
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.541004187202352,
+                48.125083453638176
+              ]
+            ],
+            "exits": [
+              [
+                11.540769516969032,
+                48.12501800055778
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.540322854485874,
+                48.125220993567375
+              ]
+            ],
+            "exits": [
+              [
+                11.540328818999143,
+                48.12539942195737
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-27",
+          "evidence": "Thomas approved K115 v1; clockwise gate membership in osm-junction-415803502-v1-20261127T165031Z; verified Standard routes."
+        }
+      }
+    },
+    {
+      "id": "osm-junction-26125663",
+      "name": "Höglwörther Straße / Murnauer Straße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.522443599999999,
+              48.107086609576
+            ],
+            [
+              11.5226083427459,
+              48.10706472801869
+            ],
+            [
+              11.522748004902134,
+              48.10700241461551
+            ],
+            [
+              11.522841324171456,
+              48.10690915601721
+            ],
+            [
+              11.522874093541052,
+              48.10679915
+            ],
+            [
+              11.522841324171456,
+              48.10668914398279
+            ],
+            [
+              11.522748004902134,
+              48.10659588538449
+            ],
+            [
+              11.5226083427459,
+              48.10653357198131
+            ],
+            [
+              11.522443599999999,
+              48.106511690424
+            ],
+            [
+              11.522278857254099,
+              48.10653357198131
+            ],
+            [
+              11.522139195097864,
+              48.10659588538449
+            ],
+            [
+              11.522045875828542,
+              48.10668914398279
+            ],
+            [
+              11.522013106458946,
+              48.10679915
+            ],
+            [
+              11.522045875828542,
+              48.10690915601721
+            ],
+            [
+              11.522139195097864,
+              48.10700241461551
+            ],
+            [
+              11.522278857254099,
+              48.10706472801869
+            ],
+            [
+              11.522443599999999,
+              48.107086609576
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.52207505104407,
+            48.106938312264624
+          ],
+          "exit": [
+            11.522841860231535,
+            48.106907356475894
+          ],
+          "corridor": [
+            [
+              11.52207505104407,
+              48.106938312264624
+            ],
+            [
+              11.522205,
+              48.106786
+            ],
+            [
+              11.522265,
+              48.106718
+            ],
+            [
+              11.522314,
+              48.106663
+            ],
+            [
+              11.522432,
+              48.106716
+            ],
+            [
+              11.522548,
+              48.106775
+            ],
+            [
+              11.522639,
+              48.106809
+            ],
+            [
+              11.522841860231535,
+              48.106907356475894
+            ]
+          ],
+          "approach": [
+            [
+              11.522008383127172,
+              48.1070164532649
+            ],
+            [
+              11.52207505104407,
+              48.106938312264624
+            ]
+          ],
+          "departure": [
+            [
+              11.522841860231535,
+              48.106907356475894
+            ],
+            [
+              11.522950842158307,
+              48.10696019619797
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-north-east-left-entry-4-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.52207505104407,
+            48.106938312264624
+          ],
+          "exit": [
+            11.522440226345045,
+            48.10651213852157
+          ],
+          "corridor": [
+            [
+              11.52207505104407,
+              48.106938312264624
+            ],
+            [
+              11.522205,
+              48.106786
+            ],
+            [
+              11.522265,
+              48.106718
+            ],
+            [
+              11.522314,
+              48.106663
+            ],
+            [
+              11.522384,
+              48.106584
+            ],
+            [
+              11.522440226345045,
+              48.10651213852157
+            ]
+          ],
+          "approach": [
+            [
+              11.522008383127172,
+              48.1070164532649
+            ],
+            [
+              11.52207505104407,
+              48.106938312264624
+            ]
+          ],
+          "departure": [
+            [
+              11.522440226345045,
+              48.10651213852157
+            ],
+            [
+              11.522502592535572,
+              48.10643242986095
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-north-south-straight-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.522714001285479,
+            48.10701758609167
+          ],
+          "exit": [
+            11.522440226345045,
+            48.10651213852157
+          ],
+          "corridor": [
+            [
+              11.522714001285479,
+              48.10701758609167
+            ],
+            [
+              11.522672,
+              48.106998
+            ],
+            [
+              11.522533,
+              48.106939
+            ],
+            [
+              11.522441,
+              48.106899
+            ],
+            [
+              11.522325,
+              48.106843
+            ],
+            [
+              11.522205,
+              48.106786
+            ],
+            [
+              11.522265,
+              48.106718
+            ],
+            [
+              11.522314,
+              48.106663
+            ],
+            [
+              11.522384,
+              48.106584
+            ],
+            [
+              11.522440226345045,
+              48.10651213852157
+            ]
+          ],
+          "approach": [
+            [
+              11.522824421458246,
+              48.107069077363946
+            ],
+            [
+              11.522714001285479,
+              48.10701758609167
+            ]
+          ],
+          "departure": [
+            [
+              11.522440226345045,
+              48.10651213852157
+            ],
+            [
+              11.522502592535572,
+              48.10643242986095
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-east-south-left-entry-1-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.522714001285479,
+            48.10701758609167
+          ],
+          "exit": [
+            11.522040257769204,
+            48.106708003678285
+          ],
+          "corridor": [
+            [
+              11.522714001285479,
+              48.10701758609167
+            ],
+            [
+              11.522672,
+              48.106998
+            ],
+            [
+              11.522533,
+              48.106939
+            ],
+            [
+              11.522441,
+              48.106899
+            ],
+            [
+              11.522325,
+              48.106843
+            ],
+            [
+              11.522205,
+              48.106786
+            ],
+            [
+              11.522040257769204,
+              48.106708003678285
+            ]
+          ],
+          "approach": [
+            [
+              11.522824421458246,
+              48.107069077363946
+            ],
+            [
+              11.522714001285479,
+              48.10701758609167
+            ]
+          ],
+          "departure": [
+            [
+              11.522040257769204,
+              48.106708003678285
+            ],
+            [
+              11.521930391176792,
+              48.10665598793196
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-east-west-straight-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.522792000256379,
+            48.106639852135395
+          ],
+          "exit": [
+            11.52240986308775,
+            48.10708212855212
+          ],
+          "corridor": [
+            [
+              11.522792000256379,
+              48.106639852135395
+            ],
+            [
+              11.52278,
+              48.106655
+            ],
+            [
+              11.52271,
+              48.106732
+            ],
+            [
+              11.522639,
+              48.106809
+            ],
+            [
+              11.522588,
+              48.106867
+            ],
+            [
+              11.522533,
+              48.106939
+            ],
+            [
+              11.52240986308775,
+              48.10708212855212
+            ]
+          ],
+          "approach": [
+            [
+              11.522856167757803,
+              48.10656080191241
+            ],
+            [
+              11.522792000256379,
+              48.106639852135395
+            ]
+          ],
+          "departure": [
+            [
+              11.52240986308775,
+              48.10708212855212
+            ],
+            [
+              11.52234277465606,
+              48.10716010898801
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-south-north-straight-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.522792000256379,
+            48.106639852135395
+          ],
+          "exit": [
+            11.522040257769204,
+            48.106708003678285
+          ],
+          "corridor": [
+            [
+              11.522792000256379,
+              48.106639852135395
+            ],
+            [
+              11.52278,
+              48.106655
+            ],
+            [
+              11.52271,
+              48.106732
+            ],
+            [
+              11.522639,
+              48.106809
+            ],
+            [
+              11.522588,
+              48.106867
+            ],
+            [
+              11.522533,
+              48.106939
+            ],
+            [
+              11.522441,
+              48.106899
+            ],
+            [
+              11.522325,
+              48.106843
+            ],
+            [
+              11.522205,
+              48.106786
+            ],
+            [
+              11.522040257769204,
+              48.106708003678285
+            ]
+          ],
+          "approach": [
+            [
+              11.522856167757803,
+              48.10656080191241
+            ],
+            [
+              11.522792000256379,
+              48.106639852135395
+            ]
+          ],
+          "departure": [
+            [
+              11.522040257769204,
+              48.106708003678285
+            ],
+            [
+              11.521930391176792,
+              48.10665598793196
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-south-west-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.52215333359102,
+            48.10658957717869
+          ],
+          "exit": [
+            11.52240986308775,
+            48.10708212855212
+          ],
+          "corridor": [
+            [
+              11.52215333359102,
+              48.10658957717869
+            ],
+            [
+              11.522314,
+              48.106663
+            ],
+            [
+              11.522432,
+              48.106716
+            ],
+            [
+              11.522548,
+              48.106775
+            ],
+            [
+              11.522639,
+              48.106809
+            ],
+            [
+              11.522588,
+              48.106867
+            ],
+            [
+              11.522533,
+              48.106939
+            ],
+            [
+              11.52240986308775,
+              48.10708212855212
+            ]
+          ],
+          "approach": [
+            [
+              11.522042189892142,
+              48.1065387857034
+            ],
+            [
+              11.52215333359102,
+              48.10658957717869
+            ]
+          ],
+          "departure": [
+            [
+              11.52240986308775,
+              48.10708212855212
+            ],
+            [
+              11.52234277465606,
+              48.10716010898801
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-west-north-left-entry-3-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.52215333359102,
+            48.10658957717869
+          ],
+          "exit": [
+            11.522841860231535,
+            48.106907356475894
+          ],
+          "corridor": [
+            [
+              11.52215333359102,
+              48.10658957717869
+            ],
+            [
+              11.522314,
+              48.106663
+            ],
+            [
+              11.522432,
+              48.106716
+            ],
+            [
+              11.522548,
+              48.106775
+            ],
+            [
+              11.522639,
+              48.106809
+            ],
+            [
+              11.522841860231535,
+              48.106907356475894
+            ]
+          ],
+          "approach": [
+            [
+              11.522042189892142,
+              48.1065387857034
+            ],
+            [
+              11.52215333359102,
+              48.10658957717869
+            ]
+          ],
+          "departure": [
+            [
+              11.522841860231535,
+              48.106907356475894
+            ],
+            [
+              11.522950842158307,
+              48.10696019619797
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K116 v1; legal directed frozen OSM corridor, routes/osm-junction-26125663-west-east-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-27",
+        "evidence": "Thomas approved K116 v1; check-routes.json"
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.522074796094834,
+                48.106938057481145
+              ]
+            ],
+            "exits": [
+              [
+                11.522409590408936,
+                48.10708209233422
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.522714432084777,
+                48.1070173938809
+              ]
+            ],
+            "exits": [
+              [
+                11.522841926781116,
+                48.10690713307049
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.522792159319968,
+                48.10664001109557
+              ]
+            ],
+            "exits": [
+              [
+                11.522440042456303,
+                48.106512162946146
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.522152791012363,
+                48.106589819262325
+              ]
+            ],
+            "exits": [
+              [
+                11.522040330283781,
+                48.106707760248526
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-27",
+          "evidence": "Thomas approved K116 v1; clockwise gate membership in osm-junction-26125663-v1-20261127T164956Z; verified Standard routes."
+        }
+      }
+    },
+    {
+      "id": "osm-junction-21134869",
+      "name": "Elsenheimerstraße / Hansastraße / Westendstraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.5246304,
+              48.135921059576
+            ],
+            [
+              11.524795235242967,
+              48.13589917801869
+            ],
+            [
+              11.524934975814428,
+              48.135836864615506
+            ],
+            [
+              11.52502834747913,
+              48.13574360601721
+            ],
+            [
+              11.525061135247537,
+              48.1356336
+            ],
+            [
+              11.52502834747913,
+              48.13552359398279
+            ],
+            [
+              11.524934975814428,
+              48.13543033538449
+            ],
+            [
+              11.524795235242967,
+              48.13536802198131
+            ],
+            [
+              11.5246304,
+              48.135346140424
+            ],
+            [
+              11.524465564757032,
+              48.13536802198131
+            ],
+            [
+              11.52432582418557,
+              48.13543033538449
+            ],
+            [
+              11.524232452520868,
+              48.13552359398279
+            ],
+            [
+              11.524199664752462,
+              48.1356336
+            ],
+            [
+              11.524232452520868,
+              48.13574360601721
+            ],
+            [
+              11.52432582418557,
+              48.135836864615506
+            ],
+            [
+              11.524465564757032,
+              48.13589917801869
+            ],
+            [
+              11.5246304,
+              48.135921059576
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.524231451851312,
+            48.135740248677635
+          ],
+          "exit": [
+            11.525013060249528,
+            48.13575887473507
+          ],
+          "corridor": [
+            [
+              11.524231451851312,
+              48.135740248677635
+            ],
+            [
+              11.524369,
+              48.135642
+            ],
+            [
+              11.524437,
+              48.135597
+            ],
+            [
+              11.524565,
+              48.13551
+            ],
+            [
+              11.524638,
+              48.135465
+            ],
+            [
+              11.524745,
+              48.13555
+            ],
+            [
+              11.524833,
+              48.135612
+            ],
+            [
+              11.524842,
+              48.135666
+            ],
+            [
+              11.524899,
+              48.135697
+            ],
+            [
+              11.525001,
+              48.135752
+            ],
+            [
+              11.525013060249528,
+              48.13575887473507
+            ]
+          ],
+          "approach": [
+            [
+              11.524139453490996,
+              48.135805961792144
+            ],
+            [
+              11.524231451851312,
+              48.135740248677635
+            ]
+          ],
+          "departure": [
+            [
+              11.525013060249528,
+              48.13575887473507
+            ],
+            [
+              11.52511552631716,
+              48.13581728373128
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-north-east-left-entry-4-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.524231451851312,
+            48.135740248677635
+          ],
+          "exit": [
+            11.524776413165748,
+            48.135365523387236
+          ],
+          "corridor": [
+            [
+              11.524231451851312,
+              48.135740248677635
+            ],
+            [
+              11.524369,
+              48.135642
+            ],
+            [
+              11.524437,
+              48.135597
+            ],
+            [
+              11.524565,
+              48.13551
+            ],
+            [
+              11.524638,
+              48.135465
+            ],
+            [
+              11.524776413165748,
+              48.135365523387236
+            ]
+          ],
+          "approach": [
+            [
+              11.524139453490996,
+              48.135805961792144
+            ],
+            [
+              11.524231451851312,
+              48.135740248677635
+            ]
+          ],
+          "departure": [
+            [
+              11.524776413165748,
+              48.135365523387236
+            ],
+            [
+              11.524868108566233,
+              48.135299622518644
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-north-south-straight-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.524805373390606,
+            48.13589465719503
+          ],
+          "exit": [
+            11.524776413165748,
+            48.135365523387236
+          ],
+          "corridor": [
+            [
+              11.524805373390606,
+              48.13589465719503
+            ],
+            [
+              11.524615,
+              48.135794
+            ],
+            [
+              11.5245,
+              48.135723
+            ],
+            [
+              11.524369,
+              48.135642
+            ],
+            [
+              11.524437,
+              48.135597
+            ],
+            [
+              11.524565,
+              48.13551
+            ],
+            [
+              11.524638,
+              48.135465
+            ],
+            [
+              11.524776413165748,
+              48.135365523387236
+            ]
+          ],
+          "approach": [
+            [
+              11.52491099764953,
+              48.13595050450435
+            ],
+            [
+              11.524805373390606,
+              48.13589465719503
+            ]
+          ],
+          "departure": [
+            [
+              11.524776413165748,
+              48.135365523387236
+            ],
+            [
+              11.524868108566233,
+              48.135299622518644
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-east-south-left-entry-1-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.524805373390606,
+            48.13589465719503
+          ],
+          "exit": [
+            11.524223913524098,
+            48.135552243112365
+          ],
+          "corridor": [
+            [
+              11.524805373390606,
+              48.13589465719503
+            ],
+            [
+              11.524615,
+              48.135794
+            ],
+            [
+              11.5245,
+              48.135723
+            ],
+            [
+              11.524369,
+              48.135642
+            ],
+            [
+              11.524223913524098,
+              48.135552243112365
+            ]
+          ],
+          "approach": [
+            [
+              11.52491099764953,
+              48.13595050450435
+            ],
+            [
+              11.524805373390606,
+              48.13589465719503
+            ]
+          ],
+          "departure": [
+            [
+              11.524223913524098,
+              48.135552243112365
+            ],
+            [
+              11.52412508744353,
+              48.13549110494388
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-east-west-straight-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.52499520380074,
+            48.135490490439025
+          ],
+          "exit": [
+            11.524465812120036,
+            48.13589921085565
+          ],
+          "corridor": [
+            [
+              11.52499520380074,
+              48.135490490439025
+            ],
+            [
+              11.524833,
+              48.135612
+            ],
+            [
+              11.524728,
+              48.135709
+            ],
+            [
+              11.524615,
+              48.135794
+            ],
+            [
+              11.524465812120036,
+              48.13589921085565
+            ]
+          ],
+          "approach": [
+            [
+              11.525084842222268,
+              48.135423340808764
+            ],
+            [
+              11.52499520380074,
+              48.135490490439025
+            ]
+          ],
+          "departure": [
+            [
+              11.524465812120036,
+              48.13589921085565
+            ],
+            [
+              11.524373188139549,
+              48.13596453149861
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-south-north-straight-entry-2-exit-5.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.52499520380074,
+            48.135490490439025
+          ],
+          "exit": [
+            11.524223913524098,
+            48.135552243112365
+          ],
+          "corridor": [
+            [
+              11.52499520380074,
+              48.135490490439025
+            ],
+            [
+              11.524833,
+              48.135612
+            ],
+            [
+              11.524728,
+              48.135709
+            ],
+            [
+              11.524615,
+              48.135794
+            ],
+            [
+              11.5245,
+              48.135723
+            ],
+            [
+              11.524369,
+              48.135642
+            ],
+            [
+              11.524223913524098,
+              48.135552243112365
+            ]
+          ],
+          "approach": [
+            [
+              11.525084842222268,
+              48.135423340808764
+            ],
+            [
+              11.52499520380074,
+              48.135490490439025
+            ]
+          ],
+          "departure": [
+            [
+              11.524223913524098,
+              48.135552243112365
+            ],
+            [
+              11.52412508744353,
+              48.13549110494388
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-south-west-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.524488054723182,
+            48.13536503648212
+          ],
+          "exit": [
+            11.524465812120036,
+            48.13589921085565
+          ],
+          "corridor": [
+            [
+              11.524488054723182,
+              48.13536503648212
+            ],
+            [
+              11.524638,
+              48.135465
+            ],
+            [
+              11.524745,
+              48.13555
+            ],
+            [
+              11.524833,
+              48.135612
+            ],
+            [
+              11.524728,
+              48.135709
+            ],
+            [
+              11.524615,
+              48.135794
+            ],
+            [
+              11.524465812120036,
+              48.13589921085565
+            ]
+          ],
+          "approach": [
+            [
+              11.524392717999417,
+              48.13530147866628
+            ],
+            [
+              11.524488054723182,
+              48.13536503648212
+            ]
+          ],
+          "departure": [
+            [
+              11.524465812120036,
+              48.13589921085565
+            ],
+            [
+              11.524373188139549,
+              48.13596453149861
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-west-north-left-entry-3-exit-5.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.524488054723182,
+            48.13536503648212
+          ],
+          "exit": [
+            11.525013060249528,
+            48.13575887473507
+          ],
+          "corridor": [
+            [
+              11.524488054723182,
+              48.13536503648212
+            ],
+            [
+              11.524638,
+              48.135465
+            ],
+            [
+              11.524745,
+              48.13555
+            ],
+            [
+              11.524833,
+              48.135612
+            ],
+            [
+              11.524842,
+              48.135666
+            ],
+            [
+              11.524899,
+              48.135697
+            ],
+            [
+              11.525001,
+              48.135752
+            ],
+            [
+              11.525013060249528,
+              48.13575887473507
+            ]
+          ],
+          "approach": [
+            [
+              11.524392717999417,
+              48.13530147866628
+            ],
+            [
+              11.524488054723182,
+              48.13536503648212
+            ]
+          ],
+          "departure": [
+            [
+              11.525013060249528,
+              48.13575887473507
+            ],
+            [
+              11.52511552631716,
+              48.13581728373128
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K117 v1; legal directed frozen OSM corridor, routes/osm-junction-21134869-west-east-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-east-left-entry-5-exit-1",
+          "enabled": false,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-1",
+          "disabledReason": "ValueError: Wrong entry gate"
+        },
+        {
+          "id": "north-south-straight-entry-5-exit-2",
+          "enabled": false,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "disabledReason": "ValueError: Wrong entry gate"
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-4",
+          "enabled": false,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "disabledReason": "ValueError: Wrong exit gate"
+        },
+        {
+          "id": "west-north-left-entry-3-exit-4",
+          "enabled": false,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "disabledReason": "ValueError: Wrong exit gate"
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-27",
+        "evidence": "Thomas approved K117 v1; check-routes.json"
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.52433515709812,
+                48.135841026367075
+              ],
+              [
+                11.524231427383555,
+                48.13574016658603
+              ]
+            ],
+            "exits": [
+              [
+                11.52433515709812,
+                48.135841026367075
+              ],
+              [
+                11.524465418838076,
+                48.135899112950206
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.52480554711131,
+                48.13589457972914
+              ]
+            ],
+            "exits": [
+              [
+                11.525012779384282,
+                48.13575915526021
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.524995159961765,
+                48.13549044665313
+              ]
+            ],
+            "exits": [
+              [
+                11.524776402239223,
+                48.135365521936755
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.524488005456178,
+                48.135365043022226
+              ]
+            ],
+            "exits": [
+              [
+                11.524224040897982,
+                48.13555181576112
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-27",
+          "evidence": "Thomas approved K117 v1; clockwise gate membership in osm-junction-21134869-v1-20261127T164331Z; verified Standard routes."
+        }
+      }
+    },
+    {
+      "id": "osm-junction-17192376",
+      "name": "Albert-Roßhaupter-Straße / Hansastraße / Passauerstraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.5336044,
+              48.117152959576
+            ],
+            [
+              11.53376917502087,
+              48.117131078018694
+            ],
+            [
+              11.533908864538502,
+              48.11706876461551
+            ],
+            [
+              11.534002202090125,
+              48.11697550601721
+            ],
+            [
+              11.534034977879612,
+              48.1168655
+            ],
+            [
+              11.534002202090125,
+              48.116755493982794
+            ],
+            [
+              11.533908864538502,
+              48.116662235384496
+            ],
+            [
+              11.53376917502087,
+              48.11659992198131
+            ],
+            [
+              11.5336044,
+              48.116578040424
+            ],
+            [
+              11.53343962497913,
+              48.11659992198131
+            ],
+            [
+              11.533299935461498,
+              48.116662235384496
+            ],
+            [
+              11.533206597909874,
+              48.116755493982794
+            ],
+            [
+              11.533173822120387,
+              48.1168655
+            ],
+            [
+              11.533206597909874,
+              48.11697550601721
+            ],
+            [
+              11.533299935461498,
+              48.11706876461551
+            ],
+            [
+              11.53343962497913,
+              48.117131078018694
+            ],
+            [
+              11.5336044,
+              48.117152959576
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.533523719105595,
+            48.1171422454301
+          ],
+          "exit": [
+            11.534032119188263,
+            48.116875094681156
+          ],
+          "corridor": [
+            [
+              11.533523719105595,
+              48.1171422454301
+            ],
+            [
+              11.533505,
+              48.116988
+            ],
+            [
+              11.533461,
+              48.116948
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533935,
+              48.116874
+            ],
+            [
+              11.53402,
+              48.116875
+            ],
+            [
+              11.534032119188263,
+              48.116875094681156
+            ]
+          ],
+          "approach": [
+            [
+              11.533537756336223,
+              48.11723165348675
+            ],
+            [
+              11.533523719105595,
+              48.1171422454301
+            ]
+          ],
+          "departure": [
+            [
+              11.534032119188263,
+              48.116875094681156
+            ],
+            [
+              11.534166816747007,
+              48.11687614700583
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-north-east-left-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.533523719105595,
+            48.1171422454301
+          ],
+          "exit": [
+            11.533455509560218,
+            48.116597812563455
+          ],
+          "corridor": [
+            [
+              11.533523719105595,
+              48.1171422454301
+            ],
+            [
+              11.533505,
+              48.116988
+            ],
+            [
+              11.533461,
+              48.116948
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533446,
+              48.116755
+            ],
+            [
+              11.533455509560218,
+              48.116597812563455
+            ]
+          ],
+          "approach": [
+            [
+              11.533537756336223,
+              48.11723165348675
+            ],
+            [
+              11.533523719105595,
+              48.1171422454301
+            ]
+          ],
+          "departure": [
+            [
+              11.533455509560218,
+              48.116597812563455
+            ],
+            [
+              11.533460945856007,
+              48.11650795379189
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-north-south-straight-entry-4-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.534032119188263,
+            48.116875094681156
+          ],
+          "exit": [
+            11.533455509560218,
+            48.116597812563455
+          ],
+          "corridor": [
+            [
+              11.534032119188263,
+              48.116875094681156
+            ],
+            [
+              11.53402,
+              48.116875
+            ],
+            [
+              11.533935,
+              48.116874
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533446,
+              48.116755
+            ],
+            [
+              11.533455509560218,
+              48.116597812563455
+            ]
+          ],
+          "approach": [
+            [
+              11.534166816747007,
+              48.11687614700583
+            ],
+            [
+              11.534032119188263,
+              48.116875094681156
+            ]
+          ],
+          "departure": [
+            [
+              11.533455509560218,
+              48.116597812563455
+            ],
+            [
+              11.533460945856007,
+              48.11650795379189
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-east-south-left-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-5",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.534032119188263,
+            48.116875094681156
+          ],
+          "exit": [
+            11.533213772661815,
+            48.1169826747001
+          ],
+          "corridor": [
+            [
+              11.534032119188263,
+              48.116875094681156
+            ],
+            [
+              11.53402,
+              48.116875
+            ],
+            [
+              11.533935,
+              48.116874
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533505,
+              48.116988
+            ],
+            [
+              11.533213772661815,
+              48.1169826747001
+            ]
+          ],
+          "approach": [
+            [
+              11.534166816747007,
+              48.11687614700583
+            ],
+            [
+              11.534032119188263,
+              48.116875094681156
+            ]
+          ],
+          "departure": [
+            [
+              11.533213772661815,
+              48.1169826747001
+            ],
+            [
+              11.533079116110637,
+              48.116980212408876
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-east-west-straight-entry-1-exit-5.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.534032119188263,
+            48.116875094681156
+          ],
+          "exit": [
+            11.5331755959284,
+            48.1168595465338
+          ],
+          "corridor": [
+            [
+              11.534032119188263,
+              48.116875094681156
+            ],
+            [
+              11.53402,
+              48.116875
+            ],
+            [
+              11.533935,
+              48.116874
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533366,
+              48.116861
+            ],
+            [
+              11.5331755959284,
+              48.1168595465338
+            ]
+          ],
+          "approach": [
+            [
+              11.534166816747007,
+              48.11687614700583
+            ],
+            [
+              11.534032119188263,
+              48.116875094681156
+            ]
+          ],
+          "departure": [
+            [
+              11.5331755959284,
+              48.1168595465338
+            ],
+            [
+              11.533040897998006,
+              48.11685851830533
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-east-west-straight-entry-1-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.533714555363971,
+            48.116592668678315
+          ],
+          "exit": [
+            11.533754214645741,
+            48.11713306470517
+          ],
+          "corridor": [
+            [
+              11.533714555363971,
+              48.116592668678315
+            ],
+            [
+              11.533699,
+              48.116756
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533742,
+              48.116986
+            ],
+            [
+              11.53374,
+              48.117046
+            ],
+            [
+              11.533754214645741,
+              48.11713306470517
+            ]
+          ],
+          "approach": [
+            [
+              11.533723103059094,
+              48.116502917879515
+            ],
+            [
+              11.533714555363971,
+              48.116592668678315
+            ]
+          ],
+          "departure": [
+            [
+              11.533754214645741,
+              48.11713306470517
+            ],
+            [
+              11.533766936964012,
+              48.11722259353209
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-south-north-straight-entry-2-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-5",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.533714555363971,
+            48.116592668678315
+          ],
+          "exit": [
+            11.533213772661815,
+            48.1169826747001
+          ],
+          "corridor": [
+            [
+              11.533714555363971,
+              48.116592668678315
+            ],
+            [
+              11.533699,
+              48.116756
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533505,
+              48.116988
+            ],
+            [
+              11.533213772661815,
+              48.1169826747001
+            ]
+          ],
+          "approach": [
+            [
+              11.533723103059094,
+              48.116502917879515
+            ],
+            [
+              11.533714555363971,
+              48.116592668678315
+            ]
+          ],
+          "departure": [
+            [
+              11.533213772661815,
+              48.1169826747001
+            ],
+            [
+              11.533079116110637,
+              48.116980212408876
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-south-west-left-entry-2-exit-5.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.533714555363971,
+            48.116592668678315
+          ],
+          "exit": [
+            11.5331755959284,
+            48.1168595465338
+          ],
+          "corridor": [
+            [
+              11.533714555363971,
+              48.116592668678315
+            ],
+            [
+              11.533699,
+              48.116756
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533366,
+              48.116861
+            ],
+            [
+              11.5331755959284,
+              48.1168595465338
+            ]
+          ],
+          "approach": [
+            [
+              11.533723103059094,
+              48.116502917879515
+            ],
+            [
+              11.533714555363971,
+              48.116592668678315
+            ]
+          ],
+          "departure": [
+            [
+              11.5331755959284,
+              48.1168595465338
+            ],
+            [
+              11.533040897998006,
+              48.11685851830533
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-south-west-left-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.53317554714944,
+            48.116859710251575
+          ],
+          "exit": [
+            11.533754214645741,
+            48.11713306470517
+          ],
+          "corridor": [
+            [
+              11.53317554714944,
+              48.116859710251575
+            ],
+            [
+              11.533366,
+              48.116861
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533742,
+              48.116986
+            ],
+            [
+              11.53374,
+              48.117046
+            ],
+            [
+              11.533754214645741,
+              48.11713306470517
+            ]
+          ],
+          "approach": [
+            [
+              11.533040847343797,
+              48.11685879806328
+            ],
+            [
+              11.53317554714944,
+              48.116859710251575
+            ]
+          ],
+          "departure": [
+            [
+              11.533754214645741,
+              48.11713306470517
+            ],
+            [
+              11.533766936964012,
+              48.11722259353209
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-west-north-left-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.53317554714944,
+            48.116859710251575
+          ],
+          "exit": [
+            11.534032119188263,
+            48.116875094681156
+          ],
+          "corridor": [
+            [
+              11.53317554714944,
+              48.116859710251575
+            ],
+            [
+              11.533366,
+              48.116861
+            ],
+            [
+              11.533448,
+              48.116863
+            ],
+            [
+              11.533604,
+              48.116866
+            ],
+            [
+              11.533719,
+              48.116873
+            ],
+            [
+              11.533935,
+              48.116874
+            ],
+            [
+              11.53402,
+              48.116875
+            ],
+            [
+              11.534032119188263,
+              48.116875094681156
+            ]
+          ],
+          "approach": [
+            [
+              11.533040847343797,
+              48.11685879806328
+            ],
+            [
+              11.53317554714944,
+              48.116859710251575
+            ]
+          ],
+          "departure": [
+            [
+              11.534032119188263,
+              48.116875094681156
+            ],
+            [
+              11.534166816747007,
+              48.11687614700583
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K118 v1; legal directed frozen OSM corridor, routes/osm-junction-17192376-west-east-straight-entry-3-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-27",
+        "evidence": "Thomas approved K118 v1; check-routes.json"
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.533523871738032,
+                48.117142265699165
+              ]
+            ],
+            "exits": [
+              [
+                11.533754208882167,
+                48.117133065470554
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.534032118519711,
+                48.116875096925035
+              ]
+            ],
+            "exits": [
+              [
+                11.534032118519711,
+                48.116875096925035
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.533714139595029,
+                48.11659261346563
+              ]
+            ],
+            "exits": [
+              [
+                11.53345533989689,
+                48.11659783509416
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.533175461431043,
+                48.116859997949895
+              ]
+            ],
+            "exits": [
+              [
+                11.533213937128155,
+                48.11698283902732
+              ],
+              [
+                11.533175461431043,
+                48.116859997949895
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-27",
+          "evidence": "Thomas approved K118 v1; clockwise gate membership in osm-junction-17192376-v1-20261127T165151Z; verified Standard routes."
+        }
+      }
+    },
+    {
+      "id": "osm-junction-236833",
+      "name": "Fürstenrieder Straße / Waldfriedhofstraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.502399765910958,
+              48.11232752239954
+            ],
+            [
+              11.502519741339032,
+              48.11230446224371
+            ],
+            [
+              11.502640278356312,
+              48.11229017790174
+            ],
+            [
+              11.502740615212344,
+              48.11226373360496
+            ],
+            [
+              11.50281951528022,
+              48.11222070601721
+            ],
+            [
+              11.502852288036857,
+              48.1121107
+            ],
+            [
+              11.50281951528022,
+              48.11200069398279
+            ],
+            [
+              11.502726186365422,
+              48.111907435384495
+            ],
+            [
+              11.502586509773709,
+              48.11184512198131
+            ],
+            [
+              11.50242175,
+              48.111823240424
+            ],
+            [
+              11.502256990226291,
+              48.11184512198131
+            ],
+            [
+              11.502117313634578,
+              48.111907435384495
+            ],
+            [
+              11.502023984719779,
+              48.11200069398279
+            ],
+            [
+              11.501991211963142,
+              48.1121107
+            ],
+            [
+              11.502023984719779,
+              48.11222070601721
+            ],
+            [
+              11.502117313634578,
+              48.11231396461551
+            ],
+            [
+              11.502235948049716,
+              48.11233778485274
+            ],
+            [
+              11.502399765910958,
+              48.11232752239954
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-4-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.50211,
+            48.11230665649122
+          ],
+          "exit": [
+            11.502783894353502,
+            48.11196509989384
+          ],
+          "corridor": [
+            [
+              11.50211,
+              48.11230665649122
+            ],
+            [
+              11.50211,
+              48.112252
+            ],
+            [
+              11.502115,
+              48.112177
+            ],
+            [
+              11.50212,
+              48.112095
+            ],
+            [
+              11.502124,
+              48.112028
+            ],
+            [
+              11.502127,
+              48.111962
+            ],
+            [
+              11.502264,
+              48.111962
+            ],
+            [
+              11.502423,
+              48.111965
+            ],
+            [
+              11.502527,
+              48.111967
+            ],
+            [
+              11.502783894353502,
+              48.11196509989384
+            ]
+          ],
+          "approach": [
+            [
+              11.50211,
+              48.11239658852759
+            ],
+            [
+              11.50211,
+              48.11230665649122
+            ]
+          ],
+          "departure": [
+            [
+              11.502783894353502,
+              48.11196509989384
+            ],
+            [
+              11.502918579992429,
+              48.11196410369828
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-north-east-left-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-4-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.50211,
+            48.11230665649122
+          ],
+          "exit": [
+            11.502182378716554,
+            48.111878408139226
+          ],
+          "corridor": [
+            [
+              11.50211,
+              48.11230665649122
+            ],
+            [
+              11.50211,
+              48.112252
+            ],
+            [
+              11.502115,
+              48.112177
+            ],
+            [
+              11.50212,
+              48.112095
+            ],
+            [
+              11.502124,
+              48.112028
+            ],
+            [
+              11.502127,
+              48.111962
+            ],
+            [
+              11.502178,
+              48.111913
+            ],
+            [
+              11.502182378716554,
+              48.111878408139226
+            ]
+          ],
+          "approach": [
+            [
+              11.50211,
+              48.11239658852759
+            ],
+            [
+              11.50211,
+              48.11230665649122
+            ]
+          ],
+          "departure": [
+            [
+              11.502182378716554,
+              48.111878408139226
+            ],
+            [
+              11.502186740061795,
+              48.1117886422246
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-north-south-straight-entry-4-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-1-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.502827676272167,
+            48.11219331258704
+          ],
+          "exit": [
+            11.502182378716554,
+            48.111878408139226
+          ],
+          "corridor": [
+            [
+              11.502827676272167,
+              48.11219331258704
+            ],
+            [
+              11.50261,
+              48.112195
+            ],
+            [
+              11.502529,
+              48.112192
+            ],
+            [
+              11.502525,
+              48.112243
+            ],
+            [
+              11.502421,
+              48.112244
+            ],
+            [
+              11.502249,
+              48.112248
+            ],
+            [
+              11.50211,
+              48.112252
+            ],
+            [
+              11.502115,
+              48.112177
+            ],
+            [
+              11.50212,
+              48.112095
+            ],
+            [
+              11.502124,
+              48.112028
+            ],
+            [
+              11.502127,
+              48.111962
+            ],
+            [
+              11.502178,
+              48.111913
+            ],
+            [
+              11.502182378716554,
+              48.111878408139226
+            ]
+          ],
+          "approach": [
+            [
+              11.502962361697843,
+              48.11219226851397
+            ],
+            [
+              11.502827676272167,
+              48.11219331258704
+            ]
+          ],
+          "departure": [
+            [
+              11.502182378716554,
+              48.111878408139226
+            ],
+            [
+              11.502186740061795,
+              48.1117886422246
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-east-south-left-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-1-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.502827676272167,
+            48.11219331258704
+          ],
+          "exit": [
+            11.502056099458397,
+            48.11225279655972
+          ],
+          "corridor": [
+            [
+              11.502827676272167,
+              48.11219331258704
+            ],
+            [
+              11.50261,
+              48.112195
+            ],
+            [
+              11.502529,
+              48.112192
+            ],
+            [
+              11.502525,
+              48.112243
+            ],
+            [
+              11.502421,
+              48.112244
+            ],
+            [
+              11.502249,
+              48.112248
+            ],
+            [
+              11.50211,
+              48.112252
+            ],
+            [
+              11.502056099458397,
+              48.11225279655972
+            ]
+          ],
+          "approach": [
+            [
+              11.502962361697843,
+              48.11219226851397
+            ],
+            [
+              11.502827676272167,
+              48.11219331258704
+            ]
+          ],
+          "departure": [
+            [
+              11.502056099458397,
+              48.11225279655972
+            ],
+            [
+              11.501921437780394,
+              48.112254786633784
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-east-west-straight-entry-1-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-2-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.502519305687258,
+            48.11183619668337
+          ],
+          "exit": [
+            11.502519406675592,
+            48.11230452656848
+          ],
+          "corridor": [
+            [
+              11.502519305687258,
+              48.11183619668337
+            ],
+            [
+              11.502527,
+              48.111967
+            ],
+            [
+              11.502528,
+              48.112035
+            ],
+            [
+              11.502529,
+              48.112073
+            ],
+            [
+              11.502529,
+              48.112101
+            ],
+            [
+              11.502529,
+              48.112192
+            ],
+            [
+              11.502525,
+              48.112243
+            ],
+            [
+              11.502519406675592,
+              48.11230452656848
+            ]
+          ],
+          "approach": [
+            [
+              11.502514019642888,
+              48.11174633392908
+            ],
+            [
+              11.502519305687258,
+              48.11183619668337
+            ]
+          ],
+          "departure": [
+            [
+              11.502519406675592,
+              48.11230452656848
+            ],
+            [
+              11.502534076569338,
+              48.11239345021879
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-south-north-straight-entry-2-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-2-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.502519305687258,
+            48.11183619668337
+          ],
+          "exit": [
+            11.502056099458397,
+            48.11225279655972
+          ],
+          "corridor": [
+            [
+              11.502519305687258,
+              48.11183619668337
+            ],
+            [
+              11.502527,
+              48.111967
+            ],
+            [
+              11.502528,
+              48.112035
+            ],
+            [
+              11.502529,
+              48.112073
+            ],
+            [
+              11.502529,
+              48.112101
+            ],
+            [
+              11.502529,
+              48.112192
+            ],
+            [
+              11.502525,
+              48.112243
+            ],
+            [
+              11.502421,
+              48.112244
+            ],
+            [
+              11.502249,
+              48.112248
+            ],
+            [
+              11.50211,
+              48.112252
+            ],
+            [
+              11.502056099458397,
+              48.11225279655972
+            ]
+          ],
+          "approach": [
+            [
+              11.502514019642888,
+              48.11174633392908
+            ],
+            [
+              11.502519305687258,
+              48.11183619668337
+            ]
+          ],
+          "departure": [
+            [
+              11.502056099458397,
+              48.11225279655972
+            ],
+            [
+              11.501921437780394,
+              48.112254786633784
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-south-west-left-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-3-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.502060163258323,
+            48.111964542702125
+          ],
+          "exit": [
+            11.502519406675592,
+            48.11230452656848
+          ],
+          "corridor": [
+            [
+              11.502060163258323,
+              48.111964542702125
+            ],
+            [
+              11.502127,
+              48.111962
+            ],
+            [
+              11.502264,
+              48.111962
+            ],
+            [
+              11.502423,
+              48.111965
+            ],
+            [
+              11.502527,
+              48.111967
+            ],
+            [
+              11.502528,
+              48.112035
+            ],
+            [
+              11.502529,
+              48.112073
+            ],
+            [
+              11.502529,
+              48.112101
+            ],
+            [
+              11.502529,
+              48.112192
+            ],
+            [
+              11.502525,
+              48.112243
+            ],
+            [
+              11.502519406675592,
+              48.11230452656848
+            ]
+          ],
+          "approach": [
+            [
+              11.501925662314344,
+              48.11196921273234
+            ],
+            [
+              11.502060163258323,
+              48.111964542702125
+            ]
+          ],
+          "departure": [
+            [
+              11.502519406675592,
+              48.11230452656848
+            ],
+            [
+              11.502534076569338,
+              48.11239345021879
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-west-north-left-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-3-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.502060163258323,
+            48.111964542702125
+          ],
+          "exit": [
+            11.502783894353502,
+            48.11196509989384
+          ],
+          "corridor": [
+            [
+              11.502060163258323,
+              48.111964542702125
+            ],
+            [
+              11.502127,
+              48.111962
+            ],
+            [
+              11.502264,
+              48.111962
+            ],
+            [
+              11.502423,
+              48.111965
+            ],
+            [
+              11.502527,
+              48.111967
+            ],
+            [
+              11.502783894353502,
+              48.11196509989384
+            ]
+          ],
+          "approach": [
+            [
+              11.501925662314344,
+              48.11196921273234
+            ],
+            [
+              11.502060163258323,
+              48.111964542702125
+            ]
+          ],
+          "departure": [
+            [
+              11.502783894353502,
+              48.11196509989384
+            ],
+            [
+              11.502918579992429,
+              48.11196410369828
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K119 v2; legal directed frozen OSM corridor, routes/osm-junction-236833-west-east-straight-entry-3-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-27",
+        "evidence": "Thomas approved K119 v2; check-routes.json"
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.50211017386246,
+                48.112306830222686
+              ]
+            ],
+            "exits": [
+              [
+                11.502519741339032,
+                48.11230446224371
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.502827624620227,
+                48.11219348596349
+              ]
+            ],
+            "exits": [
+              [
+                11.502783984060395,
+                48.11196518953314
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.502519547504122,
+                48.11183622879879
+              ]
+            ],
+            "exits": [
+              [
+                11.502182516771475,
+                48.11187834654929
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.502060066391854,
+                48.11196463949562
+              ]
+            ],
+            "exits": [
+              [
+                11.502055840278533,
+                48.11225253757514
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-27",
+          "evidence": "Thomas approved K119 v2; clockwise gate membership in osm-junction-236833-v2-20261127T165434Z; verified Standard routes."
+        }
+      }
+    },
+    {
+      "id": "osm-junction-4826356",
+      "name": "Garmischer Straße / Hansastraße",
+      "enabled": true,
+      "polygon": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              11.530518924999999,
+              48.13179236118962
+            ],
+            [
+              11.530752982335034,
+              48.13176128796303
+            ],
+            [
+              11.530951406562545,
+              48.13167279890033
+            ],
+            [
+              11.531083989392615,
+              48.13154036565918
+            ],
+            [
+              11.53113054629123,
+              48.13138415
+            ],
+            [
+              11.531083989392615,
+              48.13122793434083
+            ],
+            [
+              11.530951406562545,
+              48.13109550109967
+            ],
+            [
+              11.530752982335034,
+              48.131007012036974
+            ],
+            [
+              11.530518924999999,
+              48.13097593881039
+            ],
+            [
+              11.530284867664964,
+              48.131007012036974
+            ],
+            [
+              11.530086443437453,
+              48.13109550109967
+            ],
+            [
+              11.529953860607383,
+              48.13122793434083
+            ],
+            [
+              11.529907303708768,
+              48.13138415
+            ],
+            [
+              11.529953860607383,
+              48.13154036565918
+            ],
+            [
+              11.530086443437453,
+              48.13167279890033
+            ],
+            [
+              11.530284867664964,
+              48.13176128796303
+            ],
+            [
+              11.530518924999999,
+              48.13179236118962
+            ]
+          ]
+        ]
+      },
+      "movements": [
+        {
+          "id": "north-east-left-entry-1-exit-2",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "north",
+          "exitArm": "east",
+          "entry": [
+            11.530595497374525,
+            48.13178219551485
+          ],
+          "exit": [
+            11.530780667512401,
+            48.13101935848996
+          ],
+          "corridor": [
+            [
+              11.530595497374525,
+              48.13178219551485
+            ],
+            [
+              11.530523,
+              48.131738
+            ],
+            [
+              11.530357,
+              48.131691
+            ],
+            [
+              11.530301,
+              48.131656
+            ],
+            [
+              11.530263,
+              48.131629
+            ],
+            [
+              11.530177,
+              48.131567
+            ],
+            [
+              11.530118,
+              48.131525
+            ],
+            [
+              11.530241,
+              48.131432
+            ],
+            [
+              11.530543,
+              48.131208
+            ],
+            [
+              11.530577,
+              48.131165
+            ],
+            [
+              11.530597,
+              48.131133
+            ],
+            [
+              11.530632,
+              48.131076
+            ],
+            [
+              11.530713,
+              48.131065
+            ],
+            [
+              11.530780667512401,
+              48.13101935848996
+            ]
+          ],
+          "approach": [
+            [
+              11.530694988126646,
+              48.131842846607974
+            ],
+            [
+              11.530595497374525,
+              48.13178219551485
+            ]
+          ],
+          "departure": [
+            [
+              11.530780667512401,
+              48.13101935848996
+            ],
+            [
+              11.530875442679914,
+              48.130955432957506
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-north-east-left-entry-1-exit-2.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "north-south-straight-entry-1-exit-3",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "north",
+          "exitArm": "south",
+          "entry": [
+            11.530595497374525,
+            48.13178219551485
+          ],
+          "exit": [
+            11.529935930231927,
+            48.13128809739946
+          ],
+          "corridor": [
+            [
+              11.530595497374525,
+              48.13178219551485
+            ],
+            [
+              11.530523,
+              48.131738
+            ],
+            [
+              11.530357,
+              48.131691
+            ],
+            [
+              11.530301,
+              48.131656
+            ],
+            [
+              11.530263,
+              48.131629
+            ],
+            [
+              11.530177,
+              48.131567
+            ],
+            [
+              11.530118,
+              48.131525
+            ],
+            [
+              11.530129,
+              48.131499
+            ],
+            [
+              11.530138,
+              48.131467
+            ],
+            [
+              11.530137,
+              48.131422
+            ],
+            [
+              11.530098,
+              48.131379
+            ],
+            [
+              11.529935930231927,
+              48.13128809739946
+            ]
+          ],
+          "approach": [
+            [
+              11.530694988126646,
+              48.131842846607974
+            ],
+            [
+              11.530595497374525,
+              48.13178219551485
+            ]
+          ],
+          "departure": [
+            [
+              11.529935930231927,
+              48.13128809739946
+            ],
+            [
+              11.529832774585591,
+              48.131230238881955
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-north-south-straight-entry-1-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-south-left-entry-2-exit-3",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "east",
+          "exitArm": "south",
+          "entry": [
+            11.531063791833569,
+            48.13120775957003
+          ],
+          "exit": [
+            11.529935930231927,
+            48.13128809739946
+          ],
+          "corridor": [
+            [
+              11.531063791833569,
+              48.13120775957003
+            ],
+            [
+              11.531003,
+              48.131279
+            ],
+            [
+              11.530875,
+              48.131323
+            ],
+            [
+              11.530776,
+              48.13135
+            ],
+            [
+              11.530474,
+              48.131574
+            ],
+            [
+              11.530446,
+              48.131606
+            ],
+            [
+              11.530357,
+              48.131691
+            ],
+            [
+              11.530301,
+              48.131656
+            ],
+            [
+              11.530263,
+              48.131629
+            ],
+            [
+              11.530177,
+              48.131567
+            ],
+            [
+              11.530118,
+              48.131525
+            ],
+            [
+              11.530129,
+              48.131499
+            ],
+            [
+              11.530138,
+              48.131467
+            ],
+            [
+              11.530137,
+              48.131422
+            ],
+            [
+              11.530098,
+              48.131379
+            ],
+            [
+              11.529935930231927,
+              48.13128809739946
+            ]
+          ],
+          "approach": [
+            [
+              11.531147741104744,
+              48.131137484708944
+            ],
+            [
+              11.531063791833569,
+              48.13120775957003
+            ]
+          ],
+          "departure": [
+            [
+              11.529935930231927,
+              48.13128809739946
+            ],
+            [
+              11.529832774585591,
+              48.131230238881955
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-east-south-left-entry-2-exit-3.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "east-west-straight-entry-2-exit-4",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "east",
+          "exitArm": "west",
+          "entry": [
+            11.531063791833569,
+            48.13120775957003
+          ],
+          "exit": [
+            11.53023510353575,
+            48.13173909520358
+          ],
+          "corridor": [
+            [
+              11.531063791833569,
+              48.13120775957003
+            ],
+            [
+              11.531003,
+              48.131279
+            ],
+            [
+              11.530875,
+              48.131323
+            ],
+            [
+              11.530776,
+              48.13135
+            ],
+            [
+              11.530474,
+              48.131574
+            ],
+            [
+              11.530446,
+              48.131606
+            ],
+            [
+              11.530357,
+              48.131691
+            ],
+            [
+              11.53023510353575,
+              48.13173909520358
+            ]
+          ],
+          "approach": [
+            [
+              11.531147741104744,
+              48.131137484708944
+            ],
+            [
+              11.531063791833569,
+              48.13120775957003
+            ]
+          ],
+          "departure": [
+            [
+              11.53023510353575,
+              48.13173909520358
+            ],
+            [
+              11.530133896044084,
+              48.13179784556786
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-east-west-straight-entry-2-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-north-straight-entry-3-exit-1",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "south",
+          "exitArm": "north",
+          "entry": [
+            11.530470333345068,
+            48.13098238979174
+          ],
+          "exit": [
+            11.531127210417575,
+            48.13139534309313
+          ],
+          "corridor": [
+            [
+              11.530470333345068,
+              48.13098238979174
+            ],
+            [
+              11.530632,
+              48.131076
+            ],
+            [
+              11.530733,
+              48.131106
+            ],
+            [
+              11.530769,
+              48.131125
+            ],
+            [
+              11.530884,
+              48.131193
+            ],
+            [
+              11.53095,
+              48.131233
+            ],
+            [
+              11.531003,
+              48.131279
+            ],
+            [
+              11.531041,
+              48.131344
+            ],
+            [
+              11.531127210417575,
+              48.13139534309313
+            ]
+          ],
+          "approach": [
+            [
+              11.530368553804964,
+              48.13092345615481
+            ],
+            [
+              11.530470333345068,
+              48.13098238979174
+            ]
+          ],
+          "departure": [
+            [
+              11.531127210417575,
+              48.13139534309313
+            ],
+            [
+              11.5312277485839,
+              48.131455219156635
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-south-north-straight-entry-3-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "south-west-left-entry-3-exit-4",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "south",
+          "exitArm": "west",
+          "entry": [
+            11.530470333345068,
+            48.13098238979174
+          ],
+          "exit": [
+            11.53023510353575,
+            48.13173909520358
+          ],
+          "corridor": [
+            [
+              11.530470333345068,
+              48.13098238979174
+            ],
+            [
+              11.530632,
+              48.131076
+            ],
+            [
+              11.530733,
+              48.131106
+            ],
+            [
+              11.530769,
+              48.131125
+            ],
+            [
+              11.530884,
+              48.131193
+            ],
+            [
+              11.53095,
+              48.131233
+            ],
+            [
+              11.531003,
+              48.131279
+            ],
+            [
+              11.530875,
+              48.131323
+            ],
+            [
+              11.530776,
+              48.13135
+            ],
+            [
+              11.530474,
+              48.131574
+            ],
+            [
+              11.530446,
+              48.131606
+            ],
+            [
+              11.530357,
+              48.131691
+            ],
+            [
+              11.53023510353575,
+              48.13173909520358
+            ]
+          ],
+          "approach": [
+            [
+              11.530368553804964,
+              48.13092345615481
+            ],
+            [
+              11.530470333345068,
+              48.13098238979174
+            ]
+          ],
+          "departure": [
+            [
+              11.53023510353575,
+              48.13173909520358
+            ],
+            [
+              11.530133896044084,
+              48.13179784556786
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-south-west-left-entry-3-exit-4.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-north-left-entry-4-exit-1",
+          "enabled": true,
+          "movement": "left",
+          "entryArm": "west",
+          "exitArm": "north",
+          "entry": [
+            11.530025301392131,
+            48.1316117258396
+          ],
+          "exit": [
+            11.531127210417575,
+            48.13139534309313
+          ],
+          "corridor": [
+            [
+              11.530025301392131,
+              48.1316117258396
+            ],
+            [
+              11.530033,
+              48.131606
+            ],
+            [
+              11.530118,
+              48.131525
+            ],
+            [
+              11.530241,
+              48.131432
+            ],
+            [
+              11.530543,
+              48.131208
+            ],
+            [
+              11.530577,
+              48.131165
+            ],
+            [
+              11.530597,
+              48.131133
+            ],
+            [
+              11.530632,
+              48.131076
+            ],
+            [
+              11.530733,
+              48.131106
+            ],
+            [
+              11.530769,
+              48.131125
+            ],
+            [
+              11.530884,
+              48.131193
+            ],
+            [
+              11.53095,
+              48.131233
+            ],
+            [
+              11.531003,
+              48.131279
+            ],
+            [
+              11.531041,
+              48.131344
+            ],
+            [
+              11.531127210417575,
+              48.13139534309313
+            ]
+          ],
+          "approach": [
+            [
+              11.529935307012298,
+              48.131678659159604
+            ],
+            [
+              11.530025301392131,
+              48.1316117258396
+            ]
+          ],
+          "departure": [
+            [
+              11.531127210417575,
+              48.13139534309313
+            ],
+            [
+              11.5312277485839,
+              48.131455219156635
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-west-north-left-entry-4-exit-1.json; unchanged Standard response passes production matching."
+          }
+        },
+        {
+          "id": "west-east-straight-entry-4-exit-2",
+          "enabled": true,
+          "movement": "straight",
+          "entryArm": "west",
+          "exitArm": "east",
+          "entry": [
+            11.530025301392131,
+            48.1316117258396
+          ],
+          "exit": [
+            11.530780667512401,
+            48.13101935848996
+          ],
+          "corridor": [
+            [
+              11.530025301392131,
+              48.1316117258396
+            ],
+            [
+              11.530033,
+              48.131606
+            ],
+            [
+              11.530118,
+              48.131525
+            ],
+            [
+              11.530241,
+              48.131432
+            ],
+            [
+              11.530543,
+              48.131208
+            ],
+            [
+              11.530577,
+              48.131165
+            ],
+            [
+              11.530597,
+              48.131133
+            ],
+            [
+              11.530632,
+              48.131076
+            ],
+            [
+              11.530713,
+              48.131065
+            ],
+            [
+              11.530780667512401,
+              48.13101935848996
+            ]
+          ],
+          "approach": [
+            [
+              11.529935307012298,
+              48.131678659159604
+            ],
+            [
+              11.530025301392131,
+              48.1316117258396
+            ]
+          ],
+          "departure": [
+            [
+              11.530780667512401,
+              48.13101935848996
+            ],
+            [
+              11.530875442679914,
+              48.130955432957506
+            ]
+          ],
+          "review": {
+            "status": "approved",
+            "date": "2026-11-27",
+            "evidence": "Thomas approved K120 v1; legal directed frozen OSM corridor, routes/osm-junction-4826356-west-east-straight-entry-4-exit-2.json; unchanged Standard response passes production matching."
+          }
+        }
+      ],
+      "review": {
+        "status": "approved",
+        "date": "2026-11-27",
+        "evidence": "Thomas approved K120 v1; check-routes.json"
+      },
+      "armTopology": {
+        "clockwise": [
+          "north",
+          "east",
+          "south",
+          "west"
+        ],
+        "gates": {
+          "north": {
+            "entries": [
+              [
+                11.530594949507476,
+                48.131782268249154
+              ]
+            ],
+            "exits": [
+              [
+                11.531127280293315,
+                48.13139510863411
+              ]
+            ]
+          },
+          "east": {
+            "entries": [
+              [
+                11.531063906931362,
+                48.131207874537964
+              ]
+            ],
+            "exits": [
+              [
+                11.53078041844634,
+                48.13101924741672
+              ]
+            ]
+          },
+          "south": {
+            "entries": [
+              [
+                11.530470164945031,
+                48.13098241214837
+              ]
+            ],
+            "exits": [
+              [
+                11.529935856869411,
+                48.131288343557905
+              ]
+            ]
+          },
+          "west": {
+            "entries": [
+              [
+                11.530025235297632,
+                48.131611659819676
+              ]
+            ],
+            "exits": [
+              [
+                11.530235627879732,
+                48.131739329039476
+              ]
+            ]
+          }
+        },
+        "review": {
+          "status": "approved",
+          "date": "2026-11-27",
+          "evidence": "Thomas approved K120 v1; clockwise gate membership in osm-junction-4826356-v1-20261127T165521Z; verified Standard routes."
         }
       }
     }

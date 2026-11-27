@@ -31,8 +31,10 @@
 .junction-review [role=alert] { margin:8px 18px; background:#fff0e9; padding:10px; }
 .junction-gate-label { font-size:11px; font-weight:600; border:0; background:#fffffff0; box-shadow:none; padding:2px 4px; }
 /* City and district groups in the list. */
-.junction-city h3 { margin:14px 0 4px; font-size:15px; display:flex; justify-content:space-between; }
-.junction-city h3 small,.junction-district summary small { color:#716978; font-weight:400; font-size:12px; }
+.junction-review .junction-city { margin-top:10px; }
+.junction-review .junction-city > summary { display:flex; justify-content:space-between; gap:8px; align-items:baseline; padding:8px 2px; font-size:15px; font-weight:700; cursor:pointer; border-bottom:2px solid #ddd3e6; }
+.junction-review .junction-city > .junction-district { margin-left:10px; }
+.junction-city > summary small,.junction-district summary small { color:#716978; font-weight:400; font-size:12px; }
 .junction-review .junction-district { border-top:1px solid #ece6f1; }
 .junction-review .junction-district summary { display:flex; justify-content:space-between; gap:8px; align-items:baseline; padding:9px 2px; }
 .junction-district[open] summary { color:#7139a4; }

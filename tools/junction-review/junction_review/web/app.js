@@ -404,6 +404,9 @@ async function save(withDecision) {
   finally { setBusy(false); }
 }
 
+// "Karte anzeigen" is remembered across detail views, project switches and reloads.
+const MAP_FILTER_KEY = 'junction-review:map-status';
+
 async function start() {
   try {
     let sidebarCollapsed = window.matchMedia('(max-width: 720px)').matches;
@@ -434,7 +437,14 @@ async function start() {
     $('project-name').textContent = projectData.project.name || [projectData.project.city, projectData.project.district].filter(Boolean).join(' · ');
     $('source').textContent = `${projectData.source.attribution} · OSM bis ${projectData.source.osmRetrievedAt?.slice(0, 10) || 'Datum unbekannt'}${projectData.source.liveCheckedAt ? ' · Live-Abgleich ' + projectData.source.liveCheckedAt.slice(0, 10) : ''} · Lokal gespeichert`;
     $('search').addEventListener('input', () => { navigation(); if (!selected) overview(); });
-    $('map-status').addEventListener('change', overview);
+    try {
+      const savedFilter = localStorage.getItem(MAP_FILTER_KEY);
+      if ([...$('map-status').options].some(o => o.value === savedFilter)) $('map-status').value = savedFilter;
+    } catch { /* Optional. */ }
+    $('map-status').addEventListener('change', () => {
+      try { localStorage.setItem(MAP_FILTER_KEY, $('map-status').value); } catch { /* Optional. */ }
+      overview();
+    });
     $('review-form').addEventListener('submit', event => { event.preventDefault(); save(true); });
     $('review-form').addEventListener('input', event => { if (!event.target.closest('#exclusion-form')) formDirty = true; technicalUi?.render(); });
     $('save-geometry').addEventListener('click', () => save(false));
@@ -470,7 +480,7 @@ function acceptProject(data) {
   $('source').textContent = `${data.source.attribution} \u00b7 OSM bis ${data.source.osmRetrievedAt?.slice(0, 10) || 'Datum unbekannt'} \u00b7 Lokal gespeichert`;
   $('export-project').href = `/api/export?project=${encodeURIComponent(data.workspaceId)}`;
   try { localStorage.setItem('junction-review:project', data.workspaceId); } catch { /* Optional. */ }
-  $('search').value = ''; $('map-status').value = 'open';
+  $('search').value = ''; // The map filter ("Karte anzeigen") stays across projects.
   $('overview').hidden = false; $('detail').hidden = true;
   $('overview-back').hidden = true;
   navigation(); overview();

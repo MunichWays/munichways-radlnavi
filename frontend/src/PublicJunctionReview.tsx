@@ -3,6 +3,12 @@ import PublicJunctionMap from './PublicJunctionMap';
 import {Coordinate, PublicJunction, PublicJunctionData, filterPublicJunctions, groupPublicJunctions, parsePublicJunctions, viewLabels, viewStatus} from './publicJunctions';
 import './PublicJunctionReview.css';
 
+/** "12 · 5 live": number of junctions plus live ones, for city and district headers. */
+function countLabel(sites:PublicJunction[]) {
+  const live=sites.filter(x=>viewStatus(x)==='live').length;
+  return `${sites.length}${live ? ` · ${live} live` : ''}`;
+}
+
 const DISTRICT_KEY='kreuzungspruefung.stadtbezirke';
 function storedDistricts() { try { return window.localStorage.getItem(DISTRICT_KEY)!=='off'; } catch { return true; } }
 
@@ -65,13 +71,13 @@ export default function PublicJunctionReview() {
         {!!selected.rechecks.length && <details><summary>Wiedervorlagen</summary><ul>{selected.rechecks.map((r,i)=><li key={i}>{r.entry} → {r.exit} · {r.date} · {r.reason}</li>)}</ul></details>}
         <p className="junction-readonly">Öffentlicher Kartenstand. Bearbeitung erfolgt in der lokalen Kreuzungsapp.</p>
       </> : <><h2>{sites.length} Kreuzungen</h2><p>Auf der Karte oder in der Liste auswählen.</p><p className="junction-legend">● Magenta: live · Blau: technisch geprüft · Grün: bestätigt · Orange: offen · Ocker: zurückgestellt · Grau: ausgeschlossen</p>
-        <nav aria-label="Kreuzungsliste">{groups.map(g=><section className="junction-city" key={g.city} aria-label={g.city}>
-          <h3>{g.city} <small>{g.count}</small></h3>
+        <nav aria-label="Kreuzungsliste">{groups.map(g=><details className="junction-city" key={`${g.city}-${filtered}`} open={filtered || groups.length===1}>
+          <summary><span>{g.city}</span><small>{countLabel(g.districts.flatMap(d=>d.sites))}</small></summary>
           {g.districts.map(d=><details className="junction-district" key={`${d.id}-${filtered}`} open={filtered}>
-            <summary><span>{d.title}</span><small>{d.sites.length}{d.sites.some(x=>viewStatus(x)==='live') ? ` · ${d.sites.filter(x=>viewStatus(x)==='live').length} live` : ''}</small></summary>
+            <summary><span>{d.title}</span><small>{countLabel(d.sites)}</small></summary>
             {d.sites.map(s=><button className="junction-list-item" type="button" key={s.id} onClick={()=>select(s)}><strong>K{s.number} · {viewLabels[viewStatus(s)]}</strong><span>{s.name}</span></button>)}
           </details>)}
-        </section>)}</nav>
+        </details>)}</nav>
         {!sites.length && <p>Keine Kreuzung gefunden.</p>}</>}
     </section><PublicJunctionMap sites={sites} selected={selected} onSelect={select} position={position} showDistricts={showDistricts}/></main>}
   </div>;

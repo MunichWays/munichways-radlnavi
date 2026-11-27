@@ -58,10 +58,25 @@ test('groups the list by city and district, unassigned last',async()=>{
     ['Augsburg',1,['Ohne Stadtbezirk']]]);
   (fetch as jest.Mock).mockResolvedValue({ok:true,json:async()=>grouped});
   const {container}=render(<PublicJunctionReview/>);
-  expect(await screen.findByRole('region',{name:'München'})).toBeInTheDocument();
-  expect(screen.getByText('BA04 · Schwabing-West')).toBeInTheDocument();
+  expect(await screen.findByText('BA04 · Schwabing-West')).toBeInTheDocument();
+  // Several cities: city and district groups start collapsed; München first.
+  const cities=[...container.querySelectorAll('details.junction-city')];
+  expect(cities.map(c=>c.querySelector('summary span')?.textContent)).toEqual(['München','Augsburg']);
+  expect(cities[0].querySelector('summary small')?.textContent).toBe('3');
   expect(container.querySelectorAll('details[open]')).toHaveLength(0);
+  expect(cities[0].querySelectorAll('details.junction-district')).toHaveLength(3);
   fireEvent.change(screen.getByRole('searchbox'),{target:{value:'Roman'}});
   expect(container.querySelectorAll('details[open]').length).toBeGreaterThan(0);
   expect(screen.getByRole('checkbox',{name:'Stadtbezirke'})).toBeChecked();
+});
+test('a single city starts expanded and counts live junctions',async()=>{
+  const live={...site,city:'München',district:{id:'BA05',name:'Au-Haidhausen'},status:'confirmed',deploymentStatus:'live'};
+  const single={...data,schemaVersion:2,sites:[live,{...live,id:'two',number:2,deploymentStatus:'branch-ready'}]};
+  (fetch as jest.Mock).mockResolvedValue({ok:true,json:async()=>single});
+  const {container}=render(<PublicJunctionReview/>);
+  await screen.findByText('BA05 · Au-Haidhausen');
+  const city=container.querySelector('details.junction-city') as HTMLDetailsElement;
+  expect(city.open).toBe(true);
+  expect(city.querySelector('summary small')?.textContent).toBe('2 · 1 live');
+  expect((container.querySelector('details.junction-district') as HTMLDetailsElement).open).toBe(false);
 });

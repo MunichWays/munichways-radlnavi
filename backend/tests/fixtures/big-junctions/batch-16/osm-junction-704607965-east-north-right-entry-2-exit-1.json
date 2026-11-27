@@ -1,0 +1,354 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              656248208,
+              1159473241,
+              1159473373,
+              3006949940,
+              13482615581,
+              3948299748,
+              9927267762,
+              639008198
+            ],
+            "distance": [
+              2.790595824,
+              45.13482049,
+              19.30058782,
+              16.48176998,
+              6.503643812,
+              21.64895009,
+              16.74908196
+            ]
+          },
+          "duration": 33.5,
+          "summary": "Ohlmüllerstraße",
+          "weight": 60.9,
+          "distance": 128.6,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    336
+                  ],
+                  "location": [
+                    11.581686,
+                    48.123815
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.581671,
+                    48.123838
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.581686,
+                    48.123815
+                  ],
+                  [
+                    11.581671,
+                    48.123838
+                  ],
+                  [
+                    11.581425,
+                    48.124209
+                  ],
+                  [
+                    11.581321,
+                    48.124368
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 336,
+                "bearing_before": 0,
+                "location": [
+                  11.581686,
+                  48.123815
+                ],
+                "type": "depart"
+              },
+              "name": "Ohlmüllerstraße",
+              "mode": "cycling",
+              "weight": 45.7,
+              "duration": 21.3,
+              "distance": 67.2
+            },
+            {
+              "intersections": [
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    150,
+                    210,
+                    330
+                  ],
+                  "location": [
+                    11.581321,
+                    48.124368
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    30,
+                    120,
+                    210
+                  ],
+                  "location": [
+                    11.581453,
+                    48.124487
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    315
+                  ],
+                  "location": [
+                    11.581505,
+                    48.124534
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    30,
+                    210,
+                    300
+                  ],
+                  "location": [
+                    11.581679,
+                    48.12469
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.581321,
+                    48.124368
+                  ],
+                  [
+                    11.581453,
+                    48.124487
+                  ],
+                  [
+                    11.581505,
+                    48.124534
+                  ],
+                  [
+                    11.581679,
+                    48.12469
+                  ],
+                  [
+                    11.581813,
+                    48.124811
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 36,
+                "bearing_before": 336,
+                "location": [
+                  11.581321,
+                  48.124368
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 15.2,
+              "duration": 12.2,
+              "distance": 61.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    217
+                  ],
+                  "location": [
+                    11.581813,
+                    48.124811
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.581813,
+                    48.124811
+                  ],
+                  [
+                    11.581813,
+                    48.124811
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 37,
+                "location": [
+                  11.581813,
+                  48.124811
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.581686,
+            48.123815
+          ],
+          [
+            11.581671,
+            48.123838
+          ],
+          [
+            11.581425,
+            48.124209
+          ],
+          [
+            11.581321,
+            48.124368
+          ],
+          [
+            11.581453,
+            48.124487
+          ],
+          [
+            11.581505,
+            48.124534
+          ],
+          [
+            11.581679,
+            48.12469
+          ],
+          [
+            11.581813,
+            48.124811
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 60.9,
+      "duration": 33.5,
+      "distance": 128.6
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "XSgDgP___3-6AAAAxwAAAAAAAAAAAAAAff8nQh-ZMkAAAAAAAAAAAFQAAABaAAAAAAAAAAAAAAC1AgAA9riwAKdP3gL2uLAAp0_eAgAA_xQAAAAA",
+      "location": [
+        11.581686,
+        48.123815
+      ],
+      "name": "Ohlmüllerstraße",
+      "distance": 0
+    },
+    {
+      "hint": "p9gZgP___38pAAAAVQAAAAAAAAAAAAAAH_6FQRdFikEAAAAAAAAAACEAAABEAAAAAAAAAAAAAAC1AgAAdbmwAItT3gJ1ubAAi1PeAgAATwIAAAAA",
+      "location": [
+        11.581813,
+        48.124811
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

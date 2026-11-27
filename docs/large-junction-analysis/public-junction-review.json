@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "readOnly": true,
   "projectName": "München",
-  "publishedAt": "2026-11-27T12:19:04.647294+00:00",
+  "publishedAt": "2026-11-27T17:16:07.942843+00:00",
   "osmRetrievedAt": "2026-11-26T21:21:01Z",
   "sites": [
     {
@@ -25907,6 +25907,10 @@
           48.1246160758141
         ],
         [
+          11.581354062347868,
+          48.12456113305634
+        ],
+        [
           11.58138641226948,
           48.124551592571684
         ],
@@ -25976,12 +25980,12 @@
           "label": "Entry-1",
           "kind": "entry",
           "location": [
-            11.581259250736714,
-            48.124608309174114
+            11.58125871212317,
+            48.12460781439172
           ],
           "forward": [
-            -0.5878398227559977,
-            -0.8089773438003052
+            -0.5878398264618299,
+            -0.8089773411074785
           ],
           "shared": false
         },
@@ -26075,17 +26079,43 @@
             0.6999433385606109
           ],
           "shared": false
+        },
+        {
+          "label": "Exit-5",
+          "kind": "exit",
+          "location": [
+            11.581354062347868,
+            48.12456113305634
+          ],
+          "forward": [
+            0.5882870574677741,
+            0.8086521736914505
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-6",
+          "kind": "entry",
+          "location": [
+            11.581354062347868,
+            48.12456113305634
+          ],
+          "forward": [
+            -0.5882870574677741,
+            -0.8086521736914505
+          ],
+          "shared": true
         }
       ],
       "status": "confirmed",
-      "geometryRevision": 2,
+      "geometryRevision": 4,
       "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
       "deferredUntil": null,
-      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+      "technical": "12/12 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
       "deploymentStatus": "branch-ready",
-      "deployment": "Im Branch aktiviert; Backend 2.4.23; Deployment ausstehend",
-      "backendVersion": "2.4.23",
-      "branchMovements": 8,
+      "deployment": "Im Branch aktiviert; Backend 2.4.24; Deployment ausstehend",
+      "backendVersion": "2.4.24",
+      "branchMovements": 12,
       "liveMovements": 0,
       "movements": [
         {
@@ -26095,7 +26125,19 @@
           "enabled": true
         },
         {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
           "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-6",
           "exitLabel": "Exit-3",
           "kind": "straight",
           "enabled": true
@@ -26103,6 +26145,20 @@
         {
           "entryLabel": "Entry-1",
           "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-6",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
           "kind": "right",
           "enabled": false,
           "failureStage": "runtime-matching"
@@ -26128,6 +26184,12 @@
         },
         {
           "entryLabel": "Entry-3",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
           "exitLabel": "Exit-1",
           "kind": "straight",
           "enabled": true
@@ -26142,6 +26204,12 @@
         {
           "entryLabel": "Entry-3",
           "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-5",
           "kind": "left",
           "enabled": true
         },
@@ -26361,11 +26429,11 @@
       "note": "alles korrekt",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Im Branch aktiviert; Backend 2.4.23; Deployment ausstehend",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.23 · Commit dd45a26 · 8 Fahrbeziehungen · abgeglichen 2026-11-27",
       "backendVersion": "2.4.23",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-4",
@@ -26640,11 +26708,11 @@
       "note": "alles korrekt",
       "deferredUntil": null,
       "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Im Branch aktiviert; Backend 2.4.23; Deployment ausstehend",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.23 · Commit dd45a26 · 8 Fahrbeziehungen · abgeglichen 2026-11-27",
       "backendVersion": "2.4.23",
       "branchMovements": 8,
-      "liveMovements": 0,
+      "liveMovements": 8,
       "movements": [
         {
           "entryLabel": "Entry-1",
@@ -26958,11 +27026,11 @@
       "note": "passt perfekt Balanstr Nord sind nicht beutzungspflichtige Radwege.",
       "deferredUntil": null,
       "technical": "14/15 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Im Branch aktiviert; Backend 2.4.23; Deployment ausstehend",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.23 · Commit dd45a26 · 14 Fahrbeziehungen · abgeglichen 2026-11-27",
       "backendVersion": "2.4.23",
       "branchMovements": 14,
-      "liveMovements": 0,
+      "liveMovements": 14,
       "movements": [
         {
           "entryLabel": "Entry-5",
@@ -27314,11 +27382,11 @@
       "note": "passt jetzt\nmanuell geändert: Serviceweg Noröstlich außerhalb der Kreuzung verschoben und diese zusätzlichen Entry/Exit Punkte gelöscht.",
       "deferredUntil": null,
       "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
-      "deploymentStatus": "branch-ready",
-      "deployment": "Im Branch aktiviert; Backend 2.4.23; Deployment ausstehend",
+      "deploymentStatus": "live",
+      "deployment": "LIVE · Backend 2.4.23 · Commit dd45a26 · 10 Fahrbeziehungen · abgeglichen 2026-11-27",
       "backendVersion": "2.4.23",
       "branchMovements": 10,
-      "liveMovements": 0,
+      "liveMovements": 10,
       "movements": [
         {
           "entryLabel": "Entry-6",
@@ -27411,6 +27479,1822 @@
         {
           "entryLabel": "Entry-5",
           "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-415803502",
+      "number": 115,
+      "name": "Baumgartnerstraße / Pfeuferstraße / Radlkoferstraße",
+      "city": "München",
+      "district": {
+        "id": "BA06",
+        "name": "Sendling"
+      },
+      "origin": [
+        11.5407299,
+        48.1253002
+      ],
+      "polygon": [
+        [
+          11.5407299,
+          48.125587659576
+        ],
+        [
+          11.540894702078063,
+          48.12556577801869
+        ],
+        [
+          11.541034414533673,
+          48.125503464615505
+        ],
+        [
+          11.541127767411965,
+          48.12541020601721
+        ],
+        [
+          11.541160548583461,
+          48.1253002
+        ],
+        [
+          11.541127767411965,
+          48.12519019398279
+        ],
+        [
+          11.541034414533673,
+          48.12509693538449
+        ],
+        [
+          11.540894702078063,
+          48.12503462198131
+        ],
+        [
+          11.5407299,
+          48.125012740424
+        ],
+        [
+          11.540565097921938,
+          48.12503462198131
+        ],
+        [
+          11.540425385466328,
+          48.12509693538449
+        ],
+        [
+          11.540332032588037,
+          48.12519019398279
+        ],
+        [
+          11.54029925141654,
+          48.1253002
+        ],
+        [
+          11.540332032588037,
+          48.12541020601721
+        ],
+        [
+          11.540425385466328,
+          48.125503464615505
+        ],
+        [
+          11.540565097921938,
+          48.12556577801869
+        ],
+        [
+          11.5407299,
+          48.125587659576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.540751429370491,
+            48.125584801018874
+          ],
+          "forward": [
+            -0.3878876095482801,
+            0.9217066791332919
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.54100273252009,
+            48.12551759516727
+          ],
+          "forward": [
+            -0.9670013139378725,
+            -0.2547713854466945
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.541134847913524,
+            48.1252139545057
+          ],
+          "forward": [
+            0.9043837040827097,
+            0.4267201844178895
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.541134847913524,
+            48.1252139545057
+          ],
+          "forward": [
+            -0.9043837040827097,
+            -0.4267201844178895
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.541004187202352,
+            48.125083453638176
+          ],
+          "forward": [
+            -0.0309518353755332,
+            0.999520877164097
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.540769516969032,
+            48.12501800055778
+          ],
+          "forward": [
+            0.310641050308648,
+            -0.9505272946439465
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.540322854485874,
+            48.125220993567375
+          ],
+          "forward": [
+            0.9925936162679055,
+            -0.121482150722655
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.540328818999143,
+            48.12539942195737
+          ],
+          "forward": [
+            -0.9529766809060711,
+            -0.30304363654307
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-5",
+          "kind": "entry",
+          "location": [
+            11.540479468689194,
+            48.12552758637084
+          ],
+          "forward": [
+            0.3053463929083342,
+            -0.9522413456355848
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt, Standardkreuzung",
+      "deferredUntil": null,
+      "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+      "deploymentStatus": "branch-ready",
+      "deployment": "Im Branch aktiviert; Backend 2.4.25; Deployment ausstehend",
+      "backendVersion": "2.4.25",
+      "branchMovements": 10,
+      "liveMovements": 0,
+      "movements": [
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-26125663",
+      "number": 116,
+      "name": "Höglwörther Straße / Murnauer Straße",
+      "city": "München",
+      "district": {
+        "id": "BA07",
+        "name": "Sendling-Westpark"
+      },
+      "origin": [
+        11.522443599999999,
+        48.10679915
+      ],
+      "polygon": [
+        [
+          11.522443599999999,
+          48.107086609576
+        ],
+        [
+          11.5226083427459,
+          48.10706472801869
+        ],
+        [
+          11.522748004902134,
+          48.10700241461551
+        ],
+        [
+          11.522841324171456,
+          48.10690915601721
+        ],
+        [
+          11.522874093541052,
+          48.10679915
+        ],
+        [
+          11.522841324171456,
+          48.10668914398279
+        ],
+        [
+          11.522748004902134,
+          48.10659588538449
+        ],
+        [
+          11.5226083427459,
+          48.10653357198131
+        ],
+        [
+          11.522443599999999,
+          48.106511690424
+        ],
+        [
+          11.522278857254099,
+          48.10653357198131
+        ],
+        [
+          11.522139195097864,
+          48.10659588538449
+        ],
+        [
+          11.522045875828542,
+          48.10668914398279
+        ],
+        [
+          11.522013106458946,
+          48.10679915
+        ],
+        [
+          11.522045875828542,
+          48.10690915601721
+        ],
+        [
+          11.522139195097864,
+          48.10700241461551
+        ],
+        [
+          11.522278857254099,
+          48.10706472801869
+        ],
+        [
+          11.522443599999999,
+          48.107086609576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.522714432084777,
+            48.1070173938809
+          ],
+          "forward": [
+            -0.8164894232650186,
+            -0.5773603915201989
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.522841926781116,
+            48.10690713307049
+          ],
+          "forward": [
+            0.8099321947331451,
+            0.586523520359372
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.522792159319968,
+            48.10664001109557
+          ],
+          "forward": [
+            -0.4708215379778016,
+            0.8822284734558377
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.522440042456303,
+            48.106512162946146
+          ],
+          "forward": [
+            0.46408245886824884,
+            -0.8857920023181514
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.522152791012363,
+            48.106589819262325
+          ],
+          "forward": [
+            0.824746686514947,
+            0.5655023457799406
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.522040330283781,
+            48.106707760248526
+          ],
+          "forward": [
+            -0.8160221583789271,
+            -0.5780206199043398
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.522074796094834,
+            48.106938057481145
+          ],
+          "forward": [
+            0.49509708506840533,
+            -0.8688376582289514
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.522409590408936,
+            48.10708209233422
+          ],
+          "forward": [
+            -0.49787987155993035,
+            0.8672460051770012
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt",
+      "deferredUntil": null,
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+      "deploymentStatus": "branch-ready",
+      "deployment": "Im Branch aktiviert; Backend 2.4.25; Deployment ausstehend",
+      "backendVersion": "2.4.25",
+      "branchMovements": 8,
+      "liveMovements": 0,
+      "movements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-21134869",
+      "number": 117,
+      "name": "Elsenheimerstraße / Hansastraße / Westendstraße",
+      "city": "München",
+      "district": {
+        "id": "BA07",
+        "name": "Sendling-Westpark"
+      },
+      "origin": [
+        11.5246304,
+        48.1356336
+      ],
+      "polygon": [
+        [
+          11.5246304,
+          48.135921059576
+        ],
+        [
+          11.524795235242967,
+          48.13589917801869
+        ],
+        [
+          11.524934975814428,
+          48.135836864615506
+        ],
+        [
+          11.52502834747913,
+          48.13574360601721
+        ],
+        [
+          11.525061135247537,
+          48.1356336
+        ],
+        [
+          11.52502834747913,
+          48.13552359398279
+        ],
+        [
+          11.524934975814428,
+          48.13543033538449
+        ],
+        [
+          11.524795235242967,
+          48.13536802198131
+        ],
+        [
+          11.5246304,
+          48.135346140424
+        ],
+        [
+          11.524465564757032,
+          48.13536802198131
+        ],
+        [
+          11.52432582418557,
+          48.13543033538449
+        ],
+        [
+          11.524232452520868,
+          48.13552359398279
+        ],
+        [
+          11.524199664752462,
+          48.1356336
+        ],
+        [
+          11.524232452520868,
+          48.13574360601721
+        ],
+        [
+          11.52432582418557,
+          48.135836864615506
+        ],
+        [
+          11.524465564757032,
+          48.13589917801869
+        ],
+        [
+          11.5246304,
+          48.135921059576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.52480554711131,
+            48.13589457972914
+          ],
+          "forward": [
+            -0.7829653523169954,
+            -0.6220653157596261
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.525012779384282,
+            48.13575915526021
+          ],
+          "forward": [
+            0.7624162819425677,
+            0.6470868666793284
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.524995159961765,
+            48.13549044665313
+          ],
+          "forward": [
+            -0.6654937729673668,
+            0.7464034017484507
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.524776402239223,
+            48.135365521936755
+          ],
+          "forward": [
+            0.6806870893892926,
+            -0.7325742872492408
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.524488005456178,
+            48.135365043022226
+          ],
+          "forward": [
+            0.7073827651670349,
+            0.7068306894473667
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.524224040897982,
+            48.13555181576112
+          ],
+          "forward": [
+            -0.7335276720506565,
+            -0.6796595870992659
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.524231427383555,
+            48.13574016658603
+          ],
+          "forward": [
+            0.6830179329915007,
+            -0.7304016040590394
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.52433515709812,
+            48.135841026367075
+          ],
+          "forward": [
+            -0.6900732264111467,
+            0.7237395541149527
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-5",
+          "kind": "entry",
+          "location": [
+            11.52433515709812,
+            48.135841026367075
+          ],
+          "forward": [
+            0.6900732264111467,
+            -0.7237395541149527
+          ],
+          "shared": true
+        },
+        {
+          "label": "Exit-5",
+          "kind": "exit",
+          "location": [
+            11.524465418838076,
+            48.135899112950206
+          ],
+          "forward": [
+            -0.6875016254910918,
+            0.7261828385104584
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt",
+      "deferredUntil": null,
+      "technical": "8/12 Links-/Geradeausbeziehungen technisch bestanden; 2 weitere Routen über gleichwertige Zufahrt abgedeckt · Sonderfall: 4 Punkt(e) zur Nachbearbeitung",
+      "deploymentStatus": "branch-ready",
+      "deployment": "Im Branch aktiviert; Backend 2.4.25; Deployment ausstehend",
+      "backendVersion": "2.4.25",
+      "branchMovements": 8,
+      "liveMovements": 0,
+      "movements": [
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": false,
+          "reason": "Standardrouting führt über den ausdrücklich gleichwertigen Entry-4; diese reale Route erhält die gleiche Kreuzungsansage über dessen geprüfte Beziehung.",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "Standardrouting führt über den ausdrücklich gleichwertigen Entry-4; diese reale Route erhält die gleiche Kreuzungsansage über dessen geprüfte Beziehung.",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-5",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "reason": "ValueError: Wrong entry gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "reason": "ValueError: Wrong exit gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-5",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": false,
+          "reason": "ValueError: Wrong exit gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": false,
+          "reason": "ValueError: Wrong exit gate",
+          "failureStage": "gate-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-17192376",
+      "number": 118,
+      "name": "Albert-Roßhaupter-Straße / Hansastraße / Passauerstraße",
+      "city": "München",
+      "district": {
+        "id": "BA07",
+        "name": "Sendling-Westpark"
+      },
+      "origin": [
+        11.5336044,
+        48.1168655
+      ],
+      "polygon": [
+        [
+          11.5336044,
+          48.117152959576
+        ],
+        [
+          11.53376917502087,
+          48.117131078018694
+        ],
+        [
+          11.533908864538502,
+          48.11706876461551
+        ],
+        [
+          11.534002202090125,
+          48.11697550601721
+        ],
+        [
+          11.534034977879612,
+          48.1168655
+        ],
+        [
+          11.534002202090125,
+          48.116755493982794
+        ],
+        [
+          11.533908864538502,
+          48.116662235384496
+        ],
+        [
+          11.53376917502087,
+          48.11659992198131
+        ],
+        [
+          11.5336044,
+          48.116578040424
+        ],
+        [
+          11.53343962497913,
+          48.11659992198131
+        ],
+        [
+          11.533299935461498,
+          48.116662235384496
+        ],
+        [
+          11.533206597909874,
+          48.116755493982794
+        ],
+        [
+          11.533173822120387,
+          48.1168655
+        ],
+        [
+          11.533206597909874,
+          48.11697550601721
+        ],
+        [
+          11.533299935461498,
+          48.11706876461551
+        ],
+        [
+          11.53343962497913,
+          48.117131078018694
+        ],
+        [
+          11.5336044,
+          48.117152959576
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.533754208882167,
+            48.117133065470554
+          ],
+          "forward": [
+            0.10557154724467238,
+            0.9944117097120116
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.534032118519711,
+            48.116875096925035
+          ],
+          "forward": [
+            0.9999316706010309,
+            0.011689915698205489
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.534032118519711,
+            48.116875096925035
+          ],
+          "forward": [
+            -0.9999316706010309,
+            -0.011689915698205489
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.533714139595029,
+            48.11659261346563
+          ],
+          "forward": [
+            -0.06377483147935704,
+            0.9979643134249739
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.53345533989689,
+            48.11659783509416
+          ],
+          "forward": [
+            0.04006709517246771,
+            -0.9991969915309195
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.533175461431043,
+            48.116859997949895
+          ],
+          "forward": [
+            -0.9999551672509965,
+            -0.009469080632847807
+          ],
+          "shared": true
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.533175461431043,
+            48.116859997949895
+          ],
+          "forward": [
+            0.9999551672509965,
+            0.009469080632847807
+          ],
+          "shared": true
+        },
+        {
+          "label": "Exit-5",
+          "kind": "exit",
+          "location": [
+            11.533213937128155,
+            48.11698283902732
+          ],
+          "forward": [
+            -0.9996061463896401,
+            -0.028063358673786492
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.533523871738032,
+            48.117142265699165
+          ],
+          "forward": [
+            -0.08026939538626104,
+            -0.9967732059823459
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "alles korrekt",
+      "deferredUntil": null,
+      "technical": "10/10 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+      "deploymentStatus": "branch-ready",
+      "deployment": "Im Branch aktiviert; Backend 2.4.25; Deployment ausstehend",
+      "backendVersion": "2.4.25",
+      "branchMovements": 10,
+      "liveMovements": 0,
+      "movements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-5",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-5",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-5",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-236833",
+      "number": 119,
+      "name": "Fürstenrieder Straße / Waldfriedhofstraße",
+      "city": "München",
+      "district": {
+        "id": "BA07",
+        "name": "Sendling-Westpark"
+      },
+      "origin": [
+        11.50242175,
+        48.1121107
+      ],
+      "polygon": [
+        [
+          11.502399765910958,
+          48.11232752239954
+        ],
+        [
+          11.502519741339032,
+          48.11230446224371
+        ],
+        [
+          11.502640278356312,
+          48.11229017790174
+        ],
+        [
+          11.502740615212344,
+          48.11226373360496
+        ],
+        [
+          11.50281951528022,
+          48.11222070601721
+        ],
+        [
+          11.502852288036857,
+          48.1121107
+        ],
+        [
+          11.50281951528022,
+          48.11200069398279
+        ],
+        [
+          11.502726186365422,
+          48.111907435384495
+        ],
+        [
+          11.502586509773709,
+          48.11184512198131
+        ],
+        [
+          11.50242175,
+          48.111823240424
+        ],
+        [
+          11.502256990226291,
+          48.11184512198131
+        ],
+        [
+          11.502117313634578,
+          48.111907435384495
+        ],
+        [
+          11.502023984719779,
+          48.11200069398279
+        ],
+        [
+          11.501991211963142,
+          48.1121107
+        ],
+        [
+          11.502023984719779,
+          48.11222070601721
+        ],
+        [
+          11.502117313634578,
+          48.11231396461551
+        ],
+        [
+          11.502235948049716,
+          48.11233778485274
+        ],
+        [
+          11.502399765910958,
+          48.11232752239954
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.502519741339032,
+            48.11230446224371
+          ],
+          "forward": [
+            -0.053701506305423016,
+            0.998557033033431
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.502827624620227,
+            48.11219348596349
+          ],
+          "forward": [
+            -0.9999131703750124,
+            0.013177697469258245
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.502783984060395,
+            48.11196518953314
+          ],
+          "forward": [
+            0.9999501992228637,
+            -0.00997993357469579
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.502519547504122,
+            48.11183622879879
+          ],
+          "forward": [
+            0.039581182974302874,
+            0.9992163579297302
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.502182516771475,
+            48.11187834654929
+          ],
+          "forward": [
+            0.08602498947371955,
+            -0.9962929795928739
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.502060066391854,
+            48.11196463949562
+          ],
+          "forward": [
+            0.9986487467077586,
+            -0.051968073843688456
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.502055840278533,
+            48.11225253757514
+          ],
+          "forward": [
+            -0.9996677333677467,
+            0.02577640128861191
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.50211017386246,
+            48.112306830222686
+          ],
+          "forward": [
+            0.0015248623891791896,
+            -0.9999988373966713
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 2,
+      "note": "sollte so passen, trotz Parkplatz",
+      "deferredUntil": null,
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+      "deploymentStatus": "branch-ready",
+      "deployment": "Im Branch aktiviert; Backend 2.4.25; Deployment ausstehend",
+      "backendVersion": "2.4.25",
+      "branchMovements": 8,
+      "liveMovements": 0,
+      "movements": [
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-3",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        }
+      ],
+      "rechecks": []
+    },
+    {
+      "id": "osm-junction-4826356",
+      "number": 120,
+      "name": "Garmischer Straße / Hansastraße",
+      "city": "München",
+      "district": {
+        "id": "BA07",
+        "name": "Sendling-Westpark"
+      },
+      "origin": [
+        11.530518924999999,
+        48.13138415
+      ],
+      "polygon": [
+        [
+          11.530518924999999,
+          48.13179236118962
+        ],
+        [
+          11.530752982335034,
+          48.13176128796303
+        ],
+        [
+          11.530951406562545,
+          48.13167279890033
+        ],
+        [
+          11.531083989392615,
+          48.13154036565918
+        ],
+        [
+          11.53113054629123,
+          48.13138415
+        ],
+        [
+          11.531083989392615,
+          48.13122793434083
+        ],
+        [
+          11.530951406562545,
+          48.13109550109967
+        ],
+        [
+          11.530752982335034,
+          48.131007012036974
+        ],
+        [
+          11.530518924999999,
+          48.13097593881039
+        ],
+        [
+          11.530284867664964,
+          48.131007012036974
+        ],
+        [
+          11.530086443437453,
+          48.13109550109967
+        ],
+        [
+          11.529953860607383,
+          48.13122793434083
+        ],
+        [
+          11.529907303708768,
+          48.13138415
+        ],
+        [
+          11.529953860607383,
+          48.13154036565918
+        ],
+        [
+          11.530086443437453,
+          48.13167279890033
+        ],
+        [
+          11.530284867664964,
+          48.13176128796303
+        ],
+        [
+          11.530518924999999,
+          48.13179236118962
+        ]
+      ],
+      "gates": [
+        {
+          "label": "Entry-1",
+          "kind": "entry",
+          "location": [
+            11.530594949507476,
+            48.131782268249154
+          ],
+          "forward": [
+            -0.7387749202628388,
+            -0.6739522365795934
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-1",
+          "kind": "exit",
+          "location": [
+            11.531127280293315,
+            48.13139510863411
+          ],
+          "forward": [
+            0.7443121139798882,
+            0.667831922704201
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-2",
+          "kind": "entry",
+          "location": [
+            11.531063906931362,
+            48.131207874537964
+          ],
+          "forward": [
+            -0.4916548094671259,
+            0.8707901861687717
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-2",
+          "kind": "exit",
+          "location": [
+            11.53078041844634,
+            48.13101924741672
+          ],
+          "forward": [
+            0.7043163586113886,
+            -0.709886235246461
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-3",
+          "kind": "entry",
+          "location": [
+            11.530470164945031,
+            48.13098241214837
+          ],
+          "forward": [
+            0.7554776611563649,
+            0.6551744069281923
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-3",
+          "kind": "exit",
+          "location": [
+            11.529935856869411,
+            48.131288343557905
+          ],
+          "forward": [
+            -0.7652388084455107,
+            -0.6437465076013189
+          ],
+          "shared": false
+        },
+        {
+          "label": "Entry-4",
+          "kind": "entry",
+          "location": [
+            11.530025235297632,
+            48.131611659819676
+          ],
+          "forward": [
+            0.6686587100686823,
+            -0.7435694516649307
+          ],
+          "shared": false
+        },
+        {
+          "label": "Exit-4",
+          "kind": "exit",
+          "location": [
+            11.530235627879732,
+            48.131739329039476
+          ],
+          "forward": [
+            -0.859981231336133,
+            0.5103256624446675
+          ],
+          "shared": false
+        }
+      ],
+      "status": "confirmed",
+      "geometryRevision": 1,
+      "note": "passt alles",
+      "deferredUntil": null,
+      "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+      "deploymentStatus": "branch-ready",
+      "deployment": "Im Branch aktiviert; Backend 2.4.25; Deployment ausstehend",
+      "backendVersion": "2.4.25",
+      "branchMovements": 8,
+      "liveMovements": 0,
+      "movements": [
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-2",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-3",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-1",
+          "exitLabel": "Exit-4",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-1",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-3",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-2",
+          "exitLabel": "Exit-4",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-1",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-2",
+          "kind": "right",
+          "enabled": false,
+          "failureStage": "runtime-matching"
+        },
+        {
+          "entryLabel": "Entry-3",
+          "exitLabel": "Exit-4",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-1",
+          "kind": "left",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-2",
+          "kind": "straight",
+          "enabled": true
+        },
+        {
+          "entryLabel": "Entry-4",
+          "exitLabel": "Exit-3",
           "kind": "right",
           "enabled": false,
           "failureStage": "runtime-matching"

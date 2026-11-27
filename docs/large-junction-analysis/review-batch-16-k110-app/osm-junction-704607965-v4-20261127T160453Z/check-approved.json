@@ -1,0 +1,5818 @@
+{
+  "project": {
+    "id": "ba01-ba03-technical",
+    "city": "München"
+  },
+  "source": {
+    "frozenAt": "2026-11-27T16:04:53.505460+00:00",
+    "note": "Report-only numbers >=101; original project numbering unchanged."
+  },
+  "sites": [
+    {
+      "id": "osm-junction-704607965",
+      "number": 110,
+      "name": "Falkenstraße / Mariahilfplatz / Ohlmüllerstraße",
+      "origin": [
+        11.5810713,
+        48.12434125
+      ],
+      "geometryRevision": 4,
+      "polygon": [
+        [
+          11.5810713,
+          48.12463871931762
+        ],
+        [
+          11.581241837531351,
+          48.1246160758141
+        ],
+        [
+          11.581354062347868,
+          48.12456113305634
+        ],
+        [
+          11.58138641226948,
+          48.124551592571684
+        ],
+        [
+          11.58148301402108,
+          48.124455086579495
+        ],
+        [
+          11.581516936045169,
+          48.12434125
+        ],
+        [
+          11.58148301402108,
+          48.124227413420506
+        ],
+        [
+          11.58138641226948,
+          48.12413090742832
+        ],
+        [
+          11.581241837531351,
+          48.1240664241859
+        ],
+        [
+          11.5810713,
+          48.12404378068238
+        ],
+        [
+          11.580900762468648,
+          48.1240664241859
+        ],
+        [
+          11.58075618773052,
+          48.12413090742832
+        ],
+        [
+          11.58065958597892,
+          48.124227413420506
+        ],
+        [
+          11.58062566395483,
+          48.12434125
+        ],
+        [
+          11.58065958597892,
+          48.124455086579495
+        ],
+        [
+          11.580657409074952,
+          48.124590052087896
+        ],
+        [
+          11.58075618773052,
+          48.124551592571684
+        ],
+        [
+          11.580900762468648,
+          48.1246160758141
+        ],
+        [
+          11.5810713,
+          48.12463871931762
+        ]
+      ],
+      "gates": [
+        {
+          "kind": "entry",
+          "location": [
+            11.58125871212317,
+            48.12460781439172
+          ],
+          "osmWayId": 945976942,
+          "forward": [
+            -0.5878398264618299,
+            -0.8089773411074785
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-1",
+          "id": "entry-1"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.581452006283431,
+            48.12448606357979
+          ],
+          "osmWayId": 165526172,
+          "forward": [
+            0.5942260688663471,
+            0.8042980660673302
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-1",
+          "id": "exit-1"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.581440536828852,
+            48.12418497833508
+          ],
+          "osmWayId": 159493216,
+          "forward": [
+            -0.4049248622597447,
+            0.914349963593769
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-2",
+          "id": "entry-2"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.581098660583942,
+            48.12404741354533
+          ],
+          "osmWayId": 1366331296,
+          "forward": [
+            0.8062053718657575,
+            -0.5916357818580581
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-2",
+          "id": "exit-2"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.580915223391427,
+            48.12406450410442
+          ],
+          "osmWayId": 366231840,
+          "forward": [
+            0.7558158501468843,
+            0.6547842397818862
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Entry-3",
+          "id": "entry-3"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.580659214307238,
+            48.124228660687855
+          ],
+          "osmWayId": 366231832,
+          "forward": [
+            -0.7866599425260019,
+            -0.6173865359926368
+          ],
+          "shared": false,
+          "onRoad": false,
+          "lane": false,
+          "label": "Exit-3",
+          "id": "exit-3"
+        },
+        {
+          "kind": "entry",
+          "location": [
+            11.580657409074952,
+            48.124590052087896
+          ],
+          "osmWayId": 1436464483,
+          "forward": [
+            0.6704999075590753,
+            -0.7419096130683788
+          ],
+          "shared": false,
+          "onRoad": true,
+          "lane": true,
+          "label": "Entry-5",
+          "id": "entry-5"
+        },
+        {
+          "kind": "exit",
+          "location": [
+            11.580863915232,
+            48.124599641205094
+          ],
+          "osmWayId": 366231821,
+          "forward": [
+            -0.7141983777667281,
+            0.6999433385606109
+          ],
+          "shared": false,
+          "onRoad": true,
+          "lane": true,
+          "label": "Exit-4",
+          "id": "exit-4"
+        },
+        {
+          "id": "manual-exit-5",
+          "label": "Exit-5",
+          "kind": "exit",
+          "location": [
+            11.581354062347868,
+            48.12456113305634
+          ],
+          "osmWayId": 232583250,
+          "forward": [
+            0.5882870574677741,
+            0.8086521736914505
+          ],
+          "onRoad": true,
+          "lane": false,
+          "shared": true
+        },
+        {
+          "id": "manual-entry-6",
+          "label": "Entry-6",
+          "kind": "entry",
+          "location": [
+            11.581354062347868,
+            48.12456113305634
+          ],
+          "osmWayId": 232583250,
+          "forward": [
+            -0.5882870574677741,
+            -0.8086521736914505
+          ],
+          "onRoad": true,
+          "lane": false,
+          "shared": true
+        }
+      ],
+      "geometryMode": "editable",
+      "logicalArms": {
+        "Arm-1": [
+          "Entry-1",
+          "Exit-1",
+          "Exit-5",
+          "Entry-6"
+        ],
+        "Arm-2": [
+          "Entry-2",
+          "Exit-2"
+        ],
+        "Arm-3": [
+          "Entry-3",
+          "Exit-3"
+        ],
+        "Arm-4": [
+          "Entry-5",
+          "Exit-4"
+        ]
+      },
+      "ways": [
+        {
+          "id": 4645346,
+          "tags": {
+            "class:bicycle": "-1",
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Entenbachstraße",
+            "name:etymology:wikidata": "Q16919153",
+            "oneway": "yes",
+            "oneway:bicycle": "no",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "no",
+            "parking:right:orientation": "parallel",
+            "parking:right:restriction:conditional": "no_parking @ (Mo-Sa 09:00-23:00; PH off); none @ residents",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk": "both",
+            "smoothness": "intermediate",
+            "surface": "sett",
+            "wikidata": "Q106522950"
+          },
+          "geometry": [
+            {
+              "lon": 11.5798908,
+              "lat": 48.1251739
+            },
+            {
+              "lon": 11.5798762,
+              "lat": 48.1251638
+            },
+            {
+              "lon": 11.5798592,
+              "lat": 48.1251527
+            },
+            {
+              "lon": 11.5798019,
+              "lat": 48.1251151
+            },
+            {
+              "lon": 11.5795798,
+              "lat": 48.1247693
+            },
+            {
+              "lon": 11.5794206,
+              "lat": 48.1245213
+            },
+            {
+              "lon": 11.5793925,
+              "lat": 48.1244564
+            }
+          ]
+        },
+        {
+          "id": 4645359,
+          "tags": {
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Boosstraße",
+            "name:etymology:wikidata": "Q2164512",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "no",
+            "parking:right:orientation": "parallel",
+            "parking:right:restriction:conditional": "no_parking @ (Mo-Sa 09:00-23:00; PH off); none @ residents",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "paving_stones",
+            "smoothness": "excellent",
+            "surface": "asphalt",
+            "width": "5.5",
+            "wikidata": "Q140267919"
+          },
+          "geometry": [
+            {
+              "lon": 11.5793925,
+              "lat": 48.1244564
+            },
+            {
+              "lon": 11.579795,
+              "lat": 48.1243252
+            },
+            {
+              "lon": 11.579906,
+              "lat": 48.1242831
+            },
+            {
+              "lon": 11.5800557,
+              "lat": 48.1242262
+            }
+          ]
+        },
+        {
+          "id": 4645546,
+          "tags": {
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Boosstraße",
+            "name:etymology:wikidata": "Q2164512",
+            "oneway": "yes",
+            "oneway:bicycle": "no",
+            "parking:both": "lane",
+            "parking:both:fee": "no",
+            "parking:both:orientation": "parallel",
+            "parking:both:restriction:conditional": "no_parking @ (Mo-Sa 09:00-23:00; PH off); none @ residents",
+            "parking:both:zone": "Südliche Au",
+            "sidewalk": "both",
+            "surface": "asphalt",
+            "wikidata": "Q140267919"
+          },
+          "geometry": [
+            {
+              "lon": 11.5783588,
+              "lat": 48.1251139
+            },
+            {
+              "lon": 11.5789505,
+              "lat": 48.1247385
+            },
+            {
+              "lon": 11.5793925,
+              "lat": 48.1244564
+            }
+          ]
+        },
+        {
+          "id": 4649289,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-07:00, Sa 07:00-09:00; Su,PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:restriction:conditional": "no_parking @ (Mo-Fr 07:00-18:00; PH off)",
+            "parking:right:zone": "Nördliche Au",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5818241,
+              "lat": 48.1249937
+            },
+            {
+              "lon": 11.5819508,
+              "lat": 48.1249361
+            },
+            {
+              "lon": 11.5823549,
+              "lat": 48.1247524
+            }
+          ]
+        },
+        {
+          "id": 4673690,
+          "tags": {
+            "class:bicycle": "1",
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Zeppelinstraße",
+            "name:etymology:wikidata": "Q75780",
+            "parking:left": "lane",
+            "parking:left:fee": "no",
+            "parking:left:orientation": "parallel",
+            "parking:left:restriction:conditional": "no_parking @ (Mo-Fr 07:00-23:00; Sa 09:00-23:00; PH off); none @ (residents AND Mo-Fr 18:00-23:00; Sa 09:00-23:00; PH off)",
+            "parking:left:zone": "Nördliche Au",
+            "parking:right": "no",
+            "parking:right:restriction": "no_stopping",
+            "sidewalk": "both",
+            "surface": "asphalt",
+            "wikidata": "Q140267977"
+          },
+          "geometry": [
+            {
+              "lon": 11.5798908,
+              "lat": 48.1251739
+            },
+            {
+              "lon": 11.5799024,
+              "lat": 48.125181
+            },
+            {
+              "lon": 11.579998,
+              "lat": 48.1252309
+            },
+            {
+              "lon": 11.5801179,
+              "lat": 48.1253141
+            }
+          ]
+        },
+        {
+          "id": 24628144,
+          "tags": {
+            "bicycle": "designated",
+            "emergency": "yes",
+            "foot": "designated",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Am Neudeck",
+            "segregated": "no",
+            "surface": "paving_stones",
+            "wikidata": "Q129926389"
+          },
+          "geometry": [
+            {
+              "lon": 11.584201,
+              "lat": 48.1236792
+            },
+            {
+              "lon": 11.5840466,
+              "lat": 48.1235053
+            },
+            {
+              "lon": 11.5837152,
+              "lat": 48.1233358
+            },
+            {
+              "lon": 11.5827608,
+              "lat": 48.1228754
+            },
+            {
+              "lon": 11.5825417,
+              "lat": 48.1228034
+            },
+            {
+              "lon": 11.5823365,
+              "lat": 48.1227863
+            }
+          ]
+        },
+        {
+          "id": 32459666,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:both": "no",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "parking:both": "lane",
+            "parking:both:fee": "yes",
+            "parking:both:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:both:orientation": "parallel",
+            "parking:left:zone": "Südliche Au",
+            "parking:right:restriction:conditional": "no_parking @ (Mo-Fr 07:00-18:00; PH off)",
+            "parking:right:zone": "Nördliche Au",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5798908,
+              "lat": 48.1251739
+            },
+            {
+              "lon": 11.579798,
+              "lat": 48.1252348
+            },
+            {
+              "lon": 11.5797039,
+              "lat": 48.1253015
+            },
+            {
+              "lon": 11.5794877,
+              "lat": 48.1254585
+            }
+          ]
+        },
+        {
+          "id": 35034872,
+          "tags": {
+            "class:bicycle": "1",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Entenbachstraße",
+            "name:etymology:wikidata": "Q16919153",
+            "oneway": "yes",
+            "oneway:bicycle": "yes",
+            "parking:both:fee": "no",
+            "parking:both:restriction:conditional": "no_parking @ (Mo-Sa 09:00-23:00; PH off); none @ residents",
+            "parking:both:zone": "Südliche Au",
+            "parking:left": "lane",
+            "parking:left:orientation": "diagonal",
+            "parking:right": "lane",
+            "parking:right:orientation": "parallel",
+            "sidewalk": "both",
+            "smoothness": "good",
+            "source:maxspeed": "DE:zone:30",
+            "surface": "asphalt",
+            "wikidata": "Q106522950"
+          },
+          "geometry": [
+            {
+              "lon": 11.5793925,
+              "lat": 48.1244564
+            },
+            {
+              "lon": 11.5791129,
+              "lat": 48.1240396
+            },
+            {
+              "lon": 11.5787652,
+              "lat": 48.1235885
+            },
+            {
+              "lon": 11.5786136,
+              "lat": 48.1234617
+            }
+          ]
+        },
+        {
+          "id": 50290057,
+          "tags": {
+            "alt_name": "Neuheitengasse",
+            "foot": "yes",
+            "highway": "pedestrian",
+            "lit": "no",
+            "noname": "yes",
+            "note": "alternativer Name gilt für Auer-Dult",
+            "smoothness": "good",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5833941,
+              "lat": 48.1244142
+            },
+            {
+              "lon": 11.5829336,
+              "lat": 48.1246181
+            },
+            {
+              "lon": 11.5821771,
+              "lat": 48.1249414
+            },
+            {
+              "lon": 11.5820229,
+              "lat": 48.1250086
+            }
+          ]
+        },
+        {
+          "id": 51406075,
+          "tags": {
+            "emergency": "yes",
+            "highway": "footway",
+            "lit": "no",
+            "motorcar": "no",
+            "smoothness": "intermediate",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5828828,
+              "lat": 48.1245143
+            },
+            {
+              "lon": 11.5827343,
+              "lat": 48.124336
+            },
+            {
+              "lon": 11.5826819,
+              "lat": 48.1242163
+            }
+          ]
+        },
+        {
+          "id": 51406076,
+          "tags": {
+            "emergency": "yes",
+            "highway": "footway",
+            "lit": "yes",
+            "motorcar": "no",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5825937,
+              "lat": 48.12409
+            },
+            {
+              "lon": 11.5827109,
+              "lat": 48.1239731
+            },
+            {
+              "lon": 11.5828828,
+              "lat": 48.1238796
+            }
+          ]
+        },
+        {
+          "id": 51510348,
+          "tags": {
+            "highway": "service",
+            "lit": "yes",
+            "service": "parking_aisle",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5801179,
+              "lat": 48.1253141
+            },
+            {
+              "lon": 11.5809536,
+              "lat": 48.1247116
+            },
+            {
+              "lon": 11.5810063,
+              "lat": 48.1246731
+            },
+            {
+              "lon": 11.5809098,
+              "lat": 48.1246107
+            },
+            {
+              "lon": 11.5808785,
+              "lat": 48.1245901
+            }
+          ]
+        },
+        {
+          "id": 56145216,
+          "tags": {
+            "bicycle": "yes",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones",
+            "traffic_sign": "DE:239;DE:1022-10",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5814229,
+              "lat": 48.1237317
+            },
+            {
+              "lon": 11.5814765,
+              "lat": 48.1236776
+            },
+            {
+              "lon": 11.5816774,
+              "lat": 48.1234032
+            },
+            {
+              "lon": 11.5819724,
+              "lat": 48.1229756
+            },
+            {
+              "lon": 11.5820319,
+              "lat": 48.1228812
+            },
+            {
+              "lon": 11.5820853,
+              "lat": 48.1227971
+            },
+            {
+              "lon": 11.5821289,
+              "lat": 48.1227035
+            },
+            {
+              "lon": 11.5821454,
+              "lat": 48.1226077
+            },
+            {
+              "lon": 11.582145,
+              "lat": 48.1224965
+            }
+          ]
+        },
+        {
+          "id": 56145218,
+          "tags": {
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "turn:lanes": "none|through;right",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5813343,
+              "lat": 48.124543
+            },
+            {
+              "lon": 11.5812693,
+              "lat": 48.1245239
+            },
+            {
+              "lon": 11.5811881,
+              "lat": 48.1244835
+            },
+            {
+              "lon": 11.5811099,
+              "lat": 48.124427
+            }
+          ]
+        },
+        {
+          "id": 56145220,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:both": "no",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5798908,
+              "lat": 48.1251739
+            },
+            {
+              "lon": 11.5799143,
+              "lat": 48.1251382
+            },
+            {
+              "lon": 11.5799577,
+              "lat": 48.1250891
+            },
+            {
+              "lon": 11.5801903,
+              "lat": 48.1249354
+            }
+          ]
+        },
+        {
+          "id": 61842255,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5806704,
+              "lat": 48.1256857
+            },
+            {
+              "lon": 11.5812516,
+              "lat": 48.1252995
+            },
+            {
+              "lon": 11.5814169,
+              "lat": 48.1252088
+            },
+            {
+              "lon": 11.5814696,
+              "lat": 48.1251814
+            },
+            {
+              "lon": 11.5815583,
+              "lat": 48.1251446
+            },
+            {
+              "lon": 11.5817343,
+              "lat": 48.1250447
+            },
+            {
+              "lon": 11.5818241,
+              "lat": 48.1249937
+            }
+          ]
+        },
+        {
+          "id": 100305594,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "pebblestone"
+          },
+          "geometry": [
+            {
+              "lon": 11.5842437,
+              "lat": 48.1236034
+            },
+            {
+              "lon": 11.5840979,
+              "lat": 48.1234853
+            },
+            {
+              "lon": 11.5837184,
+              "lat": 48.1232972
+            },
+            {
+              "lon": 11.5834963,
+              "lat": 48.123196
+            },
+            {
+              "lon": 11.5832636,
+              "lat": 48.1230805
+            },
+            {
+              "lon": 11.5827737,
+              "lat": 48.1228433
+            },
+            {
+              "lon": 11.5825524,
+              "lat": 48.1227784
+            },
+            {
+              "lon": 11.5824877,
+              "lat": 48.1227668
+            }
+          ]
+        },
+        {
+          "id": 100305595,
+          "tags": {
+            "access": "customers",
+            "highway": "service",
+            "layer": "-1",
+            "operator": "Landratsamt München",
+            "service": "parking_aisle",
+            "surface": "concrete"
+          },
+          "geometry": [
+            {
+              "lon": 11.5816888,
+              "lat": 48.1238428
+            },
+            {
+              "lon": 11.5817879,
+              "lat": 48.1238708
+            }
+          ]
+        },
+        {
+          "id": 100305605,
+          "tags": {
+            "highway": "service",
+            "service": "parking_aisle",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5816089,
+              "lat": 48.1238195
+            },
+            {
+              "lon": 11.581671,
+              "lat": 48.1238376
+            },
+            {
+              "lon": 11.5816888,
+              "lat": 48.1238428
+            }
+          ]
+        },
+        {
+          "id": 100312779,
+          "tags": {
+            "emergency": "yes",
+            "highway": "footway",
+            "lit": "yes",
+            "motorcar": "no",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5826279,
+              "lat": 48.124144
+            },
+            {
+              "lon": 11.5825937,
+              "lat": 48.12409
+            },
+            {
+              "lon": 11.5825262,
+              "lat": 48.124063
+            },
+            {
+              "lon": 11.582448,
+              "lat": 48.1240121
+            },
+            {
+              "lon": 11.5822877,
+              "lat": 48.1239292
+            },
+            {
+              "lon": 11.5821696,
+              "lat": 48.1237721
+            },
+            {
+              "lon": 11.5821063,
+              "lat": 48.1236378
+            },
+            {
+              "lon": 11.5821566,
+              "lat": 48.1235734
+            }
+          ]
+        },
+        {
+          "id": 100312790,
+          "tags": {
+            "emergency": "yes",
+            "highway": "footway",
+            "lit": "yes",
+            "motorcar": "no",
+            "surface": "sett",
+            "tunnel": "building_passage"
+          },
+          "geometry": [
+            {
+              "lon": 11.5826819,
+              "lat": 48.1242163
+            },
+            {
+              "lon": 11.5826279,
+              "lat": 48.124144
+            }
+          ]
+        },
+        {
+          "id": 123159237,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "dual_carriageway": "yes",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5810237,
+              "lat": 48.1242466
+            },
+            {
+              "lon": 11.5810937,
+              "lat": 48.1241545
+            },
+            {
+              "lon": 11.5811395,
+              "lat": 48.1241025
+            },
+            {
+              "lon": 11.5812188,
+              "lat": 48.1240054
+            },
+            {
+              "lon": 11.5812736,
+              "lat": 48.123947
+            },
+            {
+              "lon": 11.5813621,
+              "lat": 48.1238526
+            },
+            {
+              "lon": 11.5814342,
+              "lat": 48.1237852
+            },
+            {
+              "lon": 11.5815249,
+              "lat": 48.1237063
+            }
+          ]
+        },
+        {
+          "id": 123159659,
+          "tags": {
+            "class:bicycle": "1",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Albanistraße",
+            "name:etymology:wikidata": "Q358147",
+            "parking:both": "lane",
+            "parking:both:fee": "yes",
+            "parking:both:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:both:orientation": "parallel",
+            "parking:both:zone": "Südliche Au",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:zone:30",
+            "surface": "asphalt",
+            "wikidata": "Q140267909"
+          },
+          "geometry": [
+            {
+              "lon": 11.5786136,
+              "lat": 48.1234617
+            },
+            {
+              "lon": 11.5790838,
+              "lat": 48.1233243
+            },
+            {
+              "lon": 11.5794151,
+              "lat": 48.1232324
+            }
+          ]
+        },
+        {
+          "id": 127237586,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "turn:lanes": "through|none",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811099,
+              "lat": 48.124427
+            },
+            {
+              "lon": 11.5810444,
+              "lat": 48.1243806
+            },
+            {
+              "lon": 11.581018,
+              "lat": 48.1243646
+            },
+            {
+              "lon": 11.5809614,
+              "lat": 48.1243281
+            }
+          ]
+        },
+        {
+          "id": 138650746,
+          "tags": {
+            "highway": "service",
+            "service": "driveway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5823632,
+              "lat": 48.1259904
+            },
+            {
+              "lon": 11.5820446,
+              "lat": 48.1257035
+            },
+            {
+              "lon": 11.5817276,
+              "lat": 48.1254181
+            },
+            {
+              "lon": 11.5814696,
+              "lat": 48.1251814
+            },
+            {
+              "lon": 11.5811528,
+              "lat": 48.1248911
+            },
+            {
+              "lon": 11.5809536,
+              "lat": 48.1247116
+            }
+          ]
+        },
+        {
+          "id": 138650767,
+          "tags": {
+            "highway": "footway",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5824384,
+              "lat": 48.1259444
+            },
+            {
+              "lon": 11.5815583,
+              "lat": 48.1251446
+            }
+          ]
+        },
+        {
+          "id": 155580612,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "dual_carriageway": "yes",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5822654,
+              "lat": 48.1228069
+            },
+            {
+              "lon": 11.5822326,
+              "lat": 48.1228887
+            },
+            {
+              "lon": 11.5821408,
+              "lat": 48.1230379
+            },
+            {
+              "lon": 11.5819932,
+              "lat": 48.1232746
+            },
+            {
+              "lon": 11.5818365,
+              "lat": 48.12351
+            }
+          ]
+        },
+        {
+          "id": 156451390,
+          "tags": {
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Am Feuerbächl",
+            "parking:left": "lane",
+            "parking:left:fee": "no",
+            "parking:left:orientation": "parallel",
+            "parking:left:restriction:conditional": "no_parking @ (Mo-Sa 09:00-23:00; PH off); none @ residents",
+            "parking:left:zone": "Südliche Au",
+            "parking:right": "no",
+            "parking:right:restriction": "no_stopping",
+            "sidewalk": "both",
+            "source:maxspeed": "DE:zone30",
+            "surface": "asphalt",
+            "wikidata": "Q140267910"
+          },
+          "geometry": [
+            {
+              "lon": 11.579795,
+              "lat": 48.1243252
+            },
+            {
+              "lon": 11.5799337,
+              "lat": 48.1245595
+            },
+            {
+              "lon": 11.5803539,
+              "lat": 48.1248132
+            }
+          ]
+        },
+        {
+          "id": 156451402,
+          "tags": {
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "turn:lanes": "left|through",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5810237,
+              "lat": 48.1242466
+            },
+            {
+              "lon": 11.5810882,
+              "lat": 48.1242917
+            },
+            {
+              "lon": 11.5811133,
+              "lat": 48.1243094
+            },
+            {
+              "lon": 11.5811902,
+              "lat": 48.1243633
+            }
+          ]
+        },
+        {
+          "id": 156451403,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "intermediate",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5800557,
+              "lat": 48.1242262
+            },
+            {
+              "lon": 11.580218,
+              "lat": 48.1243629
+            },
+            {
+              "lon": 11.5804218,
+              "lat": 48.1242497
+            },
+            {
+              "lon": 11.58053,
+              "lat": 48.1241689
+            },
+            {
+              "lon": 11.5805904,
+              "lat": 48.1241238
+            }
+          ]
+        },
+        {
+          "id": 159493216,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "-1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "paved",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5823133,
+              "lat": 48.1225626
+            },
+            {
+              "lon": 11.5823595,
+              "lat": 48.1225866
+            },
+            {
+              "lon": 11.5823548,
+              "lat": 48.1226816
+            },
+            {
+              "lon": 11.5823449,
+              "lat": 48.1227485
+            },
+            {
+              "lon": 11.5823365,
+              "lat": 48.1227863
+            },
+            {
+              "lon": 11.5823141,
+              "lat": 48.1228621
+            },
+            {
+              "lon": 11.5822738,
+              "lat": 48.1229587
+            },
+            {
+              "lon": 11.5822164,
+              "lat": 48.1230563
+            },
+            {
+              "lon": 11.5819186,
+              "lat": 48.1234712
+            },
+            {
+              "lon": 11.581671,
+              "lat": 48.1238376
+            },
+            {
+              "lon": 11.5814246,
+              "lat": 48.124209
+            },
+            {
+              "lon": 11.581321,
+              "lat": 48.1243677
+            }
+          ]
+        },
+        {
+          "id": 165525072,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5820229,
+              "lat": 48.1250086
+            },
+            {
+              "lon": 11.5819303,
+              "lat": 48.1250919
+            }
+          ]
+        },
+        {
+          "id": 165525412,
+          "tags": {
+            "area": "yes",
+            "highway": "pedestrian",
+            "lit": "yes",
+            "name": "Rupert-Stöckl-Platz",
+            "name:etymology:wikidata": "Q1405336",
+            "note": "Name gilt für Auer-Dult",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5826942,
+              "lat": 48.1255783
+            },
+            {
+              "lon": 11.5828414,
+              "lat": 48.1257166
+            },
+            {
+              "lon": 11.5829553,
+              "lat": 48.1258237
+            },
+            {
+              "lon": 11.5833018,
+              "lat": 48.1256947
+            },
+            {
+              "lon": 11.5830685,
+              "lat": 48.1254365
+            },
+            {
+              "lon": 11.5827971,
+              "lat": 48.1255393
+            },
+            {
+              "lon": 11.5826942,
+              "lat": 48.1255783
+            }
+          ]
+        },
+        {
+          "id": 165526171,
+          "tags": {
+            "alt_name": "Ahornallee",
+            "highway": "footway",
+            "lit": "yes",
+            "noname": "yes",
+            "note": "Name gilt für Auer-Dult",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5820229,
+              "lat": 48.1250086
+            },
+            {
+              "lon": 11.5827945,
+              "lat": 48.1257386
+            },
+            {
+              "lon": 11.5834903,
+              "lat": 48.1263982
+            }
+          ]
+        },
+        {
+          "id": 165526172,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "1",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.581321,
+              "lat": 48.1243677
+            },
+            {
+              "lon": 11.5814526,
+              "lat": 48.1244866
+            },
+            {
+              "lon": 11.5815052,
+              "lat": 48.1245338
+            },
+            {
+              "lon": 11.5816787,
+              "lat": 48.1246902
+            },
+            {
+              "lon": 11.5819508,
+              "lat": 48.1249361
+            }
+          ]
+        },
+        {
+          "id": 209164834,
+          "tags": {
+            "highway": "footway",
+            "surface": "pebblestone"
+          },
+          "geometry": [
+            {
+              "lon": 11.5827297,
+              "lat": 48.1254703
+            },
+            {
+              "lon": 11.5827971,
+              "lat": 48.1255393
+            }
+          ]
+        },
+        {
+          "id": 232583250,
+          "tags": {
+            "cycleway:both": "separate",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "3",
+            "lanes:backward": "2",
+            "lanes:forward": "1",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "parking:left": "lane",
+            "parking:left:fee": "yes",
+            "parking:left:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:left:orientation": "parallel",
+            "parking:left:zone": "Nördliche Au",
+            "parking:right": "no",
+            "parking:right:restriction": "no_stopping",
+            "sidewalk": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "sign",
+            "surface": "asphalt",
+            "turn:lanes:backward": "none|through;right",
+            "turn:lanes:forward": "none",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5813343,
+              "lat": 48.124543
+            },
+            {
+              "lon": 11.5814374,
+              "lat": 48.1246376
+            }
+          ]
+        },
+        {
+          "id": 232583252,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "dual_carriageway": "yes",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "turn:lanes": "left|none",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5818365,
+              "lat": 48.12351
+            },
+            {
+              "lon": 11.5817097,
+              "lat": 48.1236799
+            },
+            {
+              "lon": 11.58166,
+              "lat": 48.1237487
+            },
+            {
+              "lon": 11.5816089,
+              "lat": 48.1238195
+            },
+            {
+              "lon": 11.5813366,
+              "lat": 48.124177
+            },
+            {
+              "lon": 11.5812566,
+              "lat": 48.1242912
+            },
+            {
+              "lon": 11.5811902,
+              "lat": 48.1243633
+            },
+            {
+              "lon": 11.5811099,
+              "lat": 48.124427
+            }
+          ]
+        },
+        {
+          "id": 232583254,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "turn:lanes": "left|through;right",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5801903,
+              "lat": 48.1249354
+            },
+            {
+              "lon": 11.5803539,
+              "lat": 48.1248132
+            }
+          ]
+        },
+        {
+          "id": 232867849,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "class:bicycle": "-1",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5809614,
+              "lat": 48.1243281
+            },
+            {
+              "lon": 11.5809008,
+              "lat": 48.1242903
+            },
+            {
+              "lon": 11.5806869,
+              "lat": 48.1241724
+            },
+            {
+              "lon": 11.5805904,
+              "lat": 48.1241238
+            }
+          ]
+        },
+        {
+          "id": 232867856,
+          "tags": {
+            "cycleway:both": "no",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "parking:left": "lane",
+            "parking:left:fee": "yes",
+            "parking:left:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:left:orientation": "parallel",
+            "parking:left:zone": "Nördliche Au",
+            "parking:right": "no",
+            "parking:right:restriction": "no_stopping",
+            "sidewalk": "separate",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5818241,
+              "lat": 48.1249937
+            },
+            {
+              "lon": 11.5819303,
+              "lat": 48.1250919
+            },
+            {
+              "lon": 11.5826939,
+              "lat": 48.1257916
+            }
+          ]
+        },
+        {
+          "id": 232867859,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "class:bicycle": "-2",
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "dual_carriageway": "yes",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811099,
+              "lat": 48.124427
+            },
+            {
+              "lon": 11.5810502,
+              "lat": 48.1244766
+            },
+            {
+              "lon": 11.5809881,
+              "lat": 48.1245196
+            },
+            {
+              "lon": 11.5808785,
+              "lat": 48.1245901
+            }
+          ]
+        },
+        {
+          "id": 279963576,
+          "tags": {
+            "bicycle": "designated",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "asphalt",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5810105,
+              "lat": 48.1240906
+            },
+            {
+              "lon": 11.5810937,
+              "lat": 48.1241545
+            },
+            {
+              "lon": 11.5811342,
+              "lat": 48.1241884
+            },
+            {
+              "lon": 11.5811583,
+              "lat": 48.1242107
+            },
+            {
+              "lon": 11.5811829,
+              "lat": 48.1242312
+            },
+            {
+              "lon": 11.5812066,
+              "lat": 48.1242503
+            },
+            {
+              "lon": 11.5812566,
+              "lat": 48.1242912
+            },
+            {
+              "lon": 11.5812987,
+              "lat": 48.1243262
+            },
+            {
+              "lon": 11.581321,
+              "lat": 48.1243677
+            }
+          ]
+        },
+        {
+          "id": 279963580,
+          "tags": {
+            "bicycle": "designated",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "asphalt",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811156,
+              "lat": 48.124519
+            },
+            {
+              "lon": 11.5810502,
+              "lat": 48.1244766
+            },
+            {
+              "lon": 11.5809879,
+              "lat": 48.1244341
+            },
+            {
+              "lon": 11.5809608,
+              "lat": 48.1244166
+            },
+            {
+              "lon": 11.5809131,
+              "lat": 48.1243874
+            }
+          ]
+        },
+        {
+          "id": 296888159,
+          "tags": {
+            "class:bicycle": "-1",
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "3",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "turn:lanes": "left|through|right",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.580413,
+              "lat": 48.1238458
+            },
+            {
+              "lon": 11.5805621,
+              "lat": 48.1239555
+            },
+            {
+              "lon": 11.5807163,
+              "lat": 48.1240598
+            },
+            {
+              "lon": 11.5808926,
+              "lat": 48.1241574
+            },
+            {
+              "lon": 11.5809535,
+              "lat": 48.1241943
+            },
+            {
+              "lon": 11.5809992,
+              "lat": 48.1242284
+            },
+            {
+              "lon": 11.5810237,
+              "lat": 48.1242466
+            }
+          ]
+        },
+        {
+          "id": 296888160,
+          "tags": {
+            "class:bicycle": "-1",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "highway": "tertiary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5796537,
+              "lat": 48.1231704
+            },
+            {
+              "lon": 11.579587,
+              "lat": 48.1228872
+            },
+            {
+              "lon": 11.5795723,
+              "lat": 48.1227481
+            }
+          ]
+        },
+        {
+          "id": 296888161,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5819508,
+              "lat": 48.1249361
+            },
+            {
+              "lon": 11.5820229,
+              "lat": 48.1250086
+            }
+          ]
+        },
+        {
+          "id": 313591955,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5812406,
+              "lat": 48.1242103
+            },
+            {
+              "lon": 11.5812066,
+              "lat": 48.1242503
+            }
+          ]
+        },
+        {
+          "id": 313591956,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811342,
+              "lat": 48.1241884
+            },
+            {
+              "lon": 11.5811688,
+              "lat": 48.1241451
+            }
+          ]
+        },
+        {
+          "id": 313962366,
+          "tags": {
+            "bicycle": "yes",
+            "class:bicycle": "-2",
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "turn:lanes": "left|through;right",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5807027,
+              "lat": 48.1245566
+            },
+            {
+              "lon": 11.5807432,
+              "lat": 48.1245267
+            },
+            {
+              "lon": 11.580838,
+              "lat": 48.124454
+            },
+            {
+              "lon": 11.5809131,
+              "lat": 48.1243874
+            }
+          ]
+        },
+        {
+          "id": 313962367,
+          "tags": {
+            "bicycle": "yes",
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "dual_carriageway": "yes",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "placement": "middle_of:2",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "turn:lanes": "left|none",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5809131,
+              "lat": 48.1243874
+            },
+            {
+              "lon": 11.5809614,
+              "lat": 48.1243281
+            }
+          ]
+        },
+        {
+          "id": 366231809,
+          "tags": {
+            "class:bicycle": "-1",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5797975,
+              "lat": 48.1231358
+            },
+            {
+              "lon": 11.5798589,
+              "lat": 48.1232409
+            },
+            {
+              "lon": 11.5799119,
+              "lat": 48.1233148
+            },
+            {
+              "lon": 11.5800412,
+              "lat": 48.1234762
+            }
+          ]
+        },
+        {
+          "id": 366231810,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5805904,
+              "lat": 48.1241238
+            },
+            {
+              "lon": 11.5803406,
+              "lat": 48.1239596
+            },
+            {
+              "lon": 11.5803387,
+              "lat": 48.1239581
+            }
+          ]
+        },
+        {
+          "id": 366231818,
+          "tags": {
+            "cycleway:left": "no",
+            "cycleway:right": "separate",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811902,
+              "lat": 48.1243633
+            },
+            {
+              "lon": 11.5812639,
+              "lat": 48.1244212
+            },
+            {
+              "lon": 11.5813157,
+              "lat": 48.1244862
+            },
+            {
+              "lon": 11.5813343,
+              "lat": 48.124543
+            }
+          ]
+        },
+        {
+          "id": 366231821,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5808785,
+              "lat": 48.1245901
+            },
+            {
+              "lon": 11.5806434,
+              "lat": 48.1247439
+            }
+          ]
+        },
+        {
+          "id": 366231822,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "placement": "middle_of:2",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "turn:lanes": "left|none",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5809614,
+              "lat": 48.1243281
+            },
+            {
+              "lon": 11.5810237,
+              "lat": 48.1242466
+            }
+          ]
+        },
+        {
+          "id": 366231823,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:both": "no",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Nördliche Au",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5803444,
+              "lat": 48.1249394
+            },
+            {
+              "lon": 11.5802297,
+              "lat": 48.1250144
+            },
+            {
+              "lon": 11.5800352,
+              "lat": 48.1251258
+            },
+            {
+              "lon": 11.5799332,
+              "lat": 48.1251623
+            },
+            {
+              "lon": 11.5798908,
+              "lat": 48.1251739
+            }
+          ]
+        },
+        {
+          "id": 366231832,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "-1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "cycleway:width": "1.3",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "paved"
+          },
+          "geometry": [
+            {
+              "lon": 11.5809131,
+              "lat": 48.1243874
+            },
+            {
+              "lon": 11.5808651,
+              "lat": 48.1243419
+            },
+            {
+              "lon": 11.5808173,
+              "lat": 48.1243115
+            },
+            {
+              "lon": 11.5807805,
+              "lat": 48.1242922
+            },
+            {
+              "lon": 11.5805816,
+              "lat": 48.124188
+            },
+            {
+              "lon": 11.58053,
+              "lat": 48.1241689
+            },
+            {
+              "lon": 11.5804618,
+              "lat": 48.1241506
+            },
+            {
+              "lon": 11.5803261,
+              "lat": 48.1240696
+            },
+            {
+              "lon": 11.5803156,
+              "lat": 48.1240632
+            },
+            {
+              "lon": 11.5802586,
+              "lat": 48.1240286
+            },
+            {
+              "lon": 11.5801957,
+              "lat": 48.123982
+            },
+            {
+              "lon": 11.580066,
+              "lat": 48.1238748
+            },
+            {
+              "lon": 11.5799356,
+              "lat": 48.1237518
+            },
+            {
+              "lon": 11.5798629,
+              "lat": 48.1236779
+            },
+            {
+              "lon": 11.5797522,
+              "lat": 48.1235514
+            },
+            {
+              "lon": 11.5796695,
+              "lat": 48.1234421
+            },
+            {
+              "lon": 11.5796347,
+              "lat": 48.1233859
+            }
+          ]
+        },
+        {
+          "id": 366231834,
+          "tags": {
+            "check_date:surface": "2022-10-18",
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811156,
+              "lat": 48.124519
+            },
+            {
+              "lon": 11.581106,
+              "lat": 48.124553
+            },
+            {
+              "lon": 11.5810063,
+              "lat": 48.1246731
+            }
+          ]
+        },
+        {
+          "id": 366231835,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "-2",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "paved",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811156,
+              "lat": 48.124519
+            },
+            {
+              "lon": 11.5809864,
+              "lat": 48.1245685
+            },
+            {
+              "lon": 11.5808785,
+              "lat": 48.1245901
+            }
+          ]
+        },
+        {
+          "id": 366231836,
+          "tags": {
+            "class:bicycle": "-1",
+            "cycleway": "sidepath",
+            "foot": "no",
+            "highway": "cycleway",
+            "lit": "yes",
+            "oneway": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5796347,
+              "lat": 48.1233859
+            },
+            {
+              "lon": 11.5796438,
+              "lat": 48.1233414
+            },
+            {
+              "lon": 11.5796536,
+              "lat": 48.1232735
+            },
+            {
+              "lon": 11.5796537,
+              "lat": 48.1231704
+            }
+          ]
+        },
+        {
+          "id": 366231837,
+          "tags": {
+            "bicycle": "no",
+            "footway": "sidewalk",
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "intermediate",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5796347,
+              "lat": 48.1233859
+            },
+            {
+              "lon": 11.5796028,
+              "lat": 48.1233667
+            },
+            {
+              "lon": 11.5795702,
+              "lat": 48.1233206
+            },
+            {
+              "lon": 11.5795369,
+              "lat": 48.123268
+            }
+          ]
+        },
+        {
+          "id": 366231838,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "-1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "no",
+            "segregated": "yes",
+            "surface": "paved",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.581321,
+              "lat": 48.1243677
+            },
+            {
+              "lon": 11.581295,
+              "lat": 48.124394
+            },
+            {
+              "lon": 11.5812639,
+              "lat": 48.1244212
+            },
+            {
+              "lon": 11.5811881,
+              "lat": 48.1244835
+            },
+            {
+              "lon": 11.5811384,
+              "lat": 48.1245132
+            },
+            {
+              "lon": 11.5811156,
+              "lat": 48.124519
+            }
+          ]
+        },
+        {
+          "id": 366231840,
+          "tags": {
+            "bicycle": "designated",
+            "check_date:bicycle": "2026-10-02",
+            "class:bicycle": "-1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.580413,
+              "lat": 48.1238458
+            },
+            {
+              "lon": 11.5804946,
+              "lat": 48.1238391
+            },
+            {
+              "lon": 11.5805766,
+              "lat": 48.1238544
+            },
+            {
+              "lon": 11.5807084,
+              "lat": 48.1239449
+            },
+            {
+              "lon": 11.5809249,
+              "lat": 48.1240701
+            },
+            {
+              "lon": 11.5809612,
+              "lat": 48.124081
+            },
+            {
+              "lon": 11.5810105,
+              "lat": 48.1240906
+            }
+          ]
+        },
+        {
+          "id": 391263966,
+          "tags": {
+            "area": "yes",
+            "bench": "yes",
+            "bin": "yes",
+            "bus": "yes",
+            "departures_board": "timetable",
+            "highway": "bus_stop",
+            "kerb": "raised",
+            "kerb:height": "0.21",
+            "lit": "yes",
+            "mvv:zone": "M",
+            "name": "Mariahilfplatz",
+            "passenger_information_display": "yes",
+            "platform:width": "2.8",
+            "public_transport": "platform",
+            "ref:IFOPT": "de:09162:42:4:4",
+            "shelter": "yes",
+            "tactile_paving": "yes",
+            "wheelchair": "limited",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5816241,
+              "lat": 48.1247172
+            },
+            {
+              "lon": 11.581657,
+              "lat": 48.124701
+            },
+            {
+              "lon": 11.5814835,
+              "lat": 48.1245445
+            },
+            {
+              "lon": 11.5814506,
+              "lat": 48.1245608
+            },
+            {
+              "lon": 11.5816241,
+              "lat": 48.1247172
+            }
+          ]
+        },
+        {
+          "id": 391263974,
+          "tags": {
+            "area": "yes",
+            "bench": "yes",
+            "bin": "yes",
+            "bus": "yes",
+            "highway": "bus_stop",
+            "kerb": "raised",
+            "kerb:height": "0.22",
+            "lit": "yes",
+            "mvv:zone": "M",
+            "name": "Mariahilfplatz",
+            "platform:width": "4.5",
+            "public_transport": "platform",
+            "ref:IFOPT": "de:09162:42:3:3",
+            "shelter": "yes",
+            "tactile_paving": "yes",
+            "wheelchair": "limited"
+          },
+          "geometry": [
+            {
+              "lon": 11.5802482,
+              "lat": 48.1239942
+            },
+            {
+              "lon": 11.5802753,
+              "lat": 48.1239777
+            },
+            {
+              "lon": 11.5803558,
+              "lat": 48.1240369
+            },
+            {
+              "lon": 11.5803287,
+              "lat": 48.1240533
+            },
+            {
+              "lon": 11.5802482,
+              "lat": 48.1239942
+            }
+          ]
+        },
+        {
+          "id": 391609045,
+          "tags": {
+            "highway": "path",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5803287,
+              "lat": 48.1240533
+            },
+            {
+              "lon": 11.5803156,
+              "lat": 48.1240632
+            }
+          ]
+        },
+        {
+          "id": 391609046,
+          "tags": {
+            "foot": "designated",
+            "highway": "path",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5814835,
+              "lat": 48.1245445
+            },
+            {
+              "lon": 11.5815052,
+              "lat": 48.1245338
+            }
+          ]
+        },
+        {
+          "id": 405419724,
+          "tags": {
+            "handrail": "yes",
+            "highway": "steps",
+            "incline": "down",
+            "ramp": "no",
+            "step_count": "3",
+            "surface": "concrete",
+            "tactile_paving": "no"
+          },
+          "geometry": [
+            {
+              "lon": 11.5823405,
+              "lat": 48.1233624
+            },
+            {
+              "lon": 11.5823248,
+              "lat": 48.1233803
+            }
+          ]
+        },
+        {
+          "id": 405419725,
+          "tags": {
+            "check_date:ramp": "2026-04-17",
+            "handrail": "yes",
+            "highway": "steps",
+            "incline": "down",
+            "lit": "no",
+            "ramp": "no",
+            "step_count": "5",
+            "surface": "concrete",
+            "tactile_paving": "no"
+          },
+          "geometry": [
+            {
+              "lon": 11.5821753,
+              "lat": 48.1235515
+            },
+            {
+              "lon": 11.5821934,
+              "lat": 48.1235302
+            }
+          ]
+        },
+        {
+          "id": 405419726,
+          "tags": {
+            "covered": "yes",
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "sett",
+            "tunnel": "building_passage"
+          },
+          "geometry": [
+            {
+              "lon": 11.5821655,
+              "lat": 48.1235619
+            },
+            {
+              "lon": 11.5821753,
+              "lat": 48.1235515
+            }
+          ]
+        },
+        {
+          "id": 405419727,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "surface": "compacted"
+          },
+          "geometry": [
+            {
+              "lon": 11.5821934,
+              "lat": 48.1235302
+            },
+            {
+              "lon": 11.5823248,
+              "lat": 48.1233803
+            }
+          ]
+        },
+        {
+          "id": 405421024,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5825636,
+              "lat": 48.1242821
+            },
+            {
+              "lon": 11.5827343,
+              "lat": 48.124336
+            }
+          ]
+        },
+        {
+          "id": 405421025,
+          "tags": {
+            "handrail:center": "yes",
+            "highway": "steps",
+            "incline": "down",
+            "lit": "no",
+            "ramp": "yes",
+            "ramp:wheelchair": "yes",
+            "step_count": "4",
+            "surface": "concrete",
+            "tactile_paving": "no"
+          },
+          "geometry": [
+            {
+              "lon": 11.5825363,
+              "lat": 48.1242746
+            },
+            {
+              "lon": 11.5825636,
+              "lat": 48.1242821
+            }
+          ]
+        },
+        {
+          "id": 405421915,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5825763,
+              "lat": 48.1243957
+            },
+            {
+              "lon": 11.5825636,
+              "lat": 48.1242821
+            }
+          ]
+        },
+        {
+          "id": 405421916,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "smoothness": "intermediate",
+            "surface": "sett",
+            "tunnel": "building_passage"
+          },
+          "geometry": [
+            {
+              "lon": 11.582682,
+              "lat": 48.1245206
+            },
+            {
+              "lon": 11.5825763,
+              "lat": 48.1243957
+            }
+          ]
+        },
+        {
+          "id": 405421917,
+          "tags": {
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5827333,
+              "lat": 48.1245804
+            },
+            {
+              "lon": 11.582682,
+              "lat": 48.1245206
+            }
+          ]
+        },
+        {
+          "id": 435468925,
+          "tags": {
+            "highway": "service",
+            "lit": "yes",
+            "service": "driveway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5799337,
+              "lat": 48.1245595
+            },
+            {
+              "lon": 11.5798712,
+              "lat": 48.1245863
+            }
+          ]
+        },
+        {
+          "id": 443592935,
+          "tags": {
+            "emergency": "yes",
+            "highway": "footway",
+            "lit": "yes",
+            "motorcar": "no",
+            "smoothness": "intermediate",
+            "surface": "sett"
+          },
+          "geometry": [
+            {
+              "lon": 11.5819906,
+              "lat": 48.1234953
+            },
+            {
+              "lon": 11.5819186,
+              "lat": 48.1234712
+            }
+          ]
+        },
+        {
+          "id": 443592937,
+          "tags": {
+            "covered": "yes",
+            "emergency": "yes",
+            "highway": "footway",
+            "lit": "yes",
+            "motorcar": "no",
+            "surface": "sett",
+            "tunnel": "building_passage"
+          },
+          "geometry": [
+            {
+              "lon": 11.5821566,
+              "lat": 48.1235734
+            },
+            {
+              "lon": 11.5821655,
+              "lat": 48.1235619
+            },
+            {
+              "lon": 11.5819906,
+              "lat": 48.1234953
+            }
+          ]
+        },
+        {
+          "id": 499453251,
+          "tags": {
+            "bicycle": "no",
+            "footway": "crossing",
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5795369,
+              "lat": 48.123268
+            },
+            {
+              "lon": 11.5795393,
+              "lat": 48.123198
+            },
+            {
+              "lon": 11.5795289,
+              "lat": 48.1231101
+            }
+          ]
+        },
+        {
+          "id": 499453252,
+          "tags": {
+            "footway": "sidewalk",
+            "highway": "footway",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5764595,
+              "lat": 48.120846
+            },
+            {
+              "lon": 11.5764684,
+              "lat": 48.120944
+            },
+            {
+              "lon": 11.5765824,
+              "lat": 48.1210851
+            },
+            {
+              "lon": 11.576619,
+              "lat": 48.1211304
+            },
+            {
+              "lon": 11.5769795,
+              "lat": 48.1215951
+            },
+            {
+              "lon": 11.5775007,
+              "lat": 48.1222669
+            },
+            {
+              "lon": 11.5776586,
+              "lat": 48.1224705
+            },
+            {
+              "lon": 11.5781932,
+              "lat": 48.1230545
+            },
+            {
+              "lon": 11.5784959,
+              "lat": 48.1232643
+            },
+            {
+              "lon": 11.5786338,
+              "lat": 48.1233596
+            },
+            {
+              "lon": 11.5790278,
+              "lat": 48.123249
+            },
+            {
+              "lon": 11.5795289,
+              "lat": 48.1231101
+            },
+            {
+              "lon": 11.5794309,
+              "lat": 48.1227998
+            },
+            {
+              "lon": 11.5792961,
+              "lat": 48.1224869
+            },
+            {
+              "lon": 11.5793098,
+              "lat": 48.1224492
+            },
+            {
+              "lon": 11.5791103,
+              "lat": 48.122222
+            }
+          ]
+        },
+        {
+          "id": 598606890,
+          "tags": {
+            "bicycle": "yes",
+            "foot": "yes",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Am Neudeck",
+            "surface": "asphalt",
+            "wikidata": "Q129926389"
+          },
+          "geometry": [
+            {
+              "lon": 11.584199,
+              "lat": 48.1234448
+            },
+            {
+              "lon": 11.5840747,
+              "lat": 48.1233715
+            },
+            {
+              "lon": 11.5840292,
+              "lat": 48.1233517
+            },
+            {
+              "lon": 11.5838367,
+              "lat": 48.123268
+            },
+            {
+              "lon": 11.5838038,
+              "lat": 48.1232537
+            },
+            {
+              "lon": 11.5836137,
+              "lat": 48.1231529
+            },
+            {
+              "lon": 11.5831745,
+              "lat": 48.1228895
+            },
+            {
+              "lon": 11.5827281,
+              "lat": 48.1227098
+            },
+            {
+              "lon": 11.5824221,
+              "lat": 48.1226662
+            },
+            {
+              "lon": 11.5823998,
+              "lat": 48.1226658
+            }
+          ]
+        },
+        {
+          "id": 621137851,
+          "tags": {
+            "access": "private",
+            "highway": "service",
+            "service": "driveway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5798712,
+              "lat": 48.1245863
+            },
+            {
+              "lon": 11.5798151,
+              "lat": 48.1246166
+            }
+          ]
+        },
+        {
+          "id": 638531747,
+          "tags": {
+            "access": "private",
+            "highway": "service",
+            "maxheight": "3.15",
+            "service": "driveway",
+            "tunnel": "building_passage"
+          },
+          "geometry": [
+            {
+              "lon": 11.5811985,
+              "lat": 48.1239079
+            },
+            {
+              "lon": 11.5810608,
+              "lat": 48.1238365
+            }
+          ]
+        },
+        {
+          "id": 638531748,
+          "tags": {
+            "highway": "service",
+            "service": "driveway",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5812736,
+              "lat": 48.123947
+            },
+            {
+              "lon": 11.5812284,
+              "lat": 48.1239235
+            },
+            {
+              "lon": 11.5811985,
+              "lat": 48.1239079
+            }
+          ]
+        },
+        {
+          "id": 638531749,
+          "tags": {
+            "access": "private",
+            "highway": "service",
+            "service": "driveway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5810608,
+              "lat": 48.1238365
+            },
+            {
+              "lon": 11.5810047,
+              "lat": 48.1238073
+            },
+            {
+              "lon": 11.5809886,
+              "lat": 48.1236247
+            }
+          ]
+        },
+        {
+          "id": 761398945,
+          "tags": {
+            "highway": "service",
+            "lit": "no",
+            "service": "driveway"
+          },
+          "geometry": [
+            {
+              "lon": 11.579906,
+              "lat": 48.1242831
+            },
+            {
+              "lon": 11.5798573,
+              "lat": 48.1242292
+            },
+            {
+              "lon": 11.5797847,
+              "lat": 48.1242144
+            },
+            {
+              "lon": 11.579349,
+              "lat": 48.1235937
+            }
+          ]
+        },
+        {
+          "id": 865351918,
+          "tags": {
+            "bicycle": "permissive",
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5799119,
+              "lat": 48.1233148
+            },
+            {
+              "lon": 11.5800999,
+              "lat": 48.1232537
+            },
+            {
+              "lon": 11.5808106,
+              "lat": 48.1234573
+            },
+            {
+              "lon": 11.5809742,
+              "lat": 48.1232194
+            },
+            {
+              "lon": 11.5812464,
+              "lat": 48.1228238
+            },
+            {
+              "lon": 11.5813503,
+              "lat": 48.1226711
+            }
+          ]
+        },
+        {
+          "id": 883879470,
+          "tags": {
+            "highway": "footway",
+            "lit": "no",
+            "surface": "paving_stones",
+            "tunnel": "building_passage"
+          },
+          "geometry": [
+            {
+              "lon": 11.5808945,
+              "lat": 48.1231972
+            },
+            {
+              "lon": 11.5806878,
+              "lat": 48.1231355
+            }
+          ]
+        },
+        {
+          "id": 883879471,
+          "tags": {
+            "bicycle": "permissive",
+            "highway": "footway",
+            "lit": "yes",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5808945,
+              "lat": 48.1231972
+            },
+            {
+              "lon": 11.5809742,
+              "lat": 48.1232194
+            }
+          ]
+        },
+        {
+          "id": 945976942,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "-1",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "oneway": "yes",
+            "segregated": "yes",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5817343,
+              "lat": 48.1250447
+            },
+            {
+              "lon": 11.5812059,
+              "lat": 48.1245593
+            },
+            {
+              "lon": 11.5811156,
+              "lat": 48.124519
+            }
+          ]
+        },
+        {
+          "id": 1083248974,
+          "tags": {
+            "foot": "designated",
+            "highway": "path",
+            "lit": "yes",
+            "smoothness": "good",
+            "surface": "paving_stones",
+            "tactile_paving": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.581657,
+              "lat": 48.124701
+            },
+            {
+              "lon": 11.5816787,
+              "lat": 48.1246902
+            }
+          ]
+        },
+        {
+          "id": 1151256901,
+          "tags": {
+            "highway": "service",
+            "oneway": "yes",
+            "smoothness": "good",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815249,
+              "lat": 48.1237063
+            },
+            {
+              "lon": 11.5815695,
+              "lat": 48.1237203
+            },
+            {
+              "lon": 11.5816015,
+              "lat": 48.1237304
+            },
+            {
+              "lon": 11.58166,
+              "lat": 48.1237487
+            }
+          ]
+        },
+        {
+          "id": 1187829510,
+          "tags": {
+            "bicycle": "yes",
+            "class:bicycle": "-1",
+            "foot": "designated",
+            "highway": "footway",
+            "oneway": "yes",
+            "segregated": "no",
+            "surface": "paving_stones",
+            "traffic_sign": "DE:239;DE:1022-10"
+          },
+          "geometry": [
+            {
+              "lon": 11.5831913,
+              "lat": 48.1265253
+            },
+            {
+              "lon": 11.5831837,
+              "lat": 48.1264044
+            },
+            {
+              "lon": 11.5825927,
+              "lat": 48.1258521
+            },
+            {
+              "lon": 11.5817343,
+              "lat": 48.1250447
+            }
+          ]
+        },
+        {
+          "id": 1364778313,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5806434,
+              "lat": 48.1247439
+            },
+            {
+              "lon": 11.5803444,
+              "lat": 48.1249394
+            }
+          ]
+        },
+        {
+          "id": 1366331296,
+          "tags": {
+            "bicycle": "designated",
+            "class:bicycle": "-1",
+            "cycleway": "sidepath",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway": "sidewalk",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "lit": "yes",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "segregated": "yes",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5809008,
+              "lat": 48.1242903
+            },
+            {
+              "lon": 11.5809535,
+              "lat": 48.1241943
+            },
+            {
+              "lon": 11.5810105,
+              "lat": 48.1240906
+            },
+            {
+              "lon": 11.5811042,
+              "lat": 48.1240447
+            },
+            {
+              "lon": 11.5812284,
+              "lat": 48.1239235
+            },
+            {
+              "lon": 11.581363,
+              "lat": 48.1237921
+            },
+            {
+              "lon": 11.5814229,
+              "lat": 48.1237317
+            }
+          ]
+        },
+        {
+          "id": 1380291988,
+          "tags": {
+            "cycleway:both": "separate",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "parking:left": "lane",
+            "parking:left:fee": "yes",
+            "parking:left:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:left:orientation": "parallel",
+            "parking:left:zone": "Nördliche Au",
+            "parking:right": "no",
+            "parking:right:restriction": "no_stopping",
+            "sidewalk": "separate",
+            "source:maxspeed": "sign",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5814374,
+              "lat": 48.1246376
+            },
+            {
+              "lon": 11.5815435,
+              "lat": 48.124727
+            },
+            {
+              "lon": 11.5818241,
+              "lat": 48.1249937
+            }
+          ]
+        },
+        {
+          "id": 1414168190,
+          "tags": {
+            "bicycle": "designated",
+            "cycleway:surface": "asphalt",
+            "foot": "designated",
+            "footway:surface": "paving_stones",
+            "highway": "path",
+            "oneway": "yes",
+            "segregated": "yes"
+          },
+          "geometry": [
+            {
+              "lon": 11.5807027,
+              "lat": 48.1245566
+            },
+            {
+              "lon": 11.5806936,
+              "lat": 48.124502
+            },
+            {
+              "lon": 11.5807958,
+              "lat": 48.1244256
+            },
+            {
+              "lon": 11.5808519,
+              "lat": 48.1243803
+            },
+            {
+              "lon": 11.580861,
+              "lat": 48.1243605
+            },
+            {
+              "lon": 11.5808651,
+              "lat": 48.1243419
+            },
+            {
+              "lon": 11.5809008,
+              "lat": 48.1242903
+            }
+          ]
+        },
+        {
+          "id": 1436464480,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:both": "no",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "parking:both": "lane",
+            "parking:both:fee": "yes",
+            "parking:both:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:both:orientation": "parallel",
+            "parking:left:zone": "Südliche Au",
+            "parking:right:zone": "Nördliche Au",
+            "sidewalk": "both",
+            "sidewalk:both:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5794877,
+              "lat": 48.1254585
+            },
+            {
+              "lon": 11.579173,
+              "lat": 48.1256908
+            }
+          ]
+        },
+        {
+          "id": 1436464483,
+          "tags": {
+            "class:bicycle": "-2",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "dual_carriageway": "yes",
+            "highway": "secondary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "turn:lanes": "left|through;right",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5803539,
+              "lat": 48.1248132
+            },
+            {
+              "lon": 11.5805952,
+              "lat": 48.124636
+            },
+            {
+              "lon": 11.5807027,
+              "lat": 48.1245566
+            }
+          ]
+        },
+        {
+          "id": 1436469189,
+          "tags": {
+            "class:bicycle": "-1",
+            "cycleway:left": "no",
+            "cycleway:right": "lane",
+            "cycleway:right:lane": "exclusive",
+            "highway": "tertiary",
+            "lanes": "2",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5800412,
+              "lat": 48.1234762
+            },
+            {
+              "lon": 11.580134,
+              "lat": 48.123592
+            },
+            {
+              "lon": 11.5802571,
+              "lat": 48.1237108
+            },
+            {
+              "lon": 11.580413,
+              "lat": 48.1238458
+            }
+          ]
+        },
+        {
+          "id": 1436469190,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:access": "no",
+            "parking:right:car_sharing": "designated",
+            "parking:right:orientation": "diagonal",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5798138,
+              "lat": 48.1234528
+            },
+            {
+              "lon": 11.5797706,
+              "lat": 48.1233931
+            },
+            {
+              "lon": 11.5797074,
+              "lat": 48.1232821
+            },
+            {
+              "lon": 11.5796537,
+              "lat": 48.1231704
+            }
+          ]
+        },
+        {
+          "id": 1436469192,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "foot": "use_sidepath",
+            "highway": "tertiary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Falkenstraße",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "diagonal",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q134437935"
+          },
+          "geometry": [
+            {
+              "lon": 11.5803387,
+              "lat": 48.1239581
+            },
+            {
+              "lon": 11.5801244,
+              "lat": 48.1237905
+            },
+            {
+              "lon": 11.5799781,
+              "lat": 48.1236537
+            },
+            {
+              "lon": 11.5798578,
+              "lat": 48.1235136
+            },
+            {
+              "lon": 11.5798138,
+              "lat": 48.1234528
+            }
+          ]
+        },
+        {
+          "id": 1437140605,
+          "tags": {
+            "class:bicycle": "1",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Albanistraße",
+            "name:etymology:wikidata": "Q358147",
+            "parking:both": "no",
+            "parking:both:restriction": "no_stopping",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:zone:30",
+            "surface": "asphalt",
+            "wikidata": "Q140267909"
+          },
+          "geometry": [
+            {
+              "lon": 11.5794151,
+              "lat": 48.1232324
+            },
+            {
+              "lon": 11.5795393,
+              "lat": 48.123198
+            },
+            {
+              "lon": 11.5796537,
+              "lat": 48.1231704
+            },
+            {
+              "lon": 11.5797975,
+              "lat": 48.1231358
+            }
+          ]
+        },
+        {
+          "id": 1437147145,
+          "tags": {
+            "bicycle": "use_sidepath",
+            "dual_carriageway": "yes",
+            "foot": "use_sidepath",
+            "highway": "secondary",
+            "lanes": "1",
+            "lit": "yes",
+            "maxspeed": "50",
+            "name": "Ohlmüllerstraße",
+            "name:etymology:wikidata": "Q90665",
+            "oneway": "yes",
+            "parking:left": "no",
+            "parking:left:restriction": "no_stopping",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-33:00; Su; PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Südliche Au",
+            "sidewalk:left": "no",
+            "sidewalk:right": "separate",
+            "smoothness": "good",
+            "source:maxspeed": "DE:urban",
+            "surface": "asphalt",
+            "wikidata": "Q106523066"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815249,
+              "lat": 48.1237063
+            },
+            {
+              "lon": 11.5816376,
+              "lat": 48.123572
+            },
+            {
+              "lon": 11.5817666,
+              "lat": 48.1233855
+            },
+            {
+              "lon": 11.5819613,
+              "lat": 48.1231044
+            },
+            {
+              "lon": 11.5820307,
+              "lat": 48.1230332
+            }
+          ]
+        },
+        {
+          "id": 1446738916,
+          "tags": {
+            "class:bicycle": "1",
+            "cycleway:both": "no",
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Zeppelinstraße",
+            "name:etymology:wikidata": "Q75780",
+            "parking:both": "lane",
+            "parking:both:fee": "yes",
+            "parking:both:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:both:orientation": "parallel",
+            "parking:both:restriction:conditional": "no_parking @ (Mo-Sa 18:00-23:00; PH off); none @ residents",
+            "parking:both:zone": "Nördliche Au",
+            "sidewalk": "both",
+            "surface": "asphalt",
+            "wikidata": "Q140267977"
+          },
+          "geometry": [
+            {
+              "lon": 11.5801179,
+              "lat": 48.1253141
+            },
+            {
+              "lon": 11.5803552,
+              "lat": 48.1254737
+            },
+            {
+              "lon": 11.5806704,
+              "lat": 48.1256857
+            },
+            {
+              "lon": 11.5807404,
+              "lat": 48.1257348
+            }
+          ]
+        },
+        {
+          "id": 1446740452,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "parking:left": "lane",
+            "parking:left:fee": "yes",
+            "parking:left:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:left:orientation": "parallel",
+            "parking:left:zone": "Nördliche Au",
+            "parking:right": "lane",
+            "parking:right:fee": "yes",
+            "parking:right:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:right:orientation": "parallel",
+            "parking:right:zone": "Nördliche Au",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5823549,
+              "lat": 48.1247524
+            },
+            {
+              "lon": 11.5827333,
+              "lat": 48.1245804
+            }
+          ]
+        },
+        {
+          "id": 1446740454,
+          "tags": {
+            "highway": "residential",
+            "lit": "yes",
+            "maxspeed": "30",
+            "name": "Mariahilfplatz",
+            "name:etymology:wikidata": "Q1896579",
+            "oneway": "yes",
+            "parking:left": "lane",
+            "parking:left:fee": "yes",
+            "parking:left:fee:conditional": "no @ (23:00-09:00; Su,PH)",
+            "parking:left:orientation": "parallel",
+            "parking:left:zone": "Nördliche Au",
+            "parking:right": "no",
+            "parking:right:restriction": "no_stopping",
+            "sidewalk": "right",
+            "sidewalk:right:surface": "paving_stones",
+            "smoothness": "good",
+            "surface": "asphalt",
+            "wikidata": "Q875597"
+          },
+          "geometry": [
+            {
+              "lon": 11.5827333,
+              "lat": 48.1245804
+            },
+            {
+              "lon": 11.5828437,
+              "lat": 48.1245306
+            },
+            {
+              "lon": 11.5828828,
+              "lat": 48.1245143
+            },
+            {
+              "lon": 11.5830093,
+              "lat": 48.1244576
+            }
+          ]
+        },
+        {
+          "id": 1460131152,
+          "tags": {
+            "alt_name": "Kirchengasserl",
+            "highway": "pedestrian",
+            "lit": "no",
+            "noname": "yes",
+            "note": "alternativer Name gilt für Auer-Dult",
+            "smoothness": "good",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5829951,
+              "lat": 48.1246799
+            },
+            {
+              "lon": 11.5829336,
+              "lat": 48.1246181
+            },
+            {
+              "lon": 11.5828437,
+              "lat": 48.1245306
+            }
+          ]
+        },
+        {
+          "id": 1470128045,
+          "tags": {
+            "highway": "footway",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815114,
+              "lat": 48.1244306
+            },
+            {
+              "lon": 11.5814907,
+              "lat": 48.1244196
+            }
+          ]
+        },
+        {
+          "id": 1470128046,
+          "tags": {
+            "highway": "footway",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5814968,
+              "lat": 48.1244374
+            },
+            {
+              "lon": 11.5814907,
+              "lat": 48.1244196
+            }
+          ]
+        },
+        {
+          "id": 1470128047,
+          "tags": {
+            "highway": "footway",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815133,
+              "lat": 48.1244531
+            },
+            {
+              "lon": 11.5815175,
+              "lat": 48.1244571
+            },
+            {
+              "lon": 11.5815217,
+              "lat": 48.1244611
+            }
+          ]
+        },
+        {
+          "id": 1470128048,
+          "tags": {
+            "handrail:left": "yes",
+            "handrail:right": "yes",
+            "highway": "steps",
+            "incline": "up",
+            "lit": "no",
+            "ramp": "separate",
+            "ramp:wheelchair": "separate",
+            "step_count": "6",
+            "surface": "paving_stones",
+            "tactile_paving": "no"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815133,
+              "lat": 48.1244531
+            },
+            {
+              "lon": 11.5814968,
+              "lat": 48.1244374
+            }
+          ]
+        },
+        {
+          "id": 1470128049,
+          "tags": {
+            "highway": "footway",
+            "surface": "asphalt"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815175,
+              "lat": 48.1244571
+            },
+            {
+              "lon": 11.5814526,
+              "lat": 48.1244866
+            }
+          ]
+        },
+        {
+          "id": 1470128050,
+          "tags": {
+            "handrail:left": "yes",
+            "handrail:right": "yes",
+            "highway": "footway",
+            "incline": "up",
+            "landing": "1",
+            "ramp:wheelchair": "yes",
+            "surface": "paving_stones"
+          },
+          "geometry": [
+            {
+              "lon": 11.5815217,
+              "lat": 48.1244611
+            },
+            {
+              "lon": 11.5815482,
+              "lat": 48.1244863
+            },
+            {
+              "lon": 11.5815628,
+              "lat": 48.1244794
+            },
+            {
+              "lon": 11.5815114,
+              "lat": 48.1244306
+            }
+          ]
+        },
+        {
+          "id": 1530623689,
+          "tags": {
+            "highway": "footway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5810093,
+              "lat": 48.1259027
+            },
+            {
+              "lon": 11.5817276,
+              "lat": 48.1254181
+            }
+          ]
+        },
+        {
+          "id": 1530855936,
+          "tags": {
+            "highway": "footway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5803552,
+              "lat": 48.1254737
+            },
+            {
+              "lon": 11.5811528,
+              "lat": 48.1248911
+            }
+          ]
+        },
+        {
+          "id": 1564865603,
+          "tags": {
+            "footway": "sidewalk",
+            "highway": "footway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5819,
+              "lat": 48.1205559
+            },
+            {
+              "lon": 11.5819105,
+              "lat": 48.1209091
+            },
+            {
+              "lon": 11.5819391,
+              "lat": 48.12109
+            },
+            {
+              "lon": 11.5819771,
+              "lat": 48.1213514
+            },
+            {
+              "lon": 11.5820435,
+              "lat": 48.1215815
+            },
+            {
+              "lon": 11.5821383,
+              "lat": 48.1217585
+            },
+            {
+              "lon": 11.5823849,
+              "lat": 48.1220237
+            },
+            {
+              "lon": 11.5824273,
+              "lat": 48.1220691
+            },
+            {
+              "lon": 11.5825666,
+              "lat": 48.1222245
+            },
+            {
+              "lon": 11.5827577,
+              "lat": 48.1223788
+            },
+            {
+              "lon": 11.5831074,
+              "lat": 48.1225746
+            },
+            {
+              "lon": 11.5833134,
+              "lat": 48.1226676
+            },
+            {
+              "lon": 11.5840386,
+              "lat": 48.1229567
+            },
+            {
+              "lon": 11.5845216,
+              "lat": 48.1231568
+            },
+            {
+              "lon": 11.5847597,
+              "lat": 48.12327
+            },
+            {
+              "lon": 11.5848745,
+              "lat": 48.1234059
+            },
+            {
+              "lon": 11.5855086,
+              "lat": 48.1240764
+            },
+            {
+              "lon": 11.5857406,
+              "lat": 48.124373
+            },
+            {
+              "lon": 11.5858986,
+              "lat": 48.1247404
+            },
+            {
+              "lon": 11.5860047,
+              "lat": 48.1250089
+            },
+            {
+              "lon": 11.5860521,
+              "lat": 48.1252224
+            },
+            {
+              "lon": 11.5861134,
+              "lat": 48.1254942
+            }
+          ]
+        },
+        {
+          "id": 1564865611,
+          "tags": {
+            "footway": "sidewalk",
+            "highway": "footway"
+          },
+          "geometry": [
+            {
+              "lon": 11.5874415,
+              "lat": 48.1239107
+            },
+            {
+              "lon": 11.5864636,
+              "lat": 48.1241617
+            },
+            {
+              "lon": 11.5858892,
+              "lat": 48.1243092
+            },
+            {
+              "lon": 11.5854436,
+              "lat": 48.1238333
+            },
+            {
+              "lon": 11.5848786,
+              "lat": 48.1231999
+            },
+            {
+              "lon": 11.5847827,
+              "lat": 48.1231413
+            },
+            {
+              "lon": 11.5835239,
+              "lat": 48.1226226
+            },
+            {
+              "lon": 11.5830171,
+              "lat": 48.1223759
+            },
+            {
+              "lon": 11.5827643,
+              "lat": 48.122236
+            },
+            {
+              "lon": 11.582693,
+              "lat": 48.122167
+            },
+            {
+              "lon": 11.582597,
+              "lat": 48.122074
+            },
+            {
+              "lon": 11.5825832,
+              "lat": 48.1220586
+            },
+            {
+              "lon": 11.5825264,
+              "lat": 48.1219949
+            },
+            {
+              "lon": 11.5822634,
+              "lat": 48.1217001
+            },
+            {
+              "lon": 11.5822062,
+              "lat": 48.1215898
+            },
+            {
+              "lon": 11.5821281,
+              "lat": 48.1213372
+            },
+            {
+              "lon": 11.5820905,
+              "lat": 48.1210776
+            },
+            {
+              "lon": 11.5820652,
+              "lat": 48.1209028
+            },
+            {
+              "lon": 11.5820636,
+              "lat": 48.120863
+            }
+          ]
+        }
+      ],
+      "outgoingLanes": 4,
+      "note": "Fahren auf Straße / Radfahrstreifen: Lage schematisch auf Straßenmitte prüfen · Bedingte Verkehrsregel: Fahrtrichtungen / Zugänglichkeit technisch prüfen",
+      "preparation": {
+        "algorithm": "osm-four-arm-v1",
+        "warnings": [
+          "Fahren auf Straße / Radfahrstreifen: Lage schematisch auf Straßenmitte prüfen",
+          "Bedingte Verkehrsregel: Fahrtrichtungen / Zugänglichkeit technisch prüfen"
+        ],
+        "complexity": 2,
+        "laneEvidence": [
+          {
+            "wayId": 1380291988,
+            "direction": 1,
+            "lanes": 1,
+            "sample": [
+              11.5818241,
+              48.1249937
+            ],
+            "boundaryWayId": 232583250,
+            "boundaryDirection": 1
+          },
+          {
+            "wayId": 1437147145,
+            "direction": 1,
+            "lanes": 1,
+            "sample": [
+              11.5816376,
+              48.123572
+            ],
+            "boundaryWayId": 123159237,
+            "boundaryDirection": 1
+          },
+          {
+            "wayId": 1436469192,
+            "direction": 1,
+            "lanes": 1,
+            "sample": [
+              11.5801244,
+              48.1237905
+            ],
+            "boundaryWayId": 232867849,
+            "boundaryDirection": 1
+          },
+          {
+            "wayId": 1364778313,
+            "direction": 1,
+            "lanes": 1,
+            "sample": [
+              11.5803444,
+              48.1249394
+            ],
+            "boundaryWayId": 366231821,
+            "boundaryDirection": 1
+          }
+        ],
+        "candidateNodes": [
+          704607965,
+          704607974,
+          704607977,
+          2409282135
+        ]
+      },
+      "provenance": {
+        "adapter": "osm-four-arm-v1"
+      },
+      "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973",
+      "priorityRank": 4,
+      "evidence": {
+        "geometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+        "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973",
+        "technical": "8/8 Links-/Geradeausbeziehungen technisch bestanden · Standardfall, in der App fertig geprüft",
+        "deployment": "Im Branch aktiviert; Backend 2.4.23; Deployment ausstehend",
+        "deploymentStatus": "branch-ready",
+        "liveMovements": 0,
+        "rechecks": [],
+        "movements": [
+          {
+            "id": "north-east-left-entry-1-exit-2",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "north",
+            "exitArm": "east",
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-2",
+            "kind": "left",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-north-east-left-entry-1-exit-2.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.581615642,48.124935698;11.581440789,48.123713644?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              279963580,
+              366231832,
+              945976942,
+              1366331296,
+              1414168190
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "north-south-straight-entry-1-exit-3",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "north",
+            "exitArm": "south",
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-3",
+            "kind": "straight",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-north-south-straight-entry-1-exit-3.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.581615642,48.124935698;11.580190784,48.123977936?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              279963580,
+              366231832,
+              945976942
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "north-west-right-entry-1-exit-4",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "north",
+            "exitArm": "west",
+            "entryLabel": "Entry-1",
+            "exitLabel": "Exit-4",
+            "kind": "right",
+            "enabled": false,
+            "fixture": "osm-junction-704607965-north-west-right-entry-1-exit-4.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.581615642,48.124935698;11.580430862,48.124882867?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              366231821,
+              366231835,
+              945976942
+            ],
+            "failureStage": "runtime-matching"
+          },
+          {
+            "id": "east-north-right-entry-2-exit-1",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "east",
+            "exitArm": "north",
+            "entryLabel": "Entry-2",
+            "exitLabel": "Exit-1",
+            "kind": "right",
+            "enabled": false,
+            "fixture": "osm-junction-704607965-east-north-right-entry-2-exit-1.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.581686262,48.123815016;11.581812734,48.124811328?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              159493216,
+              165526172
+            ],
+            "failureStage": "runtime-matching"
+          },
+          {
+            "id": "east-south-left-entry-2-exit-3",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "east",
+            "exitArm": "south",
+            "entryLabel": "Entry-2",
+            "exitLabel": "Exit-3",
+            "kind": "left",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-east-south-left-entry-2-exit-3.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.581686262,48.123815016;11.580190784,48.123977936?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              159493216,
+              279963580,
+              366231832,
+              366231838
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "east-west-straight-entry-2-exit-4",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "east",
+            "exitArm": "west",
+            "entryLabel": "Entry-2",
+            "exitLabel": "Exit-4",
+            "kind": "straight",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-east-west-straight-entry-2-exit-4.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.581686262,48.123815016;11.580430862,48.124882867?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              159493216,
+              366231821,
+              366231835,
+              366231838
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "south-north-straight-entry-3-exit-1",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "south",
+            "exitArm": "north",
+            "entryLabel": "Entry-3",
+            "exitLabel": "Exit-1",
+            "kind": "straight",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-south-north-straight-entry-3-exit-1.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.580436641,48.123843859;11.581812734,48.124811328?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              165526172,
+              279963576,
+              366231840
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "south-east-right-entry-3-exit-2",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "south",
+            "exitArm": "east",
+            "entryLabel": "Entry-3",
+            "exitLabel": "Exit-2",
+            "kind": "right",
+            "enabled": false,
+            "fixture": "osm-junction-704607965-south-east-right-entry-3-exit-2.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.580436641,48.123843859;11.581440789,48.123713644?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              366231840,
+              1366331296
+            ],
+            "failureStage": "runtime-matching"
+          },
+          {
+            "id": "south-west-left-entry-3-exit-4",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "south",
+            "exitArm": "west",
+            "entryLabel": "Entry-3",
+            "exitLabel": "Exit-4",
+            "kind": "left",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-south-west-left-entry-3-exit-4.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.580436641,48.123843859;11.580430862,48.124882867?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              279963576,
+              366231821,
+              366231835,
+              366231838,
+              366231840
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "west-north-left-entry-5-exit-1",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "west",
+            "exitArm": "north",
+            "entryLabel": "Entry-5",
+            "exitLabel": "Exit-1",
+            "kind": "left",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-west-north-left-entry-5-exit-1.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.580250783,48.124890223;11.581812734,48.124811328?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              165526172,
+              279963576,
+              1366331296,
+              1414168190,
+              1436464483
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "west-east-straight-entry-5-exit-2",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "west",
+            "exitArm": "east",
+            "entryLabel": "Entry-5",
+            "exitLabel": "Exit-2",
+            "kind": "straight",
+            "enabled": true,
+            "fixture": "osm-junction-704607965-west-east-straight-entry-5-exit-2.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.580250783,48.124890223;11.581440789,48.123713644?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              1366331296,
+              1414168190,
+              1436464483
+            ],
+            "headingEvidenceMeters": 10
+          },
+          {
+            "id": "west-south-right-entry-5-exit-3",
+            "junctionId": "osm-junction-704607965",
+            "entryArm": "west",
+            "exitArm": "south",
+            "entryLabel": "Entry-5",
+            "exitLabel": "Exit-3",
+            "kind": "right",
+            "enabled": false,
+            "fixture": "osm-junction-704607965-west-south-right-entry-5-exit-3.json",
+            "url": "https://api.radlnavi.munichways.de/route/v1/bike/11.580250783,48.124890223;11.580190784,48.123977936?steps=true&overview=full&geometries=geojson&annotations=nodes%2Cdistance&alternatives=false&variant=standard",
+            "verified": true,
+            "verifiedCyclingWayIds": [
+              366231832,
+              1414168190,
+              1436464483
+            ],
+            "failureStage": "runtime-matching"
+          }
+        ],
+        "fieldTests": [],
+        "branchMovements": 8,
+        "checkedAt": "2026-11-27T08:38:21.871385+00:00",
+        "backendVersion": "2.4.23",
+        "normalGuidanceGates": [],
+        "logicalArms": {
+          "north": [
+            "Entry-1",
+            "Exit-1"
+          ],
+          "east": [
+            "Exit-2",
+            "Entry-2"
+          ],
+          "south": [
+            "Entry-3",
+            "Exit-3"
+          ],
+          "west": [
+            "Exit-4",
+            "Entry-5"
+          ]
+        },
+        "appCheck": {
+          "standard": true,
+          "passed": 8,
+          "attempted": 8,
+          "rightVerified": 4,
+          "rightAttempted": 4,
+          "excluded": [],
+          "connectors": [],
+          "issues": [],
+          "checkedAt": "2026-11-27T08:38:21.871385+00:00",
+          "folder": "technical\\osm-junction-704607965-v2-20261127T083818Z"
+        }
+      },
+      "movementExclusions": [],
+      "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+      "editVersion": 8,
+      "decision": {
+        "status": "confirmed",
+        "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+        "deferredUntil": null,
+        "at": "2026-11-27T16:04:47.138850+00:00",
+        "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+        "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+      },
+      "decisionCurrent": true,
+      "status": "confirmed",
+      "technicalStatus": "not-run",
+      "deploymentStatus": "unknown",
+      "evidenceCurrent": false,
+      "history": [
+        {
+          "at": "2026-11-27T08:05:53.304013+00:00",
+          "action": "decision",
+          "previousGeometryFingerprint": "5340f97c80e7d50886a95edd6215194b405ef018304e4b733b9342d0d95bde80",
+          "previousDecision": null,
+          "geometryFingerprint": "5340f97c80e7d50886a95edd6215194b405ef018304e4b733b9342d0d95bde80",
+          "previousGeometry": null,
+          "gateChanges": null,
+          "decision": {
+            "status": "deferred",
+            "note": "Hier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T08:05:53.304013+00:00",
+            "geometryFingerprint": "5340f97c80e7d50886a95edd6215194b405ef018304e4b733b9342d0d95bde80",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          }
+        },
+        {
+          "at": "2026-11-27T08:11:13.842920+00:00",
+          "action": "geometry",
+          "previousGeometryFingerprint": "5340f97c80e7d50886a95edd6215194b405ef018304e4b733b9342d0d95bde80",
+          "previousDecision": {
+            "status": "deferred",
+            "note": "Hier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T08:05:53.304013+00:00",
+            "geometryFingerprint": "5340f97c80e7d50886a95edd6215194b405ef018304e4b733b9342d0d95bde80",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          },
+          "geometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+          "previousGeometry": {
+            "polygon": [
+              [
+                11.5810713,
+                48.12463871931762
+              ],
+              [
+                11.581241837531351,
+                48.1246160758141
+              ],
+              [
+                11.58138641226948,
+                48.124551592571684
+              ],
+              [
+                11.58148301402108,
+                48.124455086579495
+              ],
+              [
+                11.581516936045169,
+                48.12434125
+              ],
+              [
+                11.58148301402108,
+                48.124227413420506
+              ],
+              [
+                11.58138641226948,
+                48.12413090742832
+              ],
+              [
+                11.581241837531351,
+                48.1240664241859
+              ],
+              [
+                11.5810713,
+                48.12404378068238
+              ],
+              [
+                11.580900762468648,
+                48.1240664241859
+              ],
+              [
+                11.58075618773052,
+                48.12413090742832
+              ],
+              [
+                11.58065958597892,
+                48.124227413420506
+              ],
+              [
+                11.58062566395483,
+                48.12434125
+              ],
+              [
+                11.58065958597892,
+                48.124455086579495
+              ],
+              [
+                11.58075618773052,
+                48.124551592571684
+              ],
+              [
+                11.580900762468648,
+                48.1246160758141
+              ],
+              [
+                11.5810713,
+                48.12463871931762
+              ]
+            ],
+            "gates": [
+              {
+                "kind": "entry",
+                "location": [
+                  11.581259250736714,
+                  48.124608309174114
+                ],
+                "osmWayId": 945976942,
+                "forward": [
+                  -0.5878418229722457,
+                  -0.8089758903482026
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-1",
+                "id": "entry-1"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.581452006283431,
+                  48.12448606357979
+                ],
+                "osmWayId": 165526172,
+                "forward": [
+                  0.594227152623157,
+                  0.8042972653723096
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-1",
+                "id": "exit-1"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.581440536828852,
+                  48.12418497833508
+                ],
+                "osmWayId": 159493216,
+                "forward": [
+                  -0.4049238323153188,
+                  0.9143504197095749
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-2",
+                "id": "entry-2"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.581098660583942,
+                  48.12404741354533
+                ],
+                "osmWayId": 1366331296,
+                "forward": [
+                  0.8062037575261616,
+                  -0.5916379816667435
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-2",
+                "id": "exit-2"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.580915223391427,
+                  48.12406450410442
+                ],
+                "osmWayId": 366231840,
+                "forward": [
+                  0.7558141042118622,
+                  0.6547862551049924
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-3",
+                "id": "entry-3"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.580659214307238,
+                  48.124228660687855
+                ],
+                "osmWayId": 366231832,
+                "forward": [
+                  -0.7866592852711634,
+                  -0.6173873734509499
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-3",
+                "id": "exit-3"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.580701004897671,
+                  48.12449646444049
+                ],
+                "osmWayId": 1414168190,
+                "forward": [
+                  0.6660477044835079,
+                  -0.745909146848495
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-4",
+                "id": "entry-4"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.58073634001576,
+                  48.124531764531575
+                ],
+                "osmWayId": 313962366,
+                "forward": [
+                  0.6706681346885586,
+                  -0.7417575433478041
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-5",
+                "id": "entry-5"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.580863915232,
+                  48.124599641205094
+                ],
+                "osmWayId": 366231821,
+                "forward": [
+                  -0.7142001379564464,
+                  0.6999415425183683
+                ],
+                "shared": false,
+                "onRoad": true,
+                "lane": true,
+                "label": "Exit-4",
+                "id": "exit-4"
+              }
+            ],
+            "logicalArms": {
+              "Arm-1": [
+                "Entry-1",
+                "Exit-1"
+              ],
+              "Arm-2": [
+                "Entry-2",
+                "Exit-2"
+              ],
+              "Arm-3": [
+                "Entry-3",
+                "Exit-3"
+              ],
+              "Arm-4": [
+                "Entry-4",
+                "Entry-5",
+                "Exit-4"
+              ]
+            },
+            "geometryRevision": 1
+          },
+          "gateChanges": {
+            "added": [],
+            "removed": [
+              "Entry-4"
+            ],
+            "moved": [
+              "Entry-5"
+            ]
+          },
+          "decision": null
+        },
+        {
+          "at": "2026-11-27T08:23:24.344715+00:00",
+          "action": "decision",
+          "previousGeometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+          "previousDecision": {
+            "status": "deferred",
+            "note": "Hier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T08:05:53.304013+00:00",
+            "geometryFingerprint": "5340f97c80e7d50886a95edd6215194b405ef018304e4b733b9342d0d95bde80",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          },
+          "geometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+          "previousGeometry": null,
+          "gateChanges": null,
+          "decision": {
+            "status": "confirmed",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T08:23:24.344715+00:00",
+            "geometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          }
+        },
+        {
+          "at": "2026-11-27T08:38:22.088703+00:00",
+          "action": "technical-check",
+          "reportFingerprint": "fbf6641258609d57325119e94198e4b65723851da2ee4c0a54e11a75e8ff2585"
+        },
+        {
+          "at": "2026-11-27T12:14:52.526402+00:00",
+          "action": "branch-activation",
+          "backendVersion": "2.4.23",
+          "movements": 8
+        },
+        {
+          "at": "2026-11-27T15:54:45.598446+00:00",
+          "action": "geometry-and-decision",
+          "previousGeometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+          "previousDecision": {
+            "status": "confirmed",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T08:23:24.344715+00:00",
+            "geometryFingerprint": "b8ab728eecc4cd1148901fbd45bff8b602e2d6574de4b1921c18b108a276e2cb",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          },
+          "geometryFingerprint": "a1830557975d97245e6ef3b2b6532c4465512e73a8ec2584c17a3636e0bdc021",
+          "previousGeometry": {
+            "polygon": [
+              [
+                11.5810713,
+                48.12463871931762
+              ],
+              [
+                11.581241837531351,
+                48.1246160758141
+              ],
+              [
+                11.58138641226948,
+                48.124551592571684
+              ],
+              [
+                11.58148301402108,
+                48.124455086579495
+              ],
+              [
+                11.581516936045169,
+                48.12434125
+              ],
+              [
+                11.58148301402108,
+                48.124227413420506
+              ],
+              [
+                11.58138641226948,
+                48.12413090742832
+              ],
+              [
+                11.581241837531351,
+                48.1240664241859
+              ],
+              [
+                11.5810713,
+                48.12404378068238
+              ],
+              [
+                11.580900762468648,
+                48.1240664241859
+              ],
+              [
+                11.58075618773052,
+                48.12413090742832
+              ],
+              [
+                11.58065958597892,
+                48.124227413420506
+              ],
+              [
+                11.58062566395483,
+                48.12434125
+              ],
+              [
+                11.58065958597892,
+                48.124455086579495
+              ],
+              [
+                11.580657409074952,
+                48.124590052087896
+              ],
+              [
+                11.58075618773052,
+                48.124551592571684
+              ],
+              [
+                11.580900762468648,
+                48.1246160758141
+              ],
+              [
+                11.5810713,
+                48.12463871931762
+              ]
+            ],
+            "gates": [
+              {
+                "kind": "entry",
+                "location": [
+                  11.581259250736714,
+                  48.124608309174114
+                ],
+                "osmWayId": 945976942,
+                "forward": [
+                  -0.5878398227559977,
+                  -0.8089773438003052
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-1",
+                "id": "entry-1"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.581452006283431,
+                  48.12448606357979
+                ],
+                "osmWayId": 165526172,
+                "forward": [
+                  0.5942260688663471,
+                  0.8042980660673302
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-1",
+                "id": "exit-1"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.581440536828852,
+                  48.12418497833508
+                ],
+                "osmWayId": 159493216,
+                "forward": [
+                  -0.4049248622597447,
+                  0.914349963593769
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-2",
+                "id": "entry-2"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.581098660583942,
+                  48.12404741354533
+                ],
+                "osmWayId": 1366331296,
+                "forward": [
+                  0.8062053718657575,
+                  -0.5916357818580581
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-2",
+                "id": "exit-2"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.580915223391427,
+                  48.12406450410442
+                ],
+                "osmWayId": 366231840,
+                "forward": [
+                  0.7558158501468843,
+                  0.6547842397818862
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-3",
+                "id": "entry-3"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.580659214307238,
+                  48.124228660687855
+                ],
+                "osmWayId": 366231832,
+                "forward": [
+                  -0.7866599425260019,
+                  -0.6173865359926368
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-3",
+                "id": "exit-3"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.580657409074952,
+                  48.124590052087896
+                ],
+                "osmWayId": 1436464483,
+                "forward": [
+                  0.6704999075590753,
+                  -0.7419096130683788
+                ],
+                "shared": false,
+                "onRoad": true,
+                "lane": true,
+                "label": "Entry-5",
+                "id": "entry-5"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.580863915232,
+                  48.124599641205094
+                ],
+                "osmWayId": 366231821,
+                "forward": [
+                  -0.7141983777667281,
+                  0.6999433385606109
+                ],
+                "shared": false,
+                "onRoad": true,
+                "lane": true,
+                "label": "Exit-4",
+                "id": "exit-4"
+              }
+            ],
+            "logicalArms": {
+              "Arm-1": [
+                "Entry-1",
+                "Exit-1"
+              ],
+              "Arm-2": [
+                "Entry-2",
+                "Exit-2"
+              ],
+              "Arm-3": [
+                "Entry-3",
+                "Exit-3"
+              ],
+              "Arm-4": [
+                "Entry-5",
+                "Exit-4"
+              ]
+            },
+            "geometryRevision": 2
+          },
+          "gateChanges": {
+            "added": [
+              "Exit-5"
+            ],
+            "removed": [],
+            "moved": []
+          },
+          "decision": {
+            "status": "open",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T15:54:45.598446+00:00",
+            "geometryFingerprint": "a1830557975d97245e6ef3b2b6532c4465512e73a8ec2584c17a3636e0bdc021",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          }
+        },
+        {
+          "at": "2026-11-27T15:59:16.539010+00:00",
+          "action": "geometry-and-decision",
+          "previousGeometryFingerprint": "a1830557975d97245e6ef3b2b6532c4465512e73a8ec2584c17a3636e0bdc021",
+          "previousDecision": {
+            "status": "open",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T15:54:45.598446+00:00",
+            "geometryFingerprint": "a1830557975d97245e6ef3b2b6532c4465512e73a8ec2584c17a3636e0bdc021",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          },
+          "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+          "previousGeometry": {
+            "polygon": [
+              [
+                11.5810713,
+                48.12463871931762
+              ],
+              [
+                11.581241837531351,
+                48.1246160758141
+              ],
+              [
+                11.581357343063042,
+                48.12456414329548
+              ],
+              [
+                11.58138641226948,
+                48.124551592571684
+              ],
+              [
+                11.58148301402108,
+                48.124455086579495
+              ],
+              [
+                11.581516936045169,
+                48.12434125
+              ],
+              [
+                11.58148301402108,
+                48.124227413420506
+              ],
+              [
+                11.58138641226948,
+                48.12413090742832
+              ],
+              [
+                11.581241837531351,
+                48.1240664241859
+              ],
+              [
+                11.5810713,
+                48.12404378068238
+              ],
+              [
+                11.580900762468648,
+                48.1240664241859
+              ],
+              [
+                11.58075618773052,
+                48.12413090742832
+              ],
+              [
+                11.58065958597892,
+                48.124227413420506
+              ],
+              [
+                11.58062566395483,
+                48.12434125
+              ],
+              [
+                11.58065958597892,
+                48.124455086579495
+              ],
+              [
+                11.580657409074952,
+                48.124590052087896
+              ],
+              [
+                11.58075618773052,
+                48.124551592571684
+              ],
+              [
+                11.580900762468648,
+                48.1246160758141
+              ],
+              [
+                11.5810713,
+                48.12463871931762
+              ]
+            ],
+            "gates": [
+              {
+                "kind": "entry",
+                "location": [
+                  11.581259205040686,
+                  48.12460826719673
+                ],
+                "osmWayId": 945976942,
+                "forward": [
+                  -0.5878398230704008,
+                  -0.8089773435718456
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-1",
+                "id": "entry-1"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.581452006283431,
+                  48.12448606357979
+                ],
+                "osmWayId": 165526172,
+                "forward": [
+                  0.5942260688663471,
+                  0.8042980660673302
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-1",
+                "id": "exit-1"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.581440536828852,
+                  48.12418497833508
+                ],
+                "osmWayId": 159493216,
+                "forward": [
+                  -0.4049248622597447,
+                  0.914349963593769
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-2",
+                "id": "entry-2"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.581098660583942,
+                  48.12404741354533
+                ],
+                "osmWayId": 1366331296,
+                "forward": [
+                  0.8062053718657575,
+                  -0.5916357818580581
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-2",
+                "id": "exit-2"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.580915223391427,
+                  48.12406450410442
+                ],
+                "osmWayId": 366231840,
+                "forward": [
+                  0.7558158501468843,
+                  0.6547842397818862
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Entry-3",
+                "id": "entry-3"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.580659214307238,
+                  48.124228660687855
+                ],
+                "osmWayId": 366231832,
+                "forward": [
+                  -0.7866599425260019,
+                  -0.6173865359926368
+                ],
+                "shared": false,
+                "onRoad": false,
+                "lane": false,
+                "label": "Exit-3",
+                "id": "exit-3"
+              },
+              {
+                "kind": "entry",
+                "location": [
+                  11.580657409074952,
+                  48.124590052087896
+                ],
+                "osmWayId": 1436464483,
+                "forward": [
+                  0.6704999075590753,
+                  -0.7419096130683788
+                ],
+                "shared": false,
+                "onRoad": true,
+                "lane": true,
+                "label": "Entry-5",
+                "id": "entry-5"
+              },
+              {
+                "kind": "exit",
+                "location": [
+                  11.580863915232,
+                  48.124599641205094
+                ],
+                "osmWayId": 366231821,
+                "forward": [
+                  -0.7141983777667281,
+                  0.6999433385606109
+                ],
+                "shared": false,
+                "onRoad": true,
+                "lane": true,
+                "label": "Exit-4",
+                "id": "exit-4"
+              },
+              {
+                "id": "manual-exit-5",
+                "label": "Exit-5",
+                "kind": "exit",
+                "location": [
+                  11.581357343063042,
+                  48.12456414329548
+                ],
+                "osmWayId": 232583250,
+                "forward": [
+                  0.5882870349226351,
+                  0.8086521900928324
+                ],
+                "onRoad": true,
+                "lane": false,
+                "shared": false
+              }
+            ],
+            "logicalArms": {
+              "Arm-1": [
+                "Entry-1",
+                "Exit-1",
+                "Exit-5"
+              ],
+              "Arm-2": [
+                "Entry-2",
+                "Exit-2"
+              ],
+              "Arm-3": [
+                "Entry-3",
+                "Exit-3"
+              ],
+              "Arm-4": [
+                "Entry-5",
+                "Exit-4"
+              ]
+            },
+            "geometryRevision": 3
+          },
+          "gateChanges": {
+            "added": [
+              "Entry-6"
+            ],
+            "removed": [],
+            "moved": [
+              "Entry-1",
+              "Exit-5"
+            ]
+          },
+          "decision": {
+            "status": "open",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T15:59:16.539010+00:00",
+            "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          }
+        },
+        {
+          "at": "2026-11-27T16:04:47.138850+00:00",
+          "action": "decision",
+          "previousGeometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+          "previousDecision": {
+            "status": "open",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T15:59:16.539010+00:00",
+            "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          },
+          "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+          "previousGeometry": null,
+          "gateChanges": null,
+          "decision": {
+            "status": "confirmed",
+            "note": "Passt jetzt\n----\nApp Erweiterung:\nHier ist für Entry-4 und Entry-5 im Arm Ohlmüllerstraße Nordwest ein genereller Fehler. Mit dem Rad wird auf der Straße gefahren bis es kurz vor der Kreuzung per schrägem Radwegstück auf einen baulichen Radweg neben der Straße geht. Bei solchen Stellen muss der Entry auf der Straße liegen einige Meter bevor es auf den Radweg geht.\nHier bedeutet es Entry-4 löschen und Entry-5 weiter Nordwestlich auf der Ohlmüllerstraße kurz vor dem Abzweig auf den Radweg. Das kann ich im Tool nicht mauell machen, weil die an die Kreuzungsgeometrie angrenzenden OSM Straßenabschnitte nicht dabei sind.",
+            "deferredUntil": null,
+            "at": "2026-11-27T16:04:47.138850+00:00",
+            "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+            "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+          }
+        }
+      ],
+      "reportNumberOnly": false,
+      "reviewProjectId": "area-90800087a64697a8",
+      "version": 4,
+      "polygonApproved": true,
+      "reviewBinding": {
+        "geometryFingerprint": "2b14046c0314a6c33aede0cb25d09056a0a0300a061c2299d286584246059888",
+        "sourceFingerprint": "409105b6bb90a3af61c1561be66cbe278f8a8611b1e3c4ffc54227cb712c4973"
+      },
+      "onRoadWayIds": [
+        232583250,
+        366231821,
+        1436464483
+      ],
+      "normalGuidanceGates": [],
+      "proposedLogicalArms": {
+        "north": [
+          "Entry-1",
+          "Entry-6",
+          "Exit-5",
+          "Exit-1"
+        ],
+        "east": [
+          "Exit-2",
+          "Entry-2"
+        ],
+        "south": [
+          "Entry-3",
+          "Exit-3"
+        ],
+        "west": [
+          "Exit-4",
+          "Entry-5"
+        ]
+      },
+      "guidanceReview": {
+        "equivalentExitGroups": [
+          [
+            "Exit-1",
+            "Exit-5"
+          ]
+        ],
+        "equivalentEntryGroups": [
+          [
+            "Entry-1",
+            "Entry-6"
+          ]
+        ],
+        "reviewer": "Kreuzungsapp",
+        "reason": "Nicht benutzungspflichtiger Radweg neben der Fahrbahn: Radfahrende wählen frei zwischen Radweg und Straße, daher gleiche Ansage für beide Anschlüsse (Regel der Kreuzungsapp, wie Arcisstraße)."
+      },
+      "equivalentExitGroups": [
+        [
+          "Exit-1",
+          "Exit-5"
+        ]
+      ],
+      "equivalentEntryGroups": [
+        [
+          "Entry-1",
+          "Entry-6"
+        ]
+      ],
+      "excludedMovements": []
+    }
+  ],
+  "blocked": []
+}

@@ -1,0 +1,325 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              3965926806,
+              3965926807,
+              2404105719,
+              1708088804,
+              1708088544,
+              3965926805,
+              3855107539
+            ],
+            "distance": [
+              8.722468673,
+              17.3218758,
+              33.52975989,
+              10.213651,
+              30.0005661,
+              24.05454521
+            ]
+          },
+          "duration": 29.3,
+          "summary": "Höglwörther Straße",
+          "weight": 40.3,
+          "distance": 123.8,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    56
+                  ],
+                  "location": [
+                    11.521653,
+                    48.106361
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    225,
+                    240,
+                    255
+                  ],
+                  "location": [
+                    11.52175,
+                    48.106405
+                  ]
+                },
+                {
+                  "out": 0,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.521942,
+                    48.106493
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.521653,
+                    48.106361
+                  ],
+                  [
+                    11.52175,
+                    48.106405
+                  ],
+                  [
+                    11.521942,
+                    48.106493
+                  ],
+                  [
+                    11.522314,
+                    48.106663
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 56,
+                "bearing_before": 0,
+                "location": [
+                  11.521653,
+                  48.106361
+                ],
+                "type": "depart"
+              },
+              "name": "Höglwörther Straße",
+              "mode": "cycling",
+              "weight": 24.3,
+              "duration": 16.6,
+              "distance": 59.6
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    240,
+                    330
+                  ],
+                  "location": [
+                    11.522314,
+                    48.106663
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 2,
+                  "entry": [
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    150,
+                    330
+                  ],
+                  "location": [
+                    11.522571,
+                    48.106345
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.522314,
+                    48.106663
+                  ],
+                  [
+                    11.522384,
+                    48.106584
+                  ],
+                  [
+                    11.522571,
+                    48.106345
+                  ],
+                  [
+                    11.522736,
+                    48.106159
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 149,
+                "bearing_before": 54,
+                "location": [
+                  11.522314,
+                  48.106663
+                ],
+                "modifier": "right",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 16,
+              "duration": 12.7,
+              "distance": 64.3
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    329
+                  ],
+                  "location": [
+                    11.522736,
+                    48.106159
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.522736,
+                    48.106159
+                  ],
+                  [
+                    11.522736,
+                    48.106159
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 149,
+                "location": [
+                  11.522736,
+                  48.106159
+                ],
+                "type": "arrive"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.521653,
+            48.106361
+          ],
+          [
+            11.52175,
+            48.106405
+          ],
+          [
+            11.521942,
+            48.106493
+          ],
+          [
+            11.522314,
+            48.106663
+          ],
+          [
+            11.522384,
+            48.106584
+          ],
+          [
+            11.522571,
+            48.106345
+          ],
+          [
+            11.522736,
+            48.106159
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 40.3,
+      "duration": 29.3,
+      "distance": 123.8
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "5l8cgP___38CAAAAGQAAAAAAAAAAAAAAbnWWPzuPC0EAAAAAAAAAAAIAAAAUAAAAAAAAAAAAAAC1AgAAdc6vAHkL3gJ1zq8AeQveAgAAfwMAAAAA",
+      "location": [
+        11.521653,
+        48.106361
+      ],
+      "name": "Höglwörther Straße",
+      "distance": 0
+    },
+    {
+      "hint": "G4MDgP___387AAAASwAAAAAAAAAAAAAAtW_AQR_hwkAAAAAAAAAAAC8AAAA8AAAAAAAAAAAAAAC1AgAAsNKvAK8K3gKw0q8ArwreAgAAXwkAAAAA",
+      "location": [
+        11.522736,
+        48.106159
+      ],
+      "name": "",
+      "distance": 0
+    }
+  ]
+}

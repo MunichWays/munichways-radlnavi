@@ -1,0 +1,505 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              700840447,
+              1099822019,
+              700840444,
+              3691190327,
+              700840443,
+              1099822068,
+              295283320,
+              669870678,
+              669870659,
+              392395416,
+              10113734617,
+              1414642921,
+              4294378728,
+              2426012115,
+              2426012103
+            ],
+            "distance": [
+              52.35453501,
+              13.41746062,
+              5.703116557,
+              4.125038406,
+              9.408268212,
+              6.411056623,
+              13.81232527,
+              33.55330084,
+              5.409928018,
+              3.857120398,
+              6.852669699,
+              6.152834392,
+              31.49073943,
+              20.71850551
+            ]
+          },
+          "duration": 70.2,
+          "summary": "Hansastraße",
+          "weight": 147.4,
+          "distance": 213.3,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    228
+                  ],
+                  "location": [
+                    11.531043,
+                    48.132055
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    60,
+                    150,
+                    225,
+                    300
+                  ],
+                  "location": [
+                    11.530357,
+                    48.131691
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    false,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.530263,
+                    48.131629
+                  ]
+                },
+                {
+                  "out": 2,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.530177,
+                    48.131567
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.531043,
+                    48.132055
+                  ],
+                  [
+                    11.530523,
+                    48.131738
+                  ],
+                  [
+                    11.530357,
+                    48.131691
+                  ],
+                  [
+                    11.530301,
+                    48.131656
+                  ],
+                  [
+                    11.530263,
+                    48.131629
+                  ],
+                  [
+                    11.530177,
+                    48.131567
+                  ],
+                  [
+                    11.530118,
+                    48.131525
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 228,
+                "bearing_before": 0,
+                "location": [
+                  11.531043,
+                  48.132055
+                ],
+                "type": "depart"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 80.2,
+              "duration": 38,
+              "distance": 91.4
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 0,
+                  "entry": [
+                    false,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    165,
+                    330
+                  ],
+                  "location": [
+                    11.530118,
+                    48.131525
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    165,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.530577,
+                    48.131165
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.530118,
+                    48.131525
+                  ],
+                  [
+                    11.530241,
+                    48.131432
+                  ],
+                  [
+                    11.530543,
+                    48.131208
+                  ],
+                  [
+                    11.530577,
+                    48.131165
+                  ],
+                  [
+                    11.530597,
+                    48.131133
+                  ],
+                  [
+                    11.530632,
+                    48.131076
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 137,
+                "bearing_before": 222,
+                "location": [
+                  11.530118,
+                  48.131525
+                ],
+                "modifier": "left",
+                "type": "turn"
+              },
+              "name": "",
+              "mode": "cycling",
+              "weight": 41.3,
+              "duration": 20.6,
+              "distance": 63.5
+            },
+            {
+              "intersections": [
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    false,
+                    false
+                  ],
+                  "bearings": [
+                    60,
+                    120,
+                    225,
+                    330
+                  ],
+                  "location": [
+                    11.530632,
+                    48.131076
+                  ]
+                },
+                {
+                  "out": 1,
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "in": 3,
+                  "entry": [
+                    true,
+                    true,
+                    true,
+                    false
+                  ],
+                  "bearings": [
+                    45,
+                    135,
+                    225,
+                    315
+                  ],
+                  "location": [
+                    11.531011,
+                    48.130864
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.530632,
+                    48.131076
+                  ],
+                  [
+                    11.530713,
+                    48.131065
+                  ],
+                  [
+                    11.531011,
+                    48.130864
+                  ],
+                  [
+                    11.531198,
+                    48.130726
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 113,
+                "bearing_before": 156,
+                "location": [
+                  11.530632,
+                  48.131076
+                ],
+                "modifier": "slight left",
+                "type": "turn"
+              },
+              "name": "Hansastraße",
+              "mode": "cycling",
+              "weight": 25.9,
+              "duration": 11.6,
+              "distance": 58.4
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    318
+                  ],
+                  "location": [
+                    11.531198,
+                    48.130726
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.531198,
+                    48.130726
+                  ],
+                  [
+                    11.531198,
+                    48.130726
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 138,
+                "location": [
+                  11.531198,
+                  48.130726
+                ],
+                "type": "arrive"
+              },
+              "name": "Hansastraße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.531043,
+            48.132055
+          ],
+          [
+            11.530523,
+            48.131738
+          ],
+          [
+            11.530357,
+            48.131691
+          ],
+          [
+            11.530301,
+            48.131656
+          ],
+          [
+            11.530263,
+            48.131629
+          ],
+          [
+            11.530177,
+            48.131567
+          ],
+          [
+            11.530118,
+            48.131525
+          ],
+          [
+            11.530241,
+            48.131432
+          ],
+          [
+            11.530543,
+            48.131208
+          ],
+          [
+            11.530577,
+            48.131165
+          ],
+          [
+            11.530597,
+            48.131133
+          ],
+          [
+            11.530632,
+            48.131076
+          ],
+          [
+            11.530713,
+            48.131065
+          ],
+          [
+            11.531011,
+            48.130864
+          ],
+          [
+            11.531198,
+            48.130726
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 147.4,
+      "duration": 70.2,
+      "distance": 213.3
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "LSgBgP___38vAAAAGAEAALoBAAA8AAAASCIpQQtrUUJsfcZC661WQRUAAAB-AAAAxwAAABsAAAC1AgAAI_OvANdv3gIj868A12_eAgQAPw4AAAAA",
+      "location": [
+        11.531043,
+        48.132055
+      ],
+      "name": "",
+      "distance": 0
+    },
+    {
+      "hint": "fjcvgP___39cAAAArAAAAAAAAAAAAAAAgL-lQQo6j0EAAAAAAAAAACkAAABNAAAAAAAAAAAAAAC1AgAAvvOvAKZq3gK-868ApmreAgAAnwgAAAAA",
+      "location": [
+        11.531198,
+        48.130726
+      ],
+      "name": "Hansastraße",
+      "distance": 0
+    }
+  ]
+}

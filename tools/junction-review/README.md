@@ -14,7 +14,7 @@ veröffentlicht. Lokale Bearbeitungen werden ausdrücklich als neuer Stand expor
 
 ```powershell
 $env:PYTHONPATH='tools/junction-review'
-python -m junction_review publish-map --name München --project .local/junction-review/munich --project .local/junction-review/area-603b6d7ec04db77e --project .local/junction-review/area-369e14ac688ef47e --project .local/junction-review/area-8c7276beba7eaf73 --project .local/junction-review/area-8192789c4e8926dd --project .local/junction-review/area-90800087a64697a8 --output docs/large-junction-analysis/public-junction-review.json
+python -m junction_review publish-map --name München --project .local/junction-review/munich --project .local/junction-review/area-603b6d7ec04db77e --project .local/junction-review/area-369e14ac688ef47e --project .local/junction-review/area-8c7276beba7eaf73 --project .local/junction-review/area-8192789c4e8926dd --project .local/junction-review/area-90800087a64697a8 --project .local/junction-review/area-756c41d1c3d06fce --project .local/junction-review/area-f5bdef90f8af4365 --output docs/large-junction-analysis/public-junction-review.json
 ```
 
 `--project` mehrfach angeben, um das Gesamtprojekt und die Bezirksprojekte gemeinsam zu
@@ -227,6 +227,19 @@ live verifizierten aktuellen Geometriestand). Die öffentliche Karte zeigt diese
 --prefix review-batch-NN-<name> --version <backend> --catalog-version munich-big-junctions-vNN
 --authorization "<Freigabe>"`. Vergibt K-Nummern, spielt alle echten Routen gegen den
 zusammengeführten Katalog ab und kopiert Bericht und Routen ins Repository (Beispiel Batch 15, BA05).
+Wird eine bereits aktive Kreuzung nachträglich geändert, neu bestätigt und in der App geprüft,
+ersetzt `--replace <site-id>` ihren Katalogeintrag an derselben Stelle; die K-Nummer bleibt
+(Beispiel Batch 16: K110 mit Fahrbahn-Gates Exit-5/Entry-6).
+Ein Sonderfall, den Thomas mit seinen einzelnen Fehlern freigibt, wird mit
+`--accept-special <site-id>` aktiviert: Jeder Prüfpunkt muss eine deaktivierte Beziehung
+betreffen (dort normale Ansagen). Beim Abspielen darf eine deaktivierte Route nur dann eine
+Ansage dieser Kreuzung bekommen, wenn sie tatsächlich durch die Anschlüsse einer aktiven,
+geprüften Beziehung gleicher Art fährt (Beispiel Batch 17: K117 Elsenheimerstraße).
+
+Nach jedem erfolgreichen Backend-Deployment werden alle ausgelieferten Kreuzungen auf „Live“
+gesetzt: `python docs/large-junction-analysis/mark_deployed_live.py --run-id <run>`. Das Skript
+liest den Katalog aus dem Produktions-Commit und setzt nur Kreuzungen, die dort exakt so wie im
+Branch aktiviert ausgeliefert werden; danach Karte neu veröffentlichen (`publish-map`).
 
 ### Batch-Prüfungen und Nachbearbeitung
 

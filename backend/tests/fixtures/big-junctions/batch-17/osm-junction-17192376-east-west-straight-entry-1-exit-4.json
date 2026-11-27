@@ -1,0 +1,253 @@
+{
+  "code": "Ok",
+  "routes": [
+    {
+      "legs": [
+        {
+          "annotation": {
+            "nodes": [
+              13665167342,
+              13665167341,
+              13665226435,
+              3713234169,
+              295283084,
+              17192376,
+              295283143,
+              3707267037,
+              11111781009
+            ],
+            "distance": [
+              7.891943061,
+              38.11838518,
+              6.32879361,
+              16.08048346,
+              8.596473329,
+              11.61819463,
+              6.108531429,
+              29.25874844
+            ]
+          },
+          "duration": 62.4,
+          "summary": "Albert-Roßhaupter-Straße",
+          "weight": 134.5,
+          "distance": 124,
+          "steps": [
+            {
+              "intersections": [
+                {
+                  "classes": [
+                    "cycleway"
+                  ],
+                  "out": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    269
+                  ],
+                  "location": [
+                    11.534638,
+                    48.11688
+                  ]
+                },
+                {
+                  "out": 3,
+                  "classes": [
+                    "road"
+                  ],
+                  "in": 1,
+                  "entry": [
+                    true,
+                    false,
+                    true,
+                    true,
+                    true
+                  ],
+                  "bearings": [
+                    0,
+                    90,
+                    180,
+                    270,
+                    330
+                  ],
+                  "location": [
+                    11.533604,
+                    48.116866
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "maneuver": {
+                "bearing_after": 269,
+                "bearing_before": 0,
+                "location": [
+                  11.534638,
+                  48.11688
+                ],
+                "type": "depart"
+              },
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.534638,
+                    48.11688
+                  ],
+                  [
+                    11.534532,
+                    48.116879
+                  ],
+                  [
+                    11.53402,
+                    48.116875
+                  ],
+                  [
+                    11.533935,
+                    48.116874
+                  ],
+                  [
+                    11.533719,
+                    48.116873
+                  ],
+                  [
+                    11.533604,
+                    48.116866
+                  ],
+                  [
+                    11.533448,
+                    48.116863
+                  ],
+                  [
+                    11.533366,
+                    48.116861
+                  ],
+                  [
+                    11.532973,
+                    48.116858
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "ref": "St 2343",
+              "name": "Albert-Roßhaupter-Straße",
+              "mode": "cycling",
+              "weight": 134.5,
+              "duration": 62.4,
+              "distance": 124
+            },
+            {
+              "intersections": [
+                {
+                  "in": 0,
+                  "entry": [
+                    true
+                  ],
+                  "bearings": [
+                    89
+                  ],
+                  "location": [
+                    11.532973,
+                    48.116858
+                  ]
+                }
+              ],
+              "driving_side": "right",
+              "maneuver": {
+                "bearing_after": 0,
+                "bearing_before": 269,
+                "location": [
+                  11.532973,
+                  48.116858
+                ],
+                "type": "arrive"
+              },
+              "geometry": {
+                "coordinates": [
+                  [
+                    11.532973,
+                    48.116858
+                  ],
+                  [
+                    11.532973,
+                    48.116858
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "ref": "St 2343",
+              "name": "Albert-Roßhaupter-Straße",
+              "mode": "cycling",
+              "weight": 0,
+              "duration": 0,
+              "distance": 0
+            }
+          ]
+        }
+      ],
+      "weight_name": "cyclability",
+      "geometry": {
+        "coordinates": [
+          [
+            11.534638,
+            48.11688
+          ],
+          [
+            11.534532,
+            48.116879
+          ],
+          [
+            11.53402,
+            48.116875
+          ],
+          [
+            11.533935,
+            48.116874
+          ],
+          [
+            11.533719,
+            48.116873
+          ],
+          [
+            11.533604,
+            48.116866
+          ],
+          [
+            11.533448,
+            48.116863
+          ],
+          [
+            11.533366,
+            48.116861
+          ],
+          [
+            11.532973,
+            48.116858
+          ]
+        ],
+        "type": "LineString"
+      },
+      "weight": 134.5,
+      "duration": 62.4,
+      "distance": 124
+    }
+  ],
+  "waypoints": [
+    {
+      "hint": "jCcBgFgmAYAfAAAAEgAAAEcCAACQAwAAzIr8QHQrikBUHHJCHpXhQg4AAAAIAAAAGAEAALMBAAC1AgAALgGwAJA03gIuAbAAkDTeAgYAnwUAAAAA",
+      "location": [
+        11.534638,
+        48.11688
+      ],
+      "name": "Albert-Roßhaupter-Straße",
+      "distance": 0
+    },
+    {
+      "hint": "WukFgNToBYCSAAAADwAAAHUBAAAAAAAA6xHqQUQ5bkAXecNAAAAAADQAAAAHAAAAtgAAAAAAAAC1AgAArfqvAHo03gKt-q8AezTeAgIA3xAAAAAA",
+      "location": [
+        11.532973,
+        48.116858
+      ],
+      "name": "Albert-Roßhaupter-Straße",
+      "distance": 0.1111927533
+    }
+  ]
+}
